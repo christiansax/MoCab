@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Interactions
+namespace MoCap.Interactions
 {
     public interface IComponent
     {

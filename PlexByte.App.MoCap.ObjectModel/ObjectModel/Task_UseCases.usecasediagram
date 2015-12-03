@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="751a44dd-4b71-4f74-9041-68fa7ad088b6" name="Task_UseCases" linkedPackageId="13826fbb-075d-419d-b11f-3af5fc519519" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="751a44dd-4b71-4f74-9041-68fa7ad088b6" name="Task_UseCases" linkedPackageId="13826fbb-075d-419d-b11f-3af5fc519519" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <packagedElements>
     <useCaseModelRootHasTypes>
       <subsystem Id="f37353c6-3c34-4471-88bb-0570fc572fe3" name="Task" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -192,6 +192,20 @@
     <packageHasNamedElement>
       <useCase Id="63e0169a-9aec-40b5-968a-4d809237703d" name="Create" isAbstract="false" isLeaf="false">
         <elementDefinition Id="2440e714-9b41-40a3-83b4-6e9d4d8b3efd" />
+        <additions>
+          <include Id="2c35795c-eef7-47fb-a5e3-32ad085719d1">
+            <useCaseMoniker Id="749747c5-c17a-4eb1-b19e-f7dd9c80e47f" LastKnownName="AutoDispatch" />
+            <elementDefinition Id="0aae7345-4632-48f0-8e66-3573014977f1" />
+          </include>
+          <include Id="3686a59f-c9e0-4301-9bfd-ba361b62bf08">
+            <useCaseMoniker Id="9c1659ed-7914-4df6-8e76-f4ef2f8c9c5b" LastKnownName="ManualDispatch" />
+            <elementDefinition Id="9814ffa5-1ccd-4834-8b20-d4bbf5115932" />
+          </include>
+          <include Id="e6d8a0de-8ca7-4733-9218-530e77909103">
+            <useCaseMoniker Id="a796da01-914f-4c67-ac24-b75b407656b6" LastKnownName="PollDispatch" />
+            <elementDefinition Id="552aed4d-b8a8-47e6-acda-2b43198e4c59" />
+          </include>
+        </additions>
         <subjects>
           <subsystemMoniker Id="f37353c6-3c34-4471-88bb-0570fc572fe3" LastKnownName="Task" />
         </subjects>
@@ -274,6 +288,12 @@
     <packageHasNamedElement>
       <useCase Id="208245a4-3bd9-4734-ad4f-46e06637b79b" name="UpdateProgress" isAbstract="false" isLeaf="false">
         <elementDefinition Id="3d9c4a7a-d627-413a-a788-d9382b30b3e5" />
+        <additions>
+          <include Id="124db153-140d-4516-a703-8946519697fa">
+            <useCaseMoniker Id="e87f3c78-cbfc-4c8f-94e6-3448df4fbd86" LastKnownName="Complete" />
+            <elementDefinition Id="8cd34570-5c97-48ca-9691-54ba3883cc8e" />
+          </include>
+        </additions>
         <subjects>
           <subsystemMoniker Id="f37353c6-3c34-4471-88bb-0570fc572fe3" LastKnownName="Task" />
         </subjects>
@@ -309,6 +329,77 @@
         </subjects>
       </useCase>
     </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <actor Id="afbc49ca-ed6f-4b27-aee4-b3678e6f38b8" name="Owner" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a6f3254e-5b2d-4233-901e-e120c04864f9" />
+        <targetEnds>
+          <association Id="57c1a399-4c96-4be8-bd6e-089a06b92930" isDerived="false" sourceEndRoleName="Owner" targetEndRoleName="Complete" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="e87f3c78-cbfc-4c8f-94e6-3448df4fbd86" LastKnownName="Complete" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="806c132b-0891-4a8e-84f7-88e40e4ee357" name="Owner" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b9e62e05-1dd6-4b9c-b869-a856eae5285d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="67ca3c06-5273-411e-9a37-d31bf3b72dd1" name="Complete" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="26704737-0cd2-44c1-9584-1124c74fd603" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="50e14a5c-667b-479d-819d-cd6cb131ec45" />
+          </association>
+          <association Id="c865ef4b-47a1-4cde-a6c9-c2852110d2e5" isDerived="false" sourceEndRoleName="Owner" targetEndRoleName="AddInvoice" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="e22cf6bd-7e3d-4428-a5b6-db08a33e1b04" LastKnownName="AddInvoice" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="685195ee-9c6b-46b3-9d25-40afbbf17d64" name="Owner" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c7b4c3b1-2745-4a8c-adc3-335c856d2756" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e2296ea3-f341-4244-978a-5250f7c9cf86" name="AddInvoice" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="22c4f470-7f94-4614-9fd0-9aa15684cf7b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3766e79c-d5e2-4565-bd57-0f6ca0d11fbb" />
+          </association>
+          <association Id="dc5dfea3-914f-4691-94c2-535f0b721860" isDerived="false" sourceEndRoleName="Owner" targetEndRoleName="Forward" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="39f40b80-037a-498e-ac2e-4ecb74547178" LastKnownName="Forward" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3183b648-6b78-4172-889c-d642f1ab91dc" name="Owner" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="bd8edcdd-80f4-4cca-974f-b8cc2a9829d3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="62bbb912-821e-4596-a79d-520f330f1d6a" name="Forward" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="5d4a42d2-1978-4f08-8226-8d554a9d219a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="86f398df-5ab6-4758-8a0a-83f8f8101aad" />
+          </association>
+          <association Id="992e8c6f-0901-4fa7-abcd-6b9f2d5c2f4a" isDerived="false" sourceEndRoleName="Owner" targetEndRoleName="UpdateProgress" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="208245a4-3bd9-4734-ad4f-46e06637b79b" LastKnownName="UpdateProgress" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b6493668-ccf6-4fb3-a1d0-4c342112d3cf" name="Owner" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a58ab4c2-02c5-4778-aadf-139c386c1d1c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8115dc42-caee-410c-bad6-ee12ee27aece" name="UpdateProgress" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3104f784-fc9a-4da9-9dec-b702a052a510" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="74c70117-48f6-4c8f-9931-821a3ce06ff8" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
   </packagedElements>
   <package Id="13826fbb-075d-419d-b11f-3af5fc519519" name="ObjectModel">
     <elementDefinition Id="5f36593a-a9fe-4fba-adb2-6dbb2e29fc75" />

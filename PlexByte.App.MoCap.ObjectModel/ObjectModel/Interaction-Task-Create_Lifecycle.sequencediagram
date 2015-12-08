@@ -1,22 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="e8ea11bf-68f2-4e06-893d-402e970b69ac" name="TaskSD_Create" linkedPackageId="a87b6659-bb54-41fb-9236-2dcaca7645b8" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="c1788904-3517-429a-bcfb-ade101344476">
-      <profileInstance Id="f082b7b4-f6eb-4098-aa2d-71e68a6a43e3" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="ee163631-1038-4fee-a764-92a6643a8e1d">
-      <profileInstance Id="5cf048ef-a189-455c-910b-aaad825b6570" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="e8ea11bf-68f2-4e06-893d-402e970b69ac" name="Interaction-Task-Create_Lifecycle" linkedPackageId="a87b6659-bb54-41fb-9236-2dcaca7645b8" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
   <packagedElements>
     <packageHasNamedElement>
-      <interaction Id="b51523ea-ce1e-4118-b072-7d00660f9092" name="TaskSD_Create" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+      <interaction Id="b51523ea-ce1e-4118-b072-7d00660f9092" name="Interaction-Task-Create_Lifecycle" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
         <elementDefinition Id="703a919c-ff47-4680-bbf9-7db5ddd9cca6" />
         <fragments>
           <behaviorExecutionSpecification Id="558e76e0-134d-4f7c-af2e-a63b483bddf9" name="BehaviorExecutionSpecification19">
@@ -156,16 +142,16 @@
               <lifelineMoniker Id="b2eeb5bf-1c30-4b4a-bf84-6a647f038863" LastKnownName="Dispatcher" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="6bb0941d-26a5-4a94-b303-860737996000" name="MessageOccurrenceSpecification69">
-            <elementDefinition Id="ee4e7f72-5983-46df-89b1-2ad4945b0d8e" />
-            <covered>
-              <lifelineMoniker Id="9a7cfab6-37cb-4304-9de4-360b4419d928" LastKnownName="Task" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="10d4efb4-5b44-41e6-949f-881539025604" name="MessageOccurrenceSpecification70">
             <elementDefinition Id="c188edda-e353-4f53-88d0-576045c1a008" />
             <covered>
               <lifelineMoniker Id="b2eeb5bf-1c30-4b4a-bf84-6a647f038863" LastKnownName="Dispatcher" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="6bb0941d-26a5-4a94-b303-860737996000" name="MessageOccurrenceSpecification69">
+            <elementDefinition Id="ee4e7f72-5983-46df-89b1-2ad4945b0d8e" />
+            <covered>
+              <lifelineMoniker Id="9a7cfab6-37cb-4304-9de4-360b4419d928" LastKnownName="Task" />
             </covered>
           </messageOccurrenceSpecification>
           <behaviorExecutionSpecification Id="a1c4a5ed-375d-48d1-9d75-6b0990ad1e8b" name="BehaviorExecutionSpecification22">
@@ -300,16 +286,16 @@
               <lifelineMoniker Id="8a9188f0-50c4-4621-af52-d1e50b13d778" LastKnownName="User" />
             </covered>
           </executionOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="bbfc1d41-5102-4e7d-8afe-9cd4b8bc96d6" name="MessageOccurrenceSpecification95">
-            <elementDefinition Id="c6a4b985-6bcd-4215-a8f1-2b2b37ef47eb" />
-            <covered>
-              <lifelineMoniker Id="9a7cfab6-37cb-4304-9de4-360b4419d928" LastKnownName="Task" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="3a0ccff5-5fef-44a8-bf27-437f535b9108" name="MessageOccurrenceSpecification96">
             <elementDefinition Id="a22c4185-d20d-4a64-9997-0e8d168dd375" />
             <covered>
               <lifelineMoniker Id="8a9188f0-50c4-4621-af52-d1e50b13d778" LastKnownName="User" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="bbfc1d41-5102-4e7d-8afe-9cd4b8bc96d6" name="MessageOccurrenceSpecification95">
+            <elementDefinition Id="c6a4b985-6bcd-4215-a8f1-2b2b37ef47eb" />
+            <covered>
+              <lifelineMoniker Id="9a7cfab6-37cb-4304-9de4-360b4419d928" LastKnownName="Task" />
             </covered>
           </messageOccurrenceSpecification>
           <behaviorExecutionSpecification Id="208aea76-b076-446c-9ba5-5776beb0595f" name="BehaviorExecutionSpecification32">
@@ -930,5 +916,19 @@
   </packagedElements>
   <package Id="a87b6659-bb54-41fb-9236-2dcaca7645b8" name="ObjectModel">
     <elementDefinition Id="5f36593a-a9fe-4fba-adb2-6dbb2e29fc75" />
+    <profileInstances>
+      <packageHasProfileInstances Id="c1788904-3517-429a-bcfb-ade101344476">
+        <profileInstance Id="f082b7b4-f6eb-4098-aa2d-71e68a6a43e3" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="ee163631-1038-4fee-a764-92a6643a8e1d">
+        <profileInstance Id="5cf048ef-a189-455c-910b-aaad825b6570" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </SequenceDesignerModel>

@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm12="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="6e49da37-31b2-498b-8b25-d5efefadcb48" name="Setting_UseCases" linkedPackageId="edeaf6b9-9e9b-4563-8b0b-752d352d5e50" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="d0a04adb-c995-4e36-a061-8db3bef0df87">
+      <profileInstance Id="8d319a89-300e-47b5-ae3e-b18c2f3b2742" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="368b2422-759c-4f8e-869b-6ba3981b231c">
+      <profileInstance Id="7aa7af65-820b-4c3a-b6b8-3a2475c8eb99" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="d913a409-94b4-49a0-93fa-2f516c77a05c" name="Setting" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="130544c0-9bd1-42ef-9a16-25039cde77ae" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="e91825b1-bc96-4d55-9edb-e36a79293d20" name="User" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a474f861-e6f5-49b6-afc4-45fedc61b471" />
+        <targetEnds>
+          <association Id="461225fe-4117-497d-ad6f-70c0aae2e85e" isDerived="false" sourceEndRoleName="User" targetEndRoleName="UseCase1" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="10a43c22-19b3-4781-b2fc-121c50148df5" LastKnownName="changeMoCobColor" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7611b587-c731-44ce-b0eb-c1cadf26d2d7" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="96c93ae7-1a0d-4a30-9d47-dd07f365ae81" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2727ef30-e097-4c4d-9851-f90a9d125362" name="UseCase1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="76cc32f9-70f0-4588-92de-1abbae4c9c42" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="93c080ab-68e7-4679-b142-c2e3f65647e8" />
+          </association>
+          <association Id="486c4c83-a1ae-4837-972e-0db58ca66ab4" isDerived="false" sourceEndRoleName="User" targetEndRoleName="UseCase2" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="c8682bb6-eb98-45e7-83eb-680a849bcafc" LastKnownName="changeChatUserColor" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f8dae72f-4f68-422b-b399-573a8a656abd" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e647339e-2547-4b32-a08a-038c8622ddd9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="44e5b21f-47af-41a1-97d2-3a772238cc28" name="UseCase2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="aad355e4-9097-4650-a2f1-76c18aaa06ba" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="18a7aa2f-456b-4f40-b1fb-27c32d8d9c6b" />
+          </association>
+          <association Id="6f8a0c93-5720-4ea8-8245-cd9c8030efb5" isDerived="false" sourceEndRoleName="User" targetEndRoleName="taskNotificationToogle" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="22a8906e-5417-4af5-a181-b7692077ad2a" LastKnownName="taskNotificationToogle" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e7ec1a67-d7c4-408c-9aa0-4559e14cbc4f" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="3d783aef-7740-4a25-84f2-606a5ce7d6d4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2baf7ea0-14ce-4fea-9efa-13f8d49cd3f2" name="taskNotificationToogle" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="70aa3c8b-b071-4d45-b3e0-090c78c17055" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="74e00a37-5475-4b6f-b7bc-532ea5296695" />
+          </association>
+          <association Id="e4dfe36c-65c4-443c-b716-f35fe1c19f51" isDerived="false" sourceEndRoleName="User" targetEndRoleName="polNotificationToogle" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="e80ff9c2-fbf8-414f-b3bc-329011ca7132" LastKnownName="pollNotificationToogle" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="817424f8-8cf7-4908-8321-323c137bc341" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="17f8c7c0-9048-45d1-8828-ed081475f711" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7501d724-624a-40bd-9fb0-eb1716753ff9" name="polNotificationToogle" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="cfd28fdb-4bee-418b-947f-364b4b72524c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c33eed10-f037-4b8d-90b9-e0d1d92fe3a4" />
+          </association>
+          <association Id="00b123b9-e008-46cb-9a35-1434b12aeb52" isDerived="false" sourceEndRoleName="User" targetEndRoleName="chatNotificationToogle" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="49411530-f607-4306-a949-6cad23a05ef6" LastKnownName="chatNotificationToogle" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="af9d3af0-df99-492f-b57a-e88eed15f5a9" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="7fb0b877-83da-45f9-a2ed-f951e6a65648" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="fa1abb6f-1491-4bbb-aeec-4a70a337310d" name="chatNotificationToogle" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d9d46772-f91d-449e-9772-1020357a6370" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d8d0e46c-bb8c-4f17-b652-e1f7bc6f7e69" />
+          </association>
+          <association Id="57f320ba-8eb9-4c4e-9423-075d535924cd" isDerived="false" sourceEndRoleName="User" targetEndRoleName="appMuteToogle" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="230065b5-9937-47a1-8f75-5596972625a8" LastKnownName="appMuteToogle" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="12c08dff-43ea-40c0-9b93-6ea75a7925ef" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5cd3ed02-c584-407f-a0e5-6cb47fdd6aed" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="239af188-721a-4757-9898-b82abc559445" name="appMuteToogle" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="65f0509f-e668-43b7-9933-818b0720a8dc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3614d4b1-fb93-42dd-98ae-b6fe3a154f5b" />
+          </association>
+          <association Id="b942e017-6d39-428b-bbe6-34914eef9eb8" isDerived="false" sourceEndRoleName="User" targetEndRoleName="appVibrateToogle" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="1e4afa6f-1a6c-40f4-895a-060d03a1cdab" LastKnownName="appVibrateToogle" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="177d414e-b1ab-457d-bf9a-ba24d8e1d5aa" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="9f893953-3907-4379-b40e-d34c86f09f97" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="72bb486d-70b5-4432-bd93-9de2cd4af205" name="appVibrateToogle" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="aed2c08b-9cc2-48a0-98d3-b2d1196d5ce3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="886efe61-b76a-44a6-9ff4-6a42974c2470" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="10a43c22-19b3-4781-b2fc-121c50148df5" name="changeMoCobColor" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8b84fe3e-79c1-4360-a495-9a3d640706f9" />
+        <subjects>
+          <subsystemMoniker Id="d913a409-94b4-49a0-93fa-2f516c77a05c" LastKnownName="Setting" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="c8682bb6-eb98-45e7-83eb-680a849bcafc" name="changeChatUserColor" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="351bb31c-c6bd-4155-b343-122eca553e22" />
+        <subjects>
+          <subsystemMoniker Id="d913a409-94b4-49a0-93fa-2f516c77a05c" LastKnownName="Setting" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="22a8906e-5417-4af5-a181-b7692077ad2a" name="taskNotificationToogle" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="505ff71c-4243-4cd2-8db5-db5cbab39e30" />
+        <subjects>
+          <subsystemMoniker Id="d913a409-94b4-49a0-93fa-2f516c77a05c" LastKnownName="Setting" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="e80ff9c2-fbf8-414f-b3bc-329011ca7132" name="pollNotificationToogle" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="77d0e023-5c03-4c00-9cc5-f5594ab33d47" />
+        <subjects>
+          <subsystemMoniker Id="d913a409-94b4-49a0-93fa-2f516c77a05c" LastKnownName="Setting" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="49411530-f607-4306-a949-6cad23a05ef6" name="chatNotificationToogle" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e8e08525-5b60-4d0f-a931-0079fda317f3" />
+        <subjects>
+          <subsystemMoniker Id="d913a409-94b4-49a0-93fa-2f516c77a05c" LastKnownName="Setting" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="230065b5-9937-47a1-8f75-5596972625a8" name="appMuteToogle" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a7908145-9ef4-4b8e-927e-68eafe8d11d3" />
+        <subjects>
+          <subsystemMoniker Id="d913a409-94b4-49a0-93fa-2f516c77a05c" LastKnownName="Setting" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="1e4afa6f-1a6c-40f4-895a-060d03a1cdab" name="appVibrateToogle" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b7cbe0c0-307c-47fb-904c-4997214d93fd" />
+        <subjects>
+          <subsystemMoniker Id="d913a409-94b4-49a0-93fa-2f516c77a05c" LastKnownName="Setting" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="edeaf6b9-9e9b-4563-8b0b-752d352d5e50" name="ObjectModel">
+    <elementDefinition Id="5f36593a-a9fe-4fba-adb2-6dbb2e29fc75" />
+  </package>
+</useCaseModelRoot>

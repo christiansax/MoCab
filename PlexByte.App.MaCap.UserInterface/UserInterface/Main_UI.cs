@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UserInterface
+namespace MoCap.UserInterface
 {
     public partial class Main_UI : Form
     {

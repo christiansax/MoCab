@@ -1,4 +1,4 @@
-﻿namespace UserInterface
+﻿namespace MoCap.UserInterface
 {
     partial class Main_UI
     {

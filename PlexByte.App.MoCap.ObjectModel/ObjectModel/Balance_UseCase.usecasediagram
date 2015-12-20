@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm12="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="a396a2ff-f3a8-482f-b11c-e566ec00c920" name="Balance_UseCase" linkedPackageId="c2a910df-4218-4202-9a45-299bcc0ff155" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="f0f5328a-fd37-4a7f-bd6e-fb6895a2f6e6">
+      <profileInstance Id="2a522686-8387-4f82-9ca4-4e8fb5878112" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="4dd0810f-741c-45b9-88b5-43a83b6929fa">
+      <profileInstance Id="40ba390a-787f-4574-993a-4b6a63f534ed" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="5202bb1a-cf0b-417d-a28b-55b64c136942" name="Balance" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d9483b30-a3bf-48d7-900f-045915dbe617" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="7382a537-3199-444e-bd13-fafcadc75d83" name="User" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ad175415-9646-43e8-a193-ad40b19b973c" />
+        <targetEnds>
+          <association Id="96fc7d8f-8dd1-4204-8ef1-4a3b4f865e72" isDerived="false" sourceEndRoleName="User" targetEndRoleName="AttachBalance" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="0ba6a331-73ff-48e8-9ea4-0f437b9dca49" LastKnownName="AttachBalance" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f92857ea-5db6-47ce-a432-154c6d9d6e43" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e8301335-73bd-4c3b-a935-f1ce32469945" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e8e21291-cf77-479b-85d7-2fca0da136bb" name="AttachBalance" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b9c3dd28-5a73-488e-80aa-7e295cd21e7f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b0ff3af1-a05b-4d49-8737-cb17d7c4628a" />
+          </association>
+          <association Id="c17d2146-5979-4607-b2d7-6a1aa6aab12e" isDerived="false" sourceEndRoleName="User" targetEndRoleName="AttachBill" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f0336129-9597-4410-b413-47ac650aec00" LastKnownName="AttachBill" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e19c922e-7830-4d63-9f19-6ba629ddd196" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ef0d57ae-c556-4290-992a-5d0e34af61bd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="152949a3-7c63-4fa9-9fe3-72f45f5ee80f" name="AttachBill" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1b23529a-f8e5-425f-b7e3-a4ebbc885a7e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e7268f7d-8621-473f-8565-444ed2a1eb2c" />
+          </association>
+          <association Id="326b68a6-177b-47ea-b9d4-b94794feb163" isDerived="false" sourceEndRoleName="User" targetEndRoleName="ViewBalance" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="716a697e-d9aa-4300-b0f7-69c93031aff4" LastKnownName="ViewBalance" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e2c86d67-ae0f-448a-bd74-3f6087ebe3be" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ad9f31f4-d4c0-4749-b977-169a9612359e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d8be098c-0128-4c7a-ab0c-925b2b5910fa" name="ViewBalance" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="9344e922-8c23-460e-9bc2-82556448ab2c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1974f449-1a65-48a0-992c-68aecee38393" />
+          </association>
+          <association Id="d8aa7ac4-4bf2-415a-a39d-9076e2665d93" isDerived="false" sourceEndRoleName="User" targetEndRoleName="ViewProjectBalance" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="6a570f85-f7f9-4683-a0a5-8b5f9f714384" LastKnownName="ViewProjectBalance" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7f7aa280-2568-444a-bca1-94ddcf57ba08" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="95b36177-695b-48a1-87d7-2ba95554c0fe" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="24107f8a-c01d-4550-ad68-b2ae1fc8aad1" name="ViewProjectBalance" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="706f2f6b-f573-403a-8ba2-ff2cbdff0ec1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="9dd4343a-e398-421c-ab9f-b49f3684d431" />
+          </association>
+          <association Id="055b0c6e-4fd7-4945-892b-033fabfd73eb" isDerived="false" sourceEndRoleName="User" targetEndRoleName="EditBalance" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="c6d12247-50bd-4159-8279-c32a389454b5" LastKnownName="EditBalance" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f7e25961-453a-4e46-b032-ba00cb718120" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="34ce6b14-abf8-46eb-8927-2b3f4f819063" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3c846130-0355-40f4-bccc-9f1b2600f9c5" name="EditBalance" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e4e84f58-7ad6-4e1e-8657-fc14cbe84070" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="dff9fd31-ff58-454b-a6bb-8a11d6155929" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="0ba6a331-73ff-48e8-9ea4-0f437b9dca49" name="AttachBalance" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="bb7b0e83-27cd-4724-92bf-91cc7480ada0" />
+        <targetEnds>
+          <association Id="889a785e-16a5-432b-8c0b-8ad57532304b" isDerived="false" sourceEndRoleName="AttachBalance" targetEndRoleName="Task" isLeaf="false" isAbstract="false">
+            <artifactMoniker Id="f52d33d6-4918-4cf1-b2ae-82b7413cabee" LastKnownName="Task" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="73ea904d-5a92-4818-9e55-8517a5ba79da" name="AttachBalance" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a2b13876-ea53-41f5-a79d-e7d838ce0192" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f9c5e941-7697-4083-b7ea-89ba08b086ed" name="Task" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a733da43-de36-4cb8-82d8-0b5b0266f71b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d77a1f00-0362-4673-b520-e85fd6711f1d" />
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker Id="5202bb1a-cf0b-417d-a28b-55b64c136942" LastKnownName="Balance" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="f0336129-9597-4410-b413-47ac650aec00" name="AttachBill" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="371dc3eb-fb39-4137-a8f0-6ecc6944a996" />
+        <extendedCases>
+          <extend Id="a9a495b6-fce8-4658-9822-f28a3d0953c0">
+            <useCaseMoniker Id="0ba6a331-73ff-48e8-9ea4-0f437b9dca49" LastKnownName="AttachBalance" />
+            <elementDefinition Id="bfe27b34-94f7-4972-9c56-e9016176db10" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="5202bb1a-cf0b-417d-a28b-55b64c136942" LastKnownName="Balance" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="716a697e-d9aa-4300-b0f7-69c93031aff4" name="ViewBalance" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="afafab47-826d-40b8-9e70-7f27d3d42803" />
+        <subjects>
+          <subsystemMoniker Id="5202bb1a-cf0b-417d-a28b-55b64c136942" LastKnownName="Balance" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="6a570f85-f7f9-4683-a0a5-8b5f9f714384" name="ViewProjectBalance" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="694b4934-a908-48c7-ae10-8a96106d0eff" />
+        <subjects>
+          <subsystemMoniker Id="5202bb1a-cf0b-417d-a28b-55b64c136942" LastKnownName="Balance" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <useCaseModelRootHasTypes>
+      <artifact Id="f52d33d6-4918-4cf1-b2ae-82b7413cabee" name="Task" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="90791bd1-ef6b-4bbe-b8f5-caa012bcb043" />
+      </artifact>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="c6d12247-50bd-4159-8279-c32a389454b5" name="EditBalance" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7f854afa-40dc-4ff9-aa80-6796f18e43a5" />
+        <extendedCases>
+          <extend Id="76eddb29-29a6-4abd-a3bb-3bcbe9466bf6">
+            <useCaseMoniker Id="0ba6a331-73ff-48e8-9ea4-0f437b9dca49" LastKnownName="AttachBalance" />
+            <elementDefinition Id="ef9a9fac-6b97-40cb-b3fb-471263ee75ad" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="5202bb1a-cf0b-417d-a28b-55b64c136942" LastKnownName="Balance" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="c2a910df-4218-4202-9a45-299bcc0ff155" name="ObjectModel">
+    <elementDefinition Id="5f36593a-a9fe-4fba-adb2-6dbb2e29fc75" />
+  </package>
+</useCaseModelRoot>

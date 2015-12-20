@@ -22,12 +22,33 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
+    <Content Include="Balance_UseCase.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Balance_UseCase.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Balance_UseCase.usecasediagram</DependentUpon>
+    </Content>
+    <Content Include="Chat_UseCase.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Chat_UseCase.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Chat_UseCase.usecasediagram</DependentUpon>
+    </Content>
     <Content Include="Poll_UseCases.usecasediagram">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Poll_UseCases.usecasediagram.layout">
       <SubType>Content</SubType>
       <DependentUpon>Poll_UseCases.usecasediagram</DependentUpon>
+    </Content>
+    <Content Include="Project_UseCase.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Project_UseCase.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Project_UseCase.usecasediagram</DependentUpon>
     </Content>
     <Content Include="Task_Lifecycle.sequencediagram">
       <SubType>Content</SubType>

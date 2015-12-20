@@ -22,6 +22,20 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
+    <Content Include="Admin-Contact_UseCases.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Admin-Contact_UseCases.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Admin-Contact_UseCases.usecasediagram</DependentUpon>
+    </Content>
+    <Content Include="Admin-User_UseCases.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Admin-User_UseCases.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Admin-User_UseCases.usecasediagram</DependentUpon>
+    </Content>
     <Content Include="Balance_UseCase.usecasediagram">
       <SubType>Content</SubType>
     </Content>
@@ -36,12 +50,26 @@
       <SubType>Content</SubType>
       <DependentUpon>Chat_UseCase.usecasediagram</DependentUpon>
     </Content>
-    <Content Include="Poll_UseCases.usecasediagram">
+    <Content Include="Interaction-Poll_UseCases.usecasediagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Poll_UseCases.usecasediagram.layout">
+    <Content Include="Interaction-Poll_UseCases.usecasediagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>Poll_UseCases.usecasediagram</DependentUpon>
+      <DependentUpon>Interaction-Poll_UseCases.usecasediagram</DependentUpon>
+    </Content>
+    <Content Include="Interaction-Task-Create_Lifecycle.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Interaction-Task-Create_Lifecycle.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Interaction-Task-Create_Lifecycle.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="Interaction-Task_UseCases.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Interaction-Task_UseCases.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Interaction-Task_UseCases.usecasediagram</DependentUpon>
     </Content>
     <Content Include="Project_UseCase.usecasediagram">
       <SubType>Content</SubType>
@@ -50,19 +78,12 @@
       <SubType>Content</SubType>
       <DependentUpon>Project_UseCase.usecasediagram</DependentUpon>
     </Content>
-    <Content Include="Task_Lifecycle.sequencediagram">
+    <Content Include="Setting_UseCases.usecasediagram">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Task_Lifecycle.sequencediagram.layout">
+    <Content Include="Setting_UseCases.usecasediagram.layout">
       <SubType>Content</SubType>
-      <DependentUpon>Task_Lifecycle.sequencediagram</DependentUpon>
-    </Content>
-    <Content Include="Task_UseCases.usecasediagram">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Task_UseCases.usecasediagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>Task_UseCases.usecasediagram</DependentUpon>
+      <DependentUpon>Setting_UseCases.usecasediagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="ModelDefinition\ObjectModel.uml">

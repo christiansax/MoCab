@@ -1,367 +1,367 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm12="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="ebb6a8ef-1902-4138-a770-ce8789365514" name="Project_UseCase" linkedPackageId="18e384a8-e3be-4031-abbe-2cef068b6898" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
-  <profileInstances>
-    <packageHasProfileInstances Id="4ea6ccf7-d85c-426e-9178-d3d9ccb69874">
-      <profileInstance Id="debdc2a3-c729-43b6-a20c-407299035fea" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="5c5d07ab-1fa9-42bb-9169-a484e35cec98">
-      <profileInstance Id="2200a0b5-9fcb-4566-9093-5195525bfaa8" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <useCaseModelRootHasTypes>
-      <actor Id="f97a5b09-5411-41dc-bf33-4cbff181ef41" name="Creator" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="d4492f46-1c69-46bb-a741-e5f559b32bc8" />
+      <actor Id="f613be08-a194-4ccc-8763-1dbdacaa6a3a" name="Creator2" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6020ee03-f03d-4403-9d6e-82e9e7541bf3" />
         <targetEnds>
-          <association Id="8d778646-dbeb-40e0-a15b-9906999748c8" isDerived="false" sourceEndRoleName="Creator" targetEndRoleName="Create" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="ed34f029-bb3e-491b-8638-dbbf047e44c4" LastKnownName="Create" />
+          <association Id="c542fcb5-134d-41d0-a509-44c756e0164d" isDerived="false" sourceEndRoleName="Creator" targetEndRoleName="Create" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="1cd698ba-0bb4-4def-ac8f-2beb1cc7f5a9" LastKnownName="Create1" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="df866aad-9257-4882-a0e4-0ed0f5568fe8" name="Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="a8517d65-8e23-4e25-8a7f-004a38cbe845" />
+                <memberEnd Id="2f870f8b-3f9e-4c82-9185-139fffbc31b5" name="Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="27df86c5-77b1-43f4-8b15-460bdbde1fd8" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="33a6f763-e16c-4a5c-906d-955a8d761e7b" name="Create" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="4f88db9c-1975-408d-b86b-a328005ee491" />
+                <memberEnd Id="a5fa7251-37ec-40f2-8c87-9fbd36865dde" name="Create" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="88f53a65-a7ea-4b3f-b83d-7cc26faa1b8b" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="782c6575-038f-443f-8895-dc601c3d9b82" />
+            <elementDefinition Id="d6d618c3-dba0-429d-b981-b07998b3d55a" />
           </association>
-          <association Id="7fc55f38-af2a-45a1-842f-7349cc1217bc" isDerived="false" sourceEndRoleName="Creator" targetEndRoleName="Invite" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="29edac53-2ee4-4ee7-bbaa-4131cff9e984" LastKnownName="Invite" />
+          <association Id="354a90d3-8994-4082-9d09-2487beb5221a" isDerived="false" sourceEndRoleName="Creator" targetEndRoleName="Invite" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="ba9d733e-a9be-4f26-afad-d6fe1fd47ef7" LastKnownName="Invite2" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="6ebedfd3-f07b-4566-bd66-63de231022a2" name="Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="9bdf6f6e-df21-4944-a403-f35800f2e6a6" />
+                <memberEnd Id="b3407b7b-bca9-4a01-9759-abe83783774c" name="Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ce574902-8cb6-48b4-8b26-8dd93ba426f1" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="d1374813-45c8-452d-bed5-dce5907cb9db" name="Invite" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="38097fc5-9530-4a1a-8e7a-661a8f098678" />
+                <memberEnd Id="13e1f119-8656-4aaa-a473-718031bd54ef" name="Invite" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="89af7da6-fc34-4971-b131-9f9c06f7fdeb" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="042cae57-89c9-45a3-9d13-dd25470ef55f" />
+            <elementDefinition Id="75420a30-5524-409f-b782-695a01b23f75" />
           </association>
-          <association Id="b7e1b8c1-70de-45d7-b425-21c6389c8872" isDerived="false" sourceEndRoleName="Creator" targetEndRoleName="Delete" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="e968dec7-d6f5-4aa4-bc46-6998076a5fd3" LastKnownName="Delete" />
+          <association Id="b3cf6db7-9328-4e38-8029-0cc3462c64ff" isDerived="false" sourceEndRoleName="Creator" targetEndRoleName="Delete" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="1c0df4a4-5ae8-469b-a530-e73d502e113c" LastKnownName="Delete2" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="416faba4-d15e-41e3-abe3-271eb4303cb1" name="Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="20a591c3-035e-44df-a683-837c93884d78" />
+                <memberEnd Id="a193faad-9e9e-413d-be77-2c11e14c0f11" name="Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a92ac3c1-df25-4041-adb2-3486d07c1c3c" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="10968ee3-ba0f-4191-b0a5-f075db91b436" name="Delete" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="7acea7d4-93a9-442c-b711-9bcd7d29c03c" />
+                <memberEnd Id="3be8f9a0-be6f-493c-bf39-9366794a32d7" name="Delete" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c4a7985f-6634-4947-8b50-3be19c6ed87e" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="0ed92b4f-b1da-4abf-8f9d-40573509960e" />
+            <elementDefinition Id="3371d2e9-0f61-4e5e-9d32-326d422fe0eb" />
           </association>
-          <association Id="bbbfc48b-4a8a-42f7-96f5-fb2f81795fde" isDerived="false" sourceEndRoleName="Creator" targetEndRoleName="LeaveProject" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="258d4d25-c676-4010-a4e3-e8661a7844a3" LastKnownName="LeaveProject" />
+          <association Id="17fb42af-9ea4-4c20-a9b1-ff9d039973f5" isDerived="false" sourceEndRoleName="Creator" targetEndRoleName="LeaveProject" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f26e5164-53f3-4fe5-9761-bf7196f8d4f9" LastKnownName="LeaveProject" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="0363a71d-22fd-4dbc-8a23-27b84ba18c0b" name="Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="fb434ce9-786d-4eba-8a43-d21d71d9f2af" />
+                <memberEnd Id="023deb70-5326-465e-bb16-584e77de1ed4" name="Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5845f133-2664-48ad-b2eb-801f7303bcb7" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="37842940-b3f3-4102-919a-7b88ad8ef9b0" name="LeaveProject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="0f480f6b-116f-418a-9561-a900d718e4f8" />
+                <memberEnd Id="8690bffa-e046-414e-95ed-609b7ed72cf0" name="LeaveProject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="56216792-6ace-46d7-a3e9-a32bbaf99448" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="2dd71246-e12d-4a8c-a655-c6aa7f63c832" />
+            <elementDefinition Id="a36ce191-8d16-47f2-b38e-3cf1b86d4895" />
           </association>
-          <association Id="979f2086-a709-4f7d-9980-416888eb85be" isDerived="false" sourceEndRoleName="Creator" targetEndRoleName="KickUser" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="b339acdb-1ed2-4227-913b-61680bf1b8fd" LastKnownName="KickUser" />
+          <association Id="c5eb3cc8-96ca-461c-bd61-3c279288fa2f" isDerived="false" sourceEndRoleName="Creator" targetEndRoleName="KickUser" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="e3633b21-4c98-47b3-bf65-7d8b4aa3b15c" LastKnownName="KickUser" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="4587b345-8f16-4edf-90aa-ba69794d288d" name="Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="0d1879f7-1347-4528-8e30-381b27a29891" />
+                <memberEnd Id="36e7c0e5-c0b6-4d01-b727-ccacc031eeba" name="Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a6ae19d1-d3e5-4a50-a50f-78cf8fae6f0c" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="3621c537-838f-4daa-b09f-6f1353e5fa86" name="KickUser" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="80203f92-1a4c-4d31-8334-a03e17750762" />
+                <memberEnd Id="0e5387af-489c-4a82-85c5-a3681872215b" name="KickUser" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3c8ec563-2e5c-40eb-8aad-5f3eb31083a4" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="63ef2898-fcf9-4189-bcb3-73a72189e77d" />
+            <elementDefinition Id="8c5abdb4-0e0b-481d-9a09-bd291d1e1bc4" />
           </association>
         </targetEnds>
       </actor>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <subsystem Id="7dddda1b-db1a-48e4-8203-c6293cfb3622" name="Project" isAbstract="false" isLeaf="false" isActiveClass="false">
-        <elementDefinition Id="8dae50c7-2f1b-4f94-9f10-32e89871f4e9" />
+      <actor Id="d4bb6bd2-49ad-47dd-8beb-62d9096fa9a1" name="Users" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6a4f4338-6a9b-486e-9f9c-abda0f37342c" />
+        <targetEnds>
+          <association Id="005869bb-2697-40fd-ac97-a8bb0d737f9c" isDerived="false" sourceEndRoleName="Users" targetEndRoleName="LeaveProject" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f26e5164-53f3-4fe5-9761-bf7196f8d4f9" LastKnownName="LeaveProject" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cb5e4499-112a-49d4-8625-5ee003cfddfd" name="Users" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d958543d-0824-493b-b90c-4e3e41c8ed96" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="289b8847-94a2-419b-8487-0a6fad780152" name="LeaveProject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a8f67abe-48ea-48ca-9bb5-a5e0b33e872f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8bdd2869-91b6-4c3b-9dcd-0ee6fe8414c9" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <artifact Id="46c3165b-cd1f-4d8c-a3fd-0d8d7ce49ab1" name="Chat2" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0b30578f-732c-43e7-b59d-d6890c6e2a09" />
+      </artifact>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <artifact Id="18c87e5e-2c52-4de1-bda8-27f0eeccdaa3" name="Poll1" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="739e8961-b042-4e41-bb53-03c0f7b80151" />
+      </artifact>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <artifact Id="c046345a-c943-4e04-a48f-10540b9145f5" name="Task2" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d64654e0-61b2-4f09-bb59-c00f494bd848" />
+      </artifact>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <artifact Id="a510966d-fdf6-412b-8ce8-d45e099a50c9" name="Balance2" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="87621f63-e129-4485-82d9-4a765abcafeb" />
+      </artifact>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="ec94c64c-c95f-4c94-abbb-a782a28de2ad" name="Project2" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="48419331-ff1f-456f-9337-752ad1207469" />
       </subsystem>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <actor Id="1cb45f70-06d4-4442-9cce-6161260d3b65" name="Users" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="5e596581-5eca-4fe0-b069-4562ebe6fa5d" />
+      <useCase Id="1cd698ba-0bb4-4def-ac8f-2beb1cc7f5a9" name="Create1" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f46824f9-9660-44d9-899e-759d7875292b" />
         <targetEnds>
-          <association Id="1dba821c-09c6-4786-b32b-13e4b343ddf7" isDerived="false" sourceEndRoleName="Users" targetEndRoleName="LeaveProject" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="258d4d25-c676-4010-a4e3-e8661a7844a3" LastKnownName="LeaveProject" />
+          <association Id="3e60f087-ac8a-47d7-8a65-dd5e6969f493" isDerived="false" sourceEndRoleName="Create" targetEndRoleName="Chat" isLeaf="false" isAbstract="false">
+            <artifactMoniker Id="46c3165b-cd1f-4d8c-a3fd-0d8d7ce49ab1" LastKnownName="Chat2" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="6ecf4e51-589e-4fff-ac3d-6600a7489e41" name="Users" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="1ec07b70-8c7e-47e7-b84f-bafa3ae494d0" />
+                <memberEnd Id="28d6f3fc-7108-4695-aee3-5825d785f0f2" name="Create" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4b927f40-8d19-49a6-9e1d-6d05f548ea01" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="44af493a-266d-4bc7-ae5c-68e758ca2b23" name="LeaveProject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="751bba9f-be5e-41b1-834c-dcb5adf297b4" />
+                <memberEnd Id="78631cea-4429-4dbe-8920-45a1d8142f41" name="Chat" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="61d75937-76bf-433e-92c3-8b88b707cf31" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="13c84df1-9b60-4c13-b8d4-5f84ba124b42" />
+            <elementDefinition Id="9bb035f9-5cb4-4a09-87b2-23e1a1fe0c14" />
           </association>
-        </targetEnds>
-      </actor>
-    </useCaseModelRootHasTypes>
-    <packageHasNamedElement>
-      <useCase Id="ed34f029-bb3e-491b-8638-dbbf047e44c4" name="Create" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="4133f28b-3f1a-4b50-8215-8635866f7d50" />
-        <targetEnds>
-          <association Id="416179bd-2c9f-46bb-94ca-f9b363fc17ef" isDerived="false" sourceEndRoleName="Create" targetEndRoleName="Chat" isLeaf="false" isAbstract="false">
-            <artifactMoniker Id="a1697564-85d2-42ad-a0e9-8cadefd42e95" LastKnownName="Chat" />
+          <association Id="66eab5ac-4aed-463b-9ef5-6e311267ecb3" isDerived="false" sourceEndRoleName="Create" targetEndRoleName="Task" isLeaf="false" isAbstract="false">
+            <artifactMoniker Id="c046345a-c943-4e04-a48f-10540b9145f5" LastKnownName="Task2" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="a0ad9ede-9595-47d2-b237-fc49e6f4d587" name="Create" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="40ea6882-628e-42c9-aa98-dfcfe3de4d21" />
+                <memberEnd Id="da2625e0-f406-40df-a917-0d87d9016fbc" name="Create" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f624b349-2bd6-42c2-b8b5-7cf7ff367b60" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="8be525b2-b58f-4235-80c2-46c2ef6c84cc" name="Chat" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="b016bd28-b1c8-43ed-ad3f-d3dbb5c0e49f" />
+                <memberEnd Id="32ae8d76-47dc-456b-b37b-735129711211" name="Task" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7966410a-75c0-4b11-b016-ff1496c5a4b1" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="86e5f774-5604-466d-95bd-4fe425e82534" />
-          </association>
-          <association Id="a96b95f2-0854-489a-ad8c-ab741f54c10e" isDerived="false" sourceEndRoleName="Create" targetEndRoleName="Task" isLeaf="false" isAbstract="false">
-            <artifactMoniker Id="45b283fb-29c2-4778-9e09-8b4e471773d8" LastKnownName="Task" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="bb31d944-0361-45b8-b6ee-18a504e75f5e" name="Create" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="fedcd550-ec3e-482c-91c9-0b8741343b47" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="0b96e0d2-aa1c-47ab-a9c0-99b983af1bd3" name="Task" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="0b830d14-aefa-4371-84b3-146956ca2036" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="5e7885e3-931d-4fcf-8ce1-4f67e4ed5589" />
+            <elementDefinition Id="9ea491ed-02c2-4dea-a393-913c65af00c1" />
           </association>
         </targetEnds>
         <additions>
-          <include Id="4373bf8e-a27a-445f-9c0e-efd3dccf88c0">
-            <useCaseMoniker Id="29edac53-2ee4-4ee7-bbaa-4131cff9e984" LastKnownName="Invite" />
-            <elementDefinition Id="ce787224-047b-44e4-a814-985b79959abd" />
+          <include Id="37ce2622-faf3-43ef-b8ef-09703db81726">
+            <useCaseMoniker Id="ba9d733e-a9be-4f26-afad-d6fe1fd47ef7" LastKnownName="Invite2" />
+            <elementDefinition Id="a6878dd6-fb0a-4abe-a1de-6db7900011e6" />
           </include>
-          <include Id="de003e5b-0263-409e-aa1a-f94a8b29ab61">
-            <useCaseMoniker Id="d75aa08e-f404-486a-a33e-4aa27cd6c5aa" LastKnownName="CreateObtions" />
-            <elementDefinition Id="771b6df9-3fa7-4c08-b954-9fc1c8e997fd" />
+          <include Id="1dc8b65e-7df4-4c6d-a3e6-d6954585cefa">
+            <useCaseMoniker Id="957c296c-682d-476f-9f84-2df853ebb219" LastKnownName="CreateObtions" />
+            <elementDefinition Id="89b4e4db-281a-45a0-a8f7-06f719181d26" />
           </include>
         </additions>
         <subjects>
-          <subsystemMoniker Id="7dddda1b-db1a-48e4-8203-c6293cfb3622" LastKnownName="Project" />
+          <subsystemMoniker Id="ec94c64c-c95f-4c94-abbb-a782a28de2ad" LastKnownName="Project2" />
         </subjects>
       </useCase>
-    </packageHasNamedElement>
-    <useCaseModelRootHasTypes>
-      <artifact Id="a1697564-85d2-42ad-a0e9-8cadefd42e95" name="Chat" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="f6d11c97-6d38-478e-bc85-9e9a5a562ce1" />
-      </artifact>
     </useCaseModelRootHasTypes>
-    <packageHasNamedElement>
-      <useCase Id="29edac53-2ee4-4ee7-bbaa-4131cff9e984" name="Invite" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="041ff4c2-a3a9-45e4-8d04-5c6d98552b0f" />
+    <useCaseModelRootHasTypes>
+      <useCase Id="ba9d733e-a9be-4f26-afad-d6fe1fd47ef7" name="Invite2" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="19910bfc-609b-442b-bfd8-a735bd43a13c" />
         <targetEnds>
-          <association Id="49a95470-0ab8-4dc6-8fe1-41e142931d7a" isDerived="false" sourceEndRoleName="Invite" targetEndRoleName="Users" isLeaf="false" isAbstract="false">
-            <actorMoniker Id="1cb45f70-06d4-4442-9cce-6161260d3b65" LastKnownName="Users" />
+          <association Id="e97092d5-8b8d-4d7c-9a19-e808046c79d7" isDerived="false" sourceEndRoleName="Invite" targetEndRoleName="Users" isLeaf="false" isAbstract="false">
+            <actorMoniker Id="d4bb6bd2-49ad-47dd-8beb-62d9096fa9a1" LastKnownName="Users" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="df52c97c-0248-4ba6-86d5-9c2cc354734e" name="Invite" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="50d04a05-9cd9-42b1-bfa0-e523e412aa98" />
+                <memberEnd Id="8da3c52a-cc5f-46e4-9568-c2fa11aeeee7" name="Invite" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a737b332-dcff-4fab-8d05-db237124e168" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="97aabaec-3f3f-4456-93ff-649a87d6859c" name="Users" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="0e02727c-bb2f-4f90-997d-81eb7ca00a64" />
+                <memberEnd Id="6f0b7592-33c9-4cee-8b48-8113207016be" name="Users" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="13005df2-58f0-463b-abf4-d860b864a5bd" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="be7a6923-c009-4928-8fbe-4a1340717c3b" />
+            <elementDefinition Id="19acbc6f-eb8a-43d3-8650-e0920874ffd3" />
           </association>
         </targetEnds>
         <subjects>
-          <subsystemMoniker Id="7dddda1b-db1a-48e4-8203-c6293cfb3622" LastKnownName="Project" />
+          <subsystemMoniker Id="ec94c64c-c95f-4c94-abbb-a782a28de2ad" LastKnownName="Project2" />
         </subjects>
       </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="d75aa08e-f404-486a-a33e-4aa27cd6c5aa" name="CreateObtions" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="899e1ece-658c-4ae7-b69e-c9a4671f06c2" />
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="957c296c-682d-476f-9f84-2df853ebb219" name="CreateObtions" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ccb5bd42-65bd-42aa-bba0-97e43c786fd0" />
         <targetEnds>
-          <association Id="6c38a9be-a1c1-48fe-b38c-5ede4804a4f7" isDerived="false" sourceEndRoleName="CreateObtions" targetEndRoleName="Poll" isLeaf="false" isAbstract="false">
-            <artifactMoniker Id="e486df10-fb24-472a-bc47-cc3b2283f959" LastKnownName="Poll" />
+          <association Id="775cd148-aa3f-4a78-8fc2-0a4414d03908" isDerived="false" sourceEndRoleName="CreateObtions" targetEndRoleName="Poll" isLeaf="false" isAbstract="false">
+            <artifactMoniker Id="18c87e5e-2c52-4de1-bda8-27f0eeccdaa3" LastKnownName="Poll1" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="c64e0b11-6ccb-4464-9c02-056134397903" name="CreateObtions" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="d94c5490-ba53-4b99-8aa1-6e9209a58c51" />
+                <memberEnd Id="840aaa07-c8f0-4f69-8cd5-6ba76ce5603e" name="CreateObtions" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="86ef5462-4b0e-4880-8275-0cca1a8c205e" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="902034fe-5360-468e-a5c1-51e48e780ae0" name="Poll" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="2d4bbaa5-f093-4541-888c-5a7a3d0e63d6" />
+                <memberEnd Id="a44f975c-f89e-4f38-9828-3b152ea7aed0" name="Poll" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="00a704ac-7a77-4724-ad12-4d97d63bafad" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="8510ed79-2f78-40f2-b181-12d32335a1af" />
+            <elementDefinition Id="75603500-96e8-4e05-aba5-5cd3e3e3659a" />
           </association>
-          <association Id="a46771d4-230c-4ce0-adf8-1670fc5307a9" isDerived="false" sourceEndRoleName="CreateObtions" targetEndRoleName="Balance" isLeaf="false" isAbstract="false">
-            <artifactMoniker Id="5c3cf780-8141-4efd-82ec-646befb01916" LastKnownName="Balance" />
+          <association Id="c80ea035-74f4-4872-a18a-3e84973cbf2d" isDerived="false" sourceEndRoleName="CreateObtions" targetEndRoleName="Balance" isLeaf="false" isAbstract="false">
+            <artifactMoniker Id="a510966d-fdf6-412b-8ce8-d45e099a50c9" LastKnownName="Balance2" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="2f6074b0-28f0-48fd-a866-1450e62ae25c" name="CreateObtions" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="1f5e19e3-2c37-4d1d-94ae-09b7d6fcd739" />
+                <memberEnd Id="c12bf3ed-af16-423f-826a-0e09407e11d2" name="CreateObtions" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5c229b13-3703-4cb0-bada-cbc62c744448" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="1ad46281-4bf4-4939-bc33-3caf12be0e2b" name="Balance" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="0a8068ae-9c95-4a08-92f7-52e92a40d294" />
+                <memberEnd Id="6517e8b3-c8e4-458e-aed9-203e6d93e0a2" name="Balance" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="558b6c62-1c4c-4e71-b6b3-424d4d914bb1" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="a442aaf6-f59c-4d3c-9087-af3ffdac7bcf" />
+            <elementDefinition Id="bbe07bc9-aaba-41f1-96b5-1d42e4bf5d3d" />
           </association>
         </targetEnds>
         <subjects>
-          <subsystemMoniker Id="7dddda1b-db1a-48e4-8203-c6293cfb3622" LastKnownName="Project" />
+          <subsystemMoniker Id="ec94c64c-c95f-4c94-abbb-a782a28de2ad" LastKnownName="Project2" />
         </subjects>
       </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="e968dec7-d6f5-4aa4-bc46-6998076a5fd3" name="Delete" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="db9289e9-40c7-4474-9378-3eb200eb5a0d" />
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="1c0df4a4-5ae8-469b-a530-e73d502e113c" name="Delete2" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="da125716-e15e-4062-86cf-bb0d685b03e3" />
         <targetEnds>
-          <association Id="43ca3538-3a1d-4349-96d8-da3ef6907aee" isDerived="false" sourceEndRoleName="Delete" targetEndRoleName="Chat" isLeaf="false" isAbstract="false">
-            <artifactMoniker Id="a1697564-85d2-42ad-a0e9-8cadefd42e95" LastKnownName="Chat" />
+          <association Id="b868d048-52d3-4666-ac80-37f2d157307e" isDerived="false" sourceEndRoleName="Delete" targetEndRoleName="Chat" isLeaf="false" isAbstract="false">
+            <artifactMoniker Id="46c3165b-cd1f-4d8c-a3fd-0d8d7ce49ab1" LastKnownName="Chat2" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="472f5c08-d331-4b97-8104-e0e8c77b5d38" name="Delete" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="b712222c-bef5-4f7a-bafa-e8305379a965" />
+                <memberEnd Id="ad4cbfbf-6c0f-445e-8003-41b9dff0617b" name="Delete" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0e932c2b-ff3c-46f6-aaf4-27379fb1e311" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="321bf817-f371-4d4c-bfe5-38b6215549b5" name="Chat" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="e4a98138-d34a-46d6-b9cb-ebc82ec0222d" />
+                <memberEnd Id="3c155276-a242-4461-9256-c971a3f77c51" name="Chat" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="98497999-e983-485d-acbd-b0411d885fd9" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="7f930d3e-012e-49de-be57-b502fa6316ec" />
+            <elementDefinition Id="c3b53df7-feef-4bac-bfdd-840e2d17a17a" />
           </association>
-          <association Id="fa525fbe-cd29-4fef-bb26-e28117af26d8" isDerived="false" sourceEndRoleName="Delete" targetEndRoleName="Poll" isLeaf="false" isAbstract="false">
-            <artifactMoniker Id="e486df10-fb24-472a-bc47-cc3b2283f959" LastKnownName="Poll" />
+          <association Id="19daab40-1306-41e4-ae6f-cd8bc11dacd8" isDerived="false" sourceEndRoleName="Delete" targetEndRoleName="Poll" isLeaf="false" isAbstract="false">
+            <artifactMoniker Id="18c87e5e-2c52-4de1-bda8-27f0eeccdaa3" LastKnownName="Poll1" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="f9d9f458-782f-49f4-90fe-34dced4e30bb" name="Delete" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="e3dd0262-2ef4-4d13-b15e-80f2e25a367a" />
+                <memberEnd Id="b1333333-e1b7-4b60-82f7-9334692aab2b" name="Delete" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="485a45cd-3e10-45ee-9183-0bcd4548e2ed" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="c5aa84cc-d74e-477b-9f78-e52129b6a6e8" name="Poll" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="adc58504-b090-492a-93e0-d9b9dd3bcd84" />
+                <memberEnd Id="eb3b1ba4-5743-48db-8e61-918e495ec16d" name="Poll" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b3af56b3-43f9-45cf-b161-f0beb21c055a" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="d15ad770-9329-4709-957e-6e426c5c9d20" />
+            <elementDefinition Id="a85320d4-d74a-4a38-a1b8-7e456d59d5a7" />
           </association>
-          <association Id="457caa9f-54fa-414d-ac27-535fc1107813" isDerived="false" sourceEndRoleName="Delete" targetEndRoleName="Task" isLeaf="false" isAbstract="false">
-            <artifactMoniker Id="45b283fb-29c2-4778-9e09-8b4e471773d8" LastKnownName="Task" />
+          <association Id="44524e73-1491-4647-aebc-1b9fb33c784c" isDerived="false" sourceEndRoleName="Delete" targetEndRoleName="Task" isLeaf="false" isAbstract="false">
+            <artifactMoniker Id="c046345a-c943-4e04-a48f-10540b9145f5" LastKnownName="Task2" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="e915e20a-512f-44de-8d83-ef860968e363" name="Delete" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="0a54caab-8d79-40ca-917d-eba17b5e180e" />
+                <memberEnd Id="703c97b0-65e7-4a78-a16c-e0a263c7340f" name="Delete" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="77c2ea68-1f62-4573-825e-ffd94907ce8d" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="bed3c0c3-8814-46d6-8085-115e33537086" name="Task" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="821a6bd9-aa37-428d-859d-aec8daa17756" />
+                <memberEnd Id="46ea70dd-6cb7-4a6b-bf68-017fc1dd4a77" name="Task" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1c8cbf3b-9c9e-4f53-96d4-1dbcc392af7c" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="5f838463-f119-4f79-bdbf-13afb82f8853" />
+            <elementDefinition Id="7ee32104-a7f0-48ef-9ef8-6352f2d654ac" />
           </association>
-          <association Id="e7c8a4f2-0e7c-43dd-9f12-99f50b8c710a" isDerived="false" sourceEndRoleName="Delete" targetEndRoleName="Balance" isLeaf="false" isAbstract="false">
-            <artifactMoniker Id="5c3cf780-8141-4efd-82ec-646befb01916" LastKnownName="Balance" />
+          <association Id="8057b0a1-ea53-423d-9c0b-57017164d622" isDerived="false" sourceEndRoleName="Delete" targetEndRoleName="Balance" isLeaf="false" isAbstract="false">
+            <artifactMoniker Id="a510966d-fdf6-412b-8ce8-d45e099a50c9" LastKnownName="Balance2" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="435ff514-c53b-4906-8aa6-40fdacbf2350" name="Delete" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="91964917-c724-412e-ab78-53c251e7f89e" />
+                <memberEnd Id="fc5fbd18-f30c-4dd7-bd94-fd4cdca1798d" name="Delete" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="fba74b0f-5268-4d83-93ec-0c58689b0f4e" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="5a8607c2-45ed-47bc-8341-5940e441f69d" name="Balance" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="ccc3ccc2-f916-4ce0-b116-5d7cdd54a67e" />
+                <memberEnd Id="4bf4d710-fbe6-4653-9701-4cebc8b2ce7e" name="Balance" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="919774a8-78da-4cda-83ba-61ef87737b91" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="bc6d3372-80d6-40e8-9c29-c9870060ff2d" />
+            <elementDefinition Id="1b6bfa37-3218-42b6-b08e-006df191cc57" />
           </association>
         </targetEnds>
         <subjects>
-          <subsystemMoniker Id="7dddda1b-db1a-48e4-8203-c6293cfb3622" LastKnownName="Project" />
+          <subsystemMoniker Id="ec94c64c-c95f-4c94-abbb-a782a28de2ad" LastKnownName="Project2" />
         </subjects>
       </useCase>
-    </packageHasNamedElement>
-    <useCaseModelRootHasTypes>
-      <artifact Id="e486df10-fb24-472a-bc47-cc3b2283f959" name="Poll" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="46a76499-c808-4d6e-9a84-644920903d57" />
-      </artifact>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <artifact Id="45b283fb-29c2-4778-9e09-8b4e471773d8" name="Task" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="fc930b94-d6e6-4dfa-ad97-7ebca4340200" />
-      </artifact>
-    </useCaseModelRootHasTypes>
-    <useCaseModelRootHasTypes>
-      <artifact Id="5c3cf780-8141-4efd-82ec-646befb01916" name="Balance" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="19856fac-3a83-4ee4-b20e-7caf5149bc35" />
-      </artifact>
-    </useCaseModelRootHasTypes>
-    <packageHasNamedElement>
-      <useCase Id="258d4d25-c676-4010-a4e3-e8661a7844a3" name="LeaveProject" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="903422f8-0d36-437f-a35f-f7d7a9cdab8a" />
+      <useCase Id="f26e5164-53f3-4fe5-9761-bf7196f8d4f9" name="LeaveProject" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="494f81e0-4fd9-4e0f-9482-6a754c214000" />
         <subjects>
-          <subsystemMoniker Id="7dddda1b-db1a-48e4-8203-c6293cfb3622" LastKnownName="Project" />
+          <subsystemMoniker Id="ec94c64c-c95f-4c94-abbb-a782a28de2ad" LastKnownName="Project2" />
         </subjects>
       </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase Id="b339acdb-1ed2-4227-913b-61680bf1b8fd" name="KickUser" isAbstract="false" isLeaf="false">
-        <elementDefinition Id="a97505f7-d700-434f-9754-2bce641ee4fe" />
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="e3633b21-4c98-47b3-bf65-7d8b4aa3b15c" name="KickUser" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d32e5948-f1ea-4281-9e90-7c309d247e22" />
         <subjects>
-          <subsystemMoniker Id="7dddda1b-db1a-48e4-8203-c6293cfb3622" LastKnownName="Project" />
+          <subsystemMoniker Id="ec94c64c-c95f-4c94-abbb-a782a28de2ad" LastKnownName="Project2" />
         </subjects>
       </useCase>
-    </packageHasNamedElement>
+    </useCaseModelRootHasTypes>
   </packagedElements>
   <package Id="18e384a8-e3be-4031-abbe-2cef068b6898" name="ObjectModel">
     <elementDefinition Id="5f36593a-a9fe-4fba-adb2-6dbb2e29fc75" />
+    <profileInstances>
+      <packageHasProfileInstances Id="4ea6ccf7-d85c-426e-9178-d3d9ccb69874">
+        <profileInstance Id="debdc2a3-c729-43b6-a20c-407299035fea" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="5c5d07ab-1fa9-42bb-9169-a484e35cec98">
+        <profileInstance Id="2200a0b5-9fcb-4566-9093-5195525bfaa8" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </useCaseModelRoot>

@@ -1455,7 +1455,7 @@
     <packageHasNamedElement>
       <interaction
         Id="703a919c-ff47-4680-bbf9-7db5ddd9cca6"
-        name="TaskSD_Create"
+        name="Interaction-Task-Create_Lifecycle"
         collapseFragmentsFlag="false"
         isActiveClass="false"
         isAbstract="false"
@@ -3092,1464 +3092,27 @@
         name="ExecutionEvent" />
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <subsystem
-        Id="b70e07de-cbee-4174-aa78-d0e865014767"
-        name="Chat"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <actor
-        Id="e844fa31-857b-4db3-8f8e-86aa5b4d6d07"
-        name="Creator"
-        isAbstract="false"
-        isLeaf="false">
-        <targetEnds>
-          <association
-            Id="1a8acd99-4ee2-4747-ae0a-0c94f349e1cc"
-            isDerived="false"
-            sourceEndRoleName="Creator"
-            targetEndRoleName="Create"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="2ad3ae72-2693-4275-8648-7060e1e24c7c"
-              LastKnownName="CreateChat"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="a322c3e9-85cf-4470-8657-85437dfec41c"
-                  name="Creator"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="549d2641-ddcc-4e61-9947-dddb9aa405b8"
-                  name="Create"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="61f6880f-be56-4d05-9dc7-52470e7ed7e6"
-            isDerived="false"
-            sourceEndRoleName="Creator"
-            targetEndRoleName="SendMessage"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="0e3dd6a6-63f5-46ef-848b-dbdd53fd2173"
-              LastKnownName="SendMessage"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="f639abe1-d24c-471e-a35b-69d7bf1c3409"
-                  name="Creator"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="cc2baf51-4fc2-41f7-953e-fb4fbba41700"
-                  name="SendMessage"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="32d55dfc-cae8-4e50-8698-021c3d30eb0e"
-            isDerived="false"
-            sourceEndRoleName="Creator"
-            targetEndRoleName="Invite"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="e5539899-5319-47d8-86d3-091e8149d1ea"
-              LastKnownName="Invite"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="4fccd325-d666-4205-8049-6612c78a008d"
-                  name="Creator"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="7240a7a0-bb64-4895-a0b2-e3e6abb7fc5a"
-                  name="Invite"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="d8aefcb4-17e4-4050-851f-6873ad6cf416"
-            isDerived="false"
-            sourceEndRoleName="Creator"
-            targetEndRoleName="ForwardMessage"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="8b956cb2-4e81-485f-9fb2-dc883a84ba8a"
-              LastKnownName="ForwardMessage"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="7f0e0aa3-1308-4dc0-a5fb-6b3c7cce6aef"
-                  name="Creator"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="188fb100-8f51-4a3a-ad05-bd322f65fb34"
-                  name="ForwardMessage"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="2d9620e6-f91a-4d08-b70c-3644aab350f4"
-            isDerived="false"
-            sourceEndRoleName="Creator"
-            targetEndRoleName="CreateGroupChat"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="d27d1a67-ebf3-4047-846c-10de1b630b16"
-              LastKnownName="CreateGroupChat"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="494312fa-6069-48bc-b3a6-b936c05523c1"
-                  name="Creator"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="54483be2-ed9e-4025-8ee6-ea856248074d"
-                  name="CreateGroupChat"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="240f14fc-2587-4f43-83ee-e16e9992c476"
-            isDerived="false"
-            sourceEndRoleName="Creator"
-            targetEndRoleName="Delete"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="30908314-91d8-4637-be68-455bf7ee6ae9"
-              LastKnownName="Delete"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="0345b354-81cb-4159-ac9b-7b811b6a6775"
-                  name="Creator"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="37ea6e14-af5e-408a-a9f2-14734ffc8699"
-                  name="Delete"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="c041dfc4-329b-4c0a-87b7-d0a75fc99715"
-            isDerived="false"
-            sourceEndRoleName="Creator"
-            targetEndRoleName="LeaveGroupChat"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="af8f21b4-d1ac-4282-83a7-4661fa04291d"
-              LastKnownName="LeaveGroupChat"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="f480384f-7199-4fe6-abc4-844548e596f3"
-                  name="Creator"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="3c9b5ac4-6182-45bc-bcd8-68c940dafc9c"
-                  name="LeaveGroupChat"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
-      </actor>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <actor
-        Id="e546dcc0-d372-4e03-87fd-a1ea5ce12c39"
-        name="Member"
-        isAbstract="false"
-        isLeaf="false">
-        <targetEnds>
-          <association
-            Id="389a412b-d0ba-40ed-85b8-1b97160f389b"
-            isDerived="false"
-            sourceEndRoleName="Member"
-            targetEndRoleName="SendMessage"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="0e3dd6a6-63f5-46ef-848b-dbdd53fd2173"
-              LastKnownName="SendMessage"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="048aa5e1-301d-4c01-9be3-652c5353ef3a"
-                  name="Member"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="ab94562a-2a63-4f11-a604-267037b2acec"
-                  name="SendMessage"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="6a17a5ca-f3d4-4fb6-bd4c-af077a48ce3b"
-            isDerived="false"
-            sourceEndRoleName="Member"
-            targetEndRoleName="LeaveChat"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="3de38ab2-f487-4779-a531-029701506950"
-              LastKnownName="LeaveChat"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="25d29823-2098-4bfa-9626-db5eee6e952e"
-                  name="Member"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="b1c9b75d-26e8-4336-a1c2-0dbc8737a297"
-                  name="LeaveChat"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="97e278d5-b831-4f29-a2f2-e2c4ab3ea2b2"
-            isDerived="false"
-            sourceEndRoleName="Member"
-            targetEndRoleName="LeaveGroupChat"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="af8f21b4-d1ac-4282-83a7-4661fa04291d"
-              LastKnownName="LeaveGroupChat"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="ac1c5ecc-fb2c-4815-9976-f3f7c3ff42b9"
-                  name="Member"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="9f1ae4bf-6101-4a85-98c7-0cc77707b21c"
-                  name="LeaveGroupChat"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
-      </actor>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase
-        Id="2ad3ae72-2693-4275-8648-7060e1e24c7c"
-        name="CreateChat"
-        isAbstract="false"
-        isLeaf="false">
-        <subjects>
-          <subsystemMoniker
-            Id="b70e07de-cbee-4174-aa78-d0e865014767"
-            LastKnownName="Chat"
-            LastKnownLocation="ObjectModel.uml" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase
-        Id="e5539899-5319-47d8-86d3-091e8149d1ea"
-        name="Invite"
-        isAbstract="false"
-        isLeaf="false">
-        <targetEnds>
-          <association
-            Id="ef90ad88-c871-4bcd-8ab1-fc3efacac9c5"
-            isDerived="false"
-            sourceEndRoleName="Invite"
-            targetEndRoleName="Member"
-            isLeaf="false"
-            isAbstract="false">
-            <actorMoniker
-              Id="e546dcc0-d372-4e03-87fd-a1ea5ce12c39"
-              LastKnownName="Member"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="deba6e54-dccd-43cb-8b27-54ac56b395d2"
-                  name="Invite"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="c652a4ab-6a6b-4367-ab91-8075f65934a6"
-                  name="Member"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
-        <subjects>
-          <subsystemMoniker
-            Id="b70e07de-cbee-4174-aa78-d0e865014767"
-            LastKnownName="Chat"
-            LastKnownLocation="ObjectModel.uml" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase
-        Id="0e3dd6a6-63f5-46ef-848b-dbdd53fd2173"
-        name="SendMessage"
-        isAbstract="false"
-        isLeaf="false">
-        <additions>
-          <include
-            Id="54847f9b-b63d-4b95-ac44-b272a76b0d6e">
-            <useCaseMoniker
-              Id="2ea8eb85-ab47-4cfd-8efa-ef737ab76aff"
-              LastKnownName="ReceiveMessage"
-              LastKnownLocation="ObjectModel.uml" />
-          </include>
-        </additions>
-        <subjects>
-          <subsystemMoniker
-            Id="b70e07de-cbee-4174-aa78-d0e865014767"
-            LastKnownName="Chat"
-            LastKnownLocation="ObjectModel.uml" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase
-        Id="2ea8eb85-ab47-4cfd-8efa-ef737ab76aff"
-        name="ReceiveMessage"
-        isAbstract="false"
-        isLeaf="false">
-        <targetEnds>
-          <association
-            Id="3d153e7e-e6ac-4fe2-afc2-2a15f7d9441e"
-            isDerived="false"
-            sourceEndRoleName="ReceiveMessage"
-            targetEndRoleName="Creator"
-            isLeaf="false"
-            isAbstract="false">
-            <actorMoniker
-              Id="e844fa31-857b-4db3-8f8e-86aa5b4d6d07"
-              LastKnownName="Creator"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="8794b713-a0f8-47d3-9d7d-9dc846d1e12d"
-                  name="ReceiveMessage"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="af8ee985-5651-4e37-ac1a-3bd1a847f7cb"
-                  name="Creator"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="90820e32-dd54-4cf1-a583-9cd923c998bb"
-            isDerived="false"
-            sourceEndRoleName="ReceiveMessage"
-            targetEndRoleName="Member"
-            isLeaf="false"
-            isAbstract="false">
-            <actorMoniker
-              Id="e546dcc0-d372-4e03-87fd-a1ea5ce12c39"
-              LastKnownName="Member"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="09f564d4-1322-4ae2-bf1e-6a51309faba5"
-                  name="ReceiveMessage"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="61eb3826-afc2-49bf-b337-ad6121189459"
-                  name="Member"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
-        <extendedCases>
-          <extend
-            Id="51b18807-c60e-4a1f-86af-505292088a15">
-            <useCaseMoniker
-              Id="8b956cb2-4e81-485f-9fb2-dc883a84ba8a"
-              LastKnownName="ForwardMessage"
-              LastKnownLocation="ObjectModel.uml" />
-          </extend>
-        </extendedCases>
-        <subjects>
-          <subsystemMoniker
-            Id="b70e07de-cbee-4174-aa78-d0e865014767"
-            LastKnownName="Chat"
-            LastKnownLocation="ObjectModel.uml" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase
-        Id="8b956cb2-4e81-485f-9fb2-dc883a84ba8a"
-        name="ForwardMessage"
-        isAbstract="false"
-        isLeaf="false">
-        <extendedCases>
-          <extend
-            Id="91a72e54-75cc-4781-9103-2039baf71c4e">
-            <useCaseMoniker
-              Id="0e3dd6a6-63f5-46ef-848b-dbdd53fd2173"
-              LastKnownName="SendMessage"
-              LastKnownLocation="ObjectModel.uml" />
-          </extend>
-        </extendedCases>
-        <subjects>
-          <subsystemMoniker
-            Id="b70e07de-cbee-4174-aa78-d0e865014767"
-            LastKnownName="Chat"
-            LastKnownLocation="ObjectModel.uml" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase
-        Id="d27d1a67-ebf3-4047-846c-10de1b630b16"
-        name="CreateGroupChat"
-        isAbstract="false"
-        isLeaf="false">
-        <additions>
-          <include
-            Id="00c80a24-ab29-455e-9261-4c8f34090e0d">
-            <useCaseMoniker
-              Id="e5539899-5319-47d8-86d3-091e8149d1ea"
-              LastKnownName="Invite"
-              LastKnownLocation="ObjectModel.uml" />
-          </include>
-        </additions>
-        <subjects>
-          <subsystemMoniker
-            Id="b70e07de-cbee-4174-aa78-d0e865014767"
-            LastKnownName="Chat"
-            LastKnownLocation="ObjectModel.uml" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <actor
-        Id="d4492f46-1c69-46bb-a741-e5f559b32bc8"
-        name="Creator"
-        isAbstract="false"
-        isLeaf="false">
-        <targetEnds>
-          <association
-            Id="782c6575-038f-443f-8895-dc601c3d9b82"
-            isDerived="false"
-            sourceEndRoleName="Creator"
-            targetEndRoleName="Create"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="4133f28b-3f1a-4b50-8215-8635866f7d50"
-              LastKnownName="Create"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="a8517d65-8e23-4e25-8a7f-004a38cbe845"
-                  name="Creator"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="4f88db9c-1975-408d-b86b-a328005ee491"
-                  name="Create"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="042cae57-89c9-45a3-9d13-dd25470ef55f"
-            isDerived="false"
-            sourceEndRoleName="Creator"
-            targetEndRoleName="Invite"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="041ff4c2-a3a9-45e4-8d04-5c6d98552b0f"
-              LastKnownName="Invite"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="9bdf6f6e-df21-4944-a403-f35800f2e6a6"
-                  name="Creator"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="38097fc5-9530-4a1a-8e7a-661a8f098678"
-                  name="Invite"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="0ed92b4f-b1da-4abf-8f9d-40573509960e"
-            isDerived="false"
-            sourceEndRoleName="Creator"
-            targetEndRoleName="Delete"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="db9289e9-40c7-4474-9378-3eb200eb5a0d"
-              LastKnownName="Delete"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="20a591c3-035e-44df-a683-837c93884d78"
-                  name="Creator"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="7acea7d4-93a9-442c-b711-9bcd7d29c03c"
-                  name="Delete"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="2dd71246-e12d-4a8c-a655-c6aa7f63c832"
-            isDerived="false"
-            sourceEndRoleName="Creator"
-            targetEndRoleName="LeaveProject"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="903422f8-0d36-437f-a35f-f7d7a9cdab8a"
-              LastKnownName="LeaveProject"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="fb434ce9-786d-4eba-8a43-d21d71d9f2af"
-                  name="Creator"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="0f480f6b-116f-418a-9561-a900d718e4f8"
-                  name="LeaveProject"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="63ef2898-fcf9-4189-bcb3-73a72189e77d"
-            isDerived="false"
-            sourceEndRoleName="Creator"
-            targetEndRoleName="KickUser"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="a97505f7-d700-434f-9754-2bce641ee4fe"
-              LastKnownName="KickUser"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="0d1879f7-1347-4528-8e30-381b27a29891"
-                  name="Creator"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="80203f92-1a4c-4d31-8334-a03e17750762"
-                  name="KickUser"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
-      </actor>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <subsystem
-        Id="8dae50c7-2f1b-4f94-9f10-32e89871f4e9"
-        name="Project"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <actor
-        Id="5e596581-5eca-4fe0-b069-4562ebe6fa5d"
-        name="Users"
-        isAbstract="false"
-        isLeaf="false">
-        <targetEnds>
-          <association
-            Id="13c84df1-9b60-4c13-b8d4-5f84ba124b42"
-            isDerived="false"
-            sourceEndRoleName="Users"
-            targetEndRoleName="LeaveProject"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="903422f8-0d36-437f-a35f-f7d7a9cdab8a"
-              LastKnownName="LeaveProject"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="1ec07b70-8c7e-47e7-b84f-bafa3ae494d0"
-                  name="Users"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="751bba9f-be5e-41b1-834c-dcb5adf297b4"
-                  name="LeaveProject"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
-      </actor>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase
-        Id="4133f28b-3f1a-4b50-8215-8635866f7d50"
-        name="Create"
-        isAbstract="false"
-        isLeaf="false">
-        <targetEnds>
-          <association
-            Id="86e5f774-5604-466d-95bd-4fe425e82534"
-            isDerived="false"
-            sourceEndRoleName="Create"
-            targetEndRoleName="Chat"
-            isLeaf="false"
-            isAbstract="false">
-            <artifactMoniker
-              Id="f6d11c97-6d38-478e-bc85-9e9a5a562ce1"
-              LastKnownName="Chat"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="40ea6882-628e-42c9-aa98-dfcfe3de4d21"
-                  name="Create"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="b016bd28-b1c8-43ed-ad3f-d3dbb5c0e49f"
-                  name="Chat"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="5e7885e3-931d-4fcf-8ce1-4f67e4ed5589"
-            isDerived="false"
-            sourceEndRoleName="Create"
-            targetEndRoleName="Task"
-            isLeaf="false"
-            isAbstract="false">
-            <artifactMoniker
-              Id="fc930b94-d6e6-4dfa-ad97-7ebca4340200"
-              LastKnownName="Task"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="fedcd550-ec3e-482c-91c9-0b8741343b47"
-                  name="Create"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="0b830d14-aefa-4371-84b3-146956ca2036"
-                  name="Task"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
-        <additions>
-          <include
-            Id="ce787224-047b-44e4-a814-985b79959abd">
-            <useCaseMoniker
-              Id="041ff4c2-a3a9-45e4-8d04-5c6d98552b0f"
-              LastKnownName="Invite"
-              LastKnownLocation="ObjectModel.uml" />
-          </include>
-          <include
-            Id="771b6df9-3fa7-4c08-b954-9fc1c8e997fd">
-            <useCaseMoniker
-              Id="899e1ece-658c-4ae7-b69e-c9a4671f06c2"
-              LastKnownName="CreateObtions"
-              LastKnownLocation="ObjectModel.uml" />
-          </include>
-        </additions>
-        <subjects>
-          <subsystemMoniker
-            Id="8dae50c7-2f1b-4f94-9f10-32e89871f4e9"
-            LastKnownName="Project"
-            LastKnownLocation="ObjectModel.uml" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <artifact
-        Id="f6d11c97-6d38-478e-bc85-9e9a5a562ce1"
-        name="Chat"
-        isAbstract="false"
-        isLeaf="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase
-        Id="041ff4c2-a3a9-45e4-8d04-5c6d98552b0f"
-        name="Invite"
-        isAbstract="false"
-        isLeaf="false">
-        <targetEnds>
-          <association
-            Id="be7a6923-c009-4928-8fbe-4a1340717c3b"
-            isDerived="false"
-            sourceEndRoleName="Invite"
-            targetEndRoleName="Users"
-            isLeaf="false"
-            isAbstract="false">
-            <actorMoniker
-              Id="5e596581-5eca-4fe0-b069-4562ebe6fa5d"
-              LastKnownName="Users"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="50d04a05-9cd9-42b1-bfa0-e523e412aa98"
-                  name="Invite"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="0e02727c-bb2f-4f90-997d-81eb7ca00a64"
-                  name="Users"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
-        <subjects>
-          <subsystemMoniker
-            Id="8dae50c7-2f1b-4f94-9f10-32e89871f4e9"
-            LastKnownName="Project"
-            LastKnownLocation="ObjectModel.uml" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase
-        Id="899e1ece-658c-4ae7-b69e-c9a4671f06c2"
-        name="CreateObtions"
-        isAbstract="false"
-        isLeaf="false">
-        <targetEnds>
-          <association
-            Id="8510ed79-2f78-40f2-b181-12d32335a1af"
-            isDerived="false"
-            sourceEndRoleName="CreateObtions"
-            targetEndRoleName="Poll"
-            isLeaf="false"
-            isAbstract="false">
-            <artifactMoniker
-              Id="46a76499-c808-4d6e-9a84-644920903d57"
-              LastKnownName="Poll"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="d94c5490-ba53-4b99-8aa1-6e9209a58c51"
-                  name="CreateObtions"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="2d4bbaa5-f093-4541-888c-5a7a3d0e63d6"
-                  name="Poll"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="a442aaf6-f59c-4d3c-9087-af3ffdac7bcf"
-            isDerived="false"
-            sourceEndRoleName="CreateObtions"
-            targetEndRoleName="Balance"
-            isLeaf="false"
-            isAbstract="false">
-            <artifactMoniker
-              Id="19856fac-3a83-4ee4-b20e-7caf5149bc35"
-              LastKnownName="Balance"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="1f5e19e3-2c37-4d1d-94ae-09b7d6fcd739"
-                  name="CreateObtions"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="0a8068ae-9c95-4a08-92f7-52e92a40d294"
-                  name="Balance"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
-        <subjects>
-          <subsystemMoniker
-            Id="8dae50c7-2f1b-4f94-9f10-32e89871f4e9"
-            LastKnownName="Project"
-            LastKnownLocation="ObjectModel.uml" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase
-        Id="30908314-91d8-4637-be68-455bf7ee6ae9"
-        name="Delete"
-        isAbstract="false"
-        isLeaf="false">
-        <subjects>
-          <subsystemMoniker
-            Id="b70e07de-cbee-4174-aa78-d0e865014767"
-            LastKnownName="Chat"
-            LastKnownLocation="ObjectModel.uml" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase
-        Id="db9289e9-40c7-4474-9378-3eb200eb5a0d"
-        name="Delete"
-        isAbstract="false"
-        isLeaf="false">
-        <targetEnds>
-          <association
-            Id="7f930d3e-012e-49de-be57-b502fa6316ec"
-            isDerived="false"
-            sourceEndRoleName="Delete"
-            targetEndRoleName="Chat"
-            isLeaf="false"
-            isAbstract="false">
-            <artifactMoniker
-              Id="f6d11c97-6d38-478e-bc85-9e9a5a562ce1"
-              LastKnownName="Chat"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="b712222c-bef5-4f7a-bafa-e8305379a965"
-                  name="Delete"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="e4a98138-d34a-46d6-b9cb-ebc82ec0222d"
-                  name="Chat"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="d15ad770-9329-4709-957e-6e426c5c9d20"
-            isDerived="false"
-            sourceEndRoleName="Delete"
-            targetEndRoleName="Poll"
-            isLeaf="false"
-            isAbstract="false">
-            <artifactMoniker
-              Id="46a76499-c808-4d6e-9a84-644920903d57"
-              LastKnownName="Poll"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="e3dd0262-2ef4-4d13-b15e-80f2e25a367a"
-                  name="Delete"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="adc58504-b090-492a-93e0-d9b9dd3bcd84"
-                  name="Poll"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="5f838463-f119-4f79-bdbf-13afb82f8853"
-            isDerived="false"
-            sourceEndRoleName="Delete"
-            targetEndRoleName="Task"
-            isLeaf="false"
-            isAbstract="false">
-            <artifactMoniker
-              Id="fc930b94-d6e6-4dfa-ad97-7ebca4340200"
-              LastKnownName="Task"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="0a54caab-8d79-40ca-917d-eba17b5e180e"
-                  name="Delete"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="821a6bd9-aa37-428d-859d-aec8daa17756"
-                  name="Task"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="bc6d3372-80d6-40e8-9c29-c9870060ff2d"
-            isDerived="false"
-            sourceEndRoleName="Delete"
-            targetEndRoleName="Balance"
-            isLeaf="false"
-            isAbstract="false">
-            <artifactMoniker
-              Id="19856fac-3a83-4ee4-b20e-7caf5149bc35"
-              LastKnownName="Balance"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="91964917-c724-412e-ab78-53c251e7f89e"
-                  name="Delete"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="ccc3ccc2-f916-4ce0-b116-5d7cdd54a67e"
-                  name="Balance"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
-        <subjects>
-          <subsystemMoniker
-            Id="8dae50c7-2f1b-4f94-9f10-32e89871f4e9"
-            LastKnownName="Project"
-            LastKnownLocation="ObjectModel.uml" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <artifact
-        Id="46a76499-c808-4d6e-9a84-644920903d57"
-        name="Poll"
-        isAbstract="false"
-        isLeaf="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <artifact
-        Id="fc930b94-d6e6-4dfa-ad97-7ebca4340200"
-        name="Task"
-        isAbstract="false"
-        isLeaf="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <artifact
-        Id="19856fac-3a83-4ee4-b20e-7caf5149bc35"
-        name="Balance"
-        isAbstract="false"
-        isLeaf="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase
-        Id="3de38ab2-f487-4779-a531-029701506950"
-        name="LeaveChat"
-        isAbstract="false"
-        isLeaf="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase
-        Id="903422f8-0d36-437f-a35f-f7d7a9cdab8a"
-        name="LeaveProject"
-        isAbstract="false"
-        isLeaf="false">
-        <subjects>
-          <subsystemMoniker
-            Id="8dae50c7-2f1b-4f94-9f10-32e89871f4e9"
-            LastKnownName="Project"
-            LastKnownLocation="ObjectModel.uml" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <useCase
-        Id="a97505f7-d700-434f-9754-2bce641ee4fe"
-        name="KickUser"
-        isAbstract="false"
-        isLeaf="false">
-        <subjects>
-          <subsystemMoniker
-            Id="8dae50c7-2f1b-4f94-9f10-32e89871f4e9"
-            LastKnownName="Project"
-            LastKnownLocation="ObjectModel.uml" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <subsystem
-        Id="d9483b30-a3bf-48d7-900f-045915dbe617"
-        name="Balance"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <actor
-        Id="ad175415-9646-43e8-a193-ad40b19b973c"
+        Id="b8bf7b6f-7057-4958-a4ed-5e4d81060774"
         name="User"
         isAbstract="false"
         isLeaf="false">
         <targetEnds>
           <association
-            Id="b0ff3af1-a05b-4d49-8737-cb17d7c4628a"
+            Id="aa2c9cac-f1a9-4605-8af5-752d66fa4f53"
             isDerived="false"
             sourceEndRoleName="User"
-            targetEndRoleName="AttachBalance"
+            targetEndRoleName="Login"
             isLeaf="false"
             isAbstract="false">
             <useCaseMoniker
-              Id="bb7b0e83-27cd-4724-92bf-91cc7480ada0"
-              LastKnownName="AttachBalance"
+              Id="64d3f6ce-944e-4f50-b00f-060eca588a1c"
+              LastKnownName="Login"
               LastKnownLocation="ObjectModel.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="e8301335-73bd-4c3b-a935-f1ce32469945"
+                  Id="9edd5002-5f3c-4125-8a41-a36f813f822b"
                   name="User"
                   isLeaf="false"
                   isStatic="false"
@@ -4562,7 +3125,861 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="b9c3dd28-5a73-488e-80aa-7e295cd21e7f"
+                  Id="805b7bb6-200f-43c1-ab49-9e04091086f6"
+                  name="Login"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="79c0c88f-acac-4fe9-94a0-3fae7694d0fc"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Logout"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6c2e37de-1024-450d-9777-76520cf253ee"
+              LastKnownName="Logout"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e685e7f4-0c13-4d96-9811-55c9634d70df"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="87149317-a082-49ae-b02a-ee5be4540208"
+                  name="Logout"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="c4f5f9eb-13fb-4154-94f9-c9b8e5de75d0"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="ChangeUserDetails"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="69f36d39-44a4-4bda-9e33-7b8e4887e89a"
+              LastKnownName="ChangeUserDetails"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b1f550e9-1c3a-46a2-93b5-9b4124ca2822"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5ed31a52-9b9b-4ffe-b409-6d76c69746ef"
+                  name="ChangeUserDetails"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="871f2180-b91d-470c-9f43-97f04e3cb827"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="InvitePerson"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="36a9490d-d4bb-4d3f-a12c-d1d8247988b9"
+              LastKnownName="InvitePerson"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f5d9a93c-614d-4204-b38a-98029da0967d"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bb7646b2-4885-46b7-8c71-512e6fb3defd"
+                  name="InvitePerson"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="d8da75aa-a299-435f-99e9-23d5353b8379"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="DeleteAccount"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="de6fb03b-eb01-4525-acb1-4796481f58c6"
+              LastKnownName="DeleteAccount"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f8ceead5-2569-4373-ab27-d5efea6537b4"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9dca6d81-a664-4860-897c-270714459573"
+                  name="DeleteAccount"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="5be66eb2-e636-496d-86cf-4d763bd816a0"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="AddContact"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="67f5973b-8640-4a5e-bdb5-1c71253de9f9"
+              LastKnownName="AddContact"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bf977cc8-0bc5-4369-bf3e-9f94870a97ec"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b2125edd-fd32-48b1-a13f-a8d8eeb8461a"
+                  name="AddContact"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="772fb272-9b97-4e62-98a2-a484bd9b903a"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Register"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="4f7ea0df-e60e-4eaa-b4f3-2978820bda24"
+              LastKnownName="Register"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b7b24857-6b90-4e51-a00d-5621ece0a19b"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ba62d528-88d9-44b0-bdb0-8f2203242dc7"
+                  name="Register"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="d22bdb78-775e-4107-8e9f-bb8568739e64"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="ConfirmRegistration"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d629321a-c44c-4722-b905-af95aef31ede"
+              LastKnownName="ConfirmRegistration"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b4659b12-ca38-4204-9372-cc6d82cfff76"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9c51ce15-93ec-4004-a155-df53a4340bb6"
+                  name="ConfirmRegistration"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f1ae01bf-edbf-48d0-9759-73f5d233d192"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="DeleteContact"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d284f9a0-4a33-4c37-a5a2-8ccd3ae24f11"
+              LastKnownName="DeleteContact"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="824cff91-8ad6-44d9-9dc8-fcc33c0fd330"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b534fdd4-0535-470d-a9a5-4e02d2190899"
+                  name="DeleteContact"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="a9c77d34-bb69-4a6c-aeb5-7c6f67e35728"
+        name="Admin"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="64d3f6ce-944e-4f50-b00f-060eca588a1c"
+        name="Login"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="4ab03c37-d014-4e80-9cf7-d5fc9eee6be5">
+            <useCaseMoniker
+              Id="ace455ec-3dce-439f-8fad-f96f067baacd"
+              LastKnownName="Settings..."
+              LastKnownLocation="ObjectModel.uml" />
+          </extend>
+          <extend
+            Id="a9238cc4-a4bb-4120-a0c4-06b21b48d5aa">
+            <useCaseMoniker
+              Id="6a93fb23-d4c5-4d3c-895d-1c19574d5986"
+              LastKnownName="Security..."
+              LastKnownLocation="ObjectModel.uml" />
+          </extend>
+          <extend
+            Id="a8d5e162-e4b5-4af0-b422-03e63bd5c462">
+            <useCaseMoniker
+              Id="7fc0d84f-f17f-4257-b064-4effa683cf78"
+              LastKnownName="Chat..."
+              LastKnownLocation="ObjectModel.uml" />
+          </extend>
+          <extend
+            Id="cdc125aa-0107-4466-9dfe-57c9a688f8ee">
+            <useCaseMoniker
+              Id="7f06a81e-8e80-42d6-a360-fd3db13209b6"
+              LastKnownName="Project..."
+              LastKnownLocation="ObjectModel.uml" />
+          </extend>
+          <extend
+            Id="d6817251-2bda-40c6-90e0-7b810e21d8da">
+            <useCaseMoniker
+              Id="c27b8d7d-89e2-4de4-8c88-d6c9ea27ec16"
+              LastKnownName="Task..."
+              LastKnownLocation="ObjectModel.uml" />
+          </extend>
+          <extend
+            Id="44afdc9d-760c-44ef-8e01-62a3065c8c6b">
+            <useCaseMoniker
+              Id="910ecaa8-2ffc-48b1-b40d-9ed60db33113"
+              LastKnownName="Poll..."
+              LastKnownLocation="ObjectModel.uml" />
+          </extend>
+          <extend
+            Id="be5ce018-896a-4256-9b2f-66d3a795f933">
+            <useCaseMoniker
+              Id="634817f1-6d9f-4d13-b079-5fe6eecbd6cd"
+              LastKnownName="Balance..."
+              LastKnownLocation="ObjectModel.uml" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="a9c77d34-bb69-4a6c-aeb5-7c6f67e35728"
+            LastKnownName="Admin"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6c2e37de-1024-450d-9777-76520cf253ee"
+        name="Logout"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="5c78afa3-865f-4696-a672-85eb20832917">
+            <useCaseMoniker
+              Id="64d3f6ce-944e-4f50-b00f-060eca588a1c"
+              LastKnownName="Login"
+              LastKnownLocation="ObjectModel.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="a9c77d34-bb69-4a6c-aeb5-7c6f67e35728"
+            LastKnownName="Admin"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="69f36d39-44a4-4bda-9e33-7b8e4887e89a"
+        name="ChangeUserDetails"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="fb24168f-115b-4cbd-90bc-82da241f5070">
+            <useCaseMoniker
+              Id="64d3f6ce-944e-4f50-b00f-060eca588a1c"
+              LastKnownName="Login"
+              LastKnownLocation="ObjectModel.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="a9c77d34-bb69-4a6c-aeb5-7c6f67e35728"
+            LastKnownName="Admin"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="36a9490d-d4bb-4d3f-a12c-d1d8247988b9"
+        name="InvitePerson"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="342023e0-dcca-4d9b-96da-7bedd9b2f835">
+            <useCaseMoniker
+              Id="64d3f6ce-944e-4f50-b00f-060eca588a1c"
+              LastKnownName="Login"
+              LastKnownLocation="ObjectModel.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="a9c77d34-bb69-4a6c-aeb5-7c6f67e35728"
+            LastKnownName="Admin"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="ec4d35fc-6900-431b-b936-7e2bdad5be26"
+        name="Task"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="90ce6cfa-1c85-42e8-91a5-163916ff7d6d"
+        name="Project"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="39e3c2cd-14b1-4c20-a418-ba6ba33f1486"
+        name="Balance"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="be71cacb-7e37-48dc-aa77-d99755403782"
+        name="Chat"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="2b4add02-8882-44e2-9289-e87a311667bb"
+        name="Poll"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="8a7b2b34-1f5f-4269-8341-6b98efbe17d4"
+        name="Settings"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="f2a94431-08fc-4b6e-90db-f485d5d2886e"
+        name="Security"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="de6fb03b-eb01-4525-acb1-4796481f58c6"
+        name="DeleteAccount"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="91a452fb-8f8b-42cf-a755-0e3631ca0b7a">
+            <useCaseMoniker
+              Id="64d3f6ce-944e-4f50-b00f-060eca588a1c"
+              LastKnownName="Login"
+              LastKnownLocation="ObjectModel.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="a9c77d34-bb69-4a6c-aeb5-7c6f67e35728"
+            LastKnownName="Admin"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ace455ec-3dce-439f-8fad-f96f067baacd"
+        name="Settings..."
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6a93fb23-d4c5-4d3c-895d-1c19574d5986"
+        name="Security..."
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7fc0d84f-f17f-4257-b064-4effa683cf78"
+        name="Chat..."
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7f06a81e-8e80-42d6-a360-fd3db13209b6"
+        name="Project..."
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c27b8d7d-89e2-4de4-8c88-d6c9ea27ec16"
+        name="Task..."
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="910ecaa8-2ffc-48b1-b40d-9ed60db33113"
+        name="Poll..."
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="634817f1-6d9f-4d13-b079-5fe6eecbd6cd"
+        name="Balance..."
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="67f5973b-8640-4a5e-bdb5-1c71253de9f9"
+        name="AddContact"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="6b660553-918d-4160-a1e2-e7a7707a621e">
+            <useCaseMoniker
+              Id="64d3f6ce-944e-4f50-b00f-060eca588a1c"
+              LastKnownName="Login"
+              LastKnownLocation="ObjectModel.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="a9c77d34-bb69-4a6c-aeb5-7c6f67e35728"
+            LastKnownName="Admin"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4f7ea0df-e60e-4eaa-b4f3-2978820bda24"
+        name="Register"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="a9c77d34-bb69-4a6c-aeb5-7c6f67e35728"
+            LastKnownName="Admin"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d629321a-c44c-4722-b905-af95aef31ede"
+        name="ConfirmRegistration"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="3765fa5d-915c-4f2f-8989-2348fe3a7e10">
+            <useCaseMoniker
+              Id="64d3f6ce-944e-4f50-b00f-060eca588a1c"
+              LastKnownName="Login"
+              LastKnownLocation="ObjectModel.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="a9c77d34-bb69-4a6c-aeb5-7c6f67e35728"
+            LastKnownName="Admin"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="1b1da1fb-cbbf-406f-905c-c8e7a41373e4"
+        name="Contact"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="773be765-3643-41f0-a51f-5f8033931195"
+            isDerived="false"
+            sourceEndRoleName="Contact"
+            targetEndRoleName="Register"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d050a7ad-dbfa-4db6-9e5a-51f872179cb2"
+              LastKnownName="Register"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8b0a131e-1e2f-4146-9e42-14851cee5a4a"
+                  name="Contact"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2be64a9e-75a6-477c-9ece-5c857303198f"
+                  name="Register"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9126f861-bc8b-4e51-a8b2-ed2e37ae8c3d"
+            isDerived="false"
+            sourceEndRoleName="Contact"
+            targetEndRoleName="DeleteRequest"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="912adedc-84c8-4b20-a76d-8ac5a5193b64"
+              LastKnownName="DeleteRequest"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="407e2138-4c53-48ac-af40-62c1da1530ac"
+                  name="Contact"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8b395c75-73c3-4945-bc38-0c5104debb6c"
+                  name="DeleteRequest"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="672b5750-3457-469a-a8b2-023ec98a6c16"
+        name="Admin"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d050a7ad-dbfa-4db6-9e5a-51f872179cb2"
+        name="Register"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="e07a88c4-44de-4237-8cf6-fbaeb21909ea">
+            <useCaseMoniker
+              Id="4fc1fd82-c8d9-478e-86d0-2118291221e1"
+              LastKnownName="User..."
+              LastKnownLocation="ObjectModel.uml" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="672b5750-3457-469a-a8b2-023ec98a6c16"
+            LastKnownName="Admin"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="912adedc-84c8-4b20-a76d-8ac5a5193b64"
+        name="DeleteRequest"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="672b5750-3457-469a-a8b2-023ec98a6c16"
+            LastKnownName="Admin"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="765fe31f-b0fb-40b4-8e7c-2bd90e80f5f3"
+        name="User"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4fc1fd82-c8d9-478e-86d0-2118291221e1"
+        name="User..."
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d284f9a0-4a33-4c37-a5a2-8ccd3ae24f11"
+        name="DeleteContact"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="867a0fba-3c89-45fb-aa3b-de581e78355b">
+            <useCaseMoniker
+              Id="64d3f6ce-944e-4f50-b00f-060eca588a1c"
+              LastKnownName="Login"
+              LastKnownLocation="ObjectModel.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="a9c77d34-bb69-4a6c-aeb5-7c6f67e35728"
+            LastKnownName="Admin"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="9a11a337-fefd-4dd9-8412-4f69bcead684"
+        name="User1"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="c7901f09-85d0-481d-9576-c5138c418a3a"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="AttachBalance"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8156345c-9fb7-4454-9d42-a66401e65829"
+              LastKnownName="AttachBalance"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="071d46c3-17c6-41d3-8c64-04b788d25075"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b4fd060f-a36a-4102-90b7-58e88031ca7b"
                   name="AttachBalance"
                   isLeaf="false"
                   isStatic="false"
@@ -4575,20 +3992,20 @@
             </relationshipOwnedElementsInternal>
           </association>
           <association
-            Id="e7268f7d-8621-473f-8565-444ed2a1eb2c"
+            Id="54594bbf-33c0-4ea2-bd1f-c60d6358199d"
             isDerived="false"
             sourceEndRoleName="User"
             targetEndRoleName="AttachBill"
             isLeaf="false"
             isAbstract="false">
             <useCaseMoniker
-              Id="371dc3eb-fb39-4137-a8f0-6ecc6944a996"
+              Id="d6f9c239-cbcf-4976-b652-8fab5c433aae"
               LastKnownName="AttachBill"
               LastKnownLocation="ObjectModel.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="ef0d57ae-c556-4290-992a-5d0e34af61bd"
+                  Id="61f6449e-b109-4ae8-8ca5-1f46e163c752"
                   name="User"
                   isLeaf="false"
                   isStatic="false"
@@ -4601,7 +4018,7 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="1b23529a-f8e5-425f-b7e3-a4ebbc885a7e"
+                  Id="2c83c8b5-7a12-4e3c-92b5-feede2f64c8a"
                   name="AttachBill"
                   isLeaf="false"
                   isStatic="false"
@@ -4614,20 +4031,20 @@
             </relationshipOwnedElementsInternal>
           </association>
           <association
-            Id="1974f449-1a65-48a0-992c-68aecee38393"
+            Id="323290e5-2ee3-4ea8-be45-68b8a01ecb04"
             isDerived="false"
             sourceEndRoleName="User"
             targetEndRoleName="ViewBalance"
             isLeaf="false"
             isAbstract="false">
             <useCaseMoniker
-              Id="afafab47-826d-40b8-9e70-7f27d3d42803"
+              Id="b939aec8-f570-4f87-9c27-27df60cb9309"
               LastKnownName="ViewBalance"
               LastKnownLocation="ObjectModel.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="ad9f31f4-d4c0-4749-b977-169a9612359e"
+                  Id="c5e3b8c3-5067-439a-b08e-d624caffc5a6"
                   name="User"
                   isLeaf="false"
                   isStatic="false"
@@ -4640,7 +4057,7 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="9344e922-8c23-460e-9bc2-82556448ab2c"
+                  Id="d25fbbdc-018c-4a15-8577-4ef60e349c88"
                   name="ViewBalance"
                   isLeaf="false"
                   isStatic="false"
@@ -4653,20 +4070,20 @@
             </relationshipOwnedElementsInternal>
           </association>
           <association
-            Id="9dd4343a-e398-421c-ab9f-b49f3684d431"
+            Id="a4a1cf67-50b8-45bf-b7f1-3004055d8014"
             isDerived="false"
             sourceEndRoleName="User"
             targetEndRoleName="ViewProjectBalance"
             isLeaf="false"
             isAbstract="false">
             <useCaseMoniker
-              Id="694b4934-a908-48c7-ae10-8a96106d0eff"
+              Id="0511e10d-522e-445a-b117-63b8f0cd7114"
               LastKnownName="ViewProjectBalance"
               LastKnownLocation="ObjectModel.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="95b36177-695b-48a1-87d7-2ba95554c0fe"
+                  Id="d9ec408f-7a3a-403f-96da-f12231f6a91f"
                   name="User"
                   isLeaf="false"
                   isStatic="false"
@@ -4679,7 +4096,7 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="706f2f6b-f573-403a-8ba2-ff2cbdff0ec1"
+                  Id="87f9e964-79de-4a1e-980e-0f0a05b778f6"
                   name="ViewProjectBalance"
                   isLeaf="false"
                   isStatic="false"
@@ -4692,20 +4109,20 @@
             </relationshipOwnedElementsInternal>
           </association>
           <association
-            Id="dff9fd31-ff58-454b-a6bb-8a11d6155929"
+            Id="ada215dd-0e71-4677-9ccf-44491bb90405"
             isDerived="false"
             sourceEndRoleName="User"
             targetEndRoleName="EditBalance"
             isLeaf="false"
             isAbstract="false">
             <useCaseMoniker
-              Id="7f854afa-40dc-4ff9-aa80-6796f18e43a5"
+              Id="69e4e01d-05c9-4be3-b501-122a12d090ec"
               LastKnownName="EditBalance"
               LastKnownLocation="ObjectModel.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="34ce6b14-abf8-46eb-8927-2b3f4f819063"
+                  Id="220d7c41-a536-4c10-8396-d42e3633a615"
                   name="User"
                   isLeaf="false"
                   isStatic="false"
@@ -4718,7 +4135,7 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="e4e84f58-7ad6-4e1e-8657-fc14cbe84070"
+                  Id="fffe265a-3119-4c73-81d2-5bbd3bde2357"
                   name="EditBalance"
                   isLeaf="false"
                   isStatic="false"
@@ -4734,27 +4151,42 @@
       </actor>
     </packageHasNamedElement>
     <packageHasNamedElement>
+      <artifact
+        Id="3a0afc23-9465-4f35-9bfd-248aeb0c6e4f"
+        name="Task1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="8f338c6e-5c03-461c-bace-c2cd78013e43"
+        name="Balance1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
       <useCase
-        Id="bb7b0e83-27cd-4724-92bf-91cc7480ada0"
+        Id="8156345c-9fb7-4454-9d42-a66401e65829"
         name="AttachBalance"
         isAbstract="false"
         isLeaf="false">
         <targetEnds>
           <association
-            Id="d77a1f00-0362-4673-b520-e85fd6711f1d"
+            Id="c45a1b36-600c-4855-95ac-a1244b3dd25f"
             isDerived="false"
             sourceEndRoleName="AttachBalance"
             targetEndRoleName="Task"
             isLeaf="false"
             isAbstract="false">
             <artifactMoniker
-              Id="90791bd1-ef6b-4bbe-b8f5-caa012bcb043"
-              LastKnownName="Task"
+              Id="3a0afc23-9465-4f35-9bfd-248aeb0c6e4f"
+              LastKnownName="Task1"
               LastKnownLocation="ObjectModel.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="a2b13876-ea53-41f5-a79d-e7d838ce0192"
+                  Id="6e90cee9-2c50-4e52-b1d8-5410327a2479"
                   name="AttachBalance"
                   isLeaf="false"
                   isStatic="false"
@@ -4767,7 +4199,7 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="a733da43-de36-4cb8-82d8-0b5b0266f71b"
+                  Id="95094f60-7520-43a7-9b49-d7b4af4f2a17"
                   name="Task"
                   isLeaf="false"
                   isStatic="false"
@@ -4782,129 +4214,479 @@
         </targetEnds>
         <subjects>
           <subsystemMoniker
-            Id="d9483b30-a3bf-48d7-900f-045915dbe617"
-            LastKnownName="Balance"
+            Id="8f338c6e-5c03-461c-bace-c2cd78013e43"
+            LastKnownName="Balance1"
             LastKnownLocation="ObjectModel.uml" />
         </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
-        Id="371dc3eb-fb39-4137-a8f0-6ecc6944a996"
+        Id="d6f9c239-cbcf-4976-b652-8fab5c433aae"
         name="AttachBill"
         isAbstract="false"
         isLeaf="false">
         <extendedCases>
           <extend
-            Id="bfe27b34-94f7-4972-9c56-e9016176db10">
+            Id="73f8f6ea-c3f1-42f5-9e27-b18e2686c212">
             <useCaseMoniker
-              Id="bb7b0e83-27cd-4724-92bf-91cc7480ada0"
+              Id="8156345c-9fb7-4454-9d42-a66401e65829"
               LastKnownName="AttachBalance"
               LastKnownLocation="ObjectModel.uml" />
           </extend>
         </extendedCases>
         <subjects>
           <subsystemMoniker
-            Id="d9483b30-a3bf-48d7-900f-045915dbe617"
-            LastKnownName="Balance"
+            Id="8f338c6e-5c03-461c-bace-c2cd78013e43"
+            LastKnownName="Balance1"
             LastKnownLocation="ObjectModel.uml" />
         </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
-        Id="afafab47-826d-40b8-9e70-7f27d3d42803"
+        Id="b939aec8-f570-4f87-9c27-27df60cb9309"
         name="ViewBalance"
         isAbstract="false"
         isLeaf="false">
         <subjects>
           <subsystemMoniker
-            Id="d9483b30-a3bf-48d7-900f-045915dbe617"
-            LastKnownName="Balance"
+            Id="8f338c6e-5c03-461c-bace-c2cd78013e43"
+            LastKnownName="Balance1"
             LastKnownLocation="ObjectModel.uml" />
         </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
-        Id="694b4934-a908-48c7-ae10-8a96106d0eff"
+        Id="0511e10d-522e-445a-b117-63b8f0cd7114"
         name="ViewProjectBalance"
         isAbstract="false"
         isLeaf="false">
         <subjects>
           <subsystemMoniker
-            Id="d9483b30-a3bf-48d7-900f-045915dbe617"
-            LastKnownName="Balance"
+            Id="8f338c6e-5c03-461c-bace-c2cd78013e43"
+            LastKnownName="Balance1"
             LastKnownLocation="ObjectModel.uml" />
         </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <artifact
-        Id="90791bd1-ef6b-4bbe-b8f5-caa012bcb043"
-        name="Task"
-        isAbstract="false"
-        isLeaf="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <useCase
-        Id="7f854afa-40dc-4ff9-aa80-6796f18e43a5"
+        Id="69e4e01d-05c9-4be3-b501-122a12d090ec"
         name="EditBalance"
         isAbstract="false"
         isLeaf="false">
         <extendedCases>
           <extend
-            Id="ef9a9fac-6b97-40cb-b3fb-471263ee75ad">
+            Id="ad13b71e-d494-4b48-a774-6f50dafc9dfc">
             <useCaseMoniker
-              Id="bb7b0e83-27cd-4724-92bf-91cc7480ada0"
+              Id="8156345c-9fb7-4454-9d42-a66401e65829"
               LastKnownName="AttachBalance"
               LastKnownLocation="ObjectModel.uml" />
           </extend>
         </extendedCases>
         <subjects>
           <subsystemMoniker
-            Id="d9483b30-a3bf-48d7-900f-045915dbe617"
-            LastKnownName="Balance"
+            Id="8f338c6e-5c03-461c-bace-c2cd78013e43"
+            LastKnownName="Balance1"
             LastKnownLocation="ObjectModel.uml" />
         </subjects>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <useCase
-        Id="af8f21b4-d1ac-4282-83a7-4661fa04291d"
-        name="LeaveGroupChat"
-        isAbstract="false"
-        isLeaf="false">
-        <subjects>
-          <subsystemMoniker
-            Id="b70e07de-cbee-4174-aa78-d0e865014767"
-            LastKnownName="Chat"
-            LastKnownLocation="ObjectModel.uml" />
-        </subjects>
-      </useCase>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <artifact
-        Id="f99c99ed-9223-4806-b0bd-7c48bb08ac04"
-        name="Project"
+      <actor
+        Id="3cb7147f-4c7e-431e-bab4-c6e3efb97ceb"
+        name="Creator1"
         isAbstract="false"
         isLeaf="false">
         <targetEnds>
           <association
-            Id="87b30607-2ac9-4764-bdbf-f1ac2656c412"
+            Id="eb5c5b9b-538b-42f2-808a-685a9d17c0a9"
+            isDerived="false"
+            sourceEndRoleName="Creator"
+            targetEndRoleName="Create"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="cd0acb1a-8339-4ff3-8ef5-105625d4607c"
+              LastKnownName="CreateChat"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="975b49e9-c617-42fe-ac66-83020633c951"
+                  name="Creator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6dac944d-2351-41d1-82c4-60386b3ebbdd"
+                  name="Create"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="cba0b143-2623-4113-b1b6-faa68d7c5d01"
+            isDerived="false"
+            sourceEndRoleName="Creator"
+            targetEndRoleName="SendMessage"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="7bb528c9-faa9-4d1b-9b8f-b7d6ed3d02d8"
+              LastKnownName="SendMessage"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c80bd016-0505-4fcb-b6a8-0be1ec13dfda"
+                  name="Creator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4cfa412a-c34d-44f9-82be-468aa1969c59"
+                  name="SendMessage"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3aaafdc2-8987-405b-988a-cc3dc9d28256"
+            isDerived="false"
+            sourceEndRoleName="Creator"
+            targetEndRoleName="Invite"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e380eec9-eed9-4b69-90b3-71663ad457aa"
+              LastKnownName="Invite1"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fd46f84e-acb8-4e30-b183-8c8ec0fab2cf"
+                  name="Creator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9d4a0df3-ceee-4a8f-84cd-ddbc2a271290"
+                  name="Invite"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="8cc89940-6336-404a-b33b-1ac5321069ca"
+            isDerived="false"
+            sourceEndRoleName="Creator"
+            targetEndRoleName="ForwardMessage"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="4efc199f-0a66-475e-84e9-4d6fae478008"
+              LastKnownName="ForwardMessage"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f104386a-03d6-427d-8339-1535b1eb2b64"
+                  name="Creator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="44628f3f-8e0d-406e-a8ab-55ffc4fed842"
+                  name="ForwardMessage"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="d10c6815-88d3-4694-a75a-bc4ab2d5b8f4"
+            isDerived="false"
+            sourceEndRoleName="Creator"
+            targetEndRoleName="CreateGroupChat"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e65f7de6-20c1-4ffe-bade-bf8186b1425f"
+              LastKnownName="CreateGroupChat"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0d6643e8-b888-48de-86bb-ddb1bbb6a1ec"
+                  name="Creator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="96c4e3a8-861f-4ef8-9459-8ba9a23df2d9"
+                  name="CreateGroupChat"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3a3f2e27-e474-476c-89b4-3cef11ddc93e"
+            isDerived="false"
+            sourceEndRoleName="Creator"
+            targetEndRoleName="Delete"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="49e44126-5b25-433c-94c9-604fcadb39af"
+              LastKnownName="Delete1"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="34a02862-de35-47fa-813f-bd3e2c398032"
+                  name="Creator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="91b4c9f5-9061-4e71-813b-348ad343dfee"
+                  name="Delete"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3a763307-c87e-4dd3-bd9c-dae3de92079b"
+            isDerived="false"
+            sourceEndRoleName="Creator"
+            targetEndRoleName="LeaveGroupChat"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a2698a1d-8990-41e0-b9a6-f9819fe19d70"
+              LastKnownName="LeaveGroupChat"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="08b6bb4a-ca70-4de4-b40f-73befdaff376"
+                  name="Creator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="45d1d036-78fb-45aa-8eb2-2dbb7b293936"
+                  name="LeaveGroupChat"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="c81e3337-bfa3-4d0b-9b62-ea8155f5f4b0"
+        name="Member1"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="1a26d8f4-7c8d-46df-9546-ba9e560a52c9"
+            isDerived="false"
+            sourceEndRoleName="Member"
+            targetEndRoleName="SendMessage"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="7bb528c9-faa9-4d1b-9b8f-b7d6ed3d02d8"
+              LastKnownName="SendMessage"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7647e116-c7b1-410a-aefa-66eaab3c7a4b"
+                  name="Member"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0a41ab34-dcb3-4593-998e-1f52b262798a"
+                  name="SendMessage"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f8924066-c298-4137-b876-3eeadf1632c9"
+            isDerived="false"
+            sourceEndRoleName="Member"
+            targetEndRoleName="LeaveGroupChat"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a2698a1d-8990-41e0-b9a6-f9819fe19d70"
+              LastKnownName="LeaveGroupChat"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2f7006e1-e84b-40c7-b0e0-dee31c8881e1"
+                  name="Member"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="33bfe355-f9ba-4850-8d50-2fa6df902cb9"
+                  name="LeaveGroupChat"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="ace5572d-fab4-4e8f-b3e1-18d24a5e2295"
+        name="Project1"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="b5d7cfa7-c8fc-469e-9876-34764e0386e6"
             isDerived="false"
             sourceEndRoleName="Project"
             targetEndRoleName="CreateGroupChat"
             isLeaf="false"
             isAbstract="false">
             <useCaseMoniker
-              Id="d27d1a67-ebf3-4047-846c-10de1b630b16"
+              Id="e65f7de6-20c1-4ffe-bade-bf8186b1425f"
               LastKnownName="CreateGroupChat"
               LastKnownLocation="ObjectModel.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="1e6f5f4d-1b6f-41e4-b5c5-75194c18ce41"
+                  Id="5b1e8b1d-1578-410f-881f-28c8d6700355"
                   name="Project"
                   isLeaf="false"
                   isStatic="false"
@@ -4917,7 +4699,7 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="af297eb4-522d-41a4-a4c6-cc3fb7de1013"
+                  Id="14e3a50c-14dc-4e75-b772-a81d6bb497d3"
                   name="CreateGroupChat"
                   isLeaf="false"
                   isStatic="false"
@@ -4931,6 +4713,1400 @@
           </association>
         </targetEnds>
       </artifact>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="f484a599-0e24-45a3-8d5f-e196eee82609"
+        name="Chat1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="cd0acb1a-8339-4ff3-8ef5-105625d4607c"
+        name="CreateChat"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="f484a599-0e24-45a3-8d5f-e196eee82609"
+            LastKnownName="Chat1"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e380eec9-eed9-4b69-90b3-71663ad457aa"
+        name="Invite1"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="641053d9-f569-4a0a-a709-2a5a3a9224e8"
+            isDerived="false"
+            sourceEndRoleName="Invite"
+            targetEndRoleName="Member"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="c81e3337-bfa3-4d0b-9b62-ea8155f5f4b0"
+              LastKnownName="Member1"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="82f4e8e2-316c-4f39-b8b5-9917249b4f54"
+                  name="Invite"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e625fb1b-ac50-4820-a163-6d3b4b209c8b"
+                  name="Member"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="f484a599-0e24-45a3-8d5f-e196eee82609"
+            LastKnownName="Chat1"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7bb528c9-faa9-4d1b-9b8f-b7d6ed3d02d8"
+        name="SendMessage"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="6ff363c1-f0d1-4dd7-868d-b49a1505c813">
+            <useCaseMoniker
+              Id="3169f534-b8aa-46d9-bd19-8b391953e6e5"
+              LastKnownName="ReceiveMessage"
+              LastKnownLocation="ObjectModel.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="f484a599-0e24-45a3-8d5f-e196eee82609"
+            LastKnownName="Chat1"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="3169f534-b8aa-46d9-bd19-8b391953e6e5"
+        name="ReceiveMessage"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="56930623-6a8a-466e-9b2a-b436e23829da"
+            isDerived="false"
+            sourceEndRoleName="ReceiveMessage"
+            targetEndRoleName="Creator"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="3cb7147f-4c7e-431e-bab4-c6e3efb97ceb"
+              LastKnownName="Creator1"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a7552944-84a3-4862-b14a-32bdcd808289"
+                  name="ReceiveMessage"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b384cc9c-e469-4f05-8a26-714bee01708f"
+                  name="Creator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="577446fd-ed6a-43d3-a254-65914584148d"
+            isDerived="false"
+            sourceEndRoleName="ReceiveMessage"
+            targetEndRoleName="Member"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="c81e3337-bfa3-4d0b-9b62-ea8155f5f4b0"
+              LastKnownName="Member1"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9607f033-be27-41c1-9e5f-1a2100096015"
+                  name="ReceiveMessage"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fbcd1a59-9865-4e5b-bf75-5b4d00aabf3d"
+                  name="Member"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <extendedCases>
+          <extend
+            Id="05fbc6fe-2787-4528-9630-66d7070f3926">
+            <useCaseMoniker
+              Id="4efc199f-0a66-475e-84e9-4d6fae478008"
+              LastKnownName="ForwardMessage"
+              LastKnownLocation="ObjectModel.uml" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="f484a599-0e24-45a3-8d5f-e196eee82609"
+            LastKnownName="Chat1"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4efc199f-0a66-475e-84e9-4d6fae478008"
+        name="ForwardMessage"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="31c7b136-f31c-4eee-af50-b94c5d9f2c73">
+            <useCaseMoniker
+              Id="7bb528c9-faa9-4d1b-9b8f-b7d6ed3d02d8"
+              LastKnownName="SendMessage"
+              LastKnownLocation="ObjectModel.uml" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="f484a599-0e24-45a3-8d5f-e196eee82609"
+            LastKnownName="Chat1"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e65f7de6-20c1-4ffe-bade-bf8186b1425f"
+        name="CreateGroupChat"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="ac5a0e62-0e58-45ba-889b-3ce76addc661">
+            <useCaseMoniker
+              Id="e380eec9-eed9-4b69-90b3-71663ad457aa"
+              LastKnownName="Invite1"
+              LastKnownLocation="ObjectModel.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="f484a599-0e24-45a3-8d5f-e196eee82609"
+            LastKnownName="Chat1"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="49e44126-5b25-433c-94c9-604fcadb39af"
+        name="Delete1"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="f484a599-0e24-45a3-8d5f-e196eee82609"
+            LastKnownName="Chat1"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a2698a1d-8990-41e0-b9a6-f9819fe19d70"
+        name="LeaveGroupChat"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="f484a599-0e24-45a3-8d5f-e196eee82609"
+            LastKnownName="Chat1"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="6020ee03-f03d-4403-9d6e-82e9e7541bf3"
+        name="Creator2"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="d6d618c3-dba0-429d-b981-b07998b3d55a"
+            isDerived="false"
+            sourceEndRoleName="Creator"
+            targetEndRoleName="Create"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="f46824f9-9660-44d9-899e-759d7875292b"
+              LastKnownName="Create1"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="27df86c5-77b1-43f4-8b15-460bdbde1fd8"
+                  name="Creator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="88f53a65-a7ea-4b3f-b83d-7cc26faa1b8b"
+                  name="Create"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="75420a30-5524-409f-b782-695a01b23f75"
+            isDerived="false"
+            sourceEndRoleName="Creator"
+            targetEndRoleName="Invite"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="19910bfc-609b-442b-bfd8-a735bd43a13c"
+              LastKnownName="Invite2"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ce574902-8cb6-48b4-8b26-8dd93ba426f1"
+                  name="Creator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="89af7da6-fc34-4971-b131-9f9c06f7fdeb"
+                  name="Invite"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3371d2e9-0f61-4e5e-9d32-326d422fe0eb"
+            isDerived="false"
+            sourceEndRoleName="Creator"
+            targetEndRoleName="Delete"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="da125716-e15e-4062-86cf-bb0d685b03e3"
+              LastKnownName="Delete2"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a92ac3c1-df25-4041-adb2-3486d07c1c3c"
+                  name="Creator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c4a7985f-6634-4947-8b50-3be19c6ed87e"
+                  name="Delete"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a36ce191-8d16-47f2-b38e-3cf1b86d4895"
+            isDerived="false"
+            sourceEndRoleName="Creator"
+            targetEndRoleName="LeaveProject"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="494f81e0-4fd9-4e0f-9482-6a754c214000"
+              LastKnownName="LeaveProject"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5845f133-2664-48ad-b2eb-801f7303bcb7"
+                  name="Creator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="56216792-6ace-46d7-a3e9-a32bbaf99448"
+                  name="LeaveProject"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="8c5abdb4-0e0b-481d-9a09-bd291d1e1bc4"
+            isDerived="false"
+            sourceEndRoleName="Creator"
+            targetEndRoleName="KickUser"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d32e5948-f1ea-4281-9e90-7c309d247e22"
+              LastKnownName="KickUser"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a6ae19d1-d3e5-4a50-a50f-78cf8fae6f0c"
+                  name="Creator"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3c8ec563-2e5c-40eb-8aad-5f3eb31083a4"
+                  name="KickUser"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="6a4f4338-6a9b-486e-9f9c-abda0f37342c"
+        name="Users"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="8bdd2869-91b6-4c3b-9dcd-0ee6fe8414c9"
+            isDerived="false"
+            sourceEndRoleName="Users"
+            targetEndRoleName="LeaveProject"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="494f81e0-4fd9-4e0f-9482-6a754c214000"
+              LastKnownName="LeaveProject"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d958543d-0824-493b-b90c-4e3e41c8ed96"
+                  name="Users"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a8f67abe-48ea-48ca-9bb5-a5e0b33e872f"
+                  name="LeaveProject"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="0b30578f-732c-43e7-b59d-d6890c6e2a09"
+        name="Chat2"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="739e8961-b042-4e41-bb53-03c0f7b80151"
+        name="Poll1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="d64654e0-61b2-4f09-bb59-c00f494bd848"
+        name="Task2"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="87621f63-e129-4485-82d9-4a765abcafeb"
+        name="Balance2"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="48419331-ff1f-456f-9337-752ad1207469"
+        name="Project2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="f46824f9-9660-44d9-899e-759d7875292b"
+        name="Create1"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="9bb035f9-5cb4-4a09-87b2-23e1a1fe0c14"
+            isDerived="false"
+            sourceEndRoleName="Create"
+            targetEndRoleName="Chat"
+            isLeaf="false"
+            isAbstract="false">
+            <artifactMoniker
+              Id="0b30578f-732c-43e7-b59d-d6890c6e2a09"
+              LastKnownName="Chat2"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4b927f40-8d19-49a6-9e1d-6d05f548ea01"
+                  name="Create"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="61d75937-76bf-433e-92c3-8b88b707cf31"
+                  name="Chat"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9ea491ed-02c2-4dea-a393-913c65af00c1"
+            isDerived="false"
+            sourceEndRoleName="Create"
+            targetEndRoleName="Task"
+            isLeaf="false"
+            isAbstract="false">
+            <artifactMoniker
+              Id="d64654e0-61b2-4f09-bb59-c00f494bd848"
+              LastKnownName="Task2"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f624b349-2bd6-42c2-b8b5-7cf7ff367b60"
+                  name="Create"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7966410a-75c0-4b11-b016-ff1496c5a4b1"
+                  name="Task"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <additions>
+          <include
+            Id="a6878dd6-fb0a-4abe-a1de-6db7900011e6">
+            <useCaseMoniker
+              Id="19910bfc-609b-442b-bfd8-a735bd43a13c"
+              LastKnownName="Invite2"
+              LastKnownLocation="ObjectModel.uml" />
+          </include>
+          <include
+            Id="89b4e4db-281a-45a0-a8f7-06f719181d26">
+            <useCaseMoniker
+              Id="ccb5bd42-65bd-42aa-bba0-97e43c786fd0"
+              LastKnownName="CreateObtions"
+              LastKnownLocation="ObjectModel.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="48419331-ff1f-456f-9337-752ad1207469"
+            LastKnownName="Project2"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="19910bfc-609b-442b-bfd8-a735bd43a13c"
+        name="Invite2"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="19acbc6f-eb8a-43d3-8650-e0920874ffd3"
+            isDerived="false"
+            sourceEndRoleName="Invite"
+            targetEndRoleName="Users"
+            isLeaf="false"
+            isAbstract="false">
+            <actorMoniker
+              Id="6a4f4338-6a9b-486e-9f9c-abda0f37342c"
+              LastKnownName="Users"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a737b332-dcff-4fab-8d05-db237124e168"
+                  name="Invite"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="13005df2-58f0-463b-abf4-d860b864a5bd"
+                  name="Users"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="48419331-ff1f-456f-9337-752ad1207469"
+            LastKnownName="Project2"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ccb5bd42-65bd-42aa-bba0-97e43c786fd0"
+        name="CreateObtions"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="75603500-96e8-4e05-aba5-5cd3e3e3659a"
+            isDerived="false"
+            sourceEndRoleName="CreateObtions"
+            targetEndRoleName="Poll"
+            isLeaf="false"
+            isAbstract="false">
+            <artifactMoniker
+              Id="739e8961-b042-4e41-bb53-03c0f7b80151"
+              LastKnownName="Poll1"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="86ef5462-4b0e-4880-8275-0cca1a8c205e"
+                  name="CreateObtions"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="00a704ac-7a77-4724-ad12-4d97d63bafad"
+                  name="Poll"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="bbe07bc9-aaba-41f1-96b5-1d42e4bf5d3d"
+            isDerived="false"
+            sourceEndRoleName="CreateObtions"
+            targetEndRoleName="Balance"
+            isLeaf="false"
+            isAbstract="false">
+            <artifactMoniker
+              Id="87621f63-e129-4485-82d9-4a765abcafeb"
+              LastKnownName="Balance2"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5c229b13-3703-4cb0-bada-cbc62c744448"
+                  name="CreateObtions"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="558b6c62-1c4c-4e71-b6b3-424d4d914bb1"
+                  name="Balance"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="48419331-ff1f-456f-9337-752ad1207469"
+            LastKnownName="Project2"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="da125716-e15e-4062-86cf-bb0d685b03e3"
+        name="Delete2"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="c3b53df7-feef-4bac-bfdd-840e2d17a17a"
+            isDerived="false"
+            sourceEndRoleName="Delete"
+            targetEndRoleName="Chat"
+            isLeaf="false"
+            isAbstract="false">
+            <artifactMoniker
+              Id="0b30578f-732c-43e7-b59d-d6890c6e2a09"
+              LastKnownName="Chat2"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0e932c2b-ff3c-46f6-aaf4-27379fb1e311"
+                  name="Delete"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="98497999-e983-485d-acbd-b0411d885fd9"
+                  name="Chat"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a85320d4-d74a-4a38-a1b8-7e456d59d5a7"
+            isDerived="false"
+            sourceEndRoleName="Delete"
+            targetEndRoleName="Poll"
+            isLeaf="false"
+            isAbstract="false">
+            <artifactMoniker
+              Id="739e8961-b042-4e41-bb53-03c0f7b80151"
+              LastKnownName="Poll1"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="485a45cd-3e10-45ee-9183-0bcd4548e2ed"
+                  name="Delete"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b3af56b3-43f9-45cf-b161-f0beb21c055a"
+                  name="Poll"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7ee32104-a7f0-48ef-9ef8-6352f2d654ac"
+            isDerived="false"
+            sourceEndRoleName="Delete"
+            targetEndRoleName="Task"
+            isLeaf="false"
+            isAbstract="false">
+            <artifactMoniker
+              Id="d64654e0-61b2-4f09-bb59-c00f494bd848"
+              LastKnownName="Task2"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="77c2ea68-1f62-4573-825e-ffd94907ce8d"
+                  name="Delete"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1c8cbf3b-9c9e-4f53-96d4-1dbcc392af7c"
+                  name="Task"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1b6bfa37-3218-42b6-b08e-006df191cc57"
+            isDerived="false"
+            sourceEndRoleName="Delete"
+            targetEndRoleName="Balance"
+            isLeaf="false"
+            isAbstract="false">
+            <artifactMoniker
+              Id="87621f63-e129-4485-82d9-4a765abcafeb"
+              LastKnownName="Balance2"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fba74b0f-5268-4d83-93ec-0c58689b0f4e"
+                  name="Delete"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="919774a8-78da-4cda-83ba-61ef87737b91"
+                  name="Balance"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <subjects>
+          <subsystemMoniker
+            Id="48419331-ff1f-456f-9337-752ad1207469"
+            LastKnownName="Project2"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="494f81e0-4fd9-4e0f-9482-6a754c214000"
+        name="LeaveProject"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="48419331-ff1f-456f-9337-752ad1207469"
+            LastKnownName="Project2"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d32e5948-f1ea-4281-9e90-7c309d247e22"
+        name="KickUser"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="48419331-ff1f-456f-9337-752ad1207469"
+            LastKnownName="Project2"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="130544c0-9bd1-42ef-9a16-25039cde77ae"
+        name="Setting"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="a474f861-e6f5-49b6-afc4-45fedc61b471"
+        name="User"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="93c080ab-68e7-4679-b142-c2e3f65647e8"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="UseCase1"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8b84fe3e-79c1-4360-a495-9a3d640706f9"
+              LastKnownName="changeMoCobColor"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="96c93ae7-1a0d-4a30-9d47-dd07f365ae81"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="76cc32f9-70f0-4588-92de-1abbae4c9c42"
+                  name="UseCase1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="18a7aa2f-456b-4f40-b1fb-27c32d8d9c6b"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="UseCase2"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="351bb31c-c6bd-4155-b343-122eca553e22"
+              LastKnownName="changeChatUserColor"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e647339e-2547-4b32-a08a-038c8622ddd9"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aad355e4-9097-4650-a2f1-76c18aaa06ba"
+                  name="UseCase2"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="74e00a37-5475-4b6f-b7bc-532ea5296695"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="taskNotificationToogle"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="505ff71c-4243-4cd2-8db5-db5cbab39e30"
+              LastKnownName="taskNotificationToogle"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3d783aef-7740-4a25-84f2-606a5ce7d6d4"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="70aa3c8b-b071-4d45-b3e0-090c78c17055"
+                  name="taskNotificationToogle"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="c33eed10-f037-4b8d-90b9-e0d1d92fe3a4"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="polNotificationToogle"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="77d0e023-5c03-4c00-9cc5-f5594ab33d47"
+              LastKnownName="pollNotificationToogle"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="17f8c7c0-9048-45d1-8828-ed081475f711"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cfd28fdb-4bee-418b-947f-364b4b72524c"
+                  name="polNotificationToogle"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="d8d0e46c-bb8c-4f17-b652-e1f7bc6f7e69"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="chatNotificationToogle"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="e8e08525-5b60-4d0f-a931-0079fda317f3"
+              LastKnownName="chatNotificationToogle"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7fb0b877-83da-45f9-a2ed-f951e6a65648"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d9d46772-f91d-449e-9772-1020357a6370"
+                  name="chatNotificationToogle"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3614d4b1-fb93-42dd-98ae-b6fe3a154f5b"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="appMuteToogle"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="a7908145-9ef4-4b8e-927e-68eafe8d11d3"
+              LastKnownName="appMuteToogle"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5cd3ed02-c584-407f-a0e5-6cb47fdd6aed"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="65f0509f-e668-43b7-9933-818b0720a8dc"
+                  name="appMuteToogle"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="886efe61-b76a-44a6-9ff4-6a42974c2470"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="appVibrateToogle"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b7cbe0c0-307c-47fb-904c-4997214d93fd"
+              LastKnownName="appVibrateToogle"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9f893953-3907-4379-b40e-d34c86f09f97"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aed2c08b-9cc2-48a0-98d3-b2d1196d5ce3"
+                  name="appVibrateToogle"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8b84fe3e-79c1-4360-a495-9a3d640706f9"
+        name="changeMoCobColor"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="351bb31c-c6bd-4155-b343-122eca553e22"
+        name="changeChatUserColor"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="130544c0-9bd1-42ef-9a16-25039cde77ae"
+            LastKnownName="Setting"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="505ff71c-4243-4cd2-8db5-db5cbab39e30"
+        name="taskNotificationToogle"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="130544c0-9bd1-42ef-9a16-25039cde77ae"
+            LastKnownName="Setting"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="77d0e023-5c03-4c00-9cc5-f5594ab33d47"
+        name="pollNotificationToogle"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="130544c0-9bd1-42ef-9a16-25039cde77ae"
+            LastKnownName="Setting"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="e8e08525-5b60-4d0f-a931-0079fda317f3"
+        name="chatNotificationToogle"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="130544c0-9bd1-42ef-9a16-25039cde77ae"
+            LastKnownName="Setting"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="a7908145-9ef4-4b8e-927e-68eafe8d11d3"
+        name="appMuteToogle"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b7cbe0c0-307c-47fb-904c-4997214d93fd"
+        name="appVibrateToogle"
+        isAbstract="false"
+        isLeaf="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

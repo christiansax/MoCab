@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm12="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="6e49da37-31b2-498b-8b25-d5efefadcb48" name="Setting_UseCases" linkedPackageId="edeaf6b9-9e9b-4563-8b0b-752d352d5e50" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
-  <profileInstances>
-    <packageHasProfileInstances Id="d0a04adb-c995-4e36-a061-8db3bef0df87">
-      <profileInstance Id="8d319a89-300e-47b5-ae3e-b18c2f3b2742" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="368b2422-759c-4f8e-869b-6ba3981b231c">
-      <profileInstance Id="7aa7af65-820b-4c3a-b6b8-3a2475c8eb99" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <useCaseModelRootHasTypes>
       <subsystem Id="d913a409-94b4-49a0-93fa-2f516c77a05c" name="Setting" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -126,5 +112,19 @@
   </packagedElements>
   <package Id="edeaf6b9-9e9b-4563-8b0b-752d352d5e50" name="ObjectModel">
     <elementDefinition Id="5f36593a-a9fe-4fba-adb2-6dbb2e29fc75" />
+    <profileInstances>
+      <packageHasProfileInstances Id="d0a04adb-c995-4e36-a061-8db3bef0df87">
+        <profileInstance Id="8d319a89-300e-47b5-ae3e-b18c2f3b2742" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="368b2422-759c-4f8e-869b-6ba3981b231c">
+        <profileInstance Id="7aa7af65-820b-4c3a-b6b8-3a2475c8eb99" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </useCaseModelRoot>

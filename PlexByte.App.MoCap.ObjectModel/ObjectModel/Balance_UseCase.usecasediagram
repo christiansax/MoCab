@@ -2,11 +2,11 @@
 <useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm12="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="a396a2ff-f3a8-482f-b11c-e566ec00c920" name="Balance_UseCase" linkedPackageId="c2a910df-4218-4202-9a45-299bcc0ff155" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <packagedElements>
     <useCaseModelRootHasTypes>
-      <actor Id="22f9670b-4ad4-4163-a90d-f09fa82a343e" name="User1" isAbstract="false" isLeaf="false">
+      <actor Id="22f9670b-4ad4-4163-a90d-f09fa82a343e" name="User" isAbstract="false" isLeaf="false">
         <elementDefinition Id="9a11a337-fefd-4dd9-8412-4f69bcead684" />
         <targetEnds>
           <association Id="1cf4f2e1-66e2-4c5c-8ff1-986af422da4a" isDerived="false" sourceEndRoleName="User" targetEndRoleName="AttachBalance" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="9ab97593-44b9-47a9-beef-287edb9256f1" LastKnownName="AttachBalance" />
+            <useCaseMoniker Id="9ab97593-44b9-47a9-beef-287edb9256f1" LastKnownName="Attache" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="3e0cc055-7e88-4b43-a16e-2708813f05b4" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -38,7 +38,7 @@
             <elementDefinition Id="54594bbf-33c0-4ea2-bd1f-c60d6358199d" />
           </association>
           <association Id="6334502a-f14d-480a-b0df-4d683e12fe82" isDerived="false" sourceEndRoleName="User" targetEndRoleName="ViewBalance" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="4f44d979-a686-4de9-b893-d8cc4b04d87f" LastKnownName="ViewBalance" />
+            <useCaseMoniker Id="4f44d979-a686-4de9-b893-d8cc4b04d87f" LastKnownName="View" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="6391706b-3d7f-4381-bba6-d5da624c9a51" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -54,7 +54,7 @@
             <elementDefinition Id="323290e5-2ee3-4ea8-be45-68b8a01ecb04" />
           </association>
           <association Id="267e0bb8-af37-4992-9228-d9188c33d591" isDerived="false" sourceEndRoleName="User" targetEndRoleName="ViewProjectBalance" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="6b45fc11-3d70-4739-84c5-2009f4909795" LastKnownName="ViewProjectBalance" />
+            <useCaseMoniker Id="6b45fc11-3d70-4739-84c5-2009f4909795" LastKnownName="ViewProject" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="98364110-e2d9-4f2d-82a5-3b697438cc37" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -70,7 +70,7 @@
             <elementDefinition Id="a4a1cf67-50b8-45bf-b7f1-3004055d8014" />
           </association>
           <association Id="1770b387-0f6a-47f6-8050-68e31a20ce4d" isDerived="false" sourceEndRoleName="User" targetEndRoleName="EditBalance" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="a9524903-c3c4-4c61-8526-787f9f45dd7d" LastKnownName="EditBalance" />
+            <useCaseMoniker Id="a9524903-c3c4-4c61-8526-787f9f45dd7d" LastKnownName="Edit" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="14362903-8620-40a3-9704-574de8d28add" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -89,21 +89,21 @@
       </actor>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <artifact Id="1e716b3a-a9ba-4622-9b4f-ec8ebb6e160a" name="Task1" isAbstract="false" isLeaf="false">
+      <artifact Id="1e716b3a-a9ba-4622-9b4f-ec8ebb6e160a" name="Task" isAbstract="false" isLeaf="false">
         <elementDefinition Id="3a0afc23-9465-4f35-9bfd-248aeb0c6e4f" />
       </artifact>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <subsystem Id="3bb10753-db8c-467e-a792-c5dff3d839f8" name="Balance1" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <subsystem Id="3bb10753-db8c-467e-a792-c5dff3d839f8" name="Balance" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="8f338c6e-5c03-461c-bace-c2cd78013e43" />
       </subsystem>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="9ab97593-44b9-47a9-beef-287edb9256f1" name="AttachBalance" isAbstract="false" isLeaf="false">
+      <useCase Id="9ab97593-44b9-47a9-beef-287edb9256f1" name="Attache" isAbstract="false" isLeaf="false">
         <elementDefinition Id="8156345c-9fb7-4454-9d42-a66401e65829" />
         <targetEnds>
           <association Id="b2873b28-c018-4ae7-8da2-8c4a596f835d" isDerived="false" sourceEndRoleName="AttachBalance" targetEndRoleName="Task" isLeaf="false" isAbstract="false">
-            <artifactMoniker Id="1e716b3a-a9ba-4622-9b4f-ec8ebb6e160a" LastKnownName="Task1" />
+            <artifactMoniker Id="1e716b3a-a9ba-4622-9b4f-ec8ebb6e160a" LastKnownName="Task" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="3d1d52ca-6b05-43e2-a7f4-c74ac8cb7d7d" name="AttachBalance" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -120,7 +120,7 @@
           </association>
         </targetEnds>
         <subjects>
-          <subsystemMoniker Id="3bb10753-db8c-467e-a792-c5dff3d839f8" LastKnownName="Balance1" />
+          <subsystemMoniker Id="3bb10753-db8c-467e-a792-c5dff3d839f8" LastKnownName="Balance" />
         </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
@@ -129,42 +129,42 @@
         <elementDefinition Id="d6f9c239-cbcf-4976-b652-8fab5c433aae" />
         <extendedCases>
           <extend Id="4b4c84f3-2e6d-4bf2-8529-ffbcacd8132e">
-            <useCaseMoniker Id="9ab97593-44b9-47a9-beef-287edb9256f1" LastKnownName="AttachBalance" />
+            <useCaseMoniker Id="9ab97593-44b9-47a9-beef-287edb9256f1" LastKnownName="Attache" />
             <elementDefinition Id="73f8f6ea-c3f1-42f5-9e27-b18e2686c212" />
           </extend>
         </extendedCases>
         <subjects>
-          <subsystemMoniker Id="3bb10753-db8c-467e-a792-c5dff3d839f8" LastKnownName="Balance1" />
+          <subsystemMoniker Id="3bb10753-db8c-467e-a792-c5dff3d839f8" LastKnownName="Balance" />
         </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="4f44d979-a686-4de9-b893-d8cc4b04d87f" name="ViewBalance" isAbstract="false" isLeaf="false">
+      <useCase Id="4f44d979-a686-4de9-b893-d8cc4b04d87f" name="View" isAbstract="false" isLeaf="false">
         <elementDefinition Id="b939aec8-f570-4f87-9c27-27df60cb9309" />
         <subjects>
-          <subsystemMoniker Id="3bb10753-db8c-467e-a792-c5dff3d839f8" LastKnownName="Balance1" />
+          <subsystemMoniker Id="3bb10753-db8c-467e-a792-c5dff3d839f8" LastKnownName="Balance" />
         </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="6b45fc11-3d70-4739-84c5-2009f4909795" name="ViewProjectBalance" isAbstract="false" isLeaf="false">
+      <useCase Id="6b45fc11-3d70-4739-84c5-2009f4909795" name="ViewProject" isAbstract="false" isLeaf="false">
         <elementDefinition Id="0511e10d-522e-445a-b117-63b8f0cd7114" />
         <subjects>
-          <subsystemMoniker Id="3bb10753-db8c-467e-a792-c5dff3d839f8" LastKnownName="Balance1" />
+          <subsystemMoniker Id="3bb10753-db8c-467e-a792-c5dff3d839f8" LastKnownName="Balance" />
         </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="a9524903-c3c4-4c61-8526-787f9f45dd7d" name="EditBalance" isAbstract="false" isLeaf="false">
+      <useCase Id="a9524903-c3c4-4c61-8526-787f9f45dd7d" name="Edit" isAbstract="false" isLeaf="false">
         <elementDefinition Id="69e4e01d-05c9-4be3-b501-122a12d090ec" />
         <extendedCases>
           <extend Id="5ce74c0e-1962-4a06-9809-8bd241012ae8">
-            <useCaseMoniker Id="9ab97593-44b9-47a9-beef-287edb9256f1" LastKnownName="AttachBalance" />
+            <useCaseMoniker Id="9ab97593-44b9-47a9-beef-287edb9256f1" LastKnownName="Attache" />
             <elementDefinition Id="ad13b71e-d494-4b48-a774-6f50dafc9dfc" />
           </extend>
         </extendedCases>
         <subjects>
-          <subsystemMoniker Id="3bb10753-db8c-467e-a792-c5dff3d839f8" LastKnownName="Balance1" />
+          <subsystemMoniker Id="3bb10753-db8c-467e-a792-c5dff3d839f8" LastKnownName="Balance" />
         </subjects>
       </useCase>
     </useCaseModelRootHasTypes>

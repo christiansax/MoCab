@@ -2,11 +2,11 @@
 <useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm12="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="7ce17a51-e705-49a4-bf47-63f395b6c33d" name="Chat_UseCase" linkedPackageId="a18b62cd-fdca-46f3-84c8-a5ae0e0b8fc1" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <packagedElements>
     <useCaseModelRootHasTypes>
-      <actor Id="e0569aa9-e2a9-4d02-9c3a-f128207fdac2" name="Creator1" isAbstract="false" isLeaf="false">
+      <actor Id="e0569aa9-e2a9-4d02-9c3a-f128207fdac2" name="Creator" isAbstract="false" isLeaf="false">
         <elementDefinition Id="3cb7147f-4c7e-431e-bab4-c6e3efb97ceb" />
         <targetEnds>
           <association Id="a0ebeb3d-e0eb-41e9-a314-717ea2c63ac1" isDerived="false" sourceEndRoleName="Creator" targetEndRoleName="Create" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="a81afd0d-046c-42e0-8bf5-af60e79aff41" LastKnownName="CreateChat" />
+            <useCaseMoniker Id="a81afd0d-046c-42e0-8bf5-af60e79aff41" LastKnownName="Create" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="1eccfad7-d4f5-49bf-8601-ce4e74a1cc0a" name="Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -38,7 +38,7 @@
             <elementDefinition Id="cba0b143-2623-4113-b1b6-faa68d7c5d01" />
           </association>
           <association Id="346ae232-64ad-4db4-844b-559c4cb28f02" isDerived="false" sourceEndRoleName="Creator" targetEndRoleName="Invite" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="eeefd164-e671-4dde-ab90-4ca3e5898cdb" LastKnownName="Invite1" />
+            <useCaseMoniker Id="eeefd164-e671-4dde-ab90-4ca3e5898cdb" LastKnownName="Invite" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="51024006-dd0c-4498-a01f-6cfb622b871c" name="Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -86,7 +86,7 @@
             <elementDefinition Id="d10c6815-88d3-4694-a75a-bc4ab2d5b8f4" />
           </association>
           <association Id="2cc8b2c9-9f7a-433d-8ee0-5a63810689bf" isDerived="false" sourceEndRoleName="Creator" targetEndRoleName="Delete" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="8b22739e-99a3-4816-ba43-52d2118ca96b" LastKnownName="Delete1" />
+            <useCaseMoniker Id="8b22739e-99a3-4816-ba43-52d2118ca96b" LastKnownName="Delete" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="3c0a59af-0c1b-4f0b-bfc1-63116140415e" name="Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -121,7 +121,7 @@
       </actor>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <actor Id="a2e51226-3035-4190-b4c7-d136c238259e" name="Member1" isAbstract="false" isLeaf="false">
+      <actor Id="a2e51226-3035-4190-b4c7-d136c238259e" name="Member" isAbstract="false" isLeaf="false">
         <elementDefinition Id="c81e3337-bfa3-4d0b-9b62-ea8155f5f4b0" />
         <targetEnds>
           <association Id="aec0fbf2-8aa1-4cfe-a94e-d64245713990" isDerived="false" sourceEndRoleName="Member" targetEndRoleName="SendMessage" isLeaf="false" isAbstract="false">
@@ -160,7 +160,7 @@
       </actor>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <artifact Id="b6e45b14-ee01-46b1-a519-e04961c06642" name="Project1" isAbstract="false" isLeaf="false">
+      <artifact Id="b6e45b14-ee01-46b1-a519-e04961c06642" name="Project" isAbstract="false" isLeaf="false">
         <elementDefinition Id="ace5572d-fab4-4e8f-b3e1-18d24a5e2295" />
         <targetEnds>
           <association Id="e45d6d30-ccfe-4903-b04c-a6964812aed0" isDerived="false" sourceEndRoleName="Project" targetEndRoleName="CreateGroupChat" isLeaf="false" isAbstract="false">
@@ -183,24 +183,24 @@
       </artifact>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <subsystem Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" name="Chat1" isAbstract="false" isLeaf="false" isActiveClass="false">
+      <subsystem Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" name="Chat" isAbstract="false" isLeaf="false" isActiveClass="false">
         <elementDefinition Id="f484a599-0e24-45a3-8d5f-e196eee82609" />
       </subsystem>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="a81afd0d-046c-42e0-8bf5-af60e79aff41" name="CreateChat" isAbstract="false" isLeaf="false">
+      <useCase Id="a81afd0d-046c-42e0-8bf5-af60e79aff41" name="Create" isAbstract="false" isLeaf="false">
         <elementDefinition Id="cd0acb1a-8339-4ff3-8ef5-105625d4607c" />
         <subjects>
-          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat1" />
+          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat" />
         </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="eeefd164-e671-4dde-ab90-4ca3e5898cdb" name="Invite1" isAbstract="false" isLeaf="false">
+      <useCase Id="eeefd164-e671-4dde-ab90-4ca3e5898cdb" name="Invite" isAbstract="false" isLeaf="false">
         <elementDefinition Id="e380eec9-eed9-4b69-90b3-71663ad457aa" />
         <targetEnds>
           <association Id="e38d41cb-f001-4edd-bf9b-c76248af5428" isDerived="false" sourceEndRoleName="Invite" targetEndRoleName="Member" isLeaf="false" isAbstract="false">
-            <actorMoniker Id="a2e51226-3035-4190-b4c7-d136c238259e" LastKnownName="Member1" />
+            <actorMoniker Id="a2e51226-3035-4190-b4c7-d136c238259e" LastKnownName="Member" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="0368274f-77d2-4864-9f6d-f6df3ae19a62" name="Invite" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -217,7 +217,7 @@
           </association>
         </targetEnds>
         <subjects>
-          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat1" />
+          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat" />
         </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
@@ -231,7 +231,7 @@
           </include>
         </additions>
         <subjects>
-          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat1" />
+          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat" />
         </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
@@ -240,7 +240,7 @@
         <elementDefinition Id="3169f534-b8aa-46d9-bd19-8b391953e6e5" />
         <targetEnds>
           <association Id="7a772f63-1157-411b-a750-cccf1c5b0d8b" isDerived="false" sourceEndRoleName="ReceiveMessage" targetEndRoleName="Creator" isLeaf="false" isAbstract="false">
-            <actorMoniker Id="e0569aa9-e2a9-4d02-9c3a-f128207fdac2" LastKnownName="Creator1" />
+            <actorMoniker Id="e0569aa9-e2a9-4d02-9c3a-f128207fdac2" LastKnownName="Creator" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="36290107-f9e9-47db-bf9c-51dd0884b55e" name="ReceiveMessage" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -256,7 +256,7 @@
             <elementDefinition Id="56930623-6a8a-466e-9b2a-b436e23829da" />
           </association>
           <association Id="b57d9125-26c8-4f6e-aea2-a1c7feb63e67" isDerived="false" sourceEndRoleName="ReceiveMessage" targetEndRoleName="Member" isLeaf="false" isAbstract="false">
-            <actorMoniker Id="a2e51226-3035-4190-b4c7-d136c238259e" LastKnownName="Member1" />
+            <actorMoniker Id="a2e51226-3035-4190-b4c7-d136c238259e" LastKnownName="Member" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd Id="25de56d7-384f-449c-b44d-6d420fb80d75" name="ReceiveMessage" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
@@ -279,7 +279,7 @@
           </extend>
         </extendedCases>
         <subjects>
-          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat1" />
+          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat" />
         </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
@@ -293,7 +293,7 @@
           </extend>
         </extendedCases>
         <subjects>
-          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat1" />
+          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat" />
         </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
@@ -302,20 +302,20 @@
         <elementDefinition Id="e65f7de6-20c1-4ffe-bade-bf8186b1425f" />
         <additions>
           <include Id="a757655a-cb48-473b-9801-d79b38093091">
-            <useCaseMoniker Id="eeefd164-e671-4dde-ab90-4ca3e5898cdb" LastKnownName="Invite1" />
+            <useCaseMoniker Id="eeefd164-e671-4dde-ab90-4ca3e5898cdb" LastKnownName="Invite" />
             <elementDefinition Id="ac5a0e62-0e58-45ba-889b-3ce76addc661" />
           </include>
         </additions>
         <subjects>
-          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat1" />
+          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat" />
         </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="8b22739e-99a3-4816-ba43-52d2118ca96b" name="Delete1" isAbstract="false" isLeaf="false">
+      <useCase Id="8b22739e-99a3-4816-ba43-52d2118ca96b" name="Delete" isAbstract="false" isLeaf="false">
         <elementDefinition Id="49e44126-5b25-433c-94c9-604fcadb39af" />
         <subjects>
-          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat1" />
+          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat" />
         </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
@@ -323,7 +323,7 @@
       <useCase Id="216648af-db6e-4149-af2d-4cc833db5874" name="LeaveGroupChat" isAbstract="false" isLeaf="false">
         <elementDefinition Id="a2698a1d-8990-41e0-b9a6-f9819fe19d70" />
         <subjects>
-          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat1" />
+          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat" />
         </subjects>
       </useCase>
     </useCaseModelRootHasTypes>

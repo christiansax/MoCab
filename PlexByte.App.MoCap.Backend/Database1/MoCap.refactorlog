@@ -1,136 +1,115 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
-  <Operation Name="Rename Refactor" Key="feddff64-db7b-460b-a16d-c7a5d5f52752" ChangeDateTime="12/27/2015 21:36:02">
-    <Property Name="ElementName" Value="[dbo].[Company_PhoneNumber_Object_CompanyId]" />
-    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
-    <Property Name="ParentElementName" Value="[dbo].[_PhoneNumber_Object]" />
-    <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="[FK_PhoneNumber_Object_CompanyId]" />
-  </Operation>
-  <Operation Name="Rename Refactor" Key="be03c521-d745-413a-8ebb-27713a98ecdf" ChangeDateTime="12/27/2015 23:02:17">
-    <Property Name="ElementName" Value="[ira].[Task].[DegreeCompleted]" />
+  <Operation Name="Rename Refactor" Key="b70c233d-3de8-46d6-854a-394021f54faa" ChangeDateTime="12/28/2015 20:18:35">
+    <Property Name="ElementName" Value="[ira].[Message].[Sentdatetime2(3)]" />
     <Property Name="ElementType" Value="SqlSimpleColumn" />
-    <Property Name="ParentElementName" Value="[ira].[Task]" />
+    <Property Name="ParentElementName" Value="[ira].[Message]" />
     <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="Progress" />
+    <Property Name="NewName" Value="SendDateTime" />
   </Operation>
-  <Operation Name="Rename Refactor" Key="d9b8a046-0b45-47be-b020-465ff14b7f35" ChangeDateTime="12/27/2015 23:02:30">
-    <Property Name="ElementName" Value="[ira].[CK_Task_DegreeCompleted]" />
-    <Property Name="ElementType" Value="SqlCheckConstraint" />
-    <Property Name="ParentElementName" Value="[ira].[Task]" />
+  <Operation Name="Rename Refactor" Key="77590053-6662-4865-99fa-f6c3bcc3d743" ChangeDateTime="12/28/2015 20:19:40">
+    <Property Name="ElementName" Value="[ira].[Message].[NVARCHAR(MAX)]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[ira].[Message]" />
     <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="[CK_Task_Progress]" />
+    <Property Name="NewName" Value="Text" />
   </Operation>
-  <Operation Name="Rename Refactor" Key="cbb61ee0-fab2-4cc1-8d94-9e407a046f67" ChangeDateTime="12/27/2015 23:02:50">
-    <Property Name="ElementName" Value="[ira].[User_Task]" />
-    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
-    <Property Name="ParentElementName" Value="[ira].[Task]" />
+  <Operation Name="Rename Refactor" Key="004850ec-a267-4cdb-bc6f-b44cbde149dc" ChangeDateTime="12/28/2015 20:27:32">
+    <Property Name="ElementName" Value="[ira].[Message].[IsActive]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[ira].[Message]" />
     <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="[FK_User_Task]" />
+    <Property Name="NewName" Value="TimeOfDeath" />
   </Operation>
-  <Operation Name="Rename Refactor" Key="f9d87b22-d67d-44a0-9bac-1483a565b99a" ChangeDateTime="12/27/2015 23:03:24">
-    <Property Name="ElementName" Value="[ira].[FK_User_Task]" />
-    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
-    <Property Name="ParentElementName" Value="[ira].[Task]" />
+  <Operation Name="Rename Refactor" Key="b1b41361-2db5-428a-8e2a-d97a1c365121" ChangeDateTime="12/28/2015 20:41:25">
+    <Property Name="ElementName" Value="[ira].[Message].[SendDateTime]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[ira].[Message]" />
     <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="[FK_Task_User]" />
+    <Property Name="NewName" Value="SentDateTime" />
   </Operation>
-  <Operation Name="Rename Refactor" Key="77114a1e-6b70-4bf0-8fb3-f56762d01943" ChangeDateTime="12/27/2015 23:03:40">
-    <Property Name="ElementName" Value="[ira].[User_Task_Owner]" />
-    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
-    <Property Name="ParentElementName" Value="[ira].[Task]" />
+  <Operation Name="Rename Refactor" Key="83fcead9-0e00-4004-b05a-0e29a6a5646d" ChangeDateTime="12/28/2015 20:41:34">
+    <Property Name="ElementName" Value="[ira].[AK_Message_LabelSendDateTime]" />
+    <Property Name="ElementType" Value="SqlUniqueConstraint" />
+    <Property Name="ParentElementName" Value="[ira].[Message]" />
     <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="[FK_Task_Owner]" />
+    <Property Name="NewName" Value="[AK_Message_LabelSentDateTime]" />
   </Operation>
-  <Operation Name="Rename Refactor" Key="de243d63-b708-4cdb-8d91-3d654e19ce70" ChangeDateTime="12/27/2015 23:03:46">
-    <Property Name="ElementName" Value="[ira].[FK_Task_User]" />
-    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
-    <Property Name="ParentElementName" Value="[ira].[Task]" />
+  <Operation Name="Rename Refactor" Key="deb8df9c-acbc-4fef-a2b8-aaf7d22c34bf" ChangeDateTime="12/28/2015 20:42:44">
+    <Property Name="ElementName" Value="[ira].[Message].[TimeOfDeath]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[ira].[Message]" />
     <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="[FK_Task_Creator]" />
+    <Property Name="NewName" Value="DateTimeOfDeath" />
   </Operation>
-  <Operation Name="Rename Refactor" Key="d0a310fb-a449-47d9-9b6f-05ffa4bed0fe" ChangeDateTime="12/27/2015 23:14:29">
-    <Property Name="ElementName" Value="[ira].[Project].[StartDate]" />
+  <Operation Name="Rename Refactor" Key="d18fae20-c65f-4574-a104-bb11518c26b5" ChangeDateTime="12/28/2015 20:42:54">
+    <Property Name="ElementName" Value="[ira].[Message].[IX_Message_TimeOfDeath]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[ira].[Message]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_Message_DateTimeOfDeath]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="fb3f84d6-9602-46af-83e5-bf623c65f6e1" ChangeDateTime="12/28/2015 20:53:11">
+    <Property Name="ElementName" Value="[ira].[Poll].[Startdatetime2(3)]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[ira].[Poll]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="StartDateTime" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f779ce75-3686-4a46-9681-78ac8041e8d4" ChangeDateTime="12/28/2015 20:53:17">
+    <Property Name="ElementName" Value="[ira].[Poll].[Enddatetime2(3)]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[ira].[Poll]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="EndDateTime" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d16bc860-76d6-468b-9e5f-507be2fd7341" ChangeDateTime="12/28/2015 20:53:22">
+    <Property Name="ElementName" Value="[ira].[Poll].[Duedatetime2(3)]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[ira].[Poll]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DueDateTime" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="022bfc18-2ff9-42c2-83fb-04c490cb9e97" ChangeDateTime="12/28/2015 20:53:38">
+    <Property Name="ElementName" Value="[ira].[Project].[Startdatetime2(3)]" />
     <Property Name="ElementType" Value="SqlSimpleColumn" />
     <Property Name="ParentElementName" Value="[ira].[Project]" />
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="StartDateTime" />
   </Operation>
-  <Operation Name="Rename Refactor" Key="4070a6c9-0014-4329-9a6d-e7778d9d6403" ChangeDateTime="12/27/2015 23:14:36">
-    <Property Name="ElementName" Value="[ira].[Project].[EndDate]" />
+  <Operation Name="Rename Refactor" Key="1fddf977-fade-40a1-9971-45969a52b028" ChangeDateTime="12/28/2015 20:53:43">
+    <Property Name="ElementName" Value="[ira].[Project].[Enddatetime2(3)]" />
     <Property Name="ElementType" Value="SqlSimpleColumn" />
     <Property Name="ParentElementName" Value="[ira].[Project]" />
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="EndDateTime" />
   </Operation>
-  <Operation Name="Rename Refactor" Key="3ca1f2b3-ff98-4400-87b5-998602ed975b" ChangeDateTime="12/27/2015 23:17:05">
-    <Property Name="ElementName" Value="[ira].[Project].[IX_Project_UserId]" />
-    <Property Name="ElementType" Value="SqlIndex" />
+  <Operation Name="Rename Refactor" Key="d9bbf4e2-e99b-4f56-a4ae-382c95c87a32" ChangeDateTime="12/28/2015 20:53:48">
+    <Property Name="ElementName" Value="[ira].[Project].[Duedatetime2(3)]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
     <Property Name="ParentElementName" Value="[ira].[Project]" />
     <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="[IX_Project_OwnerId]" />
+    <Property Name="NewName" Value="DueDateTime" />
   </Operation>
-  <Operation Name="Rename Refactor" Key="de688527-227c-4d85-a73d-94fe7230037c" ChangeDateTime="12/27/2015 23:22:35">
-    <Property Name="ElementName" Value="[dbo].[PollOption].[IX_PollOption_Column]" />
-    <Property Name="ElementType" Value="SqlIndex" />
-    <Property Name="ParentElementName" Value="[dbo].[PollOption]" />
-    <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="[IX_PollOption_IsActive]" />
-  </Operation>
-  <Operation Name="Rename Refactor" Key="d3aeb0eb-150d-434c-81f3-1540c7ebf3d0" ChangeDateTime="12/27/2015 23:24:36">
-    <Property Name="ElementName" Value="[ira].[Poll].[Text]" />
+  <Operation Name="Rename Refactor" Key="7829a3de-a0f6-4022-9620-ab099ace791b" ChangeDateTime="12/28/2015 20:53:58">
+    <Property Name="ElementName" Value="[ira].[Task].[Startdatetime2(3)]" />
     <Property Name="ElementType" Value="SqlSimpleColumn" />
-    <Property Name="ParentElementName" Value="[ira].[Poll]" />
+    <Property Name="ParentElementName" Value="[ira].[Task]" />
     <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="Label" />
+    <Property Name="NewName" Value="StartDateTime" />
   </Operation>
-  <Operation Name="Rename Refactor" Key="de69d6ed-71dc-4045-a50e-78d22a7a6864" ChangeDateTime="12/27/2015 23:29:00">
-    <Property Name="ElementName" Value="[ira].[Poll].[VotesEditable]" />
+  <Operation Name="Rename Refactor" Key="429394dd-ee61-42b9-bac9-a732f5fff354" ChangeDateTime="12/28/2015 20:54:03">
+    <Property Name="ElementName" Value="[ira].[Task].[Enddatetime2(3)]" />
     <Property Name="ElementType" Value="SqlSimpleColumn" />
-    <Property Name="ParentElementName" Value="[ira].[Poll]" />
+    <Property Name="ParentElementName" Value="[ira].[Task]" />
     <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="VotesChangeable" />
+    <Property Name="NewName" Value="EndDateTime" />
   </Operation>
-  <Operation Name="Rename Refactor" Key="a977c8a3-c713-4307-a134-c7375044f5db" ChangeDateTime="12/27/2015 23:31:34">
-    <Property Name="ElementName" Value="[ira].[Project].[IX_Project_StartDate]" />
-    <Property Name="ElementType" Value="SqlIndex" />
-    <Property Name="ParentElementName" Value="[ira].[Project]" />
-    <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="[IX_Project_StartDateTime]" />
-  </Operation>
-  <Operation Name="Rename Refactor" Key="86e867b3-36af-42f8-b187-e4d500f5c12d" ChangeDateTime="12/27/2015 23:31:41">
-    <Property Name="ElementName" Value="[ira].[Project].[IX_Project_EndDate]" />
-    <Property Name="ElementType" Value="SqlIndex" />
-    <Property Name="ParentElementName" Value="[ira].[Project]" />
-    <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="[IX_Project_EndDateTime]" />
-  </Operation>
-  <Operation Name="Rename Refactor" Key="7949d09e-00b5-4ebb-931c-909ac2f09b42" ChangeDateTime="12/27/2015 23:58:26">
-    <Property Name="ElementName" Value="[nfo].[VersionInfo].[TableVersionMajor]" />
+  <Operation Name="Rename Refactor" Key="4a95d282-5d50-4da6-a51e-87771cc2ac2d" ChangeDateTime="12/28/2015 20:54:08">
+    <Property Name="ElementName" Value="[ira].[Task].[Duedatetime2(3)]" />
     <Property Name="ElementType" Value="SqlSimpleColumn" />
-    <Property Name="ParentElementName" Value="[nfo].[VersionInfo]" />
+    <Property Name="ParentElementName" Value="[ira].[Task]" />
     <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="VersionMajor" />
-  </Operation>
-  <Operation Name="Rename Refactor" Key="d5f11cbc-601d-4410-be5c-b91e14a4a966" ChangeDateTime="12/27/2015 23:58:29">
-    <Property Name="ElementName" Value="[nfo].[VersionInfo].[TableVersionMinor]" />
-    <Property Name="ElementType" Value="SqlSimpleColumn" />
-    <Property Name="ParentElementName" Value="[nfo].[VersionInfo]" />
-    <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="VersionMinor" />
-  </Operation>
-  <Operation Name="Rename Refactor" Key="407000bf-76a6-4fbd-80bf-ca4656b93c2b" ChangeDateTime="12/27/2015 23:58:35">
-    <Property Name="ElementName" Value="[nfo].[VersionInfo].[TableVersionRevision]" />
-    <Property Name="ElementType" Value="SqlSimpleColumn" />
-    <Property Name="ParentElementName" Value="[nfo].[VersionInfo]" />
-    <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="VersionRevision" />
-  </Operation>
-  <Operation Name="Rename Refactor" Key="9d8b7ffe-8ce1-4c1f-80cd-752860b2028d" ChangeDateTime="12/27/2015 23:58:39">
-    <Property Name="ElementName" Value="[nfo].[VersionInfo].[TableVersionBuild]" />
-    <Property Name="ElementType" Value="SqlSimpleColumn" />
-    <Property Name="ParentElementName" Value="[nfo].[VersionInfo]" />
-    <Property Name="ParentElementType" Value="SqlTable" />
-    <Property Name="NewName" Value="VersionBuild" />
+    <Property Name="NewName" Value="DueDateTime" />
   </Operation>
 </Operations>

@@ -4,10 +4,10 @@
     [UserId] BIGINT NOT NULL,
     [TrackingDate] DATE DEFAULT 'CONVERT([date],getdate())' NOT NULL,
     [TrackingTime] TIME DEFAULT 'CONVERT([time],getdate())' NOT NULL,
-    [CreatedDateTime] DATETIME DEFAULT getdate() NOT NULL,
-    [ModifiedDateTime] DATETIME DEFAULT getdate() NOT NULL,
+    [CreatedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
+    [ModifiedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
     PRIMARY KEY CLUSTERED ([Id]),
-    CONSTRAINT [AK_GeoTracker_UserIdTrackingDateTime] UNIQUE ([UserId], [TrackingDate], [TrackingTime])
+    CONSTRAINT [AK_GeoTracker_UserIdTrackingdatetime2(3)] UNIQUE ([UserId], [TrackingDate], [TrackingTime])
 )
  ON [PRIMARY]
 GO

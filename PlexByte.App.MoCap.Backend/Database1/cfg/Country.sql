@@ -5,8 +5,8 @@
     [ISOCodeA3] NVARCHAR(3),
     [ISOCodeNumber] INTEGER,
     [InternationalDialingCode] NVARCHAR(5) NOT NULL,
-    [CreatedDateTime] DATETIME DEFAULT getdate() NOT NULL,
-    [ModifiedDateTime] DATETIME DEFAULT getdate() NOT NULL,
+    [CreatedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
+    [ModifiedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
     PRIMARY KEY CLUSTERED ([Id]),
     CONSTRAINT [AK_Country_NameISOCodeA2] UNIQUE ([ISOCodeA2], [Name])
 )

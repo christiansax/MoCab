@@ -2,8 +2,8 @@
     [Id] BIGINT IDENTITY(1,1) NOT NULL,
     [Latitude] NVARCHAR(20) NOT NULL,
     [Longitude] NVARCHAR(20) NOT NULL,
-    [CreatedDateTime] DATETIME DEFAULT getdate() NOT NULL,
-    [ModifiedDateTime] DATETIME DEFAULT getdate() NOT NULL,
+    [CreatedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
+    [ModifiedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
     PRIMARY KEY CLUSTERED ([Id]),
     CONSTRAINT [AK_GeoLocation_LongLatitude] UNIQUE ([Latitude], [Longitude])
 )

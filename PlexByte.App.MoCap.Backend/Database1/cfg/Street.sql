@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [cfg].[Street] (
     [Id] BIGINT IDENTITY(1,1) NOT NULL,
     [Name] NVARCHAR(250) NOT NULL,
-    [CreatedDateTime] DATETIME DEFAULT getdate() NOT NULL,
-    [ModifiedDateTime] DATETIME DEFAULT getdate() NOT NULL,
+    [CreatedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
+    [ModifiedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
     PRIMARY KEY CLUSTERED ([Id]),
     CONSTRAINT [AK_Street_Name] UNIQUE ([Name])
 )

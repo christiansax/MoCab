@@ -8,15 +8,15 @@
     [EmailPersonally] NVARCHAR(1000),
     [HomeAddressId] BIGINT NOT NULL,
     [OfficeAddressId] BIGINT,
-    [Birthdate] DATETIME NOT NULL,
+    [Birthdate] datetime2(3) NOT NULL,
     [JobId] BIGINT,
     [CompanyId] BIGINT,
     [Salary] NUMERIC(18,2),
     [WorkingSchemeId] BIGINT,
     [PagerNumber] NVARCHAR(20),
     [Gender] NVARCHAR(20) DEFAULT 'male' NOT NULL,
-    [CreatedDateTime] DATETIME DEFAULT getdate() NOT NULL,
-    [ModifiedDateTime] DATETIME DEFAULT getdate() NOT NULL,
+    [CreatedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
+    [ModifiedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
     PRIMARY KEY CLUSTERED ([Id]),
     CONSTRAINT [AK_User_FirstMiddleLastNameBirthdate] UNIQUE ([FirstName], [MiddleName], [LastName], [Birthdate])
 )

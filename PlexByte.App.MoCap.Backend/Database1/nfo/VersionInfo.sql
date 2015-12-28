@@ -6,8 +6,8 @@
     [VersionMinor] INTEGER NOT NULL,
     [VersionRevision] INTEGER DEFAULT 0,
     [VersionBuild] INTEGER DEFAULT 0,
-    [CreatedDateTime] DATETIME DEFAULT getdate() NOT NULL,
-    [ModifiedDateTime] DATETIME DEFAULT getdate() NOT NULL,
+    [CreatedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
+    [ModifiedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
     PRIMARY KEY CLUSTERED ([Id]), 
     CONSTRAINT [AK_VersionInfo_ObjTypeComponent] UNIQUE ([ObjectName], [TypeId]), 
     CONSTRAINT [FK_VersionInfo_ToTable] FOREIGN KEY ([TypeId]) REFERENCES [cfg].[Type]([Id])

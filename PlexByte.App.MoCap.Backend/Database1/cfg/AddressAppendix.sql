@@ -6,8 +6,8 @@
     [CustomString1] NVARCHAR(250),
     [CustomString2] NVARCHAR(250),
     [CustomString3] NVARCHAR(250),
-    [CreatedDateTime] DATETIME DEFAULT getdate() NOT NULL,
-    [ModifiedDateTime] DATETIME DEFAULT getdate() NOT NULL,
+    [CreatedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
+    [ModifiedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
     PRIMARY KEY CLUSTERED ([Id])
 )
  ON [PRIMARY]

@@ -4,8 +4,8 @@
     [Name] NVARCHAR(50) NOT NULL, 
     [Component] NVARCHAR(50) NOT NULL, 
     [Version] NVARCHAR(50) NULL, 
-    [CreatedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
-    [ModifiedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
+    [CreatedDateTime] datetime2(3) NOT NULL DEFAULT GETDATE(), 
+    [ModifiedDateTime] datetime2(3) NOT NULL DEFAULT GETDATE(), 
     CONSTRAINT [AK_Type_NameComponent] UNIQUE ([Name], [Component])
 )
 

@@ -2,8 +2,8 @@
     [Id] BIGINT NOT NULL,
     [ParentTaskId] BIGINT NOT NULL,
     [SubTaskId] BIGINT NOT NULL,
-    [CreatedDateTime] DATETIME CONSTRAINT [DEF_Task_Task_CreatedDateTime] DEFAULT GETDATE() NOT NULL,
-    [ModifiedDateTime] DATETIME CONSTRAINT [DEF_Task_Task_ModifiedDateTime] DEFAULT GETDATE() NOT NULL,
+    [CreatedDateTime] datetime2(3) CONSTRAINT [DEF_Task_Task_CreatedDateTime] DEFAULT GETDATE() NOT NULL,
+    [ModifiedDateTime] datetime2(3) CONSTRAINT [DEF_Task_Task_ModifiedDateTime] DEFAULT GETDATE() NOT NULL,
     CONSTRAINT [PK_Task_Task] PRIMARY KEY ([Id])
 )
 GO

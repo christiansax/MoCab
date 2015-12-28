@@ -4,8 +4,8 @@
     [UserId] BIGINT NOT NULL, 
     [PollId] BIGINT NOT NULL, 
     [OptionId] BIGINT NOT NULL, 
-    [CreatedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
-    [ModifiedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
+    [CreatedDateTime] datetime2(3) NOT NULL DEFAULT GETDATE(), 
+    [ModifiedDateTime] datetime2(3) NOT NULL DEFAULT GETDATE(), 
     CONSTRAINT [FK__Vote_UserPollOption_User] FOREIGN KEY ([UserId]) REFERENCES [sec].[User]([Id]),
 	CONSTRAINT [FK__Vote_UserPollOption_Poll] FOREIGN KEY ([PollId]) REFERENCES [ira].[Poll]([Id]),
 	CONSTRAINT [FK__Vote_UserPollOption_PollOption] FOREIGN KEY ([OptionId]) REFERENCES [ira].[PollOption]([Id])

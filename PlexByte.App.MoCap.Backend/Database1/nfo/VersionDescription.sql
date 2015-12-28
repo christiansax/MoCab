@@ -1,14 +1,13 @@
 ﻿CREATE TABLE [nfo].[VersionDescription] (
     [Id] INTEGER IDENTITY(1,1) NOT NULL,
     [ObjectId] INTEGER NOT NULL,
-    [Description] TEXT NOT NULL,
-    [ReleaseNotes] TEXT,
+    [Description] NVARCHAR(MAX) NOT NULL,
+    [ReleaseNotes] NVARCHAR(MAX),
     [SupervisionedBy] NVARCHAR(250) NOT NULL,
-    [CreatedDateTime] DATETIME DEFAULT getdate() NOT NULL,
-    [ModifiedDateTime] DATETIME DEFAULT getdate() NOT NULL,
+    [CreatedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
+    [ModifiedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
     PRIMARY KEY CLUSTERED ([Id])
 )
- ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 ALTER TABLE [nfo].[VersionDescription] ADD CONSTRAINT [FK_VersionDescription_VersionInfo] 
     FOREIGN KEY ([ObjectId]) REFERENCES [nfo].[VersionInfo] ([Id])

@@ -2,8 +2,8 @@
     [Id] BIGINT IDENTITY(1,1) NOT NULL,
     [Value] NVARCHAR(20) NOT NULL,
     [PhoneTypeId] BIGINT NOT NULL,
-    [CreatedDateTime] DATETIME DEFAULT getdate() NOT NULL,
-    [ModifiedDateTime] DATETIME DEFAULT getdate() NOT NULL,
+    [CreatedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
+    [ModifiedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
     PRIMARY KEY CLUSTERED ([Id]),
     CONSTRAINT [AK_PhoneNumber_Value] UNIQUE ([Value])
 )

@@ -8,8 +8,8 @@
     [CityId] BIGINT NOT NULL,
     [CountryId] BIGINT NOT NULL,
     [GeoLocationId] BIGINT,
-    [CreatedDateTime] DATETIME DEFAULT getdate() NOT NULL,
-    [ModifiedDateTime] DATETIME DEFAULT getdate() NOT NULL,
+    [CreatedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
+    [ModifiedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
     PRIMARY KEY CLUSTERED ([Id]),
     CONSTRAINT [AK_Address_StreetNoCityCountry] UNIQUE ([CityId], [CountryId], [StreetId], [StreetNumberId])
 )

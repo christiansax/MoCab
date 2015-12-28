@@ -3,8 +3,8 @@
     [Name] NVARCHAR(250) NOT NULL,
     [WorkingHours] NUMERIC(18,2) NOT NULL,
     [PaidLeaveDays] NUMERIC(5,2) NOT NULL,
-    [CreatedDateTime] DATETIME DEFAULT getdate() NOT NULL,
-    [ModifiedDateTime] DATETIME DEFAULT getdate() NOT NULL,
+    [CreatedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
+    [ModifiedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
     PRIMARY KEY CLUSTERED ([Id]),
     CONSTRAINT [AK_WorkingScheme_NameWorkingHours] UNIQUE ([Name], [WorkingHours])
 )

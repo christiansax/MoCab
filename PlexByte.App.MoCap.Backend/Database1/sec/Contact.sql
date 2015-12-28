@@ -4,8 +4,8 @@
     [MiddleName] NVARCHAR(250),
     [LastName] NVARCHAR(250),
     [EmailAddress] NVARCHAR(750) NOT NULL,
-    [CreatedDateTime] DATETIME DEFAULT getdate() NOT NULL,
-    [ModifiedDateTime] DATETIME DEFAULT getdate() NOT NULL,
+    [CreatedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
+    [ModifiedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
     PRIMARY KEY CLUSTERED ([Id]),
     CONSTRAINT [AK_Contact_EmailAddress] UNIQUE ([EmailAddress])
 )

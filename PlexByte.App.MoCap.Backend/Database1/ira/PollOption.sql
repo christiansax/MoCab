@@ -4,8 +4,8 @@
     [Value] NVARCHAR(250) NOT NULL, 
     [Description] NVARCHAR(MAX) NULL, 
     [IsActive] BIT NOT NULL DEFAULT 1, 
-    [CreatedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
-    [ModifiedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
+    [CreatedDateTime] datetime2(3) NOT NULL DEFAULT GETDATE(), 
+    [ModifiedDateTime] datetime2(3) NOT NULL DEFAULT GETDATE(), 
     CONSTRAINT [AK_PollOption_Value] UNIQUE ([Value])
 )
 

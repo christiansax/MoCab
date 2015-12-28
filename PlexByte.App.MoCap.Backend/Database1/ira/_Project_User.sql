@@ -1,4 +1,4 @@
-﻿CREATE TABLE [ira].[_Users_Project]
+﻿CREATE TABLE [ira].[_Project_User]
 (
 	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
     [ProjectId] BIGINT NOT NULL, 
@@ -6,9 +6,9 @@
 	[IsActive] BIT NOT NULL DEFAULT 1, 
     [CreatedDateTime] datetime2(3) NOT NULL DEFAULT GETDATE(), 
     [ModifiedDateTime] datetime2(3) NOT NULL DEFAULT GETDATE(), 
-    CONSTRAINT [AK__Users_Project_ProjectUser] UNIQUE ([ProjectId], [UserId]), 
-    CONSTRAINT [FK__Users_Project_Project] FOREIGN KEY ([ProjectId]) REFERENCES [ira].[Project]([Id]), 
-    CONSTRAINT [FK__Users_Project_UserId] FOREIGN KEY ([UserId]) REFERENCES [sec].[User]([Id]) 
+    CONSTRAINT [AK__Project_User_ProjectUser] UNIQUE ([ProjectId], [UserId]), 
+    CONSTRAINT [FK__Project_User_Project] FOREIGN KEY ([ProjectId]) REFERENCES [ira].[Project]([Id]), 
+    CONSTRAINT [FK__Project_User_UserId] FOREIGN KEY ([UserId]) REFERENCES [sec].[User]([Id]) 
 )
 
 GO
@@ -17,13 +17,13 @@ EXEC sp_addextendedproperty @name = N'MS_Description',
     @level0type = N'SCHEMA',
     @level0name = N'ira',
     @level1type = N'TABLE',
-    @level1name = N'_Users_Project',
+    @level1name = N'_Project_User',
     @level2type = NULL,
     @level2name = NULL
 GO
 
-CREATE INDEX [IX__Users_Project_ProjectId] ON [ira].[_Users_Project] ([ProjectId])
+CREATE INDEX [IX__Project_User_ProjectId] ON [ira].[_Project_User] ([ProjectId])
 
 GO
 
-CREATE INDEX [IX__Users_Project_UserId] ON [ira].[_Users_Project] ([UserId])
+CREATE INDEX [IX__Project_User_UserId] ON [ira].[_Project_User] ([UserId])

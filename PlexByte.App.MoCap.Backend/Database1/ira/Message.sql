@@ -15,7 +15,7 @@
 	[ModifedDateTime] DATETIME2(3) NOT NULL DEFAULT GETDATE(), 
     CONSTRAINT [CK_Message_TimeOfDeath] CHECK ([DateTimeOfDeath] = (case when ([TimeToLive] > 0) then DATEADD(ss,[TimeToLive],[SentDateTime]) else DATEADD(yyyy,900,[SentDateTime]) end)), 
     CONSTRAINT [AK_Message_LabelSentDateTime] UNIQUE ([Label], [SentDateTime]), 
-    CONSTRAINT [FK_Message_User] FOREIGN KEY ([SenderId]) REFERENCES [sec].[User]([Id])
+    CONSTRAINT [FK_User_Message] FOREIGN KEY ([SenderId]) REFERENCES [sec].[User]([Id])
 )
 
 GO

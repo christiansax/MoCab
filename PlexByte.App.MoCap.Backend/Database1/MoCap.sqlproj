@@ -92,17 +92,24 @@
     <Build Include="ira\Project.sql" />
     <Build Include="ira\PollOption.sql" />
     <Build Include="ira\Poll.sql" />
-    <Build Include="ira\_Poll_Options.sql" />
-    <Build Include="ira\_Vote_UserPollOption.sql" />
+    <Build Include="ira\_Poll_Option.sql" />
+    <Build Include="ira\_User_Poll_Option.sql" />
+    <None Include="MoCap.publish.xml" />
+    <None Include="DBConProfile.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="sec\User.sql" />
-    <Build Include="sec\GeoTracker.sql" />
+    <Build Include="sec\_GeoLocation_User.sql" />
     <Build Include="cfg\Type.sql" />
     <Build Include="cfg\Property.sql" />
-    <Build Include="ira\_Users_Project.sql" />
+    <Build Include="ira\_Project_User.sql" />
     <Build Include="ira\Message.sql" />
-    <Build Include="ira\_Message_User.sql" />
+    <Build Include="ira\_User_Message.sql" />
+    <Build Include="sec\_User_Contact.sql" />
+    <Build Include="sec\_User_User.sql" />
+    <Build Include="sec\Directory.sql" />
+    <Build Include="sec\_Directory_User.sql" />
+    <Build Include="cfg\Settings.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="MoCap.refactorlog" />

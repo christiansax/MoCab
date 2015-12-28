@@ -112,4 +112,46 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="DueDateTime" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="a9182d8f-fb10-4ce9-81c4-9df9f742780e" ChangeDateTime="12/28/2015 23:19:49">
+    <Property Name="ElementName" Value="[sec].[_User_User].[DirUserId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[sec].[_User_User]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DirectoryUserId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="43b54ab1-e94c-4948-bd8f-80e9930004be" ChangeDateTime="12/28/2015 23:22:04">
+    <Property Name="ElementName" Value="[sec].[AK__User_User_UserUser]" />
+    <Property Name="ElementType" Value="SqlUniqueConstraint" />
+    <Property Name="ParentElementName" Value="[sec].[_User_User]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[AK__User_User_UserDirUser]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1a7f0bc4-4fca-45f0-80b0-63d60bb65132" ChangeDateTime="12/28/2015 23:38:34">
+    <Property Name="ElementName" Value="[dbo].[AK__Directory_User_DirectoryUser]" />
+    <Property Name="ElementType" Value="SqlUniqueConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[_Directory_User]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[AK__Directory_User_DirectoryUserProject]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2060c944-fc51-4490-8a2b-3d93213b5393" ChangeDateTime="12/28/2015 23:43:48">
+    <Property Name="ElementName" Value="[dbo].[Settings].[Value]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Settings]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="StringValue" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="44fdaeea-9125-40cb-95c2-b4da1edd56b1" ChangeDateTime="12/28/2015 23:44:18">
+    <Property Name="ElementName" Value="[dbo].[Settings].[NumberValue]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Settings]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IntegerValue" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b4f7336e-1590-43d5-9391-f89c0c4484d1" ChangeDateTime="12/28/2015 23:48:01">
+    <Property Name="ElementName" Value="[dbo].[Settings].[IX_Settings_Name]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[dbo].[Settings]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_Settings_Category]" />
+  </Operation>
 </Operations>

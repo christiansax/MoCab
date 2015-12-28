@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>MoCap</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{4de040ed-787b-497c-9bad-cd99968b53c1}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Database1</RootNamespace>
+    <AssemblyName>Database1</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchema</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <IncludeSchemaNameInFileName>True</IncludeSchemaNameInFileName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="cfg" />
+    <Folder Include="sec" />
+    <Folder Include="ira" />
+    <Folder Include="nfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MoCap_Reader.sql" />
+    <None Include="MoCap_User.sql" />
+    <None Include="MoCap_Admin.sql" />
+    <Build Include="cfg\cfg.sql" />
+    <Build Include="IRA\ira.sql" />
+    <Build Include="sec\sec.sql" />
+    <Build Include="cfg\Address.sql" />
+    <Build Include="cfg\AddressAppendix.sql" />
+    <Build Include="cfg\City.sql" />
+    <Build Include="cfg\Company.sql" />
+    <Build Include="cfg\Country.sql" />
+    <Build Include="cfg\GeoLocation.sql" />
+    <Build Include="cfg\Job.sql" />
+    <Build Include="cfg\PhoneNumber.sql" />
+    <Build Include="cfg\State.sql" />
+    <Build Include="cfg\Street.sql" />
+    <Build Include="cfg\StreetNumber.sql" />
+    <Build Include="cfg\WorkingScheme.sql" />
+    <Build Include="ira\Task.sql" />
+    <Build Include="cfg\_PhoneNumber_Object.sql" />
+    <Build Include="ira\_Task_Task.sql" />
+    <Build Include="nfo\nfo.sql" />
+    <Build Include="nfo\VersionDescription.sql" />
+    <Build Include="nfo\VersionInfo.sql" />
+    <Build Include="sec\Contact.sql" />
+    <Build Include="ira\Project.sql" />
+    <Build Include="ira\PollOption.sql" />
+    <Build Include="ira\Poll.sql" />
+    <Build Include="ira\_Poll_Options.sql" />
+    <Build Include="ira\_Vote_UserPollOption.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="sec\User.sql" />
+    <Build Include="sec\GeoTracker.sql" />
+    <Build Include="cfg\Type.sql" />
+    <Build Include="cfg\Property.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="MoCap.refactorlog" />
+  </ItemGroup>
+</Project>

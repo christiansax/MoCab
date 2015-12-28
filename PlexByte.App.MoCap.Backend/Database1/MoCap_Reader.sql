@@ -1,0 +1,6 @@
+﻿CREATE USER [MoCap_Reader]
+	WITH PASSWORD = 'M0C4p_R34d3r'
+
+GO
+
+GRANT CONNECT TO [MoCap_Reader]

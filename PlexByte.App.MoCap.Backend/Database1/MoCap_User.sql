@@ -1,0 +1,6 @@
+﻿CREATE USER [MoCap_User]
+	WITH PASSWORD = 'M0C4p_U$3r'
+
+GO
+
+GRANT CONNECT TO [MoCap_User]

@@ -4,18 +4,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>MoCap_DB</Name>
+    <Name>MoCap</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{fa628a30-76d4-480e-a3c6-68e8ff1fe126}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <ProjectGuid>{4de040ed-787b-497c-9bad-cd99968b53c1}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
     <RootNamespace>MoCap_DB</RootNamespace>
     <AssemblyName>MoCap_DB</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
-    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DefaultFileStructure>BySchema</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
@@ -23,6 +23,7 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <IncludeSchemaNameInFileName>True</IncludeSchemaNameInFileName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -57,30 +58,59 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="cfg" />
+    <Folder Include="sec" />
+    <Folder Include="ira" />
+    <Folder Include="nfo" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="System_VersionInfo.sql" />
-    <Build Include="System_VersionDescription.sql" />
-    <Build Include="CFG_Country.sql" />
-    <Build Include="CFG_State.sql" />
-    <Build Include="CFG_Street.sql" />
-    <Build Include="CFG_StreetNumber.sql" />
-    <Build Include="CFG_AddressAppendix.sql" />
-    <Build Include="CFG_City.sql" />
-    <Build Include="CFG_Address.sql" />
-    <Build Include="CFG_AddressType.sql" />
-    <Build Include="CFG_GeoLocation.sql" />
-    <Build Include="Adm_GeoTracker.sql" />
-    <Build Include="Adm_User.sql" />
-    <Build Include="CFG_Job.sql" />
-    <Build Include="CFG_Company.sql" />
-    <Build Include="CFG_WorkingScheme.sql" />
-    <Build Include="Adm_Contact.sql" />
-    <Build Include="CFG_PhoneNumber.sql" />
-    <Build Include="CFG_PhoneNumberType.sql" />
-    <Build Include="Map_PhoneUserContact.sql" />
+    <None Include="MoCap_Reader.sql" />
+    <None Include="MoCap_User.sql" />
+    <None Include="MoCap_Admin.sql" />
+    <Build Include="cfg\cfg.sql" />
+    <Build Include="IRA\ira.sql" />
+    <Build Include="sec\sec.sql" />
+    <Build Include="cfg\Address.sql" />
+    <Build Include="cfg\AddressAppendix.sql" />
+    <Build Include="cfg\City.sql" />
+    <Build Include="cfg\Company.sql" />
+    <Build Include="cfg\Country.sql" />
+    <Build Include="cfg\GeoLocation.sql" />
+    <Build Include="cfg\Job.sql" />
+    <Build Include="cfg\PhoneNumber.sql" />
+    <Build Include="cfg\State.sql" />
+    <Build Include="cfg\Street.sql" />
+    <Build Include="cfg\StreetNumber.sql" />
+    <Build Include="cfg\WorkingScheme.sql" />
+    <Build Include="ira\Task.sql" />
+    <Build Include="cfg\_PhoneNumber_Object.sql" />
+    <Build Include="ira\_Task_Task.sql" />
+    <Build Include="nfo\nfo.sql" />
+    <Build Include="nfo\VersionDescription.sql" />
+    <Build Include="nfo\VersionInfo.sql" />
+    <Build Include="sec\Contact.sql" />
+    <Build Include="ira\Project.sql" />
+    <Build Include="ira\PollOption.sql" />
+    <Build Include="ira\Poll.sql" />
+    <Build Include="ira\_Poll_Option.sql" />
+    <Build Include="ira\_User_Poll_Option.sql" />
+    <None Include="MoCap_DBProfile.publish.xml" />
   </ItemGroup>
   <ItemGroup>
-    <RefactorLog Include="MoCap_DB.refactorlog" />
+    <Build Include="sec\User.sql" />
+    <Build Include="sec\_GeoLocation_User.sql" />
+    <Build Include="cfg\Type.sql" />
+    <Build Include="cfg\Property.sql" />
+    <Build Include="ira\_Project_User.sql" />
+    <Build Include="ira\Message.sql" />
+    <Build Include="ira\_User_Message.sql" />
+    <Build Include="sec\_User_Contact.sql" />
+    <Build Include="sec\_User_User.sql" />
+    <Build Include="sec\Directory.sql" />
+    <Build Include="sec\_Directory_User.sql" />
+    <Build Include="cfg\Settings.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="MoCap.refactorlog" />
   </ItemGroup>
 </Project>

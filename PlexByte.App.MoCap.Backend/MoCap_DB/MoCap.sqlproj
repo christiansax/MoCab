@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{4de040ed-787b-497c-9bad-cd99968b53c1}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -95,6 +95,7 @@
     <Build Include="ira\_Poll_Option.sql" />
     <Build Include="ira\_User_Poll_Option.sql" />
     <None Include="MoCap_DBProfile.publish.xml" />
+    <None Include="MoCap_DBProfile_Production.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="sec\User.sql" />
@@ -109,6 +110,9 @@
     <Build Include="sec\Directory.sql" />
     <Build Include="sec\_Directory_User.sql" />
     <Build Include="cfg\Settings.sql" />
+    <Build Include="cfg\Language.sql" />
+    <Build Include="cfg\_Country_Language.sql" />
+    <Build Include="cfg\Translation.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="MoCap.refactorlog" />

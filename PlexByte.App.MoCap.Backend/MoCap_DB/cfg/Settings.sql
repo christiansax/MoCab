@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Settings]
+﻿CREATE TABLE [cfg].[Settings]
 (
 	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
     [Name] NVARCHAR(50) NOT NULL, 
@@ -19,19 +19,19 @@ GO
 EXEC sp_addextendedproperty @name = N'MS_Description',
     @value = N'This is the mocap settings table, holding each users preferences',
     @level0type = N'SCHEMA',
-    @level0name = N'dbo',
+    @level0name = N'cfg',
     @level1type = N'TABLE',
     @level1name = N'Settings',
     @level2type = NULL,
     @level2name = NULL
 GO
 
-CREATE INDEX [IX_Settings_Category] ON [dbo].[Settings] ([Category])
+CREATE INDEX [IX_Settings_Category] ON [cfg].[Settings] ([Category])
 
 GO
 
-CREATE INDEX [IX_Settings_Name] ON [dbo].[Settings] ([Name])
+CREATE INDEX [IX_Settings_Name] ON [cfg].[Settings] ([Name])
 
 GO
 
-CREATE INDEX [IX_Settings_UserId] ON [dbo].[Settings] ([UserId])
+CREATE INDEX [IX_Settings_UserId] ON [cfg].[Settings] ([UserId])

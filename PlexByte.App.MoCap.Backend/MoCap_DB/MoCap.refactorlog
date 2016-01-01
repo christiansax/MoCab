@@ -154,4 +154,25 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="[IX_Settings_Category]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="6e2fb884-acf6-4b49-b0aa-38e8e7a86099" ChangeDateTime="12/30/2015 23:09:15">
+    <Property Name="ElementName" Value="[cfg].[AK_Language_ISO639]" />
+    <Property Name="ElementType" Value="SqlUniqueConstraint" />
+    <Property Name="ParentElementName" Value="[cfg].[Language]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[AK_Language_ISO639-1]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a5c31967-7c0b-4d3c-bd61-da91c780f229" ChangeDateTime="01/01/2016 00:04:30">
+    <Property Name="ElementName" Value="[dbo].[AK_String_TypeLanguage]" />
+    <Property Name="ElementType" Value="SqlUniqueConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[String]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[AK_String_TypeLanguageValue]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9063d28f-57f8-4107-9817-be9e6025c928" ChangeDateTime="01/01/2016 00:24:57">
+    <Property Name="ElementName" Value="[cfg].[FK__Country_Language_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[cfg].[_Country_Language]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK__Country_Language_Country]" />
+  </Operation>
 </Operations>

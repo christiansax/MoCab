@@ -3,7 +3,6 @@
 	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
     [Name] NVARCHAR(50) NOT NULL, 
     [Component] NVARCHAR(50) NOT NULL, 
-    [Version] NVARCHAR(50) NULL, 
     [CreatedDateTime] datetime2(3) NOT NULL DEFAULT GETDATE(), 
     [ModifiedDateTime] datetime2(3) NOT NULL DEFAULT GETDATE(), 
     CONSTRAINT [AK_Type_NameComponent] UNIQUE ([Name], [Component])

@@ -93,7 +93,6 @@
     <Build Include="ira\PollOption.sql" />
     <Build Include="ira\Poll.sql" />
     <Build Include="ira\_Poll_Option.sql" />
-    <Build Include="ira\_User_Poll_Option.sql" />
     <None Include="MoCap_DBProfile.publish.xml" />
     <None Include="MoCap_DBProfile_Production.publish.xml" />
   </ItemGroup>
@@ -102,9 +101,7 @@
     <Build Include="sec\_GeoLocation_User.sql" />
     <Build Include="cfg\Type.sql" />
     <Build Include="cfg\Property.sql" />
-    <Build Include="ira\_Project_User.sql" />
     <Build Include="ira\Message.sql" />
-    <Build Include="ira\_User_Message.sql" />
     <Build Include="sec\_User_Contact.sql" />
     <Build Include="sec\_User_User.sql" />
     <Build Include="sec\Directory.sql" />
@@ -113,8 +110,24 @@
     <Build Include="cfg\Language.sql" />
     <Build Include="cfg\_Country_Language.sql" />
     <Build Include="cfg\Translation.sql" />
+    <Build Include="ira\Timeslice.sql" />
+    <Build Include="ira\Chat.sql" />
+    <Build Include="sec\_User_Chat.sql" />
+    <Build Include="sec\_User_Poll_Option.sql" />
+    <Build Include="sec\_User_Message.sql" />
+    <Build Include="sec\_User_Project.sql" />
+    <Build Include="nfo\Document.sql" />
+    <Build Include="nfo\_User_Document_Acceptance.sql" />
+    <Build Include="ira\BinaryObject.sql" />
+    <Build Include="ira\Interaction_BinaryObject.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="MoCap.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo1.cs" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [cfg].[Translation]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [TypeId] BIGINT NOT NULL, 
     [LanguageId] BIGINT NOT NULL, 
     [StringValue] NVARCHAR(MAX) NOT NULL, 

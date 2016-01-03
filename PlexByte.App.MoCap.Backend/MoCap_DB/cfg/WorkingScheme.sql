@@ -6,7 +6,7 @@
     [CreatedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
     [ModifiedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
     PRIMARY KEY CLUSTERED ([Id]),
-    CONSTRAINT [AK_WorkingScheme_NameWorkingHours] UNIQUE ([Name], [WorkingHours])
+    CONSTRAINT [AK_WorkingScheme_NameWorkingHours] UNIQUE ([Name], [WorkingHours]), 
 )
  ON [PRIMARY]
 GO
@@ -15,3 +15,4 @@ GO
 EXECUTE sp_addextendedproperty N'MS_Description', N'This table holds data about working schemes, such as part time etc', 'SCHEMA', N'cfg', 'TABLE', N'WorkingScheme', NULL, NULL
 GO
 EXECUTE sp_addextendedproperty N'MS_Description', N'The number of working hours per day', 'SCHEMA', N'cfg', 'TABLE', N'WorkingScheme', 'COLUMN', N'WorkingHours'
+GO

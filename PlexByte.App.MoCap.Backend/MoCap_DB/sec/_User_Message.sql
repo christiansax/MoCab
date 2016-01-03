@@ -1,4 +1,4 @@
-﻿CREATE TABLE [ira].[_User_Message]
+﻿CREATE TABLE [sec].[_User_Message]
 (
 	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
     [MessageId] BIGINT NOT NULL, 
@@ -16,25 +16,25 @@
 
 GO
 
-CREATE INDEX [IX__User_Message_MessageId] ON [ira].[_User_Message] ([MessageId])
+CREATE INDEX [IX__User_Message_MessageId] ON [sec].[_User_Message] ([MessageId])
 
 GO
 
-CREATE INDEX [IX__User_User_MessageId] ON [ira].[_User_Message] ([UserId])
+CREATE INDEX [IX__User_User_MessageId] ON [sec].[_User_Message] ([UserId])
 
 GO
 
-CREATE INDEX [IX__User_Message_IsReceived] ON [ira].[_User_Message] ([IsReceived])
+CREATE INDEX [IX__User_Message_IsReceived] ON [sec].[_User_Message] ([IsReceived])
 
 GO
 
-CREATE INDEX [IX__User_Message_IsRead] ON [ira].[_User_Message] ([IsRead])
+CREATE INDEX [IX__User_Message_IsRead] ON [sec].[_User_Message] ([IsRead])
 
 GO
 EXEC sp_addextendedproperty @name = N'MS_Description',
-    @value = N'This table holds each message sent to a user. Note that not all messaged may be displayed based on the message''s time to live counter',
+    @value = N'This table holds the status of each message sent to a user. Note that not all messaged may be displayed based on the message''s time to live counter',
     @level0type = N'SCHEMA',
-    @level0name = N'ira',
+    @level0name = N'sec',
     @level1type = N'TABLE',
     @level1name = N'_User_Message',
     @level2type = NULL,

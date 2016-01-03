@@ -3,13 +3,11 @@
 	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
     [Label] NVARCHAR(250) NOT NULL, 
     [Text] NVARCHAR(MAX) NULL, 
-    [Picture] VARBINARY(MAX) NULL, 
-    [Audio] VARBINARY(MAX) NULL, 
-    [Object] VARBINARY(MAX) NULL, 
 	[SenderId] BIGINT NOT NULL, 
 	[ReadReceipt] BIT NOT NULL DEFAULT 0, 
     [TimeToLive] INT NOT NULL DEFAULT 0, 
 	[DateTimeOfDeath] DATETIME2(3) NULL,
+	[IsActive] BIT NOT NULL DEFAULT 1, 
     [SentDateTime] DATETIME2(3) NULL, 
     [CreatedDateTime] DATETIME2(3) NOT NULL DEFAULT GETDATE(),
 	[ModifedDateTime] DATETIME2(3) NOT NULL DEFAULT GETDATE(), 
@@ -60,3 +58,7 @@ CREATE INDEX [IX_Message_DateTimeOfDeath] ON [ira].[Message] ([DateTimeOfDeath])
 GO
 
 CREATE INDEX [IX_Message_SentDateTime] ON [ira].[Message] ([SentDateTime])
+
+GO
+
+CREATE INDEX [IX_Message_IsActive] ON [ira].[Message] ([IsActive])

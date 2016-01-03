@@ -1,6 +1,7 @@
 ﻿CREATE TABLE [cfg].[City] (
     [Id] BIGINT IDENTITY(1,1) NOT NULL,
     [Name] NVARCHAR(250) NOT NULL,
+	[LocalizedName] NVARCHAR(250) NULL,
     [ZIP] NVARCHAR(10) NOT NULL,
     [CreatedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,
     [ModifiedDateTime] datetime2(3) DEFAULT getdate() NOT NULL,

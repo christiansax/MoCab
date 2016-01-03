@@ -1,4 +1,4 @@
-﻿CREATE TABLE [ira].[_User_Poll_Option]
+﻿CREATE TABLE [sec].[_User_Poll_Option]
 (
 	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
     [UserId] BIGINT NOT NULL, 
@@ -13,12 +13,12 @@
 
 GO
 
-CREATE INDEX [IX__User_Poll_Option_UserId] ON [ira].[_User_Poll_Option] ([UserId])
+CREATE INDEX [IX__User_Poll_Option_UserId] ON [sec].[_User_Poll_Option] ([UserId])
 
 GO
 
-CREATE INDEX [IX__User_Poll_Option_PollId] ON [ira].[_User_Poll_Option] ([PollId])
+CREATE INDEX [IX__User_Poll_Option_PollId] ON [sec].[_User_Poll_Option] ([PollId])
 
 GO
 
-CREATE INDEX [IX__User_Poll_Option_OptionId] ON [ira].[_User_Poll_Option] ([OptionId])
+CREATE INDEX [IX__User_Poll_Option_OptionId] ON [sec].[_User_Poll_Option] ([OptionId])

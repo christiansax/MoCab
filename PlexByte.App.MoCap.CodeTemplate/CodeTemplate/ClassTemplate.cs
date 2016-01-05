@@ -1,13 +1,8 @@
 ﻿//////////////////////////////////////////////////////////////////////////////
-//                              <ClassTemplate>                             //
-//      Author:     <AuthorName>                Date:       <DateCreated>   //
-//      Project:    <ProjectName>               Reviewed:   <Name>          //
-//      Component:  <ComponentName>             Owner:      <Name>          //
-//      Description: Here goes a short description of the assembly,         //
-//                   explainig what it does, what it is used for and        //
-//                   why it is used                                         //
-//////////////////////////////////////////////////////////////////////////////
-
+//      <ClassTemplate>
+//      Author:     <AuthorName>
+//      Project:    <ProjectName>
+//      Component:  <ComponentName>
 #region usings
 #region Includes (Microsoft based)
 //////////////////////////////////////////////

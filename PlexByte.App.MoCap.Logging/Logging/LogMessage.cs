@@ -29,7 +29,7 @@ using System.Reflection;
 #endregion
 #endregion
 
-namespace MoCap.CodeTemplate
+namespace MoCap.Logging
 {
     #region Delegates are declared here
 
@@ -230,9 +230,12 @@ namespace MoCap.CodeTemplate
             this.MethodName = pMemberName +"(";
             this.SourceFile = pSourceFilePath;
 
-            foreach (ParameterInfo pi in parameters)
+            for(int i=0; i<parameters.Length;i++)
             {
-                MethodName += "[["+pi.ParameterType+"] ["+ pi.Name+"]]";
+                if(i==0)
+                    MethodName += "[["+ parameters[i].ParameterType+"] ["+ parameters[i].Name+"]]";
+                else
+                    MethodName += ", [[" + parameters[i].ParameterType + "] [" + parameters[i].Name + "]]";
             }
             pMemberName += ")";
         }
@@ -248,18 +251,6 @@ namespace MoCap.CodeTemplate
         #endregion
 
         #region Public Methods
-
-        /// <summary>
-        /// Description of the method, what is it doing
-        /// </summary>
-        /// <param name="pMystring">String: Specifying the name of the object</param>
-        /// <param name="pMyCount">Int: The number of objects to compare</param>
-        /// <returns>object: The object which resulted from the query</returns>
-        public object GetData(string pMystring, int pMyCount)
-        {
-            object a = new object();
-            return (a);
-        }
 
         #endregion
 

@@ -213,6 +213,10 @@ namespace MoCap.Logging
             for (int i = 0; i < logQueues.Count; i++)
                 logQueues[i] = new Queue(QueueSize);
             activeLogQueueIndex = 0;
+
+            // Register callback Methods for the events
+            this.DumpQueue += LogManager_DumpQueue;
+            this.AddedMessage += LogManager_AddedMessage;
         }
 
         /// <summary>
@@ -251,6 +255,26 @@ namespace MoCap.Logging
         {
             if (AddedMessage != null)
                 AddedMessage(this, e);
+        }
+
+        /// <summary>
+        /// The registered callback for event DumpQueue assigned in constructor of the class
+        /// </summary>
+        /// <param name="sender">The object calling the event</param>
+        /// <param name="e">The event arguments provided (LogQueue)</param>
+        private void LogManager_DumpQueue(object sender, EventArgs e)
+        {
+            WriteStream(e);
+        }
+
+        /// <summary>
+        /// The registered callback for the event MessageAdded assigned in constuctr of the class
+        /// </summary>
+        /// <param name="sender">The object calling the event</param>
+        /// <param name="e">The event arguments provided (Message)</param>
+        private void LogManager_AddedMessage(object sender, EventArgs e)
+        {
+            MessageAdded(e);
         }
 
         #endregion
@@ -293,7 +317,7 @@ namespace MoCap.Logging
                     position = 0;
                 }
                 // Raise on message added event
-                OnAddedMessage(new LogManagerMessageAddedEventArgs(pMessage, position, activeLogQueueIndex);
+                OnAddedMessage(new LogManagerMessageAddedEventArgs(pMessage, position, activeLogQueueIndex));
             }
             finally
             {
@@ -302,12 +326,19 @@ namespace MoCap.Logging
         }
 
         /// <summary>
-        /// Abstract method to write the contents of the queue to a stream
+        /// Overwrite: Abstract method to handle stream writing, regarless of stream type. Called once DumpQueue occured
         /// </summary>
-        public abstract void WriteStream();
+        /// <param name="e">The event arguments provided (LogQueue)</param>
+        public abstract void WriteStream(EventArgs e);
 
         /// <summary>
-        /// Abstract method to read the contents of a stream
+        /// Overwrite: Abstract method to deal with message added event whic is wired internally in the constructor
+        /// </summary>
+        /// <param name="e">The event arguments provided (Message)</param>
+        public abstract void MessageAdded(EventArgs e);
+
+        /// <summary>
+        /// Overwrite: Abstract method to deal with reading, regardless of stream type (typically a file)
         /// </summary>
         public abstract void ReadStream();
 

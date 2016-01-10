@@ -8,6 +8,8 @@
 //////////////////////////////////////////////
 //      using includes here (Microsoft)     //
 //////////////////////////////////////////////
+using System.Collections;
+using System.IO;
 #endregion
 
 #region Includes (3rd parties)
@@ -40,7 +42,7 @@ namespace MoCap.Logging
     #endregion
 
     /// <summary>
-    /// This is the summary of the class
+    /// This implementation uses a biary file to write the log messages to
     /// </summary>
     public class BinFileLogManager : LogManager
     {
@@ -64,7 +66,8 @@ namespace MoCap.Logging
 
         #region Constructor(-s) & Destructor
 
-        public BinFileLogManager(string LogName, string LogPath):base(LogName, false)
+        public BinFileLogManager(string pLogName, string pLogPath, int pQueueSize, string pComponent, bool pUseFolderPrefix)
+            : base(pLogName, pLogPath, false, pQueueSize, pComponent, pUseFolderPrefix, false)
         {
         }
 
@@ -80,19 +83,37 @@ namespace MoCap.Logging
 
         #region Public Methods
 
-        public override void MessageAdded(EventArgs e)
+        public override void MessageAdded(LogManagerMessageAddedEventArgs e)
         {
-            throw new NotImplementedException();
+            // No need to react on message added event
         }
 
         public override void ReadStream()
         {
-            throw new NotImplementedException();
+            using (Stream stream = File.Open(LogFileFullPath, FileMode.Open))
+            {
+                var binFmt = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+
+                Queue logMesg = (Queue)binFmt.Deserialize(stream);
+            }
         }
 
-        public override void WriteStream(EventArgs e)
+        public override void WriteStream(LogManagerDumpQueueEventArgs e)
         {
-            throw new NotImplementedException();
+            // Check if the directory exists and create it if requires
+            if (!Directory.Exists(LogTargetPath))
+                Directory.CreateDirectory(LogTargetPath);
+            using (Stream stream = File.Open(LogFileFullPath, FileMode.Create))
+            {
+                var binFmt = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                binFmt.Serialize(stream, e.LogQueue);
+                /*foreach (LogMessage message in e.LogQueue)
+                {
+                    binFmt.Serialize(stream, message);
+                }
+                */
+                stream.Flush();
+            }
         }
 
         #endregion

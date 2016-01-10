@@ -33,12 +33,8 @@ namespace MoCap.Logging
 {
     #region Delegates are declared here
 
-    public delegate void DumpQueueEventHandler(object sender, EventArgs e);
-    public delegate void AddedMessageEventHandler(object sender, EventArgs e);
-
-    #endregion
-
-    #region Global variables are declared here
+    public delegate void DumpQueueEventHandler(object sender, LogManagerDumpQueueEventArgs e);
+    public delegate void AddedMessageEventHandler(object sender, LogManagerMessageAddedEventArgs e);
 
     #endregion
 
@@ -54,6 +50,9 @@ namespace MoCap.Logging
     /// </summary>
     public abstract class LogManager :IDisposable
     {
+        // Log folder suffix is path is amended
+        static string LOG_PRODUCT_DIR = @"\PexByte\MoCap";
+
         #region Class members
 
         #region Events
@@ -68,47 +67,57 @@ namespace MoCap.Logging
         /// <summary>
         /// ReadOnly: The name of the logfile (path is not included) e.g. Log.mcl
         /// </summary>
-        string LogFileName { get; }
+        public string LogFileName { get; }
 
         /// <summary>
         /// ReadOnly: The path to the logfile e.g. C:\\Logs
         /// </summary>
-        string LogTargetPath { get; }
+        public string LogTargetPath { get; }
 
         /// <summary>
         /// ReadOnly: The extension of the logfile. Derived from the logfileName
         /// </summary>
-        string LogFileExtension { get; }
+        public string LogFileExtension { get; }
 
         /// <summary>
         /// ReadOnly: Holds the log file full path
         /// </summary>
-        string LogFileFullPath { get; }
+        public string LogFileFullPath { get; }
+
+        /// <summary>
+        /// ReadOnly: The log level specified in the trace config file for the component
+        /// </summary>
+        public int LogLevel { get; }
 
         /// <summary>
         /// ReadOnly: The number of log messages to accumulate before the queue is dumped
         /// </summary>
-        int QueueSize { get; }
+        public int QueueSize { get; }
+
+        /// <summary>
+        /// ReadOnly: Returns the number of log messages in the queue currently
+        /// </summary>
+        public int QueueCount { get; }
 
         /// <summary>
         /// ReadOnly: Indicates whether the manager is in read or write mode
         /// </summary>
-        bool ReadMode { get; }
+        public bool ReadMode { get; }
 
         /// <summary>
         /// ReadOnly: Indicates whether the manager will create a date prefix folder, in which the logs are placed (e.g C:\Path\20160104)
         /// </summary>
-        bool UseDatePrefix { get; }
+        public bool UseDatePrefix { get; }
 
         /// <summary>
         /// ReadOnly: Indicates whether the manager will compress the logs after finished writing
         /// </summary>
-        bool CompressLogFiles { get; }
+        public bool CompressLogFiles { get; }
 
         /// <summary>
         /// ReadOnly: The default component to log as, if the log message does not speify it
         /// </summary>
-        string ComponentName { get; }
+        public string ComponentName { get; }
 
         #endregion
 
@@ -198,25 +207,41 @@ namespace MoCap.Logging
         {
             LogFileName = pLogFileName;
             QueueSize = pQueueSize;
+
             if (pLogTargetPath == string.Empty)
-                LogTargetPath = GetExecAssemblyPath(Assembly.GetExecutingAssembly());
+            {
+                LogTargetPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                LogTargetPath += LOG_PRODUCT_DIR;
+            }
             else
                 LogTargetPath = pLogTargetPath;
+            if (pUseDatePrefixFolder)
+            {
+                LogTargetPath += "\\" + DateTime.Now.ToString("yyyyMMdd");
+            }
             LogFileFullPath = LogTargetPath + "\\" + LogFileName;
             ReadMode = pReadMode;
-            ComponentName = pComponent;
+
+            // Initialized the component name
+            if(pComponent==string.Empty)
+                ComponentName = Assembly.GetCallingAssembly().GetName().ToString();
+            else
+                ComponentName = pComponent;
+
             UseDatePrefix = pUseDatePrefixFolder;
             CompressLogFiles = pCompress;
 
-            // Create the queues and assign active queue to QueueA
-            logQueues = new List<Queue>(3);
-            for (int i = 0; i < logQueues.Count; i++)
-                logQueues[i] = new Queue(QueueSize);
+            // Create three queues and initialize them
+            logQueues = new List<Queue>();
+            for (int i = 0; i < 3; i++)
+                logQueues.Add(new Queue(QueueSize));
             activeLogQueueIndex = 0;
 
             // Register callback Methods for the events
             this.DumpQueue += LogManager_DumpQueue;
             this.AddedMessage += LogManager_AddedMessage;
+
+            LogLevel = GetTraceLevel();
         }
 
         /// <summary>
@@ -244,14 +269,14 @@ namespace MoCap.Logging
 
         #region Event handlers (methods)
 
-        protected virtual void OnDumpQueue(EventArgs e)
+        protected virtual void OnDumpQueue(LogManagerDumpQueueEventArgs e)
         {
             // Check for subscriber and if raise event
             if (DumpQueue != null)
                 DumpQueue(this, e);
         }
 
-        protected virtual void OnAddedMessage(EventArgs e)
+        protected virtual void OnAddedMessage(LogManagerMessageAddedEventArgs e)
         {
             if (AddedMessage != null)
                 AddedMessage(this, e);
@@ -262,7 +287,7 @@ namespace MoCap.Logging
         /// </summary>
         /// <param name="sender">The object calling the event</param>
         /// <param name="e">The event arguments provided (LogQueue)</param>
-        private void LogManager_DumpQueue(object sender, EventArgs e)
+        private void LogManager_DumpQueue(object sender, LogManagerDumpQueueEventArgs e)
         {
             WriteStream(e);
         }
@@ -272,7 +297,7 @@ namespace MoCap.Logging
         /// </summary>
         /// <param name="sender">The object calling the event</param>
         /// <param name="e">The event arguments provided (Message)</param>
-        private void LogManager_AddedMessage(object sender, EventArgs e)
+        private void LogManager_AddedMessage(object sender, LogManagerMessageAddedEventArgs e)
         {
             MessageAdded(e);
         }
@@ -289,39 +314,45 @@ namespace MoCap.Logging
             // Try to accuire the lock.
             bool isLocked = false;
             int position = 0;
-            try
+            // Check if we need to trace this message at all...
+            if (LogLevel >= pMessage.Level)
             {
-                Monitor.TryEnter(lockObject, 500, ref isLocked);
-                if (!isLocked)
-                    throw new LogManagerAddMessageException("Failed to accuire lock to insert message...");
-
-                // Check if we need to set the default component
-                if (pMessage.Component == string.Empty && ComponentName != string.Empty)
-                    pMessage.Component = ComponentName;
-
-                // Capacity in current queue?
-                if (logQueues[activeLogQueueIndex].Count < QueueSize)
+                try
                 {
-                    // We do have capacity and insert the message...
-                    logQueues[activeLogQueueIndex].Enqueue(pMessage);
-                    position = logQueues[activeLogQueueIndex].Count - 1;
+                    Monitor.TryEnter(lockObject, 500, ref isLocked);
+                    if (!isLocked)
+                        throw new LogManagerAddMessageException("Failed to accuire lock to insert message...");
+
+                    // Check if we need to set the default component
+                    if (pMessage.Component == string.Empty && ComponentName != string.Empty)
+                        pMessage.Component = ComponentName;
+
+                    // Capacity in current queue?
+                    if (logQueues[activeLogQueueIndex].Count < QueueSize)
+                    {
+                        // We do have capacity and insert the message...
+                        logQueues[activeLogQueueIndex].Enqueue(pMessage);
+                        position = logQueues[activeLogQueueIndex].Count - 1;
+                    }
+                    else
+                    {
+                        // There's no capacity anymore, shifting to new queue and raise dump event for active queue...
+                        OnDumpQueue(new LogManagerDumpQueueEventArgs(logQueues[activeLogQueueIndex]));
+                        activeLogQueueIndex = (activeLogQueueIndex == 2) ? 0 : ++activeLogQueueIndex;
+                        if (logQueues[activeLogQueueIndex] == null)
+                            logQueues[activeLogQueueIndex] = new Queue(QueueSize);
+                        else
+                            logQueues[activeLogQueueIndex].Clear();
+                        logQueues[activeLogQueueIndex].Enqueue(pMessage);
+                        position = 0;
+                    }
+                    // Raise on message added event
+                    OnAddedMessage(new LogManagerMessageAddedEventArgs(pMessage, position, activeLogQueueIndex));
                 }
-                else
+                finally
                 {
-                    // There's no capacity anymore, shifting to new queue and raise dump event for active queue...
-                    OnDumpQueue(new LogManagerDumpQueueEventArgs(logQueues[activeLogQueueIndex]));
-                    activeLogQueueIndex = (activeLogQueueIndex == 2) ? 0 : activeLogQueueIndex++;
-                    if (logQueues[activeLogQueueIndex] == null)
-                        logQueues[activeLogQueueIndex] = new Queue(QueueSize);
-                    logQueues[activeLogQueueIndex].Enqueue(pMessage);
-                    position = 0;
+                    if (isLocked) Monitor.Exit(lockObject);
                 }
-                // Raise on message added event
-                OnAddedMessage(new LogManagerMessageAddedEventArgs(pMessage, position, activeLogQueueIndex));
-            }
-            finally
-            {
-                if (isLocked) Monitor.Exit(lockObject);
             }
         }
 
@@ -329,13 +360,13 @@ namespace MoCap.Logging
         /// Overwrite: Abstract method to handle stream writing, regarless of stream type. Called once DumpQueue occured
         /// </summary>
         /// <param name="e">The event arguments provided (LogQueue)</param>
-        public abstract void WriteStream(EventArgs e);
+        public abstract void WriteStream(LogManagerDumpQueueEventArgs e);
 
         /// <summary>
         /// Overwrite: Abstract method to deal with message added event whic is wired internally in the constructor
         /// </summary>
         /// <param name="e">The event arguments provided (Message)</param>
-        public abstract void MessageAdded(EventArgs e);
+        public abstract void MessageAdded(LogManagerMessageAddedEventArgs e);
 
         /// <summary>
         /// Overwrite: Abstract method to deal with reading, regardless of stream type (typically a file)
@@ -356,6 +387,45 @@ namespace MoCap.Logging
         #endregion
 
         #region Private methods
+
+        /// <summary>
+        /// This method looks for a Trace.cfg file in the current executing directory or the target file path. If found the level 
+        /// specified for the component will be set as trace level. If no file was found, the default level of 41 will be set
+        /// </summary>
+        private int GetTraceLevel()
+        {
+            int level = 0;
+            string[] configContent = null;
+            string configFileName = "Trace.cfg";
+            string configFileFullPath = LogTargetPath + "\\" + configFileName;
+
+            if (File.Exists(configFileFullPath))
+            {
+                configContent = new string[File.ReadAllLines(configFileFullPath).Length];
+                configContent = File.ReadAllLines(configFileFullPath);
+            }
+            else
+            {
+                configFileFullPath = Path.GetDirectoryName(Assembly.GetCallingAssembly().Location) + "\\" + configFileName;
+                if (File.Exists(configFileFullPath))
+                {
+                    configContent = new string[File.ReadAllLines(configFileFullPath).Length];
+                    configContent = File.ReadAllLines(configFileFullPath);
+                }
+            }
+
+            if (configContent != null)
+            {
+                foreach (string s in configContent)
+                {
+                    // If we find the components name in the config file, we try to parse the value e.g. Logging=42
+                    if (s.ToLower().Contains(ComponentName.ToLower()))
+                        if (Int32.TryParse(s.Substring(s.IndexOf('=')), out level))
+                            return (level);
+                }
+            }
+            return 41;
+        }
 
         #endregion
 

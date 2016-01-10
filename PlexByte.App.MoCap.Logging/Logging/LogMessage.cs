@@ -225,7 +225,7 @@ namespace MoCap.Logging
             this.ThreadId = pThreadId;
             this.Context = pContext;
             this.Component = pComponent;
-            this.Attribute1 = Attribute1;
+            this.Attribute1 = pAttribute1;
             this.LineNumber = pSourceLineNumber;
             this.MethodName = pMemberName +"(";
             this.SourceFile = pSourceFilePath;
@@ -237,7 +237,7 @@ namespace MoCap.Logging
                 else
                     MethodName += ", [[" + parameters[i].ParameterType + "] [" + parameters[i].Name + "]]";
             }
-            pMemberName += ")";
+            MethodName += ")";
         }
 
         #endregion

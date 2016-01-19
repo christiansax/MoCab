@@ -12,7 +12,7 @@ namespace MoCap.Logging.Tests
     public class LogMessageTests
     {
         [TestMethod()]
-        public void LogMessageCtorTest()
+        public void LogMessage_LogMessageCtorTest()
         {
             // Arange
             string message = "Test message";
@@ -25,7 +25,7 @@ namespace MoCap.Logging.Tests
         }
 
         [TestMethod()]
-        public void LogMessageCtor1Test()
+        public void LogMessage_LogMessageCtor1Test()
         {
             // Arange
             string message = "Test message";
@@ -39,7 +39,7 @@ namespace MoCap.Logging.Tests
         }
 
         [TestMethod()]
-        public void LogMessageCtor2Test()
+        public void LogMessage_LogMessageCtor2Test()
         {
             // Arange
             string message = "Test message";
@@ -55,7 +55,7 @@ namespace MoCap.Logging.Tests
         }
 
         [TestMethod()]
-        public void LogMessageCtor3Test()
+        public void LogMessage_LogMessageCtor3Test()
         {
             // Arange
             string message = "Test message";
@@ -73,7 +73,7 @@ namespace MoCap.Logging.Tests
         }
 
         [TestMethod()]
-        public void LogMessageCtor4Test()
+        public void LogMessage_LogMessageCtor4Test()
         {
             // Arange
             string message = "Test message";
@@ -93,16 +93,16 @@ namespace MoCap.Logging.Tests
         }
 
         [TestMethod()]
-        public void LogMessageCtor5Test()
+        public void LogMessage_LogMessageCtor5Test()
         {
             string message = "Test message";
             MessageType messageType = MessageType.Detail;
             int pLevel = 61;
             string pThread = "MyThread347889";
             string pContext = "MyContext";
-            string pComponent = "MyComponent";
+            string pAttribute = "MyAttr";
             // Act
-            LogMessage tmp = new LogMessage(message, messageType, pLevel, pThread, pContext, pComponent);
+            LogMessage tmp = new LogMessage(message, messageType, pLevel, pThread, pContext, pAttribute);
 
             // Assert
             Assert.AreEqual(message, tmp.Text);
@@ -110,11 +110,11 @@ namespace MoCap.Logging.Tests
             Assert.AreEqual(pLevel, tmp.Level);
             Assert.AreEqual(pThread, tmp.ThreadId);
             Assert.AreEqual(pContext, tmp.Context);
-            Assert.AreEqual(pComponent, tmp.Component);
+            Assert.AreEqual(pAttribute, tmp.Attribute1);
         }
 
         [TestMethod()]
-        public void LogMessageCtor6Test()
+        public void LogMessage_LogMessageCtor6Test()
         {
             string message = "Test message";
             MessageType messageType = MessageType.Detail;
@@ -124,7 +124,7 @@ namespace MoCap.Logging.Tests
             string pComponent = "MyComponent";
             string pAttribute = "MyAttr";
             // Act
-            LogMessage tmp = new LogMessage(message, messageType, pLevel, pThread, pContext, pComponent, pAttribute);
+            LogMessage tmp = new LogMessage(message, messageType, pLevel, pThread, pContext, pAttribute, pComponent);
 
             // Assert
             Assert.AreEqual(message, tmp.Text);

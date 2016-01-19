@@ -46,7 +46,9 @@ namespace MoCap.Logging
         Error,
         Warning,
         Info,
-        Detail
+        Detail,
+        EnterScope,
+        ExitScope
     };
 
     #endregion
@@ -96,6 +98,11 @@ namespace MoCap.Logging
         public string MethodName { get; }
 
         /// <summary>
+        /// ReadOnly: Method definition for which the message was logged
+        /// </summary>
+        public string MethodDefinition { get; }
+
+        /// <summary>
         /// ReadOnly: Line number where the log message was written
         /// </summary>
         public int LineNumber { get; }
@@ -119,6 +126,12 @@ namespace MoCap.Logging
         /// An value to attribute this message
         /// </summary>
         public string Attribute1 { get; set; }
+
+        /// <summary>
+        /// An integer value specifying the indent level of the message.
+        /// NOTE: Do not change this value
+        /// </summary>
+        public int IndentLevel { get; set; }
 
         #endregion
 
@@ -196,8 +209,8 @@ namespace MoCap.Logging
         /// <param name="pThreadId">The thread id which logs the message => Default is empty</param>
         /// <param name="pContext">The context to which the message belongs to => Default is empty</param>
         /// <param name="pComponent">The component under which this message was written => Default is empty</param>
-        public LogMessage(string pText, MessageType pType, int pLevel, string pThread, string pContext, string pComponent) : 
-            this(pText, pType, pLevel, pThread, pContext, pComponent, "")
+        public LogMessage(string pText, MessageType pType, int pLevel, string pThread, string pContext, string pAttribute) : 
+            this(pText, pType, pLevel, pThread, pContext, pAttribute, "")
         {
         }
 
@@ -212,13 +225,12 @@ namespace MoCap.Logging
         /// <param name="pComponent">The component under which this message was written => Default is empty</param>
         /// <param name="pAttribute1">The value to attribute the message to => Default is empty</param>
         public LogMessage(string pText, MessageType pType = MessageType.Info, int pLevel = 61, string pThreadId = "", string pContext = "",
-            string pComponent = "", string pAttribute1 = "",
+            string pAttribute1 = "", string pComponent = "",
             [System.Runtime.CompilerServices.CallerMemberName] string pMemberName = "",
             [System.Runtime.CompilerServices.CallerFilePath] string pSourceFilePath = "",
             [System.Runtime.CompilerServices.CallerLineNumber] int pSourceLineNumber = 0)
         {
-            StackTrace stackTrace = new StackTrace();
-            ParameterInfo[] parameters = stackTrace.GetFrame(1).GetMethod().GetParameters();
+            ParameterInfo[] parameters = new StackTrace().GetFrame(1).GetMethod().GetParameters();
             this.Text = pText;
             this.Type = pType;
             this.Level = pLevel;
@@ -227,17 +239,19 @@ namespace MoCap.Logging
             this.Component = pComponent;
             this.Attribute1 = pAttribute1;
             this.LineNumber = pSourceLineNumber;
-            this.MethodName = pMemberName +"(";
+            this.MethodName = pMemberName;
+            this.MethodDefinition = pMemberName +"(";
+
             this.SourceFile = pSourceFilePath;
 
             for(int i=0; i<parameters.Length;i++)
             {
                 if(i==0)
-                    MethodName += "[["+ parameters[i].ParameterType+"] ["+ parameters[i].Name+"]]";
+                    MethodDefinition += "[["+ parameters[i].ParameterType+"] ["+ parameters[i].Name+"]]";
                 else
-                    MethodName += ", [[" + parameters[i].ParameterType + "] [" + parameters[i].Name + "]]";
+                    MethodDefinition += ", [[" + parameters[i].ParameterType + "] [" + parameters[i].Name + "]]";
             }
-            MethodName += ")";
+            MethodDefinition += ")";
         }
 
         #endregion

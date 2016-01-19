@@ -21,7 +21,7 @@ namespace MoCap.Logging.Tests
             int pQueueSize = 2;
             string pComponent = "TachMahal";
             bool pUseprefix = true;
-            bl = new BinFileLogManager(pLogName, pLogPath, pQueueSize, pComponent, pUseprefix);
+            //bl = new BinFileLogManager(pLogName, pLogPath, pQueueSize, pComponent, pUseprefix);
             string message = "Test message";
 
             // Act
@@ -30,12 +30,12 @@ namespace MoCap.Logging.Tests
 
             // Assert
             Assert.IsNotNull(bl, "Failed creating LogManager object");
-            Assert.AreEqual(pLogName, bl.LogFileName, "LogName does not match {0} {1} {2} {3}", 
+            Assert.AreEqual(pLogName, bl.LogFileName, "LogName does not match {0} {1} {2} {3}",
                 bl.LogFileName, bl.LogFileFullPath, bl.LogFileExtension, bl.LogTargetPath);
         }
 
         [TestMethod()]
-        public void MessageAddedTest()
+        public void BinFileLogManager_MessageAddedTest()
         {
             // Arange
             BinFileLogManager bl = null;
@@ -44,7 +44,7 @@ namespace MoCap.Logging.Tests
             int pQueueSize = 2;
             string pComponent = "TachMahal";
             bool pUseprefix = true;
-            bl = new BinFileLogManager(pLogName, pLogPath, pQueueSize, pComponent, pUseprefix);
+            //bl = new BinFileLogManager(pLogName, pLogPath, pQueueSize, pComponent, pUseprefix);
             string message = "Test message";
 
             // Act
@@ -58,7 +58,7 @@ namespace MoCap.Logging.Tests
         }
 
         [TestMethod()]
-        public void WriteStreamTest()
+        public void BinFileLogManager_WriteStreamTest()
         {
             // Arange
             BinFileLogManager bl = null;
@@ -67,7 +67,7 @@ namespace MoCap.Logging.Tests
             int pQueueSize = 2;
             string pComponent = "TachMahal";
             bool pUseprefix = true;
-            bl = new BinFileLogManager(pLogName, pLogPath, pQueueSize, pComponent, pUseprefix);
+            //bl = new BinFileLogManager(pLogName, pLogPath, pQueueSize, pComponent, pUseprefix);
 
             // Act
             bl.AddMessage(new LogMessage("First message", MessageType.Detail, 40));
@@ -80,7 +80,7 @@ namespace MoCap.Logging.Tests
         }
 
         [TestMethod()]
-        public void ReadStreamTest()
+        public void BinFileLogManager_ReadStreamTest()
         {
             // Arange
             BinFileLogManager bl = null;
@@ -89,7 +89,7 @@ namespace MoCap.Logging.Tests
             int pQueueSize = 2;
             string pComponent = "TachMahal";
             bool pUseprefix = true;
-            bl = new BinFileLogManager(pLogName, pLogPath, pQueueSize, pComponent, pUseprefix);
+            //bl = new BinFileLogManager(pLogName, pLogPath, pQueueSize, pComponent, pUseprefix);
 
             // Act
             try { bl.ReadStream(); }

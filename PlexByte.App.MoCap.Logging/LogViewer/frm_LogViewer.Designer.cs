@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,10 +42,24 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.formattedLogMessageBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.timeStampDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.messageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.levelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.threadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.componentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.methodNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lineNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sourceFileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.attribute1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formattedLogMessageBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -140,7 +155,25 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.timeStampDataGridViewTextBoxColumn,
+            this.typeDataGridViewImageColumn,
+            this.messageDataGridViewTextBoxColumn,
+            this.levelDataGridViewTextBoxColumn,
+            this.threadDataGridViewTextBoxColumn,
+            this.componentDataGridViewTextBoxColumn,
+            this.methodNameDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn1,
+            this.lineNumberDataGridViewTextBoxColumn,
+            this.sourceFileDataGridViewTextBoxColumn,
+            this.contextDataGridViewTextBoxColumn,
+            this.attribute1DataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.formattedLogMessageBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 27);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -148,9 +181,102 @@
             this.dataGridView1.Size = new System.Drawing.Size(825, 386);
             this.dataGridView1.TabIndex = 2;
             // 
+            // formattedLogMessageBindingSource
+            // 
+            this.formattedLogMessageBindingSource.DataSource = typeof(MoCap.Logging.FormattedLogMessage);
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // timeStampDataGridViewTextBoxColumn
+            // 
+            this.timeStampDataGridViewTextBoxColumn.DataPropertyName = "TimeStamp";
+            this.timeStampDataGridViewTextBoxColumn.HeaderText = "TimeStamp";
+            this.timeStampDataGridViewTextBoxColumn.Name = "timeStampDataGridViewTextBoxColumn";
+            this.timeStampDataGridViewTextBoxColumn.ReadOnly = true;
+            this.timeStampDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // typeDataGridViewImageColumn
+            // 
+            this.typeDataGridViewImageColumn.DataPropertyName = "Type";
+            this.typeDataGridViewImageColumn.HeaderText = "Type";
+            this.typeDataGridViewImageColumn.Name = "typeDataGridViewImageColumn";
+            this.typeDataGridViewImageColumn.ReadOnly = true;
+            this.typeDataGridViewImageColumn.Width = 30;
+            // 
+            // messageDataGridViewTextBoxColumn
+            // 
+            this.messageDataGridViewTextBoxColumn.DataPropertyName = "Message";
+            this.messageDataGridViewTextBoxColumn.HeaderText = "Message";
+            this.messageDataGridViewTextBoxColumn.Name = "messageDataGridViewTextBoxColumn";
+            this.messageDataGridViewTextBoxColumn.ReadOnly = true;
+            this.messageDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // levelDataGridViewTextBoxColumn
+            // 
+            this.levelDataGridViewTextBoxColumn.DataPropertyName = "Level";
+            this.levelDataGridViewTextBoxColumn.HeaderText = "Level";
+            this.levelDataGridViewTextBoxColumn.Name = "levelDataGridViewTextBoxColumn";
+            this.levelDataGridViewTextBoxColumn.ReadOnly = true;
+            this.levelDataGridViewTextBoxColumn.Width = 40;
+            // 
+            // threadDataGridViewTextBoxColumn
+            // 
+            this.threadDataGridViewTextBoxColumn.DataPropertyName = "Thread";
+            this.threadDataGridViewTextBoxColumn.HeaderText = "Thread";
+            this.threadDataGridViewTextBoxColumn.Name = "threadDataGridViewTextBoxColumn";
+            this.threadDataGridViewTextBoxColumn.ReadOnly = true;
+            this.threadDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // componentDataGridViewTextBoxColumn
+            // 
+            this.componentDataGridViewTextBoxColumn.DataPropertyName = "Component";
+            this.componentDataGridViewTextBoxColumn.HeaderText = "Component";
+            this.componentDataGridViewTextBoxColumn.Name = "componentDataGridViewTextBoxColumn";
+            this.componentDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // methodNameDataGridViewTextBoxColumn
+            // 
+            this.methodNameDataGridViewTextBoxColumn.DataPropertyName = "MethodName";
+            this.methodNameDataGridViewTextBoxColumn.HeaderText = "MethodName";
+            this.methodNameDataGridViewTextBoxColumn.Name = "methodNameDataGridViewTextBoxColumn";
+            this.methodNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "MethodDefinition";
+            this.dataGridViewTextBoxColumn1.HeaderText = "MethodDefinition";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // lineNumberDataGridViewTextBoxColumn
+            // 
+            this.lineNumberDataGridViewTextBoxColumn.DataPropertyName = "LineNumber";
+            this.lineNumberDataGridViewTextBoxColumn.HeaderText = "LineNumber";
+            this.lineNumberDataGridViewTextBoxColumn.Name = "lineNumberDataGridViewTextBoxColumn";
+            this.lineNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sourceFileDataGridViewTextBoxColumn
+            // 
+            this.sourceFileDataGridViewTextBoxColumn.DataPropertyName = "SourceFile";
+            this.sourceFileDataGridViewTextBoxColumn.HeaderText = "SourceFile";
+            this.sourceFileDataGridViewTextBoxColumn.Name = "sourceFileDataGridViewTextBoxColumn";
+            this.sourceFileDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contextDataGridViewTextBoxColumn
+            // 
+            this.contextDataGridViewTextBoxColumn.DataPropertyName = "Context";
+            this.contextDataGridViewTextBoxColumn.HeaderText = "Context";
+            this.contextDataGridViewTextBoxColumn.Name = "contextDataGridViewTextBoxColumn";
+            this.contextDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // attribute1DataGridViewTextBoxColumn
+            // 
+            this.attribute1DataGridViewTextBoxColumn.DataPropertyName = "Attribute1";
+            this.attribute1DataGridViewTextBoxColumn.HeaderText = "Attribute1";
+            this.attribute1DataGridViewTextBoxColumn.Name = "attribute1DataGridViewTextBoxColumn";
+            this.attribute1DataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // frm_LogMessage
             // 
@@ -168,6 +294,7 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.formattedLogMessageBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,6 +318,19 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn methodDefinitionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn indentLevelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource formattedLogMessageBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timeStampDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn typeDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn messageDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn levelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn threadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn componentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn methodNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lineNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sourceFileDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contextDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn attribute1DataGridViewTextBoxColumn;
     }
 }
 

@@ -41,7 +41,7 @@ namespace MoCap.Logging
         private long maxFileSize = 763363328;
         private long currentFileSize = 0;
         private bool zipLogFiles = false;
-        private string indentPrefix = "  ";
+        private string indentPrefix = "    ";
         private int currentIndent = 0;
         private bool isReadMode = false;
         private bool autoRefreshLog = false;

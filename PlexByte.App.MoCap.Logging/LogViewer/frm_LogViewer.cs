@@ -18,21 +18,35 @@ namespace MoCap.LogViewer
                 {
                     trace.Log(new LogMessage("This is a message with all shabang " + DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fff") + " item " + i.ToString(),
                         MessageType.EnterScope, 22, "defhj", "INIT", "dsjaklsjd", "Compo"));
+                    trace.Log(new LogMessage("This is a message with type ALL " + DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fff") + " item " + i.ToString(),
+                        MessageType.All, 22, "defhj", "INIT", "dsjaklsjd", "Compo"));
                 }
                 else if (i == 4)
                 {
                     trace.Log(new LogMessage("This is a message with all shabang " + DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fff") + " item " + i.ToString(),
                         MessageType.EnterScope, 22, "defhj", "INIT", "dsjaklsjd", "Compo"));
+                    trace.Log(new LogMessage("This is a message with all type ERROR " + DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fff") + " item " + i.ToString(),
+                        MessageType.Error, 22, "defhj", "INIT", "dsjaklsjd", "Compo"));
+                    trace.Log(new LogMessage("This is a message with type ALL " + DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fff") + " item " + i.ToString(),
+                        MessageType.All, 22, "defhj", "INIT", "dsjaklsjd", "Compo"));
+                    trace.Log(new LogMessage("This is a message with Type INFO shabang " + DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fff") + " item " + i.ToString(),
+                        MessageType.Info, 22, "defhj", "INIT", "dsjaklsjd", "Compo"));
+                    trace.Log(new LogMessage("This is a message with type WARNING " + DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fff") + " item " + i.ToString(),
+                        MessageType.Warning, 22, "defhj", "INIT", "dsjaklsjd", "Compo"));
                 }
                 else if(i==20)
                 {
                     trace.Log(new LogMessage("This is a message with all shabang " + DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fff") + " item " + i.ToString(),
                         MessageType.ExitScope, 22, "defhj", "INIT", "dsjaklsjd", "Compo"));
+                    trace.Log(new LogMessage("This is a message with Type INFO shabang " + DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fff") + " item " + i.ToString(),
+                        MessageType.Info, 22, "defhj", "INIT", "dsjaklsjd", "Compo"));
                 }
                 else if (i == 29)
                 {
                     trace.Log(new LogMessage("This is a message with all shabang " + DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fff") + " item " + i.ToString(),
                         MessageType.ExitScope, 22, "defhj", "INIT", "dsjaklsjd", "Compo"));
+                    trace.Log(new LogMessage("This is a message with type WARNING " + DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fff") + " item " + i.ToString(),
+                        MessageType.Warning, 22, "defhj", "INIT", "dsjaklsjd", "Compo"));
                 }
                 else
                 {
@@ -52,6 +66,10 @@ namespace MoCap.LogViewer
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 trace = new TraceManager(openFileDialog1.FileName);
+                foreach (LogMessage msg in trace.ReadLogFile(trace.LogPath+"\\"+trace.RecentLogFileName))
+                {
+                    formattedLogMessageBindingSource.Add(new FormattedLogMessage(msg, trace.IndentPrefix));
+                }
             }
         }
     }

@@ -48,7 +48,8 @@ namespace MoCap.Logging
         Info,
         Detail,
         EnterScope,
-        ExitScope
+        ExitScope,
+        All
     };
 
     #endregion
@@ -68,6 +69,11 @@ namespace MoCap.Logging
         #region Properties
 
         /// <summary>
+        /// ReadOnly: The time stamp on which this message was created
+        /// </summary>
+        public DateTime TimeStamp { get; } = DateTime.Now;
+
+        /// <summary>
         /// ReadOnly: The text of the log message
         /// </summary>
         public string Text { get; }
@@ -83,14 +89,14 @@ namespace MoCap.Logging
         public int Level { get; } = 61;
 
         /// <summary>
-        /// ReadOnly: The time stamp on which this message was created
-        /// </summary>
-        public DateTime TimeStamp { get; } = DateTime.Now;
-
-        /// <summary>
         /// ReadOnly: The thread number which wrote this message
         /// </summary>
         public string ThreadId { get; }
+
+        /// <summary>
+        /// The component to which this message belongs
+        /// </summary>
+        public string Component { get; set; }
 
         /// <summary>
         /// ReadOnly: Method in which the message was logged
@@ -118,15 +124,11 @@ namespace MoCap.Logging
         public string Context { get; set; }
 
         /// <summary>
-        /// The component to which this message belongs
-        /// </summary>
-        public string Component { get; set; }
-
-        /// <summary>
         /// An value to attribute this message
         /// </summary>
         public string Attribute1 { get; set; }
 
+        [System.ComponentModel.Browsable(false)]
         /// <summary>
         /// An integer value specifying the indent level of the message.
         /// NOTE: Do not change this value

@@ -15,11 +15,11 @@ namespace MoCap.Logging
         public bool AutoRefreshLog { get { return autoRefreshLog; } set { RefreshLogFile(value); } }
         public string Component { get { return component; } }
         public int CurrentIndent { get { return currentIndent; } }
-        public string DateFolderName{get {return dateFolderName;}}
+        public string DateFolderName { get { return dateFolderName; } }
         public string IndentPrefix { get { return indentPrefix; } }
         public bool IsReadMode { get { return isReadMode; } }
         public int LogCache { get { return logCache; } }
-        public int LogFileIndex {get{ return logFileIndex; }}
+        public int LogFileIndex { get { return logFileIndex; } }
         public long MaxFileSize { get { return maxFileSize; } }
         public string LogPath { get { return logPath; } }
         public string RecentLogFileName { get { return recentLogFileName; } }
@@ -67,28 +67,36 @@ namespace MoCap.Logging
         public TraceManager(string pFileName, string pFilePath, string pComponent, int pLevel, int pLogCache = 2000, bool pReadMode = false,
             long pMaxFileSize = 763363328, string pIndent = "  ")
         {
-            isLocked = false;
-            recentLogFileName = pFileName;
-            dateFolderName = DateTime.Now.ToString("yyyyMMdd");
-            if (pFilePath.Length < 2)
-                logPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\PlexByte\\" + dateFolderName;
-            else
-                logPath = pFilePath + "\\" + dateFolderName;
-            recentLogFileName = pFileName;
-            SetTraceLevel(pLevel);
-            if (pComponent.Length < 1)
-                component = Assembly.GetCallingAssembly().GetName().ToString();
-            else
-                component = pComponent;
-            logCache = pLogCache;
             isReadMode = pReadMode;
-            maxFileSize = pMaxFileSize;
-            indentPrefix = pIndent;
+            recentLogFileName = pFileName;
+            logPath = pFilePath;
+            if (!isReadMode)
+            {
+                dateFolderName = DateTime.Now.ToString("yyyyMMdd");
+                if (pFilePath.Length < 2)
+                    logPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\PlexByte\\" + dateFolderName;
+                else
+                    logPath = pFilePath + "\\" + dateFolderName;
+                SetTraceLevel(pLevel);
+                if (pComponent.Length < 1)
+                    component = Assembly.GetCallingAssembly().GetName().ToString();
+                else
+                    component = pComponent;
+                logCache = pLogCache;
+                maxFileSize = pMaxFileSize;
+                indentPrefix = pIndent;
 
-            activeLog = InitLogFile(false, logFileIndex);
-            logMessages = new List<LogMessage>();
-            logMessages.Add(new LogMessage("Logging started for component " + Component, MessageType.Info, 0, 
-                Thread.CurrentThread.ManagedThreadId.ToString(), "Initializing"));    
+                activeLog = InitLogFile(false, logFileIndex);
+                logMessages = new List<LogMessage>();
+                logMessages.Add(new LogMessage("Logging started for component " + Component, MessageType.All, 0,
+                    Thread.CurrentThread.ManagedThreadId.ToString(), "Initializing"));
+            }
+            else
+            {
+                activeLog = InitLogFile(false, 0);
+                logMessages = activeLog.ReadFile();
+                maxFileSize = activeLog.Size;
+            }  
         }
 
         /// <summary>
@@ -103,9 +111,9 @@ namespace MoCap.Logging
         /// Ctor of the class, instanciating traceManager in READ mode
         /// </summary>
         /// <param name="pFullFileName">The full path and file name including extension to open</param>
-        public TraceManager(string pFullFileName) : this(pFullFileName, "", "", 0, 0, true, 0)
+        public TraceManager(string pFullFileName) : 
+            this(Path.GetFileName(pFullFileName), Path.GetDirectoryName(pFullFileName), "", 0, 0, true, 0)
         {
-
         }
 
         /// <summary>
@@ -157,7 +165,7 @@ namespace MoCap.Logging
                 if (activeLog != null)
                 {
                     activeLog.WriteLog(logMessages);
-                    activeLog.WriteLog(new LogMessage("Logging stopped for component " + Component, MessageType.Info, 0,
+                    activeLog.WriteLog(new LogMessage("Logging stopped for component " + Component, MessageType.All, 0,
                         Thread.CurrentThread.ManagedThreadId.ToString(), "Dispose"));
                     activeLog.MessagesAdded -= ActiveLog_MessagesAdded;
                     activeLog = null;
@@ -171,7 +179,11 @@ namespace MoCap.Logging
             }
             finally
             {
-                if (isLocked) Monitor.Exit(_LockObject);
+                if (isLocked)
+                {
+                    Monitor.Exit(_LockObject);
+                    isLocked = false;
+                }
             }
 
         }
@@ -263,7 +275,11 @@ namespace MoCap.Logging
             }
             finally
             {
-                if (isLocked) Monitor.Exit(_LockObject);
+                if (isLocked)
+                {
+                    Monitor.Exit(_LockObject);
+                    isLocked = false;
+                }
             }
         }
 
@@ -462,7 +478,7 @@ namespace MoCap.Logging
                     // Day rollover start reinitializing...
                     logMessages.Add(
                         new LogMessage("Trace day rollover end of day @ " +
-                        DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fff"), MessageType.Info, 0, ""));
+                        DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fff"), MessageType.All, 0, ""));
                     activeLog.WriteLog(logMessages);
                     int dummy = 0;
                     if (ZipLogFiles)
@@ -494,7 +510,11 @@ namespace MoCap.Logging
                 }
                 finally
                 {
-                    if (isLocked) Monitor.Exit(_LockObject);
+                    if (isLocked)
+                    {
+                        Monitor.Exit(_LockObject);
+                        isLocked = false;
+                    }
                 }
             }
             else
@@ -511,7 +531,11 @@ namespace MoCap.Logging
                 }
                 finally
                 {
-                    if (isLocked) Monitor.Exit(_LockObject);
+                    if (isLocked)
+                    {
+                        Monitor.Exit(_LockObject);
+                        isLocked = false;
+                    }
                 }
             }
             return log;

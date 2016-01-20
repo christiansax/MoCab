@@ -561,7 +561,7 @@ namespace MoCap.Logging
         /// This method looks for a Trace.cfg file in the current executing directory or the target file path. If found the level 
         /// specified for the component will be set as trace level. If no file was found, the default level of 41 will be set
         /// </summary>
-        public int GetTraceLevel(string pTraceInfoFileName="Trace.traceConf")
+        public int GetTraceLevel(string pTraceInfoFileName="Trace.cfg")
         {
             int level = 0;
             string[] configContent = null;

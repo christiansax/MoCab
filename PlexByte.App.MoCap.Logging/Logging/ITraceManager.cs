@@ -202,7 +202,7 @@ namespace MoCap.Logging
         /// </summary>
         /// <param name="pFileFullPath">The full file path, including file name and extension to the file to read</param>
         /// <returns>Returns a list of messages read from the file</returns>
-        List<LogMessage> ReadLogFile(string pFileFullPath);
+        List<LogMessage> ReadLogFile(string pFileFullPath, out long pNumberOfMessages);
 
         /// <summary>
         /// Filters the list of messages according to the filter specified

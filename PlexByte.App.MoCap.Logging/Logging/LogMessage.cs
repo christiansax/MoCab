@@ -14,6 +14,7 @@
 using System;
 using System.Diagnostics;
 using System.Reflection;
+using System.Threading;
 #endregion
 
 #region Includes (3rd parties)
@@ -233,25 +234,28 @@ namespace MoCap.Logging
             [System.Runtime.CompilerServices.CallerLineNumber] int pSourceLineNumber = 0)
         {
             ParameterInfo[] parameters = new StackTrace().GetFrame(1).GetMethod().GetParameters();
-            this.Text = pText;
-            this.Type = pType;
-            this.Level = pLevel;
-            this.ThreadId = pThreadId;
-            this.Context = pContext;
-            this.Component = pComponent;
-            this.Attribute1 = pAttribute1;
-            this.LineNumber = pSourceLineNumber;
-            this.MethodName = pMemberName;
-            this.MethodDefinition = pMemberName +"(";
+            Text = pText;
+            Type = pType;
+            Level = pLevel;
+            if (pThreadId != Thread.CurrentThread.ManagedThreadId.ToString())
+                ThreadId = pThreadId;
+            else
+                ThreadId = Thread.CurrentThread.ManagedThreadId.ToString();
+            Context = pContext;
+            Component = pComponent;
+            Attribute1 = pAttribute1;
+            LineNumber = pSourceLineNumber;
+            MethodName = pMemberName;
+            MethodDefinition = pMemberName +"(";
 
-            this.SourceFile = pSourceFilePath;
+            SourceFile = pSourceFilePath;
 
             for(int i=0; i<parameters.Length;i++)
             {
                 if(i==0)
-                    MethodDefinition += "[["+ parameters[i].ParameterType+"] ["+ parameters[i].Name+"]]";
+                    MethodDefinition += "["+ parameters[i].ParameterType+" | "+ parameters[i].Name+"]";
                 else
-                    MethodDefinition += ", [[" + parameters[i].ParameterType + "] [" + parameters[i].Name + "]]";
+                    MethodDefinition += ", [" + parameters[i].ParameterType + " | " + parameters[i].Name + "]";
             }
             MethodDefinition += ")";
         }

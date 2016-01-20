@@ -19,6 +19,9 @@ namespace MoCap.Logging
         public string Context { get; set; }
         public string Attribute1 { get; set; }
 
+        [System.ComponentModel.Browsable(false)]
+        public Color MessageColor { get; } = Color.Transparent;
+
         private const string TimeFormat = "HH:mm:ss.fff";
 
         /// <summary>
@@ -49,9 +52,11 @@ namespace MoCap.Logging
                     break;
                 case MessageType.Error:
                     Type = Properties.Resources.Error;
+                    MessageColor = Color.FromArgb(242, 80, 80);
                     break;
                 case MessageType.Warning:
                     Type = Properties.Resources.Warning;
+                    MessageColor = Color.FromArgb(237, 152, 66);
                     break;
                 case MessageType.Info:
                     Type = Properties.Resources.Info;

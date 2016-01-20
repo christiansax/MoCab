@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MoCap.Logging.FormattedLogMessage">
+    <Position X="0.5" Y="0.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAwAAQAAAAAAIAgAgIAAAAAABAQBCIAAAAAE=</HashCode>
+      <FileName>FormattedLogMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoCap.Logging.TraceManagerEventArgs">
+    <Position X="9.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAACAAAAAAAAAAIAAAAAAQEAAAA=</HashCode>
+      <FileName>ITraceManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoCap.Logging.LogFile">
+    <Position X="0.5" Y="8" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>CQAAACAAAEAA0AAAAEEAABQAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>LogFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoCap.Logging.LogFileEventArgs">
+    <Position X="3.5" Y="8.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEABAAAAAAAAAAAAAAAAAAABAAAFAAAA=</HashCode>
+      <FileName>LogFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoCap.Logging.LogMessage">
+    <Position X="5.75" Y="8" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAgAgQAAAAAAIEgAAAAAAAAABAQBCCAAAAAE=</HashCode>
+      <FileName>LogMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoCap.Logging.MessageFilter">
+    <Position X="10.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MessageFilter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MoCap.Logging.TraceManager">
+    <Position X="15.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>kwCIMSgZIDEAMAAFggAAJIQBAsigAAoxACBggIAgQAk=</HashCode>
+      <FileName>TraceManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="MoCap.Logging.ITraceManager">
+    <Position X="11.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>kQCAMQgIAAEAMAAFgAAAIAQBAAggAAoBAABggIAgAAA=</HashCode>
+      <FileName>ITraceManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MoCap.Logging.LogComlumn">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAgQAAAAAAAAAAAAAAAAAABAQBCCAAAAAE=</HashCode>
+      <FileName>ITraceManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MoCap.Logging.RolloverType">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAEAAAABA=</HashCode>
+      <FileName>ITraceManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="MoCap.Logging.MessageType">
+    <Position X="8.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAQAAAAAAABAAAAAAAAAAAIACAEAACAA=</HashCode>
+      <FileName>LogMessage.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="MoCap.Logging.LogFileRollOverEventHanler" Collapsed="true">
+    <Position X="9" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ITraceManager.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="MoCap.Logging.TraceLevelChangedEventHanler" Collapsed="true">
+    <Position X="5.75" Y="4.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ITraceManager.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="MoCap.Logging.NewMessagesRetrievedEventHanler" Collapsed="true">
+    <Position X="8.5" Y="4.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ITraceManager.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="MoCap.Logging.AsyncZipLogFile" Collapsed="true">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAACAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ITraceManager.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="MoCap.Logging.AsyncReadLogFile" Collapsed="true">
+    <Position X="5.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>ITraceManager.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="MoCap.Logging.AsyncPurgeLogFile" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAACAAAAAAAAAA=</HashCode>
+      <FileName>ITraceManager.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="MoCap.Logging.MessagesAddedEventHanler" Collapsed="true">
+    <Position X="3" Y="8" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LogFile.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

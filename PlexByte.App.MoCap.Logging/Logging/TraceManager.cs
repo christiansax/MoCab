@@ -70,6 +70,7 @@ namespace MoCap.Logging
             isReadMode = pReadMode;
             recentLogFileName = pFileName;
             logPath = pFilePath;
+            logMessages = new List<LogMessage>();
             if (!isReadMode)
             {
                 dateFolderName = DateTime.Now.ToString("yyyyMMdd");
@@ -78,8 +79,8 @@ namespace MoCap.Logging
                 else
                     logPath = pFilePath + "\\" + dateFolderName;
                 SetTraceLevel(pLevel);
-                if (pComponent.Length < 1)
-                    component = Assembly.GetCallingAssembly().GetName().ToString();
+                if (pComponent.Length < 2)
+                    component = Assembly.GetCallingAssembly().GetName().Name;
                 else
                     component = pComponent;
                 logCache = pLogCache;
@@ -87,14 +88,12 @@ namespace MoCap.Logging
                 indentPrefix = pIndent;
 
                 activeLog = InitLogFile(false, logFileIndex);
-                logMessages = new List<LogMessage>();
                 logMessages.Add(new LogMessage("Logging started for component " + Component, MessageType.All, 0,
                     Thread.CurrentThread.ManagedThreadId.ToString(), "Initializing"));
             }
             else
             {
                 activeLog = InitLogFile(false, 0);
-                logMessages = activeLog.ReadFile();
                 maxFileSize = activeLog.Size;
             }  
         }
@@ -189,6 +188,8 @@ namespace MoCap.Logging
         }
 
         #endregion
+
+        #region Methods
 
         /// <summary>
         /// Clear previously applied filters and returns all messages
@@ -331,10 +332,11 @@ namespace MoCap.Logging
         /// </summary>
         /// <param name="pFileFullPath">The full path including file name and extension</param>
         /// <returns>Returns the list of messages from the file</returns>
-        public List<LogMessage> ReadLogFile(string pFileFullPath)
+        public List<LogMessage> ReadLogFile(string pFileFullPath, out long pNumberOfMessages)
         {
-            activeLog = new LogFile(Path.GetFileName(pFileFullPath), Path.GetDirectoryName(pFileFullPath));
-            logMessages.AddRange(activeLog.ReadFile());
+            if(activeLog==null)
+                activeLog = new LogFile(Path.GetFileName(pFileFullPath), Path.GetDirectoryName(pFileFullPath));
+            logMessages.AddRange(activeLog.ReadFile(out pNumberOfMessages));
             return logMessages;
         }
 
@@ -345,11 +347,11 @@ namespace MoCap.Logging
         public void RefreshLogFile(bool pAutoRefresh)
         {
             autoRefreshLog = pAutoRefresh;
-
+            long numberMessages = 0;
             // Is it in read mode
             if (IsReadMode)
             {
-                logMessages = activeLog.ReadFile();
+                logMessages = activeLog.ReadFile(out numberMessages);
                 if (autoRefreshLog)
                 {
                     // Register the messages added event from the log file
@@ -611,5 +613,7 @@ namespace MoCap.Logging
             logPath = e.FilePath;
             OnNewMessagesRetrieved();
         }
+
+        #endregion
     }
 }

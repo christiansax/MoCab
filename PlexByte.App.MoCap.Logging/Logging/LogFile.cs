@@ -144,7 +144,7 @@ namespace MoCap.Logging
         /// This method reads a log file
         /// </summary>
         /// <returns>Returns the list of logMessages</returns>
-        public List<LogMessage> ReadFile()
+        public List<LogMessage> ReadFile(out long pNumberOfMessages)
         {
             FileInfo fi = new FileInfo(FullPath + "\\" + Name);
             fileSize = fi.Length;
@@ -157,6 +157,7 @@ namespace MoCap.Logging
                 {
                     messages.Add((LogMessage)binFmt.Deserialize(stream));
                 }
+                pNumberOfMessages = messages.Count;
                 return messages;
             }
         }

@@ -5,38 +5,6 @@
       <actor Id="22f9670b-4ad4-4163-a90d-f09fa82a343e" name="User" isAbstract="false" isLeaf="false">
         <elementDefinition Id="9a11a337-fefd-4dd9-8412-4f69bcead684" />
         <targetEnds>
-          <association Id="1cf4f2e1-66e2-4c5c-8ff1-986af422da4a" isDerived="false" sourceEndRoleName="User" targetEndRoleName="AttachBalance" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="9ab97593-44b9-47a9-beef-287edb9256f1" LastKnownName="Attache" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="3e0cc055-7e88-4b43-a16e-2708813f05b4" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="071d46c3-17c6-41d3-8c64-04b788d25075" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="a6383a16-df8f-4192-9906-30f0e6a65a30" name="AttachBalance" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="b4fd060f-a36a-4102-90b7-58e88031ca7b" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="c7901f09-85d0-481d-9576-c5138c418a3a" />
-          </association>
-          <association Id="699e36fe-37a0-4e16-8d77-5fe083d499b4" isDerived="false" sourceEndRoleName="User" targetEndRoleName="AttachBill" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="ba89973e-9f86-4324-949b-27d9b21e62c7" LastKnownName="AttachBill" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="eef87744-0ab3-4426-80b2-947c34e0faac" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="61f6449e-b109-4ae8-8ca5-1f46e163c752" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="224d16df-4d9b-489c-8a7e-382275fc919a" name="AttachBill" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="2c83c8b5-7a12-4e3c-92b5-feede2f64c8a" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="54594bbf-33c0-4ea2-bd1f-c60d6358199d" />
-          </association>
           <association Id="6334502a-f14d-480a-b0df-4d683e12fe82" isDerived="false" sourceEndRoleName="User" targetEndRoleName="ViewBalance" isLeaf="false" isAbstract="false">
             <useCaseMoniker Id="4f44d979-a686-4de9-b893-d8cc4b04d87f" LastKnownName="View" />
             <relationshipOwnedElementsInternal>
@@ -69,21 +37,53 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="a4a1cf67-50b8-45bf-b7f1-3004055d8014" />
           </association>
-          <association Id="1770b387-0f6a-47f6-8050-68e31a20ce4d" isDerived="false" sourceEndRoleName="User" targetEndRoleName="EditBalance" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="a9524903-c3c4-4c61-8526-787f9f45dd7d" LastKnownName="Edit" />
+          <association Id="1ae1941b-f397-420d-a166-751073f465a7" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Create" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="c7f42836-ab6c-4afb-8722-52cd110df430" LastKnownName="Create" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
-                <memberEnd Id="14362903-8620-40a3-9704-574de8d28add" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="220d7c41-a536-4c10-8396-d42e3633a615" />
+                <memberEnd Id="96c153ec-fad3-4d41-825e-c6912029b505" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ae162b22-47bb-4710-b6a6-3642c5067e6e" />
                 </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
-                <memberEnd Id="22a21763-e065-49e7-b538-04d56d496f0f" name="EditBalance" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="fffe265a-3119-4c73-81d2-5bbd3bde2357" />
+                <memberEnd Id="9ccf216b-0616-4a3a-ad84-47fd4b0e74a3" name="Create" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f330ae10-5d2f-48b3-a903-d13601a5a31f" />
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
-            <elementDefinition Id="ada215dd-0e71-4677-9ccf-44491bb90405" />
+            <elementDefinition Id="8b863baf-43a8-4290-b36f-72706cf7c574" />
+          </association>
+          <association Id="98b52ce7-422d-4f89-a797-43cc729dedea" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Edit" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="a9524903-c3c4-4c61-8526-787f9f45dd7d" LastKnownName="Edit" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a545efc8-b801-4a00-84df-5afc0ab44bc9" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="cb37ec49-5159-466b-a931-040da79df516" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="108ab3b7-f5d0-478f-931d-1e7cfd2bfc05" name="Edit" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="6d55b265-05ec-4a9c-b3be-07f0ee9f07d4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f74048b7-2d7a-49b2-9f6a-513eb9083636" />
+          </association>
+          <association Id="7353d24b-a271-4bf6-9a2f-fcdc67f3646b" isDerived="false" sourceEndRoleName="User" targetEndRoleName="AttachBill" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="ba89973e-9f86-4324-949b-27d9b21e62c7" LastKnownName="AttachBill" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5b5e5d35-d14c-4f61-928b-75b83374d5d6" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="fa36b6ef-4837-42b5-8fcd-eda92e26df96" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9b1176f1-ee10-4500-b598-40e28760ef28" name="AttachBill" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="841c6ed1-042d-4721-b2cb-986a8b1731fa" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="bde2c1fa-9f86-4f4f-89f8-044223cfcb2b" />
           </association>
         </targetEnds>
       </actor>
@@ -158,9 +158,9 @@
       <useCase Id="a9524903-c3c4-4c61-8526-787f9f45dd7d" name="Edit" isAbstract="false" isLeaf="false">
         <elementDefinition Id="69e4e01d-05c9-4be3-b501-122a12d090ec" />
         <extendedCases>
-          <extend Id="5ce74c0e-1962-4a06-9809-8bd241012ae8">
-            <useCaseMoniker Id="9ab97593-44b9-47a9-beef-287edb9256f1" LastKnownName="Attache" />
-            <elementDefinition Id="ad13b71e-d494-4b48-a774-6f50dafc9dfc" />
+          <extend Id="801748a5-b8a3-4ba1-936c-24f58948fbd3">
+            <useCaseMoniker Id="c7f42836-ab6c-4afb-8722-52cd110df430" LastKnownName="Create" />
+            <elementDefinition Id="42026790-9e66-4cf8-9c7f-2910a68e6632" />
           </extend>
         </extendedCases>
         <subjects>
@@ -168,6 +168,20 @@
         </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="c7f42836-ab6c-4afb-8722-52cd110df430" name="Create" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="dbe1e1e3-925e-4289-aea0-f2947a0029b2" />
+        <additions>
+          <include Id="ff985672-baea-49d0-adb5-5deb10eb5b7b">
+            <useCaseMoniker Id="9ab97593-44b9-47a9-beef-287edb9256f1" LastKnownName="Attache" />
+            <elementDefinition Id="46e5850c-3b67-4ac1-a1d9-a6cd9a46e424" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="3bb10753-db8c-467e-a792-c5dff3d839f8" LastKnownName="Balance" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="c2a910df-4218-4202-9a45-299bcc0ff155" name="ObjectModel">
     <elementDefinition Id="5f36593a-a9fe-4fba-adb2-6dbb2e29fc75" />

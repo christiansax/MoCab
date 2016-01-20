@@ -3953,84 +3953,6 @@
         isLeaf="false">
         <targetEnds>
           <association
-            Id="c7901f09-85d0-481d-9576-c5138c418a3a"
-            isDerived="false"
-            sourceEndRoleName="User"
-            targetEndRoleName="AttachBalance"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="8156345c-9fb7-4454-9d42-a66401e65829"
-              LastKnownName="Attache"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="071d46c3-17c6-41d3-8c64-04b788d25075"
-                  name="User"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="b4fd060f-a36a-4102-90b7-58e88031ca7b"
-                  name="AttachBalance"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="54594bbf-33c0-4ea2-bd1f-c60d6358199d"
-            isDerived="false"
-            sourceEndRoleName="User"
-            targetEndRoleName="AttachBill"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="d6f9c239-cbcf-4976-b652-8fab5c433aae"
-              LastKnownName="AttachBill"
-              LastKnownLocation="ObjectModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="61f6449e-b109-4ae8-8ca5-1f46e163c752"
-                  name="User"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="2c83c8b5-7a12-4e3c-92b5-feede2f64c8a"
-                  name="AttachBill"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
             Id="323290e5-2ee3-4ea8-be45-68b8a01ecb04"
             isDerived="false"
             sourceEndRoleName="User"
@@ -4109,20 +4031,20 @@
             </relationshipOwnedElementsInternal>
           </association>
           <association
-            Id="ada215dd-0e71-4677-9ccf-44491bb90405"
+            Id="8b863baf-43a8-4290-b36f-72706cf7c574"
             isDerived="false"
             sourceEndRoleName="User"
-            targetEndRoleName="EditBalance"
+            targetEndRoleName="Create"
             isLeaf="false"
             isAbstract="false">
             <useCaseMoniker
-              Id="69e4e01d-05c9-4be3-b501-122a12d090ec"
-              LastKnownName="Edit"
+              Id="dbe1e1e3-925e-4289-aea0-f2947a0029b2"
+              LastKnownName="Create"
               LastKnownLocation="ObjectModel.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="220d7c41-a536-4c10-8396-d42e3633a615"
+                  Id="ae162b22-47bb-4710-b6a6-3642c5067e6e"
                   name="User"
                   isLeaf="false"
                   isStatic="false"
@@ -4135,8 +4057,86 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="fffe265a-3119-4c73-81d2-5bbd3bde2357"
-                  name="EditBalance"
+                  Id="f330ae10-5d2f-48b3-a903-d13601a5a31f"
+                  name="Create"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f74048b7-2d7a-49b2-9f6a-513eb9083636"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="Edit"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="69e4e01d-05c9-4be3-b501-122a12d090ec"
+              LastKnownName="Edit"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cb37ec49-5159-466b-a931-040da79df516"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6d55b265-05ec-4a9c-b3be-07f0ee9f07d4"
+                  name="Edit"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="bde2c1fa-9f86-4f4f-89f8-044223cfcb2b"
+            isDerived="false"
+            sourceEndRoleName="User"
+            targetEndRoleName="AttachBill"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="d6f9c239-cbcf-4976-b652-8fab5c433aae"
+              LastKnownName="AttachBill"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fa36b6ef-4837-42b5-8fcd-eda92e26df96"
+                  name="User"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="841c6ed1-042d-4721-b2cb-986a8b1731fa"
+                  name="AttachBill"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -4279,10 +4279,10 @@
         isLeaf="false">
         <extendedCases>
           <extend
-            Id="ad13b71e-d494-4b48-a774-6f50dafc9dfc">
+            Id="42026790-9e66-4cf8-9c7f-2910a68e6632">
             <useCaseMoniker
-              Id="8156345c-9fb7-4454-9d42-a66401e65829"
-              LastKnownName="Attache"
+              Id="dbe1e1e3-925e-4289-aea0-f2947a0029b2"
+              LastKnownName="Create"
               LastKnownLocation="ObjectModel.uml" />
           </extend>
         </extendedCases>
@@ -12755,6 +12755,29 @@
           <subsystemMoniker
             Id="f484a599-0e24-45a3-8d5f-e196eee82609"
             LastKnownName="Chat"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="dbe1e1e3-925e-4289-aea0-f2947a0029b2"
+        name="Create"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="46e5850c-3b67-4ac1-a1d9-a6cd9a46e424">
+            <useCaseMoniker
+              Id="8156345c-9fb7-4454-9d42-a66401e65829"
+              LastKnownName="Attache"
+              LastKnownLocation="ObjectModel.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="8f338c6e-5c03-461c-bace-c2cd78013e43"
+            LastKnownName="Balance"
             LastKnownLocation="ObjectModel.uml" />
         </subjects>
       </useCase>

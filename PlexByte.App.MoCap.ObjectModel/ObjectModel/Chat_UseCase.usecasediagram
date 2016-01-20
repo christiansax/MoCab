@@ -117,6 +117,54 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="3a763307-c87e-4dd3-bd9c-dae3de92079b" />
           </association>
+          <association Id="105cf0a7-0184-4366-bc5a-fb0370685408" isDerived="false" sourceEndRoleName="Creator" targetEndRoleName="ReadMessage" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="87b37e80-365b-474a-877a-575a92fd93bd" LastKnownName="ReadMessage" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="800ee98c-9aa6-4827-b4ca-b43a470b1ec0" name="Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="254a7e38-3a89-4907-ab83-eb6d07a3cf90" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9bf07422-7f2a-41dd-a5c5-cc5f208937b2" name="ReadMessage" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="20ffa3de-5e76-442f-b3af-c77d300e08a7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="38f43802-5792-47ef-ad7f-ae26e9a5df42" />
+          </association>
+          <association Id="93039c91-236a-4eaa-95f8-a6640cc4915a" isDerived="false" sourceEndRoleName="Creator" targetEndRoleName="KickUser" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="855dd3ea-927c-4c1d-8ba9-59093b1b0832" LastKnownName="KickUser" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="da5f9012-392b-4061-8169-90842ff21264" name="Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="9b354aa9-fe79-4344-be56-51bbb07bf2b7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6ed1e220-28b4-4685-bb74-5acdfeb2470f" name="KickUser" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="12abad12-6d60-4729-89c0-13ae5fc6e19c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c72994ff-a74f-4d3a-946d-d444a2ce9871" />
+          </association>
+          <association Id="95539ce8-94ab-4321-89e3-03cb2db6f6a6" isDerived="false" sourceEndRoleName="Creator" targetEndRoleName="AttachImage" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="41a04f13-d432-4fab-b7a6-fe2a5451aa82" LastKnownName="AttachImage" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="adace79c-d6b3-4222-9d1c-7f55ad2743c3" name="Creator" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ab3e954b-1780-4df6-a7fa-2400b458e3c4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3fa77ab1-a7b1-4684-9a29-eba0e393ee8e" name="AttachImage" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c391421a-42e5-4fa0-bb36-abd4b02064b5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="aac54d8a-2bd4-47e4-9923-2a8ffc0848f5" />
+          </association>
         </targetEnds>
       </actor>
     </useCaseModelRootHasTypes>
@@ -155,6 +203,22 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="f8924066-c298-4137-b876-3eeadf1632c9" />
+          </association>
+          <association Id="2fd46c12-398d-4bfe-a406-05862ae8a949" isDerived="false" sourceEndRoleName="Member" targetEndRoleName="ReadMessage" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="87b37e80-365b-474a-877a-575a92fd93bd" LastKnownName="ReadMessage" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5ed60401-0596-4859-be27-dcaf6cc559f4" name="Member" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="16d15308-a4a7-44c9-9b92-6792a7163117" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9ce2ea1b-f435-44da-a6da-db273bf9ae3b" name="ReadMessage" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="786f6dd2-d1bf-4bb9-9e81-4704f15d0c46" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e99107e6-feca-484a-ab4d-292c28fd9925" />
           </association>
         </targetEnds>
       </actor>
@@ -272,12 +336,6 @@
             <elementDefinition Id="577446fd-ed6a-43d3-a254-65914584148d" />
           </association>
         </targetEnds>
-        <extendedCases>
-          <extend Id="4fac840f-919f-4270-903b-be267c2d1566">
-            <useCaseMoniker Id="44dbb974-17ce-481b-9f17-4b4e14f934f1" LastKnownName="ForwardMessage" />
-            <elementDefinition Id="05fbc6fe-2787-4528-9630-66d7070f3926" />
-          </extend>
-        </extendedCases>
         <subjects>
           <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat" />
         </subjects>
@@ -290,6 +348,10 @@
           <extend Id="a83eafe7-9a8e-4846-bcfa-7884a571669a">
             <useCaseMoniker Id="67555b12-a4ed-49ff-a5b9-afa2e8d25996" LastKnownName="SendMessage" />
             <elementDefinition Id="31c7b136-f31c-4eee-af50-b94c5d9f2c73" />
+          </extend>
+          <extend Id="44b3a4ae-9652-4de4-beea-53aa2e33d0bc">
+            <useCaseMoniker Id="87b37e80-365b-474a-877a-575a92fd93bd" LastKnownName="ReadMessage" />
+            <elementDefinition Id="bf7f5bcc-4881-4918-b405-dc315b65d773" />
           </extend>
         </extendedCases>
         <subjects>
@@ -327,6 +389,42 @@
         </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="87b37e80-365b-474a-877a-575a92fd93bd" name="ReadMessage" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="e6bdefc8-3cfc-4360-9094-dc64eeda86f5" />
+        <extendedCases>
+          <extend Id="637b0d09-e56f-4229-ac49-aab2c89df97e">
+            <useCaseMoniker Id="a8f15aa9-f664-4205-9371-eaac88783e8a" LastKnownName="ReceiveMessage" />
+            <elementDefinition Id="27571894-c123-4aca-a53c-da1d83a71ae2" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="855dd3ea-927c-4c1d-8ba9-59093b1b0832" name="KickUser" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="852ec6a3-e557-4f26-bfcc-6c44bf3e604f" />
+        <subjects>
+          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="41a04f13-d432-4fab-b7a6-fe2a5451aa82" name="AttachImage" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4eae0602-61d4-44d5-95bd-e0cc90fe6c2c" />
+        <extendedCases>
+          <extend Id="04222c1c-d029-49c4-9031-48cccc8cace1">
+            <useCaseMoniker Id="67555b12-a4ed-49ff-a5b9-afa2e8d25996" LastKnownName="SendMessage" />
+            <elementDefinition Id="5fd2a862-bcbf-4368-8ff2-8c00a220fa5f" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="0377cfe4-cb9b-4518-8b17-86c877ee34bc" LastKnownName="Chat" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="a18b62cd-fdca-46f3-84c8-a5ae0e0b8fc1" name="ObjectModel">
     <elementDefinition Id="5f36593a-a9fe-4fba-adb2-6dbb2e29fc75" />

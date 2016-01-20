@@ -5396,6 +5396,45 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="7ca1071f-a848-47dc-966e-2fbbe1a8aebf"
+            isDerived="false"
+            sourceEndRoleName="Users"
+            targetEndRoleName="Accept"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="aad91519-cc60-4dd4-a1d0-2da5b082aa3f"
+              LastKnownName="Accept"
+              LastKnownLocation="ObjectModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8ad2c8ce-a346-4b98-8364-8f9f51713f4c"
+                  name="Users"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b6612d68-629d-4b6a-9e93-a63221f9a970"
+                  name="Accept"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
       </actor>
     </packageHasNamedElement>
@@ -8349,22 +8388,22 @@
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="95d45ee0-4be2-41fa-9542-8d08d6365f9c"
-            name="MessageOccurrenceSpecification11">
-            <covered>
-              <lifelineMoniker
-                Id="8fbd7a3f-ab80-4fd7-aa80-0435ad98ac0d"
-                LastKnownName="Dispatcher"
-                LastKnownLocation="ObjectModel.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="976c2ad9-9fb1-47a4-aa63-74e0e0058b4b"
             name="MessageOccurrenceSpecification12">
             <covered>
               <lifelineMoniker
                 Id="ac556574-0ba8-4a85-8d3b-37be1114d5a2"
                 LastKnownName="Project"
+                LastKnownLocation="ObjectModel.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="95d45ee0-4be2-41fa-9542-8d08d6365f9c"
+            name="MessageOccurrenceSpecification11">
+            <covered>
+              <lifelineMoniker
+                Id="8fbd7a3f-ab80-4fd7-aa80-0435ad98ac0d"
+                LastKnownName="Dispatcher"
                 LastKnownLocation="ObjectModel.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -8657,22 +8696,22 @@
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="392c469b-8511-4c18-9621-0ab0190af1b7"
-            name="MessageOccurrenceSpecification22">
-            <covered>
-              <lifelineMoniker
-                Id="ac556574-0ba8-4a85-8d3b-37be1114d5a2"
-                LastKnownName="Project"
-                LastKnownLocation="ObjectModel.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="523914ab-b36a-40bc-a54b-36cb84e8c0c7"
             name="MessageOccurrenceSpecification21">
             <covered>
               <lifelineMoniker
                 Id="dc84f06d-efba-4ddc-8446-2c117c593e65"
                 LastKnownName="ProjectMember : User"
+                LastKnownLocation="ObjectModel.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="392c469b-8511-4c18-9621-0ab0190af1b7"
+            name="MessageOccurrenceSpecification22">
+            <covered>
+              <lifelineMoniker
+                Id="ac556574-0ba8-4a85-8d3b-37be1114d5a2"
+                LastKnownName="Project"
                 LastKnownLocation="ObjectModel.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -8953,22 +8992,22 @@
             </covered>
           </executionOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="cff510aa-462b-47cf-bb9f-1410a25783f9"
-            name="MessageOccurrenceSpecification41">
-            <covered>
-              <lifelineMoniker
-                Id="ac556574-0ba8-4a85-8d3b-37be1114d5a2"
-                LastKnownName="Project"
-                LastKnownLocation="ObjectModel.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="9ce73ce5-528f-45b2-91b5-fa0a52860b1a"
             name="MessageOccurrenceSpecification42">
             <covered>
               <lifelineMoniker
                 Id="8fbd7a3f-ab80-4fd7-aa80-0435ad98ac0d"
                 LastKnownName="Dispatcher"
+                LastKnownLocation="ObjectModel.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="cff510aa-462b-47cf-bb9f-1410a25783f9"
+            name="MessageOccurrenceSpecification41">
+            <covered>
+              <lifelineMoniker
+                Id="ac556574-0ba8-4a85-8d3b-37be1114d5a2"
+                LastKnownName="Project"
                 LastKnownLocation="ObjectModel.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -11452,6 +11491,29 @@
           <subsystemMoniker
             Id="8f338c6e-5c03-461c-bace-c2cd78013e43"
             LastKnownName="Balance"
+            LastKnownLocation="ObjectModel.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="aad91519-cc60-4dd4-a1d0-2da5b082aa3f"
+        name="Accept"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="2eba4c5b-73b8-453e-90b4-5bd35283b89b">
+            <useCaseMoniker
+              Id="19910bfc-609b-442b-bfd8-a735bd43a13c"
+              LastKnownName="Invite"
+              LastKnownLocation="ObjectModel.uml" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker
+            Id="48419331-ff1f-456f-9337-752ad1207469"
+            LastKnownName="Project"
             LastKnownLocation="ObjectModel.uml" />
         </subjects>
       </useCase>

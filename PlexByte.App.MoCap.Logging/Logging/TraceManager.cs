@@ -238,50 +238,237 @@ namespace MoCap.Logging
         /// <param name="pMessage">The message to log</param>
         public void Log(LogMessage pMessage)
         {
+            string lockMessage = string.Empty;
             // Try getting the lock
             try
             {
-                Monitor.TryEnter(_LockObject, 500, ref isLocked);
-                if (!isLocked)
-                    throw new Exception("Failed to accuire lock to insert message...");
+                if (AcquireLock(500, out lockMessage))
+                {
+                    pMessage.IndentLevel = currentIndent;
+                    if (pMessage.Component.Length < 2)
+                        pMessage.Component = Component;
+                    // Day rollover?
+                    if (pMessage.TimeStamp.Date != DateTime.ParseExact(
+                        dateFolderName, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture).Date)
+                    {
+                        activeLog.WriteLog(logMessages);
+                        InitLogFile(true, LogFileIndex);
+                    }
+                    // File size rollover
+                    else if (currentFileSize >= (MaxFileSize * 0.98))
+                    {
+                        activeLog.WriteLog(logMessages);
+                        InitLogFile(true, LogFileIndex);
+                    }
+                    else
+                    {
+                        logMessages.Add(pMessage);
+                        if (logMessages.Count >= LogCache)
+                            currentFileSize = activeLog.WriteLog(logMessages);
+                    }
 
-                pMessage.IndentLevel = currentIndent;
-                if (pMessage.Component.Length < 2)
-                    pMessage.Component = Component;
-                // Day rollover?
-                if (pMessage.TimeStamp.Date != DateTime.ParseExact(
-                    dateFolderName, "yyyyMMdd", System.Globalization.CultureInfo.InvariantCulture).Date)
-                {
-                    activeLog.WriteLog(logMessages);
-                    InitLogFile(true, LogFileIndex);
-                }
-                // File size rollover
-                else if (currentFileSize >= (MaxFileSize * 0.98))
-                {
-                    activeLog.WriteLog(logMessages);
-                    InitLogFile(true, LogFileIndex);
+                    // Check the indent level of this message
+                    if (pMessage.Type == MessageType.EnterScope)
+                        currentIndent++;
+                    else if (pMessage.Type == MessageType.ExitScope)
+                        currentIndent--;
                 }
                 else
-                {
-                    logMessages.Add(pMessage);
-                    if (logMessages.Count >= LogCache)
-                        currentFileSize = activeLog.WriteLog(logMessages);
-                }
-
-                // Check the indent level of this message
-                if (pMessage.Type == MessageType.EnterScope)
-                    currentIndent++;
-                else if (pMessage.Type == MessageType.ExitScope)
-                    currentIndent--;
+                    throw new Exception(lockMessage);
             }
             finally
             {
                 if (isLocked)
-                {
-                    Monitor.Exit(_LockObject);
-                    isLocked = false;
-                }
+                    if (!ReleaseLock(out lockMessage))
+                        throw new Exception(lockMessage);
             }
+        }
+
+        /// <summary>
+        /// Logs a message of type EnterScope with the message specified (Level 5)
+        /// </summary>
+        /// <param name="pMessage">The message to log</param>
+        public void LogEnterScope(string pMessage)
+        {
+            LogMessage tmp = new LogMessage(pMessage, MessageType.EnterScope, 5, "", "", "");
+            Log(tmp);
+        }
+
+        /// <summary>
+        /// Logs the message object provided as type EnterScope
+        /// </summary>
+        /// <param name="pMessage">The LogMessage object</param>
+        public void LogEnterScope(LogMessage pMessage)
+        {
+            if (pMessage.Type != MessageType.EnterScope)
+            {
+                LogMessage tmp = new LogMessage(pMessage.Text, MessageType.EnterScope, pMessage.Level,
+                    pMessage.ThreadId, pMessage.Context, pMessage.Attribute1, pMessage.Component);
+                Log(tmp);
+            }
+            else
+                Log(pMessage);
+            
+        }
+
+        /// <summary>
+        /// Logs a message of type ExitScope with the message specified (Level 5)
+        /// </summary>
+        /// <param name="pMessage">The message to log</param>
+        public void LogExitScope(string pMessage)
+        {
+            LogMessage tmp = new LogMessage(pMessage, MessageType.ExitScope, 5, "", "", "");
+            Log(tmp);
+        }
+
+        /// <summary>
+        /// Logs the message object provided as type ExitScope
+        /// </summary>
+        /// <param name="pMessage">The LogMessage object</param>
+        public void LogExitScope(LogMessage pMessage)
+        {
+            if (pMessage.Type != MessageType.ExitScope)
+            {
+                LogMessage tmp = new LogMessage(pMessage.Text, MessageType.ExitScope, pMessage.Level,
+                    pMessage.ThreadId, pMessage.Context, pMessage.Attribute1, pMessage.Component);
+                Log(tmp);
+            }
+            else
+                Log(pMessage);
+
+        }
+
+        /// <summary>
+        /// Logs a message of type Error with the message specified (Level 10)
+        /// </summary>
+        /// <param name="pMessage">The message to log</param>
+        public void LogError(string pMessage)
+        {
+            LogMessage tmp = new LogMessage(pMessage, MessageType.Error, 10, "", "", "");
+            Log(tmp);
+        }
+
+        /// <summary>
+        /// Logs the message object provided as type Error
+        /// </summary>
+        /// <param name="pMessage">The LogMessage object</param>
+        public void LogError(LogMessage pMessage)
+        {
+            if (pMessage.Type != MessageType.Error)
+            {
+                LogMessage tmp = new LogMessage(pMessage.Text, MessageType.Error, pMessage.Level,
+                    pMessage.ThreadId, pMessage.Context, pMessage.Attribute1, pMessage.Component);
+                Log(tmp);
+            }
+            else
+                Log(pMessage);
+        }
+
+        /// <summary>
+        /// Logs a message of type Warning with the message specified (Level 20)
+        /// </summary>
+        /// <param name="pMessage">The message to log</param>
+        public void LogWarning(string pMessage)
+        {
+            LogMessage tmp = new LogMessage(pMessage, MessageType.Warning, 20, "", "", "");
+            Log(tmp);
+        }
+
+        /// <summary>
+        /// Logs the message object provided as type Warning
+        /// </summary>
+        /// <param name="pMessage">The LogMessage object</param>
+        public void LogWarning(LogMessage pMessage)
+        {
+            if (pMessage.Type != MessageType.Warning)
+            {
+                LogMessage tmp = new LogMessage(pMessage.Text, MessageType.Warning, pMessage.Level,
+                    pMessage.ThreadId, pMessage.Context, pMessage.Attribute1, pMessage.Component);
+                Log(tmp);
+            }
+            else
+                Log(pMessage);
+        }
+
+        /// <summary>
+        /// Logs a message of type Info with the message specified (Level 40)
+        /// </summary>
+        /// <param name="pMessage">The message to log</param>
+        public void LogInfo(string pMessage)
+        {
+            LogMessage tmp = new LogMessage(pMessage, MessageType.Info, 40, "", "", "");
+            Log(tmp);
+        }
+
+        /// <summary>
+        /// Logs the message object provided as type Info
+        /// </summary>
+        /// <param name="pMessage">The LogMessage object</param>
+        public void LogInfo(LogMessage pMessage)
+        {
+            if (pMessage.Type != MessageType.Info)
+            {
+                LogMessage tmp = new LogMessage(pMessage.Text, MessageType.Info, pMessage.Level,
+                    pMessage.ThreadId, pMessage.Context, pMessage.Attribute1, pMessage.Component);
+                Log(tmp);
+            }
+            else
+                Log(pMessage);
+
+        }
+
+        /// <summary>
+        /// Logs a message of type Detail with the message specified (Level 80)
+        /// </summary>
+        /// <param name="pMessage">The message to log</param>
+        public void LogDetail(string pMessage)
+        {
+            LogMessage tmp = new LogMessage(pMessage, MessageType.Detail, 80, "", "", "");
+            Log(tmp);
+        }
+
+        /// <summary>
+        /// Logs the message object provided as type Detail
+        /// </summary>
+        /// <param name="pMessage">The LogMessage object</param>
+        public void LogDetail(LogMessage pMessage)
+        {
+            if (pMessage.Type != MessageType.Detail)
+            {
+                LogMessage tmp = new LogMessage(pMessage.Text, MessageType.Detail, pMessage.Level,
+                    pMessage.ThreadId, pMessage.Context, pMessage.Attribute1, pMessage.Component);
+                Log(tmp);
+            }
+            else
+                Log(pMessage);
+
+        }
+
+        /// <summary>
+        /// Logs a message of type All with the message specified (Level 0)
+        /// </summary>
+        /// <param name="pMessage">The message to log</param>
+        public void LogAll(string pMessage)
+        {
+            LogMessage tmp = new LogMessage(pMessage, MessageType.All, 0, "", "", "");
+            Log(tmp);
+        }
+
+        /// <summary>
+        /// Logs the message object provided as type All
+        /// </summary>
+        /// <param name="pMessage">The LogMessage object</param>
+        public void LogAll(LogMessage pMessage)
+        {
+            if (pMessage.Type != MessageType.All)
+            {
+                LogMessage tmp = new LogMessage(pMessage.Text, MessageType.All, pMessage.Level,
+                    pMessage.ThreadId, pMessage.Context, pMessage.Attribute1, pMessage.Component);
+                Log(tmp);
+            }
+            else
+                Log(pMessage);
+
         }
 
         /// <summary>
@@ -466,57 +653,56 @@ namespace MoCap.Logging
         {
             // Purge logs
             PurgeLogs(7);
-
+            string lockMessage = string.Empty;
             LogFile log = null;
             if (pIsRollover)
             {
                 try
                 {
                     // Try to get a lock
-                    Monitor.TryEnter(_LockObject, 1000, ref isLocked);
-                    if (!isLocked)
-                        throw new Exception("Failed to accuire lock when rolling over to new log file...");
-
-                    // Day rollover start reinitializing...
-                    logMessages.Add(
-                        new LogMessage("Trace day rollover end of day @ " +
-                        DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fff"), MessageType.All, 0, ""));
-                    activeLog.WriteLog(logMessages);
-                    int dummy = 0;
-                    if (ZipLogFiles)
+                    if (AcquireLock(1000, out lockMessage))
                     {
-                        // Call the zip log file method asynchronously
-                        AsyncZipLogFile logZipper = new AsyncZipLogFile(this.ZipLogFile);
-                        IAsyncResult result = logZipper.BeginInvoke(LogPath + "\\" +
-                            Path.GetFileNameWithoutExtension(LogPath + "\\" + RecentLogFileName) + ".zip",
-                            CompressionLevel.Optimal,
-                            out dummy,
-                            new AsyncCallback(AsyncLogZippedCallback), null);
-                    }
-                    // New day?
-                    if (DateFolderName != DateTime.Now.ToString("yyyyMMdd"))
-                    {
-                        logPath = logPath.Replace(dateFolderName, dateFolderName = DateTime.Now.ToString("yyyyMMdd"));
-                        recentLogFileName = recentLogFileName.Replace(pLogIndex.ToString(), (logFileIndex = 0).ToString());
-                        OnLogFileRolledOver(RolloverType.DayRollover);
+                        // Day rollover start reinitializing...
+                        logMessages.Add(
+                            new LogMessage("Trace day rollover end of day @ " +
+                            DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss.fff"), MessageType.All, 0, ""));
+                        activeLog.WriteLog(logMessages);
+                        int dummy = 0;
+                        if (ZipLogFiles)
+                        {
+                            // Call the zip log file method asynchronously
+                            AsyncZipLogFile logZipper = new AsyncZipLogFile(this.ZipLogFile);
+                            IAsyncResult result = logZipper.BeginInvoke(LogPath + "\\" +
+                                Path.GetFileNameWithoutExtension(LogPath + "\\" + RecentLogFileName) + ".zip",
+                                CompressionLevel.Optimal,
+                                out dummy,
+                                new AsyncCallback(AsyncLogZippedCallback), null);
+                        }
+                        // New day?
+                        if (DateFolderName != DateTime.Now.ToString("yyyyMMdd"))
+                        {
+                            logPath = logPath.Replace(dateFolderName, dateFolderName = DateTime.Now.ToString("yyyyMMdd"));
+                            recentLogFileName = recentLogFileName.Replace(pLogIndex.ToString(), (logFileIndex = 0).ToString());
+                            OnLogFileRolledOver(RolloverType.DayRollover);
+                        }
+                        else
+                        {
+                            recentLogFileName = recentLogFileName.Replace(pLogIndex.ToString(), (++logFileIndex).ToString());
+                            OnLogFileRolledOver(RolloverType.SizeRollover);
+                        }
+                        log = new LogFile(RecentLogFileName, LogPath);
+                        Log(new LogMessage("Trace file rolled over to " + RecentLogFileName + " in path " + LogPath +
+                            "[TraceLevel=" + TraceLevel.ToString() + "] [Component=" + Component + "] [IsReadMode=" +
+                            IsReadMode.ToString() + "] [Cache=" + LogCache.ToString() + "] [MaxSize=" + MaxFileSize.ToString() + "]"));
                     }
                     else
-                    {
-                        recentLogFileName = recentLogFileName.Replace(pLogIndex.ToString(), (++logFileIndex).ToString());
-                        OnLogFileRolledOver(RolloverType.SizeRollover);
-                    }
-                    log = new LogFile(RecentLogFileName, LogPath);
-                    Log(new LogMessage("Trace file rolled over to " + RecentLogFileName + " in path " + LogPath +
-                        "[TraceLevel=" + TraceLevel.ToString() + "] [Component=" + Component + "] [IsReadMode=" +
-                        IsReadMode.ToString() + "] [Cache=" + LogCache.ToString() + "] [MaxSize=" + MaxFileSize.ToString() + "]"));
+                        throw new Exception("Failed to accuire lock when rolling over to new log file...");
                 }
                 finally
                 {
                     if (isLocked)
-                    {
-                        Monitor.Exit(_LockObject);
-                        isLocked = false;
-                    }
+                        if (!ReleaseLock(out lockMessage))
+                            throw new Exception(lockMessage);
                 }
             }
             else
@@ -524,20 +710,19 @@ namespace MoCap.Logging
                 try
                 {
                     // Try to get a lock
-                    Monitor.TryEnter(_LockObject, 1000, ref isLocked);
-                    if (!isLocked)
-                        throw new Exception("Failed to accuire lock when initializing log file");
-
-                    log = new LogFile(RecentLogFileName, LogPath);
-                    logFileIndex = 0;
+                    if (AcquireLock(1000, out lockMessage))
+                    {
+                        log = new LogFile(RecentLogFileName, LogPath);
+                        logFileIndex = 0;
+                    }
+                    else
+                        throw new Exception("Failed to accuire lock when trying to create a new log file...");
                 }
                 finally
                 {
                     if (isLocked)
-                    {
-                        Monitor.Exit(_LockObject);
-                        isLocked = false;
-                    }
+                        if (!ReleaseLock(out lockMessage))
+                            throw new Exception(lockMessage);
                 }
             }
             return log;
@@ -612,6 +797,57 @@ namespace MoCap.Logging
             recentLogFileName = e.FileName;
             logPath = e.FilePath;
             OnNewMessagesRetrieved();
+        }
+
+        /// <summary>
+        /// Acquires the lock within the given timeout
+        /// </summary>
+        /// <param name="pTimeout">The timeout for the lock to be acquired</param>
+        /// <param name="pMessage">The message describing the result</param>
+        /// <returns>Boolean returning true if the lock was successfully acquired</returns>
+        private bool AcquireLock(int pTimeout, out string pMessage)
+        {
+            pMessage = string.Empty;
+            try
+            {
+                Monitor.TryEnter(_LockObject, pTimeout, ref isLocked);
+                if (!isLocked)
+                {
+                    pMessage = String.Format("Lock successfully acquired. [Timeout={0}]", pTimeout);
+                    return true;
+                }
+                if (!isLocked)
+                {
+                    pMessage = String.Format("Failed to acquire lock within timeout specified [Timeout={0}]", pTimeout);
+                    return false;
+                }
+            }
+            catch { }
+            if (!isLocked)
+                pMessage = String.Format("Failed to acquire lock within timeout specified [Timeout={0}]", pTimeout);
+            return false;
+        }
+
+        /// <summary>
+        /// Tries to release the lock
+        /// </summary>
+        /// <param name="pMessage">The message describing the result of this action</param>
+        /// <returns>Boolean returning true if the lock was successfully released</returns>
+        private bool ReleaseLock(out string pMessage)
+        {
+            try
+            {
+                if (isLocked)
+                {
+                    Monitor.Exit(_LockObject);
+                    isLocked = false;
+                    pMessage = String.Format("Lock successfully released");
+                    return true;
+                }
+            }
+            catch { }
+            pMessage = String.Format("Failed to release the lock");
+            return false;
         }
 
         #endregion

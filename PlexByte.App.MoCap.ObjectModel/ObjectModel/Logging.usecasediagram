@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm12="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="31648e10-d0dc-43c1-992e-5fb8c290ab20" name="Logging" linkedPackageId="c389f633-2f6b-41cc-ad59-c98cd47b6e81" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="1b52f086-8d4c-4921-ae00-52bb2222d3e1">
+      <profileInstance Id="48e83bb3-7c20-442f-ae58-58f5149e5cc6" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="c06c884f-e3c9-4397-a95f-ecadc14d8589">
+      <profileInstance Id="e1bf737d-ce52-491b-afc7-6a4e996ecd46" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="fb6ef604-34a0-4e50-8e03-e1471b66b08f" name="Developer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b7522d1f-19da-48bb-8b7d-83ab3786f450" />
+        <targetEnds>
+          <association Id="2d96af39-3c77-47a2-961e-65741e4dae68" isDerived="false" sourceEndRoleName="Developer" targetEndRoleName="ReadFile" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="9315cedb-3372-4b1a-9914-9ae5587fed8b" LastKnownName="ReadFile" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="012a909a-265c-4efe-a27a-f29bb86f3a94" name="Developer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="09ad0f9b-7ce0-4e74-80b5-ab30c6b5a449" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7f02200e-e0d5-482f-93bf-a6a3c8ba6ef1" name="ReadFile" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c3a6df0d-bf9b-4b8f-9ca9-44fc8f6e22ec" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="cfd40507-f653-45b6-8bec-2e5855a43e5b" />
+          </association>
+          <association Id="0fbea8e4-79c3-442d-b9db-34de2d369f25" isDerived="false" sourceEndRoleName="Developer" targetEndRoleName="LogEnterScope" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="8b5f36a7-c26a-4faa-ba2a-07e73359c4d2" LastKnownName="LogEnterScope" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="36132ace-c108-4f5f-b3db-56e0330b1c11" name="Developer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="95339b18-90c5-4356-8c11-f7e37310dfa2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ee6daf98-6db7-41d9-b0a7-8f1f89d48e50" name="LogEnterScope" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="34070c38-15d0-4221-8283-7f4329911b1c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="609a6554-78de-48af-98be-66247d5df4b0" />
+          </association>
+          <association Id="80c7b860-daa7-4fcb-82cd-a5947e636b03" isDerived="false" sourceEndRoleName="Developer" targetEndRoleName="LogExitScope" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="00b2d96c-af97-40ac-a3dc-96236b2e329c" LastKnownName="LogExitScope" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a9ecdd41-2d7d-4d88-9b8e-cb7cea07b60a" name="Developer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="9898b8bd-8265-461f-821b-eb9bed01314f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7bfff15d-484a-46db-8bdc-4528d2603e9b" name="LogExitScope" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="277e8fc1-f1c6-4923-8671-f6eb1779f078" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6976d6f5-cf25-46e4-b685-c87e9e0a4a29" />
+          </association>
+          <association Id="d1e86074-645b-494b-800f-19518be99e2f" isDerived="false" sourceEndRoleName="Developer" targetEndRoleName="LogError" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="e7106bc4-7df8-42b2-bc3a-0539bc441203" LastKnownName="LogError" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="902bc3a1-b549-492c-97ac-68320bd160d2" name="Developer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="8c67d286-80ec-46af-85d5-fb627fa2f60a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="40692e32-fcce-4994-ac00-b8303a876d85" name="LogError" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a9cd8ed5-a868-4e8c-93ec-1d9f5459b702" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1c5a4fa3-ef01-4d12-8dc4-92a058168fb7" />
+          </association>
+          <association Id="70984b0b-b156-4ec9-adc2-ebd3868825c5" isDerived="false" sourceEndRoleName="Developer" targetEndRoleName="LogWarning" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="9afdd7c2-8d91-43ce-80e1-63346c80c529" LastKnownName="LogWarning" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a486959a-a597-4e26-a81a-7f9b9da83edf" name="Developer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5352d5a1-f242-41ad-938e-eefd40548dbe" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="25268a25-e0f7-47db-9137-56f9778e2968" name="LogWarning" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e8620d97-549e-40db-8647-317bfc035dc7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d33d5167-ce9c-4bbe-8a7f-6a69a67d6bd3" />
+          </association>
+          <association Id="46de438c-12f2-433d-b9b1-55006f39996d" isDerived="false" sourceEndRoleName="Developer" targetEndRoleName="LogInfo" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="85d13c22-25df-469d-9184-60f1a4bbe740" LastKnownName="LogInfo" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bb8c7ed8-c155-4519-a97f-21fb2cc6a20f" name="Developer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d0d893d1-5cc6-485d-bfe8-dad8a5a8c093" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f849a9dc-c71d-4e28-8ee4-71220a4fc876" name="LogInfo" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="49640435-1080-4692-af82-a3d84d76da5b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="51210c87-e56f-4288-98b1-6d419292bdc4" />
+          </association>
+          <association Id="16ed4e5b-48d2-49e4-85ad-109358a884a4" isDerived="false" sourceEndRoleName="Developer" targetEndRoleName="LogDetail" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="3e802948-c664-417d-9bba-141e93d1f67f" LastKnownName="LogDetail" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9f8c2a8e-d755-4aab-8777-6271cb4c085b" name="Developer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="0c6de7ff-a850-4826-80b1-65e105d77485" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3cc93e32-a24f-4542-9404-2f9f7c8c7fae" name="LogDetail" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ebd1f1b6-441a-4676-ba31-bdc9e4a49fe7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="43955287-2bf3-43dc-9b4c-a5b4361096cb" />
+          </association>
+          <association Id="941d2876-0b21-493b-800d-ec08f0ef95b4" isDerived="false" sourceEndRoleName="Developer" targetEndRoleName="LogAll" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="85be6242-39b9-499a-8e8a-8990d8abca1c" LastKnownName="LogAll" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f1d1c77f-986c-43ac-a0ac-740b6ef28ef1" name="Developer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d8cdae57-b51d-4639-8fcf-d3df94bba545" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5fee6238-fce2-45e9-9618-7e6b266dfee1" name="LogAll" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="40b6f190-aaed-483d-9a82-bd719f0c01bb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="347772e8-384e-4871-b740-3d4f9791246f" />
+          </association>
+          <association Id="dcdc988d-cdce-4a13-b5e9-9c9111ae8964" isDerived="false" sourceEndRoleName="Developer" targetEndRoleName="Log" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="54d9eb4b-7395-4629-b54b-1dafad8c0002" LastKnownName="Log" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e98819ac-3fbc-4075-a742-8a8937c5770e" name="Developer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2fb7cf33-2964-4cf2-89d8-f5a012cf4927" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6fa29fe7-c1c5-466a-b2e5-74724b0b60ea" name="Log" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8b47e8ff-167b-4e72-9dde-d2a7bf83c5b7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e765383e-9cf2-4a33-b833-f0bd0eae8522" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="81c73284-bd34-4b23-94e1-d97de4c786a1" name="Logging" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b7e17897-9d82-44cd-afd0-b071d668ea17" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="54d9eb4b-7395-4629-b54b-1dafad8c0002" name="Log" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6c1e12e1-3c56-4ee6-bab9-28167d53e782" />
+        <additions>
+          <include Id="e28634f8-45ef-4ab7-a606-37cce42d6479">
+            <useCaseMoniker Id="6d668fe3-fef0-4f49-8a0e-cf47af0230d2" LastKnownName="Rollever LogFile" />
+            <elementDefinition Id="4bcc20dc-4428-4c17-af6c-7c2ffecfd6e3" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="81c73284-bd34-4b23-94e1-d97de4c786a1" LastKnownName="Logging" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="8b5f36a7-c26a-4faa-ba2a-07e73359c4d2" name="LogEnterScope" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="611de9c9-a3a7-4bea-be6e-0993d9524d37" />
+        <extendedCases>
+          <extend Id="62989ef1-6f40-43b7-91c0-b6f5422ba69c">
+            <useCaseMoniker Id="54d9eb4b-7395-4629-b54b-1dafad8c0002" LastKnownName="Log" />
+            <elementDefinition Id="b883b876-9924-43b3-a4ea-5f89f8a75dc0" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="81c73284-bd34-4b23-94e1-d97de4c786a1" LastKnownName="Logging" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="00b2d96c-af97-40ac-a3dc-96236b2e329c" name="LogExitScope" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="f0052442-e49b-45a1-aaa3-a891aaa4ae59" />
+        <extendedCases>
+          <extend Id="3482334d-ff60-412d-bbc3-ed58b3030bf2">
+            <useCaseMoniker Id="54d9eb4b-7395-4629-b54b-1dafad8c0002" LastKnownName="Log" />
+            <elementDefinition Id="c8297aef-b180-4a6f-81db-c006d3aa5c0a" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="81c73284-bd34-4b23-94e1-d97de4c786a1" LastKnownName="Logging" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="e7106bc4-7df8-42b2-bc3a-0539bc441203" name="LogError" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b6fa9302-5f59-4126-bfee-1f20a3cedcd3" />
+        <extendedCases>
+          <extend Id="ecd1e2f7-546b-4bce-aa4e-dde2d49cbfb3">
+            <useCaseMoniker Id="54d9eb4b-7395-4629-b54b-1dafad8c0002" LastKnownName="Log" />
+            <elementDefinition Id="15a9a92b-d8ff-49eb-8b59-e3071c6be072" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="81c73284-bd34-4b23-94e1-d97de4c786a1" LastKnownName="Logging" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="9afdd7c2-8d91-43ce-80e1-63346c80c529" name="LogWarning" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="57368bb5-cdf3-462b-aca7-06c811b53419" />
+        <extendedCases>
+          <extend Id="2777d39a-2d66-4528-bd6b-6ab4ce70b05c">
+            <useCaseMoniker Id="54d9eb4b-7395-4629-b54b-1dafad8c0002" LastKnownName="Log" />
+            <elementDefinition Id="53c75fca-c257-44b6-baca-4c6d8d8358d4" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="81c73284-bd34-4b23-94e1-d97de4c786a1" LastKnownName="Logging" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="85d13c22-25df-469d-9184-60f1a4bbe740" name="LogInfo" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c98b7237-73da-48b1-ab1e-89f9a3646998" />
+        <extendedCases>
+          <extend Id="ba58e5de-adeb-4e41-91cf-e4e3b9c52e12">
+            <useCaseMoniker Id="54d9eb4b-7395-4629-b54b-1dafad8c0002" LastKnownName="Log" />
+            <elementDefinition Id="168c35e3-d622-4923-9fe6-15fb44429d30" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="81c73284-bd34-4b23-94e1-d97de4c786a1" LastKnownName="Logging" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="3e802948-c664-417d-9bba-141e93d1f67f" name="LogDetail" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b71cdd1a-6e73-4938-8460-30aae9a1ca7c" />
+        <extendedCases>
+          <extend Id="6d048cfe-ea25-4ef4-a706-561bf2e6b070">
+            <useCaseMoniker Id="54d9eb4b-7395-4629-b54b-1dafad8c0002" LastKnownName="Log" />
+            <elementDefinition Id="8b61a98d-eb06-4017-af60-66a45f312171" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="81c73284-bd34-4b23-94e1-d97de4c786a1" LastKnownName="Logging" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="85be6242-39b9-499a-8e8a-8990d8abca1c" name="LogAll" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="11744b0c-4084-45e5-a013-659596a676da" />
+        <extendedCases>
+          <extend Id="1b81ae40-4614-4164-9684-cb65756370a0">
+            <useCaseMoniker Id="54d9eb4b-7395-4629-b54b-1dafad8c0002" LastKnownName="Log" />
+            <elementDefinition Id="ba13b4b7-1e47-494f-a2d0-dc0552b1fa6a" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="81c73284-bd34-4b23-94e1-d97de4c786a1" LastKnownName="Logging" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="9315cedb-3372-4b1a-9914-9ae5587fed8b" name="ReadFile" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="70271a1b-21e2-4b50-9fe1-b325890dcf14" />
+        <extendedCases>
+          <extend Id="d7eb378e-1fee-4274-b948-32c88fd5475a">
+            <useCaseMoniker Id="54d9eb4b-7395-4629-b54b-1dafad8c0002" LastKnownName="Log" />
+            <elementDefinition Id="518b987e-f1e8-4925-abea-551b0174722f" />
+          </extend>
+        </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="81c73284-bd34-4b23-94e1-d97de4c786a1" LastKnownName="Logging" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="6d668fe3-fef0-4f49-8a0e-cf47af0230d2" name="Rollever LogFile" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="be513547-16a2-46e3-8498-86506046821b" />
+        <subjects>
+          <subsystemMoniker Id="81c73284-bd34-4b23-94e1-d97de4c786a1" LastKnownName="Logging" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="c389f633-2f6b-41cc-ad59-c98cd47b6e81" name="ObjectModel">
+    <elementDefinition Id="5f36593a-a9fe-4fba-adb2-6dbb2e29fc75" />
+  </package>
+</useCaseModelRoot>

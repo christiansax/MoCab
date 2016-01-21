@@ -1,4 +1,4 @@
-namespace Backend
+namespace MoCap.Backend
 {
     using System;
     using System.Data.Entity;

@@ -6,11 +6,12 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 
-namespace DataService
+namespace InteractionService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "MoCapWS" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select MoCapWS.svc or MoCapWS.svc.cs at the Solution Explorer and start debugging.
-    public class MoCapWS : IService1
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "InteractionService" in code, svc and config file together.
+    // NOTE: In order to launch WCF Test Client for testing this service, please select InteractionService.svc or InteractionService.svc.cs at the Solution Explorer and start debugging.
+    //http://mocapws.plexbyte.com/Service1.svc
+    public class InteractionService : IInteractionService
     {
         public string GetData(int value)
         {

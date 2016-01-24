@@ -234,7 +234,7 @@
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::LogViewer.Properties.Resources.OpenFile;
+            this.toolStripButton1.Image = global::MoCap.LogViewer.Properties.Resources.OpenFile;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
@@ -244,7 +244,7 @@
             // toolStripButton2
             // 
             this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::LogViewer.Properties.Resources.Refresh;
+            this.toolStripButton2.Image = global::MoCap.LogViewer.Properties.Resources.Refresh;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
@@ -253,7 +253,7 @@
             // toolStripButton3
             // 
             this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::LogViewer.Properties.Resources.AutoRefresh;
+            this.toolStripButton3.Image = global::MoCap.LogViewer.Properties.Resources.AutoRefresh;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
@@ -267,7 +267,7 @@
             // toolStripButton4
             // 
             this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = global::LogViewer.Properties.Resources.Bookmark;
+            this.toolStripButton4.Image = global::MoCap.LogViewer.Properties.Resources.Bookmark;
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
@@ -276,7 +276,7 @@
             // toolStripButton5
             // 
             this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = global::LogViewer.Properties.Resources.DatePicker;
+            this.toolStripButton5.Image = global::MoCap.LogViewer.Properties.Resources.DatePicker;
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
@@ -285,7 +285,7 @@
             // toolStripButton6
             // 
             this.toolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton6.Image = global::LogViewer.Properties.Resources.Filter;
+            this.toolStripButton6.Image = global::MoCap.LogViewer.Properties.Resources.Filter;
             this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton6.Name = "toolStripButton6";
             this.toolStripButton6.Size = new System.Drawing.Size(23, 22);
@@ -299,7 +299,7 @@
             // toolStripButton7
             // 
             this.toolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton7.Image = global::LogViewer.Properties.Resources.ClearBookmark;
+            this.toolStripButton7.Image = global::MoCap.LogViewer.Properties.Resources.ClearBookmark;
             this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton7.Name = "toolStripButton7";
             this.toolStripButton7.Size = new System.Drawing.Size(23, 22);
@@ -308,7 +308,7 @@
             // toolStripButton8
             // 
             this.toolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton8.Image = global::LogViewer.Properties.Resources.ClearDatePicker;
+            this.toolStripButton8.Image = global::MoCap.LogViewer.Properties.Resources.ClearDatePicker;
             this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton8.Name = "toolStripButton8";
             this.toolStripButton8.Size = new System.Drawing.Size(23, 22);
@@ -317,7 +317,7 @@
             // toolStripButton9
             // 
             this.toolStripButton9.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton9.Image = global::LogViewer.Properties.Resources.ClearFilter;
+            this.toolStripButton9.Image = global::MoCap.LogViewer.Properties.Resources.ClearFilter;
             this.toolStripButton9.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton9.Name = "toolStripButton9";
             this.toolStripButton9.Size = new System.Drawing.Size(23, 22);
@@ -331,7 +331,7 @@
             // toolStripButton10
             // 
             this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton10.Image = global::LogViewer.Properties.Resources.Open;
+            this.toolStripButton10.Image = global::MoCap.LogViewer.Properties.Resources.Open;
             this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton10.Name = "toolStripButton10";
             this.toolStripButton10.Size = new System.Drawing.Size(23, 22);

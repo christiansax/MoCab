@@ -7,7 +7,7 @@
     <ProjectGuid>{CE3A114F-8020-4374-8284-676EA1E6DA09}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LogViewer</RootNamespace>
+    <RootNamespace>MoCap.LogViewer</RootNamespace>
     <AssemblyName>LogViewer</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -67,9 +67,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Logging\Logging.csproj">
+    <ProjectReference Include="..\Logging\Trace.csproj">
       <Project>{cd9a9c60-e330-4275-a308-776186a690ea}</Project>
-      <Name>Logging</Name>
+      <Name>Trace</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

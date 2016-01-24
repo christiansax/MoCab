@@ -13,7 +13,8 @@ namespace MoCap.Logging
     public class TraceManager : IDisposable, ITraceManager
     {
         public bool AutoRefreshLog { get { return autoRefreshLog; } set { RefreshLogFile(value); } }
-        public string Component { get { return component; } }
+        public string Component { get; set; }
+        public string Context { get; }
         public int CurrentIndent { get { return currentIndent; } }
         public string DateFolderName { get { return dateFolderName; } }
         public string IndentPrefix { get { return indentPrefix; } }
@@ -34,7 +35,7 @@ namespace MoCap.Logging
         private string dateFolderName = string.Empty;
         private string recentLogFileName = string.Empty;
         private string logPath = string.Empty;
-        private string component = string.Empty;
+        private string context = string.Empty;
         private int traceLevel = 41;
         private int logCache = 2000;
         private int logFileIndex = 0;
@@ -80,9 +81,9 @@ namespace MoCap.Logging
                     logPath = pFilePath + "\\" + dateFolderName;
                 SetTraceLevel(pLevel);
                 if (pComponent.Length < 2)
-                    component = Assembly.GetCallingAssembly().GetName().Name;
+                    Component = Assembly.GetCallingAssembly().GetName().Name;
                 else
-                    component = pComponent;
+                    Component = pComponent;
                 logCache = pLogCache;
                 maxFileSize = pMaxFileSize;
                 indentPrefix = pIndent;
@@ -245,6 +246,7 @@ namespace MoCap.Logging
                 if (AcquireLock(500, out lockMessage))
                 {
                     pMessage.IndentLevel = currentIndent;
+                    pMessage.Context = Context;
                     if (pMessage.Component.Length < 2)
                         pMessage.Component = Component;
                     // Day rollover?
@@ -288,7 +290,7 @@ namespace MoCap.Logging
         /// Logs a message of type EnterScope with the message specified (Level 5)
         /// </summary>
         /// <param name="pMessage">The message to log</param>
-        public void LogEnterScope(string pMessage)
+        public void EnterScope(string pMessage)
         {
             LogMessage tmp = new LogMessage(pMessage, MessageType.EnterScope, 5, "", "", "");
             Log(tmp);
@@ -298,7 +300,7 @@ namespace MoCap.Logging
         /// Logs the message object provided as type EnterScope
         /// </summary>
         /// <param name="pMessage">The LogMessage object</param>
-        public void LogEnterScope(LogMessage pMessage)
+        public void EnterScope(LogMessage pMessage)
         {
             if (pMessage.Type != MessageType.EnterScope)
             {
@@ -315,7 +317,7 @@ namespace MoCap.Logging
         /// Logs a message of type ExitScope with the message specified (Level 5)
         /// </summary>
         /// <param name="pMessage">The message to log</param>
-        public void LogExitScope(string pMessage)
+        public void ExitScope(string pMessage)
         {
             LogMessage tmp = new LogMessage(pMessage, MessageType.ExitScope, 5, "", "", "");
             Log(tmp);
@@ -325,7 +327,7 @@ namespace MoCap.Logging
         /// Logs the message object provided as type ExitScope
         /// </summary>
         /// <param name="pMessage">The LogMessage object</param>
-        public void LogExitScope(LogMessage pMessage)
+        public void ExitScope(LogMessage pMessage)
         {
             if (pMessage.Type != MessageType.ExitScope)
             {
@@ -342,7 +344,7 @@ namespace MoCap.Logging
         /// Logs a message of type Error with the message specified (Level 10)
         /// </summary>
         /// <param name="pMessage">The message to log</param>
-        public void LogError(string pMessage)
+        public void Error(string pMessage)
         {
             LogMessage tmp = new LogMessage(pMessage, MessageType.Error, 10, "", "", "");
             Log(tmp);
@@ -352,7 +354,7 @@ namespace MoCap.Logging
         /// Logs the message object provided as type Error
         /// </summary>
         /// <param name="pMessage">The LogMessage object</param>
-        public void LogError(LogMessage pMessage)
+        public void Error(LogMessage pMessage)
         {
             if (pMessage.Type != MessageType.Error)
             {
@@ -368,7 +370,7 @@ namespace MoCap.Logging
         /// Logs a message of type Warning with the message specified (Level 20)
         /// </summary>
         /// <param name="pMessage">The message to log</param>
-        public void LogWarning(string pMessage)
+        public void Warning(string pMessage)
         {
             LogMessage tmp = new LogMessage(pMessage, MessageType.Warning, 20, "", "", "");
             Log(tmp);
@@ -378,7 +380,7 @@ namespace MoCap.Logging
         /// Logs the message object provided as type Warning
         /// </summary>
         /// <param name="pMessage">The LogMessage object</param>
-        public void LogWarning(LogMessage pMessage)
+        public void Warning(LogMessage pMessage)
         {
             if (pMessage.Type != MessageType.Warning)
             {
@@ -394,7 +396,7 @@ namespace MoCap.Logging
         /// Logs a message of type Info with the message specified (Level 40)
         /// </summary>
         /// <param name="pMessage">The message to log</param>
-        public void LogInfo(string pMessage)
+        public void Info(string pMessage)
         {
             LogMessage tmp = new LogMessage(pMessage, MessageType.Info, 40, "", "", "");
             Log(tmp);
@@ -404,7 +406,7 @@ namespace MoCap.Logging
         /// Logs the message object provided as type Info
         /// </summary>
         /// <param name="pMessage">The LogMessage object</param>
-        public void LogInfo(LogMessage pMessage)
+        public void Info(LogMessage pMessage)
         {
             if (pMessage.Type != MessageType.Info)
             {
@@ -421,7 +423,7 @@ namespace MoCap.Logging
         /// Logs a message of type Detail with the message specified (Level 80)
         /// </summary>
         /// <param name="pMessage">The message to log</param>
-        public void LogDetail(string pMessage)
+        public void Detail(string pMessage)
         {
             LogMessage tmp = new LogMessage(pMessage, MessageType.Detail, 80, "", "", "");
             Log(tmp);
@@ -431,7 +433,7 @@ namespace MoCap.Logging
         /// Logs the message object provided as type Detail
         /// </summary>
         /// <param name="pMessage">The LogMessage object</param>
-        public void LogDetail(LogMessage pMessage)
+        public void Detail(LogMessage pMessage)
         {
             if (pMessage.Type != MessageType.Detail)
             {
@@ -448,7 +450,7 @@ namespace MoCap.Logging
         /// Logs a message of type All with the message specified (Level 0)
         /// </summary>
         /// <param name="pMessage">The message to log</param>
-        public void LogAll(string pMessage)
+        public void All(string pMessage)
         {
             LogMessage tmp = new LogMessage(pMessage, MessageType.All, 0, "", "", "");
             Log(tmp);
@@ -458,7 +460,7 @@ namespace MoCap.Logging
         /// Logs the message object provided as type All
         /// </summary>
         /// <param name="pMessage">The LogMessage object</param>
-        public void LogAll(LogMessage pMessage)
+        public void All(LogMessage pMessage)
         {
             if (pMessage.Type != MessageType.All)
             {
@@ -553,14 +555,14 @@ namespace MoCap.Logging
         }
 
         /// <summary>
-        /// Updates the component of this log file
+        /// Updates the context of this log file
         /// </summary>
-        /// <param name="pComponent"></param>
-        public void RegisterComponent(string pComponent)
+        /// <param name="pContext">The context to set</param>
+        public void RegisterTopic(string pContext)
         {
-            if (pComponent.Length > 2)
+            if (pContext.Length > 2)
             {
-                component = pComponent;
+                context = pContext;
                 GetTraceLevel();
             }
         }
@@ -811,7 +813,7 @@ namespace MoCap.Logging
             try
             {
                 Monitor.TryEnter(_LockObject, pTimeout, ref isLocked);
-                if (!isLocked)
+                if (isLocked)
                 {
                     pMessage = String.Format("Lock successfully acquired. [Timeout={0}]", pTimeout);
                     return true;

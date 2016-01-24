@@ -164,7 +164,7 @@ namespace MoCap.Logging
         /// Registers a component name for this instance of trace manager
         /// </summary>
         /// <param name="pComponent">The name of the Component</param>
-        void RegisterComponent(string pComponent);
+        void RegisterTopic(string pContext);
 
         /// <summary>
         /// Sets the log level up to which log messages will be added. Messages having a higher level than 

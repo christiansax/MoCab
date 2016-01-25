@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="86264b52ea4f4ccfb95bed1ad15c1123" Name="Diagram1">
+        <EntityTypeShape EntityType="MoCapModel.C_Poll_Option" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoCapModel.C_Task_Task" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoCapModel.BinaryObject" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoCapModel.Chat" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoCapModel.Interaction_BinaryObject" Width="1.5" PointX="5.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoCapModel.Message" Width="1.5" PointX="3" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoCapModel.Poll" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoCapModel.PollOption" Width="1.5" PointX="3" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoCapModel.Project" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoCapModel.Task" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MoCapModel.Timeslouse" Width="1.5" PointX="8.25" PointY="10.25" IsExpanded="true" />
+        <AssociationConnector Association="MoCapModel.FK__Poll_Option_Option" ManuallyRouted="false" />
+        <AssociationConnector Association="MoCapModel.FK__Poll_Option_Poll" ManuallyRouted="false" />
+        <AssociationConnector Association="MoCapModel.FK_Task_Task_Parent" ManuallyRouted="false" />
+        <AssociationConnector Association="MoCapModel.FK_Tasks_Task_Child" ManuallyRouted="false" />
+        <AssociationConnector Association="MoCapModel.FK_Interaction_BinaryObject_Binary" ManuallyRouted="false" />
+        <AssociationConnector Association="MoCapModel.FK_Chat_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="MoCapModel.FK_Interaction_BinaryObject_Chat" ManuallyRouted="false" />
+        <AssociationConnector Association="MoCapModel.FK_Timeslice_Chat" ManuallyRouted="false" />
+        <AssociationConnector Association="MoCapModel.FK_Interaction_BinaryObject_Message" ManuallyRouted="false" />
+        <AssociationConnector Association="MoCapModel.FK_Interaction_BinaryObject_Poll" ManuallyRouted="false" />
+        <AssociationConnector Association="MoCapModel.FK_Interaction_BinaryObject_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="MoCapModel.FK_Poll_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="MoCapModel.FK_Timeslice_Poll" ManuallyRouted="false" />
+        <AssociationConnector Association="MoCapModel.FK_Task_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="MoCapModel.FK_Timeslice_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="MoCapModel.FK_Timeslice_Task" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MoCapModel.C_User_Chat" Width="1.5" PointX="6.875" PointY="3.5" />
+        <EntityTypeShape EntityType="MoCapModel.C_User_Message" Width="1.5" PointX="6.875" PointY="22.375" />
+        <EntityTypeShape EntityType="MoCapModel.C_User_Poll_Option" Width="1.5" PointX="6.875" PointY="18.75" />
+        <EntityTypeShape EntityType="MoCapModel.C_User_Project" Width="1.5" PointX="4.625" PointY="28.625" />
+        <AssociationConnector Association="MoCapModel.FK__User_Chat_Chat" />
+        <AssociationConnector Association="MoCapModel.FK_Interaction_BinaryObject_User_Poll_Option" />
+        <AssociationConnector Association="MoCapModel.FK__User_Message_Message" />
+        <AssociationConnector Association="MoCapModel.FK__User_Poll_Option_Poll" />
+        <AssociationConnector Association="MoCapModel.FK__User_Poll_Option_PollOption" />
+        <AssociationConnector Association="MoCapModel.FK__User_Project_Project" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

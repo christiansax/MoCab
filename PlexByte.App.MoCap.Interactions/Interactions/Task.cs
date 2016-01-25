@@ -68,15 +68,19 @@ namespace MoCap.Interactions
 
         #region Ctor & Dtor
 
-        Task(string pText, DateTime pStart, DateTime pEnd, long pOwnerID, long pCreatorID, decimal pDuration, 
-            long pProjectId, decimal pBudget=0.00m)
+        Task(long pID, string pText, DateTime pStart, DateTime pEnd, long pOwnerID, long pCreatorID, decimal pDuration, 
+            long pProjectId, bool pIsCompleted, List<long> pSubTaskIds, List<long> pExpenseIds, DateTime pCreate, 
+            DateTime pDue, decimal pBudget = 0.00m)
         {
+            ID = pID;
             Text = pText;
             Start = pStart;
             End = pEnd;
             OwnerID = pOwnerID;
             CreatorID = pCreatorID;
             ProjectID = pProjectId;
+            SubTaskIDs = pSubTaskIds;
+            ExpenseIDs = pExpenseIds;
             if (CreatorID == OwnerID)
                 isPersonal = true;
             else
@@ -84,7 +88,8 @@ namespace MoCap.Interactions
             Priority = 50;
             Duration = pDuration;
             Budget = pBudget;
-            Created = DateTime.Now;
+            Created = pCreate;
+            Due = pDue;
             Modified = DateTime.Now;
         }
 

@@ -1,0 +1,1468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MoCapModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="_Poll_Option">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PollId" Type="bigint" Nullable="false" />
+          <Property Name="OptionId" Type="bigint" Nullable="false" />
+          <Property Name="Votes" Type="int" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="ModifiedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="_Task_Task">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="ParentTaskId" Type="bigint" Nullable="false" />
+          <Property Name="SubTaskId" Type="bigint" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="ModifiedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BinaryObject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Object" Type="varbinary(max)" Nullable="false" />
+          <Property Name="TypeId" Type="bigint" Nullable="false" />
+          <Property Name="Size" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="ModifiedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Chat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="ProjectId" Type="bigint" />
+          <Property Name="StartDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="EndDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="Priority" Type="int" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="ModifedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Interaction_BinaryObject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="ChatId" Type="bigint" />
+          <Property Name="MessageId" Type="bigint" />
+          <Property Name="TaskId" Type="bigint" />
+          <Property Name="PollId" Type="bigint" />
+          <Property Name="VoteId" Type="bigint" />
+          <Property Name="BinaryId" Type="bigint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="ModifiedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Label" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="SenderId" Type="bigint" Nullable="false" />
+          <Property Name="ReadReceipt" Type="bit" Nullable="false" />
+          <Property Name="TimeToLive" Type="int" Nullable="false" />
+          <Property Name="DateTimeOfDeath" Type="datetime2" Precision="3" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="SentDateTime" Type="datetime2" Precision="3" />
+          <Property Name="CreatedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="ModifedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Poll">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Label" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ProjectId" Type="bigint" />
+          <Property Name="StartDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="EndDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="DueDateTime" Type="datetime2" Precision="3" />
+          <Property Name="VotesPerUser" Type="int" Nullable="false" />
+          <Property Name="VotesChangeable" Type="bit" Nullable="false" />
+          <Property Name="AllowCustomOption" Type="bit" Nullable="false" />
+          <Property Name="CompleteOnMajority" Type="bit" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="ModifiedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PollOption">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="ModifiedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Category" Type="nvarchar" MaxLength="250" />
+          <Property Name="OwnerId" Type="bigint" Nullable="false" />
+          <Property Name="DeputyId" Type="bigint" Nullable="false" />
+          <Property Name="StartDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="EndDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="DueDateTime" Type="datetime2" Precision="3" />
+          <Property Name="Priority" Type="int" Nullable="false" />
+          <Property Name="Progress" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="IsCompleted" Type="bit" Nullable="false" />
+          <Property Name="Budget" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CreatedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="ModifiedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ProjectId" Type="bigint" />
+          <Property Name="CreatorId" Type="bigint" Nullable="false" />
+          <Property Name="OwnerId" Type="bigint" Nullable="false" />
+          <Property Name="IsCompleted" Type="bit" Nullable="false" />
+          <Property Name="IsPersonal" Type="bit" Nullable="false" />
+          <Property Name="StartDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="EndDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="DueDateTime" Type="datetime2" Precision="3" />
+          <Property Name="Duration" Type="numeric" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="Budget" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="TotalCosts" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="Priority" Type="int" Nullable="false" />
+          <Property Name="Progress" Type="numeric" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="ModifiedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Timeslice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" />
+          <Property Name="UserId" Type="bigint" Nullable="false" />
+          <Property Name="ProjectId" Type="bigint" />
+          <Property Name="TaskId" Type="bigint" />
+          <Property Name="ChatId" Type="bigint" />
+          <Property Name="PollId" Type="bigint" />
+          <Property Name="Duration" Type="bigint" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="ModifiedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="_User_Chat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="bigint" Nullable="false" />
+          <Property Name="ChatId" Type="bigint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="ModifedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="_User_Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MessageId" Type="bigint" Nullable="false" />
+          <Property Name="UserId" Type="bigint" Nullable="false" />
+          <Property Name="IsReceived" Type="bit" Nullable="false" />
+          <Property Name="IsRead" Type="bit" Nullable="false" />
+          <Property Name="ReceivedDateTime" Type="datetime2" Precision="3" />
+          <Property Name="ReadDateTime" Type="datetime2" Precision="3" />
+          <Property Name="CreatedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="ModifiedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="_User_Poll_Option">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="bigint" Nullable="false" />
+          <Property Name="PollId" Type="bigint" Nullable="false" />
+          <Property Name="OptionId" Type="bigint" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="ModifiedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="_User_Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectId" Type="bigint" Nullable="false" />
+          <Property Name="UserId" Type="bigint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+          <Property Name="ModifiedDateTime" Type="datetime2" Precision="3" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Poll_Option_Option">
+          <End Role="PollOption" Type="Self.PollOption" Multiplicity="1" />
+          <End Role="_Poll_Option" Type="Self._Poll_Option" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PollOption">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="_Poll_Option">
+              <PropertyRef Name="OptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Poll_Option_Poll">
+          <End Role="Poll" Type="Self.Poll" Multiplicity="1" />
+          <End Role="_Poll_Option" Type="Self._Poll_Option" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poll">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="_Poll_Option">
+              <PropertyRef Name="PollId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User_Chat_Chat">
+          <End Role="Chat" Type="Self.Chat" Multiplicity="1" />
+          <End Role="_User_Chat" Type="Self._User_Chat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="_User_Chat">
+              <PropertyRef Name="ChatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User_Message_Message">
+          <End Role="Message" Type="Self.Message" Multiplicity="1" />
+          <End Role="_User_Message" Type="Self._User_Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Message">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="_User_Message">
+              <PropertyRef Name="MessageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User_Poll_Option_Poll">
+          <End Role="Poll" Type="Self.Poll" Multiplicity="1" />
+          <End Role="_User_Poll_Option" Type="Self._User_Poll_Option" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poll">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="_User_Poll_Option">
+              <PropertyRef Name="PollId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User_Poll_Option_PollOption">
+          <End Role="PollOption" Type="Self.PollOption" Multiplicity="1" />
+          <End Role="_User_Poll_Option" Type="Self._User_Poll_Option" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PollOption">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="_User_Poll_Option">
+              <PropertyRef Name="OptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User_Project_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="_User_Project" Type="Self._User_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="_User_Project">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chat_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="Chat" Type="Self.Chat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chat">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interaction_BinaryObject_Binary">
+          <End Role="BinaryObject" Type="Self.BinaryObject" Multiplicity="1" />
+          <End Role="Interaction_BinaryObject" Type="Self.Interaction_BinaryObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BinaryObject">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interaction_BinaryObject">
+              <PropertyRef Name="BinaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interaction_BinaryObject_Chat">
+          <End Role="Chat" Type="Self.Chat" Multiplicity="0..1" />
+          <End Role="Interaction_BinaryObject" Type="Self.Interaction_BinaryObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interaction_BinaryObject">
+              <PropertyRef Name="ChatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interaction_BinaryObject_Message">
+          <End Role="Message" Type="Self.Message" Multiplicity="0..1" />
+          <End Role="Interaction_BinaryObject" Type="Self.Interaction_BinaryObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Message">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interaction_BinaryObject">
+              <PropertyRef Name="MessageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interaction_BinaryObject_Poll">
+          <End Role="Poll" Type="Self.Poll" Multiplicity="0..1" />
+          <End Role="Interaction_BinaryObject" Type="Self.Interaction_BinaryObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poll">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interaction_BinaryObject">
+              <PropertyRef Name="PollId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interaction_BinaryObject_Task">
+          <End Role="Task" Type="Self.Task" Multiplicity="0..1" />
+          <End Role="Interaction_BinaryObject" Type="Self.Interaction_BinaryObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interaction_BinaryObject">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interaction_BinaryObject_User_Poll_Option">
+          <End Role="_User_Poll_Option" Type="Self._User_Poll_Option" Multiplicity="0..1" />
+          <End Role="Interaction_BinaryObject" Type="Self.Interaction_BinaryObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="_User_Poll_Option">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interaction_BinaryObject">
+              <PropertyRef Name="VoteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poll_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="Poll" Type="Self.Poll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Poll">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Task_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="Task" Type="Self.Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Task_Task_Parent">
+          <End Role="Task" Type="Self.Task" Multiplicity="1" />
+          <End Role="_Task_Task" Type="Self._Task_Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="_Task_Task">
+              <PropertyRef Name="ParentTaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tasks_Task_Child">
+          <End Role="Task" Type="Self.Task" Multiplicity="1" />
+          <End Role="_Task_Task" Type="Self._Task_Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="_Task_Task">
+              <PropertyRef Name="SubTaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timeslice_Chat">
+          <End Role="Chat" Type="Self.Chat" Multiplicity="0..1" />
+          <End Role="Timeslice" Type="Self.Timeslice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Timeslice">
+              <PropertyRef Name="ChatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timeslice_Poll">
+          <End Role="Poll" Type="Self.Poll" Multiplicity="0..1" />
+          <End Role="Timeslice" Type="Self.Timeslice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poll">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Timeslice">
+              <PropertyRef Name="PollId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timeslice_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="Timeslice" Type="Self.Timeslice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Timeslice">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timeslice_Task">
+          <End Role="Task" Type="Self.Task" Multiplicity="0..1" />
+          <End Role="Timeslice" Type="Self.Timeslice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Timeslice">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MoCapModelStoreContainer">
+          <EntitySet Name="_Poll_Option" EntityType="Self._Poll_Option" Schema="ira" store:Type="Tables" />
+          <EntitySet Name="_Task_Task" EntityType="Self._Task_Task" Schema="ira" store:Type="Tables" />
+          <EntitySet Name="BinaryObject" EntityType="Self.BinaryObject" Schema="ira" store:Type="Tables" />
+          <EntitySet Name="Chat" EntityType="Self.Chat" Schema="ira" store:Type="Tables" />
+          <EntitySet Name="Interaction_BinaryObject" EntityType="Self.Interaction_BinaryObject" Schema="ira" store:Type="Tables" />
+          <EntitySet Name="Message" EntityType="Self.Message" Schema="ira" store:Type="Tables" />
+          <EntitySet Name="Poll" EntityType="Self.Poll" Schema="ira" store:Type="Tables" />
+          <EntitySet Name="PollOption" EntityType="Self.PollOption" Schema="ira" store:Type="Tables" />
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="ira" store:Type="Tables" />
+          <EntitySet Name="Task" EntityType="Self.Task" Schema="ira" store:Type="Tables" />
+          <EntitySet Name="Timeslice" EntityType="Self.Timeslice" Schema="ira" store:Type="Tables" />
+          <EntitySet Name="_User_Chat" EntityType="Self._User_Chat" Schema="sec" store:Type="Tables" />
+          <EntitySet Name="_User_Message" EntityType="Self._User_Message" Schema="sec" store:Type="Tables" />
+          <EntitySet Name="_User_Poll_Option" EntityType="Self._User_Poll_Option" Schema="sec" store:Type="Tables" />
+          <EntitySet Name="_User_Project" EntityType="Self._User_Project" Schema="sec" store:Type="Tables" />
+          <AssociationSet Name="FK__Poll_Option_Option" Association="Self.FK__Poll_Option_Option">
+            <End Role="PollOption" EntitySet="PollOption" />
+            <End Role="_Poll_Option" EntitySet="_Poll_Option" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Poll_Option_Poll" Association="Self.FK__Poll_Option_Poll">
+            <End Role="Poll" EntitySet="Poll" />
+            <End Role="_Poll_Option" EntitySet="_Poll_Option" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User_Chat_Chat" Association="Self.FK__User_Chat_Chat">
+            <End Role="Chat" EntitySet="Chat" />
+            <End Role="_User_Chat" EntitySet="_User_Chat" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User_Message_Message" Association="Self.FK__User_Message_Message">
+            <End Role="Message" EntitySet="Message" />
+            <End Role="_User_Message" EntitySet="_User_Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User_Poll_Option_Poll" Association="Self.FK__User_Poll_Option_Poll">
+            <End Role="Poll" EntitySet="Poll" />
+            <End Role="_User_Poll_Option" EntitySet="_User_Poll_Option" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User_Poll_Option_PollOption" Association="Self.FK__User_Poll_Option_PollOption">
+            <End Role="PollOption" EntitySet="PollOption" />
+            <End Role="_User_Poll_Option" EntitySet="_User_Poll_Option" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User_Project_Project" Association="Self.FK__User_Project_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="_User_Project" EntitySet="_User_Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chat_Project" Association="Self.FK_Chat_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="Chat" EntitySet="Chat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interaction_BinaryObject_Binary" Association="Self.FK_Interaction_BinaryObject_Binary">
+            <End Role="BinaryObject" EntitySet="BinaryObject" />
+            <End Role="Interaction_BinaryObject" EntitySet="Interaction_BinaryObject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interaction_BinaryObject_Chat" Association="Self.FK_Interaction_BinaryObject_Chat">
+            <End Role="Chat" EntitySet="Chat" />
+            <End Role="Interaction_BinaryObject" EntitySet="Interaction_BinaryObject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interaction_BinaryObject_Message" Association="Self.FK_Interaction_BinaryObject_Message">
+            <End Role="Message" EntitySet="Message" />
+            <End Role="Interaction_BinaryObject" EntitySet="Interaction_BinaryObject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interaction_BinaryObject_Poll" Association="Self.FK_Interaction_BinaryObject_Poll">
+            <End Role="Poll" EntitySet="Poll" />
+            <End Role="Interaction_BinaryObject" EntitySet="Interaction_BinaryObject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interaction_BinaryObject_Task" Association="Self.FK_Interaction_BinaryObject_Task">
+            <End Role="Task" EntitySet="Task" />
+            <End Role="Interaction_BinaryObject" EntitySet="Interaction_BinaryObject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interaction_BinaryObject_User_Poll_Option" Association="Self.FK_Interaction_BinaryObject_User_Poll_Option">
+            <End Role="_User_Poll_Option" EntitySet="_User_Poll_Option" />
+            <End Role="Interaction_BinaryObject" EntitySet="Interaction_BinaryObject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poll_Project" Association="Self.FK_Poll_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="Poll" EntitySet="Poll" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Task_Project" Association="Self.FK_Task_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="Task" EntitySet="Task" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Task_Task_Parent" Association="Self.FK_Task_Task_Parent">
+            <End Role="Task" EntitySet="Task" />
+            <End Role="_Task_Task" EntitySet="_Task_Task" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tasks_Task_Child" Association="Self.FK_Tasks_Task_Child">
+            <End Role="Task" EntitySet="Task" />
+            <End Role="_Task_Task" EntitySet="_Task_Task" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timeslice_Chat" Association="Self.FK_Timeslice_Chat">
+            <End Role="Chat" EntitySet="Chat" />
+            <End Role="Timeslice" EntitySet="Timeslice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timeslice_Poll" Association="Self.FK_Timeslice_Poll">
+            <End Role="Poll" EntitySet="Poll" />
+            <End Role="Timeslice" EntitySet="Timeslice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timeslice_Project" Association="Self.FK_Timeslice_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="Timeslice" EntitySet="Timeslice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timeslice_Task" Association="Self.FK_Timeslice_Task">
+            <End Role="Task" EntitySet="Task" />
+            <End Role="Timeslice" EntitySet="Timeslice" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MoCapModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C_Poll_Option">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PollId" Type="Int64" Nullable="false" />
+          <Property Name="OptionId" Type="Int64" Nullable="false" />
+          <Property Name="Votes" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="PollOption" Relationship="Self.FK__Poll_Option_Option" FromRole="C_Poll_Option" ToRole="PollOption" />
+          <NavigationProperty Name="Poll" Relationship="Self.FK__Poll_Option_Poll" FromRole="C_Poll_Option" ToRole="Poll" />
+        </EntityType>
+        <EntityType Name="C_Task_Task">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="ParentTaskId" Type="Int64" Nullable="false" />
+          <Property Name="SubTaskId" Type="Int64" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Task" Relationship="Self.FK_Task_Task_Parent" FromRole="C_Task_Task" ToRole="Task" />
+          <NavigationProperty Name="Task1" Relationship="Self.FK_Tasks_Task_Child" FromRole="C_Task_Task" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="BinaryObject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Object" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="TypeId" Type="Int64" Nullable="false" />
+          <Property Name="Size" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Interaction_BinaryObject" Relationship="Self.FK_Interaction_BinaryObject_Binary" FromRole="BinaryObject" ToRole="Interaction_BinaryObject" />
+        </EntityType>
+        <EntityType Name="Chat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectId" Type="Int64" />
+          <Property Name="StartDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_Chat_Project" FromRole="Chat" ToRole="Project" />
+          <NavigationProperty Name="Interaction_BinaryObject" Relationship="Self.FK_Interaction_BinaryObject_Chat" FromRole="Chat" ToRole="Interaction_BinaryObject" />
+          <NavigationProperty Name="Timeslice" Relationship="Self.FK_Timeslice_Chat" FromRole="Chat" ToRole="Timeslice" />
+          <NavigationProperty Name="C_User_Chat" Relationship="MoCapModel.FK__User_Chat_Chat" FromRole="Chat" ToRole="C_User_Chat" />
+        </EntityType>
+        <EntityType Name="Interaction_BinaryObject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="ChatId" Type="Int64" />
+          <Property Name="MessageId" Type="Int64" />
+          <Property Name="TaskId" Type="Int64" />
+          <Property Name="PollId" Type="Int64" />
+          <Property Name="VoteId" Type="Int64" />
+          <Property Name="BinaryId" Type="Int64" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="BinaryObject" Relationship="Self.FK_Interaction_BinaryObject_Binary" FromRole="Interaction_BinaryObject" ToRole="BinaryObject" />
+          <NavigationProperty Name="Chat" Relationship="Self.FK_Interaction_BinaryObject_Chat" FromRole="Interaction_BinaryObject" ToRole="Chat" />
+          <NavigationProperty Name="Message" Relationship="Self.FK_Interaction_BinaryObject_Message" FromRole="Interaction_BinaryObject" ToRole="Message" />
+          <NavigationProperty Name="Poll" Relationship="Self.FK_Interaction_BinaryObject_Poll" FromRole="Interaction_BinaryObject" ToRole="Poll" />
+          <NavigationProperty Name="Task" Relationship="Self.FK_Interaction_BinaryObject_Task" FromRole="Interaction_BinaryObject" ToRole="Task" />
+          <NavigationProperty Name="C_User_Poll_Option" Relationship="MoCapModel.FK_Interaction_BinaryObject_User_Poll_Option" FromRole="Interaction_BinaryObject" ToRole="C_User_Poll_Option" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Label" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SenderId" Type="Int64" Nullable="false" />
+          <Property Name="ReadReceipt" Type="Boolean" Nullable="false" />
+          <Property Name="TimeToLive" Type="Int32" Nullable="false" />
+          <Property Name="DateTimeOfDeath" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="SentDateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Interaction_BinaryObject" Relationship="Self.FK_Interaction_BinaryObject_Message" FromRole="Message" ToRole="Interaction_BinaryObject" />
+          <NavigationProperty Name="C_User_Message" Relationship="MoCapModel.FK__User_Message_Message" FromRole="Message" ToRole="C_User_Message" />
+        </EntityType>
+        <EntityType Name="Poll">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Label" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectId" Type="Int64" />
+          <Property Name="StartDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DueDateTime" Type="DateTime" Precision="3" />
+          <Property Name="VotesPerUser" Type="Int32" Nullable="false" />
+          <Property Name="VotesChangeable" Type="Boolean" Nullable="false" />
+          <Property Name="AllowCustomOption" Type="Boolean" Nullable="false" />
+          <Property Name="CompleteOnMajority" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="C_Poll_Option" Relationship="Self.FK__Poll_Option_Poll" FromRole="Poll" ToRole="C_Poll_Option" />
+          <NavigationProperty Name="Interaction_BinaryObject" Relationship="Self.FK_Interaction_BinaryObject_Poll" FromRole="Poll" ToRole="Interaction_BinaryObject" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_Poll_Project" FromRole="Poll" ToRole="Project" />
+          <NavigationProperty Name="Timeslice" Relationship="Self.FK_Timeslice_Poll" FromRole="Poll" ToRole="Timeslice" />
+          <NavigationProperty Name="C_User_Poll_Option" Relationship="MoCapModel.FK__User_Poll_Option_Poll" FromRole="Poll" ToRole="C_User_Poll_Option" />
+        </EntityType>
+        <EntityType Name="PollOption">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Value" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="C_Poll_Option" Relationship="Self.FK__Poll_Option_Option" FromRole="PollOption" ToRole="C_Poll_Option" />
+          <NavigationProperty Name="C_User_Poll_Option" Relationship="MoCapModel.FK__User_Poll_Option_PollOption" FromRole="PollOption" ToRole="C_User_Poll_Option" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerId" Type="Int64" Nullable="false" />
+          <Property Name="DeputyId" Type="Int64" Nullable="false" />
+          <Property Name="StartDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DueDateTime" Type="DateTime" Precision="3" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="Progress" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="IsCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="Budget" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Chats" Relationship="Self.FK_Chat_Project" FromRole="Project" ToRole="Chat" />
+          <NavigationProperty Name="Polls" Relationship="Self.FK_Poll_Project" FromRole="Project" ToRole="Poll" />
+          <NavigationProperty Name="Tasks" Relationship="Self.FK_Task_Project" FromRole="Project" ToRole="Task" />
+          <NavigationProperty Name="Timeslice" Relationship="Self.FK_Timeslice_Project" FromRole="Project" ToRole="Timeslice" />
+          <NavigationProperty Name="C_User_Project" Relationship="MoCapModel.FK__User_Project_Project" FromRole="Project" ToRole="C_User_Project" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectId" Type="Int64" />
+          <Property Name="CreatorId" Type="Int64" Nullable="false" />
+          <Property Name="OwnerId" Type="Int64" Nullable="false" />
+          <Property Name="IsCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="IsPersonal" Type="Boolean" Nullable="false" />
+          <Property Name="StartDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DueDateTime" Type="DateTime" Precision="3" />
+          <Property Name="Duration" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+          <Property Name="Budget" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalCosts" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="Progress" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="C_Task_Task" Relationship="Self.FK_Task_Task_Parent" FromRole="Task" ToRole="C_Task_Task" />
+          <NavigationProperty Name="C_Task_Task1" Relationship="Self.FK_Tasks_Task_Child" FromRole="Task" ToRole="C_Task_Task" />
+          <NavigationProperty Name="Interaction_BinaryObject" Relationship="Self.FK_Interaction_BinaryObject_Task" FromRole="Task" ToRole="Interaction_BinaryObject" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_Task_Project" FromRole="Task" ToRole="Project" />
+          <NavigationProperty Name="Timeslice" Relationship="Self.FK_Timeslice_Task" FromRole="Task" ToRole="Timeslice" />
+        </EntityType>
+        <EntityType Name="Timeslouse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" />
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="ProjectId" Type="Int64" />
+          <Property Name="TaskId" Type="Int64" />
+          <Property Name="ChatId" Type="Int64" />
+          <Property Name="PollId" Type="Int64" />
+          <Property Name="Duration" Type="Int64" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Chat" Relationship="Self.FK_Timeslice_Chat" FromRole="Timeslice" ToRole="Chat" />
+          <NavigationProperty Name="Poll" Relationship="Self.FK_Timeslice_Poll" FromRole="Timeslice" ToRole="Poll" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_Timeslice_Project" FromRole="Timeslice" ToRole="Project" />
+          <NavigationProperty Name="Task" Relationship="Self.FK_Timeslice_Task" FromRole="Timeslice" ToRole="Task" />
+        </EntityType>
+        <Association Name="FK__Poll_Option_Option">
+          <End Role="PollOption" Type="Self.PollOption" Multiplicity="1" />
+          <End Role="C_Poll_Option" Type="Self.C_Poll_Option" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PollOption">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="C_Poll_Option">
+              <PropertyRef Name="OptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Poll_Option_Poll">
+          <End Role="Poll" Type="Self.Poll" Multiplicity="1" />
+          <End Role="C_Poll_Option" Type="Self.C_Poll_Option" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poll">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="C_Poll_Option">
+              <PropertyRef Name="PollId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Task_Task_Parent">
+          <End Role="Task" Type="Self.Task" Multiplicity="1" />
+          <End Role="C_Task_Task" Type="Self.C_Task_Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="C_Task_Task">
+              <PropertyRef Name="ParentTaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tasks_Task_Child">
+          <End Role="Task" Type="Self.Task" Multiplicity="1" />
+          <End Role="C_Task_Task" Type="Self.C_Task_Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="C_Task_Task">
+              <PropertyRef Name="SubTaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interaction_BinaryObject_Binary">
+          <End Role="BinaryObject" Type="Self.BinaryObject" Multiplicity="1" />
+          <End Role="Interaction_BinaryObject" Type="Self.Interaction_BinaryObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BinaryObject">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interaction_BinaryObject">
+              <PropertyRef Name="BinaryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Chat_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="Chat" Type="Self.Chat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Chat">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interaction_BinaryObject_Chat">
+          <End Role="Chat" Type="Self.Chat" Multiplicity="0..1" />
+          <End Role="Interaction_BinaryObject" Type="Self.Interaction_BinaryObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interaction_BinaryObject">
+              <PropertyRef Name="ChatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timeslice_Chat">
+          <End Role="Chat" Type="Self.Chat" Multiplicity="0..1" />
+          <End Role="Timeslice" Type="Self.Timeslouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Timeslice">
+              <PropertyRef Name="ChatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interaction_BinaryObject_Message">
+          <End Role="Message" Type="Self.Message" Multiplicity="0..1" />
+          <End Role="Interaction_BinaryObject" Type="Self.Interaction_BinaryObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Message">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interaction_BinaryObject">
+              <PropertyRef Name="MessageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interaction_BinaryObject_Poll">
+          <End Role="Poll" Type="Self.Poll" Multiplicity="0..1" />
+          <End Role="Interaction_BinaryObject" Type="Self.Interaction_BinaryObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poll">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interaction_BinaryObject">
+              <PropertyRef Name="PollId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interaction_BinaryObject_Task">
+          <End Role="Task" Type="Self.Task" Multiplicity="0..1" />
+          <End Role="Interaction_BinaryObject" Type="Self.Interaction_BinaryObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interaction_BinaryObject">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Poll_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="Poll" Type="Self.Poll" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Poll">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timeslice_Poll">
+          <End Role="Poll" Type="Self.Poll" Multiplicity="0..1" />
+          <End Role="Timeslice" Type="Self.Timeslouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poll">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Timeslice">
+              <PropertyRef Name="PollId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Task_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="Task" Type="Self.Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timeslice_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="Timeslice" Type="Self.Timeslouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Timeslice">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Timeslice_Task">
+          <End Role="Task" Type="Self.Task" Multiplicity="0..1" />
+          <End Role="Timeslice" Type="Self.Timeslouse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Timeslice">
+              <PropertyRef Name="TaskId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MoCapEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C_Poll_Option" EntityType="Self.C_Poll_Option" />
+          <EntitySet Name="C_Task_Task" EntityType="Self.C_Task_Task" />
+          <EntitySet Name="BinaryObjects" EntityType="Self.BinaryObject" />
+          <EntitySet Name="Chats" EntityType="Self.Chat" />
+          <EntitySet Name="Interaction_BinaryObject" EntityType="Self.Interaction_BinaryObject" />
+          <EntitySet Name="Messages" EntityType="Self.Message" />
+          <EntitySet Name="Polls" EntityType="Self.Poll" />
+          <EntitySet Name="PollOptions" EntityType="Self.PollOption" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="Tasks" EntityType="Self.Task" />
+          <EntitySet Name="Timeslice" EntityType="Self.Timeslouse" />
+          <AssociationSet Name="FK__Poll_Option_Option" Association="Self.FK__Poll_Option_Option">
+            <End Role="PollOption" EntitySet="PollOptions" />
+            <End Role="C_Poll_Option" EntitySet="C_Poll_Option" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Poll_Option_Poll" Association="Self.FK__Poll_Option_Poll">
+            <End Role="Poll" EntitySet="Polls" />
+            <End Role="C_Poll_Option" EntitySet="C_Poll_Option" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Task_Task_Parent" Association="Self.FK_Task_Task_Parent">
+            <End Role="Task" EntitySet="Tasks" />
+            <End Role="C_Task_Task" EntitySet="C_Task_Task" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tasks_Task_Child" Association="Self.FK_Tasks_Task_Child">
+            <End Role="Task" EntitySet="Tasks" />
+            <End Role="C_Task_Task" EntitySet="C_Task_Task" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interaction_BinaryObject_Binary" Association="Self.FK_Interaction_BinaryObject_Binary">
+            <End Role="BinaryObject" EntitySet="BinaryObjects" />
+            <End Role="Interaction_BinaryObject" EntitySet="Interaction_BinaryObject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Chat_Project" Association="Self.FK_Chat_Project">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Chat" EntitySet="Chats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interaction_BinaryObject_Chat" Association="Self.FK_Interaction_BinaryObject_Chat">
+            <End Role="Chat" EntitySet="Chats" />
+            <End Role="Interaction_BinaryObject" EntitySet="Interaction_BinaryObject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timeslice_Chat" Association="Self.FK_Timeslice_Chat">
+            <End Role="Chat" EntitySet="Chats" />
+            <End Role="Timeslice" EntitySet="Timeslice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interaction_BinaryObject_Message" Association="Self.FK_Interaction_BinaryObject_Message">
+            <End Role="Message" EntitySet="Messages" />
+            <End Role="Interaction_BinaryObject" EntitySet="Interaction_BinaryObject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interaction_BinaryObject_Poll" Association="Self.FK_Interaction_BinaryObject_Poll">
+            <End Role="Poll" EntitySet="Polls" />
+            <End Role="Interaction_BinaryObject" EntitySet="Interaction_BinaryObject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interaction_BinaryObject_Task" Association="Self.FK_Interaction_BinaryObject_Task">
+            <End Role="Task" EntitySet="Tasks" />
+            <End Role="Interaction_BinaryObject" EntitySet="Interaction_BinaryObject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Poll_Project" Association="Self.FK_Poll_Project">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Poll" EntitySet="Polls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timeslice_Poll" Association="Self.FK_Timeslice_Poll">
+            <End Role="Poll" EntitySet="Polls" />
+            <End Role="Timeslice" EntitySet="Timeslice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Task_Project" Association="Self.FK_Task_Project">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Task" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timeslice_Project" Association="Self.FK_Timeslice_Project">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Timeslice" EntitySet="Timeslice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Timeslice_Task" Association="Self.FK_Timeslice_Task">
+            <End Role="Task" EntitySet="Tasks" />
+            <End Role="Timeslice" EntitySet="Timeslice" />
+          </AssociationSet>
+          <EntitySet Name="C_User_Chat" EntityType="MoCapModel.C_User_Chat" />
+          <EntitySet Name="C_User_Message" EntityType="MoCapModel.C_User_Message" />
+          <EntitySet Name="C_User_Poll_Option" EntityType="MoCapModel.C_User_Poll_Option" />
+          <EntitySet Name="C_User_Project" EntityType="MoCapModel.C_User_Project" />
+          <AssociationSet Name="FK__User_Chat_Chat" Association="MoCapModel.FK__User_Chat_Chat">
+            <End Role="Chat" EntitySet="Chats" />
+            <End Role="C_User_Chat" EntitySet="C_User_Chat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interaction_BinaryObject_User_Poll_Option" Association="MoCapModel.FK_Interaction_BinaryObject_User_Poll_Option">
+            <End Role="C_User_Poll_Option" EntitySet="C_User_Poll_Option" />
+            <End Role="Interaction_BinaryObject" EntitySet="Interaction_BinaryObject" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User_Message_Message" Association="MoCapModel.FK__User_Message_Message">
+            <End Role="Message" EntitySet="Messages" />
+            <End Role="C_User_Message" EntitySet="C_User_Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User_Poll_Option_Poll" Association="MoCapModel.FK__User_Poll_Option_Poll">
+            <End Role="Poll" EntitySet="Polls" />
+            <End Role="C_User_Poll_Option" EntitySet="C_User_Poll_Option" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User_Poll_Option_PollOption" Association="MoCapModel.FK__User_Poll_Option_PollOption">
+            <End Role="PollOption" EntitySet="PollOptions" />
+            <End Role="C_User_Poll_Option" EntitySet="C_User_Poll_Option" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User_Project_Project" Association="MoCapModel.FK__User_Project_Project">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="C_User_Project" EntitySet="C_User_Project" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="C_User_Chat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="ChatId" Type="Int64" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Chat" Relationship="MoCapModel.FK__User_Chat_Chat" FromRole="C_User_Chat" ToRole="Chat" />
+        </EntityType>
+        <EntityType Name="C_User_Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MessageId" Type="Int64" Nullable="false" />
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="IsReceived" Type="Boolean" Nullable="false" />
+          <Property Name="IsRead" Type="Boolean" Nullable="false" />
+          <Property Name="ReceivedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="ReadDateTime" Type="DateTime" Precision="3" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Message" Relationship="MoCapModel.FK__User_Message_Message" FromRole="C_User_Message" ToRole="Message" />
+        </EntityType>
+        <EntityType Name="C_User_Poll_Option">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="PollId" Type="Int64" Nullable="false" />
+          <Property Name="OptionId" Type="Int64" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Interaction_BinaryObject" Relationship="MoCapModel.FK_Interaction_BinaryObject_User_Poll_Option" FromRole="C_User_Poll_Option" ToRole="Interaction_BinaryObject" />
+          <NavigationProperty Name="Poll" Relationship="MoCapModel.FK__User_Poll_Option_Poll" FromRole="C_User_Poll_Option" ToRole="Poll" />
+          <NavigationProperty Name="PollOption" Relationship="MoCapModel.FK__User_Poll_Option_PollOption" FromRole="C_User_Poll_Option" ToRole="PollOption" />
+        </EntityType>
+        <EntityType Name="C_User_Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="Int64" Nullable="false" />
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Project" Relationship="MoCapModel.FK__User_Project_Project" FromRole="C_User_Project" ToRole="Project" />
+        </EntityType>
+        <Association Name="FK__User_Chat_Chat">
+          <End Type="MoCapModel.Chat" Role="Chat" Multiplicity="1" />
+          <End Type="MoCapModel.C_User_Chat" Role="C_User_Chat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="C_User_Chat">
+              <PropertyRef Name="ChatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interaction_BinaryObject_User_Poll_Option">
+          <End Type="MoCapModel.C_User_Poll_Option" Role="C_User_Poll_Option" Multiplicity="0..1" />
+          <End Type="MoCapModel.Interaction_BinaryObject" Role="Interaction_BinaryObject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C_User_Poll_Option">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Interaction_BinaryObject">
+              <PropertyRef Name="VoteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User_Message_Message">
+          <End Type="MoCapModel.Message" Role="Message" Multiplicity="1" />
+          <End Type="MoCapModel.C_User_Message" Role="C_User_Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Message">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="C_User_Message">
+              <PropertyRef Name="MessageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User_Poll_Option_Poll">
+          <End Type="MoCapModel.Poll" Role="Poll" Multiplicity="1" />
+          <End Type="MoCapModel.C_User_Poll_Option" Role="C_User_Poll_Option" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poll">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="C_User_Poll_Option">
+              <PropertyRef Name="PollId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User_Poll_Option_PollOption">
+          <End Type="MoCapModel.PollOption" Role="PollOption" Multiplicity="1" />
+          <End Type="MoCapModel.C_User_Poll_Option" Role="C_User_Poll_Option" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PollOption">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="C_User_Poll_Option">
+              <PropertyRef Name="OptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User_Project_Project">
+          <End Type="MoCapModel.Project" Role="Project" Multiplicity="1" />
+          <End Type="MoCapModel.C_User_Project" Role="C_User_Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="C_User_Project">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MoCapModelStoreContainer" CdmEntityContainer="MoCapEntities">
+          <EntitySetMapping Name="C_Poll_Option">
+            <EntityTypeMapping TypeName="MoCapModel.C_Poll_Option">
+              <MappingFragment StoreEntitySet="_Poll_Option">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PollId" ColumnName="PollId" />
+                <ScalarProperty Name="OptionId" ColumnName="OptionId" />
+                <ScalarProperty Name="Votes" ColumnName="Votes" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_Task_Task">
+            <EntityTypeMapping TypeName="MoCapModel.C_Task_Task">
+              <MappingFragment StoreEntitySet="_Task_Task">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ParentTaskId" ColumnName="ParentTaskId" />
+                <ScalarProperty Name="SubTaskId" ColumnName="SubTaskId" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BinaryObjects">
+            <EntityTypeMapping TypeName="MoCapModel.BinaryObject">
+              <MappingFragment StoreEntitySet="BinaryObject">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Object" ColumnName="Object" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Chats">
+            <EntityTypeMapping TypeName="MoCapModel.Chat">
+              <MappingFragment StoreEntitySet="Chat">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ModifedDateTime" ColumnName="ModifedDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Interaction_BinaryObject">
+            <EntityTypeMapping TypeName="MoCapModel.Interaction_BinaryObject">
+              <MappingFragment StoreEntitySet="Interaction_BinaryObject">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ChatId" ColumnName="ChatId" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="PollId" ColumnName="PollId" />
+                <ScalarProperty Name="VoteId" ColumnName="VoteId" />
+                <ScalarProperty Name="BinaryId" ColumnName="BinaryId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="MoCapModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="SenderId" ColumnName="SenderId" />
+                <ScalarProperty Name="ReadReceipt" ColumnName="ReadReceipt" />
+                <ScalarProperty Name="TimeToLive" ColumnName="TimeToLive" />
+                <ScalarProperty Name="DateTimeOfDeath" ColumnName="DateTimeOfDeath" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SentDateTime" ColumnName="SentDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ModifedDateTime" ColumnName="ModifedDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Polls">
+            <EntityTypeMapping TypeName="MoCapModel.Poll">
+              <MappingFragment StoreEntitySet="Poll">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+                <ScalarProperty Name="DueDateTime" ColumnName="DueDateTime" />
+                <ScalarProperty Name="VotesPerUser" ColumnName="VotesPerUser" />
+                <ScalarProperty Name="VotesChangeable" ColumnName="VotesChangeable" />
+                <ScalarProperty Name="AllowCustomOption" ColumnName="AllowCustomOption" />
+                <ScalarProperty Name="CompleteOnMajority" ColumnName="CompleteOnMajority" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PollOptions">
+            <EntityTypeMapping TypeName="MoCapModel.PollOption">
+              <MappingFragment StoreEntitySet="PollOption">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="MoCapModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="DeputyId" ColumnName="DeputyId" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+                <ScalarProperty Name="DueDateTime" ColumnName="DueDateTime" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Progress" ColumnName="Progress" />
+                <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tasks">
+            <EntityTypeMapping TypeName="MoCapModel.Task">
+              <MappingFragment StoreEntitySet="Task">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+                <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+                <ScalarProperty Name="IsPersonal" ColumnName="IsPersonal" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+                <ScalarProperty Name="DueDateTime" ColumnName="DueDateTime" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="TotalCosts" ColumnName="TotalCosts" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Progress" ColumnName="Progress" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Timeslice">
+            <EntityTypeMapping TypeName="MoCapModel.Timeslouse">
+              <MappingFragment StoreEntitySet="Timeslice">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="TaskId" ColumnName="TaskId" />
+                <ScalarProperty Name="ChatId" ColumnName="ChatId" />
+                <ScalarProperty Name="PollId" ColumnName="PollId" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_User_Chat">
+            <EntityTypeMapping TypeName="MoCapModel.C_User_Chat">
+              <MappingFragment StoreEntitySet="_User_Chat">
+                <ScalarProperty Name="ModifedDateTime" ColumnName="ModifedDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ChatId" ColumnName="ChatId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_User_Message">
+            <EntityTypeMapping TypeName="MoCapModel.C_User_Message">
+              <MappingFragment StoreEntitySet="_User_Message">
+                <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="ReadDateTime" ColumnName="ReadDateTime" />
+                <ScalarProperty Name="ReceivedDateTime" ColumnName="ReceivedDateTime" />
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="IsReceived" ColumnName="IsReceived" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="MessageId" ColumnName="MessageId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_User_Poll_Option">
+            <EntityTypeMapping TypeName="MoCapModel.C_User_Poll_Option">
+              <MappingFragment StoreEntitySet="_User_Poll_Option">
+                <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="OptionId" ColumnName="OptionId" />
+                <ScalarProperty Name="PollId" ColumnName="PollId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C_User_Project">
+            <EntityTypeMapping TypeName="MoCapModel.C_User_Project">
+              <MappingFragment StoreEntitySet="_User_Project">
+                <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,6 +1,7 @@
-﻿namespace MoCap.Interactions
+﻿using System;
+namespace MoCap.Interactions
 {
-    public class TaskEventArgs
+    public class TaskEventArgs : EventArgs
     {
         public Task TaskObject { get; }
         public string Message { get; }

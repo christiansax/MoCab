@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DBC11CBC-2A57-4053-BF7A-F30348519788}</ProjectGuid>
+    <ProjectGuid>{FBFF773F-8489-4830-B3D1-72861176B1EA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Interactions</RootNamespace>
-    <AssemblyName>Interactions</AssemblyName>
+    <RootNamespace>ModelingProject1Lib</RootNamespace>
+    <AssemblyName>ModelingProject1Lib</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,7 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -41,17 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IInteraction.cs" />
-    <Compile Include="Mapping\MAP_UserProject.cs" />
-    <Compile Include="Poll.cs" />
-    <Compile Include="PollEventArgs.cs" />
-    <Compile Include="PollOption.cs" />
-    <Compile Include="Poll_Option_Mapping.cs" />
-    <Compile Include="Project.cs" />
+    <Compile Include="GeneratedCode\Account.cs" />
+    <Compile Include="GeneratedCode\Expense.cs" />
+    <Compile Include="GeneratedCode\Option.cs" />
+    <Compile Include="GeneratedCode\Poll.cs" />
+    <Compile Include="GeneratedCode\Project.cs" />
+    <Compile Include="GeneratedCode\Task.cs" />
+    <Compile Include="GeneratedCode\User.cs" />
+    <Compile Include="GeneratedCode\Vote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Task.cs" />
-    <Compile Include="TaskEventArgs.cs" />
-    <Compile Include="Vote.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

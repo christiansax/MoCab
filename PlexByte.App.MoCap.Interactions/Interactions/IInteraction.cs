@@ -7,8 +7,9 @@ namespace MoCap.Interactions
         long ID { get; }
         string Title { get; set; }
         string Text { get; set; }
-        long CreatorID { get; set; }
+        long CreatorID { get; }
         long OwnerID { get; set; }
+        long ProjectID { get; set; }
         bool IsCompleted { get; }
         DateTime Created { get; }
         DateTime Modified { get; }

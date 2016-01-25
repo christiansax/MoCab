@@ -9,19 +9,29 @@ using System.Threading;
 
 namespace MoCap.Security
 {
+    #region Enumerations
+
     public enum Protocol
     {
         TCP,
         UDP
     };
 
+    #endregion
+
+    #region Delegates
+
     public delegate void ConnectionEstablishedEventHandler(object sender, SessionEventArgs e);
     public delegate void ConnectionClosedEventHandler(object sender, SessionEventArgs e);
     public delegate void ReceiveDataEventHandler(object sender, SessionEventArgs e);
     public delegate void SendDataEventHandler(object sender, SessionEventArgs e);
 
+    #endregion
+
     public class Session : IDisposable
     {
+        #region Properties
+
         public string HostName { get; set; }
         public List<IPEndPoint> HostEndpoint { get; set; }
         public IPAddress LocalExternalIP { get; set; }
@@ -32,12 +42,24 @@ namespace MoCap.Security
         public TcpClient ConnectionTCP { get; set; }
         public UdpClient ConnectionUDP { get; set; }
 
+        #endregion
+
+        #region Variables
+
         private Thread listener = null;
+
+        #endregion
+
+        #region Events
 
         public event ConnectionEstablishedEventHandler ConnectionEstablished;
         public event ConnectionClosedEventHandler ConnectionClosed;
         public event ReceiveDataEventHandler ReceivedData;
         public event SendDataEventHandler SentData;
+
+        #endregion
+
+        #region Ctor & Dtor
 
         public Session(string pHostName, int pPort) : this(pHostName, null, "", pPort, Protocol.TCP)
         {
@@ -120,6 +142,10 @@ namespace MoCap.Security
             HostEndpoint = null;
             LocalExternalIP = null;
         }
+
+        #endregion
+
+        #region Methods
 
         public void Connect()
         {
@@ -231,6 +257,10 @@ namespace MoCap.Security
             return (Dns.GetHostAddresses(pHostName));
         }
 
+        #endregion
+
+        #region Event handlers
+
         protected virtual void OnDataReceived(SessionEventArgs e)
         {
             if (ReceivedData != null)
@@ -254,5 +284,7 @@ namespace MoCap.Security
             if (ConnectionEstablished != null)
                 ConnectionEstablished(this, e);
         }
+
+        #endregion
     }
 }

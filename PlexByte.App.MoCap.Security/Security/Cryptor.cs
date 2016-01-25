@@ -12,6 +12,7 @@ namespace MoCap.Security
         public string Secret { get; set; } = Assembly.GetExecutingAssembly().FullName.Replace(" ", "");
 
         private Trace trace = new Trace(MethodBase.GetCurrentMethod().DeclaringType.Name);
+        // TODO: <MoCap.Security.Cryptor> Fix encryption length issue
         /// <summary>
         /// Encrypt the given string using AES
         /// </summary>
@@ -59,6 +60,7 @@ namespace MoCap.Security
             return encryptedString;
         }
 
+        // TODO: <MoCap.Security.Cryptor> Test decryption of strings having length of %4
         /// <summary>
         /// Decrypt the given string
         /// </summary>

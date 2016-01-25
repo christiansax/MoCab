@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Configuration;
 
 namespace MoCap.Security
@@ -140,8 +137,7 @@ namespace MoCap.Security
         #endregion
     }
 
-    /// <summary>
-    /// Helper!
-    /// </summary>
-    public class Project { }//Helper until interactions component is finished
+    // TODO: <MoCap.Security.User> Add Project in Interactions solution and remove this here. 
+    // Was added to complete class without dependend missing class errors
+    public class Project { }
 }

@@ -19,7 +19,7 @@ namespace InteractionService
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
-        // TODO: Add your service operations here
+        // TODO: <MoCap.Interactions.InteractionService> Add service methods and contracts
     }
 
 

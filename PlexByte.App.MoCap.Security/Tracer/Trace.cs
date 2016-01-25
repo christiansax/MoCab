@@ -5,6 +5,7 @@ using System.Collections.Specialized;
 
 namespace MoCap.Security
 {
+    // TODO: <MoCap.Security.Trace> Fix global trace instance to be static but still dynamic on context used
     /// <summary>
     /// Init once globally
     /// </summary>

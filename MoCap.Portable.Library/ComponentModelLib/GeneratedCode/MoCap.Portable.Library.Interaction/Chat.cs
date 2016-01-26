@@ -11,7 +11,7 @@ namespace MoCap.Portable.Library.Interaction
 	using System.Linq;
 	using System.Text;
 
-	public class Chat
+	public class Chat : IInteraction
 	{
 		public virtual IEnumerable<Message> Message
 		{

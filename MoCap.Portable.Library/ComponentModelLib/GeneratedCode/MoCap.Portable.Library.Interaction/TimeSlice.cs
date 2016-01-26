@@ -11,7 +11,7 @@ namespace MoCap.Portable.Library.Interaction
 	using System.Linq;
 	using System.Text;
 
-	public class TimeSlice
+	public class TimeSlice : IInteraction
 	{
 		public virtual Task Task
 		{

@@ -11,8 +11,32 @@ namespace MoCap.Portable.Library.Interaction
 	using System.Linq;
 	using System.Text;
 
-	public class Task
+	public class Task : IInteraction
 	{
+		public virtual decimal Duration
+		{
+			get;
+			set;
+		}
+
+		public virtual decimal Budget
+		{
+			get;
+			set;
+		}
+
+		public virtual User Owner
+		{
+			get;
+			set;
+		}
+
+		public virtual User Creator
+		{
+			get;
+			set;
+		}
+
 		public virtual IEnumerable<Expense> Expense
 		{
 			get;
@@ -20,6 +44,18 @@ namespace MoCap.Portable.Library.Interaction
 		}
 
 		public virtual IEnumerable<TimeSlice> TimeSlice
+		{
+			get;
+			set;
+		}
+
+		public virtual Task Task
+		{
+			get;
+			set;
+		}
+
+		public virtual IEnumerable<Task> Task
 		{
 			get;
 			set;

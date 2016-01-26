@@ -11,7 +11,7 @@ namespace MoCap.Portable.Library.Interaction
 	using System.Linq;
 	using System.Text;
 
-	public class Expense
+	public class Expense : IInteraction
 	{
 		public virtual Task Task
 		{

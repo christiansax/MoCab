@@ -13,7 +13,7 @@ namespace MoCap.Portable.Library.Interaction
 
 	public class PollOption
 	{
-		public virtual MoCap.Portable.Library.Interaction.Vote Vote
+		public virtual Vote Vote
 		{
 			get;
 			set;

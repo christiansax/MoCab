@@ -11,7 +11,7 @@ namespace MoCap.Portable.Library.Interaction
 	using System.Linq;
 	using System.Text;
 
-	public class Project
+	public class Project : IInteraction
 	{
 		public virtual IEnumerable<Poll> Poll
 		{

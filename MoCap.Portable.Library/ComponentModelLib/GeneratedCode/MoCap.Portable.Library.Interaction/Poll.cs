@@ -11,9 +11,9 @@ namespace MoCap.Portable.Library.Interaction
 	using System.Linq;
 	using System.Text;
 
-	public class Poll
+	public class Poll : IInteraction
 	{
-		public virtual IEnumerable<MoCap.Portable.Library.Interaction.Vote> Vote
+		public virtual IEnumerable<Vote> Vote
 		{
 			get;
 			set;

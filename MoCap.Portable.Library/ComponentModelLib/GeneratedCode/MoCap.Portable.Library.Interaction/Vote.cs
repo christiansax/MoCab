@@ -11,14 +11,8 @@ namespace MoCap.Portable.Library.Interaction
 	using System.Linq;
 	using System.Text;
 
-	public class Vote
+	public class Vote : IInteraction
 	{
-		public virtual long ID
-		{
-			get;
-			set;
-		}
-
 		public virtual Poll Poll
 		{
 			get;
@@ -31,7 +25,7 @@ namespace MoCap.Portable.Library.Interaction
 			set;
 		}
 
-		public virtual void Submit(object pPoll)
+		public virtual void Submit(Poll pPoll)
 		{
 			throw new System.NotImplementedException();
 		}

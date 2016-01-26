@@ -4,37 +4,30 @@
 //     Changes to this file will be lost if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-namespace Interaction
+namespace MoCap.Portable.Library.Interaction
 {
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
 
-	public class Vote
+	public interface Interaction 
 	{
-		public virtual long ID
-		{
-			get;
-			set;
-		}
+		long ID { get;set; }
 
-		public virtual Poll Poll
-		{
-			get;
-			set;
-		}
+		DateTime Created { get;set; }
 
-		public virtual PollOption PollOption
-		{
-			get;
-			set;
-		}
+		DateTime Modified { get;set; }
 
-		public virtual void Submit(object pPoll)
-		{
-			throw new System.NotImplementedException();
-		}
+		string Text { get;set; }
+
+		bool IsActive { get;set; }
+
+		DateTime Begin { get;set; }
+
+		DateTime End { get;set; }
+
+		DateTime Due { get;set; }
 
 	}
 }

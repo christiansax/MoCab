@@ -11,7 +11,7 @@ namespace MoCap.Portable.Library.Interaction
 	using System.Linq;
 	using System.Text;
 
-	public class Account
+	public class Account : IInteraction
 	{
 		public virtual IEnumerable<Expense> Expense
 		{

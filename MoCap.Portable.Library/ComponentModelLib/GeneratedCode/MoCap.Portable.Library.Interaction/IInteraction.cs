@@ -4,26 +4,30 @@
 //     Changes to this file will be lost if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-namespace Interaction
+namespace MoCap.Portable.Library.Interaction
 {
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
 
-	public class PollOption
+	public interface IInteraction 
 	{
-		public virtual Vote Vote
-		{
-			get;
-			set;
-		}
+		long ID { get;set; }
 
-		public virtual Poll Poll
-		{
-			get;
-			set;
-		}
+		DateTime Created { get;set; }
+
+		DateTime Modified { get;set; }
+
+		string Text { get;set; }
+
+		bool IsActive { get;set; }
+
+		DateTime Begin { get;set; }
+
+		DateTime End { get;set; }
+
+		DateTime Due { get;set; }
 
 	}
 }

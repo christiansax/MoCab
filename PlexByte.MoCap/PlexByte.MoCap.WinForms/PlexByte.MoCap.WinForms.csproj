@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CAC8494F-5DFC-455E-9795-59A21D8751CC}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{B1DEF6CC-3943-4FF5-AE6D-724BBAAE9734}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PlexByte.MoCapLib</RootNamespace>
-    <AssemblyName>PlexByte.MoCapLib</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>PlexByte.MoCap.WinForms</RootNamespace>
+    <AssemblyName>PlexByte.MoCap.WinForms</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -36,30 +39,37 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeneratedCode\Interactions\IInteraction.cs" />
-    <Compile Include="GeneratedCode\Interactions\IOption.cs" />
-    <Compile Include="GeneratedCode\Interactions\IPoll.cs" />
-    <Compile Include="GeneratedCode\Interactions\ITask.cs" />
-    <Compile Include="GeneratedCode\Interactions\IVote.cs" />
-    <Compile Include="GeneratedCode\Interactions\Option.cs" />
-    <Compile Include="GeneratedCode\Interactions\Poll.cs" />
-    <Compile Include="GeneratedCode\Interactions\Task.cs" />
-    <Compile Include="GeneratedCode\Interactions\Vote.cs" />
-    <Compile Include="GeneratedCode\Logging\BinaryTrace.cs" />
-    <Compile Include="GeneratedCode\Logging\ILogService.cs" />
-    <Compile Include="GeneratedCode\Logging\ISQLLogService.cs" />
-    <Compile Include="GeneratedCode\Logging\ITraceService.cs" />
-    <Compile Include="GeneratedCode\Logging\ITraceTarget.cs" />
-    <Compile Include="GeneratedCode\Logging\Trace.cs" />
-    <Compile Include="GeneratedCode\Logging\TraceMessage.cs" />
-    <Compile Include="GeneratedCode\Logging\TraceType.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

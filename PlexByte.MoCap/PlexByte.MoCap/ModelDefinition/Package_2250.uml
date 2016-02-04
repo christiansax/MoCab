@@ -160,5 +160,41 @@
         </ownedAttributes>
       </Interface>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4ed7d0e7-283b-49cc-84ab-ee0418cb7585"
+        name="User"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <suppliersInternal>
+          <interfaceRealization
+            Id="49b6e6f4-ca3c-47c3-826f-845d18f2ee31">
+            <interfaceMoniker
+              Id="4a6bd1e2-6c1a-46b5-b3f1-2a5cf0da23e3"
+              LastKnownName="IUser"
+              LastKnownLocation="Package_2250.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="18ff7c96-9ef9-4adc-9fe0-76f4fc06c0f7"
+            name="LogIn"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="5227f77c-e3d8-423a-b5b5-af7c4ba41947"
+            name="LogOut"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
   </packagedElements>
 </package>

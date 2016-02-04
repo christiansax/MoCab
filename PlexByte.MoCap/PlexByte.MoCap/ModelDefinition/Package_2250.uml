@@ -2,4 +2,163 @@
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="cd8b3658-a185-4cb7-adf8-c5f020757013"
-  name="Security" xmlns="http://schemas.microsoft.com/dsltools/ModelStore" />
+  name="Security" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="4a6bd1e2-6c1a-46b5-b3f1-2a5cf0da23e3"
+        name="IUser"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="21fc7221-89a0-4184-b95f-84862fd8f059"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="36b31aed-be67-41c4-bda7-a982ca12934f"
+              LastKnownName="IPerson"
+              LastKnownLocation="Package_2250.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributes>
+          <property
+            Id="a7274d5c-6b91-4ad0-896e-3f73fbd08e64"
+            name="UserName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b6da2728-647b-4ac4-ab8f-c85f60ee9b59"
+                LastKnownName="string"
+                LastKnownLocation="Package_2251.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d6c9f230-3981-48bd-ac6f-453b0380e9c5"
+            name="Id"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b6da2728-647b-4ac4-ab8f-c85f60ee9b59"
+                LastKnownName="string"
+                LastKnownLocation="Package_2251.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+        <ownedOperations>
+          <operation
+            Id="56bf1b14-6579-4978-9e19-f4cce69f7882"
+            name="LogIn"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="1c52500e-aa0a-4d7e-848a-98e23413f84d"
+            name="LogOut"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="36b31aed-be67-41c4-bda7-a982ca12934f"
+        name="IPerson"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedAttributes>
+          <property
+            Id="1ca6a523-f952-4428-a2b5-0c9b8b695925"
+            name="FirstName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b6da2728-647b-4ac4-ab8f-c85f60ee9b59"
+                LastKnownName="string"
+                LastKnownLocation="Package_2251.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ec5f2cd0-2c8d-4673-8c6a-fc2d2b9b4028"
+            name="LastName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b6da2728-647b-4ac4-ab8f-c85f60ee9b59"
+                LastKnownName="string"
+                LastKnownLocation="Package_2251.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="a7540bca-c212-4cc7-b8a7-6b97941c4337"
+            name="MiddleName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b6da2728-647b-4ac4-ab8f-c85f60ee9b59"
+                LastKnownName="string"
+                LastKnownLocation="Package_2251.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="333f9522-e8e3-42cc-a413-ff46a25a86af"
+            name="EmailAddress"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="b6da2728-647b-4ac4-ab8f-c85f60ee9b59"
+                LastKnownName="string"
+                LastKnownLocation="Package_2251.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+      </Interface>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

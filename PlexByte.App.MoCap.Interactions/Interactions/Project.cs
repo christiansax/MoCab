@@ -54,6 +54,46 @@ namespace MoCap.Interactions
         #endregion
 
         #region Methods
+
+        public void Invite(long pUserID, long pOwnID)
+        {
+            if (pOwnID == CreatorID)
+            {
+                if (MemberID == null)
+                    MemberID = new List<long>();
+                MemberID.Add(pUserID);
+                Modified = DateTime.Now;
+            }
+            else
+                throw new Exception("Only creator of a project can invite other users!");
+        }
+
+        public void Leave(long pOwnID)
+        {
+            if (MemberID != null)
+            {
+                if (MemberID.Contains(pOwnID))
+                    MemberID.Remove(pOwnID);
+            }
+            Modified = DateTime.Now;
+        }
+
+        public void KickUser(long pMemberID, long pOwnID)
+        {
+            if (pOwnID == CreatorID)
+            {
+                if (MemberID != null)
+                {
+                    if (MemberID.Contains(pMemberID))
+                        MemberID.Remove(pMemberID);
+                }
+                    Modified = DateTime.Now;
+            }
+            else
+                throw new Exception("Only creator of a project can kick other users!");
+
+        }
+
         public void Send()
         {
             Modified = DateTime.Now;

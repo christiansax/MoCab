@@ -26,6 +26,7 @@ namespace MoCap.Interactions
 
 
         public List<long> MemberID { get; set; }
+        public List<long> NewMemberID { get; set; }
         public List<long> TaskID { get; set; }
         #endregion
 
@@ -33,7 +34,7 @@ namespace MoCap.Interactions
         #region Ctor & Dtor
         Project(long pID, string pTitle, string pText, long pCreatorID, long pOwnerID, long pProjectID,
             bool pIsCompleted, DateTime pCreated, DateTime pModified, DateTime pStart, DateTime pEnd, DateTime pDue,
-            List<long> pMemberID, List<long> pTaskID)
+            List<long> pMemberID, List<long> pNewMemberID, List<long> pTaskID)
         {
             ID = pID;
             Title = pTitle;
@@ -48,6 +49,7 @@ namespace MoCap.Interactions
             End = pEnd;
             Due = pDue;
             MemberID = pMemberID;
+            NewMemberID = pNewMemberID;
             TaskID = pTaskID;
         }
 
@@ -59,9 +61,9 @@ namespace MoCap.Interactions
         {
             if (pOwnID == CreatorID)
             {
-                if (MemberID == null)
-                    MemberID = new List<long>();
-                MemberID.Add(pUserID);
+                if (NewMemberID == null)
+                    NewMemberID = new List<long>();
+                NewMemberID.Add(pUserID);
                 Modified = DateTime.Now;
             }
             else
@@ -92,6 +94,22 @@ namespace MoCap.Interactions
             else
                 throw new Exception("Only creator of a project can kick other users!");
 
+        }
+
+        public void Accept(bool pAccept, long pOwnID)
+        {
+            if(pAccept == true)
+            {
+                if (NewMemberID == null)
+                    NewMemberID = new List<long>();
+                NewMemberID.Add(pOwnID);
+            }
+            if (NewMemberID != null)
+            {
+                if (NewMemberID.Contains(pOwnID))
+                    NewMemberID.Remove(pOwnID);
+            }
+            Modified = DateTime.Now;
         }
 
         public void Send()

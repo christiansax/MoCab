@@ -23,7 +23,7 @@ namespace Logging
 			throw new System.NotImplementedException();
 		}
 
-		public virtual ITraceTarget GetTargetInstance()
+		public virtual void GetTargetInstance()
 		{
 			throw new System.NotImplementedException();
 		}

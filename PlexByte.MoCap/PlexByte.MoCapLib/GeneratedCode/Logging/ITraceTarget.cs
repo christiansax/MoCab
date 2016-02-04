@@ -11,15 +11,9 @@ namespace Logging
 	using System.Linq;
 	using System.Text;
 
-    public delegate void DayRollOver(object sender, EventArgs e);
-    public delegate void SizeRollOver(object sender, EventArgs e);
-
-    public interface ITraceTarget 
+	public interface ITraceTarget 
 	{
-        event DayRollOver DayRolledOver;
-        event SizeRollOver SizeRolledOver;
-
-        int Count { get;set; }
+		int Count { get;set; }
 
 		long Size { get;set; }
 
@@ -57,17 +51,17 @@ namespace Logging
 
 		void Warning(string pMessage);
 
-		void All(string pMessage, int pLevel, string pComponentName, string Context, string pObjectId);
+		void All(string pMessage, int pLevel, string pComponentName, string pContext, string pObjectId);
 
-		void Detail(string pMessage, int pLevel, string pComponentName, string Context, string pObjectId);
+		void Detail(string pMessage, int pLevel, string pComponentName, string pContext, string pObjectId);
 
-		void EnterScope(string pMessage, int pLevel, string pComponentName, string Context, string pObjectId);
+		void EnterScope(string pMessage, int pLevel, string pComponentName, string pContext, string pObjectId);
 
-		void Error(string pMessage, int pLevel, string pComponentName, string Context, string pObjectId);
+		void Error(string pMessage, int pLevel, string pComponentName, string pContext, string pObjectId);
 
-		void Exception(string pMessage, int pLevel, string pComponentName, string Context, string pObjectId);
+		void Exception(string pMessage, int pLevel, string pComponentName, string pContext, string pObjectId);
 
-		void Information(string pMessage, int pLevel, string pComponentName, string Context, string pObjectId);
+		void Information(string pMessage, int pLevel, string pComponentName, string pContext, string pObjectId);
 
 		void Warning(string pMessage, int pLevel, string pComponentName, string Context, string pObjectId);
 
@@ -87,13 +81,13 @@ namespace Logging
 
 		void Warning(string pMessage, int pLevel);
 
-		ITraceTarget Initialize(string pPath);
+		void Initialize(string pPath);
 
-		ITraceTarget Initialize(string pPath, string pFileName);
+		void Initialize(string pPath, string pFileName);
 
-		ITraceTarget Initialize(string pPath, string pFileName, string pComponent);
+		void Initialize(string pPath, string pFileName, string pComponent);
 
-		ITraceTarget Initialize(string pPath, string pFileName, string pComponent, long pMaxMessages, long pMaxSizeBytes);
+		void Initialize(string pPath, string pFileName, string pComponent, long pMaxMessages, long pMaxSizeBytes);
 
 		void All(TraceMessage pMessage);
 
@@ -105,7 +99,7 @@ namespace Logging
 
 		void Exception(TraceMessage pMessage);
 
-		void ExitScope(TraceMessage pMessage);
+		void ExitScope(string pMessage, int pLevel, string pComponentName, string pContext, string pObjectId);
 
 		void Information(TraceMessage pMessage);
 

@@ -91,13 +91,44 @@ namespace Logging
 			set;
 		}
 
-		public TraceMessage(string pMessage)
+		public virtual string threadId
+		{
+			get;
+			set;
+		}
+
+		public TraceMessage(string pMessage, [System.Runtime.CompilerServices.CallerMemberName] string pMemberName = "", [System.Runtime.CompilerServices.CallerFilePath] string pSourceFilePath = "", [System.Runtime.CompilerServices.CallerLineNumber] int pSourceLineNumber = 0)
 		{
 		}
 
-		public TraceMessage(string pMessage, int pLevel, TraceType pType, string pComponent, string pContext, string pThreadId, DateTime pTimeStamp, int pIndentLevel, string pObjectId, int LineNumber, string pOperation, string pSource)
+		public TraceMessage(string pMessage, int pLevel, TraceType pType, string pComponent, string pContext, string pThreadId, DateTime pTimeStamp, int pIndentLevel, string pObjectId, [System.Runtime.CompilerServices.CallerMemberName] string pMemberName = "", [System.Runtime.CompilerServices.CallerFilePath] string pSourceFilePath = "", [System.Runtime.CompilerServices.CallerLineNumber] int pSourceLineNumber = 0)
 		{
-		}
+            System.Reflection.ParameterInfo[] parameters = new System.Diagnostics.StackTrace().GetFrame(1).GetMethod().GetParameters();
+            Message = pMessage;
+            Type = pType;
+            Level = pLevel;
+            if (pThreadId != System.Threading.Thread.CurrentThread.ManagedThreadId.ToString())
+                ThreadId = pThreadId;
+            else
+                ThreadId = System.Threading.Thread.CurrentThread.ManagedThreadId.ToString();
+            Context = pContext;
+            ComponentName = pComponent;
+            ObjectId = pObjectId;
+            LineNumber = pSourceLineNumber;
+            Operation = pMemberName;
+            ScopedOperation = pMemberName + "(";
+
+            Source = pSourceFilePath;
+
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                if (i == 0)
+                    ScopedOperation += "[" + parameters[i].ParameterType + " | " + parameters[i].Name + "]";
+                else
+                    ScopedOperation += ", [" + parameters[i].ParameterType + " | " + parameters[i].Name + "]";
+            }
+            ScopedOperation += ")";
+        }
 
 	}
 }

@@ -15,13 +15,13 @@ namespace Logging
 	{
 		bool CompressFile { get;set; }
 
-		ITraceTarget Log { get;set; }
+		object Log { get;set; }
 
 		void OnDayRolledOver(object sender, EventArgs e);
 
 		void OnSizeRolledOver(object sender, EventArgs e);
 
-		ITraceTarget GetTargetInstance();
+		void GetTargetInstance();
 
 		void CompressLogFile(CompressionLevel level, string pTargetPath);
 

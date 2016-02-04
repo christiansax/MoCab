@@ -53,37 +53,37 @@ namespace Logging
 			throw new System.NotImplementedException();
 		}
 
-		public virtual void All(string pMessage, int pType, string pLevel, string pComponentName, string Context)
+		public virtual void All(string pMessage, int pLevel, string pComponentName, string pContext, string pObjectId)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual void Detail(string pMessage, int pType, string pLevel, string pComponentName, string Context)
+		public virtual void Detail(string pMessage, int pLevel, string pComponentName, string pContext, string pObjectId)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual void EnterScope(string pMessage, int pType, string pLevel, string pComponentName, string Context)
+		public virtual void EnterScope(string pMessage, int pLevel, string pComponentName, string pContext, string pObjectId)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual void Error(string pMessage, int pType, string pLevel, string pComponentName, string Context)
+		public virtual void Error(string pMessage, int pLevel, string pComponentName, string pContext, string pObjectId)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual void Exception(string pMessage, int pType, string pLevel, string pComponentName, string Context)
+		public virtual void Exception(string pMessage, int pLevel, string pComponentName, string pContext, string pObjectId)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual void Information(string pMessage, int pType, string pLevel, string pComponentName, string Context)
+		public virtual void Information(string pMessage, int pLevel, string pComponentName, string pContext, string pObjectId)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual void Warning(string pMessage, int pType, string pLevel, string pComponentName, string Context)
+		public virtual void Warning(string pMessage, int pLevel, string pComponentName, string Context, string pObjectId)
 		{
 			throw new System.NotImplementedException();
 		}
@@ -128,22 +128,22 @@ namespace Logging
 			throw new System.NotImplementedException();
 		}
 
-		public virtual ITraceTarget Initialize(string pPath;string)
+		public virtual void Initialize(string pPath)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual ITraceTarget Initialize(string pPath;string, string pFileName)
+		public virtual void Initialize(string pPath, string pFileName)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual ITraceTarget Initialize(string pPath;string, string pFileName, string pComponent)
+		public virtual void Initialize(string pPath, string pFileName, string pComponent)
 		{
 			throw new System.NotImplementedException();
 		}
 
-		public virtual ITraceTarget Initialize(string pPath;string, string pFileName, string pComponent, long pMaxMessages, long pMaxSizeBytes)
+		public virtual void Initialize(string pPath, string pFileName, string pComponent, long pMaxMessages, long pMaxSizeBytes)
 		{
 			throw new System.NotImplementedException();
 		}
@@ -173,7 +173,7 @@ namespace Logging
 			throw new System.NotImplementedException();
 		}
 
-		public virtual void ExitScope(TraceMessage pMessage)
+		public virtual void ExitScope(string pMessage, int pLevel, string pComponentName, string pContext, string pObjectId)
 		{
 			throw new System.NotImplementedException();
 		}
@@ -184,6 +184,11 @@ namespace Logging
 		}
 
 		public virtual void Warning(TraceMessage pMessage)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		private void AddLogMessage(string pMessage, TraceType pType = TraceType.Information, int pLevel = 61, string pThreadId = "", string pContext = "", string pComponent = "", [System.Runtime.CompilerServices.CallerMemberName] string pMemberName = "", [System.Runtime.CompilerServices.CallerFilePath] string pSourceFilePath = "", [System.Runtime.CompilerServices.CallerLineNumber] int pSourceLineNumber = 0)
 		{
 			throw new System.NotImplementedException();
 		}

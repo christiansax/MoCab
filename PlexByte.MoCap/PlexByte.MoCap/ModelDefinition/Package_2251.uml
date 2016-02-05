@@ -2,7 +2,7 @@
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="68fbc623-bf07-4e15-a933-74b162331fcf"
-  name="Logging" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  name="PlexByte.MoCap.Logging" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
   <appliedStereotypesInternal>
     <stereotypeInstance
       Id="948522cb-cd0e-4ec9-a371-8802fd4366aa"
@@ -288,6 +288,12 @@
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="561487cb-a6fd-4751-8def-146d6e77a22f"
+                LastKnownName="ITraceTarget"
+                LastKnownLocation="Package_2251.uml" />
+            </type_NamedElement>
           </property>
         </ownedAttributes>
         <ownedOperations>
@@ -977,6 +983,30 @@
                   Id="922b3aeb-6af9-4fd2-8529-ec65b1eec82c"
                   direction="Return"
                   isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="74957e78-e1c9-4732-ab5a-ca699d948fb0"
+            name="GetTraceTarget"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5d4c1d82-a354-482a-9106-82175c952efb"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="561487cb-a6fd-4751-8def-146d6e77a22f"
+                      LastKnownName="ITraceTarget"
+                      LastKnownLocation="Package_2251.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -7472,6 +7502,30 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="3f9b5a33-ff61-4d95-930c-6920d31d7a33"
+            name="GetTraceTarget"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="13d0c105-1e06-484c-8b61-e12560ba9f35"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="561487cb-a6fd-4751-8def-146d6e77a22f"
+                      LastKnownName="ITraceTarget"
+                      LastKnownLocation="Package_2251.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -8021,6 +8075,30 @@
                   Id="d2a55d54-adc9-4688-9aad-650f942bf3bd"
                   direction="Return"
                   isUnique="false" />
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="17969f6c-8c3c-4d84-9613-c35ecad7a99c"
+            name="GetTraceTarget"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7ee19d92-e092-4adb-8c09-7991350aaa72"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="561487cb-a6fd-4751-8def-146d6e77a22f"
+                      LastKnownName="ITraceTarget"
+                      LastKnownLocation="Package_2251.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>

@@ -3008,6 +3008,18 @@
                 <operation Id="0a66fe21-cf0e-454c-bffb-ade426278aed" name="AddPoll" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="ecde3ebf-a8f4-4b62-ba65-0bc310449fe8" />
                 </operation>
+                <operation Id="14ed6e47-7c98-4c11-ae51-3f9756b636e6" name="Invite" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="8778f77a-554f-4bd6-84dc-fe96c3b25bcb" />
+                </operation>
+                <operation Id="465a87f0-f02b-485d-9c1f-d7a739780cd0" name="AcceptInvitation" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="13f01fc4-28c7-41bb-a914-24d05a7e74d9" />
+                </operation>
+                <operation Id="3ec36164-4c50-425d-b125-57548595777f" name="KickUser" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="7b39c6ca-e151-40ba-950a-1573c419e6ac" />
+                </operation>
+                <operation Id="3cb605d2-725e-4f79-b8d7-defd7b5f5604" name="Leave" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="580e3512-2b8e-4c59-9545-8303d3c433b6" />
+                </operation>
               </ownedOperations>
             </Interface>
           </packageHasNamedElement>
@@ -3144,6 +3156,18 @@
                 </operation>
                 <operation Id="eb8d6128-abc4-4185-985d-902dc53d62b6" name="AddPoll" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="5fecc9d5-c43a-4d45-9204-bed5b55d0b39" />
+                </operation>
+                <operation Id="cd8ce4d6-01ca-4868-9861-b7d523b9f2fb" name="Invite" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="7cc6b7ef-79c3-4853-9f09-4928153c034c" />
+                </operation>
+                <operation Id="6a1a6ba3-a6be-4b70-9e3a-3c027ad5f3f1" name="AcceptInvitation" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="d7bd224c-4737-4947-82ee-ce2557c731b6" />
+                </operation>
+                <operation Id="b3f731e7-f188-4be7-86f6-b668ba43b077" name="KickUser" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="a4ae3582-2eca-4076-8c5b-97e807d63dc1" />
+                </operation>
+                <operation Id="0ddfea53-c0eb-4f26-8916-96d4e005ae49" name="Leave" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="d040e379-c7e1-4013-b098-6dcdafd1c96d" />
                 </operation>
               </ownedOperationsInternal>
             </class>

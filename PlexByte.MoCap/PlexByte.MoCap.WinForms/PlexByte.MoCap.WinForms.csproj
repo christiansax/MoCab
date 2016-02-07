@@ -35,15 +35,41 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmOptionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOptionDialog.Designer.cs">
+      <DependentUpon>frmOptionDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPoll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPoll.Designer.cs">
+      <DependentUpon>frmPoll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTask.Designer.cs">
+      <DependentUpon>frmTask.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTraceViewer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmTraceViewer.Designer.cs">
       <DependentUpon>frmTraceViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVoteDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVoteDialog.Designer.cs">
+      <DependentUpon>frmVoteDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

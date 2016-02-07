@@ -518,12 +518,93 @@
           </operation>
           <operation
             Id="4d4b4841-0ea9-487c-9653-65c54fb322b3"
-            name="+OnBudgetExceeded(pTask:ITask, e:InteractionEventArgs"
+            name="OnBudgetExceeded"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="40707b54-ebb8-432d-988d-fa48fb01d9cd"
+                  name="pTask"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="5d1358d8-21d6-488d-acc7-30947a2b4441"
+                      LastKnownName="ITask"
+                      LastKnownLocation="Package_2249.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="16e452d1-89ca-4909-897a-ee6f3b9710a2"
+                  name="e"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3293894f-60d5-4da3-8c5c-72d75848bbe0"
+                      LastKnownName="InteractionEventArgs"
+                      LastKnownLocation="Package_2249.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="9f595661-656a-47e3-a849-ab9285885536"
+            name="AddExpense"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="02d7eea6-9eef-426d-b0e3-329da93310a1"
+                  name="pExpense"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="a1ab8ff7-0615-4f29-8406-bc857dfcd3d7"
+                      LastKnownName="IExpense"
+                      LastKnownLocation="Package_2249.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="72cd0205-683c-455c-a0b2-ab31defc6aaf"
+            name="AddTimeSlice"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a5fe0dc0-7df4-49a9-8b77-ed55611a52f7"
+                  name="pTimeSlice"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="23cdd64b-b1eb-4774-bf1a-485e92efebca"
+                      LastKnownName="ITimeSlice"
+                      LastKnownLocation="Package_2249.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -579,6 +660,60 @@
               LastKnownLocation="Package_2249.uml" />
           </generalization>
         </generalsInternal>
+        <targetEnds>
+          <association
+            Id="33f370be-8293-4513-9b02-ecb54fe83374"
+            isDerived="false"
+            sourceEndRoleName="TimeSlices"
+            targetEndRoleName="ITimeSlice"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="10667e20-3010-4aa8-b5a0-b10d63ff2b40"
+              LastKnownName="ITimeSlice"
+              LastKnownLocation="Package_2249.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e7470aef-5ddb-470b-8f3d-2c421a71b68a"
+                  name="TimeSlices"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="34aa2055-27f1-4713-a108-7aa9c6672a20"
+                  name="ITimeSlice"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="939f9e64-2ba0-4cbc-939d-18e4414be476"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="d43ad1dd-00cc-460d-8500-41c4d0307242"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributes>
           <property
             Id="bde63916-7fbf-4c0e-bc29-3e7ad5d174ca"
@@ -1039,12 +1174,93 @@
           </operation>
           <operation
             Id="08ab9f4e-f295-4ffa-97ac-507a7206a53b"
-            name="+OnBudgetExceeded(pTask:ITask, e:InteractionEventArgs"
+            name="OnBudgetExceeded"
             isLeaf="false"
             isStatic="false"
             isAbstract="true"
             concurrency="Sequential"
-            isQuery="false" />
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6e024b86-df1a-4c85-aacc-b7fd63463a01"
+                  name="pTask"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="5d1358d8-21d6-488d-acc7-30947a2b4441"
+                      LastKnownName="ITask"
+                      LastKnownLocation="Package_2249.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="001427ce-67b7-4973-87fa-a45f20e8ff37"
+                  name="e"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3293894f-60d5-4da3-8c5c-72d75848bbe0"
+                      LastKnownName="InteractionEventArgs"
+                      LastKnownLocation="Package_2249.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e5e5b4e2-4a2a-43d2-a573-773c33546ab5"
+            name="AddExpense"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cf804c97-9725-4771-8ada-05001e284ad4"
+                  name="pExpense"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="a1ab8ff7-0615-4f29-8406-bc857dfcd3d7"
+                      LastKnownName="IExpense"
+                      LastKnownLocation="Package_2249.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e4758f5c-1daa-4db3-998c-5443671fd5b3"
+            name="AddTimeSlice"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1076652b-16bd-4b4c-8ff3-84e52ab3e00b"
+                  name="pTimeSlice"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="23cdd64b-b1eb-4774-bf1a-485e92efebca"
+                      LastKnownName="ITimeSlice"
+                      LastKnownLocation="Package_2249.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperations>
       </Interface>
     </packageHasNamedElement>
@@ -4723,6 +4939,192 @@
             isQuery="false" />
         </ownedOperationsInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="a1ab8ff7-0615-4f29-8406-bc857dfcd3d7"
+        name="IExpense" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="23cdd64b-b1eb-4774-bf1a-485e92efebca"
+        name="ITimeSlice" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="10667e20-3010-4aa8-b5a0-b10d63ff2b40"
+        name="ITimeSlice"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedAttributes>
+          <property
+            Id="b2e80967-ef13-4a3d-ae02-eba7a3029939"
+            name="User"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="d3abecdd-3c6d-4e17-b4db-f0f31a6720be"
+                LastKnownName="IUser"
+                LastKnownLocation="Package_2249.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="fdd6af97-d148-4387-a9d1-7ffbdac12131"
+            name="Duration"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="23d12f0f-99e9-4e08-9f1f-11e5913c46c8"
+                LastKnownName="int"
+                LastKnownLocation="Package_2251.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="3bf7fccc-9b2a-437d-92ae-90df06cc2512"
+            name="StartDateTIme"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="8ee8ae77-8b15-40f0-b1ae-5b27117dad71"
+                LastKnownName="DateTime"
+                LastKnownLocation="Package_2251.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="b4fe693f-5034-49f5-b57f-cff533b288e1"
+            name="EndDateTime"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="8ee8ae77-8b15-40f0-b1ae-5b27117dad71"
+                LastKnownName="DateTime"
+                LastKnownLocation="Package_2251.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+        <ownedOperations>
+          <operation
+            Id="4c6a92b8-0db1-4973-bd45-63879bab3164"
+            name="CreateTimeSlice"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cc0b4e6a-19c8-4932-b632-886e7ca53ced"
+                  name="pUser"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="d3abecdd-3c6d-4e17-b4db-f0f31a6720be"
+                      LastKnownName="IUser"
+                      LastKnownLocation="Package_2249.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4e8d3749-00f9-46bb-993f-d106595d0144"
+                  name="pDuration"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="23d12f0f-99e9-4e08-9f1f-11e5913c46c8"
+                      LastKnownName="int"
+                      LastKnownLocation="Package_2251.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="27520bbc-615f-4ce3-a104-cc7d3db8671c"
+            name="CreateTimeSlice"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="43c298ab-c654-43e3-9781-b05b84002e47"
+                  name="pUser"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="d3abecdd-3c6d-4e17-b4db-f0f31a6720be"
+                      LastKnownName="IUser"
+                      LastKnownLocation="Package_2249.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="40be7afd-78a2-4876-9aed-c6d93d5b33de"
+                  name="pStart"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="8ee8ae77-8b15-40f0-b1ae-5b27117dad71"
+                      LastKnownName="DateTime"
+                      LastKnownLocation="Package_2251.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3c81791c-752c-49b9-8bea-96793c0dfcdb"
+                  name="pEnd"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="8ee8ae77-8b15-40f0-b1ae-5b27117dad71"
+                      LastKnownName="DateTime"
+                      LastKnownLocation="Package_2251.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
     </packageHasNamedElement>
   </packagedElements>
 </package>

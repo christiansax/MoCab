@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="b9381ea6-0fd6-4d44-bb87-289cb6de5bc9"
   name="PlexByte.MoCap.Interactions" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -1209,6 +1209,104 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="eb4e59e9-d0c0-4239-89cc-f33b866d44e9"
+            isDerived="false"
+            sourceEndRoleName="Type"
+            targetEndRoleName="InteractionType"
+            isLeaf="false"
+            isAbstract="false">
+            <enumerationMoniker
+              Id="a024cbf7-390a-46e8-a07d-2951e562ab10"
+              LastKnownName="InteractionType"
+              LastKnownLocation="Package_2249.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3ea7db8f-4bdb-4e15-a0ba-4857a8930106"
+                  name="Type"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <appliedStereotypesInternal>
+                    <stereotypeInstance
+                      Id="ac6d1a9d-8b23-400d-9d75-cfd48938e4bc"
+                      name="property"
+                      profile="CSharpProfile">
+                      <propertyInstances>
+                        <stereotypeInstanceHasPropertyInstances
+                          Id="fb4e5e7b-4548-46a7-be42-af8c227fd2c2">
+                          <propertyInstance
+                            Id="aa1ded28-5873-41c0-8bce-f50b7e06dc04"
+                            name="ClrAttributes" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances
+                          Id="913f3510-3dbf-42a1-9f02-79d5056f6f28">
+                          <propertyInstance
+                            Id="d192b16a-8a1f-46ff-9379-c845eddcdf16"
+                            name="Get"
+                            value="none" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances
+                          Id="3c9ee7ee-8c01-4b4d-8f4d-d95e69ee0421">
+                          <propertyInstance
+                            Id="d026b909-4a04-4a22-81d7-ed8aa439bea8"
+                            name="HasBody"
+                            value="false" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances
+                          Id="2e75528d-7c68-41c3-9305-ac39f5b71d50">
+                          <propertyInstance
+                            Id="11f71552-24af-46cf-80b7-db414a851fe8"
+                            name="IsUnsafe"
+                            value="false" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances
+                          Id="8190c652-71b2-4fd9-88bb-6bf16e5dd66d">
+                          <propertyInstance
+                            Id="abf2575a-7913-4398-a546-ea09765617dc"
+                            name="Inheritance"
+                            value="none" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances
+                          Id="a241fa1c-12a4-44d7-b03a-b8e89bdedbe9">
+                          <propertyInstance
+                            Id="f6273ed9-e95e-4bfa-8172-5a6fc0d82e79"
+                            name="PackageVisibility"
+                            value="internal" />
+                        </stereotypeInstanceHasPropertyInstances>
+                        <stereotypeInstanceHasPropertyInstances
+                          Id="c27aa0d8-dd7e-455c-bc52-3af6d6c2f87a">
+                          <propertyInstance
+                            Id="d14099f4-83eb-401a-909c-35d438c9bc3d"
+                            name="Set"
+                            value="none" />
+                        </stereotypeInstanceHasPropertyInstances>
+                      </propertyInstances>
+                    </stereotypeInstance>
+                  </appliedStereotypesInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c97d8066-d962-4465-920f-2577f6304d7f"
+                  name="InteractionType"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedAttributes>
           <property
@@ -1843,6 +1941,24 @@
                 </propertyInstances>
               </stereotypeInstance>
             </appliedStereotypesInternal>
+          </property>
+          <property
+            Id="438bb101-eed1-4332-a1c7-c32f35dc1c18"
+            name="Type"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <enumerationMoniker
+                Id="a024cbf7-390a-46e8-a07d-2951e562ab10"
+                LastKnownName="InteractionType"
+                LastKnownLocation="Package_2249.uml" />
+            </type_NamedElement>
           </property>
         </ownedAttributes>
         <ownedOperations>

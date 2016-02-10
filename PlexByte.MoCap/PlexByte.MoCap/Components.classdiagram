@@ -3187,22 +3187,68 @@
                     <referencedTypeMoniker Id="923959e7-2ad7-49c8-9596-4cddbf661a5e" LastKnownName="bool" />
                   </type_NamedElement>
                 </property>
+                <property Id="1081b9b0-6720-46aa-b838-ecee66b8a0d0" name="InvitationList" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8e81eb45-c159-4848-8459-f6aa857ddb80" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ef468a99-1784-486e-bedc-6af758728d66" LastKnownName="List&lt;string&gt;" />
+                  </type_NamedElement>
+                </property>
               </ownedAttributes>
               <ownedOperations>
                 <operation Id="55dcc898-b0c7-4933-9e87-8eac887ad9f9" name="AddTask" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="e1bca58c-0a1d-46f2-96b1-cde9b2323f36" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="34c2fc11-dcad-40df-93f7-49da93fac90c" name="pTask" direction="In" isUnique="false">
+                        <elementDefinition Id="eee50a33-ffab-4423-97f8-9dd998671824" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="f1a10107-f952-4d83-a0ae-6db036276af8" LastKnownName="ITask" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
                 </operation>
                 <operation Id="0a66fe21-cf0e-454c-bffb-ade426278aed" name="AddPoll" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="ecde3ebf-a8f4-4b62-ba65-0bc310449fe8" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="7b137ef1-c2f9-4c1e-b8e7-9e8ebe3508a3" name="pPoll" direction="In" isUnique="false">
+                        <elementDefinition Id="c05d7c81-af92-4689-a365-a37b9bace2e3" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="fd2c38c4-7ece-49ce-9485-6d1360a38f07" LastKnownName="IPoll" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
                 </operation>
                 <operation Id="14ed6e47-7c98-4c11-ae51-3f9756b636e6" name="Invite" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="8778f77a-554f-4bd6-84dc-fe96c3b25bcb" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="a411d93f-b656-4a57-8649-e3e1bb9af5f7" name="pUser" direction="In" isUnique="false">
+                        <elementDefinition Id="c671f85e-dfa0-4bb5-a7f4-d2581e7b24c5" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="885451a4-5f16-4ba2-b163-486b36ec7725" LastKnownName="IUser" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
                 </operation>
                 <operation Id="465a87f0-f02b-485d-9c1f-d7a739780cd0" name="AcceptInvitation" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="13f01fc4-28c7-41bb-a914-24d05a7e74d9" />
                 </operation>
                 <operation Id="3ec36164-4c50-425d-b125-57548595777f" name="KickUser" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="7b39c6ca-e151-40ba-950a-1573c419e6ac" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="e0f5a446-d620-4741-98a4-c1c47f462fcd" name="pUser" direction="In" isUnique="false">
+                        <elementDefinition Id="56194497-d42e-4687-b63d-53d3d41b3e4e" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="885451a4-5f16-4ba2-b163-486b36ec7725" LastKnownName="IUser" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
                 </operation>
                 <operation Id="3cb605d2-725e-4f79-b8d7-defd7b5f5604" name="Leave" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="580e3512-2b8e-4c59-9545-8303d3c433b6" />
@@ -3340,18 +3386,58 @@
                 </operation>
                 <operation Id="fb3b0f96-0182-4f2e-8239-94729595ee01" name="AddTask" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="692f4423-4825-4659-b16a-abac3bbd993c" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="4bb6c74b-5170-49a6-9d36-b5295e451f20" name="pTask" direction="In" isUnique="false">
+                        <elementDefinition Id="bd537f1c-cfe5-4848-8ef1-cc70398aca9f" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="f1a10107-f952-4d83-a0ae-6db036276af8" LastKnownName="ITask" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
                 </operation>
                 <operation Id="eb8d6128-abc4-4185-985d-902dc53d62b6" name="AddPoll" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="5fecc9d5-c43a-4d45-9204-bed5b55d0b39" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="57945902-1664-4378-9497-99aa9ea97893" name="pPoll" direction="In" isUnique="false">
+                        <elementDefinition Id="2c169c3d-c76b-45f1-a851-14e7446379c4" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="fd2c38c4-7ece-49ce-9485-6d1360a38f07" LastKnownName="IPoll" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
                 </operation>
                 <operation Id="cd8ce4d6-01ca-4868-9861-b7d523b9f2fb" name="Invite" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="7cc6b7ef-79c3-4853-9f09-4928153c034c" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="20248303-d7f9-431a-80b2-4e51ee5aca86" name="pUser" direction="In" isUnique="false">
+                        <elementDefinition Id="a585b40a-0c90-4c06-9c24-3ed3da87c083" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="885451a4-5f16-4ba2-b163-486b36ec7725" LastKnownName="IUser" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
                 </operation>
                 <operation Id="6a1a6ba3-a6be-4b70-9e3a-3c027ad5f3f1" name="AcceptInvitation" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="d7bd224c-4737-4947-82ee-ce2557c731b6" />
                 </operation>
                 <operation Id="b3f731e7-f188-4be7-86f6-b668ba43b077" name="KickUser" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="a4ae3582-2eca-4076-8c5b-97e807d63dc1" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="8079e8a7-c553-40fc-8fcf-0e46b834592b" name="pUser" direction="In" isUnique="false">
+                        <elementDefinition Id="cfeb0bd1-4dbd-4174-8049-1aab4f0add22" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="885451a4-5f16-4ba2-b163-486b36ec7725" LastKnownName="IUser" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
                 </operation>
                 <operation Id="0ddfea53-c0eb-4f26-8916-96d4e005ae49" name="Leave" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="d040e379-c7e1-4013-b098-6dcdafd1c96d" />
@@ -3482,6 +3568,24 @@
                   <elementDefinition Id="8b7d2629-b4ef-4301-aec1-3473310aabea" />
                 </generalization>
               </generalsInternal>
+              <targetEnds>
+                <association Id="39e4648f-d3fb-4c0c-8a09-8b837d082246" isDerived="false" sourceEndRoleName="IAccounting" targetEndRoleName="IBill" isLeaf="false" isAbstract="false">
+                  <interfaceMoniker Id="9bb6aadb-a0f8-4e13-8bdf-86f363f6996b" LastKnownName="IBill" />
+                  <relationshipOwnedElementsInternal>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="4137841b-d77f-4f42-85c8-c5d9dbc4e560" name="IAccounting" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                        <elementDefinition Id="1fef1d23-a279-4fac-87e2-56e9ff66671d" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="6e2d83dd-bbe0-4c34-b93c-618c0f3f061d" name="IBill" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <elementDefinition Id="ff26f08f-82e8-49a4-b4bf-385cd320a183" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                  </relationshipOwnedElementsInternal>
+                  <elementDefinition Id="093d74b3-09f8-46d1-938f-65cdaaaa7087" />
+                </association>
+              </targetEnds>
               <ownedOperations>
                 <operation Id="4112c3c3-9256-4e1b-b183-0270c068e855" name="AttachBill" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="106a162a-fa13-405a-8759-01ec121edbdb" />
@@ -3625,6 +3729,134 @@
                 </operation>
                 <operation Id="637ff7c3-eca0-4e51-80f4-58205373bc8c" name="Edit" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
                   <elementDefinition Id="a0d6c4dc-6b48-4628-bc0f-91c71bf7b58c" />
+                </operation>
+              </ownedOperationsInternal>
+            </class>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <Interface Id="9bb6aadb-a0f8-4e13-8bdf-86f363f6996b" name="IBill" isAbstract="false" isLeaf="false">
+              <appliedStereotypesInternal>
+                <stereotypeInstance Id="405ad47a-4339-4699-82de-1c7517e5b3b1" name="interface" profile="CSharpProfile">
+                  <elementDefinition Id="5fad9c80-5b5a-4bf8-b65a-dd346ea3d739" />
+                  <propertyInstances>
+                    <stereotypeInstanceHasPropertyInstances Id="72c51a13-168d-496b-87ea-c0a2a1735cb5">
+                      <propertyInstance Id="bf6a3a22-b9a8-4366-8adf-05e5b41d4b2c" name="ClrAttributes">
+                        <elementDefinition Id="45a8ae8d-382d-472a-b932-cbab9fe625be" />
+                      </propertyInstance>
+                      <elementDefinition Id="2ea58bc6-b1f7-4956-8872-7c7067211c65" />
+                    </stereotypeInstanceHasPropertyInstances>
+                    <stereotypeInstanceHasPropertyInstances Id="7aa4df78-22b7-4c55-8860-3a98188b291d">
+                      <propertyInstance Id="397e4924-23c3-4176-9eb2-3f930e708db8" name="IsPartial" value="false">
+                        <elementDefinition Id="887f0536-556c-457f-9e61-822b8c95aadf" />
+                      </propertyInstance>
+                      <elementDefinition Id="0bd6ba53-4a49-48b3-aec4-26509d3a369e" />
+                    </stereotypeInstanceHasPropertyInstances>
+                    <stereotypeInstanceHasPropertyInstances Id="10d429cb-1cd5-4600-aaa1-e71381b3055f">
+                      <propertyInstance Id="371122ab-ada6-41a4-a7ac-ea826868323c" name="IsUnsafe" value="false">
+                        <elementDefinition Id="a2b70037-a93d-4979-a29a-ff98cb465640" />
+                      </propertyInstance>
+                      <elementDefinition Id="0e43bc23-6421-483a-a27d-a58c3c1c3ce8" />
+                    </stereotypeInstanceHasPropertyInstances>
+                    <stereotypeInstanceHasPropertyInstances Id="20c9f193-8ea4-4fc9-90ba-5e5863222b4a">
+                      <propertyInstance Id="9cf150cd-3495-4fbd-8593-58c2cfe6d81d" name="PackageVisibility" value="internal">
+                        <elementDefinition Id="40d512c0-1ae7-4ed7-b1f5-049c8a7aa650" />
+                      </propertyInstance>
+                      <elementDefinition Id="d660278d-e866-4f08-8e4a-d296241e4965" />
+                    </stereotypeInstanceHasPropertyInstances>
+                  </propertyInstances>
+                </stereotypeInstance>
+              </appliedStereotypesInternal>
+              <elementDefinition Id="a429ebe2-94c9-4b6e-aff1-20c83a8aeb5a" />
+              <ownedAttributes>
+                <property Id="1b661d34-3e2c-4bb0-bb71-921ae8cfa605" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="527ee719-8acf-4a2d-a5ef-a53e30b95554" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="885451a4-5f16-4ba2-b163-486b36ec7725" LastKnownName="IUser" />
+                  </type_NamedElement>
+                </property>
+                <property Id="4fbc9bd5-7f43-403c-be23-2a8357e3c10c" name="Bill" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="555c40d2-87a6-4f96-af73-4092dd8cf035" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c13e3889-cf5d-4d6a-ac4d-32fd671c5611" LastKnownName="Image" />
+                  </type_NamedElement>
+                </property>
+              </ownedAttributes>
+              <ownedOperations>
+                <operation Id="f6efc41c-21b8-44fa-868e-3ae303b98089" name="Create" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="c8a115f7-bc1e-4c44-bd70-d2ff5ff5e8b2" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="b4afb2d2-1de7-456b-9c29-49362bb26be0" name="pText" direction="In" isUnique="false">
+                        <elementDefinition Id="9b62fb18-f9ff-4a73-af06-5ef153c5c2e0" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="9ce0efc1-8fb7-4a9b-9484-9f269d65af18" LastKnownName="string" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+              </ownedOperations>
+            </Interface>
+          </packageHasNamedElement>
+          <packageHasNamedElement>
+            <class Id="57b2a2b3-c82b-466a-a28e-41d6e6b9ad9a" name="Bill" isAbstract="false" isLeaf="false" isActiveClass="false">
+              <appliedStereotypesInternal>
+                <stereotypeInstance Id="9d1034e2-5f04-45f9-a519-dba6a8e74eb4" name="class" profile="CSharpProfile">
+                  <elementDefinition Id="22701e8a-a071-4390-a0b7-eeb54c8874e6" />
+                  <propertyInstances>
+                    <stereotypeInstanceHasPropertyInstances Id="934242c5-2886-4d3d-b6f6-c048baf694a0">
+                      <propertyInstance Id="3a40850b-b321-4cbf-bd77-a1ea214e456b" name="ClrAttributes">
+                        <elementDefinition Id="00794611-64ee-4e52-9a73-f6af28e42c5d" />
+                      </propertyInstance>
+                      <elementDefinition Id="a6ed99d9-70a6-4d9e-8c5f-915944ec837a" />
+                    </stereotypeInstanceHasPropertyInstances>
+                    <stereotypeInstanceHasPropertyInstances Id="bad4b8d5-6bdd-4e48-8c27-a126209be7d5">
+                      <propertyInstance Id="d2ee9dfe-6d09-40e1-af42-135e12bd1eba" name="IsPartial" value="false">
+                        <elementDefinition Id="cd911799-38b3-4e3f-ae6f-9c5fe019684e" />
+                      </propertyInstance>
+                      <elementDefinition Id="397d1538-8c4c-4268-9e94-633dabfb722a" />
+                    </stereotypeInstanceHasPropertyInstances>
+                    <stereotypeInstanceHasPropertyInstances Id="d0375ec5-0355-43bf-ab9a-2402da3ec19a">
+                      <propertyInstance Id="f06ced6d-ad0b-4011-bb7b-1d9ae0499bee" name="IsStatic" value="false">
+                        <elementDefinition Id="be1971d9-e740-4ca0-b31e-f1bbe73987c1" />
+                      </propertyInstance>
+                      <elementDefinition Id="85b0d008-f16e-4871-9f7a-ebcaf0f3d241" />
+                    </stereotypeInstanceHasPropertyInstances>
+                    <stereotypeInstanceHasPropertyInstances Id="06a68913-4eae-4939-9754-bd98dc14cebf">
+                      <propertyInstance Id="992eb8f6-b061-438e-8efc-04622b81624d" name="IsUnsafe" value="false">
+                        <elementDefinition Id="6c8569ab-687d-497e-a44b-1d59d8e10919" />
+                      </propertyInstance>
+                      <elementDefinition Id="3c987bce-59d1-412c-ac14-163392ae2752" />
+                    </stereotypeInstanceHasPropertyInstances>
+                    <stereotypeInstanceHasPropertyInstances Id="01d4f99a-ab3f-4628-b1ee-ce58d46021d3">
+                      <propertyInstance Id="fd74c28d-03dc-4a5e-bc07-1668ed71e855" name="PackageVisibility" value="internal">
+                        <elementDefinition Id="243379b8-5111-48c0-999d-b7e74a07265c" />
+                      </propertyInstance>
+                      <elementDefinition Id="699ccc10-8a99-4784-b859-1e144883a241" />
+                    </stereotypeInstanceHasPropertyInstances>
+                  </propertyInstances>
+                </stereotypeInstance>
+              </appliedStereotypesInternal>
+              <elementDefinition Id="553a01c9-4656-4754-a00d-9ff93e14e208" />
+              <suppliersInternal>
+                <interfaceRealization Id="3f884262-9dd7-48fa-b5dc-7402dc18706a">
+                  <interfaceMoniker Id="9bb6aadb-a0f8-4e13-8bdf-86f363f6996b" LastKnownName="IBill" />
+                  <elementDefinition Id="7c233bae-913c-4684-8a97-6879aabb5a16" />
+                </interfaceRealization>
+              </suppliersInternal>
+              <ownedOperationsInternal>
+                <operation Id="b00c8992-ea78-49e5-9be1-cf1510f8c1c9" name="Create" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="d8883922-4010-474e-97d0-2169f0dfb8b8" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="e399e428-2747-42a1-9ff2-9d13509d5afe" name="pText" direction="In" isUnique="false">
+                        <elementDefinition Id="0fc600ce-8750-456d-9422-a481e36973be" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="9ce0efc1-8fb7-4a9b-9484-9f269d65af18" LastKnownName="string" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
                 </operation>
               </ownedOperationsInternal>
             </class>
@@ -13108,6 +13340,22 @@
                   </relationshipOwnedElementsInternal>
                   <elementDefinition Id="bb9a6ccf-8e2e-4acf-81a6-4afc2162a50c" />
                 </association>
+                <association Id="54205a5b-5364-41a8-b2a5-f4af8bd2ce84" isDerived="false" sourceEndRoleName="IProjectList" targetEndRoleName="IProject" isLeaf="false" isAbstract="false">
+                  <interfaceMoniker Id="df1a446a-8fa8-44ee-ba75-b81633e95f41" LastKnownName="IProject" />
+                  <relationshipOwnedElementsInternal>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="8ff1021c-bf38-42dc-b22a-b3279bb9fd8e" name="IProjectList" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                        <elementDefinition Id="db6496a6-4dcd-452f-a540-2c87cf9a95ef" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                    <associationHasOwnedEnds>
+                      <memberEnd Id="3cb72da7-daf7-4703-afbd-ddede386f89a" name="IProject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                        <elementDefinition Id="915e2957-b016-4bc5-b1d2-e528b6fd397c" />
+                      </memberEnd>
+                    </associationHasOwnedEnds>
+                  </relationshipOwnedElementsInternal>
+                  <elementDefinition Id="0538c75a-be68-4ff5-890b-581e511403cb" />
+                </association>
               </targetEnds>
               <ownedOperations>
                 <operation Id="e10ec675-0649-4880-b299-fbea555ff9ee" name="TaskCreate" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
@@ -13281,6 +13529,21 @@
     <packageHasNamedElement>
       <referencedType Id="53423a3d-ef4d-471d-b8b6-458101b9823f" name="IInteractionAdapter" isAbstract="false" isLeaf="false" cachedFullName="IInteractionAdapter">
         <elementDefinition Id="0f3b4571-d04e-4204-be85-7a6e0ad273d7" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="fd2c38c4-7ece-49ce-9485-6d1360a38f07" name="IPoll" isAbstract="false" isLeaf="false" cachedFullName="PlexByte.MoCap::PlexByte.MoCap.Interactions::IPoll">
+        <elementDefinition Id="9a80d370-0178-4f8a-9711-9c8d3b4e86de" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="ef468a99-1784-486e-bedc-6af758728d66" name="List&lt;string&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;string&gt;">
+        <elementDefinition Id="6950e8a3-f2ac-454d-96f7-9f632055bdb2" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c13e3889-cf5d-4d6a-ac4d-32fd671c5611" name="Image" isAbstract="false" isLeaf="false" cachedFullName="Image">
+        <elementDefinition Id="1b958db0-e8a1-4a46-adde-31099aebd7f5" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

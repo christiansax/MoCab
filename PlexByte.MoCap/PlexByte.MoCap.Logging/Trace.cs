@@ -29,15 +29,7 @@ namespace PlexByte.MoCap.Logging
         {
             TraceFactory.CreateLogObject(Path.GetFileName(pFullFilePath), Path.GetDirectoryName(pFullFilePath), true, 0, LogObjectType.BinaryFile);
             pNumMessages = 0;
-            switch (pType)
-            {
-                case LogObjectType.BinaryFile:
-                    LogObject = new BinaryLogFile(Path.GetFileName(pFullFilePath), Path.GetDirectoryName(pFullFilePath));
-                    return LogObject.Read(out pNumMessages);
-                default:
-                    LogObject = new BinaryLogFile(Path.GetFileName(pFullFilePath), Path.GetDirectoryName(pFullFilePath));
-                    return LogObject.Read(out pNumMessages);
-            }
+            return LogObject.Read(out pNumMessages);
         }
 
         public List<ITraceObject> ReadLogFileRaw(out int pNumMessages, string pFullFilePath)

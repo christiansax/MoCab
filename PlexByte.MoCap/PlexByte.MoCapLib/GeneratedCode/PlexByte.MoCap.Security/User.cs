@@ -4,17 +4,24 @@
 //     Changes to this file will be lost if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-namespace PlexByte.MoCap.Interactions
+namespace PlexByte.MoCap.Security
 {
-	using Logging;
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
 
-	public interface IOption 
+	public class User : IUser
 	{
-		string Text { get;set; }
+		public virtual void LogIn()
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public virtual void LogOut()
+		{
+			throw new System.NotImplementedException();
+		}
 
 	}
 }

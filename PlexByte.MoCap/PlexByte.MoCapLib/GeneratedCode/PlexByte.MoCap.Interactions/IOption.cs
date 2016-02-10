@@ -6,7 +6,8 @@
 //------------------------------------------------------------------------------
 namespace PlexByte.MoCap.Interactions
 {
-	using Logging;
+	using PlexByte.MoCap.Logging;
+	using PlexByte.MoCap.Security;
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
@@ -15,6 +16,8 @@ namespace PlexByte.MoCap.Interactions
 	public interface IOption 
 	{
 		string Text { get;set; }
+
+		IOption Create(string pText);
 
 	}
 }

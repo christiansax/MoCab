@@ -34,18 +34,25 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BinaryTraceLog.cs" />
-    <Compile Include="ITraceLog.cs" />
-    <Compile Include="ITraceService.cs" />
+    <Compile Include="BinaryLogFile.cs" />
+    <Compile Include="ILogObject.cs" />
+    <Compile Include="IndentHelper.cs" />
+    <Compile Include="IndentLevel.cs" />
+    <Compile Include="ITrace.cs" />
+    <Compile Include="ITraceFactory.cs" />
+    <Compile Include="ITraceObject.cs" />
+    <Compile Include="LogObjectType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Trace.cs" />
+    <Compile Include="TraceFactory.cs" />
     <Compile Include="TraceMessage.cs" />
     <Compile Include="TraceMessageAdapter.cs" />
-    <Compile Include="TraceService.cs" />
+    <Compile Include="TraceObjectType.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

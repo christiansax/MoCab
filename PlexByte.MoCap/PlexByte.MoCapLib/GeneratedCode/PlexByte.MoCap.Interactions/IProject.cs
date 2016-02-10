@@ -6,15 +6,32 @@
 //------------------------------------------------------------------------------
 namespace PlexByte.MoCap.Interactions
 {
-	using Logging;
+	using PlexByte.MoCap.Logging;
+	using PlexByte.MoCap.Security;
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
 
-	public interface IOption 
+	public interface IProject  : IInteraction
 	{
-		string Text { get;set; }
+		bool EnablePoll { get;set; }
+
+		bool EnableBalance { get;set; }
+
+		List<string> InvitationList { get;set; }
+
+		void AddTask(ITask pTask);
+
+		void AddPoll(IPoll pPoll);
+
+		void Invite(IUser pUser);
+
+		void AcceptInvitation();
+
+		void KickUser(IUser pUser);
+
+		void Leave();
 
 	}
 }

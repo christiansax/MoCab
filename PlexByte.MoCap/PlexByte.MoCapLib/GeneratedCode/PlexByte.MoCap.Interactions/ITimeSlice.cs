@@ -6,15 +6,28 @@
 //------------------------------------------------------------------------------
 namespace PlexByte.MoCap.Interactions
 {
-	using Logging;
+	using PlexByte.MoCap.Logging;
+	using PlexByte.MoCap.Security;
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
 
-	public interface IOption 
+	public interface ITimeSlice 
 	{
-		string Text { get;set; }
+		IUser User { get;set; }
+
+		int Duration { get;set; }
+
+		DateTime StartDateTIme { get;set; }
+
+		DateTime EndDateTime { get;set; }
+
+		ITask TimeSlices { get;set; }
+
+		void CreateTimeSlice(IUser pUser, int pDuration);
+
+		void CreateTimeSlice(IUser pUser, DateTime pStart, DateTime pEnd);
 
 	}
 }

@@ -14,7 +14,7 @@ namespace PlexByte.MoCap.WinForms
         public delegate void AddFormatedMessageHandler(TraceMessageAdapter pMessage);
         public delegate void ReadLogFileHandler(string pFullPath);
 
-        private ITraceService _trace = null;
+        private ITrace _trace = null;
         private int _curRow = -1;
         private bool _isTimerActive = false;
         private System.Timers.Timer _refreshTimer = null;
@@ -111,11 +111,11 @@ namespace PlexByte.MoCap.WinForms
             {
                 try
                 {
-                    _trace = new TraceService();
-                    _trace.GetLogFile(openFileDialog1.FileName);
+                    _trace = new MoCap.Logging.Trace();
                     _trace.TracePrefix = "   ";
-                    long numMsg = 0;
+                    int numMsg = 0;
                     long currNum = 0;
+                    _trace.ReadLogFileRaw(out numMsg, openFileDialog1.FileName);
 
                     TimeSpan duration = DateTime.Now.TimeOfDay;
                     foreach (TraceMessage msg in _trace.Log.ReadLog(out numMsg))
@@ -126,12 +126,8 @@ namespace PlexByte.MoCap.WinForms
                         UpdateProgressBar(Convert.ToInt32(Convert.ToDouble(currNum)/Convert.ToDouble(numMsg)*100));
                     }
                     duration = DateTime.Now.TimeOfDay - duration;
-                    UpdateStatusLabel(String.Format("All messages read in {0}.{1} seconds [TotalMessage={2}]",
-                        duration.Seconds,
-                        (duration.Milliseconds < 100)
-                            ? "0" + duration.Milliseconds.ToString()
-                            : duration.Milliseconds.ToString(),
-                        numMsg));
+                    UpdateStatusLabel(
+                        $"All messages read in {duration.Seconds}.{((duration.Milliseconds < 100) ? "0" + duration.Milliseconds.ToString() : duration.Milliseconds.ToString())} seconds [TotalMessage={numMsg}]");
                     UpdateProgressBar(0);
                 }
                 catch
@@ -188,15 +184,16 @@ namespace PlexByte.MoCap.WinForms
             {
                 TraceMessageAdapter fmt = (TraceMessageAdapter)dataGridView1.CurrentRow.DataBoundItem;
                 StringBuilder sb = new StringBuilder();
-                sb.Append(fmt.SourceFile);
+                sb.Append(fmt.Source);
                 sb.Append(Environment.NewLine);
-                sb.Append(fmt.Component + "." + fmt.MethodDefinition);
+                sb.Append(fmt.Component + "." + fmt.ScopedMethod);
+                sb.Append($" on thread {fmt.ThreadId}");
                 sb.Append(Environment.NewLine);
                 sb.Append("Line " + fmt.LineNumber);
                 sb.Append("\t\t\t");
                 sb.Append("Level " + fmt.Level);
                 sb.Append("\t\t\t");
-                sb.Append("At " + fmt.TimeStamp);
+                sb.Append("At " + fmt.Time);
                 sb.Append(Environment.NewLine);
                 sb.Append(Environment.NewLine);
                 sb.Append(fmt.Message);

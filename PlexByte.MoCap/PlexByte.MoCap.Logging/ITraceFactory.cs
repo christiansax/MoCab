@@ -5,7 +5,6 @@ namespace PlexByte.MoCap.Logging
 {
     public interface ITraceFactory
     {
-        List<ITraceObject> TraceMessage { get; }
         ILogObject LogObject { get; }
         IndentHelper IndentHelperObject { get; }
         ILogObject CreateLogObject(string pFileName, string pFilePath, bool pRead, long pMaxFileSize, LogObjectType pLogObjectType);

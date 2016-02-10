@@ -20,8 +20,8 @@ namespace PlexByte.MoCap.Logging
         public long MaxFileSize { get; set; }
         public string TracePrefix { get; set; }
 
-        private static Dictionary<string, Trace> _instances = null;
-        private List<ITraceObject> _traceMessages = null;
+        private static Dictionary<string, Trace> _instances = new Dictionary<string, Trace>();
+        private List<ITraceObject> _traceMessages = new List<ITraceObject>();
         private string _componentName = string.Empty;
         private static object _lockObject = new object();
 

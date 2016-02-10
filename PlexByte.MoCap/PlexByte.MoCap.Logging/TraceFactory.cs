@@ -10,7 +10,6 @@ namespace PlexByte.MoCap.Logging
     public class TraceFactory : ITraceFactory
     {
         public IndentHelper IndentHelperObject => _indentHelperObject;
-        public List<ITraceObject> TraceMessage => _traceMessages;
         public ILogObject LogObject => _logObject;
 
         private IndentHelper _indentHelperObject =new IndentHelper();

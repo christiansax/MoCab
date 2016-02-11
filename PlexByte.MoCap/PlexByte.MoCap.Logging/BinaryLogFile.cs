@@ -12,7 +12,7 @@ namespace PlexByte.MoCap.Logging
     {
         private string _name;
         private string _path;
-        private long _maxFileSize;
+        private long _maxFileSize=-1;
         private long _currentFileSize;
         private static string _dateFormat="yyyyMMdd";
         private static string _timeFormat="HHmmss_fff";

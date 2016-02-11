@@ -27,8 +27,8 @@ namespace PlexByte.MoCap.Logging
 
         void Write(List<ITraceObject> pMessages);
 
-        List<TraceMessageAdapter> Read(out int pNumberOfMessages);
-        List<ITraceObject> ReadLogFileRaw(out int pNumberOfMessages);
+        List<TraceMessageAdapter> Read(out int pNumberOfMessages, string pFullFilePath);
+        List<ITraceObject> ReadLogFileRaw(out int pNumberOfMessages, string pFullFilePath);
 
         void RolloverDay(DateTime pDate, DateTime pOldDate);
 

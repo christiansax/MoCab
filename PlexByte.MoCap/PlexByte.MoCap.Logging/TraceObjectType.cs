@@ -2,8 +2,8 @@
 {
     public enum TraceObjectType : int
     {
-        EnterScope,
-        ExitScope,
+        EnterScope = 1,
+        ExitScope = 2,
         SysInfo = 0,
         Exception = 5,
         Error = 10,

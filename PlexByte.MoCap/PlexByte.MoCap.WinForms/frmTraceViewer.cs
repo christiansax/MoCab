@@ -15,7 +15,7 @@ namespace PlexByte.MoCap.WinForms
         public delegate void AddFormatedMessageHandler(TraceMessageAdapter pMessage);
         public delegate void ReadLogFileHandler(string pFullPath);
 
-        private MoCap.Logging.ITrace _trace = null;
+        private ILogObject _log = null;
         private int _curRow = -1;
         private bool _isTimerActive = false;
         private System.Timers.Timer _refreshTimer = null;
@@ -50,7 +50,7 @@ namespace PlexByte.MoCap.WinForms
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             // Refresh opened file
-            if (_trace != null)
+            if (_log != null)
             {
                 dataGridView1.DataSource = null;
                 dataGridView1.Rows.Clear();
@@ -63,7 +63,7 @@ namespace PlexByte.MoCap.WinForms
             // Auto refresh
             toolStripButton3.CheckOnClick = !toolStripButton3.CheckOnClick;
             toolStripButton3.Checked = !toolStripButton3.Checked;
-            if (!_isTimerActive && toolStripButton3.Checked && _trace.GetInstance("Test")!=null)
+            if (!_isTimerActive && toolStripButton3.Checked && _log!=null)
             {
                 _isTimerActive = true;
                 _refreshTimer=new System.Timers.Timer(10000);
@@ -83,10 +83,11 @@ namespace PlexByte.MoCap.WinForms
 
         void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            _trace= _trace.GetInstance("Viewer");
-            //string fullFilePath = _trace.GetInstance()
-            int numMsg = 0;
-            //ReadLogFile(out numMsg,fullFilePath);
+            if (_log != null)
+            {
+                int numMsg = 0;
+                ReadLogFile(_log.LogPath);
+            }
         }
 
         private void InitializeToolTips()
@@ -114,18 +115,18 @@ namespace PlexByte.MoCap.WinForms
             {
                 try
                 {
-                    _trace = new MoCap.Logging.Trace();
-                    _trace.TracePrefix = "   ";
+                 _log=new BinaryLogFile();   
+                    string tracePrefix = "   ";
                     int numMsg = 0;
                     long currNum = 0;
-                    List<ITraceObject> messages= _trace.ReadLogFileRaw(out numMsg, openFileDialog1.FileName);
+                    List<ITraceObject> messages= _log.ReadLogFileRaw(out numMsg, pFullFilePath);
 
                     TimeSpan duration = DateTime.Now.TimeOfDay;
-                    foreach (TraceMessage msg in messages)
+                    foreach (ITraceObject msg in messages)
                     {
                         currNum++;
                         UpdateStatusLabel($"Reading {currNum} out of {numMsg} Messages...".ToString());
-                        AddFormatedMessage(new TraceMessageAdapter(msg, _trace.TracePrefix));
+                        AddFormatedMessage(new TraceMessageAdapter(msg, tracePrefix));
                         UpdateProgressBar(Convert.ToInt32(Convert.ToDouble(currNum)/Convert.ToDouble(numMsg)*100));
                     }
                     duration = DateTime.Now.TimeOfDay - duration;

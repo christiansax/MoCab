@@ -44,6 +44,7 @@ namespace PlexByte.MoCap.Logging
 
         public string DisplayTimeFormat { get { return _displayTimeFormat; } set { _displayTimeFormat = value; } }
 
+        public BinaryLogFile() { }
         public BinaryLogFile(string pFileName, string pFilePath) { Initialize(pFileName, pFilePath, MaxFileSize); }
 
         public virtual void Write(List<ITraceObject> pMessages)
@@ -78,34 +79,32 @@ namespace PlexByte.MoCap.Logging
                 RolloverSize(_maxFileSize);
         }
 
-        public virtual List<TraceMessageAdapter> Read(out int pNumberOfMessages)
+        public virtual List<TraceMessageAdapter> Read(out int pNumberOfMessages, string pFullFilePath)
         {
-            string fileFullPath = _name + "\\" + _path;
             pNumberOfMessages = 0;
-            FileInfo fi = new FileInfo(fileFullPath);
+            FileInfo fi = new FileInfo(pFullFilePath);
             _maxFileSize = fi.Length;
             _traceModified = fi.LastWriteTime;
-            using (Stream stream = File.Open(fileFullPath, FileMode.Open, FileAccess.Read))
+            using (Stream stream = File.Open(pFullFilePath, FileMode.Open, FileAccess.Read))
             {
                 var binFmt = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
                 List<TraceMessageAdapter> messages = new List<TraceMessageAdapter>();
                 while (stream.Position != stream.Length)
                 {
-                    messages.Add(new TraceMessageAdapter((ITraceObject) binFmt.Deserialize(stream), "   "));
+                    messages.Add(new TraceMessageAdapter((ITraceObject)binFmt.Deserialize(stream), "   "));
                     pNumberOfMessages++;
                 }
                 return messages;
             }
         }
 
-        public List<ITraceObject> ReadLogFileRaw(out int pNumberOfMessages)
+        public virtual List<ITraceObject> ReadLogFileRaw(out int pNumberOfMessages, string pFullFilePath)
         {
-            string fileFullPath = _name + "\\" + _path;
             pNumberOfMessages = 0;
-            FileInfo fi = new FileInfo(fileFullPath);
+            FileInfo fi = new FileInfo(pFullFilePath);
             _maxFileSize = fi.Length;
             _traceModified = fi.LastWriteTime;
-            using (Stream stream = File.Open(fileFullPath, FileMode.Open, FileAccess.Read))
+            using (Stream stream = File.Open(pFullFilePath, FileMode.Open, FileAccess.Read))
             {
                 var binFmt = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
                 List<ITraceObject> messages = new List<ITraceObject>();

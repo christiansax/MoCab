@@ -36,14 +36,14 @@ namespace PlexByte.MoCap.Logging
         {
             TraceFactory.CreateLogObject(Path.GetFileName(pFullFilePath), Path.GetDirectoryName(pFullFilePath), true, 0, LogObjectType.BinaryFile);
             pNumMessages = 0;
-            return LogObject.Read(out pNumMessages);
+            return LogObject.Read(out pNumMessages, pFullFilePath);
         }
 
         public List<ITraceObject> ReadLogFileRaw(out int pNumMessages, string pFullFilePath)
         {
             TraceFactory.CreateLogObject(Path.GetFileName(pFullFilePath), Path.GetDirectoryName(pFullFilePath), true, 0, LogObjectType.BinaryFile);
             pNumMessages = 0;
-            return LogObject.ReadLogFileRaw(out pNumMessages);
+            return LogObject.ReadLogFileRaw(out pNumMessages, pFullFilePath);
         }
 
         public static ITrace GetInstance(string pComponent)

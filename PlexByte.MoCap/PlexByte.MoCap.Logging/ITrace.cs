@@ -11,8 +11,8 @@ namespace PlexByte.MoCap.Logging
         int CacheSize { get; set; }
         long MaxFileSize { get; set; }
         string TracePrefix { get; set; }
+        DateTime TraceDate { get; }
 
-        ITrace GetInstance(string pComponent);
         List<TraceMessageAdapter> ReadLogFile(out int pNumMessages, string pFullFilePath);
         List<ITraceObject> ReadLogFileRaw(out int pNumMessages, string pFullFilePath);
         void Always(ITraceObject pMessage);

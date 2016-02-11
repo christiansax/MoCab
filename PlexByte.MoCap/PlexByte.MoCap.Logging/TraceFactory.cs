@@ -91,7 +91,7 @@ namespace PlexByte.MoCap.Logging
                             scopedMethod,
                             threadId,
                             _indentHelperObject.CurrentIndent);
-                        indent = _indentHelperObject.CurrentIndent;
+                        indent = (_indentHelperObject.CurrentIndent > 0) ? _indentHelperObject.CurrentIndent - 1 : 0;
                     }
                     catch (Exception exp) { /* Not used yet */ }
                     break;
@@ -103,6 +103,7 @@ namespace PlexByte.MoCap.Logging
                     {
                         indent = _indentHelperObject.GetIndentLevel(topic, scopedMethod, threadId) - 1;
                         _indentHelperObject.DeleteIndent(topic, threadId, scopedMethod);
+                        indent = (_indentHelperObject.CurrentIndent > 0) ? _indentHelperObject.CurrentIndent - 1 : 0;
                     }
                     catch (Exception exp) { /* Not used yet */ }
                     break;

@@ -6,12 +6,12 @@ using System.Reflection;
 
 namespace PlexByte.MoCap.Logging
 {
-    public class Trace : ITrace,
+    public sealed class Trace : ITrace,
         IDisposable
     {
         public List<ITraceObject> TraceMessages => _traceMessages;
-        public virtual ILogObject LogObject { get; set; }
-        public virtual ITraceFactory TraceFactory { get; set; }
+        public ILogObject LogObject { get; set; }
+        public ITraceFactory TraceFactory { get; set; }
         public string ComponentName => _componentName;
         public string FileName => LogObject.LogName;
         public string FilePath => LogObject.LogPath;
@@ -19,11 +19,18 @@ namespace PlexByte.MoCap.Logging
         public int CacheSize { get; set; }
         public long MaxFileSize { get; set; }
         public string TracePrefix { get; set; }
+        public DateTime TraceDate => LogObject.TraceDate.Date;
 
         private static Dictionary<string, Trace> _instances = new Dictionary<string, Trace>();
-        private List<ITraceObject> _traceMessages = new List<ITraceObject>();
+        private List<ITraceObject> _traceMessages = null;
         private string _componentName = string.Empty;
         private static object _lockObject = new object();
+
+        private Trace(string pComponent)
+        {
+            _traceMessages = new List<ITraceObject>();
+            _componentName = pComponent;
+        }
 
         public List<TraceMessageAdapter> ReadLogFile(out int pNumMessages, string pFullFilePath)
         {
@@ -39,63 +46,63 @@ namespace PlexByte.MoCap.Logging
             return LogObject.ReadLogFileRaw(out pNumMessages);
         }
 
-        public virtual ITrace GetInstance(string pComponent)
+        public static ITrace GetInstance(string pComponent)
         {
 
             lock (_lockObject)
             {
-                if (!_instances.ContainsKey(pComponent)) _instances.Add(pComponent, new Trace());
+                if (!_instances.ContainsKey(pComponent)) _instances.Add(pComponent, new Trace(pComponent));
             }
             return _instances[pComponent];
 
         }
 
-        public virtual void Always(ITraceObject pMessage) { LogMessage(pMessage); }
+        public void Always(ITraceObject pMessage) { LogMessage(pMessage); }
 
-        public virtual void Always(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.SysInfo)); }
+        public void Always(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.SysInfo)); }
 
-        public virtual void Exception(string pMessage, Exception pException)
+        public void Exception(string pMessage, Exception pException)
         {
             ITraceObject trace = CreateMessage(pMessage, TraceObjectType.Exception);
             pException = trace.CodeException;
             LogMessage(trace);
         }
 
-        public virtual void Error(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.Error)); }
+        public void Error(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.Error)); }
 
-        public virtual void Warning(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.Warning)); }
+        public void Warning(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.Warning)); }
 
-        public virtual void Info(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.Info)); }
+        public void Info(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.Info)); }
 
-        public virtual void Detail(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.Detail)); }
+        public void Detail(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.Detail)); }
 
-        public virtual void Verbose(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.Verbose)); }
+        public void Verbose(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.Verbose)); }
 
-        public virtual void All(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.All)); }
+        public void All(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.All)); }
 
-        public virtual void EnterScope(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.EnterScope)); }
+        public void EnterScope(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.EnterScope)); }
 
-        public virtual void ExitScope(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.ExitScope)); }
+        public void ExitScope(string pMessage) { LogMessage(CreateMessage(pMessage, TraceObjectType.ExitScope)); }
 
-        public virtual void All(ITraceObject pMessage) { LogMessage(pMessage); }
+        public void All(ITraceObject pMessage) { LogMessage(pMessage); }
 
-        public virtual void EnterScope(ITraceObject pMessage) { LogMessage(pMessage); }
+        public void EnterScope(ITraceObject pMessage) { LogMessage(pMessage); }
 
-        public virtual void ExitScope(ITraceObject pMessage) { LogMessage(pMessage); }
+        public void ExitScope(ITraceObject pMessage) { LogMessage(pMessage); }
 
-        public virtual void Exception(ITraceObject pMessage) { LogMessage(pMessage); }
+        public void Exception(ITraceObject pMessage) { LogMessage(pMessage); }
 
-        public virtual void Error(ITraceObject pMessage) { LogMessage(pMessage); }
+        public void Error(ITraceObject pMessage) { LogMessage(pMessage); }
 
-        public virtual void Warning(ITraceObject pMessage) { LogMessage(pMessage); }
+        public void Warning(ITraceObject pMessage) { LogMessage(pMessage); }
 
-        public virtual void Info(ITraceObject pMessage) { LogMessage(pMessage); }
+        public void Info(ITraceObject pMessage) { LogMessage(pMessage); }
 
-        public virtual void Detail(ITraceObject pMessage) { LogMessage(pMessage); }
+        public void Detail(ITraceObject pMessage) { LogMessage(pMessage); }
 
-        public virtual void Verbose(ITraceObject pMessage) { LogMessage(pMessage); }
+        public void Verbose(ITraceObject pMessage) { LogMessage(pMessage); }
 
-        public virtual void RegisterComponent(string pFileName,
+        public void RegisterComponent(string pFileName,
             string pComponent = "",
             string pFilePath = "",
             int pLevel = 40,
@@ -136,7 +143,7 @@ namespace PlexByte.MoCap.Logging
 
         public void Dispose()
         {
-            _traceMessages.Add(TraceFactory.CreateTraceObject($"Disposing trace object for component {ComponentName}", 
+            _traceMessages.Add(TraceFactory.CreateTraceObject($"Disposing trace object for component {ComponentName}",
                 TraceObjectType.SysInfo));
             LogObject.Write(_traceMessages);
             _traceMessages.Clear();

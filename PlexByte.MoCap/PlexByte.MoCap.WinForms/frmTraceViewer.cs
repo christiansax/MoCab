@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Timers;
@@ -14,7 +15,7 @@ namespace PlexByte.MoCap.WinForms
         public delegate void AddFormatedMessageHandler(TraceMessageAdapter pMessage);
         public delegate void ReadLogFileHandler(string pFullPath);
 
-        private ITrace _trace = null;
+        private MoCap.Logging.ITrace _trace = null;
         private int _curRow = -1;
         private bool _isTimerActive = false;
         private System.Timers.Timer _refreshTimer = null;
@@ -62,7 +63,7 @@ namespace PlexByte.MoCap.WinForms
             // Auto refresh
             toolStripButton3.CheckOnClick = !toolStripButton3.CheckOnClick;
             toolStripButton3.Checked = !toolStripButton3.Checked;
-            if (!_isTimerActive && toolStripButton3.Checked && _trace.Log!=null)
+            if (!_isTimerActive && toolStripButton3.Checked && _trace.GetInstance("Test")!=null)
             {
                 _isTimerActive = true;
                 _refreshTimer=new System.Timers.Timer(10000);
@@ -82,8 +83,10 @@ namespace PlexByte.MoCap.WinForms
 
         void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            string fullFilePath = _trace.Log.FilePath + "\\" + _trace.Log.TraceDate.Date.ToString("yyyyMMdd") + "\\" + _trace.Log.FileName;
-            ReadLogFile(fullFilePath);
+            _trace= _trace.GetInstance("Viewer");
+            //string fullFilePath = _trace.GetInstance()
+            int numMsg = 0;
+            //ReadLogFile(out numMsg,fullFilePath);
         }
 
         private void InitializeToolTips()
@@ -115,10 +118,10 @@ namespace PlexByte.MoCap.WinForms
                     _trace.TracePrefix = "   ";
                     int numMsg = 0;
                     long currNum = 0;
-                    _trace.ReadLogFileRaw(out numMsg, openFileDialog1.FileName);
+                    List<ITraceObject> messages= _trace.ReadLogFileRaw(out numMsg, openFileDialog1.FileName);
 
                     TimeSpan duration = DateTime.Now.TimeOfDay;
-                    foreach (TraceMessage msg in _trace.Log.ReadLog(out numMsg))
+                    foreach (TraceMessage msg in messages)
                     {
                         currNum++;
                         UpdateStatusLabel($"Reading {currNum} out of {numMsg} Messages...".ToString());

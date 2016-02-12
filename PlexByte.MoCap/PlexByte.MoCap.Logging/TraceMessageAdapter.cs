@@ -1,64 +1,82 @@
 ﻿using System;
-using System.Text;
 using System.Drawing;
+using System.Runtime.Remoting.Contexts;
+using System.Text;
+using System.Threading;
 
 namespace PlexByte.MoCap.Logging
 {
     public class TraceMessageAdapter
     {
-        public string TimeStamp { get; set; }
-        public Image Type { get; set; }
-        public string Message { get; set; }
-        public int Level { get; set; }
-        public string Thread { get; set; }
-        public string Component { get; set; }
-        public string MethodName { get; set; }
-        public string MethodDefinition { get; set; }
-        public int LineNumber { get; set; }
-        public string SourceFile { get; set; }
-        public string Context { get; set; }
-        public string Attribute1 { get; set; }
+        public virtual string CodeException { get; set; }
 
-        [System.ComponentModel.Browsable(false)]
-        public Color MessageColor { get; } = Color.Transparent;
+        public virtual string Component { get; set; }
 
-        private const string TimeFormat = "HH:mm:ss.fff";
+        public virtual string CustomDTValue { get; set; }
 
-        /// <summary>
-        /// Creates a formatted log message from a logMessage
-        /// </summary>
-        /// <param name="pLogMessage">The logmessage to use</param>
-        /// <param name="pIndentSpacer">The indent specifier to use</param>
-        public TraceMessageAdapter(PlexByte.MoCap.Logging.TraceMessage pLogMessage, string pIndentSpacer)
+        public virtual string CustomIntValue { get; set; }
+
+        public virtual string CustomStringValue { get; set; }
+
+        public virtual int IndentLevel { get; set; }
+
+        public virtual int Level { get; set; }
+
+        public virtual int LineNumber { get; set; }
+
+        public virtual string Message { get; set; }
+
+        public virtual string Time { get; set; }
+
+        public virtual string Method { get; set; }
+
+        public virtual string ObjectId { get; set; }
+
+        public virtual string ScopedMethod { get; set; }
+
+        public virtual string Source { get; set; }
+
+        public virtual string ThreadId { get; set; }
+
+        public virtual string Topic { get; set; }
+
+        public virtual Image Type { get; set; }
+
+        public virtual Color MessageColor { get; set; }
+
+        private static string _timeFormat = "HH:mm:ss.fff";
+        private static string _dateFormat = "yyy/MM/dd";
+
+        public TraceMessageAdapter(ITraceObject pTraceMessage,string pIndentSpacer)
         {
-            TimeStamp = pLogMessage.MessageDateTime.ToString(TimeFormat);
+            Time = pTraceMessage.MessageDateTime.ToString(_timeFormat);
             StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < pLogMessage.IndentLevel; i++)
+            for (int i = 0; i < pTraceMessage.IndentLevel; i++)
                 sb.Append(pIndentSpacer);
-            sb.Append(pLogMessage.Message);
+            sb.Append(pTraceMessage.Message);
             Message = sb.ToString();
             sb = null;
 
-            switch (pLogMessage.Type)
+            switch (pTraceMessage.Type)
             {
-                case TraceType.EnterScope:
+                case TraceObjectType.EnterScope:
                     Type = Properties.Resources.EnterScope;
                     break;
-                case TraceType.ExitScope:
+                case TraceObjectType.ExitScope:
                     Type = Properties.Resources.ExitScope;
                     break;
-                case TraceType.Detail:
+                case TraceObjectType.Detail:
                     Type = Properties.Resources.Detail;
                     break;
-                case TraceType.Error:
+                case TraceObjectType.Error:
                     Type = Properties.Resources.Error;
                     MessageColor = Color.FromArgb(242, 80, 80);
                     break;
-                case TraceType.Warning:
+                case TraceObjectType.Warning:
                     Type = Properties.Resources.Warning;
                     MessageColor = Color.FromArgb(237, 152, 66);
                     break;
-                case TraceType.Info:
+                case TraceObjectType.Info:
                     Type = Properties.Resources.Info;
                     break;
                 default:
@@ -66,48 +84,19 @@ namespace PlexByte.MoCap.Logging
                     break;
             }
 
-            Level = pLogMessage.Level;
-            Thread = pLogMessage.ThreadId;
-            Component = pLogMessage.Component;
-            MethodName = pLogMessage.Method;
-            MethodDefinition = pLogMessage.ScopedMethod;
-            LineNumber = pLogMessage.LineNumber;
-            SourceFile = pLogMessage.Source;
-            Context = pLogMessage.Topic;
-            Attribute1 = pLogMessage.ObjectId.ToString();
+            Level = pTraceMessage.Level;
+            ThreadId = pTraceMessage.ThreadId;
+            Component = pTraceMessage.Component;
+            Method = pTraceMessage.Method;
+            ScopedMethod = pTraceMessage.ScopedMethod;
+            LineNumber = pTraceMessage.LineNumber;
+            Source = pTraceMessage.Source;
+            Topic = pTraceMessage.Topic;
+            ObjectId = pTraceMessage.ObjectId.ToString();
+            CustomDTValue = (pTraceMessage.CustomDateTimeValue != default(DateTime)) ? pTraceMessage.CustomDateTimeValue.ToString(_dateFormat + " " + _timeFormat) : null;
+            CustomIntValue = (pTraceMessage.CustomIntValue != default(int)) ? pTraceMessage.CustomIntValue.ToString() : null;
+            CustomStringValue = (pTraceMessage.CustomStringValue != String.Empty) ? pTraceMessage.CustomStringValue : null;
         }
 
-        /// <summary>
-        /// Creates a formatted log message from direct imputs
-        /// </summary>
-        /// <param name="pTimeStamp">The datetime of the message</param>
-        /// <param name="pType">The message bitmap to display</param>
-        /// <param name="pMessage">The message</param>
-        /// <param name="pLevel">The level of this message</param>
-        /// <param name="pThread">The thread of this message</param>
-        /// <param name="pComponent">The component</param>
-        /// <param name="pMethodName">The method name from which it came from</param>
-        /// <param name="pMethodDefinition">The method definition</param>
-        /// <param name="pLineNumber">The line number this message was generated</param>
-        /// <param name="pSourceFile">The source file from which this came from</param>
-        /// <param name="pContext">The context of this message</param>
-        /// <param name="pAttribute1">The attribute1 of this message</param>
-        public TraceMessageAdapter(DateTime pTimeStamp, Image pType, string pMessage, int pLevel, string pThread,
-            string pComponent, string pMethodName, string pMethodDefinition, int pLineNumber, string pSourceFile,
-            string pContext, string pAttribute1)
-        {
-            TimeStamp = pTimeStamp.ToString(TimeFormat);
-            Type = pType;
-            Message = pMessage;
-            Level = pLevel;
-            Thread = pThread;
-            Component = pComponent;
-            MethodName = pMethodName;
-            MethodDefinition = pMethodDefinition;
-            LineNumber = pLineNumber;
-            SourceFile = pSourceFile;
-            Context = pContext;
-            Attribute1 = pAttribute1;
-        }
     }
 }

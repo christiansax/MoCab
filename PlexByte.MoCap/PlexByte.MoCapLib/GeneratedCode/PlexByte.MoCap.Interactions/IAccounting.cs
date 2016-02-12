@@ -6,15 +6,19 @@
 //------------------------------------------------------------------------------
 namespace PlexByte.MoCap.Interactions
 {
-	using Logging;
+	using PlexByte.MoCap.Security;
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
 
-	public interface IOption 
+	public interface IAccounting  : IInteraction
 	{
-		string Text { get;set; }
+		IBill IBill { get;set; }
+
+		void AttachBill();
+
+		void Edit();
 
 	}
 }

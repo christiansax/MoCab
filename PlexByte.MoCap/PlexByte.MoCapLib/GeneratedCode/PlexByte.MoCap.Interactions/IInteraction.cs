@@ -4,12 +4,14 @@
 //     Changes to this file will be lost if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
-using PlexByte.MoCap.Security;
-
-namespace PlexByte.MoCap.Logging
+namespace PlexByte.MoCap.Interactions
 {
+	using PlexByte.MoCap.Logging;
+	using PlexByte.MoCap.Security;
 	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Text;
 
 	public interface IInteraction 
 	{
@@ -25,15 +27,19 @@ namespace PlexByte.MoCap.Logging
 
 		bool IsActive { get;set; }
 
-		IUser Creator { get;set; }
+		string Text { get;set; }
+
+		InteractionType Type { get;set; }
 
 		IUser Owner { get;set; }
 
-		IInteraction Create();
+		IUser Creator { get;set; }
+
+		IInteraction Create(string pText);
 
 		void Delete(IInteraction pInteraction);
 
-		void Complete(IInteraction pInteraction);
+		void OnComplete(IInteraction pInteraction, InteractionEventArgs e);
 
 		void ChangeOwner(IUser pUser);
 

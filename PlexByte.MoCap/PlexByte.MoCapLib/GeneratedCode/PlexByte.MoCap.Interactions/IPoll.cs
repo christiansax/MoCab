@@ -6,15 +6,28 @@
 //------------------------------------------------------------------------------
 namespace PlexByte.MoCap.Interactions
 {
-	using Logging;
+	using PlexByte.MoCap.Logging;
+	using PlexByte.MoCap.Security;
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
 
-	public interface IOption 
+	public interface IPoll  : IInteraction
 	{
-		string Text { get;set; }
+		int MaxVoteCountPerUser { get;set; }
+
+		IEnumerable<IOption> IOption { get;set; }
+
+		IEnumerable<IVote> IVote { get;set; }
+
+		ITask ITask { get;set; }
+
+		void Vote(IVote pVote);
+
+		IOption AddOption(string pText);
+
+		IVote AddVote(IOption pOption, IUser pUser);
 
 	}
 }

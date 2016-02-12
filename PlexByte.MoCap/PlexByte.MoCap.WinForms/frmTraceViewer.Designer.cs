@@ -59,19 +59,23 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.timeStampDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.messageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.levelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.threadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.componentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.methodNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.methodDefinitionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lineNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sourceFileDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.attribute1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.traceMessageAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.typeDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.messageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.objectIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.componentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.topicDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.levelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.threadIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lineNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.methodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scopedMethodDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customDTValueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customIntValueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customStringValueDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codeExceptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -273,32 +277,33 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.timeStampDataGridViewTextBoxColumn,
             this.typeDataGridViewImageColumn,
+            this.timeDataGridViewTextBoxColumn,
             this.messageDataGridViewTextBoxColumn,
-            this.levelDataGridViewTextBoxColumn,
-            this.threadDataGridViewTextBoxColumn,
+            this.objectIdDataGridViewTextBoxColumn,
             this.componentDataGridViewTextBoxColumn,
-            this.methodNameDataGridViewTextBoxColumn,
-            this.methodDefinitionDataGridViewTextBoxColumn,
+            this.topicDataGridViewTextBoxColumn,
+            this.levelDataGridViewTextBoxColumn,
+            this.threadIdDataGridViewTextBoxColumn,
             this.lineNumberDataGridViewTextBoxColumn,
-            this.sourceFileDataGridViewTextBoxColumn,
-            this.contextDataGridViewTextBoxColumn,
-            this.attribute1DataGridViewTextBoxColumn});
+            this.methodDataGridViewTextBoxColumn,
+            this.scopedMethodDataGridViewTextBoxColumn,
+            this.sourceDataGridViewTextBoxColumn,
+            this.customDTValueDataGridViewTextBoxColumn,
+            this.customIntValueDataGridViewTextBoxColumn,
+            this.customStringValueDataGridViewTextBoxColumn,
+            this.codeExceptionDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.traceMessageAdapterBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 52);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(825, 374);
@@ -307,7 +312,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.tbx_MessageDetail);
             this.groupBox1.Location = new System.Drawing.Point(12, 432);
@@ -319,8 +324,8 @@
             // 
             // tbx_MessageDetail
             // 
-            this.tbx_MessageDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.tbx_MessageDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbx_MessageDetail.Location = new System.Drawing.Point(7, 20);
             this.tbx_MessageDetail.Multiline = true;
@@ -362,93 +367,117 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // timeStampDataGridViewTextBoxColumn
+            // traceMessageAdapterBindingSource
             // 
-            this.timeStampDataGridViewTextBoxColumn.DataPropertyName = "TimeStamp";
-            this.timeStampDataGridViewTextBoxColumn.HeaderText = "TimeStamp";
-            this.timeStampDataGridViewTextBoxColumn.Name = "timeStampDataGridViewTextBoxColumn";
-            this.timeStampDataGridViewTextBoxColumn.ReadOnly = true;
+            this.traceMessageAdapterBindingSource.DataSource = typeof(PlexByte.MoCap.Logging.TraceMessageAdapter);
             // 
             // typeDataGridViewImageColumn
             // 
             this.typeDataGridViewImageColumn.DataPropertyName = "Type";
             this.typeDataGridViewImageColumn.HeaderText = "Type";
             this.typeDataGridViewImageColumn.Name = "typeDataGridViewImageColumn";
-            this.typeDataGridViewImageColumn.ReadOnly = true;
+            this.typeDataGridViewImageColumn.Width = 20;
+            // 
+            // timeDataGridViewTextBoxColumn
+            // 
+            this.timeDataGridViewTextBoxColumn.DataPropertyName = "Time";
+            this.timeDataGridViewTextBoxColumn.HeaderText = "Time";
+            this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
+            this.timeDataGridViewTextBoxColumn.Width = 30;
             // 
             // messageDataGridViewTextBoxColumn
             // 
             this.messageDataGridViewTextBoxColumn.DataPropertyName = "Message";
             this.messageDataGridViewTextBoxColumn.HeaderText = "Message";
             this.messageDataGridViewTextBoxColumn.Name = "messageDataGridViewTextBoxColumn";
-            this.messageDataGridViewTextBoxColumn.ReadOnly = true;
+            this.messageDataGridViewTextBoxColumn.Width = 250;
             // 
-            // levelDataGridViewTextBoxColumn
+            // objectIdDataGridViewTextBoxColumn
             // 
-            this.levelDataGridViewTextBoxColumn.DataPropertyName = "Level";
-            this.levelDataGridViewTextBoxColumn.HeaderText = "Level";
-            this.levelDataGridViewTextBoxColumn.Name = "levelDataGridViewTextBoxColumn";
-            this.levelDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // threadDataGridViewTextBoxColumn
-            // 
-            this.threadDataGridViewTextBoxColumn.DataPropertyName = "Thread";
-            this.threadDataGridViewTextBoxColumn.HeaderText = "Thread";
-            this.threadDataGridViewTextBoxColumn.Name = "threadDataGridViewTextBoxColumn";
-            this.threadDataGridViewTextBoxColumn.ReadOnly = true;
+            this.objectIdDataGridViewTextBoxColumn.DataPropertyName = "ObjectId";
+            this.objectIdDataGridViewTextBoxColumn.HeaderText = "ObjectId";
+            this.objectIdDataGridViewTextBoxColumn.Name = "objectIdDataGridViewTextBoxColumn";
+            this.objectIdDataGridViewTextBoxColumn.Width = 20;
             // 
             // componentDataGridViewTextBoxColumn
             // 
             this.componentDataGridViewTextBoxColumn.DataPropertyName = "Component";
             this.componentDataGridViewTextBoxColumn.HeaderText = "Component";
             this.componentDataGridViewTextBoxColumn.Name = "componentDataGridViewTextBoxColumn";
-            this.componentDataGridViewTextBoxColumn.ReadOnly = true;
+            this.componentDataGridViewTextBoxColumn.Width = 50;
             // 
-            // methodNameDataGridViewTextBoxColumn
+            // topicDataGridViewTextBoxColumn
             // 
-            this.methodNameDataGridViewTextBoxColumn.DataPropertyName = "MethodName";
-            this.methodNameDataGridViewTextBoxColumn.HeaderText = "MethodName";
-            this.methodNameDataGridViewTextBoxColumn.Name = "methodNameDataGridViewTextBoxColumn";
-            this.methodNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.topicDataGridViewTextBoxColumn.DataPropertyName = "Topic";
+            this.topicDataGridViewTextBoxColumn.HeaderText = "Topic";
+            this.topicDataGridViewTextBoxColumn.Name = "topicDataGridViewTextBoxColumn";
             // 
-            // methodDefinitionDataGridViewTextBoxColumn
+            // levelDataGridViewTextBoxColumn
             // 
-            this.methodDefinitionDataGridViewTextBoxColumn.DataPropertyName = "MethodDefinition";
-            this.methodDefinitionDataGridViewTextBoxColumn.HeaderText = "MethodDefinition";
-            this.methodDefinitionDataGridViewTextBoxColumn.Name = "methodDefinitionDataGridViewTextBoxColumn";
-            this.methodDefinitionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.levelDataGridViewTextBoxColumn.DataPropertyName = "Level";
+            this.levelDataGridViewTextBoxColumn.HeaderText = "Level";
+            this.levelDataGridViewTextBoxColumn.Name = "levelDataGridViewTextBoxColumn";
+            this.levelDataGridViewTextBoxColumn.Width = 20;
+            // 
+            // threadIdDataGridViewTextBoxColumn
+            // 
+            this.threadIdDataGridViewTextBoxColumn.DataPropertyName = "ThreadId";
+            this.threadIdDataGridViewTextBoxColumn.HeaderText = "ThreadId";
+            this.threadIdDataGridViewTextBoxColumn.Name = "threadIdDataGridViewTextBoxColumn";
+            this.threadIdDataGridViewTextBoxColumn.Width = 10;
             // 
             // lineNumberDataGridViewTextBoxColumn
             // 
             this.lineNumberDataGridViewTextBoxColumn.DataPropertyName = "LineNumber";
             this.lineNumberDataGridViewTextBoxColumn.HeaderText = "LineNumber";
             this.lineNumberDataGridViewTextBoxColumn.Name = "lineNumberDataGridViewTextBoxColumn";
-            this.lineNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lineNumberDataGridViewTextBoxColumn.Width = 10;
             // 
-            // sourceFileDataGridViewTextBoxColumn
+            // methodDataGridViewTextBoxColumn
             // 
-            this.sourceFileDataGridViewTextBoxColumn.DataPropertyName = "SourceFile";
-            this.sourceFileDataGridViewTextBoxColumn.HeaderText = "SourceFile";
-            this.sourceFileDataGridViewTextBoxColumn.Name = "sourceFileDataGridViewTextBoxColumn";
-            this.sourceFileDataGridViewTextBoxColumn.ReadOnly = true;
+            this.methodDataGridViewTextBoxColumn.DataPropertyName = "Method";
+            this.methodDataGridViewTextBoxColumn.HeaderText = "Method";
+            this.methodDataGridViewTextBoxColumn.Name = "methodDataGridViewTextBoxColumn";
+            this.methodDataGridViewTextBoxColumn.Width = 200;
             // 
-            // contextDataGridViewTextBoxColumn
+            // scopedMethodDataGridViewTextBoxColumn
             // 
-            this.contextDataGridViewTextBoxColumn.DataPropertyName = "Context";
-            this.contextDataGridViewTextBoxColumn.HeaderText = "Context";
-            this.contextDataGridViewTextBoxColumn.Name = "contextDataGridViewTextBoxColumn";
-            this.contextDataGridViewTextBoxColumn.ReadOnly = true;
+            this.scopedMethodDataGridViewTextBoxColumn.DataPropertyName = "ScopedMethod";
+            this.scopedMethodDataGridViewTextBoxColumn.HeaderText = "ScopedMethod";
+            this.scopedMethodDataGridViewTextBoxColumn.Name = "scopedMethodDataGridViewTextBoxColumn";
+            this.scopedMethodDataGridViewTextBoxColumn.Width = 250;
             // 
-            // attribute1DataGridViewTextBoxColumn
+            // sourceDataGridViewTextBoxColumn
             // 
-            this.attribute1DataGridViewTextBoxColumn.DataPropertyName = "Attribute1";
-            this.attribute1DataGridViewTextBoxColumn.HeaderText = "Attribute1";
-            this.attribute1DataGridViewTextBoxColumn.Name = "attribute1DataGridViewTextBoxColumn";
-            this.attribute1DataGridViewTextBoxColumn.ReadOnly = true;
+            this.sourceDataGridViewTextBoxColumn.DataPropertyName = "Source";
+            this.sourceDataGridViewTextBoxColumn.HeaderText = "Source";
+            this.sourceDataGridViewTextBoxColumn.Name = "sourceDataGridViewTextBoxColumn";
+            this.sourceDataGridViewTextBoxColumn.Width = 250;
             // 
-            // traceMessageAdapterBindingSource
+            // customDTValueDataGridViewTextBoxColumn
             // 
-            this.traceMessageAdapterBindingSource.DataSource = typeof(PlexByte.MoCap.Logging.TraceMessageAdapter);
+            this.customDTValueDataGridViewTextBoxColumn.DataPropertyName = "CustomDTValue";
+            this.customDTValueDataGridViewTextBoxColumn.HeaderText = "CustomDTValue";
+            this.customDTValueDataGridViewTextBoxColumn.Name = "customDTValueDataGridViewTextBoxColumn";
+            // 
+            // customIntValueDataGridViewTextBoxColumn
+            // 
+            this.customIntValueDataGridViewTextBoxColumn.DataPropertyName = "CustomIntValue";
+            this.customIntValueDataGridViewTextBoxColumn.HeaderText = "CustomIntValue";
+            this.customIntValueDataGridViewTextBoxColumn.Name = "customIntValueDataGridViewTextBoxColumn";
+            // 
+            // customStringValueDataGridViewTextBoxColumn
+            // 
+            this.customStringValueDataGridViewTextBoxColumn.DataPropertyName = "CustomStringValue";
+            this.customStringValueDataGridViewTextBoxColumn.HeaderText = "CustomStringValue";
+            this.customStringValueDataGridViewTextBoxColumn.Name = "customStringValueDataGridViewTextBoxColumn";
+            // 
+            // codeExceptionDataGridViewTextBoxColumn
+            // 
+            this.codeExceptionDataGridViewTextBoxColumn.DataPropertyName = "CodeException";
+            this.codeExceptionDataGridViewTextBoxColumn.HeaderText = "CodeException";
+            this.codeExceptionDataGridViewTextBoxColumn.Name = "codeExceptionDataGridViewTextBoxColumn";
+            this.codeExceptionDataGridViewTextBoxColumn.Width = 10;
             // 
             // frmTraceViewer
             // 
@@ -510,17 +539,28 @@
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeStampDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn typeDataGridViewImageColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn messageDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn levelDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn threadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn componentDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn methodNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn methodDefinitionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lineNumberDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sourceFileDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contextDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn attribute1DataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewImageColumn typeDataGridViewImageColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn messageDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn objectIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn componentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn topicDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn levelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn threadIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lineNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn methodDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn scopedMethodDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sourceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customDTValueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customIntValueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customStringValueDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codeExceptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource traceMessageAdapterBindingSource;
     }
 }

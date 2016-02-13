@@ -21,7 +21,7 @@ public class SurveyFactory : ISurveyFactory
 		throw new System.NotImplementedException();
 	}
 
-	public virtual ISurvey CreateSurvey(string pId, string pText, List<ISurveyOption> pOptions, IUser pCreator)
+	public virtual ISurvey CreateSurvey(string pId, string pText, List<ISurveyOptions> pOptions, IUser pCreator)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -41,34 +41,5 @@ public class SurveyFactory : ISurveyFactory
 		throw new System.NotImplementedException();
 	}
 
-    IVote ISurveyFactory.CreateVote(string pId, IUser pUser, ISurveyOption pOption)
-    {
-        throw new NotImplementedException();
-    }
-
-    ISurveyOption ISurveyFactory.CreateSurveyOption(string pId, string pText)
-    {
-        throw new NotImplementedException();
-    }
-
-    ISurvey ISurveyFactory.CreateSurvey(string pId, string pText, List<ISurveyOption> pOptions, IUser pCreator)
-    {
-        throw new NotImplementedException();
-    }
-
-    ISurvey ISurveyFactory.CreateSurvey(string pId, string pText, List<string> pOptions, IUser pCreator)
-    {
-        throw new NotImplementedException();
-    }
-
-    void ISurveyFactory.AddOption(ISurvey pSurvey, ISurveyOption pOption)
-    {
-        throw new NotImplementedException();
-    }
-
-    void ISurveyFactory.AddVote(ISurvey pSurvey, IVote pVote)
-    {
-        throw new NotImplementedException();
-    }
 }
 

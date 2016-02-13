@@ -9,15 +9,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IVote 
+public class InteractionEventArgs
 {
-	IUser User { get; }
+	public virtual InteractionType Type
+	{
+		get;
+		set;
+	}
 
-	ISurveyOption Option { get; }
+	public virtual DateTime EventDateTime
+	{
+		get;
+		set;
+	}
 
-	DateTime CreatedDateTime { get;set; }
+	public virtual string Message
+	{
+		get;
+		set;
+	}
 
-	string Id { get; }
+	public InteractionEventArgs(string pMessage, DateTime pEventDateTime, InteractionType pType)
+	{
+	}
 
 }
 

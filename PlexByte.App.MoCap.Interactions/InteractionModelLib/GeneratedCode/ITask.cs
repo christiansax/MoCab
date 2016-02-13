@@ -25,9 +25,9 @@ public interface ITask
 
 	IEnumerable<IExpense> ExpenseList { get;set; }
 
-    IEnumerable<IExpense> SubTasks { get; set; }
+	ITask SubTasks { get;set; }
 
-    void AddTimeslice(ITimeslice pTimeslice);
+	void AddTimeslice(ITimeslice pTimeslice);
 
 	void AddExpense(IExpense pExpense);
 

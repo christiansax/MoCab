@@ -9,15 +9,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IVote 
+public enum InteractionType : int
 {
-	IUser User { get; }
-
-	ISurveyOption Option { get; }
-
-	DateTime CreatedDateTime { get;set; }
-
-	string Id { get; }
-
+	Survey,
+	Task,
+	Project,
+	Expense,
+	Timeslice,
 }
-

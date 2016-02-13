@@ -15,7 +15,7 @@ public interface ISurveyOption
 
 	DateTime CreatedDateTime { get;set; }
 
-	string Id { get;set; }
+	string Id { get; }
 
 }
 

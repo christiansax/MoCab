@@ -13,7 +13,11 @@ public interface IInteraction
 {
 	string Id { get; }
 
-	DateTime StartDateTime { get;set; }
+    IUser Creator { get; }
+
+    IUser Owner { get; }
+
+    DateTime StartDateTime { get;set; }
 
 	DateTime EndDateTime { get;set; }
 
@@ -21,7 +25,7 @@ public interface IInteraction
 
 	DateTime ModifiedDateTime { get; }
 
-	bool IsActive { get;set; }
+	bool IsActive { get; }
 
 	string Text { get;set; }
 

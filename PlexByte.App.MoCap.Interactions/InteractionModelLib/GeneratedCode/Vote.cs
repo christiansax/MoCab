@@ -15,56 +15,5 @@ public class Vote : IVote
 	{
 	}
 
-    DateTime IVote.CreatedDateTime
-    {
-        get
-        {
-            throw new NotImplementedException();
-        }
-
-        set
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    string IVote.Id
-    {
-        get
-        {
-            throw new NotImplementedException();
-        }
-
-        set
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    ISurveyOption IVote.Option
-    {
-        get
-        {
-            throw new NotImplementedException();
-        }
-
-        set
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    IUser IVote.User
-    {
-        get
-        {
-            throw new NotImplementedException();
-        }
-
-        set
-        {
-            throw new NotImplementedException();
-        }
-    }
 }
 

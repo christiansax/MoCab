@@ -9,15 +9,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IVote 
+public abstract class SurveyOption : ISurveyOption
 {
-	IUser User { get;set; }
-
-	ISurveyOption Option { get;set; }
-
-	DateTime CreatedDateTime { get;set; }
-
-	string Id { get;set; }
+	public SurveyOption(string pId, string pText)
+	{
+	}
 
 }
 

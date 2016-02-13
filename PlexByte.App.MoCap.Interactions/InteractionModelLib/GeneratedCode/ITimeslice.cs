@@ -9,7 +9,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class PollOption : IPollOption
+public interface ITimeslice 
 {
+	int Duration { get;set; }
+
+	IUser User { get;set; }
+
+	int CalculateDuration(DateTime pStartDT, DateTime pEndDT);
+
 }
 

@@ -9,7 +9,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Poll : IPoll
+public class Vote : IVote
 {
+	public Vote(string pUser, IUser pOption, IOption pOption)
+	{
+	}
+
 }
 

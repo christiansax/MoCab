@@ -11,5 +11,23 @@ using System.Text;
 
 public interface ITask 
 {
+	decimal Budget { get;set; }
+
+	int Duration { get;set; }
+
+	int Priority { get;set; }
+
+	int DurationCurrent { get;set; }
+
+	decimal BudgetUsed { get;set; }
+
+	IEnumerable<ITimeslice> TimesliceList { get;set; }
+
+	IEnumerable<IExpense> ExpenseList { get;set; }
+
+	void AddTimeslice(ITimeslice pTimeslice);
+
+	void AddExpense(IExpense pExpense);
+
 }
 

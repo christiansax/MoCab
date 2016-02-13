@@ -9,7 +9,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IPollOption 
+public interface ISurvey 
 {
+	IEnumerable<ISurveyOption> OptionList { get;set; }
+
+	IEnumerable<IVote> VoteList { get;set; }
+
+	void AddVote(IVote pVote);
+
+	void AddOption(ISurveyOption pOption);
+
 }
 

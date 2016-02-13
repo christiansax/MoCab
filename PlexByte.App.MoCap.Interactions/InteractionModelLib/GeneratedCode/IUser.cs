@@ -9,15 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IVote 
+public interface IUser 
 {
-	IUser User { get;set; }
-
-	ISurveyOption Option { get;set; }
-
-	DateTime CreatedDateTime { get;set; }
-
-	string Id { get;set; }
-
 }
 

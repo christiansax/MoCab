@@ -9,26 +9,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class PollFactory : IPollFactory
+public abstract class Survey : ISurvey, IInteraction
 {
-	public virtual IVote CreateVote(IUser pUser, IOption pOption)
+	public virtual void OnComplete(PlexByte.MoCap::Interactions::IInteraction pInteraction, InteractionEventArgs e)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual IPollOption CreatePollOption(string pText)
+	public virtual void ChangeOwner(IUser pUser)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual IPoll CreatePoll(string pText, List<PollOptions> pOptions)
+	public virtual void ChangeIsActive(bool pActive)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual IPoll CreatePoll(string pText, List<string> pOptions)
+	public virtual void AddVote(IVote pOption)
 	{
 		throw new System.NotImplementedException();
+	}
+
+	public virtual void AddOption(ISurveyOption pOption)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public Survey(string pId, string pText, List<PollOptions> pOptions, IUser pCreator)
+	{
+	}
+
+	public Survey(string pId, string pText, List<string> pOptions, IUser pCreator)
+	{
 	}
 
 }

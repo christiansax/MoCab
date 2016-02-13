@@ -9,15 +9,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IVote 
+public interface IOutlayFactory 
 {
-	IUser User { get;set; }
+	void CreateTimeslice(string pId, IUser pUser, int pDuration);
 
-	ISurveyOption Option { get;set; }
+	void CreateTimeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT);
 
-	DateTime CreatedDateTime { get;set; }
-
-	string Id { get;set; }
+	void AddReceipt(IExpense pExpense, Image pImage);
 
 }
 

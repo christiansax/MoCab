@@ -9,11 +9,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IPoll 
+public interface ISurveyOption 
 {
-	IEnumerable<IPollOption> OptionList { get;set; }
+	string Text { get;set; }
 
-	IEnumerable<IVote> VoteList { get;set; }
+	DateTime CreatedDateTime { get;set; }
+
+	string Id { get;set; }
 
 }
 

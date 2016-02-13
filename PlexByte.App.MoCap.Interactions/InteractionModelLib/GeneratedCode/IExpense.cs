@@ -9,15 +9,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IPollFactory 
+public interface IExpense 
 {
-	IVote CreateVote(IUser pUser, IOption pOption);
+	decimal Value { get;set; }
 
-	IPollOption CreatePollOption(string pText);
+	Image Receipt { get;set; }
 
-	IPoll CreatePoll(string pText, List<PollOptions> pOptions);
-
-	IPoll CreatePoll(string pText, List<string> pOptions);
+	void AddReceipt(Image pImage);
 
 }
 

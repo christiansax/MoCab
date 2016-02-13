@@ -15,43 +15,5 @@ public abstract class SurveyOption : ISurveyOption
 	{
 	}
 
-    DateTime ISurveyOption.CreatedDateTime
-    {
-        get
-        {
-            throw new NotImplementedException();
-        }
-
-        set
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    string ISurveyOption.Id
-    {
-        get
-        {
-            throw new NotImplementedException();
-        }
-
-        set
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    string ISurveyOption.Text
-    {
-        get
-        {
-            throw new NotImplementedException();
-        }
-
-        set
-        {
-            throw new NotImplementedException();
-        }
-    }
 }
 

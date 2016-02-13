@@ -219,6 +219,19 @@ public class Task : IInteraction, ITask
         }
     }
 
+    IEnumerable<IExpense> ITask.SubTasks
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
     public virtual void OnComplete(IInteraction pInteraction, InteractionEventArgs e)
 	{
 		throw new System.NotImplementedException();

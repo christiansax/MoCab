@@ -1301,6 +1301,45 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="12a5b420-fc09-448b-92c4-307e5f212e79"
+            isDerived="false"
+            sourceEndRoleName="ITask"
+            targetEndRoleName="SubTasks"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="d58f5d47-1101-4eb4-9bc2-49577bfa05ea"
+              LastKnownName="ITask"
+              LastKnownLocation="InteractionModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ed28632e-18e0-4545-b4e0-dfd13c08894d"
+                  name="ITask"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4d319e9f-4d2e-4e95-a509-427830cb06a7"
+                  name="SubTasks"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedAttributes>
           <property

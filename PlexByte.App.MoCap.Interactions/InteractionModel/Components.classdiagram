@@ -929,6 +929,22 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="c82d8b12-24ad-47ef-82f5-eab34a664d4a" />
           </association>
+          <association Id="1b1a128b-fc4b-4a2d-88fe-60a48f5a188c" isDerived="false" sourceEndRoleName="ITask" targetEndRoleName="SubTasks" isLeaf="false" isAbstract="false">
+            <interfaceMoniker Id="eaf4447a-ce91-48f0-9244-1d432fd3fe45" LastKnownName="ITask" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d383f614-fa2f-4f95-a640-e5a6306af6f9" name="ITask" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ed28632e-18e0-4545-b4e0-dfd13c08894d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ca7fb55c-f397-4a65-b0ab-5cb9ed827f74" name="SubTasks" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4d319e9f-4d2e-4e95-a509-427830cb06a7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="12a5b420-fc09-448b-92c4-307e5f212e79" />
+          </association>
         </targetEnds>
         <ownedAttributes>
           <property Id="cb8f7161-6d13-4c9b-85d2-ac4031e170e8" name="Budget" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">

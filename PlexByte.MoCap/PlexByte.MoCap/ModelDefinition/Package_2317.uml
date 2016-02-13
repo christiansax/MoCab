@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="cdd67dba-40d7-47bc-882b-a9ebbe89e9a2"
   name="PlexByte.MoCap.Managers" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -354,6 +354,109 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="ba334ee9-4743-4fae-944b-5f973dd176e5"
+            name="ProjectCreate"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0357bf5e-539b-406d-82ac-e69b7f945129"
+                  name="pText"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b6da2728-647b-4ac4-ab8f-c85f60ee9b59"
+                      LastKnownName="string"
+                      LastKnownLocation="Package_2251.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="43ee7a38-e53f-472e-993a-cd416053cd93"
+                  name="EnableBalance"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="277596d0-344a-46d1-a54c-44be8d773ccd"
+                      LastKnownName="bool"
+                      LastKnownLocation="Package_2251.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ac0fc649-73be-4e09-a543-4e730d57f98d"
+                  name="EnablePoll"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="277596d0-344a-46d1-a54c-44be8d773ccd"
+                      LastKnownName="bool"
+                      LastKnownLocation="Package_2251.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="bd1f5d74-abe8-4f9d-b6f7-b74d715d57f9"
+            name="ProjectAddTask"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f16c83f9-59de-4a32-9f02-7d71bbed12d3"
+                  name="pTask"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="7bfdbb34-9bee-4b42-8c77-016e46f9cee2"
+                      LastKnownName="ITask"
+                      LastKnownLocation="Package_2317.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="567c5b1d-d5a8-4789-86b6-bdcad1615426"
+            name="ProjectAddPoll"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ec792b29-402d-4fa1-92d5-ec618b22be01"
+                  name="pPoll"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b1ec3b10-c399-40a0-87f6-22427ea2a579"
+                      LastKnownName="IPoll"
+                      LastKnownLocation="Package_2317.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperations>
       </Interface>
     </packageHasNamedElement>
@@ -361,6 +464,16 @@
       <undefinedType
         Id="8869260e-c6b3-4baa-a39d-567b87aadb08"
         name="IInteraction" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="7bfdbb34-9bee-4b42-8c77-016e46f9cee2"
+        name="ITask" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="b1ec3b10-c399-40a0-87f6-22427ea2a579"
+        name="IPoll" />
     </packageHasNamedElement>
   </packagedElements>
 </package>

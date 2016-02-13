@@ -4378,6 +4378,12 @@
                     <referencedTypeMoniker Id="ef468a99-1784-486e-bedc-6af758728d66" LastKnownName="List&lt;string&gt;" />
                   </type_NamedElement>
                 </property>
+                <property Id="d5ee66f6-133e-4c9a-8fee-edbdf665d6b7" name="UserList" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2d408b23-707b-4dbe-9e40-97b276a630de" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ef468a99-1784-486e-bedc-6af758728d66" LastKnownName="List&lt;string&gt;" />
+                  </type_NamedElement>
+                </property>
               </ownedAttributes>
               <ownedOperations>
                 <operation Id="55dcc898-b0c7-4933-9e87-8eac887ad9f9" name="AddTask" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
@@ -16515,6 +16521,61 @@
                     </operationHasOwnedParameters>
                   </ownedParameters>
                 </operation>
+                <operation Id="fe489de7-e3d3-433e-b775-6d10f6d30410" name="ProjectCreate" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="ba334ee9-4743-4fae-944b-5f973dd176e5" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="78b3e6d6-c041-4da7-bbf8-2f55d715080a" name="pText" direction="In" isUnique="false">
+                        <elementDefinition Id="0357bf5e-539b-406d-82ac-e69b7f945129" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="9ce0efc1-8fb7-4a9b-9484-9f269d65af18" LastKnownName="string" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="d6be11ed-0775-4271-b9a7-b5a4d072a706" name="EnableBalance" direction="In" isUnique="false">
+                        <elementDefinition Id="43ee7a38-e53f-472e-993a-cd416053cd93" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="923959e7-2ad7-49c8-9596-4cddbf661a5e" LastKnownName="bool" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="3824fdf9-9dbe-428a-8467-81eecbabbda1" name="EnablePoll" direction="In" isUnique="false">
+                        <elementDefinition Id="ac0fc649-73be-4e09-a543-4e730d57f98d" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="923959e7-2ad7-49c8-9596-4cddbf661a5e" LastKnownName="bool" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="79fe68c1-a650-4faa-acb2-ecc72d22c7fe" name="ProjectAddTask" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="bd1f5d74-abe8-4f9d-b6f7-b74d715d57f9" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="6ec5fe46-a217-4b8f-9098-5fd7cecf9b47" name="pTask" direction="In" isUnique="false">
+                        <elementDefinition Id="f16c83f9-59de-4a32-9f02-7d71bbed12d3" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="37612510-42f1-4fa8-8656-b286b8795e1a" LastKnownName="ITask" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
+                <operation Id="214cf137-a9ff-41cf-978e-212ead4f8660" name="ProjectAddPoll" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+                  <elementDefinition Id="567c5b1d-d5a8-4789-86b6-bdcad1615426" />
+                  <ownedParameters>
+                    <operationHasOwnedParameters>
+                      <parameter Id="a65cbcef-e8ba-4321-8359-1dc0264c5e3a" name="pPoll" direction="In" isUnique="false">
+                        <elementDefinition Id="ec792b29-402d-4fa1-92d5-ec618b22be01" />
+                        <type_NamedElement>
+                          <referencedTypeMoniker Id="d9d25efd-bed0-4483-b0d1-e1ca5a8be5d0" LastKnownName="IPoll" />
+                        </type_NamedElement>
+                      </parameter>
+                    </operationHasOwnedParameters>
+                  </ownedParameters>
+                </operation>
               </ownedOperations>
             </Interface>
           </packageHasNamedElement>
@@ -16884,6 +16945,16 @@
     <packageHasNamedElement>
       <referencedType Id="ff1220d3-ac31-47ba-bc37-56364de0b2b5" name="DateTime" isAbstract="false" isLeaf="false" cachedFullName="DateTime">
         <elementDefinition Id="8ee8ae77-8b15-40f0-b1ae-5b27117dad71" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="37612510-42f1-4fa8-8656-b286b8795e1a" name="ITask" isAbstract="false" isLeaf="false" cachedFullName="ITask">
+        <elementDefinition Id="7bfdbb34-9bee-4b42-8c77-016e46f9cee2" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="d9d25efd-bed0-4483-b0d1-e1ca5a8be5d0" name="IPoll" isAbstract="false" isLeaf="false" cachedFullName="IPoll">
+        <elementDefinition Id="b1ec3b10-c399-40a0-87f6-22427ea2a579" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

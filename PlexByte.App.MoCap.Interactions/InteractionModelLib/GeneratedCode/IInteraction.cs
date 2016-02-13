@@ -25,9 +25,11 @@ public interface IInteraction
 
 	string Text { get;set; }
 
-	PlexByte.MoCap::PlexByte.MoCap.Interactions::InteractionType Type { get;set; }
+	InteractionType Type { get;set; }
 
-	void OnComplete(PlexByte.MoCap::Interactions::IInteraction pInteraction, InteractionEventArgs e);
+	InteractionEventArgs InteractionEventArgs { get;set; }
+
+	void OnComplete(IInteraction pInteraction, InteractionEventArgs e);
 
 	void ChangeOwner(IUser pUser);
 

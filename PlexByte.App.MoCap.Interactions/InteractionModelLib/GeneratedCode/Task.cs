@@ -11,7 +11,215 @@ using System.Text;
 
 public class Task : IInteraction, ITask
 {
-	public virtual void OnComplete(PlexByte.MoCap::Interactions::IInteraction pInteraction, InteractionEventArgs e)
+    string IInteraction.Id
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    DateTime IInteraction.StartDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    DateTime IInteraction.EndDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    DateTime IInteraction.CreatedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    DateTime IInteraction.ModifiedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    bool IInteraction.IsActive
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    string IInteraction.Text
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    InteractionType IInteraction.Type
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    InteractionEventArgs IInteraction.InteractionEventArgs
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    decimal ITask.Budget
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    int ITask.Duration
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    int ITask.Priority
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    int ITask.DurationCurrent
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    decimal ITask.BudgetUsed
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    IEnumerable<ITimeslice> ITask.TimesliceList
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    IEnumerable<IExpense> ITask.ExpenseList
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public virtual void OnComplete(IInteraction pInteraction, InteractionEventArgs e)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -36,7 +244,32 @@ public class Task : IInteraction, ITask
 		throw new System.NotImplementedException();
 	}
 
-	public Task(string pId, string pText, IUser pCreator)
+    void IInteraction.OnComplete(IInteraction pInteraction, InteractionEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
+
+    void IInteraction.ChangeOwner(IUser pUser)
+    {
+        throw new NotImplementedException();
+    }
+
+    void IInteraction.ChangeIsActive(bool pActive)
+    {
+        throw new NotImplementedException();
+    }
+
+    void ITask.AddTimeslice(ITimeslice pTimeslice)
+    {
+        throw new NotImplementedException();
+    }
+
+    void ITask.AddExpense(IExpense pExpense)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task(string pId, string pText, IUser pCreator)
 	{
 	}
 

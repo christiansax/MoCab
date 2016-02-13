@@ -6,17 +6,14 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 
-public interface IOutlayFactory 
+public enum InteractionType : int
 {
-	void CreateTimeslice(string pId, IUser pUser, int pDuration);
-
-	void CreateTimeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT);
-
-	void AddReceipt(IExpense pExpense, Image pImage);
-
+	Poll,
+	Task,
+	Project,
+	Expense,
+	Timeslice,
 }
-

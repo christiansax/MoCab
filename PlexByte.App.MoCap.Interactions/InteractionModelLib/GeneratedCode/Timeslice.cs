@@ -11,7 +11,150 @@ using System.Text;
 
 public class Timeslice : ITimeslice, IInteraction
 {
-	public virtual void OnComplete(PlexByte.MoCap::Interactions::IInteraction pInteraction, InteractionEventArgs e)
+    int ITimeslice.Duration
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    IUser ITimeslice.User
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    string IInteraction.Id
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    DateTime IInteraction.StartDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    DateTime IInteraction.EndDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    DateTime IInteraction.CreatedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    DateTime IInteraction.ModifiedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    bool IInteraction.IsActive
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    string IInteraction.Text
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    InteractionType IInteraction.Type
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    InteractionEventArgs IInteraction.InteractionEventArgs
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public virtual void OnComplete(IInteraction pInteraction, InteractionEventArgs e)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -39,5 +182,24 @@ public class Timeslice : ITimeslice, IInteraction
 		throw new System.NotImplementedException();
 	}
 
+    int ITimeslice.CalculateDuration(DateTime pStartDT, DateTime pEndDT)
+    {
+        throw new NotImplementedException();
+    }
+
+    void IInteraction.OnComplete(IInteraction pInteraction, InteractionEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
+
+    void IInteraction.ChangeOwner(IUser pUser)
+    {
+        throw new NotImplementedException();
+    }
+
+    void IInteraction.ChangeIsActive(bool pActive)
+    {
+        throw new NotImplementedException();
+    }
 }
 

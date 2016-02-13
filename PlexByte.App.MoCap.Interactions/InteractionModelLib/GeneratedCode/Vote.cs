@@ -11,9 +11,60 @@ using System.Text;
 
 public class Vote : IVote
 {
-	public Vote(string pUser, IUser pOption, IOption pOption)
+	public Vote(string pId, IUser pUser, ISurveyOption pOption)
 	{
 	}
 
+    DateTime IVote.CreatedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    string IVote.Id
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    ISurveyOption IVote.Option
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    IUser IVote.User
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
 

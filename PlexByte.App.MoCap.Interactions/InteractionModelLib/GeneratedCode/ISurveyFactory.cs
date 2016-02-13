@@ -11,11 +11,11 @@ using System.Text;
 
 public interface ISurveyFactory 
 {
-	IVote CreateVote(string pId, IUser pUser, IOption pOption);
+	IVote CreateVote(string pId, IUser pUser, ISurveyOption pOption);
 
 	ISurveyOption CreateSurveyOption(string pId, string pText);
 
-	ISurvey CreateSurvey(string pId, string pText, List<PollOptions> pOptions, IUser pCreator);
+	ISurvey CreateSurvey(string pId, string pText, List<ISurveyOption> pOptions, IUser pCreator);
 
 	ISurvey CreateSurvey(string pId, string pText, List<string> pOptions, IUser pCreator);
 

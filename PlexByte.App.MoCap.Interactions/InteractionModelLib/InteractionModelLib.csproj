@@ -31,18 +31,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GeneratedCode\Expense.cs" />
     <Compile Include="GeneratedCode\IExpense.cs" />
     <Compile Include="GeneratedCode\IInteraction.cs" />
+    <Compile Include="GeneratedCode\InteractionEventArgs.cs" />
+    <Compile Include="GeneratedCode\InteractionType.cs" />
     <Compile Include="GeneratedCode\IOutlayFactory.cs" />
     <Compile Include="GeneratedCode\ISurvey.cs" />
     <Compile Include="GeneratedCode\ISurveyFactory.cs" />

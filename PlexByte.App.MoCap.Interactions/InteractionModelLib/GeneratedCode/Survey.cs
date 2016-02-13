@@ -11,7 +11,150 @@ using System.Text;
 
 public abstract class Survey : ISurvey, IInteraction
 {
-	public virtual void OnComplete(PlexByte.MoCap::Interactions::IInteraction pInteraction, InteractionEventArgs e)
+    IEnumerable<ISurveyOption> ISurvey.OptionList
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    IEnumerable<IVote> ISurvey.VoteList
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    string IInteraction.Id
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    DateTime IInteraction.StartDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    DateTime IInteraction.EndDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    DateTime IInteraction.CreatedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    DateTime IInteraction.ModifiedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    bool IInteraction.IsActive
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    string IInteraction.Text
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    InteractionType IInteraction.Type
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    InteractionEventArgs IInteraction.InteractionEventArgs
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public virtual void OnComplete(IInteraction pInteraction, InteractionEventArgs e)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -36,7 +179,32 @@ public abstract class Survey : ISurvey, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public Survey(string pId, string pText, List<PollOptions> pOptions, IUser pCreator)
+    void ISurvey.AddVote(IVote pVote)
+    {
+        throw new NotImplementedException();
+    }
+
+    void ISurvey.AddOption(ISurveyOption pOption)
+    {
+        throw new NotImplementedException();
+    }
+
+    void IInteraction.OnComplete(IInteraction pInteraction, InteractionEventArgs e)
+    {
+        throw new NotImplementedException();
+    }
+
+    void IInteraction.ChangeOwner(IUser pUser)
+    {
+        throw new NotImplementedException();
+    }
+
+    void IInteraction.ChangeIsActive(bool pActive)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Survey(string pId, string pText, List<ISurveyOption> pOptions, IUser pCreator)
 	{
 	}
 

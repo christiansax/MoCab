@@ -6,17 +6,32 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 
-public interface IOutlayFactory 
+public class InteractionEventArgs
 {
-	void CreateTimeslice(string pId, IUser pUser, int pDuration);
+	public virtual InteractionType Type
+	{
+		get;
+		set;
+	}
 
-	void CreateTimeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT);
+	public virtual DateTime EventDateTime
+	{
+		get;
+		set;
+	}
 
-	void AddReceipt(IExpense pExpense, Image pImage);
+	public virtual string Message
+	{
+		get;
+		set;
+	}
+
+	public InteractionEventArgs(string pMessage, DateTime pEventDateTime, InteractionType pType)
+	{
+	}
 
 }
 

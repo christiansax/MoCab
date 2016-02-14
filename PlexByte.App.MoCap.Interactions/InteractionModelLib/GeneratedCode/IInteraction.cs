@@ -31,7 +31,7 @@ public interface IInteraction
 
 	IUser Owner { get; }
 
-	InteractionState State { get;set; }
+	InteractionState State { get; }
 
 	void OnComplete(InteractionEventArgs pEventArgs);
 
@@ -40,6 +40,10 @@ public interface IInteraction
 	void ChangeIsActive(bool pActive);
 
 	void OnModify(InteractionEventArgs pEventArgs);
+
+	void ChangeState(InteractionState pState);
+
+	void OnStateChanged(InteractionEventArgs pEventArgs);
 
 }
 

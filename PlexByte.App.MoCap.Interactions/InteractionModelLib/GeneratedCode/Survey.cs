@@ -11,6 +11,12 @@ using System.Text;
 
 public abstract class Survey : ISurvey, IInteraction
 {
+	private System.Timers Timer _stateTimer
+	{
+		get;
+		set;
+	}
+
 	public virtual void OnComplete(InteractionEventArgs pEventArgs)
 	{
 		throw new System.NotImplementedException();
@@ -50,6 +56,31 @@ public abstract class Survey : ISurvey, IInteraction
 	}
 
 	public virtual void OnModify(InteractionEventArgs pEventArgs)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void AddUser(IUser pUser)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void RemoveUser(IUser pUser)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void ChangeState(InteractionState pState)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void OnStateChanged(InteractionEventArgs pEventArgs)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	private void OnTimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
 	{
 		throw new System.NotImplementedException();
 	}

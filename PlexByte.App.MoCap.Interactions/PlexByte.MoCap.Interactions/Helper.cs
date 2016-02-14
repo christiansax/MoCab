@@ -47,7 +47,7 @@ public static class Helper
 	}
 
     //TODO: Implement GetTasksByUser
-    public static List<ITasks> GetTasksByUser(IUser pUser)
+    public static List<ITask> GetTasksByUser(IUser pUser)
 	{
 		throw new System.NotImplementedException();
 	}

@@ -12730,11 +12730,6 @@
         <elementDefinition Id="108764e7-190c-488d-8e26-925dd4ba7fe2" />
       </referencedType>
     </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="4d4eaafc-828f-4914-b281-41ebabe18b5c" name="List&lt;ITasks&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;ITasks&gt;">
-        <elementDefinition Id="5d77bcad-08bc-41fe-a246-1ee27eeb8d14" />
-      </referencedType>
-    </packageHasNamedElement>
     <logicalClassDesignerModelHasTypes>
       <class Id="dd5c736a-a4c5-4ead-bb71-474d49b3da5a" name="Helper" isAbstract="false" isLeaf="false" isActiveClass="false">
         <appliedStereotypesInternal>
@@ -13231,18 +13226,18 @@
             <elementDefinition Id="3117e81b-7696-43b2-b302-1bac728f782f" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="071c7310-c0dc-4c74-9b47-af1c6a9028a1" name="pUser" direction="In" isUnique="false">
-                  <elementDefinition Id="ead1b658-3ab2-4013-a9c8-f5a287cab286" />
+                <parameter Id="ec2c5834-41ce-4bb4-8bd3-7735b717cc3d" direction="Return" isUnique="false">
+                  <elementDefinition Id="7d02d4c3-cb0b-41da-aa5a-69adb0f32e3e" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
+                    <referencedTypeMoniker Id="a194bf58-6e06-40aa-8b9d-14b3f7493029" LastKnownName="List&lt;ITask&gt;" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="ec2c5834-41ce-4bb4-8bd3-7735b717cc3d" direction="Return" isUnique="false">
-                  <elementDefinition Id="7d02d4c3-cb0b-41da-aa5a-69adb0f32e3e" />
+                <parameter Id="c12076aa-26f7-4477-8fd9-6c73587e5730" name="pUser" direction="In" isUnique="false">
+                  <elementDefinition Id="246b9fd9-e3e8-4ab5-bde5-7ec86caadb4d" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="4d4eaafc-828f-4914-b281-41ebabe18b5c" LastKnownName="List&lt;ITasks&gt;" />
+                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>

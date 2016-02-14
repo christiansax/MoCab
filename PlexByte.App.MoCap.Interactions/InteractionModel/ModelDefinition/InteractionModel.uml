@@ -11981,13 +11981,13 @@
                     <literalString
                       Id="463f1aa0-1788-4973-8e18-4433d73d5c2c"
                       name="Lower"
-                      value="*" />
+                      value="1" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
                       Id="5309d18e-bd5e-4b52-a1ec-8ad4adbdf11d"
                       name="Upper"
-                      value="*" />
+                      value="1" />
                   </upperValueInternal>
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -12145,6 +12145,154 @@
       <undefinedType
         Id="8ec1271c-c2a8-4ca8-a2af-93d637ba06a7"
         name="List&lt;strin&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="06e484f1-aff1-40b2-ab74-4b8b3252f0ab"
+        name="IInteractionEventManager"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="f6f988e9-6389-4bab-b37f-f004e0772825"
+        name="IInteractionManager"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="d3fef277-acd0-43b1-a4fe-5677ce6005a5"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="544d04ff-bf8f-4153-bbcc-adec961f5f66"
+              LastKnownName="ISurveyFactory"
+              LastKnownLocation="InteractionModel.uml" />
+          </generalization>
+          <generalization
+            Id="1360c80c-855e-4f43-9b3b-806208fe399f"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="5b0354ca-176d-492a-a544-a014b3ecee9e"
+              LastKnownName="IProjectFactory"
+              LastKnownLocation="InteractionModel.uml" />
+          </generalization>
+          <generalization
+            Id="53f541ec-7168-459b-b4bd-50cbd42dc92b"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="b5ced303-a4eb-428a-839d-7c66ce611887"
+              LastKnownName="ITaskFactory"
+              LastKnownLocation="InteractionModel.uml" />
+          </generalization>
+          <generalization
+            Id="b96ee1a7-d46a-4cb2-95ef-af6919c43929"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="17441f62-62a1-42e4-acad-7a70bd10a6c8"
+              LastKnownName="IOutlayFactory"
+              LastKnownLocation="InteractionModel.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributes>
+          <property
+            Id="e8aa7c80-b02f-49a1-a201-f7ceba1c8eaf"
+            name="SurveyList"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="3333e26e-7aad-4e16-badc-988f014a4015"
+                LastKnownName="List&lt;ISurvey&gt;"
+                LastKnownLocation="InteractionModel.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="4f8799f0-c109-4abd-82e1-7570637ecaf6"
+            name="ProjectList"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="52aea66a-1bae-4174-bcef-b2b8d6aaf537"
+                LastKnownName="List&lt;IProject&gt;"
+                LastKnownLocation="InteractionModel.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="0a13ebbe-4f6a-4347-99f4-b3013874a816"
+            name="TaskList"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="d8f12a85-0a38-4975-921b-0aeae0f59522"
+                LastKnownName="List&lt;ITask&gt;"
+                LastKnownLocation="InteractionModel.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="7456424a-c1f0-441b-b3fe-5e62ca5f9b53"
+            name="OutlayList"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="3e9d67c2-111a-4f28-8017-747bcd2b20d2"
+                LastKnownName="List&lt;Outlay&gt;"
+                LastKnownLocation="InteractionModel.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributes>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="80ebc02e-48c7-4c0e-82c0-245f8a7dcfdf"
+        name="List&lt;InteractionModel::ISurvey&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="52aea66a-1bae-4174-bcef-b2b8d6aaf537"
+        name="List&lt;IProject&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="d8f12a85-0a38-4975-921b-0aeae0f59522"
+        name="List&lt;ITask&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="3e9d67c2-111a-4f28-8017-747bcd2b20d2"
+        name="List&lt;Outlay&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="3333e26e-7aad-4e16-badc-988f014a4015"
+        name="List&lt;ISurvey&gt;" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

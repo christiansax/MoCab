@@ -36,17 +36,12 @@ public class Helper : IHelper
 		throw new System.NotImplementedException();
 	}
 
-	public virtual int DiffMonths(DateTime pStartDateTime, DateTime pEndDateTime)
-	{
-		throw new System.NotImplementedException();
-	}
-
 	public virtual int CalculateAvailableMinutes(IUser pUser)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual List<ITasks> GetTasksByUser(IUser pUser)
+	public virtual List<ITask> GetTasksByUser(IUser pUser)
 	{
 		throw new System.NotImplementedException();
 	}

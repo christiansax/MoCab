@@ -45,5 +45,9 @@ public class InteractionEventArgs
 	{
 	}
 
+	public InteractionEventArgs(string pMessage, DateTime pEventDateTime, InteractionType pType, List<InteractionAttributes> pChangedAttributes)
+	{
+	}
+
 }
 

@@ -41,5 +41,15 @@ public class Account : IAccount, IInteraction
 		throw new System.NotImplementedException();
 	}
 
+	public virtual void ChangeState(InteractionState pState)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void OnStateChanged(InteractionEventArgs pEventArgs)
+	{
+		throw new System.NotImplementedException();
+	}
+
 }
 

@@ -13,6 +13,10 @@ public interface ISurvey
 {
 	DateTime DueDateTime { get;set; }
 
+	List<IUser> UserList { get;set; }
+
+	int MaxVotesPerUser { get;set; }
+
 	IEnumerable<ISurveyOption> OptionList { get;set; }
 
 	IEnumerable<IVote> VoteList { get;set; }
@@ -20,6 +24,10 @@ public interface ISurvey
 	void AddVote(IVote pVote);
 
 	void AddOption(ISurveyOption pOption);
+
+	void AddUser(IUser pUser);
+
+	void RemoveUser(IUser pUser);
 
 }
 

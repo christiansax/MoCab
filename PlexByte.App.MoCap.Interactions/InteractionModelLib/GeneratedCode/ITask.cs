@@ -11,21 +11,21 @@ using System.Text;
 
 public interface ITask 
 {
-	decimal Budget { get;set; }
+	decimal Budget { get; }
 
-	int Duration { get;set; }
+	int Duration { get; }
 
-	int Priority { get;set; }
+	int Priority { get; }
 
 	int DurationCurrent { get;set; }
 
 	decimal BudgetUsed { get;set; }
 
-	IEnumerable<ITimeslice> TimesliceList { get;set; }
+	IEnumerable<ITimeslice> TimesliceList { get; }
 
-	IEnumerable<IExpense> ExpenseList { get;set; }
+	IEnumerable<IExpense> ExpenseList { get; }
 
-	IEnumerable<ITask> SubTasks { get;set; }
+	IEnumerable<ITask> SubTasks { get; }
 
 	void AddTimeslice(ITimeslice pTimeslice);
 

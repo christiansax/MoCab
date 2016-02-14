@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="ad4d6cdc-fb9f-47da-888c-246cb0bab9e8"
   name="InteractionModel" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -15890,6 +15890,14 @@
               LastKnownName="IOutlayFactory"
               LastKnownLocation="InteractionModel.uml" />
           </generalization>
+          <generalization
+            Id="58da4ec8-c394-4454-8502-42fe89ac5687"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="8d55a9fb-60fc-4425-88b7-49fdf7ec941c"
+              LastKnownName="IAccountFactory"
+              LastKnownLocation="InteractionModel.uml" />
+          </generalization>
         </generalsInternal>
         <ownedAttributes>
           <property
@@ -19471,7 +19479,7 @@
       <class
         Id="1345fe21-cdbd-44d6-9336-0fc05a935ae6"
         name="Class1"
-        isAbstract="false"
+        isAbstract="true"
         isLeaf="false"
         isActiveClass="false">
         <ownedOperationsInternal>

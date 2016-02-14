@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="0b4bea06-c539-4a4b-ab3c-8585eb3bae21" name="Components" linkedPackageId="4cecf59a-e13e-477c-816e-9aaebbb8e7aa" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="0b4bea06-c539-4a4b-ab3c-8585eb3bae21" name="Components" linkedPackageId="4cecf59a-e13e-477c-816e-9aaebbb8e7aa" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <appliedStereotypesInternal>
     <stereotypeInstance Id="a3cdced0-649c-4f2d-a2b1-0cce1b23b151" name="namespace" profile="CSharpProfile">
       <elementDefinition Id="df572277-fac4-45d5-80de-eb95f8fc84b4" />
@@ -11482,6 +11482,10 @@
           <generalization Id="41fa0f37-745f-4726-816d-b418934bf3cc" isSubstitutable="false">
             <interfaceMoniker Id="3275e0c5-5b98-4a3b-b246-8cc0d6ad3dc6" LastKnownName="IOutlayFactory" />
             <elementDefinition Id="b96ee1a7-d46a-4cb2-95ef-af6919c43929" />
+          </generalization>
+          <generalization Id="667d75aa-9b77-41ae-94e2-8ccbf23c914a" isSubstitutable="false">
+            <interfaceMoniker Id="381208dc-9b0d-4784-975e-a836c4e1adc1" LastKnownName="IAccountFactory" />
+            <elementDefinition Id="58da4ec8-c394-4454-8502-42fe89ac5687" />
           </generalization>
         </generalsInternal>
         <ownedAttributes>

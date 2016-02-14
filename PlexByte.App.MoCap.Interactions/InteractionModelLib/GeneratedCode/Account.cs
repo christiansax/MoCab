@@ -11,7 +11,128 @@ using System.Text;
 
 public class Account : IAccount, IInteraction
 {
-	public virtual void OnComplete(InteractionEventArgs pEventArgs)
+    public IProject IProject
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public string Id
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime StartDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime EndDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime CreatedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime ModifiedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public bool IsActive
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public string Text
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public InteractionType Type
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public IUser Creator
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public IUser Owner
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public InteractionState State
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public virtual void OnComplete(InteractionEventArgs pEventArgs)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -31,7 +152,7 @@ public class Account : IAccount, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void UserView(IProject pProject, IUser) pUser)
+	public virtual void UserView(IProject pProject, IUser pUser)
 	{
 		throw new System.NotImplementedException();
 	}

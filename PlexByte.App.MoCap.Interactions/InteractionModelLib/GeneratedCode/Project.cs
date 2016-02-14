@@ -11,7 +11,193 @@ using System.Text;
 
 public class Project : IProject, IInteraction
 {
-	public virtual void OnComplete(InteractionEventArgs pEventArgs)
+    public bool EnableBalance
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public bool EnableSurvey
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public List<string> MemberList
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public List<string> InvitationList
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public List<Task> TaskList
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public List<Survey> SurveyList
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public string Id
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime StartDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime EndDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime CreatedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime ModifiedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public bool IsActive
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public string Text
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public InteractionType Type
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public IUser Creator
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public IUser Owner
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public InteractionState State
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public virtual void OnComplete(InteractionEventArgs pEventArgs)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -31,7 +217,7 @@ public class Project : IProject, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddPoll(IPoll pPoll)
+	public virtual void AddSurvey(ISurvey pSurvey)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -71,5 +257,9 @@ public class Project : IProject, IInteraction
 		throw new System.NotImplementedException();
 	}
 
+    public void AddPoll(ISurvey pSurvey)
+    {
+        throw new NotImplementedException();
+    }
 }
 

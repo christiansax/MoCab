@@ -15,7 +15,7 @@ public interface IAccount
 
 	void ProjectView(IProject pProject);
 
-	void UserView(IProject pProject, IUser) pUser);
+	void UserView(IProject pProject, IUser pUser);
 
 }
 

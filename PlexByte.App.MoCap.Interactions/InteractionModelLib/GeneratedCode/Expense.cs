@@ -6,12 +6,147 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
 public class Expense : IExpense, IInteraction
 {
-	public virtual void AddReceipt(Image pImage)
+    public string Id
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime StartDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime EndDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime CreatedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime ModifiedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public bool IsActive
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public string Text
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public InteractionType Type
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public IUser Creator
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public IUser Owner
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public InteractionState State
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public decimal Value
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public Image Receipt
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public virtual void AddReceipt(Image pImage)
 	{
 		throw new System.NotImplementedException();
 	}

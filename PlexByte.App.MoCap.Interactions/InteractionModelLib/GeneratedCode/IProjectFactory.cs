@@ -11,13 +11,13 @@ using System.Text;
 
 public interface IProjectFactory 
 {
-	void AddPoll(IPoll pPoll);
+	void AddPoll(ISurvey pSurvey);
 
 	void AddTask(ITask pTask);
 
 	void Create(string pId, string pText, IUser pCreator);
 
-	void Create(string pId, string pText, IUser pCreatur, List<string> MemberList, List<strin> InvitationList);
+	void Create(string pId, string pText, IUser pCreatur, List<string> MemberList, List<string> InvitationList);
 
 	void Invite(IUser pUser);
 

@@ -29,6 +29,18 @@ public class InteractionEventArgs
 		set;
 	}
 
+	public virtual List<InteractionAttributes> ChangedAttributeList
+	{
+		get;
+		set;
+	}
+
+	public virtual IEnumerable<InteractionAttributes> ChangedAttributeList
+	{
+		get;
+		set;
+	}
+
 	public InteractionEventArgs(string pMessage, DateTime pEventDateTime, InteractionType pType)
 	{
 	}

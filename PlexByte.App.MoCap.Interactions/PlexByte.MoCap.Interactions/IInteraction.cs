@@ -5,37 +5,43 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-public interface IInteraction 
+public delegate void Complete(object sender, InteractionEventArgs e);
+public delegate void Modify(object sender, InteractionEventArgs e);
+
+public interface IInteraction
 {
-	string Id { get; }
+    event Complete Completed;
+    event Modify Modified;
+
+    string Id { get; }
+
+    DateTime StartDateTime { get; set; }
+
+    DateTime EndDateTime { get; set; }
+
+    DateTime CreatedDateTime { get; }
+
+    DateTime ModifiedDateTime { get; }
+
+    bool IsActive { get; }
+
+    string Text { get; set; }
+
+    InteractionType Type { get; set; }
 
     IUser Creator { get; }
 
     IUser Owner { get; }
 
-    DateTime StartDateTime { get;set; }
+    InteractionState State { get; set; }
 
-	DateTime EndDateTime { get;set; }
+    void OnComplete(InteractionEventArgs pEventArgs);
 
-	DateTime CreatedDateTime { get; }
+    void ChangeOwner(IUser pUser);
 
-	DateTime ModifiedDateTime { get; }
+    void ChangeIsActive(bool pActive);
 
-	bool IsActive { get; }
-
-	string Text { get;set; }
-
-	InteractionType Type { get;set; }
-
-	void OnComplete(IInteraction pInteraction, InteractionEventArgs e);
-
-	void ChangeOwner(IUser pUser);
-
-	void ChangeIsActive(bool pActive);
-
+    void OnModify(InteractionEventArgs pEventArgs);
 }
 

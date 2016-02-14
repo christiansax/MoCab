@@ -11,6 +11,8 @@ using System.Text;
 
 public interface ISurvey 
 {
+	DateTime DueDateTime { get;set; }
+
 	IEnumerable<ISurveyOption> OptionList { get;set; }
 
 	IEnumerable<IVote> VoteList { get;set; }

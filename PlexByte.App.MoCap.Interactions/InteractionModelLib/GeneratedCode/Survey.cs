@@ -11,7 +11,7 @@ using System.Text;
 
 public abstract class Survey : ISurvey, IInteraction
 {
-	public virtual void OnComplete(IInteraction pInteraction, InteractionEventArgs e)
+	public virtual void OnComplete(InteractionEventArgs pEventArgs)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -42,6 +42,16 @@ public abstract class Survey : ISurvey, IInteraction
 
 	public Survey(string pId, string pText, List<string> pOptions, IUser pCreator)
 	{
+	}
+
+	private void InitializeProperties(string pId, string pText, List<ISurveyOption> pOptions, IUser pCreator)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void OnModify(InteractionEventArgs pEventArgs)
+	{
+		throw new System.NotImplementedException();
 	}
 
 }

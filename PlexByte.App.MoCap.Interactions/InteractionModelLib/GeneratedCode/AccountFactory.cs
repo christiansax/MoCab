@@ -9,17 +9,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IExpense 
+public class AccountFactory : IAccountFactory
 {
-	decimal Value { get;set; }
-
-	Image Receipt { get;set; }
-
-	void AddReceipt(Image pImage);
-
-	void DeleteReceipt(Image pImage);
-
-	void EditReceipt(Image pImage);
+	public virtual void Create(string pId, object pCreator, object IUser)
+	{
+		throw new System.NotImplementedException();
+	}
 
 }
 

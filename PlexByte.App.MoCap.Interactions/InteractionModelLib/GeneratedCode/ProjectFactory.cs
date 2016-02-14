@@ -9,46 +9,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Task : IInteraction, ITask
+public class ProjectFactory : IProjectFactory
 {
-	public virtual void OnComplete(InteractionEventArgs pEventArgs)
+	public virtual void AddPoll(IPoll pPoll)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void ChangeOwner(IUser pUser)
+	public virtual void AddTask(ITask pTask)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void ChangeIsActive(bool pActive)
+	public virtual void Create(string pId, string pText, IUser pCreator)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddTimeslice(ITimeslice pTimeslice)
+	public virtual void Create(string pId, string pText, IUser pCreatur, List<string> MemberList, List<strin> InvitationList)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddExpense(IExpense pExpense)
+	public virtual void Invite(IUser pUser)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public Task(string pId, string pText, IUser pCreator)
-	{
-	}
-
-	public Task(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT)
-	{
-	}
-
-	public Task(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT, decimal pBudget, int pDuration, int pPriority)
-	{
-	}
-
-	public virtual void OnModify(InteractionEventArgs pEventArgs)
+	public virtual void Accept(IUser pUser)
 	{
 		throw new System.NotImplementedException();
 	}

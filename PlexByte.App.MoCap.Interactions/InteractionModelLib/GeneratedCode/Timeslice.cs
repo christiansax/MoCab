@@ -11,7 +11,7 @@ using System.Text;
 
 public class Timeslice : ITimeslice, IInteraction
 {
-	public virtual void OnComplete(IInteraction pInteraction, InteractionEventArgs e)
+	public virtual void OnComplete(InteractionEventArgs pEventArgs)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -35,6 +35,11 @@ public class Timeslice : ITimeslice, IInteraction
 	}
 
 	public virtual int CalculateDuration(DateTime pStartDT, DateTime pEndDT)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void OnModify(InteractionEventArgs pEventArgs)
 	{
 		throw new System.NotImplementedException();
 	}

@@ -9,17 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IExpense 
+public interface IUserManager 
 {
-	decimal Value { get;set; }
-
-	Image Receipt { get;set; }
-
-	void AddReceipt(Image pImage);
-
-	void DeleteReceipt(Image pImage);
-
-	void EditReceipt(Image pImage);
-
 }
 

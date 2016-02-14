@@ -11,7 +11,7 @@ using System.Text;
 
 public enum InteractionType : int
 {
-	Poll,
+	Survey,
 	Task,
 	Project,
 	Expense,

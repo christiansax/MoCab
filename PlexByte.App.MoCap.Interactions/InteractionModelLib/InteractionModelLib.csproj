@@ -34,12 +34,24 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GeneratedCode\Account.cs" />
+    <Compile Include="GeneratedCode\AccountFactory.cs" />
     <Compile Include="GeneratedCode\Expense.cs" />
+    <Compile Include="GeneratedCode\Helper.cs" />
+    <Compile Include="GeneratedCode\IAccount.cs" />
+    <Compile Include="GeneratedCode\IAccountFactory.cs" />
+    <Compile Include="GeneratedCode\IDataManager.cs" />
     <Compile Include="GeneratedCode\IExpense.cs" />
+    <Compile Include="GeneratedCode\IHelper.cs" />
     <Compile Include="GeneratedCode\IInteraction.cs" />
+    <Compile Include="GeneratedCode\IInteractionManager.cs" />
+    <Compile Include="GeneratedCode\InteractionAttributes.cs" />
     <Compile Include="GeneratedCode\InteractionEventArgs.cs" />
+    <Compile Include="GeneratedCode\InteractionState.cs" />
     <Compile Include="GeneratedCode\InteractionType.cs" />
     <Compile Include="GeneratedCode\IOutlayFactory.cs" />
+    <Compile Include="GeneratedCode\IProject.cs" />
+    <Compile Include="GeneratedCode\IProjectFactory.cs" />
     <Compile Include="GeneratedCode\ISurvey.cs" />
     <Compile Include="GeneratedCode\ISurveyFactory.cs" />
     <Compile Include="GeneratedCode\ISurveyOption.cs" />
@@ -47,8 +59,11 @@
     <Compile Include="GeneratedCode\ITaskFactory.cs" />
     <Compile Include="GeneratedCode\ITimeslice.cs" />
     <Compile Include="GeneratedCode\IUser.cs" />
+    <Compile Include="GeneratedCode\IUserManager.cs" />
     <Compile Include="GeneratedCode\IVote.cs" />
     <Compile Include="GeneratedCode\OutlayFactory.cs" />
+    <Compile Include="GeneratedCode\Project.cs" />
+    <Compile Include="GeneratedCode\ProjectFactory.cs" />
     <Compile Include="GeneratedCode\Survey.cs" />
     <Compile Include="GeneratedCode\SurveyFactory.cs" />
     <Compile Include="GeneratedCode\SurveyOption.cs" />

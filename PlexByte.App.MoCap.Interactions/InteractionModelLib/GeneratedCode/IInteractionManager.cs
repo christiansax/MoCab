@@ -9,17 +9,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IExpense 
+public interface IInteractionManager  : ISurveyFactory, IProjectFactory, ITaskFactory, IOutlayFactory
 {
-	decimal Value { get;set; }
+	List<ISurvey> SurveyList { get;set; }
 
-	Image Receipt { get;set; }
+	List<IProject> ProjectList { get;set; }
 
-	void AddReceipt(Image pImage);
+	List<ITask> TaskList { get;set; }
 
-	void DeleteReceipt(Image pImage);
-
-	void EditReceipt(Image pImage);
+	List<Outlay> OutlayList { get;set; }
 
 }
 

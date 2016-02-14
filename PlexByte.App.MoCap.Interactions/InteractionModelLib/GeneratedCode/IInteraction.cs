@@ -21,17 +21,25 @@ public interface IInteraction
 
 	DateTime ModifiedDateTime { get; }
 
-	bool IsActive { get;set; }
+	bool IsActive { get; }
 
 	string Text { get;set; }
 
 	InteractionType Type { get;set; }
 
-	void OnComplete(IInteraction pInteraction, InteractionEventArgs e);
+	IUser Creator { get; }
+
+	IUser Owner { get; }
+
+	InteractionState State { get;set; }
+
+	void OnComplete(InteractionEventArgs pEventArgs);
 
 	void ChangeOwner(IUser pUser);
 
 	void ChangeIsActive(bool pActive);
+
+	void OnModify(InteractionEventArgs pEventArgs);
 
 }
 

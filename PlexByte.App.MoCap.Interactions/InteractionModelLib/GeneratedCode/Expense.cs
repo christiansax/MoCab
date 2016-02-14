@@ -16,7 +16,7 @@ public class Expense : IExpense, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void OnComplete(IInteraction pInteraction, InteractionEventArgs e)
+	public virtual void OnComplete(InteractionEventArgs pEventArgs)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -33,6 +33,21 @@ public class Expense : IExpense, IInteraction
 
 	public Expense()
 	{
+	}
+
+	public virtual void DeleteReceipt(Image pImage)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void EditReceipt(Image pImage)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void OnModify(InteractionEventArgs pEventArgs)
+	{
+		throw new System.NotImplementedException();
 	}
 
 }

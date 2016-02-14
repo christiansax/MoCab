@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Task : IInteraction, ITask
+public class Project : IProject, IInteraction
 {
 	public virtual void OnComplete(InteractionEventArgs pEventArgs)
 	{
@@ -26,26 +26,34 @@ public class Task : IInteraction, ITask
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddTimeslice(ITimeslice pTimeslice)
+	public virtual void AddTask(ITask pTask)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddExpense(IExpense pExpense)
+	public virtual void AddPoll(IPoll pPoll)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public Task(string pId, string pText, IUser pCreator)
+	public virtual void Invite(IUser pUser)
 	{
+		throw new System.NotImplementedException();
 	}
 
-	public Task(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT)
+	public virtual void Accept(IUser pUser)
 	{
+		throw new System.NotImplementedException();
 	}
 
-	public Task(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT, decimal pBudget, int pDuration, int pPriority)
+	public virtual void Leave()
 	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void KickUser(IUser pUser)
+	{
+		throw new System.NotImplementedException();
 	}
 
 	public virtual void OnModify(InteractionEventArgs pEventArgs)

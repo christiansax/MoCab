@@ -9,17 +9,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IExpense 
+public interface IAccountFactory 
 {
-	decimal Value { get;set; }
-
-	Image Receipt { get;set; }
-
-	void AddReceipt(Image pImage);
-
-	void DeleteReceipt(Image pImage);
-
-	void EditReceipt(Image pImage);
+	void Create(string pId, object pCreator, object IUser);
 
 }
 

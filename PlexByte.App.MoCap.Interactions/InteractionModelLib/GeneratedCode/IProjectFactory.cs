@@ -9,17 +9,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IExpense 
+public interface IProjectFactory 
 {
-	decimal Value { get;set; }
+	void AddPoll(IPoll pPoll);
 
-	Image Receipt { get;set; }
+	void AddTask(ITask pTask);
 
-	void AddReceipt(Image pImage);
+	void Create(string pId, string pText, IUser pCreator);
 
-	void DeleteReceipt(Image pImage);
+	void Create(string pId, string pText, IUser pCreatur, List<string> MemberList, List<strin> InvitationList);
 
-	void EditReceipt(Image pImage);
+	void Invite(IUser pUser);
+
+	void Accept(IUser pUser);
 
 }
 

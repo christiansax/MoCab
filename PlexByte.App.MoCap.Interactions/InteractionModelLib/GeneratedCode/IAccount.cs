@@ -9,17 +9,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IExpense 
+public interface IAccount 
 {
-	decimal Value { get;set; }
+	IProject IProject { get;set; }
 
-	Image Receipt { get;set; }
+	void ProjectView(IProject pProject);
 
-	void AddReceipt(Image pImage);
-
-	void DeleteReceipt(Image pImage);
-
-	void EditReceipt(Image pImage);
+	void UserView(IProject pProject, IUser) pUser);
 
 }
 

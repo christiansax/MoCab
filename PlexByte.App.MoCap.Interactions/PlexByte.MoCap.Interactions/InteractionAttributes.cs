@@ -19,4 +19,7 @@ public enum InteractionAttributes
 	State,
 	Text,
 	Type,
+    OptionList,
+    VoteList,
+    UserList
 }

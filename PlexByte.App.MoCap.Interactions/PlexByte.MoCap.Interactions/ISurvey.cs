@@ -12,9 +12,14 @@ public interface ISurvey
 
 	List<IVote> VoteList { get; }
 
-	void AddVote(IVote pVote);
+    int MaxVotesPerUser { get; set; }
+    List<IUser> UserList { get; set; }
+
+    void AddVote(IVote pVote);
 
 	void AddOption(ISurveyOption pOption);
 
-}
+    void AddUser(IUser pUser);
 
+    void RemoveUser(IUser pUser);
+}

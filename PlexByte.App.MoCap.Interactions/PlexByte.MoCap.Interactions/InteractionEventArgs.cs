@@ -29,9 +29,18 @@ public class InteractionEventArgs
 		set;
 	}
 
-	public InteractionEventArgs(string pMessage, DateTime pEventDateTime, InteractionType pType)
-	{
-	}
+    public virtual List<InteractionAttributes> ChangedAttributeList { get; set; }
 
+    public InteractionEventArgs(string pMessage, DateTime pEventDateTime, InteractionType pType) :
+        this(pMessage, pEventDateTime, pType, new List<InteractionAttributes>()) { }
+
+    public InteractionEventArgs(string pMessage, DateTime pEventDateTime, InteractionType pType, 
+        List<InteractionAttributes> pChangedAttributes)
+    {
+        this.Type = pType;
+        EventDateTime = pEventDateTime;
+        Message = pMessage;
+        ChangedAttributeList = pChangedAttributes;
+    }
 }
 

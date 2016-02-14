@@ -9,27 +9,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface ITask 
+public interface IExpense 
 {
-	decimal Budget { get; }
+	decimal Value { get;set; }
 
-	int Duration { get; }
+	Image Receipt { get;set; }
 
-	int Priority { get; }
+	void AddReceipt(Image pImage);
 
-	int DurationCurrent { get;set; }
+	void DeleteReceipt(Image pImage);
 
-	decimal BudgetUsed { get;set; }
-
-	List<ITimeslice> TimesliceList { get; }
-
-	List<IExpense> ExpenseList { get; }
-
-	List<ITask> SubTasks { get; }
-
-	void AddTimeslice(ITimeslice pTimeslice);
-
-	void AddExpense(IExpense pExpense);
+	void EditReceipt(Image pImage);
 
 }
 

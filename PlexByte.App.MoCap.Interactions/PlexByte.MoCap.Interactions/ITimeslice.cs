@@ -9,27 +9,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface ITask 
+public interface ITimeslice 
 {
-	decimal Budget { get; }
+	int Duration { get;set; }
 
-	int Duration { get; }
+	IUser User { get;set; }
 
-	int Priority { get; }
-
-	int DurationCurrent { get;set; }
-
-	decimal BudgetUsed { get;set; }
-
-	List<ITimeslice> TimesliceList { get; }
-
-	List<IExpense> ExpenseList { get; }
-
-	List<ITask> SubTasks { get; }
-
-	void AddTimeslice(ITimeslice pTimeslice);
-
-	void AddExpense(IExpense pExpense);
+	int CalculateDuration(DateTime pStartDT, DateTime pEndDT);
 
 }
 

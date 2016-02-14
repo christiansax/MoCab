@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper.cs" />
+    <Compile Include="IExpense.cs" />
     <Compile Include="IInteraction.cs" />
     <Compile Include="InteractionAttributes.cs" />
     <Compile Include="InteractionEventArgs.cs" />
@@ -49,12 +50,14 @@
     <Compile Include="ISurvey.cs" />
     <Compile Include="ISurveyOption.cs" />
     <Compile Include="ITask.cs" />
+    <Compile Include="ITimeslice.cs" />
     <Compile Include="IUser.cs" />
     <Compile Include="IVote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Survey.cs" />
     <Compile Include="SurveyOption.cs" />
     <Compile Include="Task.cs" />
+    <Compile Include="Timeslice.cs" />
     <Compile Include="Vote.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

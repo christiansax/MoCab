@@ -9,49 +9,90 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Task : IInteraction, ITask
+public class Task : IInteraction,
+    ITask
 {
-	public virtual void OnComplete(InteractionEventArgs pEventArgs)
-	{
-		throw new System.NotImplementedException();
-	}
+    #region Properties
 
-	public virtual void ChangeOwner(IUser pUser)
-	{
-		throw new System.NotImplementedException();
-	}
+    public string Id { get { return _id; } }
+    public DateTime StartDateTime { get; set; }
+    public DateTime EndDateTime { get; set; }
+    public DateTime CreatedDateTime { get { return _createdDateTime; } }
+    public DateTime ModifiedDateTime { get { return _modifiedDateTime; } }
+    public bool IsActive { get { return _isActive; } }
+    public string Text { get; set; }
+    public InteractionType Type { get; set; }
+    public IUser Creator { get { return _creator; } }
+    public IUser Owner { get { return _owner; } }
+    public InteractionState State { get { return _state; } }
+    public decimal Budget { get { return _budget; } }
+    public int Duration { get { return _duration; } }
+    public int Priority { get { return _priority; } }
+    public int DurationCurrent { get; set; }
+    public decimal BudgetUsed { get; set; }
+    public List<ITimeslice> TimesliceList { get { return _timesliceList; } }
+    public List<IExpense> ExpenseList { get { return _expenseList; } }
+    public List<ITask> SubTasks { get { return _subTasks; } }
 
-	public virtual void ChangeIsActive(bool pActive)
-	{
-		throw new System.NotImplementedException();
-	}
+    #endregion
 
-	public virtual void AddTimeslice(ITimeslice pTimeslice)
-	{
-		throw new System.NotImplementedException();
-	}
+    #region Variables
 
-	public virtual void AddExpense(IExpense pExpense)
-	{
-		throw new System.NotImplementedException();
-	}
+    private string _id;
+    private DateTime _createdDateTime;
+    private DateTime _modifiedDateTime;
+    private bool _isActive;
+    private IUser _creator;
+    private IUser _owner;
+    private InteractionState _state;
+    private decimal _budget;
+    private int _duration;
+    private int _priority;
+    private List<ITimeslice> _timesliceList;
+    private List<IExpense> _expenseList;
+    private List<ITask> _subTasks;
 
-	public Task(string pId, string pText, IUser pCreator)
-	{
-	}
+    #endregion
 
-	public Task(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT)
-	{
-	}
+    #region Events
 
-	public Task(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT, decimal pBudget, int pDuration, int pPriority)
-	{
-	}
+    public event Complete Completed;
+    public event Modify Modified;
+    public event StateChange StateChanged;
 
-	public virtual void OnModify(InteractionEventArgs pEventArgs)
-	{
-		throw new System.NotImplementedException();
-	}
+    #endregion
 
+    #region Ctor & Dtor
+
+    public Task(string pId, string pText, IUser pCreator) { }
+
+    public Task(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT) { }
+
+    public Task(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT, decimal pBudget, int pDuration, int pPriority) { }
+
+    #endregion
+
+    #region Event raising methods
+
+    public virtual void OnComplete(InteractionEventArgs pEventArgs) { throw new System.NotImplementedException(); }
+
+    public void OnStateChanged(InteractionEventArgs pEventArgs) { throw new NotImplementedException(); }
+
+    public virtual void OnModify(InteractionEventArgs pEventArgs) { throw new System.NotImplementedException(); }
+
+    #endregion
+
+    #region Public methods
+
+    public virtual void ChangeOwner(IUser pUser) { throw new System.NotImplementedException(); }
+
+    public virtual void ChangeIsActive(bool pActive) { throw new System.NotImplementedException(); }
+
+    public virtual void AddTimeslice(ITimeslice pTimeslice) { throw new System.NotImplementedException(); }
+
+    public virtual void AddExpense(IExpense pExpense) { throw new System.NotImplementedException(); }
+
+    public void ChangeState(InteractionState pState) { throw new NotImplementedException(); }
+
+    #endregion
 }
-

@@ -17,7 +17,9 @@ public interface ITask
 
 	int Priority { get; }
 
-	int DurationCurrent { get;set; }
+    int Progress { get; }
+
+    int DurationCurrent { get;set; }
 
 	decimal BudgetUsed { get;set; }
 

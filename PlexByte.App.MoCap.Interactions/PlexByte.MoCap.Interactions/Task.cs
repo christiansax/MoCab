@@ -6,7 +6,9 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 
 public class Task : IInteraction,
@@ -33,6 +35,7 @@ public class Task : IInteraction,
     public List<ITimeslice> TimesliceList { get { return _timesliceList; } }
     public List<IExpense> ExpenseList { get { return _expenseList; } }
     public List<ITask> SubTasks { get { return _subTasks; } }
+    public int Progress { get { return _progress; } }
 
     #endregion
 
@@ -51,6 +54,7 @@ public class Task : IInteraction,
     private List<ITimeslice> _timesliceList;
     private List<IExpense> _expenseList;
     private List<ITask> _subTasks;
+    private int _progress = 0;
 
     #endregion
 
@@ -64,11 +68,59 @@ public class Task : IInteraction,
 
     #region Ctor & Dtor
 
-    public Task(string pId, string pText, IUser pCreator) { }
+    public Task(string pId, string pText, IUser pCreator) :
+        this(pId,
+            pText,
+            pCreator,
+            DateTime.Now,
+            default(DateTime),
+            default(DateTime),
+            0,
+            0,
+            1,
+            InteractionState.Active,
+            null,
+            null,
+            null,
+            0)
+    {
+    }
 
-    public Task(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT) { }
+    public Task(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT):
+        this(pId,
+            pText,
+            pCreator,
+            pStartDT,
+            pEndDT,
+            pDueDT,
+            0,
+            0,
+            1,
+            InteractionState.Active,
+            null,
+            null,
+            null,
+            0)
+    { }
 
-    public Task(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT, decimal pBudget, int pDuration, int pPriority) { }
+    public Task(string pId,
+        string pText,
+        IUser pCreator,
+        DateTime pStartDT,
+        DateTime pEndDT,
+        DateTime pDueDT,
+        decimal pBudget,
+        int pDuration,
+        int pPriority,
+        InteractionState pState,
+        List<IExpense> pExpenses, 
+        List<ITimeslice> pTime, 
+        List<ITask> pSubTask,
+        int pProgress)
+    {
+        InitializeProperties(pId, pText, pCreator, pStartDT, pEndDT, pDueDT, pBudget, pDuration, pPriority, false, 
+            InteractionType.Task, pCreator, pState, pExpenses, pTime, pSubTask, pProgress);
+    }
 
     #endregion
 
@@ -93,6 +145,58 @@ public class Task : IInteraction,
     public virtual void AddExpense(IExpense pExpense) { throw new System.NotImplementedException(); }
 
     public void ChangeState(InteractionState pState) { throw new NotImplementedException(); }
+
+    #endregion
+
+    #region Private Methods
+
+    private void InitializeProperties(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, 
+        DateTime pDueDT, decimal pBudget, int pDuration, int pPriority, bool pIsActive, InteractionType pType, 
+        IUser pOwner, InteractionState pState, List<IExpense> pExpenses, List<ITimeslice> pTime, List<ITask> pSubTask, 
+        int pProgress)
+    {
+        _id = pId;
+        StartDateTime = pStartDT;
+        EndDateTime = pEndDT;
+        _createdDateTime = DateTime.Now;
+        _modifiedDateTime = DateTime.Now;
+        _isActive = pIsActive;
+        Text = pText;
+        Type = pType;
+        _creator = pCreator;
+        _owner = pOwner;
+        _state = pState;
+        _budget = pBudget;
+        _duration = pDuration;
+        _priority = pPriority;
+        DurationCurrent = 0;
+        BudgetUsed = 0;
+        _expenseList = (pExpenses != null) ? pExpenses : new List<IExpense>();
+        _timesliceList = (pExpenses != null) ? pTime : new List<ITimeslice>();
+        _subTasks = (pSubTask != null) ? pSubTask : new List<ITask>();
+        DurationCurrent = _timesliceList.Sum(x => x.Duration);
+        BudgetUsed = _expenseList.Sum(x => x.Value);
+        if (_subTasks.Count > 0)
+        {
+            int totalProgress= _subTasks.Sum(x => x.Progress);
+
+            // is completed?
+            if (_progress >= _subTasks.Count*100)
+            {
+                _state = InteractionState.Finished;
+                _progress = 100;
+            }
+            else
+            {
+                _progress = Convert.ToInt32(
+                    Convert.ToDouble(totalProgress)/
+                    Convert.ToDouble(_subTasks.Count*100)*
+                    Convert.ToDouble(100));
+            }
+        }
+        else
+            _progress = pProgress;
+    }
 
     #endregion
 }

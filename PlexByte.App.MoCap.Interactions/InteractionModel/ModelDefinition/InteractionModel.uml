@@ -1893,6 +1893,24 @@
                 LastKnownLocation="InteractionModel.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="188f6ee3-5145-4780-a3a4-3f34c24b8c2c"
+            name="Progress"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="cdfe2cdd-4bcd-49e5-bd78-2f22e8ae3796"
+                LastKnownName="int"
+                LastKnownLocation="InteractionModel.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributes>
         <ownedOperations>
           <operation
@@ -7119,20 +7137,7 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="00b96376-18b6-41b8-a206-33c0db1ff21b"
-                  direction="Return"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <interfaceMoniker
-                      Id="d58f5d47-1101-4eb4-9bc2-49577bfa05ea"
-                      LastKnownName="ITask"
-                      LastKnownLocation="InteractionModel.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="fd51b748-5718-4950-a7e9-97d2df4eb5c7"
+                  Id="c2b40d74-abd0-415a-bcc0-4ab6feb0f29e"
                   name="pId"
                   direction="In"
                   isUnique="false">
@@ -7146,7 +7151,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="d8228238-0737-4072-b3c0-15db221e0812"
+                  Id="5f6dd7f2-d3de-4a87-88e9-7a392d6df6e1"
                   name="pText"
                   direction="In"
                   isUnique="false">
@@ -7160,7 +7165,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="9fb44926-eab4-4149-85a2-10d3b98291b6"
+                  Id="b0f954b8-fa6d-4c86-bd39-dcafc6c436f0"
                   name="pCreator"
                   direction="In"
                   isUnique="false">
@@ -7174,7 +7179,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="9b583f7f-3978-4cf3-a4d5-dab242bda024"
+                  Id="c8680f48-cb9a-407b-a540-5c0eb4292d9d"
                   name="pStartDT"
                   direction="In"
                   isUnique="false">
@@ -7188,7 +7193,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="9b97e6ee-03d2-4a4d-bc78-51d5a4e2ae4b"
+                  Id="1ec775f4-36d7-4810-9418-d78db7cce432"
                   name="pEndDT"
                   direction="In"
                   isUnique="false">
@@ -7202,7 +7207,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="0c73bfb9-e8f2-429c-a224-86f93170daf0"
+                  Id="e2ab0df8-e49e-4c40-a92a-4cac9051821b"
                   name="pDueDT"
                   direction="In"
                   isUnique="false">
@@ -7216,7 +7221,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="9197fd11-c9e1-42c1-a9d8-439dca11deb7"
+                  Id="e045fd76-25af-413e-a84c-cc096db2a1bd"
                   name="pBudget"
                   direction="In"
                   isUnique="false">
@@ -7230,7 +7235,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="641e7dc3-7093-4340-8fff-0d7f0c1ad53e"
+                  Id="1f7a5095-53a5-4ee4-acca-677efead80d3"
                   name="pDuration"
                   direction="In"
                   isUnique="false">
@@ -7244,7 +7249,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="018517af-2f7e-4c10-bd4d-4886f951e949"
+                  Id="7056f3ec-3390-48d5-a75a-9fe9cd6775ac"
                   name="pPriority"
                   direction="In"
                   isUnique="false">
@@ -7254,6 +7259,80 @@
                       LastKnownName="int"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="75a680d9-56fc-4564-b995-518e853e452b"
+                  name="pState"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <enumerationMoniker
+                      Id="108764e7-190c-488d-8e26-925dd4ba7fe2"
+                      LastKnownName="InteractionState"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="baa724f0-848a-4c18-8677-bbd8d99b2d81"
+                  name="pExpenses"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="dd710a57-570b-41fb-8e44-007050d2eecb"
+                      LastKnownName="List&lt;IExpense&gt;"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a69ca88f-6bbe-42b6-9806-40b6ccb25877"
+                  name="pTime"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="dcb116ea-52fb-400b-9594-09c4635ba333"
+                      LastKnownName="List&lt;ITimeslice&gt;"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d1a8b866-4672-455b-a6da-11232af51b02"
+                  name="pSubTask"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="d8f12a85-0a38-4975-921b-0aeae0f59522"
+                      LastKnownName="List&lt;ITask&gt;"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4f2287a1-2571-44f9-856b-17e7484cde49"
+                  name="pProgress"
+                  direction="In">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                  <defaultValue>
+                    <literalInteger
+                      Id="07a1cf50-830c-42ea-8986-dc5479637c27"
+                      value="0" />
+                  </defaultValue>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -7383,6 +7462,15 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation
+            Id="bc6b8bdd-1543-4b5f-b6a2-36faafb4cd64"
+            name="InitializeProperties"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
         </ownedOperationsInternal>
       </class>
     </packageHasNamedElement>
@@ -20353,6 +20441,16 @@
       <undefinedType
         Id="c9023a4d-3337-4f4c-884b-1b9d4e07482c"
         name="System.Timers.ElapsedEventArgs" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="dd710a57-570b-41fb-8e44-007050d2eecb"
+        name="List&lt;IExpense&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="dcb116ea-52fb-400b-9594-09c4635ba333"
+        name="List&lt;ITimeslice&gt;" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

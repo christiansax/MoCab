@@ -11,7 +11,224 @@ using System.Text;
 
 public class Task : IInteraction, ITask
 {
-	public virtual void OnComplete(InteractionEventArgs pEventArgs)
+    public string Id
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime StartDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime EndDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime CreatedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime ModifiedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public bool IsActive
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public string Text
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public InteractionType Type
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public IUser Creator
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public IUser Owner
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public InteractionState State
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public decimal Budget
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public int Duration
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public int Priority
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public int DurationCurrent
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public decimal BudgetUsed
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public IEnumerable<ITimeslice> TimesliceList
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public IEnumerable<IExpense> ExpenseList
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public ITask SubTasks
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public virtual void OnComplete(InteractionEventArgs pEventArgs)
 	{
 		throw new System.NotImplementedException();
 	}

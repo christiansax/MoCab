@@ -9,17 +9,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IExpense 
+public interface IProject 
 {
-	decimal Value { get;set; }
+	bool EnableBalance { get;set; }
 
-	Image Receipt { get;set; }
+	bool EnableSurvey { get;set; }
 
-	void AddReceipt(Image pImage);
+	List<string> MemberList { get;set; }
 
-	void DeleteReceipt(Image pImage);
+	List<string> InvitationList { get;set; }
 
-	void EditReceipt(Image pImage);
+	List<Task> TaskList { get;set; }
+
+	List<Survey>SurveyList { get;set; }
+
+	void AddTask(ITask pTask);
+
+	void AddSurvey(ISurvey pSurvey);
+
+	void Invite(IUser pUser);
+
+	void Accept(IUser pUser);
+
+	void Leave();
+
+	void KickUser(IUser pUser);
 
 }
 

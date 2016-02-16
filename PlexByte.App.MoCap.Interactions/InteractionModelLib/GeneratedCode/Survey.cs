@@ -11,7 +11,7 @@ using System.Text;
 
 public abstract class Survey : ISurvey, IInteraction
 {
-	private System.Timers Timer _stateTimer
+	private System.Timers.Timer _stateTimer
 	{
 		get;
 		set;

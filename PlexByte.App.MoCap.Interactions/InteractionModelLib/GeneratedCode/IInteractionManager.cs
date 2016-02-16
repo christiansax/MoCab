@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IInteractionManager  : ISurveyFactory, IProjectFactory, ITaskFactory, IOutlayFactory
+public interface IInteractionManager  : ISurveyFactory, IProjectFactory, ITaskFactory, IOutlayFactory, IAccountFactory
 {
 	List<ISurvey> SurveyList { get;set; }
 

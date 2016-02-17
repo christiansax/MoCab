@@ -21,6 +21,8 @@ public interface ITask
 
 	decimal BudgetUsed { get;set; }
 
+	int Progress { get; }
+
 	IEnumerable<ITimeslice> TimesliceList { get; }
 
 	IEnumerable<IExpense> ExpenseList { get; }

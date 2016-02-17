@@ -44,7 +44,7 @@ public class Task : IInteraction, ITask
 	{
 	}
 
-	public Task(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT, decimal pBudget, int pDuration, int pPriority)
+	public Task(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT, decimal pBudget, int pDuration, int pPriority, InteractionState pState, List<IExpense> pExpenses, List<ITimeslice> pTime, List<ITask> pSubTask, int pProgress = 0)
 	{
 	}
 
@@ -59,6 +59,11 @@ public class Task : IInteraction, ITask
 	}
 
 	public virtual void OnStateChanged(InteractionEventArgs pEventArgs)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	private void InitializeProperties()
 	{
 		throw new System.NotImplementedException();
 	}

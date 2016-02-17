@@ -13,7 +13,7 @@ public interface IProject
 {
 	bool EnableBalance { get;set; }
 
-	bool EnableSurvey { get;set; }
+	bool EnablePoll { get;set; }
 
 	List<string> MemberList { get;set; }
 
@@ -21,11 +21,13 @@ public interface IProject
 
 	List<Task> TaskList { get;set; }
 
-	List<Survey>SurveyList { get;set; }
+	List<Poll> PollList { get;set; }
+
+	IEnumerable<ITask> TaskList { get;set; }
 
 	void AddTask(ITask pTask);
 
-	void AddSurvey(ISurvey pSurvey);
+	void AddPoll(IPoll pPoll);
 
 	void Invite(IUser pUser);
 

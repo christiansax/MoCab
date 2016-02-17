@@ -11,7 +11,7 @@ using System.Text;
 
 public class ProjectFactory : IProjectFactory
 {
-	public virtual void AddSurvey(ISurvey pSurvey)
+	public virtual void AddPoll(IPoll pPoll)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -26,7 +26,7 @@ public class ProjectFactory : IProjectFactory
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void Create(string pId, string pText, IUser pCreatur, List<string> MemberList, List<string> InvitationList)
+	public virtual void Create(string pId, string pText, IUser pCreatur, List<string> MemberList, List<strin> InvitationList)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -41,9 +41,5 @@ public class ProjectFactory : IProjectFactory
 		throw new System.NotImplementedException();
 	}
 
-    public void AddPoll(ISurvey pSurvey)
-    {
-        throw new NotImplementedException();
-    }
 }
 

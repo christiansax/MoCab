@@ -3,11 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "Backend\Backend.csproj", "{FDD4092A-F6DC-446A-818A-593B96AE4724}"
-EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MoCap", "MoCap_DB\MoCap.sqlproj", "{4DE040ED-787B-497C-9BAD-CD99968B53C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataService", "DataService\DataService.csproj", "{109EBBB9-FC96-4C45-ACCB-AA2F34D930EF}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MocapWebService", "http://localhost:54663", "{BC533918-9A4D-4BD7-8C1E-E1B2073D0B1B}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_54663"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\My Web Sites\MocapWebService\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54663\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_54663"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\My Web Sites\MocapWebService\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54663\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\..\..\..\My Web Sites\MocapWebService\"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,20 +32,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FDD4092A-F6DC-446A-818A-593B96AE4724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FDD4092A-F6DC-446A-818A-593B96AE4724}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FDD4092A-F6DC-446A-818A-593B96AE4724}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FDD4092A-F6DC-446A-818A-593B96AE4724}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4DE040ED-787B-497C-9BAD-CD99968B53C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4DE040ED-787B-497C-9BAD-CD99968B53C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DE040ED-787B-497C-9BAD-CD99968B53C1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{4DE040ED-787B-497C-9BAD-CD99968B53C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DE040ED-787B-497C-9BAD-CD99968B53C1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4DE040ED-787B-497C-9BAD-CD99968B53C1}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{109EBBB9-FC96-4C45-ACCB-AA2F34D930EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{109EBBB9-FC96-4C45-ACCB-AA2F34D930EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{109EBBB9-FC96-4C45-ACCB-AA2F34D930EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{109EBBB9-FC96-4C45-ACCB-AA2F34D930EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC533918-9A4D-4BD7-8C1E-E1B2073D0B1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC533918-9A4D-4BD7-8C1E-E1B2073D0B1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC533918-9A4D-4BD7-8C1E-E1B2073D0B1B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC533918-9A4D-4BD7-8C1E-E1B2073D0B1B}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

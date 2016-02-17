@@ -11,7 +11,145 @@ using System.Text;
 
 public class Timeslice : ITimeslice, IInteraction
 {
-	public virtual void OnComplete(InteractionEventArgs pEventArgs)
+    public int Duration
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public IUser User
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public string Id
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime StartDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime EndDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime CreatedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public DateTime ModifiedDateTime
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public bool IsActive
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public string Text
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public InteractionType Type
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+
+        set
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public IUser Creator
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public IUser Owner
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public InteractionState State
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public event Complete Completed;
+    public event Modify Modified;
+    public event StateChange StateChanged;
+
+    public virtual void OnComplete(InteractionEventArgs pEventArgs)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -44,5 +182,14 @@ public class Timeslice : ITimeslice, IInteraction
 		throw new System.NotImplementedException();
 	}
 
+    public void OnStateChanged(InteractionEventArgs pEventArgs)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void ChangeState(InteractionState pState)
+    {
+        throw new NotImplementedException();
+    }
 }
 

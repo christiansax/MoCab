@@ -9,19 +9,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IProjectFactory 
+public interface IProject 
 {
-	void AddSurvey(ISurvey pSurvey);
+	bool EnableBalance { get;set; }
+
+	bool EnableSurvey { get;set; }
+
+	List<string> MemberList { get;set; }
+
+	List<string> InvitationList { get;set; }
+
+	List<Task> TaskList { get;set; }
+
+	List<Survey>SurveyList { get;set; }
 
 	void AddTask(ITask pTask);
 
-	void Create(string pId, string pText, IUser pCreator);
-
-	void Create(string pId, string pText, IUser pCreatur, List<string> MemberList, List<string> InvitationList);
+	void AddSurvey(ISurvey pSurvey);
 
 	void Invite(IUser pUser);
 
 	void Accept(IUser pUser);
+
+	void Leave();
+
+	void KickUser(IUser pUser);
 
 }
 

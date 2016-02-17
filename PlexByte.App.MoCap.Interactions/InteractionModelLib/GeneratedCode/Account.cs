@@ -31,7 +31,7 @@ public class Account : IAccount, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void UserView(IProject pProject, IUser) pUser)
+	public virtual void UserView(IProject pProject, IUser pUser)
 	{
 		throw new System.NotImplementedException();
 	}

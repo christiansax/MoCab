@@ -31,7 +31,7 @@ public class Project : IProject, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddPoll(IPoll pPoll)
+	public virtual void AddSurvey(ISurvey pPoll)
 	{
 		throw new System.NotImplementedException();
 	}

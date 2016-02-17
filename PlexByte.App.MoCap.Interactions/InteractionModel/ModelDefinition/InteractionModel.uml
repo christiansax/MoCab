@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="ad4d6cdc-fb9f-47da-888c-246cb0bab9e8"
   name="InteractionModel" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -13872,7 +13872,7 @@
         <ownedOperationsInternal>
           <operation
             Id="c79683fd-e642-40af-a87e-55908bb8cc06"
-            name="AddPoll"
+            name="AddSurvey"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -13936,9 +13936,9 @@
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="955d12c1-1a92-4ce2-b55a-6e13bd769df6"
-                      LastKnownName="IPoll"
+                    <interfaceMoniker
+                      Id="9cbc0ab2-ee20-43c6-8343-4626741c339a"
+                      LastKnownName="ISurvey"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -14246,8 +14246,8 @@
                   isUnique="false">
                   <type_NamedElement>
                     <undefinedTypeMoniker
-                      Id="8ec1271c-c2a8-4ca8-a2af-93d637ba06a7"
-                      LastKnownName="List&lt;strin&gt;"
+                      Id="64a97e22-4c11-44d2-a8d2-312a0a7dc938"
+                      LastKnownName="List&lt;string&gt;"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -14776,7 +14776,7 @@
           </operation>
           <operation
             Id="2d84633f-b2f9-4fc3-b545-e5fb88e7dee2"
-            name="AddPoll"
+            name="AddSurvey"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -14840,9 +14840,9 @@
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="955d12c1-1a92-4ce2-b55a-6e13bd769df6"
-                      LastKnownName="IPoll"
+                    <interfaceMoniker
+                      Id="9cbc0ab2-ee20-43c6-8343-4626741c339a"
+                      LastKnownName="ISurvey"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -15406,7 +15406,7 @@
         <ownedOperations>
           <operation
             Id="ee0fb5fb-8ada-46e4-a42d-6d50359b3e00"
-            name="AddPoll"
+            name="AddSurvey"
             isLeaf="false"
             isStatic="false"
             isAbstract="true"
@@ -15465,14 +15465,14 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="c8515aa7-a2e7-48d1-924c-3a9bdfcf523f"
-                  name="pPoll"
+                  Id="ecbdc307-5e22-435f-9511-0794623bbc10"
+                  name="pSurvey"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="955d12c1-1a92-4ce2-b55a-6e13bd769df6"
-                      LastKnownName="IPoll"
+                    <interfaceMoniker
+                      Id="9cbc0ab2-ee20-43c6-8343-4626741c339a"
+                      LastKnownName="ISurvey"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -15718,7 +15718,7 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="aabec52a-28c0-431c-be7b-c8be2169f26e"
+                  Id="1a347f56-2c6b-4647-982f-e40d5c9851c3"
                   name="pId"
                   direction="In"
                   isUnique="false">
@@ -15732,7 +15732,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="a3d99161-4d2c-435e-a9ea-5d56f69d41d4"
+                  Id="9df94006-a381-4cae-bc5a-e33eda568eec"
                   name="pText"
                   direction="In"
                   isUnique="false">
@@ -15746,7 +15746,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="ac5f4be9-c8b9-4ba4-9738-e13127758ed2"
+                  Id="aa1d85ee-3ba5-4643-aabf-ff2e370f4fa7"
                   name="pCreatur"
                   direction="In"
                   isUnique="false">
@@ -15760,7 +15760,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="720b1ccf-6622-446a-af55-93fc67841aad"
+                  Id="a601550d-0268-43ee-a318-2cc05654398d"
                   name="MemberList"
                   direction="In"
                   isUnique="false">
@@ -15774,14 +15774,14 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="45973096-be37-4993-b678-e17bfcc26ebc"
+                  Id="9a12f116-148d-4c5e-a0fe-a4edd65bc904"
                   name="InvitationList"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
                     <undefinedTypeMoniker
-                      Id="8ec1271c-c2a8-4ca8-a2af-93d637ba06a7"
-                      LastKnownName="List&lt;strin&gt;"
+                      Id="64a97e22-4c11-44d2-a8d2-312a0a7dc938"
+                      LastKnownName="List&lt;string&gt;"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -15985,20 +15985,20 @@
         </appliedStereotypesInternal>
         <targetEnds>
           <association
-            Id="62016cb6-079f-47ce-a14d-0ff148ed0079"
+            Id="3663291d-4c15-4bb0-9cdd-5fbe112d9d6e"
             isDerived="false"
             sourceEndRoleName="IProject"
-            targetEndRoleName="TaskList"
+            targetEndRoleName="IAccount"
             isLeaf="false"
             isAbstract="false">
             <interfaceMoniker
-              Id="d58f5d47-1101-4eb4-9bc2-49577bfa05ea"
-              LastKnownName="ITask"
+              Id="a47bc4c2-debc-4059-8877-ed8f3f02c191"
+              LastKnownName="IAccount"
               LastKnownLocation="InteractionModel.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="f93ae9d3-4324-477b-87e2-bd9e72a90174"
+                  Id="6ad5adbc-3c07-4aa7-bad8-716082af80b4"
                   name="IProject"
                   isLeaf="false"
                   isStatic="false"
@@ -16011,28 +16011,15 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="cb1cd446-cf2d-468c-a725-82b6020a1939"
-                  name="TaskList"
+                  Id="81d83e2f-7199-4af3-8f9d-60524afb1a3d"
+                  name="IAccount"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="true">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="463f1aa0-1788-4973-8e18-4433d73d5c2c"
-                      name="Lower"
-                      value="*" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="5309d18e-bd5e-4b52-a1ec-8ad4adbdf11d"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
+                  isComposite="true" />
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
@@ -16115,7 +16102,7 @@
           </property>
           <property
             Id="41c64232-9305-44c2-b083-bce9f1769c30"
-            name="EnablePoll"
+            name="EnableSurvey"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -16415,7 +16402,7 @@
           </property>
           <property
             Id="60cb8e77-d58c-44e0-91cb-6b887f07adda"
-            name="PollList"
+            name="SurveyList"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -16483,8 +16470,8 @@
             </appliedStereotypesInternal>
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="0c927d79-db46-4488-9a3e-5ae0ca241bf3"
-                LastKnownName="List&lt;Poll&gt;"
+                Id="a0669a55-5f26-4422-a188-64ce1099cb36"
+                LastKnownName="List&lt;Survey&gt;"
                 LastKnownLocation="InteractionModel.uml" />
             </type_NamedElement>
           </property>
@@ -16567,7 +16554,7 @@
           </operation>
           <operation
             Id="6136b675-6780-470e-8df2-4646cc36e348"
-            name="AddPoll"
+            name="AddSurvey"
             isLeaf="false"
             isStatic="false"
             isAbstract="true"
@@ -16626,14 +16613,14 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="7253b521-0253-4c26-bc3a-e26371e6c1bd"
-                  name="pPoll"
+                  Id="a47cee93-89e8-4ea2-a009-d43c3187723d"
+                  name="pSurvey"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="955d12c1-1a92-4ce2-b55a-6e13bd769df6"
-                      LastKnownName="IPoll"
+                    <interfaceMoniker
+                      Id="9cbc0ab2-ee20-43c6-8343-4626741c339a"
+                      LastKnownName="ISurvey"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -17489,41 +17476,158 @@
         </appliedStereotypesInternal>
         <targetEnds>
           <association
-            Id="ad9ae251-2240-4424-a2e8-424fd589a4b3"
+            Id="f872ec33-1a97-4a15-b3c9-2548727a40ba"
             isDerived="false"
             sourceEndRoleName="IAccount"
-            targetEndRoleName="IProject"
+            targetEndRoleName="TimesliceList"
             isLeaf="false"
             isAbstract="false">
             <interfaceMoniker
-              Id="f11f82a2-e8b2-4696-aaec-caf661fb7698"
-              LastKnownName="IProject"
+              Id="98ed5b50-ad31-4ecb-9482-6f0615de4c50"
+              LastKnownName="ITimeslice"
               LastKnownLocation="InteractionModel.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="7d7f2759-71a1-4aef-b0e9-893d682cfe90"
+                  Id="a7aa389e-2059-402f-be3e-60b93bcbb7e7"
                   name="IAccount"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
-                  aggregation="None"
+                  aggregation="Composite"
                   isComposite="false"
                   isNavigableOwned="false" />
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="e562e868-f1b8-4e85-be24-5abcba049991"
-                  name="IProject"
+                  Id="1163373e-2955-4ab4-8382-60cfdb50f821"
+                  name="TimesliceList"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="false" />
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="df351e10-b513-4c28-953f-d38124fbf023"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="581d8e42-9107-4f80-b3f2-31575c657140"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="a8009c56-7b12-42c4-a7be-4cdcca70ad4d"
+            isDerived="false"
+            sourceEndRoleName="IAccount"
+            targetEndRoleName="ExpenseList"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="83ceaa31-1532-4a70-b5a8-875d8a1b173c"
+              LastKnownName="IExpense"
+              LastKnownLocation="InteractionModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="53b902e8-ed92-4a5f-9468-f735e2829271"
+                  name="IAccount"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ffebc78e-ac25-484c-ac83-d82e2a3f8a54"
+                  name="ExpenseList"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="1c71952a-f56e-4da1-8266-3b8aa4215657"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="4ecfd61c-31de-490e-9113-da43aa468f93"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="60b6493b-5a05-41cb-96d6-792da5efd375"
+            isDerived="false"
+            sourceEndRoleName="IAccount"
+            targetEndRoleName="TaskList"
+            isLeaf="false"
+            isAbstract="false">
+            <interfaceMoniker
+              Id="d58f5d47-1101-4eb4-9bc2-49577bfa05ea"
+              LastKnownName="ITask"
+              LastKnownLocation="InteractionModel.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b2020e2f-d49a-4453-8ee9-087c4312a872"
+                  name="IAccount"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="19e02ab7-927a-4f01-82a7-db266a6f666f"
+                  name="TaskList"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="2924dd80-6ad6-4af7-9cd3-4ab7251eab44"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="e9074f65-29c2-49c6-8c28-723f4ed52837"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
@@ -17665,7 +17769,7 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="e122c032-3318-413f-9b8c-7fc5ba0f6582"
+                  Id="33a7845e-cf52-45fa-873c-6575e08a624c"
                   name="pProject"
                   direction="In"
                   isUnique="false">
@@ -17679,14 +17783,14 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="8e596b33-5eae-419c-9761-d0014f390558"
+                  Id="d551259c-c09a-433f-873e-e200a3d5fe4b"
                   name="pUser"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
-                    <undefinedTypeMoniker
-                      Id="49267e73-9c23-4ddc-9e81-7e21ecf8dc41"
-                      LastKnownName="IUser)"
+                    <interfaceMoniker
+                      Id="ca220433-d919-44cc-b0e4-89889885ae49"
+                      LastKnownName="IUser"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -21693,6 +21797,11 @@
       <undefinedType
         Id="579d3961-2b20-4bf7-b177-f9558c8192b7"
         name="System.Timers.Timer" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="a0669a55-5f26-4422-a188-64ce1099cb36"
+        name="List&lt;Survey&gt;" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

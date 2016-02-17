@@ -11,11 +11,15 @@ using System.Text;
 
 public interface IAccount 
 {
-	IProject IProject { get;set; }
+	IEnumerable<ITimeslice> TimesliceList { get;set; }
+
+	IEnumerable<IExpense> ExpenseList { get;set; }
+
+	IEnumerable<ITask> TaskList { get;set; }
 
 	void ProjectView(IProject pProject);
 
-	void UserView(IProject pProject, IUser) pUser);
+	void UserView(IProject pProject, IUser pUser);
 
 }
 

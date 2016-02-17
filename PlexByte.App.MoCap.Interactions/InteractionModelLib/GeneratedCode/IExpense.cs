@@ -13,13 +13,13 @@ public interface IExpense
 {
 	decimal Value { get;set; }
 
-	Image Receipt { get;set; }
+	System.Drawing.Image Receipt { get;set; }
 
-	void AddReceipt(Image pImage);
+	void AddReceipt(System.Drawing.Image pImage);
 
-	void DeleteReceipt(Image pImage);
+	void DeleteReceipt(System.Drawing.Image pImage);
 
-	void EditReceipt(Image pImage);
+	void EditReceipt(System.Drawing.Image pImage);
 
 }
 

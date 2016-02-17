@@ -15,7 +15,7 @@ public interface ISurveyFactory
 
 	ISurveyOption CreateSurveyOption(string pId, string pText);
 
-	ISurvey CreateSurvey(string pId, string pText, List<ISurveyOptions> pOptions, IUser pCreator);
+	ISurvey CreateSurvey(string pId, string pText, List<ISurveyOption> pOptions, IUser pCreator);
 
 	ISurvey CreateSurvey(string pId, string pText, List<string> pOptions, IUser pCreator);
 

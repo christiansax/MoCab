@@ -17,7 +17,5 @@ public interface IInteractionManager  : ISurveyFactory, IProjectFactory, ITaskFa
 
 	List<ITask> TaskList { get;set; }
 
-	List<Outlay> OutlayList { get;set; }
-
 }
 

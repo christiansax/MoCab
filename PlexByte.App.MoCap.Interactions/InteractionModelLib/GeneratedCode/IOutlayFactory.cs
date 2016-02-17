@@ -15,7 +15,7 @@ public interface IOutlayFactory
 
 	void CreateTimeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT);
 
-	void AddReceipt(IExpense pExpense, Image pImage);
+	void AddReceipt(IExpense pExpense, System.Drawing.Image pImage);
 
 }
 

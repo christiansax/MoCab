@@ -21,7 +21,7 @@ public class OutlayFactory : IOutlayFactory
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddReceipt(IExpense pExpense, Image pImage)
+	public virtual void AddReceipt(IExpense pExpense, System.Drawing.Image pImage)
 	{
 		throw new System.NotImplementedException();
 	}

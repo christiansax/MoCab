@@ -21,7 +21,7 @@ public class SurveyFactory : ISurveyFactory
 		throw new System.NotImplementedException();
 	}
 
-	public virtual ISurvey CreateSurvey(string pId, string pText, List<ISurveyOptions> pOptions, IUser pCreator)
+	public virtual ISurvey CreateSurvey(string pId, string pText, List<ISurveyOption> pOptions, IUser pCreator)
 	{
 		throw new System.NotImplementedException();
 	}

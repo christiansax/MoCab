@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="0b4bea06-c539-4a4b-ab3c-8585eb3bae21" name="Components" linkedPackageId="4cecf59a-e13e-477c-816e-9aaebbb8e7aa" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="0b4bea06-c539-4a4b-ab3c-8585eb3bae21" name="Components" linkedPackageId="4cecf59a-e13e-477c-816e-9aaebbb8e7aa" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <appliedStereotypesInternal>
     <stereotypeInstance Id="a3cdced0-649c-4f2d-a2b1-0cce1b23b151" name="namespace" profile="CSharpProfile">
       <elementDefinition Id="df572277-fac4-45d5-80de-eb95f8fc84b4" />
@@ -11178,6 +11178,40 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="0b47a02d-a1a9-451c-a56a-701e0899bb05" name="ProjectView" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="373f5c62-a8c9-4c1f-8396-149476cfd2bf" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="11f4e6a6-b055-4007-a551-7ea447dcac03" name="pProject" direction="In" isUnique="false">
+                  <elementDefinition Id="eb45d135-5a58-4e81-bd92-1d0de77f2722" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="f1941817-968d-486c-b9d3-0c3077d27c71" LastKnownName="IProject" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2ab37201-3769-4346-9a00-402e88245a6a" name="UserView" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="90b8c5ff-c0b2-461b-ae6d-da75eac34321" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="94a24251-5718-47ac-84eb-4c4a15ab5eb7" name="pProject" direction="In" isUnique="false">
+                  <elementDefinition Id="f2040a52-12c0-4f6b-9789-d0394f6fad74" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="f1941817-968d-486c-b9d3-0c3077d27c71" LastKnownName="IProject" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f0c9aec4-6793-4a3f-a213-bcb07366d51b" name="pUser" direction="In" isUnique="false">
+                  <elementDefinition Id="0867cf98-7b49-4241-a08f-69222016ed18" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
@@ -11637,24 +11671,12 @@
           </stereotypeInstance>
         </appliedStereotypesInternal>
         <elementDefinition Id="f11f82a2-e8b2-4696-aaec-caf661fb7698" />
-        <targetEnds>
-          <association Id="2aa41ca9-4b41-4705-a654-cd09a31ae248" isDerived="false" sourceEndRoleName="IProject" targetEndRoleName="IAccount" isLeaf="false" isAbstract="false">
+        <generalsInternal>
+          <generalization Id="669a7850-99b3-4bd3-b119-1a6a59aef464" isSubstitutable="false">
             <interfaceMoniker Id="ae31d7e3-86ec-4663-8a46-f5dd2b8bbb75" LastKnownName="IAccount" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="21d89a6b-4669-486d-8401-07b1311ece21" name="IProject" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="6ad5adbc-3c07-4aa7-bad8-716082af80b4" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="1efa2ad7-ad1c-4cdf-af3d-a5f042d0d8e7" name="IAccount" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
-                  <elementDefinition Id="81d83e2f-7199-4af3-8f9d-60524afb1a3d" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="3663291d-4c15-4bb0-9cdd-5fbe112d9d6e" />
-          </association>
-        </targetEnds>
+            <elementDefinition Id="4b7cee2b-e7b4-4edd-860b-9b6b84b91ce7" />
+          </generalization>
+        </generalsInternal>
         <ownedAttributes>
           <property Id="f7aee0af-cd43-4dab-b430-fce61610569b" name="EnableBalance" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <appliedStereotypesInternal>

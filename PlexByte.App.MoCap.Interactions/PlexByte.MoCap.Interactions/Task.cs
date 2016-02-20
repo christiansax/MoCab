@@ -126,21 +126,55 @@ public class Task : IInteraction,
 
     #region Event raising methods
 
-    public virtual void OnComplete(InteractionEventArgs pEventArgs) { throw new System.NotImplementedException(); }
+    public virtual void OnComplete(InteractionEventArgs pEventArgs)
+    {
+        Completed?.Invoke(this, pEventArgs);
+    }
 
-    public void OnStateChanged(InteractionEventArgs pEventArgs) { throw new NotImplementedException(); }
+    public void OnStateChanged(InteractionEventArgs pEventArgs)
+    {
+        StateChanged?.Invoke(this, pEventArgs);
+    }
 
-    public virtual void OnModify(InteractionEventArgs pEventArgs) { throw new System.NotImplementedException(); }
+    public virtual void OnModify(InteractionEventArgs pEventArgs)
+    {
+        Modified?.Invoke(this, pEventArgs);
+    }
 
     #endregion
 
     #region Public methods
 
-    public virtual void ChangeOwner(IUser pUser) { throw new System.NotImplementedException(); }
+    public virtual void ChangeOwner(IUser pUser)
+    {
+        if (Owner != pUser)
+        {
+            _owner = pUser;
+            List<InteractionAttributes> changedAttrs = new List<InteractionAttributes>();
+            changedAttrs.Add(InteractionAttributes.Owner);
+            OnModify(new InteractionEventArgs("Owner changed", DateTime.Now, InteractionType.Task, changedAttrs));
+        }
+    }
 
-    public virtual void ChangeIsActive(bool pActive) { throw new System.NotImplementedException(); }
+    public virtual void ChangeIsActive(bool pActive)
+    {
+        if (_state == InteractionState.Active || _state == InteractionState.Queued)
+        {
+            if (IsActive != pActive)
+            {
+                _isActive = pActive;
+                List<InteractionAttributes> changedAttrs = new List<InteractionAttributes>();
+                changedAttrs.Add(InteractionAttributes.IsActive);
+                OnModify(new InteractionEventArgs("IsActive state changed", DateTime.Now, InteractionType.Task, 
+                    changedAttrs));
+            }
+        }
+    }
 
-    public virtual void AddTimeslice(ITimeslice pTimeslice) { throw new System.NotImplementedException(); }
+    public virtual void AddTimeslice(ITimeslice pTimeslice)
+    {
+        
+    }
 
     public virtual void AddExpense(IExpense pExpense) { throw new System.NotImplementedException(); }
 

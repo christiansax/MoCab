@@ -26,11 +26,11 @@ public class Timeslice : ITimeslice, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public Timeslice(string pId, IUser pUser, int pDuration)
+	public Timeslice(string pId, IUser pUser, int pDuration, IInteraction pTarget)
 	{
 	}
 
-	public Timeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT)
+	public Timeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT, IInteraction pTarget)
 	{
 	}
 

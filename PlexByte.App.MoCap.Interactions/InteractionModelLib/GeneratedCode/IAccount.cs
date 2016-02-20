@@ -9,13 +9,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IAccount 
+public interface IAccount  : ITask
 {
-	IEnumerable<ITimeslice> TimesliceList { get;set; }
-
 	IEnumerable<IExpense> ExpenseList { get;set; }
 
-	IEnumerable<ITask> TaskList { get;set; }
+	IEnumerable<ITimeslice> TimesliceList { get;set; }
 
 	void ProjectView(IProject pProject);
 

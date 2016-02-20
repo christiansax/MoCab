@@ -11,6 +11,10 @@ using System.Text;
 
 public interface IProject 
 {
+    //events
+
+
+
 	bool EnableBalance { get;set; }
 
 	bool EnableSurvey { get;set; }

@@ -17,7 +17,7 @@ public interface IProjectFactory
 
 	void Create(string pId, string pText, IUser pCreator);
 
-	void Create(string pId, string pText, IUser pCreatur, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList);
+	void Create(string pId, string pText, IUser pCreatur, List<string> MemberList, List<string> InvitationList);
 
 	void Invite(IUser pUser);
 

@@ -15,29 +15,31 @@ public interface IProject
 
 
 
-	bool EnableBalance { get;set; }
+    bool EnableBalance { get; set; }
 
-	bool EnableSurvey { get;set; }
+    bool EnableSurvey { get; set; }
 
-	List<IUser> MemberList { get;set; }
+    List<IUser> InvitationList { get; set; }
 
-	List<IUser> InvitationList { get;set; }
+    IAccount ProjectAccount { get; set; }
 
-	List<Task> TaskList { get;set; }
+    List<ITask> TaskList { get; set; }
 
-	List<Survey>SurveyList { get;set; }
+    List<ISurvey> SurveyList { get; set; }
 
-	void AddTask(ITask pTask);
+    List<IUser> MemberList { get; set; }
 
-	void AddSurvey(ISurvey pSurvey);
+    void AddTask(ITask pTask);
 
-	void Invite(IUser pUser);
+    void AddSurvey(ISurvey pSurvey);
 
-	void Accept(IUser pUser);
+    void Invite(IUser pUser);
 
-	void Leave();
+    void Accept(IUser pUser);
 
-	void KickUser(IUser pUser);
+    void Leave();
+
+    void KickUser(IUser pUser);
 
 }
 

@@ -10199,8 +10199,8 @@
             <elementDefinition Id="c79683fd-e642-40af-a87e-55908bb8cc06" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="3472024e-af37-4e50-8978-da26dc4e09e2" name="pPoll" direction="In" isUnique="false">
-                  <elementDefinition Id="1dcbbf69-b00c-41e8-8b13-d6b204e454bf" />
+                <parameter Id="51dc7ed0-441a-445d-8f75-09d81f8c4c69" name="pSurvey" direction="In" isUnique="false">
+                  <elementDefinition Id="bb2445b2-474c-4553-a918-0ae6d259faf1" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="5a9ee398-55d0-4933-8e50-5d7d266af9a1" LastKnownName="ISurvey" />
                   </type_NamedElement>
@@ -10861,8 +10861,8 @@
             <elementDefinition Id="2d84633f-b2f9-4fc3-b545-e5fb88e7dee2" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="b48d387c-789c-4c94-96f9-57e87e68ea5d" name="pPoll" direction="In" isUnique="false">
-                  <elementDefinition Id="a7372995-eace-470d-844d-bf4c22d759fa" />
+                <parameter Id="5547f808-0bdd-4737-87cf-a685ffff8fc2" name="pSurvey" direction="In" isUnique="false">
+                  <elementDefinition Id="a100ae80-d068-4c37-883d-c0d6c5e9d8ef" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="5a9ee398-55d0-4933-8e50-5d7d266af9a1" LastKnownName="ISurvey" />
                   </type_NamedElement>
@@ -11337,8 +11337,8 @@
             <elementDefinition Id="ee0fb5fb-8ada-46e4-a42d-6d50359b3e00" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="792c79ab-20b1-47df-a7f2-4bf4132447e7" name="pSurvey" direction="In" isUnique="false">
-                  <elementDefinition Id="ecbdc307-5e22-435f-9511-0794623bbc10" />
+                <parameter Id="af5f0877-b0eb-430d-98cf-336d647944d2" name="pSurvey" direction="In" isUnique="false">
+                  <elementDefinition Id="99c7a165-5205-4d55-9c98-70d118e17795" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="5a9ee398-55d0-4933-8e50-5d7d266af9a1" LastKnownName="ISurvey" />
                   </type_NamedElement>
@@ -11970,7 +11970,7 @@
             </appliedStereotypesInternal>
             <elementDefinition Id="bcfd92b0-db21-446a-ad2e-ccb61579e314" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="4a319498-97f0-4fd1-8f1b-c0e06c7674c5" LastKnownName="List&lt;string&gt;" />
+              <referencedTypeMoniker Id="e20b5970-76a1-4e26-861c-ef963aca76e2" LastKnownName="List&lt;IUser&gt;" />
             </type_NamedElement>
           </property>
         </ownedAttributes>
@@ -14519,6 +14519,11 @@
     <packageHasNamedElement>
       <referencedType Id="25a3568e-6226-4ced-8e86-f9f8305985cf" name="IInteraction" isAbstract="false" isLeaf="false" cachedFullName="InteractionModel::IInteraction">
         <elementDefinition Id="19b8536b-9b7a-4db8-9023-521474db27e8" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="e20b5970-76a1-4e26-861c-ef963aca76e2" name="List&lt;IUser&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;IUser&gt;">
+        <elementDefinition Id="f341b309-e5d6-44f2-9fca-6af32b9c2ddf" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

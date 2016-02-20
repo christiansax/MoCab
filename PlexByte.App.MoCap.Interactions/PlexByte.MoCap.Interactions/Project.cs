@@ -22,19 +22,22 @@ public class Project : IProject, IInteraction
     public InteractionState State { get; set; }
     public bool EnableBalance { get; set; }
     public bool EnableSurvey { get; set; }
-    public List<IUser> MemberList { get; set; }
+    public IAccount ProjectAccount { get; set; }
     public List<IUser> InvitationList { get; set; }
-    public List<Task> TaskList { get; set; }
-    public List<Survey> SurveyList { get; set; }
+    public List<ITask> TaskList { get; set; }
+    public List<ISurvey> SurveyList { get; set; }
+    public List<IUser> MemberList { get; set; }
+
 
     #endregion
 
     #region Variables
-    
+
     private IUser _creator;
     private DateTime _modifiedDateTime;
     private DateTime _createdDateTime;
     private System.Timers.Timer _stateTimer = new System.Timers.Timer(60 * 1000);
+    private InteractionState _state;
     private bool _isActive;
     private string _id;
 
@@ -94,7 +97,10 @@ public class Project : IProject, IInteraction
     #endregion
 
     #region Public methods
-
+    /// <summary>
+    /// A Method not needed
+    /// </summary>
+    /// <param name="pUser"></param>
     public virtual void ChangeOwner(IUser pUser)
 	{
 		throw new System.NotImplementedException();
@@ -102,28 +108,53 @@ public class Project : IProject, IInteraction
 
 	public virtual void ChangeIsActive(bool pActive)
 	{
-		throw new System.NotImplementedException();
-	}
+        if (_isActive != pActive)
+        {
+            _isActive = pActive;
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.IsActive);
+            OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Project));
+        }
+    }
 
 	public virtual void AddTask(ITask pTask)
 	{
-		throw new System.NotImplementedException();
-	}
+        TaskList.Add(pTask);
+        List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+        changedAttributes.Add(InteractionAttributes.TaskList);
+        OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Project));
+    }
 
-	public virtual void AddSurvey(ISurvey pPoll)
-	{
-		throw new System.NotImplementedException();
-	}
+	public virtual void AddSurvey(ISurvey pSurvey)
+    {
+        SurveyList.Add(pSurvey);
+        List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+        changedAttributes.Add(InteractionAttributes.SurveyList);
+        OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Project));
+    }
 
 	public virtual void Invite(IUser pUser)
 	{
-		throw new System.NotImplementedException();
-	}
+        if (!MemberList.Contains(pUser)&& !InvitationList.Contains(pUser))
+        {
+            InvitationList.Add(pUser);
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.InvitationList);
+            OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Project));
+        }
+    }
 
 	public virtual void Accept(IUser pUser)
-	{
-		throw new System.NotImplementedException();
-	}
+    {
+        if (InvitationList.Contains(pUser))
+        {
+            InvitationList.Remove(pUser);
+            MemberList.Add(pUser);
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.InvitationList);
+            OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Project));
+        }
+    }
 
 	public virtual void Leave()
 	{
@@ -132,13 +163,27 @@ public class Project : IProject, IInteraction
 
 	public virtual void KickUser(IUser pUser)
 	{
-		throw new System.NotImplementedException();
-	}
+        if (MemberList.Contains(pUser))
+        {
+            MemberList.Remove(pUser);
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.MemberList);
+            OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Project));
+        }
+    }
     
 	public virtual void ChangeState(InteractionState pState)
 	{
-		throw new System.NotImplementedException();
-	}
+
+        this._state = pState;
+        if (_state == InteractionState.Finished ||
+            _state == InteractionState.Cancelled ||
+            _state == InteractionState.Expired)
+            ChangeIsActive(false);
+        List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+        changedAttributes.Add(InteractionAttributes.State);
+        OnStateChanged(new InteractionEventArgs($"Survey state changed [Id={Id}]", DateTime.Now, InteractionType.Project));
+    }
     #endregion
 
     #region Private methods
@@ -165,7 +210,36 @@ public class Project : IProject, IInteraction
         EndDateTime = default(DateTime);
         _isActive = true;
         Type = InteractionType.Project;
+        _state = StartDateTime <= DateTime.Now ? InteractionState.Active : InteractionState.Queued;
+        _stateTimer.Elapsed += OnTimerElapsed;
+        _stateTimer.AutoReset = false;
+        _stateTimer.Start();
+    }
 
+    /// <summary>
+    /// This method validates the object state and chages if required. Once the interaction is either 
+    /// cancelled, finished or expired the state check will suspend
+    /// </summary>
+    /// <param name="sender">The object calling this method (timer)</param>
+    /// <param name="e">The event parameters passed</param>
+    private void OnTimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
+    {
+        if (_state == InteractionState.Active || _state == InteractionState.Queued)
+        {
+            // Expired?
+            if (EndDateTime <= DateTime.Now)
+                ChangeState(InteractionState.Expired);
+            // Turns active?
+            if (StartDateTime <= DateTime.Now && _state == InteractionState.Queued)
+                ChangeState(InteractionState.Active);
+            // Finished, as all votes were made?
+            if (IsActive==false)
+                ChangeState(InteractionState.Finished);
+        }
+
+        // Still active?
+        if (_state == InteractionState.Active || _state == InteractionState.Queued)
+            _stateTimer.Start();
     }
     #endregion
 }

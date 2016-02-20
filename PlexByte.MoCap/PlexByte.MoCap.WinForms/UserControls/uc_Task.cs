@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PlexByte.MoCap.WinForms
+namespace PlexByte.MoCap.WinForms.UserControls
 {
-    public partial class frmVoteDialog : Form
+    public partial class uc_Task : UserControl
     {
-        public frmVoteDialog()
+        public uc_Task()
         {
             InitializeComponent();
         }

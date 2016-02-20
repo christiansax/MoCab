@@ -71,5 +71,15 @@ public class Project : IProject, IInteraction
 		throw new System.NotImplementedException();
 	}
 
+	public virtual void ProjectView(IProject pProject)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void UserView(IProject pProject, IUser pUser)
+	{
+		throw new System.NotImplementedException();
+	}
+
 }
 

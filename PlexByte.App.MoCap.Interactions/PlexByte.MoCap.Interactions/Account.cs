@@ -102,13 +102,13 @@ public class Account : IAccount, IInteraction
             ChangeIsActive(false);
         List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
         changedAttributes.Add(InteractionAttributes.State);
-        OnStateChanged(new InteractionEventArgs($"Survey state changed [Id={Id}]", DateTime.Now, InteractionType.Survey));
+        OnStateChanged(new InteractionEventArgs($"Survey state changed [Id={Id}]", DateTime.Now, InteractionType.Account));
     }
     #endregion
 
     #region Private methods
     /// <summary>
-    /// 
+    /// Initializes all attributes and started the state timer, which validates the interaction's state every 60
     /// </summary>
     /// <param name="pId"></param>
     /// <param name="pText"></param>
@@ -142,15 +142,15 @@ public class Account : IAccount, IInteraction
     {
         if (_state == InteractionState.Active || _state == InteractionState.Queued)
         {
-            // Expired?
-            if (DueDateTime <= DateTime.Now)
-                ChangeState(InteractionState.Expired);
-            // Turns active?
-            if (StartDateTime <= DateTime.Now && _state == InteractionState.Queued)
-                ChangeState(InteractionState.Active);
-            // Finished, as all votes were made?
-            if (_voteList.Count >= UserList.Count * MaxVotesPerUser)
-                ChangeState(InteractionState.Finished);
+            //// Expired?
+            //if (DueDateTime <= DateTime.Now)
+            //    ChangeState(InteractionState.Expired);
+            //// Turns active?
+            //if (StartDateTime <= DateTime.Now && _state == InteractionState.Queued)
+            //    ChangeState(InteractionState.Active);
+            //// Finished, as all votes were made?
+            //if (_voteList.Count >= UserList.Count * MaxVotesPerUser)
+            //    ChangeState(InteractionState.Finished);
         }
 
         // Still active?

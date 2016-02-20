@@ -16,4 +16,5 @@ public enum InteractionType : int
 	Project,
 	Expense,
 	Timeslice,
+    Account,
 }

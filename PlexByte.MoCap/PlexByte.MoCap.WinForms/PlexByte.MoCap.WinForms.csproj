@@ -42,38 +42,11 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>..\..\..\..\..\..\Downloads\DockPanel_2.4_Bin\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmOptionDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmOptionDialog.Designer.cs">
-      <DependentUpon>frmOptionDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmPoll.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPoll.Designer.cs">
-      <DependentUpon>frmPoll.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmTask.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTask.Designer.cs">
-      <DependentUpon>frmTask.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmTraceViewer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTraceViewer.Designer.cs">
-      <DependentUpon>frmTraceViewer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmVoteDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmVoteDialog.Designer.cs">
-      <DependentUpon>frmVoteDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="frm_MoCapMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,7 +55,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmTraceViewer.resx" />
+    <Compile Include="UserControls\uc_Task.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\uc_Task.Designer.cs">
+      <DependentUpon>uc_Task.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frm_MoCapMain.resx">
       <DependentUpon>frm_MoCapMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -96,6 +74,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\uc_Task.resx">
+      <DependentUpon>uc_Task.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\PlexByte.MoCap.Logging.TraceMessageAdapter.datasource" />
     <None Include="Properties\DataSources\PlexByte.MoCap.Logging.TraceMessageAdapter1.datasource" />
     <None Include="Properties\Settings.settings">
@@ -151,14 +132,7 @@
     <None Include="Resources\Refresh.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\visual studio 2015\Projects\PlexByte.MoCap.Logging\Logging\Logging.csproj">
-      <Project>{ff370f74-302d-4eb1-b756-e97675904404}</Project>
-      <Name>Logging</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="CustomControls\" />
-    <Folder Include="UserControls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

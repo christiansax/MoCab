@@ -15,9 +15,9 @@ public interface IProject
 
 	bool EnableSurvey { get;set; }
 
-	List<string> MemberList { get;set; }
+	List<IUser> MemberList { get;set; }
 
-	List<string> InvitationList { get;set; }
+	List<IUser> InvitationList { get;set; }
 
 	List<Task> TaskList { get;set; }
 

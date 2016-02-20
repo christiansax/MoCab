@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IProject 
+public interface IProject  : IAccount
 {
 	bool EnableBalance { get;set; }
 
@@ -19,11 +19,7 @@ public interface IProject
 
 	List<string> InvitationList { get;set; }
 
-	List<Task> TaskList { get;set; }
-
 	List<Survey> SurveyList { get;set; }
-
-	IAccount IAccount { get;set; }
 
 	void AddTask(ITask pTask);
 

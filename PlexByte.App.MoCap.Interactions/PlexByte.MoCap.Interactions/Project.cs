@@ -22,15 +22,21 @@ public class Project : IProject, IInteraction
     public InteractionState State { get; set; }
     public bool EnableBalance { get; set; }
     public bool EnableSurvey { get; set; }
-    public List<string> MemberList { get; set; }
-    public List<string> InvitationList { get; set; }
+    public List<IUser> MemberList { get; set; }
+    public List<IUser> InvitationList { get; set; }
     public List<Task> TaskList { get; set; }
     public List<Survey> SurveyList { get; set; }
 
     #endregion
 
     #region Variables
-
+    
+    private IUser _creator;
+    private DateTime _modifiedDateTime;
+    private DateTime _createdDateTime;
+    private System.Timers.Timer _stateTimer = new System.Timers.Timer(60 * 1000);
+    private bool _isActive;
+    private string _id;
 
     #endregion
 
@@ -43,7 +49,29 @@ public class Project : IProject, IInteraction
     #endregion
 
     #region Ctor & Dtor
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="pId"></param>
+    /// <param name="pText"></param>
+    /// <param name="pCreator"></param>
+    public Project(string pId, string pText, IUser pCreator)
+    {
+        List<IUser> pMemberList = new List<IUser>();
+        List<IUser> pInvitationList = new List<IUser>();
+        EnableSurvey = true;
+        EnableBalance = true;
 
+        InitializeProperties(pId, pText, EnableBalance, EnableSurvey, pMemberList, pInvitationList, pCreator);
+
+    }
+
+
+    public Project(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, IUser pCreator, List<IUser> pMemberList, List<IUser> pInvitationList)
+    {
+        InitializeProperties(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pCreator);
+
+    }
     #endregion
 
     #region Event raising methods
@@ -114,7 +142,31 @@ public class Project : IProject, IInteraction
     #endregion
 
     #region Private methods
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="pId"></param>
+    /// <param name="pText"></param>
+    /// <param name="pMemberList"></param>
+    /// <param name="pInvitationList"></param>
+    /// <param name="pCreator"></param>
+    private void InitializeProperties(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList, IUser pCreator)
+    {
+        _id = pId;
+        EnableBalance = pEnableBalance;
+        EnableSurvey = pEnableSurvey;
+        _creator = pCreator;
+        Text = pText;
+        MemberList = pMemberList;
+        InvitationList = pInvitationList;
+        _createdDateTime = DateTime.Now;
+        _modifiedDateTime = DateTime.Now;
+        StartDateTime = DateTime.Now;
+        EndDateTime = default(DateTime);
+        _isActive = true;
+        Type = InteractionType.Project;
 
+    }
     #endregion
 }
 

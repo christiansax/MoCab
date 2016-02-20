@@ -26,7 +26,7 @@ public class ProjectFactory : IProjectFactory
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void Create(string pId, string pText, IUser pCreatur, List<string> MemberList, List<string> InvitationList)
+	public virtual void Create(string pId, string pText, IUser pCreatur, bool MemberList, bool InvitationList, List<IUser> pMemberList, List<IUser> pInvitationList)
 	{
 		throw new System.NotImplementedException();
 	}

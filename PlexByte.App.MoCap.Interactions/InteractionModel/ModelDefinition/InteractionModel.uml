@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="ad4d6cdc-fb9f-47da-888c-246cb0bab9e8"
   name="InteractionModel" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -1574,110 +1574,6 @@
           </stereotypeInstance>
         </appliedStereotypesInternal>
         <targetEnds>
-          <association
-            Id="74c7b8ae-e62c-4463-a64c-8589ecdac90a"
-            isDerived="false"
-            sourceEndRoleName="ITask"
-            targetEndRoleName="TimesliceList"
-            isLeaf="false"
-            isAbstract="false">
-            <interfaceMoniker
-              Id="98ed5b50-ad31-4ecb-9482-6f0615de4c50"
-              LastKnownName="ITimeslice"
-              LastKnownLocation="InteractionModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="00b2876d-5c0d-4972-a33a-27e099868e03"
-                  name="ITask"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Composite"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="4108fcf5-18da-4272-9285-f675d097d235"
-                  name="TimesliceList"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="true"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="true">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="af323e21-b3de-4fb7-a84c-ec5c20d9a9e9"
-                      name="Lower"
-                      value="*" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="0a2d6a8c-97a7-4c5f-8d4b-6225b166974a"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="c82d8b12-24ad-47ef-82f5-eab34a664d4a"
-            isDerived="false"
-            sourceEndRoleName="ITask"
-            targetEndRoleName="ExpenseList"
-            isLeaf="false"
-            isAbstract="false">
-            <interfaceMoniker
-              Id="83ceaa31-1532-4a70-b5a8-875d8a1b173c"
-              LastKnownName="IExpense"
-              LastKnownLocation="InteractionModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="bb150c24-d04b-4eeb-832c-528648c81549"
-                  name="ITask"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Composite"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="eb3a5600-1638-4a36-9ed6-68e9f736bee4"
-                  name="ExpenseList"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="true"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="true">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="602e5692-87f7-47de-9b23-f31fb8006a6a"
-                      name="Lower"
-                      value="*" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="0a9228e6-fd74-4e98-9556-c1d740efaf75"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
           <association
             Id="12a5b420-fc09-448b-92c4-307e5f212e79"
             isDerived="false"
@@ -14157,8 +14053,8 @@
                   isUnique="false">
                   <type_NamedElement>
                     <undefinedTypeMoniker
-                      Id="64a97e22-4c11-44d2-a8d2-312a0a7dc938"
-                      LastKnownName="List&lt;string&gt;"
+                      Id="b1dc9495-c9d5-41e9-ad9a-a00cf5c3fd75"
+                      LastKnownName="bool"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -14171,8 +14067,36 @@
                   isUnique="false">
                   <type_NamedElement>
                     <undefinedTypeMoniker
-                      Id="64a97e22-4c11-44d2-a8d2-312a0a7dc938"
-                      LastKnownName="List&lt;string&gt;"
+                      Id="b1dc9495-c9d5-41e9-ad9a-a00cf5c3fd75"
+                      LastKnownName="bool"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a6a2fb79-5eea-4650-a10c-b8eb6f84dc11"
+                  name="pMemberList"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="f341b309-e5d6-44f2-9fca-6af32b9c2ddf"
+                      LastKnownName="List&lt;IUser&gt;"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ea6297f9-037c-47a2-99af-f8b579dad8e3"
+                  name="pInvitationList"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="f341b309-e5d6-44f2-9fca-6af32b9c2ddf"
+                      LastKnownName="List&lt;IUser&gt;"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -15291,6 +15215,56 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e611f3ab-f604-4b8d-8750-fe3d8dc19e8a"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="add8f448-1102-4edd-aa24-edb95af4dc08">
+                    <propertyInstance
+                      Id="be357e5f-a3f9-46eb-a2ed-88a3963348eb"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bb83f46d-09f8-4c03-80f4-7d9390507ce3">
+                    <propertyInstance
+                      Id="d8cc3f55-f621-4fbe-91aa-b5e620bec2f9"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="782430cc-a1b8-4827-98ba-79eb958b157e">
+                    <propertyInstance
+                      Id="08dbfa6a-d268-4068-85a0-363880e2ee16"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e69c2217-fbbf-45b5-b2f0-a3d83fc9520f">
+                    <propertyInstance
+                      Id="bf1f7ad9-0d92-4029-aecf-e3b1fdee2b86"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="476cc2b9-91ad-4919-8df7-abaa60bb18eb">
+                    <propertyInstance
+                      Id="48b705c2-aa64-4727-8254-2ac5e2e48a84"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dc540f21-641d-46dc-92b7-a4bd8c1f333e">
+                    <propertyInstance
+                      Id="16d64026-c2b7-42fa-9830-8c52ddca1249"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
@@ -15316,6 +15290,56 @@
             isAbstract="false"
             concurrency="Sequential"
             isQuery="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="17dee37d-1e61-4299-8352-89c2e5dab0a4"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ca9f07a9-07f2-48ee-947f-e9bfd6f857ec">
+                    <propertyInstance
+                      Id="e600e0f7-8626-4163-8773-63f92de800d7"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ddca6950-743b-4064-a325-58dae91fe4ae">
+                    <propertyInstance
+                      Id="0ae50423-b5cc-4e30-b851-e8f7c8a2b7b7"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7b06323a-79af-483c-b426-006f8a95f067">
+                    <propertyInstance
+                      Id="cefa1aec-3649-4875-b655-c4d2ddd11a41"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cde76737-25d6-4b16-8b6f-973672f6a4d4">
+                    <propertyInstance
+                      Id="f15fbe3f-a87f-4a8d-a817-d5c9428fe53d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a82a9ae5-9865-4f09-8591-2750ae6c2fda">
+                    <propertyInstance
+                      Id="0d892c00-ef94-44fb-a932-11f57da4e9c8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6dc5ec1f-43c9-4759-9ee1-2c494ad6f06b">
+                    <propertyInstance
+                      Id="5b7af039-17fb-4639-837a-62f16100e1d3"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
@@ -15707,7 +15731,7 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="1a347f56-2c6b-4647-982f-e40d5c9851c3"
+                  Id="6571d3f5-d336-4858-a5cd-04248d8c473e"
                   name="pId"
                   direction="In"
                   isUnique="false">
@@ -15721,7 +15745,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="9df94006-a381-4cae-bc5a-e33eda568eec"
+                  Id="7289afd9-2714-434a-9a66-ea61ee88265d"
                   name="pText"
                   direction="In"
                   isUnique="false">
@@ -15735,7 +15759,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="aa1d85ee-3ba5-4643-aabf-ff2e370f4fa7"
+                  Id="44daf516-893f-4763-8515-83b3c6136db0"
                   name="pCreatur"
                   direction="In"
                   isUnique="false">
@@ -15749,28 +15773,56 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="a601550d-0268-43ee-a318-2cc05654398d"
-                  name="MemberList"
+                  Id="1de8611f-09bd-431b-8112-17de42588a9a"
+                  name="pEnableBalance"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
                     <undefinedTypeMoniker
-                      Id="64a97e22-4c11-44d2-a8d2-312a0a7dc938"
-                      LastKnownName="List&lt;string&gt;"
+                      Id="b1dc9495-c9d5-41e9-ad9a-a00cf5c3fd75"
+                      LastKnownName="bool"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="9a12f116-148d-4c5e-a0fe-a4edd65bc904"
-                  name="InvitationList"
+                  Id="a53757de-2532-44bf-a9f0-7f524730c852"
+                  name="pEnableSurvey"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
                     <undefinedTypeMoniker
-                      Id="64a97e22-4c11-44d2-a8d2-312a0a7dc938"
-                      LastKnownName="List&lt;string&gt;"
+                      Id="b1dc9495-c9d5-41e9-ad9a-a00cf5c3fd75"
+                      LastKnownName="bool"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f0add38c-261f-4819-954e-be3b6706594b"
+                  name="pMemberList"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="f341b309-e5d6-44f2-9fca-6af32b9c2ddf"
+                      LastKnownName="List&lt;IUser&gt;"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8bb81a90-3173-499b-8144-f01bbaa76ea2"
+                  name="pInvitationList"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="f341b309-e5d6-44f2-9fca-6af32b9c2ddf"
+                      LastKnownName="List&lt;IUser&gt;"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -16280,81 +16332,6 @@
               <undefinedTypeMoniker
                 Id="64a97e22-4c11-44d2-a8d2-312a0a7dc938"
                 LastKnownName="List&lt;string&gt;"
-                LastKnownLocation="InteractionModel.uml" />
-            </type_NamedElement>
-          </property>
-          <property
-            Id="a78658ba-86ae-4892-8da7-ef1e488335b9"
-            name="TaskList"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="e598bb6e-c051-489a-bebb-e787c9c26f60"
-                name="property"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="47bc4bb4-782b-4153-ac30-8b71ec169ab3">
-                    <propertyInstance
-                      Id="5448c690-b09d-4672-9410-37a910c1c909"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="45225892-1f64-4871-bc55-a0af74b2f0e9">
-                    <propertyInstance
-                      Id="4c2ba25a-089d-400b-8218-487e1ea4681f"
-                      name="Get"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="b873dfb0-b6e2-4215-bee0-9d82147cd73d">
-                    <propertyInstance
-                      Id="a5afecf3-7236-4628-8d90-67de5100b07f"
-                      name="HasBody"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="363abf39-f3eb-4042-ac57-57655d38418d">
-                    <propertyInstance
-                      Id="889f2f83-9a32-43e1-aa8c-a9c270f1101b"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="280ce72c-8a3d-4a87-8815-b20576d0d364">
-                    <propertyInstance
-                      Id="c699fd00-9196-41ee-bfd8-a1c4fdfac945"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="631ed07b-167e-4487-a98f-c197224acde8">
-                    <propertyInstance
-                      Id="b68aa159-3da1-4380-b426-b342c70bf968"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="d64b09fb-bdb4-48a6-8e61-4527fd5a6cd6">
-                    <propertyInstance
-                      Id="b33d1bb5-b2ae-4f49-b715-50d6d038def5"
-                      name="Set"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <type_NamedElement>
-              <undefinedTypeMoniker
-                Id="c5946606-409b-433a-ae3f-1a245f1f2b8a"
-                LastKnownName="List&lt;Task&gt;"
                 LastKnownLocation="InteractionModel.uml" />
             </type_NamedElement>
           </property>

@@ -23,10 +23,6 @@ public interface ITask
 
 	int Progress { get; }
 
-	IEnumerable<ITimeslice> TimesliceList { get; }
-
-	IEnumerable<IExpense> ExpenseList { get; }
-
 	IEnumerable<ITask> SubTasks { get; }
 
 	void AddTimeslice(ITimeslice pTimeslice);

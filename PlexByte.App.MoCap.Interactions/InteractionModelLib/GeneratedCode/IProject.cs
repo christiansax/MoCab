@@ -23,7 +23,11 @@ public interface IProject
 
 	List<Survey> SurveyList { get;set; }
 
-	IAccount IAccount { get;set; }
+	IAccount ProjectAccount { get;set; }
+
+	IEnumerable<ITask> TaskList { get;set; }
+
+	IEnumerable<ISurvey> SurveyList { get;set; }
 
 	void AddTask(ITask pTask);
 

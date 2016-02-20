@@ -15,6 +15,8 @@ public interface ITimeslice
 
 	IUser User { get;set; }
 
+	IInteraction Target { get;set; }
+
 	int CalculateDuration(DateTime pStartDT, DateTime pEndDT);
 
 }

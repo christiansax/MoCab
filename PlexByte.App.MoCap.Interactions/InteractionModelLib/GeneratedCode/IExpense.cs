@@ -15,6 +15,8 @@ public interface IExpense
 
 	System.Drawing.Image Receipt { get;set; }
 
+	IInteraction Target { get;set; }
+
 	void AddReceipt(System.Drawing.Image pImage);
 
 	void DeleteReceipt(System.Drawing.Image pImage);

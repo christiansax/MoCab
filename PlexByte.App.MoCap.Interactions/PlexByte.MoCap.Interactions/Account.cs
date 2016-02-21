@@ -11,7 +11,6 @@ public class Account : IAccount, IInteraction
     #region Properties
     public List<IExpense> ExpenseList { get; set; }
     public List<ITimeslice> TimesliceList { get; set; }
-    public IEnumerable<ITask> TaskList { get; set; }
     public string Id { get; set; }
     public DateTime StartDateTime { get; set; }
     public DateTime EndDateTime { get; set; }
@@ -28,6 +27,8 @@ public class Account : IAccount, IInteraction
     #endregion
 
     #region Variables
+
+    private IUser _owner;
     private IUser _creator;
     private DateTime _modifiedDateTime;
     private DateTime _createdDateTime;
@@ -45,7 +46,36 @@ public class Account : IAccount, IInteraction
     #endregion
 
     #region Ctor & Dtor
+    /// <summary>
+    /// Constructor of the class
+    /// </summary>
+    /// <param name="pId"></param>
+    /// <param name="pText"></param>
+    /// <param name="pCreator"></param>
+    public Account(string pId, string pText, IUser pCreator)
+    {
+        List<IUser> pMemberList = new List<IUser>();
+        List<IUser> pInvitationList = new List<IUser>();
+        List<IExpense> pExpenseList = new List<IExpense>();
+        List<ITimeslice> pTimesliceList = new List<ITimeslice>();
 
+        InitializeProperties(pId, pText, pExpenseList, pTimesliceList, pCreator);
+    }
+
+    /// <summary>
+    /// Constructor of the class
+    /// </summary>
+    /// <param name="pId"></param>
+    /// <param name="pText"></param>
+    /// <param name="pEnableBalance"></param>
+    /// <param name="pEnableSurvey"></param>
+    /// <param name="pCreator"></param>
+    /// <param name="pMemberList"></param>
+    /// <param name="pInvitationList"></param>
+    public Account(string pId, string pText, List<IExpense> pExpenseList, List<ITimeslice> pTimesliceList, IUser pCreator)
+    {
+        InitializeProperties(pId, pText, pExpenseList, pTimesliceList, pCreator);
+    }
     #endregion
 
     #region Event raising methods
@@ -67,13 +97,20 @@ public class Account : IAccount, IInteraction
     #region Public methods
 
     /// <summary>
-    /// A method not needed
+    /// This method changes the owner of the project and raises the modified event if the owner is different
+    /// used to create a secound project-admin
     /// </summary>
     /// <param name="pUser"></param>
     public virtual void ChangeOwner(IUser pUser)
-	{
-		throw new System.NotImplementedException();
-	}
+    {
+        if (_owner != pUser)
+        {
+            _owner = pUser;
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.Owner);
+            OnModify(new InteractionEventArgs($"Survey owner changed [Id={Id}]", DateTime.Now, InteractionType.Account));
+        }
+    }
 
     /// <summary>
     /// This method changes the active flag of the object. This can occure if the item expired, finished or was 
@@ -131,9 +168,20 @@ public class Account : IAccount, IInteraction
         OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Account));
     }
 
-    public void EditExpense(IExpense pExpense)
+    /// <summary>
+    /// To edit the expense the old one is removed and a new is being created
+    /// </summary>
+    /// <param name="pExpense"></param>
+    public void EditExpense(IExpense pExpense, IExpense pNewExpense)
     {
-        throw new NotImplementedException();
+        if (ExpenseList.Contains(pExpense))
+        {
+            ExpenseList.Remove(pExpense);
+            ExpenseList.Add(pNewExpense);
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.ExpenseList);
+            OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Account));
+        }
     }
 
     /// <summary>
@@ -151,9 +199,20 @@ public class Account : IAccount, IInteraction
         }
     }
 
-    public void EditTimeslice(ITimeslice PTimeslice)
+    /// <summary>
+    /// To edit the timeslice the old one is removed and a new is being created
+    /// </summary>
+    /// <param name="PTimeslice"></param>
+    public void EditTimeslice(ITimeslice pTimeslice, ITimeslice pNewTimeslice)
     {
-        throw new NotImplementedException();
+        if (TimesliceList.Contains(pTimeslice))
+        {
+            TimesliceList.Remove(pTimeslice);
+            TimesliceList.Add(pNewTimeslice);
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.TimesliceList);
+            OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Account));
+        }
     }
 
     /// <summary>
@@ -182,11 +241,13 @@ public class Account : IAccount, IInteraction
     /// <param name="pMemberList"></param>
     /// <param name="pInvitationList"></param>
     /// <param name="pCreator"></param>
-    private void InitializeProperties(string pId, string pText, List<IUser> pMemberList, List<IUser> pInvitationList, IUser pCreator)
+    private void InitializeProperties(string pId, string pText, List<IExpense> pExpenseList, List<ITimeslice> pTimesliceList, IUser pCreator)
     {
         _id = pId;
         _creator = pCreator;
         Text = pText;
+        ExpenseList = pExpenseList;
+        TimesliceList = pTimesliceList;
         _createdDateTime = DateTime.Now;
         _modifiedDateTime = DateTime.Now;
         StartDateTime = DateTime.Now;
@@ -209,15 +270,15 @@ public class Account : IAccount, IInteraction
     {
         if (_state == InteractionState.Active || _state == InteractionState.Queued)
         {
-            //// Expired?
-            //if (DueDateTime <= DateTime.Now)
-            //    ChangeState(InteractionState.Expired);
-            //// Turns active?
-            //if (StartDateTime <= DateTime.Now && _state == InteractionState.Queued)
-            //    ChangeState(InteractionState.Active);
-            //// Finished, as all votes were made?
-            //if (_voteList.Count >= UserList.Count * MaxVotesPerUser)
-            //    ChangeState(InteractionState.Finished);
+            // Behind schedule?
+            if (EndDateTime <= DateTime.Now)
+                ChangeState(InteractionState.Behind);
+            // Turns active?
+            if (StartDateTime <= DateTime.Now && _state == InteractionState.Queued)
+                ChangeState(InteractionState.Active);
+            // Finished if project is closed?
+            if (IsActive == false)
+                ChangeState(InteractionState.Finished);
         }
 
         // Still active?

@@ -14230,7 +14230,7 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="561743cd-04fe-44a2-af2d-e098f3818116"
+                  Id="a45ddc9f-8e0a-4e93-8187-34e45e103a30"
                   name="pId"
                   direction="In"
                   isUnique="false">
@@ -14244,7 +14244,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="9ff0bfbd-879e-4910-acfb-db1f387a41da"
+                  Id="e50faf57-abb6-4886-9aab-2f24a235d149"
                   name="pText"
                   direction="In"
                   isUnique="false">
@@ -14258,7 +14258,35 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="a68f85db-fbaa-4905-92c2-eb746a67006d"
+                  Id="23bb396b-d7e5-41f4-8af5-73b9018a33d2"
+                  name="pEnableBalance"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b1dc9495-c9d5-41e9-ad9a-a00cf5c3fd75"
+                      LastKnownName="bool"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="229eafc6-5d95-4c8e-b0a5-820fd3852824"
+                  name="pEnableSurvey"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b1dc9495-c9d5-41e9-ad9a-a00cf5c3fd75"
+                      LastKnownName="bool"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1a21d1f9-e6c4-41b2-a23a-27bfc7b49ca2"
                   name="pCreator"
                   direction="In"
                   isUnique="false">
@@ -14397,6 +14425,62 @@
                     <undefinedTypeMoniker
                       Id="64a97e22-4c11-44d2-a8d2-312a0a7dc938"
                       LastKnownName="List&lt;string&gt;"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="e6645c73-621e-41bb-b77d-40dd932b92e6"
+                  name="pEnableBalance"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b1dc9495-c9d5-41e9-ad9a-a00cf5c3fd75"
+                      LastKnownName="bool"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a3cec327-4f5b-49ec-aa82-6450ff0b1e35"
+                  name="pEnableSurvey"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b1dc9495-c9d5-41e9-ad9a-a00cf5c3fd75"
+                      LastKnownName="bool"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1cd0ae50-354d-489f-a5f1-ba15067501f4"
+                  name="TaskList"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="d8f12a85-0a38-4975-921b-0aeae0f59522"
+                      LastKnownName="List&lt;ITask&gt;"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5bf0440c-263d-4bd2-a7bf-aecdf435e553"
+                  name="SurveyList"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="3333e26e-7aad-4e16-badc-988f014a4015"
+                      LastKnownName="List&lt;ISurvey&gt;"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -15764,7 +15848,7 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="34485c0c-7215-4eb6-9e39-a49b085d8d06"
+                  Id="45c48431-69e0-4e7e-b22c-36a5c7f97e6b"
                   name="pId"
                   direction="In"
                   isUnique="false">
@@ -15778,7 +15862,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="13c21964-0311-4e60-bfca-a6c6ad7cc0d7"
+                  Id="755f1f52-bec0-465f-b2db-db8c94bc36bb"
                   name="pText"
                   direction="In"
                   isUnique="false">
@@ -15792,7 +15876,35 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="7253a832-7206-48df-a817-75ab2e562abb"
+                  Id="ad51738e-8191-49af-8a6f-65b979c0456d"
+                  name="pEnableBalance"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b1dc9495-c9d5-41e9-ad9a-a00cf5c3fd75"
+                      LastKnownName="bool"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1d1a1453-e4a6-448c-9a60-885b393d98e0"
+                  name="pEnableSurvey"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b1dc9495-c9d5-41e9-ad9a-a00cf5c3fd75"
+                      LastKnownName="bool"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d3088120-bde7-458d-b8d2-48b57b4d1dba"
                   name="pCreator"
                   direction="In"
                   isUnique="false">
@@ -15867,7 +15979,7 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="1a347f56-2c6b-4647-982f-e40d5c9851c3"
+                  Id="a87b8d72-40ae-48de-83bb-7001e9a5079d"
                   name="pId"
                   direction="In"
                   isUnique="false">
@@ -15881,7 +15993,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="9df94006-a381-4cae-bc5a-e33eda568eec"
+                  Id="d7187630-6c32-453f-a36a-a713d7e41f1f"
                   name="pText"
                   direction="In"
                   isUnique="false">
@@ -15895,7 +16007,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="aa1d85ee-3ba5-4643-aabf-ff2e370f4fa7"
+                  Id="b2e289c6-ef9f-44c4-bb16-16b1c35fafae"
                   name="pCreatur"
                   direction="In"
                   isUnique="false">
@@ -15909,7 +16021,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="a601550d-0268-43ee-a318-2cc05654398d"
+                  Id="cfb0620a-5d7d-495f-b410-cbaa9d44ca96"
                   name="MemberList"
                   direction="In"
                   isUnique="false">
@@ -15923,7 +16035,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="9a12f116-148d-4c5e-a0fe-a4edd65bc904"
+                  Id="b3649806-1e09-4e73-99b7-fb6054a38644"
                   name="InvitationList"
                   direction="In"
                   isUnique="false">
@@ -15931,6 +16043,62 @@
                     <undefinedTypeMoniker
                       Id="64a97e22-4c11-44d2-a8d2-312a0a7dc938"
                       LastKnownName="List&lt;string&gt;"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f3420cd7-9ebd-41e0-ac29-f96b63d00df3"
+                  name="pEnableBalance"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b1dc9495-c9d5-41e9-ad9a-a00cf5c3fd75"
+                      LastKnownName="bool"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7400210a-84b3-43f8-8250-3f825d10ea8f"
+                  name="pEnableSurvey"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="b1dc9495-c9d5-41e9-ad9a-a00cf5c3fd75"
+                      LastKnownName="bool"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ee0f4af5-3cfa-4013-b2ae-3cfa18e65cd4"
+                  name="TaskList"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="d8f12a85-0a38-4975-921b-0aeae0f59522"
+                      LastKnownName="List&lt;ITask&gt;"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f4ea31b7-5262-4597-884a-55d0ff2d1360"
+                  name="SurveyList"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="3333e26e-7aad-4e16-badc-988f014a4015"
+                      LastKnownName="List&lt;ISurvey&gt;"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -17807,8 +17975,22 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="58185293-641e-4950-9f58-d6b3fd27f98c"
+                  Id="c6934472-7f45-402d-ae34-18d372e450e6"
                   name="pExpense"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="83ceaa31-1532-4a70-b5a8-875d8a1b173c"
+                      LastKnownName="IExpense"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9bec3920-f71c-429d-90b1-b8adec1fc75d"
+                  name="pNewExpense"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
@@ -17957,8 +18139,22 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="2d602521-69ee-4fe6-bd6b-5d5b33825a6f"
-                  name="PTimeslice"
+                  Id="7612171c-363b-45ea-a0f1-7e4836b82eb4"
+                  name="pTimeslice"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="98ed5b50-ad31-4ecb-9482-6f0615de4c50"
+                      LastKnownName="ITimeslice"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4665c913-841b-4850-a7a5-afe06858cbf1"
+                  name="pNewTimeslice"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
@@ -18939,6 +19135,20 @@
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c518133e-2227-4e85-91d8-264fe7aaa116"
+                  name="pNewExpense"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="83ceaa31-1532-4a70-b5a8-875d8a1b173c"
+                      LastKnownName="IExpense"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
           <operation
@@ -19079,6 +19289,20 @@
                 <parameter
                   Id="79c1c4b3-5841-4ea4-a4a5-02760b2a2578"
                   name="PTimeslice"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="98ed5b50-ad31-4ecb-9482-6f0615de4c50"
+                      LastKnownName="ITimeslice"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5ffdde24-ddd6-49db-9a9d-b4c15d5c0707"
+                  name="pNewTimeslice"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>

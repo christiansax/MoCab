@@ -51,17 +51,7 @@ public class Account : IAccount, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddTimeslice(ITimeslice pTimeslice)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void AddExpense(IExpense pExpense)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void EditExpense(IExpense pExpense)
+	public virtual void EditExpense(IExpense pExpense, IExpense pNewExpense)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -71,7 +61,7 @@ public class Account : IAccount, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void EditTimeslice(ITimeslice PTimeslice)
+	public virtual void EditTimeslice(ITimeslice PTimeslice, ITimeslice pNewTimeslice)
 	{
 		throw new System.NotImplementedException();
 	}

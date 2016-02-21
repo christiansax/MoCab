@@ -19,11 +19,11 @@ public interface IAccount
 
     void AddTimeslice(ITimeslice pTimeslice);
 
-    void EditExpense(IExpense pExpense);
+    void EditExpense(IExpense pExpense, IExpense pNewExpense);
 
     void DeleteExpense(IExpense pExpense);
 
-    void EditTimeslice(ITimeslice PTimeslice);
+    void EditTimeslice(ITimeslice pTimeslice, ITimeslice pNewTimeslice);
 
     void DeleteTimeslice(ITimeslice pTimeslice);
 }

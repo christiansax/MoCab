@@ -15,19 +15,15 @@ public interface IProject
 
 	bool EnableSurvey { get;set; }
 
-	List<string> MemberList { get;set; }
-
-	List<string> InvitationList { get;set; }
-
-	List<Task> TaskList { get;set; }
-
-	List<Survey> SurveyList { get;set; }
+	List<IUser> InvitationList { get;set; }
 
 	IAccount ProjectAccount { get;set; }
 
 	IEnumerable<ITask> TaskList { get;set; }
 
 	IEnumerable<ISurvey> SurveyList { get;set; }
+
+	IEnumerable<IUser> MemberList { get;set; }
 
 	void AddTask(ITask pTask);
 

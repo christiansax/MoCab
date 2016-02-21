@@ -17,6 +17,8 @@ public interface ITimeslice
 
 	IInteraction Target { get;set; }
 
+	string TaskId { get;set; }
+
 	int CalculateDuration(DateTime pStartDT, DateTime pEndDT);
 
 }

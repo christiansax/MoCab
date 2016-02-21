@@ -21,5 +21,11 @@ public enum InteractionAttributes
 	Type,
     OptionList,
     VoteList,
-    UserList
+    UserList,
+    MemberList,
+    InvitationList,
+    TaskList,
+    SurveyList,
+    ExpenseList,
+    TimesliceList
 }

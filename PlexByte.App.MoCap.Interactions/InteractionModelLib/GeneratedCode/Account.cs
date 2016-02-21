@@ -26,12 +26,12 @@ public class Account : IAccount, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void ProjectView(IProject pProject)
+	public virtual void AddExpense(IExpense pProject)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void UserView(IProject pProject, IUser pUser)
+	public virtual void AddTimeslice(ITimeslice pProject)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -51,12 +51,22 @@ public class Account : IAccount, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddTimeslice(ITimeslice pTimeslice)
+	public virtual void EditExpense(IExpense pExpense, IExpense pNewExpense)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddExpense(IExpense pExpense)
+	public virtual void DeleteExpense(IExpense pExpense)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void EditTimeslice(ITimeslice PTimeslice, ITimeslice pNewTimeslice)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void DeleteTimeslice(ITimeslice pTimeslice)
 	{
 		throw new System.NotImplementedException();
 	}

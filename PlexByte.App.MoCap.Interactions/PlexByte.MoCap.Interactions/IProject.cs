@@ -9,35 +9,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+public delegate void UserAdd(object sender, InteractionEventArgs e);
+public delegate void UserBan(object sender, InteractionEventArgs e);
+public delegate void Leave(object sender, InteractionEventArgs e);
+
 public interface IProject 
 {
-    //events
+
+    event UserAdd UserAdded;
+    event UserBan UserBanned;
+    event Leave Left;
 
 
+    bool EnableBalance { get; set; }
 
-	bool EnableBalance { get;set; }
+    bool EnableSurvey { get; set; }
 
-	bool EnableSurvey { get;set; }
+    List<IUser> InvitationList { get; set; }
 
-	List<IUser> MemberList { get;set; }
+    IAccount ProjectAccount { get; set; }
 
-	List<IUser> InvitationList { get;set; }
+    List<ITask> TaskList { get; set; }
 
-	List<Task> TaskList { get;set; }
+    List<ISurvey> SurveyList { get; set; }
 
-	List<Survey>SurveyList { get;set; }
+    List<IUser> MemberList { get; set; }
 
-	void AddTask(ITask pTask);
+    void AddTask(ITask pTask);
 
-	void AddSurvey(ISurvey pSurvey);
+    void AddSurvey(ISurvey pSurvey);
 
-	void Invite(IUser pUser);
+    void Invite(IUser pUser);
 
-	void Accept(IUser pUser);
+    void Accept(IUser pUser);
 
-	void Leave();
+    void Leave();
 
-	void KickUser(IUser pUser);
+    void KickUser(IUser pUser);
 
 }
 

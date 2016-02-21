@@ -15,9 +15,17 @@ public interface IAccount  : ITask
 
 	IEnumerable<ITimeslice> TimesliceList { get;set; }
 
-	void ProjectView(IProject pProject);
+	void AddExpense(IExpense pExpense);
 
-	void UserView(IProject pProject, IUser pUser);
+	void AddTimeslice(ITimeslice pTimeslice);
+
+	void EditExpense(IExpense pExpense, IExpense pNewExpense);
+
+	void DeleteExpense(IExpense pExpense);
+
+	void EditTimeslice(ITimeslice pTimeslice, ITimeslice pNewTimeslice);
+
+	void DeleteTimeslice(ITimeslice pTimeslice);
 
 }
 

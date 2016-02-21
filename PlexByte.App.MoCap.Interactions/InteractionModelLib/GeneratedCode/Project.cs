@@ -31,7 +31,7 @@ public class Project : IProject, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddSurvey(ISurvey pPoll)
+	public virtual void AddSurvey(ISurvey pSurvey)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -67,16 +67,6 @@ public class Project : IProject, IInteraction
 	}
 
 	public virtual void OnStateChanged(InteractionEventArgs pEventArgs)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void ProjectView(IProject pProject)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void UserView(IProject pProject, IUser pUser)
 	{
 		throw new System.NotImplementedException();
 	}

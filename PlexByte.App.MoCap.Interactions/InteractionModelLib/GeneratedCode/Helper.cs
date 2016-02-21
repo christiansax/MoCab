@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Helper
+public class Helper : IHelper
 {
 	public virtual string GenerateId()
 	{

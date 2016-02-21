@@ -9,17 +9,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IAccount 
+public interface IAccount
 {
-	IEnumerable<ITimeslice> TimesliceList { get;set; }
+    List<IExpense> ExpenseList { get; set; }
 
-	IEnumerable<IExpense> ExpenseList { get;set; }
+    List<ITimeslice> TimesliceList { get; set; }
 
-	IEnumerable<ITask> TaskList { get;set; }
+    void AddExpense(IExpense pExpense);
 
-	void ProjectView(IProject pProject);
+    void AddTimeslice(ITimeslice pTimeslice);
 
-	void UserView(IProject pProject, IUser pUser);
+    void EditExpense(IExpense pExpense, IExpense pNewExpense);
 
+    void DeleteExpense(IExpense pExpense);
+
+    void EditTimeslice(ITimeslice pTimeslice, ITimeslice pNewTimeslice);
+
+    void DeleteTimeslice(ITimeslice pTimeslice);
 }
 

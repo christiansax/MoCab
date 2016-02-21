@@ -22,19 +22,23 @@ public class Project : IProject, IInteraction
     public InteractionState State { get; set; }
     public bool EnableBalance { get; set; }
     public bool EnableSurvey { get; set; }
-    public List<IUser> MemberList { get; set; }
+    public IAccount ProjectAccount { get; set; }
     public List<IUser> InvitationList { get; set; }
-    public List<Task> TaskList { get; set; }
-    public List<Survey> SurveyList { get; set; }
+    public List<ITask> TaskList { get; set; }
+    public List<ISurvey> SurveyList { get; set; }
+    public List<IUser> MemberList { get; set; }
+
 
     #endregion
 
     #region Variables
-    
+
+    private IUser _owner;
     private IUser _creator;
     private DateTime _modifiedDateTime;
     private DateTime _createdDateTime;
     private System.Timers.Timer _stateTimer = new System.Timers.Timer(60 * 1000);
+    private InteractionState _state;
     private bool _isActive;
     private string _id;
 
@@ -45,116 +49,247 @@ public class Project : IProject, IInteraction
     public event Complete Completed;
     public event Modify Modified;
     public event StateChange StateChanged;
+    public event UserAdd UserAdded;
+    public event UserBan UserBanned;
+    public event Leave Left;
 
     #endregion
 
     #region Ctor & Dtor
     /// <summary>
-    /// 
+    /// Constructor of the class
     /// </summary>
     /// <param name="pId"></param>
     /// <param name="pText"></param>
     /// <param name="pCreator"></param>
-    public Project(string pId, string pText, IUser pCreator)
+    public Project(string pId, string pText,bool pEnableBalance, bool pEnableSurvey, IUser pCreator)
     {
         List<IUser> pMemberList = new List<IUser>();
         List<IUser> pInvitationList = new List<IUser>();
-        EnableSurvey = true;
-        EnableBalance = true;
+        List<ITask> pTaskList = new List<ITask>();
+        List<ISurvey> pSurveyList = new List<ISurvey>();
 
-        InitializeProperties(pId, pText, EnableBalance, EnableSurvey, pMemberList, pInvitationList, pCreator);
-
+        InitializeProperties(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pCreator);
     }
 
-
-    public Project(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, IUser pCreator, List<IUser> pMemberList, List<IUser> pInvitationList)
+    /// <summary>
+    /// Constructor of the class
+    /// </summary>
+    /// <param name="pId"></param>
+    /// <param name="pText"></param>
+    /// <param name="pEnableBalance"></param>
+    /// <param name="pEnableSurvey"></param>
+    /// <param name="pCreator"></param>
+    /// <param name="pMemberList"></param>
+    /// <param name="pInvitationList"></param>
+    public Project(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList, IUser pCreator)
     {
-        InitializeProperties(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pCreator);
-
+        InitializeProperties(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pCreator);
     }
     #endregion
 
     #region Event raising methods
-
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
     public virtual void OnComplete(InteractionEventArgs pEventArgs)
-	{
-		throw new System.NotImplementedException();
-	}
+    {
+        Completed?.Invoke(this, pEventArgs);
+    }
 
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
     public virtual void OnModify(InteractionEventArgs pEventArgs)
     {
-        throw new System.NotImplementedException();
+        Modified?.Invoke(this, pEventArgs);
     }
 
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
     public virtual void OnStateChanged(InteractionEventArgs pEventArgs)
     {
-        throw new System.NotImplementedException();
+        StateChanged?.Invoke(this, pEventArgs);
     }
 
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
+    public virtual void OnUserAdd(InteractionEventArgs pEventArgs)
+    {
+        UserAdded?.Invoke(this, pEventArgs);
+    }
+
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
+    public virtual void OnUserBan(InteractionEventArgs pEventArgs)
+    {
+        UserBanned?.Invoke(this, pEventArgs);
+    }
+
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
+    public virtual void OnLeave(InteractionEventArgs pEventArgs)
+    {
+        Left?.Invoke(this, pEventArgs);
+    }
     #endregion
 
     #region Public methods
-
+    /// <summary>
+    /// This method changes the owner of the project and raises the modified event if the owner is different
+    /// used to create a secound project-admin
+    /// </summary>
+    /// <param name="pUser"></param>
     public virtual void ChangeOwner(IUser pUser)
-	{
-		throw new System.NotImplementedException();
-	}
+    {
+        if (_owner != pUser)
+        {
+            _owner = pUser;
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.Owner);
+            OnModify(new InteractionEventArgs($"Survey owner changed [Id={Id}]", DateTime.Now, InteractionType.Project));
+        }
+    }
 
+    /// <summary>
+    /// This method changes the active flag of the object. This can occure if the item expired, finished or was 
+    /// cancelled. It will raise the Modified event once changed
+    /// </summary>
+    /// <param name="pActive"></param>
 	public virtual void ChangeIsActive(bool pActive)
 	{
-		throw new System.NotImplementedException();
-	}
-
+        if (_isActive != pActive)
+        {
+            _isActive = pActive;
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.IsActive);
+            OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Project));
+        }
+    }
+    /// <summary>
+    /// This method adds a Task to the list of tasks from the project
+    /// </summary>
+    /// <param name="pTask"></param>
 	public virtual void AddTask(ITask pTask)
 	{
-		throw new System.NotImplementedException();
-	}
+        TaskList.Add(pTask);
+        List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+        changedAttributes.Add(InteractionAttributes.TaskList);
+        OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Project));
+    }
 
-	public virtual void AddSurvey(ISurvey pPoll)
-	{
-		throw new System.NotImplementedException();
-	}
+    /// <summary>
+    /// This method adds a Survey to the list of surveys from the project
+    /// </summary>
+    /// <param name="pSurvey"></param>
+	public virtual void AddSurvey(ISurvey pSurvey)
+    {
+        SurveyList.Add(pSurvey);
+        List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+        changedAttributes.Add(InteractionAttributes.SurveyList);
+        OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Project));
+    }
 
+    /// <summary>
+    /// To invite a user to a projec, it adds the user to the invitations list
+    /// </summary>
+    /// <param name="pUser"></param>
 	public virtual void Invite(IUser pUser)
 	{
-		throw new System.NotImplementedException();
-	}
+        if (!MemberList.Contains(pUser)&& !InvitationList.Contains(pUser))
+        {
+            InvitationList.Add(pUser);
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.InvitationList);
+            OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Project));
+        }
+    }
 
+    /// <summary>
+    /// After a user is invited to a project this method removes the user from the invitation list and adds the same to the member list
+    /// </summary>
+    /// <param name="pUser"></param>
 	public virtual void Accept(IUser pUser)
-	{
-		throw new System.NotImplementedException();
-	}
-
+    {
+        if (InvitationList.Contains(pUser))
+        {
+            InvitationList.Remove(pUser);
+            MemberList.Add(pUser);
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.InvitationList);
+            OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Project));
+        }
+    }
+    /// <summary>
+    /// Remove oneself from the memberlist of the project
+    /// </summary>
 	public virtual void Leave()
 	{
 		throw new System.NotImplementedException();
 	}
 
+    /// <summary>
+    /// Kicks a user from the project. It removes a user from the memberlist
+    /// </summary>
+    /// <param name="pUser"></param>
 	public virtual void KickUser(IUser pUser)
 	{
-		throw new System.NotImplementedException();
-	}
-    
-	public virtual void ChangeState(InteractionState pState)
+        if (MemberList.Contains(pUser))
+        {
+            MemberList.Remove(pUser);
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.MemberList);
+            OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Project));
+        }
+    }
+
+    /// <summary>
+    /// Changes the state of this interaction and thus causes the stateCHanged event to be fired
+    /// </summary>
+    /// <param name="pState"></param>
+    public virtual void ChangeState(InteractionState pState)
 	{
-		throw new System.NotImplementedException();
-	}
+
+        this._state = pState;
+        if (_state == InteractionState.Finished ||
+            _state == InteractionState.Cancelled ||
+            _state == InteractionState.Expired)
+            ChangeIsActive(false);
+        List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+        changedAttributes.Add(InteractionAttributes.State);
+        OnStateChanged(new InteractionEventArgs($"Survey state changed [Id={Id}]", DateTime.Now, InteractionType.Project));
+    }
     #endregion
 
     #region Private methods
     /// <summary>
-    /// 
+    /// Initializes all attributes and started the state timer, which validates the interaction's state every 60
     /// </summary>
     /// <param name="pId"></param>
     /// <param name="pText"></param>
     /// <param name="pMemberList"></param>
     /// <param name="pInvitationList"></param>
     /// <param name="pCreator"></param>
-    private void InitializeProperties(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList, IUser pCreator)
+    private void InitializeProperties(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList, IUser pCreator)
     {
+        
         _id = pId;
         EnableBalance = pEnableBalance;
         EnableSurvey = pEnableSurvey;
+        MemberList = pMemberList;
+        InvitationList = pInvitationList;
+        TaskList = pTaskList;
+        SurveyList = pSurveyList;
         _creator = pCreator;
         Text = pText;
         MemberList = pMemberList;
@@ -165,7 +300,36 @@ public class Project : IProject, IInteraction
         EndDateTime = default(DateTime);
         _isActive = true;
         Type = InteractionType.Project;
+        _state = StartDateTime <= DateTime.Now ? InteractionState.Active : InteractionState.Queued;
+        _stateTimer.Elapsed += OnTimerElapsed;
+        _stateTimer.AutoReset = false;
+        _stateTimer.Start();
+    }
 
+    /// <summary>
+    /// This method validates the object state and chages if required. Once the interaction is either 
+    /// cancelled, finished or expired the state check will suspend
+    /// </summary>
+    /// <param name="sender">The object calling this method (timer)</param>
+    /// <param name="e">The event parameters passed</param>
+    private void OnTimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
+    {
+        if (_state == InteractionState.Active || _state == InteractionState.Queued)
+        {
+            // Behind schedule?
+            if (EndDateTime <= DateTime.Now)
+                ChangeState(InteractionState.Behind);
+            // Turns active?
+            if (StartDateTime <= DateTime.Now && _state == InteractionState.Queued)
+                ChangeState(InteractionState.Active);
+            // Finished if project is closed?
+            if (IsActive==false)
+                ChangeState(InteractionState.Finished);
+        }
+
+        // Still active?
+        if (_state == InteractionState.Active || _state == InteractionState.Queued)
+            _stateTimer.Start();
     }
     #endregion
 }

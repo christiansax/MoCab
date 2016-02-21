@@ -17,6 +17,8 @@ public interface IExpense
 
 	IInteraction Target { get;set; }
 
+	string TaskId { get;set; }
+
 	void AddReceipt(System.Drawing.Image pImage);
 
 	void DeleteReceipt(System.Drawing.Image pImage);

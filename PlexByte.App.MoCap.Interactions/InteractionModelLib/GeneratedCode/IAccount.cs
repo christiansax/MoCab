@@ -19,5 +19,13 @@ public interface IAccount  : ITask
 
 	void AddTimeslice(ITimeslice pTimeslice);
 
+	void EditExpense(IExpense pExpense);
+
+	void DeleteExpense(IExpense pExpense);
+
+	void EditTimeslice(ITimeslice PTimeslice);
+
+	void DeleteTimeslice(ITimeslice pTimeslice);
+
 }
 

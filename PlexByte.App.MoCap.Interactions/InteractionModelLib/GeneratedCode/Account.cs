@@ -61,5 +61,25 @@ public class Account : IAccount, IInteraction
 		throw new System.NotImplementedException();
 	}
 
+	public virtual void EditExpense(IExpense pExpense)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void DeleteExpense(IExpense pExpense)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void EditTimeslice(ITimeslice PTimeslice)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void DeleteTimeslice(ITimeslice pTimeslice)
+	{
+		throw new System.NotImplementedException();
+	}
+
 }
 

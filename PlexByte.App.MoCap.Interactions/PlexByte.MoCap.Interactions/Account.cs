@@ -9,8 +9,8 @@ using System.Text;
 public class Account : IAccount, IInteraction
 {
     #region Properties
-    public IEnumerable<ITimeslice> TimesliceList { get; set; }
-    public IEnumerable<IExpense> ExpenseList { get; set; }
+    public List<IExpense> ExpenseList { get; set; }
+    public List<ITimeslice> TimesliceList { get; set; }
     public IEnumerable<ITask> TaskList { get; set; }
     public string Id { get; set; }
     public DateTime StartDateTime { get; set; }
@@ -23,6 +23,8 @@ public class Account : IAccount, IInteraction
     public IUser Creator { get; set; }
     public IUser Owner { get; set; }
     public InteractionState State { get; set; }
+
+
     #endregion
 
     #region Variables
@@ -63,11 +65,21 @@ public class Account : IAccount, IInteraction
     #endregion
 
     #region Public methods
+
+    /// <summary>
+    /// A method not needed
+    /// </summary>
+    /// <param name="pUser"></param>
     public virtual void ChangeOwner(IUser pUser)
 	{
 		throw new System.NotImplementedException();
 	}
 
+    /// <summary>
+    /// This method changes the active flag of the object. This can occure if the item expired, finished or was 
+    /// cancelled. It will raise the Modified event once changed
+    /// </summary>
+    /// <param name="pActive"></param>
 	public virtual void ChangeIsActive(bool pActive)
 	{
         if (_isActive != pActive)
@@ -79,18 +91,8 @@ public class Account : IAccount, IInteraction
         }
     }
 
-	public virtual void ProjectView(IProject pProject)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void UserView(IProject pProject, IUser pUser)
-	{
-		throw new System.NotImplementedException();
-	}
-
     /// <summary>
-    /// 
+    /// Changes the state of this interaction and thus causes the stateCHanged event to be fired
     /// </summary>
     /// <param name="pState"></param>
 	public virtual void ChangeState(InteractionState pState)
@@ -104,6 +106,71 @@ public class Account : IAccount, IInteraction
         changedAttributes.Add(InteractionAttributes.State);
         OnStateChanged(new InteractionEventArgs($"Survey state changed [Id={Id}]", DateTime.Now, InteractionType.Account));
     }
+
+    /// <summary>
+    /// Adds a "expense" to the expenselist
+    /// </summary>
+    /// <param name="pExpense"></param>
+    public void AddExpense(IExpense pExpense)
+    {
+        ExpenseList.Add(pExpense);
+        List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+        changedAttributes.Add(InteractionAttributes.ExpenseList);
+        OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Account));
+    }
+
+    /// <summary>
+    /// Adds a "timeslice" to the timeslicelist
+    /// </summary>
+    /// <param name="pTimeslice"></param>
+    public void AddTimeslice(ITimeslice pTimeslice)
+    {
+        TimesliceList.Add(pTimeslice);
+        List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+        changedAttributes.Add(InteractionAttributes.TimesliceList);
+        OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Account));
+    }
+
+    public void EditExpense(IExpense pExpense)
+    {
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Deletes a "expense" object if it exists in the expenselist
+    /// </summary>
+    /// <param name="pExpense"></param>
+    public void DeleteExpense(IExpense pExpense)
+    {
+        if (ExpenseList.Contains(pExpense))
+        {
+            ExpenseList.Remove(pExpense);
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.ExpenseList);
+            OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Account));
+        }
+    }
+
+    public void EditTimeslice(ITimeslice PTimeslice)
+    {
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Deletes a "timeslice" object if it exists in the timeslicelist
+    /// </summary>
+    /// <param name="pTimeslice"></param>
+    public void DeleteTimeslice(ITimeslice pTimeslice)
+    {
+        if (TimesliceList.Contains(pTimeslice))
+        {
+            TimesliceList.Remove(pTimeslice);
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.TimesliceList);
+            OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Account));
+        }
+    }
+
     #endregion
 
     #region Private methods
@@ -157,6 +224,7 @@ public class Account : IAccount, IInteraction
         if (_state == InteractionState.Active || _state == InteractionState.Queued)
             _stateTimer.Start();
     }
+
     #endregion
 }
 

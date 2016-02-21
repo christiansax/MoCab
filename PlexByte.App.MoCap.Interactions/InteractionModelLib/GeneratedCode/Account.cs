@@ -26,12 +26,12 @@ public class Account : IAccount, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void ProjectView(IProject pProject)
+	public virtual void AddExpense(IExpense pProject)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void UserView(IProject pProject, IUser pUser)
+	public virtual void AddTimeslice(ITimeslice pProject)
 	{
 		throw new System.NotImplementedException();
 	}

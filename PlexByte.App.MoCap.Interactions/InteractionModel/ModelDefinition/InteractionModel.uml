@@ -10101,6 +10101,24 @@
                 LastKnownLocation="InteractionModel.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="17da70e1-5720-4682-b707-91627b049eb0"
+            name="TaskId"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="fe64eea7-097f-4495-8943-b9809fad05ee"
+                LastKnownName="string"
+                LastKnownLocation="InteractionModel.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributes>
         <ownedOperations>
           <operation
@@ -10596,6 +10614,24 @@
               <interfaceMoniker
                 Id="19b8536b-9b7a-4db8-9023-521474db27e8"
                 LastKnownName="IInteraction"
+                LastKnownLocation="InteractionModel.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="054aee5b-9c59-433f-9903-a97bfe5daa8c"
+            name="TaskId"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="fe64eea7-097f-4495-8943-b9809fad05ee"
+                LastKnownName="string"
                 LastKnownLocation="InteractionModel.uml" />
             </type_NamedElement>
           </property>
@@ -17448,7 +17484,7 @@
         <ownedOperations>
           <operation
             Id="6a0be6c6-aafa-45b3-a47f-ee0e3da0a393"
-            name="ProjectView"
+            name="AddExpense"
             isLeaf="false"
             isStatic="false"
             isAbstract="true"
@@ -17507,14 +17543,14 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="d532e36d-bba7-4590-a09e-5673947c27c6"
-                  name="pProject"
+                  Id="49f5c214-322b-4a71-abe6-ab6643981258"
+                  name="pExpense"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
                     <interfaceMoniker
-                      Id="f11f82a2-e8b2-4696-aaec-caf661fb7698"
-                      LastKnownName="IProject"
+                      Id="83ceaa31-1532-4a70-b5a8-875d8a1b173c"
+                      LastKnownName="IExpense"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -17523,7 +17559,7 @@
           </operation>
           <operation
             Id="07bf115b-9dbb-44a5-8ad9-9a2da964d654"
-            name="UserView"
+            name="AddTimeslice"
             isLeaf="false"
             isStatic="false"
             isAbstract="true"
@@ -17582,28 +17618,114 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="33a7845e-cf52-45fa-873c-6575e08a624c"
-                  name="pProject"
+                  Id="32ae72e4-08e2-421f-a953-5f8c26476c7f"
+                  name="pTimeslice"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
                     <interfaceMoniker
-                      Id="f11f82a2-e8b2-4696-aaec-caf661fb7698"
-                      LastKnownName="IProject"
+                      Id="98ed5b50-ad31-4ecb-9482-6f0615de4c50"
+                      LastKnownName="ITimeslice"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1cc71512-0a4f-486d-be46-3e36ed283851"
+            name="EditExpense"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="d551259c-c09a-433f-873e-e200a3d5fe4b"
-                  name="pUser"
+                  Id="58185293-641e-4950-9f58-d6b3fd27f98c"
+                  name="pExpense"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
                     <interfaceMoniker
-                      Id="ca220433-d919-44cc-b0e4-89889885ae49"
-                      LastKnownName="IUser"
+                      Id="83ceaa31-1532-4a70-b5a8-875d8a1b173c"
+                      LastKnownName="IExpense"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c09eacfd-4c23-4767-bcdf-027d38c4573a"
+            name="DeleteExpense"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ee552cea-68d6-4f8a-8b77-489cba78be4c"
+                  name="pExpense"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="83ceaa31-1532-4a70-b5a8-875d8a1b173c"
+                      LastKnownName="IExpense"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="71483bb9-6233-4883-b014-1b61810571a7"
+            name="EditTimeslice"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2d602521-69ee-4fe6-bd6b-5d5b33825a6f"
+                  name="PTimeslice"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="98ed5b50-ad31-4ecb-9482-6f0615de4c50"
+                      LastKnownName="ITimeslice"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="af11e25b-8c6c-4fb8-a22e-ed5fc704f5d8"
+            name="DeleteTimeslice"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="82777ff7-bc81-46ab-812b-b98d1db6990f"
+                  name="pTimeslice"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="98ed5b50-ad31-4ecb-9482-6f0615de4c50"
+                      LastKnownName="ITimeslice"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -17907,7 +18029,7 @@
           </operation>
           <operation
             Id="782f6baf-f762-4ce8-871b-3fe9fd4480c5"
-            name="ProjectView"
+            name="AddExpense"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -17972,8 +18094,8 @@
                   isUnique="false">
                   <type_NamedElement>
                     <interfaceMoniker
-                      Id="f11f82a2-e8b2-4696-aaec-caf661fb7698"
-                      LastKnownName="IProject"
+                      Id="83ceaa31-1532-4a70-b5a8-875d8a1b173c"
+                      LastKnownName="IExpense"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -17982,7 +18104,7 @@
           </operation>
           <operation
             Id="995266df-02c3-46e0-9b79-50f4bcaae03c"
-            name="UserView"
+            name="AddTimeslice"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -18047,22 +18169,8 @@
                   isUnique="false">
                   <type_NamedElement>
                     <interfaceMoniker
-                      Id="f11f82a2-e8b2-4696-aaec-caf661fb7698"
-                      LastKnownName="IProject"
-                      LastKnownLocation="InteractionModel.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="7a95025b-f47c-46f8-a829-4f9790acbde5"
-                  name="pUser"
-                  direction="In"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <interfaceMoniker
-                      Id="ca220433-d919-44cc-b0e4-89889885ae49"
-                      LastKnownName="IUser"
+                      Id="98ed5b50-ad31-4ecb-9482-6f0615de4c50"
+                      LastKnownName="ITimeslice"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -18438,6 +18546,106 @@
                     <undefinedTypeMoniker
                       Id="0d4c1a5d-d1df-41f9-aa87-1855c756985c"
                       LastKnownName="IExpense"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="25d44f34-c76e-4b30-aab7-77be86f19dd4"
+            name="EditExpense"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0705556a-4fd3-4fe4-bf4f-7058603c8894"
+                  name="pExpense"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="83ceaa31-1532-4a70-b5a8-875d8a1b173c"
+                      LastKnownName="IExpense"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="ba7ac3be-907c-4b0e-8614-7e79437bbc96"
+            name="DeleteExpense"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2a2f879a-f9bf-483f-b957-83f5afe30945"
+                  name="pExpense"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="83ceaa31-1532-4a70-b5a8-875d8a1b173c"
+                      LastKnownName="IExpense"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="dee79a1b-7450-49ab-8c82-829c61843f59"
+            name="EditTimeslice"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="79c1c4b3-5841-4ea4-a4a5-02760b2a2578"
+                  name="PTimeslice"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="98ed5b50-ad31-4ecb-9482-6f0615de4c50"
+                      LastKnownName="ITimeslice"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d54797ad-38b5-4460-ba1c-5d8c1c56748b"
+            name="DeleteTimeslice"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="47c01639-17db-45ec-a0ba-fbc0b7cdc405"
+                  name="pTimeslice"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="98ed5b50-ad31-4ecb-9482-6f0615de4c50"
+                      LastKnownName="ITimeslice"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>

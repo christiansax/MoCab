@@ -42,8 +42,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="WeifenLuo.WinFormsUI.Docking">
-      <HintPath>..\..\..\..\..\..\Downloads\DockPanel_2.4_Bin\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.9.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\CommonExtensions\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -55,8 +56,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControls\uc_Task.cs">
+    <Compile Include="UserControls\uc_MenuBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\uc_MenuBar.Designer.cs">
+      <DependentUpon>uc_MenuBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\uc_MenuButton.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\uc_MenuButton.Designer.cs">
+      <DependentUpon>uc_MenuButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\uc_Overview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\uc_Overview.Designer.cs">
+      <DependentUpon>uc_Overview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\uc_Task.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UserControls\uc_Task.Designer.cs">
       <DependentUpon>uc_Task.cs</DependentUpon>
@@ -74,6 +93,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\uc_MenuBar.resx">
+      <DependentUpon>uc_MenuBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\uc_MenuButton.resx">
+      <DependentUpon>uc_MenuButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\uc_Overview.resx">
+      <DependentUpon>uc_Overview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\uc_Task.resx">
       <DependentUpon>uc_Task.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +161,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomControls\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\project.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\task.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\survey.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

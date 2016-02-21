@@ -9,10 +9,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+public delegate void UserAdd(object sender, InteractionEventArgs e);
+public delegate void UserBan(object sender, InteractionEventArgs e);
+public delegate void Leave(object sender, InteractionEventArgs e);
+
 public interface IProject 
 {
-    //events
 
+    event UserAdd UserAdded;
+    event UserBan UserBanned;
+    event Leave Left;
 
 
     bool EnableBalance { get; set; }

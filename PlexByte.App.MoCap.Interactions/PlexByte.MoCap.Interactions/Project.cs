@@ -49,6 +49,9 @@ public class Project : IProject, IInteraction
     public event Complete Completed;
     public event Modify Modified;
     public event StateChange StateChanged;
+    public event UserAdd UserAdded;
+    public event UserBan UserBanned;
+    public event Leave Left;
 
     #endregion
 
@@ -86,22 +89,59 @@ public class Project : IProject, IInteraction
     #endregion
 
     #region Event raising methods
-
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
     public virtual void OnComplete(InteractionEventArgs pEventArgs)
-	{
-		throw new System.NotImplementedException();
-	}
+    {
+        Completed?.Invoke(this, pEventArgs);
+    }
 
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
     public virtual void OnModify(InteractionEventArgs pEventArgs)
     {
-        throw new System.NotImplementedException();
+        Modified?.Invoke(this, pEventArgs);
     }
 
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
     public virtual void OnStateChanged(InteractionEventArgs pEventArgs)
     {
-        throw new System.NotImplementedException();
+        StateChanged?.Invoke(this, pEventArgs);
     }
 
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
+    public virtual void OnUserAdd(InteractionEventArgs pEventArgs)
+    {
+        UserAdded?.Invoke(this, pEventArgs);
+    }
+
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
+    public virtual void OnUserBan(InteractionEventArgs pEventArgs)
+    {
+        UserBanned?.Invoke(this, pEventArgs);
+    }
+
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
+    public virtual void OnLeave(InteractionEventArgs pEventArgs)
+    {
+        Left?.Invoke(this, pEventArgs);
+    }
     #endregion
 
     #region Public methods

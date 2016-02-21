@@ -79,18 +79,31 @@ public class Account : IAccount, IInteraction
     #endregion
 
     #region Event raising methods
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
     public virtual void OnComplete(InteractionEventArgs pEventArgs)
-	{
-		throw new System.NotImplementedException();
-	}
-    public virtual void OnModify(InteractionEventArgs pEventArgs)
     {
-        throw new System.NotImplementedException();
+        Completed?.Invoke(this, pEventArgs);
     }
 
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
+    public virtual void OnModify(InteractionEventArgs pEventArgs)
+    {
+        Modified?.Invoke(this, pEventArgs);
+    }
+
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
     public virtual void OnStateChanged(InteractionEventArgs pEventArgs)
     {
-        throw new System.NotImplementedException();
+        StateChanged?.Invoke(this, pEventArgs);
     }
     #endregion
 

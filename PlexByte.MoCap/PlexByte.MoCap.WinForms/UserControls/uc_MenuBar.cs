@@ -20,22 +20,58 @@ namespace PlexByte.MoCap.WinForms.UserControls
             this.TabText = PanelTitle;
         }
 
-        private void button1_MouseEnter(object sender, EventArgs e)
+        private void Project_MouseEnter(object sender, EventArgs e)
         {
             SetToolTip((Control)sender, "New Project", 
                 "Clicking this button opens the form to create a new project");
         }
 
-        private void button2_MouseEnter(object sender, EventArgs e)
+        private void Task_MouseEnter(object sender, EventArgs e)
         {
             SetToolTip((Control)sender, "New Task",
                 "Clicking this button opens the form to create a new task");
         }
 
-        private void button3_MouseEnter(object sender, EventArgs e)
+        private void Survey_MouseEnter(object sender, EventArgs e)
         {
             SetToolTip((Control)sender, "New Survey",
                 "Clicking this button opens the form to create a new survey");
+        }
+
+        private void Account_MouseEnter(object sender, EventArgs e)
+        {
+            SetToolTip((Control)sender, "Account",
+                "Clicking this button opens the account details view");
+        }
+
+        private void SurveyOptions_MouseEnter(object sender, EventArgs e)
+        {
+            SetToolTip((Control)sender, "Survey Options",
+                "Clicking this button opens the survey options dialog");
+        }
+
+        private void Vote_MouseEnter(object sender, EventArgs e)
+        {
+            SetToolTip((Control)sender, "Vote",
+                "Clicking this button opens the voting dialog");
+        }
+
+        private void Expense_MouseEnter(object sender, EventArgs e)
+        {
+            SetToolTip((Control)sender, "Expense",
+                "Clicking this button opens the expense dialog");
+        }
+
+        private void Timeslice_MouseEnter(object sender, EventArgs e)
+        {
+            SetToolTip((Control)sender, "Timeslice",
+                "Clicking this button opens the timeslice dialog");
+        }
+
+        private void User_MouseEnter(object sender, EventArgs e)
+        {
+            SetToolTip((Control)sender, "Account",
+                "Clicking this button opens the User dialog");
         }
 
         private void SetToolTip(Control pControl, string pTitle, string pText)

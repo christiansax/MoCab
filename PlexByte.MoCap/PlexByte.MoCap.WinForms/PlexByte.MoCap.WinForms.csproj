@@ -62,12 +62,6 @@
     <Compile Include="UserControls\uc_MenuBar.Designer.cs">
       <DependentUpon>uc_MenuBar.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\uc_MenuButton.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\uc_MenuButton.Designer.cs">
-      <DependentUpon>uc_MenuButton.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\uc_Overview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,9 +89,6 @@
     </Compile>
     <EmbeddedResource Include="UserControls\uc_MenuBar.resx">
       <DependentUpon>uc_MenuBar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\uc_MenuButton.resx">
-      <DependentUpon>uc_MenuButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\uc_Overview.resx">
       <DependentUpon>uc_Overview.cs</DependentUpon>
@@ -170,6 +161,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\survey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\timeslice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expense.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\surveyOption.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

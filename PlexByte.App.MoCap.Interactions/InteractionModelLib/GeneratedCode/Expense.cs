@@ -6,12 +6,14 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
 public class Expense : IExpense, IInteraction
 {
-	public virtual void AddReceipt(System.Drawing.Image pImage)
+    
+    public virtual void AddReceipt(System.Drawing.Image pImage)
 	{
 		throw new System.NotImplementedException();
 	}

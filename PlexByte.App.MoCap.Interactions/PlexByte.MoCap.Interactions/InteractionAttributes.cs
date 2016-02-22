@@ -27,5 +27,7 @@ public enum InteractionAttributes
     TaskList,
     SurveyList,
     ExpenseList,
-    TimesliceList
+    TimesliceList,
+    ImageList,
+    ValueList
 }

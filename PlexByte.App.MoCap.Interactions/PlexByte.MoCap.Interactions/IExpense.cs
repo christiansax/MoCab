@@ -6,21 +6,25 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
-using static System.Net.Mime.MediaTypeNames;
 
-public interface IExpense 
+public interface IExpense
 {
-	decimal Value { get;set; }
+    decimal Value { get; set; }
 
-	Image Receipt { get;set; }
+    Image Receipt { get; set; }
 
-	void AddReceipt(Image pImage);
+    IInteraction Target { get; set; }
 
-	void DeleteReceipt(Image pImage);
+    string TaskId { get; set; }
 
-	void EditReceipt(Image pImage);
+    void AddReceipt(Image pImage, decimal pValue);
+
+    void DeleteReceipt(Image pImage, decimal pValue);
+
+    void EditReceipt(Image pImage, Image pNewImage, decimal pValue, decimal pNewValue);
 
 }
 

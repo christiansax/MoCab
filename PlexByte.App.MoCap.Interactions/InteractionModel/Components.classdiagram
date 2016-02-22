@@ -11425,6 +11425,16 @@
               </stereotypeInstance>
             </appliedStereotypesInternal>
             <elementDefinition Id="4ac21e1d-916f-4daf-8cda-73751adaf5a7" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="bf876309-de82-437e-ab77-af9ded898d6e" name="pUser" direction="In" isUnique="false">
+                  <elementDefinition Id="6b260df6-05ba-45a0-9063-3612088cda74" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="b44827f9-25ca-48d7-8e1b-04baecb6c5aa" name="KickUser" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <appliedStereotypesInternal>
@@ -12690,6 +12700,16 @@
               </stereotypeInstance>
             </appliedStereotypesInternal>
             <elementDefinition Id="46da102f-6153-4e33-9764-0b913154bc70" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="15a5e082-71ed-43c0-9e83-a31de3091dd7" name="pUser" direction="In" isUnique="false">
+                  <elementDefinition Id="a45e573c-9f6e-4c43-8e4b-fa0bab3ce151" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
           </operation>
           <operation Id="f1e9ce2e-82cb-4b84-b4f4-6feab6f3013c" name="KickUser" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <appliedStereotypesInternal>

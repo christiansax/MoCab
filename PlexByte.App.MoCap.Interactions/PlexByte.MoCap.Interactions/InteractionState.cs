@@ -16,5 +16,4 @@ public enum InteractionState
 	Finished,
 	Expired,
 	Cancelled,
-    Behind,
 }

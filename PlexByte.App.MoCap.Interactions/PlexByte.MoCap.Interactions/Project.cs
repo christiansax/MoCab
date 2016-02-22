@@ -233,10 +233,13 @@ public class Project : IProject, IInteraction
     /// <summary>
     /// Remove oneself from the memberlist of the project
     /// </summary>
-	public virtual void Leave()
-	{
-		throw new System.NotImplementedException();
-	}
+	public virtual void Leave(IUser pUser)
+    {
+        MemberList.Remove(pUser);
+        List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+        changedAttributes.Add(InteractionAttributes.MemberList);
+        OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Project));
+    }
 
     /// <summary>
     /// Kicks a user from the project. It removes a user from the memberlist
@@ -318,7 +321,7 @@ public class Project : IProject, IInteraction
         {
             // Behind schedule?
             if (EndDateTime <= DateTime.Now)
-                ChangeState(InteractionState.Behind);
+                ChangeState(InteractionState.Expired);
             // Turns active?
             if (StartDateTime <= DateTime.Now && _state == InteractionState.Queued)
                 ChangeState(InteractionState.Active);

@@ -43,7 +43,7 @@ public interface IProject
 
     void Accept(IUser pUser);
 
-    void Leave();
+    void Leave(IUser pUser);
 
     void KickUser(IUser pUser);
 

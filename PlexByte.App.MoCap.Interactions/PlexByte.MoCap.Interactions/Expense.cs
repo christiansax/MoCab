@@ -291,7 +291,7 @@ public class Expense : IExpense, IInteraction
         {
             // Behind schedule?
             if (EndDateTime <= DateTime.Now)
-                ChangeState(InteractionState.Behind);
+                ChangeState(InteractionState.Expired);
             // Turns active?
             if (StartDateTime <= DateTime.Now && _state == InteractionState.Queued)
                 ChangeState(InteractionState.Active);

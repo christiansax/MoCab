@@ -26,5 +26,15 @@ public class OutlayFactory : IOutlayFactory
 		throw new System.NotImplementedException();
 	}
 
+	public virtual void CreateExpense(string pId, string pText, IUser pUser)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void CreateExpense(string pId, string pText, List<Image> pImageList, List<decimal> pValueList, IUser pUser)
+	{
+		throw new System.NotImplementedException();
+	}
+
 }
 

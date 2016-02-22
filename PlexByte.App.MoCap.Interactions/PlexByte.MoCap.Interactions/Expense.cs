@@ -153,7 +153,8 @@ public class Expense : IExpense, IInteraction
 
 
     /// <summary>
-    /// Adds a "Receipt" to the receiptlist
+    /// Adds a "Receipt" to the receiptlist, and a value is added to the valuelist
+    /// the method "ExpenseValueCalculation" is executed at the end
     /// </summary>
     /// <param name="pImage"></param>
     public virtual void AddReceipt(Image pImage, decimal pValue)
@@ -167,11 +168,12 @@ public class Expense : IExpense, IInteraction
             changedAttributes.Add(InteractionAttributes.ImageList);
         }
         OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
-        ExpenseValue();
+        ExpenseValueCalculation();
     }
 
     /// <summary>
-    /// To edit the receipt, the old one is removed and a new is being created
+    /// To edit the receipt, the old one is removed and a new is being created, the same goes for value 
+    /// the method "ExpenseValueCalculation" is executed at the end
     /// </summary>
     /// <param name="pImage"></param>
     /// <param name="pNewImage"></param>
@@ -193,7 +195,7 @@ public class Expense : IExpense, IInteraction
                     ValueList.Remove(pValue);
                     ValueList.Add(pNewValue);
                     changedAttributes.Add(InteractionAttributes.ValueList);
-                    ExpenseValue();
+                    ExpenseValueCalculation();
                 }
                 OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
             }
@@ -201,7 +203,8 @@ public class Expense : IExpense, IInteraction
     }
 
     /// <summary>
-    /// Deletes a "Receipt" object if it exists in the receiptlist
+    /// Deletes a "Receipt" object if it exists in the receiptlist, and a value is removed from the valuelist
+    /// the method "ExpenseValueCalculation" is executed at the end
     /// </summary>
     /// <param name="pImage"></param>
 	public virtual void DeleteReceipt(Image pImage, decimal pValue)
@@ -214,7 +217,7 @@ public class Expense : IExpense, IInteraction
             changedAttributes.Add(InteractionAttributes.ImageList);
             changedAttributes.Add(InteractionAttributes.ValueList);
             OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
-            ExpenseValue();
+            ExpenseValueCalculation();
         }
     }
 
@@ -262,10 +265,13 @@ public class Expense : IExpense, IInteraction
         _stateTimer.Elapsed += OnTimerElapsed;
         _stateTimer.AutoReset = false;
         _stateTimer.Start();
-        ExpenseValue();
+        ExpenseValueCalculation();
     }
 
-    private void ExpenseValue()
+    /// <summary>
+    /// It calculates the value of the hole valuelist
+    /// </summary>
+    private void ExpenseValueCalculation()
     {
         foreach(decimal value in ValueList)
         {

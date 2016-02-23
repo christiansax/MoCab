@@ -258,7 +258,7 @@ public class Task : IInteraction,
         _duration = pDuration;
         _priority = pPriority;
         _subTasks = pSubTask ?? new List<ITask>();
-        _budgetUsed = pExpenses?.Sum(x => x.Value) ?? 0;
+        _budgetUsed = pExpenses?.Sum(x => x.Expenditure) ?? 0;
         _durationCurrent = pTime?.Sum(x => x.Duration) ?? 0;
         if (_subTasks.Count > 0)
         {

@@ -1,6 +1,7 @@
 ﻿//////////////////////////////////////////////////////////////
 //                      Class Project                              
 //      Author: Fabian Ochsner            Date:   2016/02/19
+//      Implementation of IProject interface, a connection between all components
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,26 +10,83 @@ using System.Text;
 public class Project : IProject, IInteraction
 {
     #region Properties
-    public string Id { get; set; }
+
+    /// <summary>
+    /// The unique id of the task
+    /// </summary>
+    public string Id { get { return _id; } }
+    /// <summary>
+    /// The date and time this task becomes active and can be worked on. As long as this date is not reached the 
+    /// state will remain queued and no work can be performed on the task as longs as it is in state queued
+    /// </summary>
     public DateTime StartDateTime { get; set; }
+    /// <summary>
+    /// The date and time this task should be finished. If this date is reached the state will change to expired
+    /// </summary>
     public DateTime EndDateTime { get; set; }
-    public DateTime CreatedDateTime { get; set; }
-    public DateTime ModifiedDateTime { get; set; }
-    public bool IsActive { get; set; }
+    /// <summary>
+    /// The date and time the task was created
+    /// </summary>
+    public DateTime CreatedDateTime { get { return _createdDateTime; } }
+    /// <summary>
+    /// The date and time the task was last modified
+    /// </summary>
+    public DateTime ModifiedDateTime { get { return _modifiedDateTime; } }
+    /// <summary>
+    /// Flag indicating whether or not the task can be worked on
+    /// </summary>
+    public bool IsActive { get { return _isActive; } }
+    /// <summary>
+    /// The text of this task (description)
+    /// </summary>
     public string Text { get; set; }
-    public InteractionType Type { get; set; }
-    public IUser Creator { get; set; }
-    public IUser Owner { get; set; }
-    public InteractionState State { get; set; }
-    public bool EnableBalance { get; set; }
-    public bool EnableSurvey { get; set; }
+    /// <summary>
+    /// The type of interaction (will be always task)
+    /// </summary>
+    public InteractionType Type { get; }
+    /// <summary>
+    /// The user that created the task
+    /// </summary>
+    public IUser Creator { get { return _creator; } }
+    /// <summary>
+    /// The user currently owning the task
+    /// </summary>
+    public IUser Owner { get { return _owner; } }
+    /// <summary>
+    /// The state of the task
+    /// </summary>
+    public InteractionState State { get { return _state; } }
+    /// <summary>
+    /// A bool to set, if it is possible to set a balance to a project
+    /// if disabled it is not possible to book spended time or effort in a project
+    /// </summary>
+    public bool EnableBalance { get { return _enableBalance; } }
+    /// <summary>
+    /// A bool to set, if it is possible to set up a survey to a project
+    /// if disabled it is not possible to create one
+    /// </summary>
+    public bool EnableSurvey { get { return _enableSurvey; } }
+    /// <summary>
+    /// The account which is conectet do the project
+    /// </summary>
     public IAccount ProjectAccount { get; set; }
-    public List<IUser> InvitationList { get; set; }
-    public List<ITask> TaskList { get; set; }
-    public List<ISurvey> SurveyList { get; set; }
-    public List<IUser> MemberList { get; set; }
-
-
+    /// <summary>
+    /// In this list are all members which have to answer an invitation
+    /// </summary>
+    public List<IUser> InvitationList { get { return _invitationList; } }
+    /// <summary>
+    /// A list of all tasks in a project
+    /// </summary>
+    public List<ITask> TaskList { get { return _taskList; } }
+    /// <summary>
+    /// A list of all surveys in a project
+    /// </summary>
+    public List<ISurvey> SurveyList { get { return _surveyList; } }
+    /// <summary>
+    /// In this list are all members of a project
+    /// </summary>
+    public List<IUser> MemberList { get { return _memberList; } }
+    
     #endregion
 
     #region Variables
@@ -41,6 +99,12 @@ public class Project : IProject, IInteraction
     private InteractionState _state;
     private bool _isActive;
     private string _id;
+    private bool _enableBalance;
+    private bool _enableSurvey;
+    private List<IUser> _memberList;
+    private List<IUser> _invitationList;
+    private List<ITask> _taskList;
+    private List<ISurvey> _surveyList;
 
     #endregion
 
@@ -287,22 +351,21 @@ public class Project : IProject, IInteraction
     {
         
         _id = pId;
-        EnableBalance = pEnableBalance;
-        EnableSurvey = pEnableSurvey;
-        MemberList = pMemberList;
-        InvitationList = pInvitationList;
-        TaskList = pTaskList;
-        SurveyList = pSurveyList;
+        _enableBalance = pEnableBalance;
+        _enableSurvey = pEnableSurvey;
+        _memberList = pMemberList;
+        _invitationList = pInvitationList;
+        _taskList = pTaskList;
+        _surveyList = pSurveyList;
         _creator = pCreator;
         Text = pText;
-        MemberList = pMemberList;
-        InvitationList = pInvitationList;
+        _memberList = pMemberList;
+        _invitationList = pInvitationList;
         _createdDateTime = DateTime.Now;
         _modifiedDateTime = DateTime.Now;
         StartDateTime = DateTime.Now;
         EndDateTime = default(DateTime);
         _isActive = true;
-        Type = InteractionType.Project;
         _state = StartDateTime <= DateTime.Now ? InteractionState.Active : InteractionState.Queued;
         _stateTimer.Elapsed += OnTimerElapsed;
         _stateTimer.AutoReset = false;

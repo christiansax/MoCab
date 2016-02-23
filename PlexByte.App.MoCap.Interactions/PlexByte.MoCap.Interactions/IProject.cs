@@ -21,19 +21,19 @@ public interface IProject
     event Leave Left;
 
 
-    bool EnableBalance { get; set; }
+    bool EnableBalance { get;  }
 
-    bool EnableSurvey { get; set; }
+    bool EnableSurvey { get;  }
 
-    List<IUser> InvitationList { get; set; }
+    List<IUser> InvitationList { get;  }
 
     IAccount ProjectAccount { get; set; }
 
-    List<ITask> TaskList { get; set; }
+    List<ITask> TaskList { get;  }
 
-    List<ISurvey> SurveyList { get; set; }
+    List<ISurvey> SurveyList { get;  }
 
-    List<IUser> MemberList { get; set; }
+    List<IUser> MemberList { get;  }
 
     void AddTask(ITask pTask);
 

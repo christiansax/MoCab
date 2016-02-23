@@ -1,6 +1,7 @@
 ﻿//////////////////////////////////////////////////////////////
 //                      Class Account                              
 //      Author: Fabian Ochsner            Date:   2016/02/19
+//      Implementation of IAccount interface, handles the expense and timeslice of a Task or Project
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,19 +10,60 @@ using System.Text;
 public class Account : IAccount, IInteraction
 {
     #region Properties
-    public List<IExpense> ExpenseList { get; set; }
-    public List<ITimeslice> TimesliceList { get; set; }
-    public string Id { get; set; }
+
+    /// <summary>
+    /// The unique id of the task
+    /// </summary>
+    public string Id { get { return _id; } }
+    /// <summary>
+    /// The date and time this task becomes active and can be worked on. As long as this date is not reached the 
+    /// state will remain queued and no work can be performed on the task as longs as it is in state queued
+    /// </summary>
     public DateTime StartDateTime { get; set; }
+    /// <summary>
+    /// The date and time this task should be finished. If this date is reached the state will change to expired
+    /// </summary>
     public DateTime EndDateTime { get; set; }
-    public DateTime CreatedDateTime { get; set; }
-    public DateTime ModifiedDateTime { get; set; }
-    public bool IsActive { get; set; }
+    /// <summary>
+    /// The date and time the task was created
+    /// </summary>
+    public DateTime CreatedDateTime { get { return _createdDateTime; } }
+    /// <summary>
+    /// The date and time the task was last modified
+    /// </summary>
+    public DateTime ModifiedDateTime { get { return _modifiedDateTime; } }
+    /// <summary>
+    /// Flag indicating whether or not the task can be worked on
+    /// </summary>
+    public bool IsActive { get { return _isActive; } }
+    /// <summary>
+    /// The text of this task (description)
+    /// </summary>
     public string Text { get; set; }
-    public InteractionType Type { get; set; }
-    public IUser Creator { get; set; }
-    public IUser Owner { get; set; }
-    public InteractionState State { get; set; }
+    /// <summary>
+    /// The type of interaction (will be always task)
+    /// </summary>
+    public InteractionType Type { get; }
+    /// <summary>
+    /// The user that created the task
+    /// </summary>
+    public IUser Creator { get { return _creator; } }
+    /// <summary>
+    /// The user currently owning the task
+    /// </summary>
+    public IUser Owner { get { return _owner; } }
+    /// <summary>
+    /// The state of the task
+    /// </summary>
+    public InteractionState State { get { return _state; } }
+    /// <summary>
+    /// A list of all expense-objects
+    /// </summary>
+    public List<IExpense> ExpenseList { get { return _expenseList; } }
+    /// <summary>
+    /// A list of all timeslice-objects
+    /// </summary>
+    public List<ITimeslice> TimesliceList { get { return _timesliceList; } }
 
 
     #endregion
@@ -36,6 +78,9 @@ public class Account : IAccount, IInteraction
     private InteractionState _state;
     private bool _isActive;
     private string _id;
+    private List<IExpense> _expenseList;
+    private List<ITimeslice> _timesliceList;
+    private InteractionType _type;
 
     #endregion
 
@@ -259,14 +304,14 @@ public class Account : IAccount, IInteraction
         _id = pId;
         _creator = pCreator;
         Text = pText;
-        ExpenseList = pExpenseList;
-        TimesliceList = pTimesliceList;
+        _expenseList = pExpenseList;
+        _timesliceList = pTimesliceList;
         _createdDateTime = DateTime.Now;
         _modifiedDateTime = DateTime.Now;
         StartDateTime = DateTime.Now;
         EndDateTime = default(DateTime);
         _isActive = true;
-        Type = InteractionType.Project;
+        _type = InteractionType.Project;
         _state = StartDateTime <= DateTime.Now ? InteractionState.Active : InteractionState.Queued;
         _stateTimer.Elapsed += OnTimerElapsed;
         _stateTimer.AutoReset = false;

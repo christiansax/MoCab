@@ -26,16 +26,6 @@ public class Account : IAccount, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddExpense(IExpense pProject)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void AddTimeslice(ITimeslice pProject)
-	{
-		throw new System.NotImplementedException();
-	}
-
 	public virtual void OnModify(InteractionEventArgs pEventArgs)
 	{
 		throw new System.NotImplementedException();
@@ -47,6 +37,16 @@ public class Account : IAccount, IInteraction
 	}
 
 	public virtual void OnStateChanged(InteractionEventArgs pEventArgs)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void AddTimeslice(ITimeslice pTimeslice)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void AddExpense(IExpense pExpense)
 	{
 		throw new System.NotImplementedException();
 	}

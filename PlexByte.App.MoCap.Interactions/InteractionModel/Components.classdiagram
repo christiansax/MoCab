@@ -7315,18 +7315,10 @@
             <elementDefinition Id="b8695acc-0616-40ad-9bdd-9f5f13cc79ca" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="57ad7da0-79f8-4ba3-b22a-dad65db8970a" name="pImage" direction="In" isUnique="false">
-                  <elementDefinition Id="aa42bbd0-87f9-454d-a0a8-7f45146522bf" />
+                <parameter Id="c0b451ad-51c7-48a0-8875-4f709eec9466" name="pImage" direction="In" isUnique="false">
+                  <elementDefinition Id="df247fe1-67ba-433f-905b-af8157d77ed4" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="414d0b4a-d69c-4e78-9091-4e8d5f49acd7" LastKnownName="System.Drawing.Image" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="7242bf7d-58f4-4d14-825b-b9a71c9a28fd" name="pValue" direction="In" isUnique="false">
-                  <elementDefinition Id="98808008-2255-480e-86c0-ed23d4c4e621" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="fa8123e6-d0d7-4e0f-958d-5e409fc015d4" LastKnownName="decimal" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -7379,24 +7371,16 @@
             <elementDefinition Id="7175c0e5-96aa-4d3f-a041-974a3c8b737e" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="6c01eac1-c9c5-44c9-b0ae-d60be730b983" name="pImage" direction="In" isUnique="false">
-                  <elementDefinition Id="5d845be4-ec70-4049-8c8d-c3373a68351d" />
+                <parameter Id="3a50231e-8d55-4d31-baed-4cc51cef5440" name="pImage" direction="In" isUnique="false">
+                  <elementDefinition Id="163e0294-6210-4bee-b5aa-c6d13b005a12" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="414d0b4a-d69c-4e78-9091-4e8d5f49acd7" LastKnownName="System.Drawing.Image" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="23756e42-b0d7-4f2f-9074-c7554ca545e8" name="pValue" direction="In" isUnique="false">
-                  <elementDefinition Id="241b2905-fa4d-4e47-8d5e-3ced3d276886" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="fa8123e6-d0d7-4e0f-958d-5e409fc015d4" LastKnownName="decimal" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="238441c2-b282-47d2-83b8-664f5220dcec" name="EditReceipt" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+          <operation Id="238441c2-b282-47d2-83b8-664f5220dcec" name="EditValue" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="abc8f226-e50f-45d1-8955-4e2c66caf57a" name="method" profile="CSharpProfile">
                 <elementDefinition Id="062a47d6-1add-4d02-9c5e-66f889559977" />
@@ -7443,32 +7427,8 @@
             <elementDefinition Id="36263bb4-53e2-4c63-8de0-188afd68f0da" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="8161f0da-5f7e-4a1e-b451-329af05ec237" name="pImage" direction="In" isUnique="false">
-                  <elementDefinition Id="c39f6734-6a1e-4be6-bbf2-0f3a9ad62aa1" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="414d0b4a-d69c-4e78-9091-4e8d5f49acd7" LastKnownName="System.Drawing.Image" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="319bb0c0-43c2-4e5f-a37b-649d2c54f17c" name="pNewImage" direction="In" isUnique="false">
-                  <elementDefinition Id="1f5fb8b8-6d1d-471f-8364-2b4780c6f48a" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="414d0b4a-d69c-4e78-9091-4e8d5f49acd7" LastKnownName="System.Drawing.Image" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="b796d130-46a3-4d67-82bd-f80fec2710f9" name="pValue" direction="In" isUnique="false">
-                  <elementDefinition Id="6a623646-5445-4140-89d9-83a1ff9bab54" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="fa8123e6-d0d7-4e0f-958d-5e409fc015d4" LastKnownName="decimal" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="14a24c34-3de8-4f4f-9a31-f998a334503a" name="pNewValue" direction="In" isUnique="false">
-                  <elementDefinition Id="0a3c4b14-148f-4135-9e00-17b607225fca" />
+                <parameter Id="bb03db70-c00a-44f7-994f-8298c84dc63e" name="pNewValue" direction="In" isUnique="false">
+                  <elementDefinition Id="6bec019c-e475-4f11-86fa-41f5cc3a2702" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="fa8123e6-d0d7-4e0f-958d-5e409fc015d4" LastKnownName="decimal" />
                   </type_NamedElement>
@@ -9528,14 +9488,6 @@
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="8bb4713f-ec9d-4e29-99ef-11fc30ea96a4" name="pValue" direction="In" isUnique="false">
-                  <elementDefinition Id="df5c1fcb-d8d7-485a-9681-8be1b40cfa87" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="fa8123e6-d0d7-4e0f-958d-5e409fc015d4" LastKnownName="decimal" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
           <operation Id="6a73679a-1bc4-43ae-94a8-61af818ee320" name="OnComplete" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
@@ -9806,17 +9758,9 @@
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="3ef6c49b-2222-472d-8639-58d3d218dbd9" name="pValue" direction="In" isUnique="false">
-                  <elementDefinition Id="2a6e3626-c6fd-4ba5-892d-93923ce6567f" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="fa8123e6-d0d7-4e0f-958d-5e409fc015d4" LastKnownName="decimal" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
-          <operation Id="15a40cda-b509-4357-bd63-af5e477efd81" name="EditReceipt" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+          <operation Id="15a40cda-b509-4357-bd63-af5e477efd81" name="EditValue" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="c69b9375-caf4-453f-88ac-9d7c81cde4f6" name="method" profile="CSharpProfile">
                 <elementDefinition Id="8e1d0ed0-e44f-49a5-be1c-ea15fefddb75" />
@@ -9865,30 +9809,6 @@
               <operationHasOwnedParameters>
                 <parameter Id="b4f89b12-eedd-4f28-b918-398467026ce7" name="pImage" direction="In" isUnique="false">
                   <elementDefinition Id="deed05ae-a800-43cc-a5d4-ff0bfb46f9a6" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="414d0b4a-d69c-4e78-9091-4e8d5f49acd7" LastKnownName="System.Drawing.Image" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="9f650e43-7298-4d26-87d0-ec864b5176e7" name="pNewImage" direction="In" isUnique="false">
-                  <elementDefinition Id="f5e3c5cd-65dd-432c-b9b8-6c7d4b204fd4" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="414d0b4a-d69c-4e78-9091-4e8d5f49acd7" LastKnownName="System.Drawing.Image" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="fe9506fa-5e8c-4d1c-9134-fe80de75115a" name="pValue" direction="In" isUnique="false">
-                  <elementDefinition Id="db9ecdf8-5ae3-48bb-9375-390de870da20" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="fa8123e6-d0d7-4e0f-958d-5e409fc015d4" LastKnownName="decimal" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="89e8ab19-6394-45e2-996f-25b4a3f4ab5f" name="pNewValue" direction="In" isUnique="false">
-                  <elementDefinition Id="9a70d0b5-cf7d-4e97-9ff9-e8ec1c362cd2" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="fa8123e6-d0d7-4e0f-958d-5e409fc015d4" LastKnownName="decimal" />
                   </type_NamedElement>

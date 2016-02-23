@@ -19,7 +19,7 @@ public interface IOutlayFactory
 
 	IExpense CreateExpense(string pId, string pText, IUser pUser);
 
-	IExpense CreateExpense(string pId, string pText, List<Image> pImageList, List<decimal> pValueList, IUser pUser);
+	IExpense CreateExpense(string pId, string pText, System.Drawing.Image pReceipt, decimal pValue, IUser pUser);
 
 }
 

@@ -10,8 +10,14 @@ using System.Text;
 public class Timeslice : ITimeslice, IInteraction
 {
     #region Properties
-    public int Duration { get; set; }
 
+    /// <summary>
+    /// The worktime of the user
+    /// </summary>
+    public int Duration { get { return _duration; } }
+    /// <summary>
+    /// Owner of the time in the timeslice
+    /// </summary>
     public IUser User { get { return _user; } }
     /// <summary>
     /// The unique id of the task
@@ -71,11 +77,8 @@ public class Timeslice : ITimeslice, IInteraction
     private InteractionState _state;
     private bool _isActive;
     private string _id;
-    private List<IExpense> _expenseList;
-    private List<ITimeslice> _timesliceList;
     private IUser _user;
-    private DateTime _startDT;
-    private DateTime _endDT;
+    private int _duration;
 
     #endregion
 
@@ -87,25 +90,34 @@ public class Timeslice : ITimeslice, IInteraction
 
     #region Ctor & Dtor
 
-
+    /// <summary>
+    /// Constructor of the class
+    /// </summary>
+    /// <param name="pId"></param>
+    /// <param name="pUser"></param>
+    /// <param name="pDuration"></param>
     public Timeslice(string pId, IUser pUser, int pDuration)
     {
-        DateTime pStartDT = new DateTime();
-        DateTime pEndDT = new DateTime();
-
-        InitializeProperties(pId, pUser, pStartDT, pEndDT);
-
+        InitializeProperties(pId, pUser, pDuration);
     }
 
+    /// <summary>
+    /// Constructor of the class
+    /// </summary>
+    /// <param name="pId"></param>
+    /// <param name="pUser"></param>
+    /// <param name="pStartDT"></param>
+    /// <param name="pEndDT"></param>
     public Timeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT)
     {
-        InitializeProperties(pId, pUser, pStartDT, pEndDT);
-
+        int pDuration = CalculateDuration(pStartDT, pEndDT);
+        InitializeProperties(pId, pUser, pDuration);
     }
 
     #endregion
 
     #region Event raising methods
+
     /// <summary>
     /// This method raises the corresponding event in case subscribers are registered
     /// </summary>
@@ -132,34 +144,75 @@ public class Timeslice : ITimeslice, IInteraction
     {
         StateChanged?.Invoke(this, pEventArgs);
     }
-    #endregion
 
+    #endregion
 
     #region Public methods
 
+    /// <summary>
+    /// Calculates the duration between the start and end of a worksession
+    /// </summary>
+    /// <param name="pStartDT"></param>
+    /// <param name="pEndDT"></param>
+    /// <returns></returns>
 	public virtual int CalculateDuration(DateTime pStartDT, DateTime pEndDT)
-	{
-		throw new System.NotImplementedException();
-	}
-
-    public void ChangeState(InteractionState pState)
     {
-        throw new NotImplementedException();
+        TimeSpan timespan = pStartDT - pEndDT;
+        return int.Parse(timespan.Minutes.ToString());
     }
 
-    public void ChangeOwner(IUser pUser)
+    /// <summary>
+    /// This method changes the owner of the project and raises the modified event if the owner is different
+    /// used to create a secound project-admin
+    /// </summary>
+    /// <param name="pUser"></param>
+    public virtual void ChangeOwner(IUser pUser)
     {
-        throw new NotImplementedException();
+        if (_owner != pUser)
+        {
+            _owner = pUser;
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.Owner);
+            OnModify(new InteractionEventArgs($"Survey owner changed [Id={Id}]", DateTime.Now, InteractionType.Account));
+        }
     }
 
-    public void ChangeIsActive(bool pActive)
+    /// <summary>
+    /// This method changes the active flag of the object. This can occure if the item expired, finished or was 
+    /// cancelled. It will raise the Modified event once changed
+    /// </summary>
+    /// <param name="pActive"></param>
+	public virtual void ChangeIsActive(bool pActive)
     {
-        throw new NotImplementedException();
+        if (_isActive != pActive)
+        {
+            _isActive = pActive;
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.IsActive);
+            OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Account));
+        }
     }
 
-#endregion
+    /// <summary>
+    /// Changes the state of this interaction and thus causes the stateCHanged event to be fired
+    /// </summary>
+    /// <param name="pState"></param>
+	public virtual void ChangeState(InteractionState pState)
+    {
+        this._state = pState;
+        if (_state == InteractionState.Finished ||
+            _state == InteractionState.Cancelled ||
+            _state == InteractionState.Expired)
+            ChangeIsActive(false);
+        List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+        changedAttributes.Add(InteractionAttributes.State);
+        OnStateChanged(new InteractionEventArgs($"Survey state changed [Id={Id}]", DateTime.Now, InteractionType.Account));
+    }
+
+    #endregion
 
     #region Private methods
+
     /// <summary>
     /// Initializes all attributes and started the state timer, which validates the interaction's state every 60
     /// </summary>
@@ -168,12 +221,11 @@ public class Timeslice : ITimeslice, IInteraction
     /// <param name="pMemberList"></param>
     /// <param name="pInvitationList"></param>
     /// <param name="pCreator"></param>
-    private void InitializeProperties(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT)
+    private void InitializeProperties(string pId, IUser pUser, int pDuration)
     {
         _id = pId;
         _user = pUser;
-        _startDT = pStartDT;
-        _endDT = pEndDT;
+        _duration = pDuration;
         _createdDateTime = DateTime.Now;
         _modifiedDateTime = DateTime.Now;
         StartDateTime = DateTime.Now;
@@ -210,7 +262,6 @@ public class Timeslice : ITimeslice, IInteraction
         if (_state == InteractionState.Active || _state == InteractionState.Queued)
             _stateTimer.Start();
     }
-
 
     #endregion
 }

@@ -9,19 +9,17 @@ using System.Text;
 
 public interface IExpense
 {
-    decimal value { get;  }
+    decimal Value { get; }
 
-    List<Image> ReceiptList { get;  }
+    Image Receipt { get; }
 
     IInteraction Target { get; set; }
 
-    List<decimal> ValueList { get; }
+    void AddReceipt(Image pImage);
 
-    void AddReceipt(Image pImage, decimal pValue);
+    void DeleteReceipt();
 
-    void DeleteReceipt(Image pImage, decimal pValue);
-
-    void EditReceipt(Image pImage, Image pNewImage, decimal pValue, decimal pNewValue);
+    void EditValue(decimal pNewValue);
 
 }
 

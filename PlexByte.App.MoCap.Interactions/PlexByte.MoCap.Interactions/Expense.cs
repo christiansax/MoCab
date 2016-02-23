@@ -64,17 +64,13 @@ public class Expense : IExpense, IInteraction
     /// </summary>
     public IInteraction Target { get; set; }
     /// <summary>
-    /// A List of all receipts that are attached to a task, project or survey
+    /// The image of a receipts that is attached to a task, project or survey
     /// </summary>
-    public List<Image> ReceiptList { get { return _receiptList; } }
+    public Image Receipt { get { return _receipt; } }
     /// <summary>
-    /// A list of all expenes that are attached to a task, project or survey
+    /// The value of the expenses that is attached to a task, project or survey
     /// </summary>
-    public List<decimal> ValueList { get { return _valueList; } }
-    /// <summary>
-    /// The total expenses that are attached to a task, project or survey
-    /// </summary>
-    public decimal value { get { return _value; } }
+    public decimal Value { get { return _value; } }
 
     #endregion
 
@@ -88,8 +84,7 @@ public class Expense : IExpense, IInteraction
     private InteractionState _state;
     private bool _isActive;
     private string _id;
-    private List<Image>  _receiptList;
-    private List<decimal> _valueList;
+    private Image  _receipt;
     private decimal _value;
 
     #endregion
@@ -112,9 +107,10 @@ public class Expense : IExpense, IInteraction
     /// <param name="pCreator"></param>
     public Expense(string pId, string pText, IUser pCreator)
     {
-        List<Image> pImageList = new List<Image>();
-        List<decimal> pValueList = new List<decimal>();
-        InitializeProperties(pId, pText, pImageList, pValueList, pCreator);
+        Image pReceipt= null;
+        decimal pValue= 0;
+
+        InitializeProperties(pId, pText, pReceipt, pValue, pCreator);
     }
 
     /// <summary>
@@ -124,9 +120,9 @@ public class Expense : IExpense, IInteraction
     /// <param name="pText"></param>
     /// <param name="pImageList"></param>
     /// <param name="pCreator"></param>
-    public Expense(string pId, string pText, List<Image> pImageList, List<decimal> pValueList, IUser pCreator)
+    public Expense(string pId, string pText, Image pReceipt, decimal pValue, IUser pCreator)
     {
-        InitializeProperties(pId, pText, pImageList, pValueList, pCreator);
+        InitializeProperties(pId, pText, pReceipt, pValue, pCreator);
     }
 
     #endregion
@@ -165,6 +161,34 @@ public class Expense : IExpense, IInteraction
     #region Public methods
 
     /// <summary>
+    /// Method to add a Receipt to an expense
+    /// </summary>
+    /// <param name="pImage"></param>
+    public void AddReceipt(Image pReceipt)
+    {
+        _receipt = pReceipt;
+    }
+
+    /// <summary>
+    /// Method to remove a Receipt from an expense
+    /// </summary>
+    /// <param name="pImage"></param>
+    public void DeleteReceipt()
+    {
+        _receipt = null;
+    }
+
+    /// <summary>
+    /// Method to edit the value of an expense
+    /// </summary>
+    /// <param name="pNewValue"></param>
+    public void EditValue(decimal pNewValue)
+    {
+        _value = pNewValue;
+    }
+
+
+    /// <summary>
     /// This method changes the owner of the expense and raises the modified event if the owner is different
     /// used to create a secound project-admin
     /// </summary>
@@ -196,76 +220,6 @@ public class Expense : IExpense, IInteraction
         }
     }
 
-
-    /// <summary>
-    /// Adds a "Receipt" to the receiptlist, and a value is added to the valuelist
-    /// the method "ExpenseValueCalculation" is executed at the end
-    /// </summary>
-    /// <param name="pImage"></param>
-    public virtual void AddReceipt(Image pImage, decimal pValue)
-    {
-        ValueList.Add(pValue);
-        List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
-        changedAttributes.Add(InteractionAttributes.ValueList);
-        if (pImage != null)
-        {
-            ReceiptList.Add(pImage);
-            changedAttributes.Add(InteractionAttributes.ImageList);
-        }
-        OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
-        ExpenseValueCalculation();
-    }
-
-    /// <summary>
-    /// To edit the receipt, the old one is removed and a new is being created, the same goes for value 
-    /// the method "ExpenseValueCalculation" is executed at the end
-    /// </summary>
-    /// <param name="pImage"></param>
-    /// <param name="pNewImage"></param>
-    public virtual void EditReceipt(Image pImage, Image pNewImage, decimal pValue, decimal pNewValue)
-    {
-        if (ReceiptList.Contains(pImage))
-        {
-            if (pImage != pNewImage && pValue != pNewValue)
-            {
-                List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
-                if (pImage != pNewImage)
-                {
-                    ReceiptList.Remove(pImage);
-                    ReceiptList.Add(pNewImage);
-                    changedAttributes.Add(InteractionAttributes.ImageList);
-                }
-                if (pValue != pNewValue)
-                {
-                    ValueList.Remove(pValue);
-                    ValueList.Add(pNewValue);
-                    changedAttributes.Add(InteractionAttributes.ValueList);
-                    ExpenseValueCalculation();
-                }
-                OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
-            }
-        }
-    }
-
-    /// <summary>
-    /// Deletes a "Receipt" object if it exists in the receiptlist, and a value is removed from the valuelist
-    /// the method "ExpenseValueCalculation" is executed at the end
-    /// </summary>
-    /// <param name="pImage"></param>
-	public virtual void DeleteReceipt(Image pImage, decimal pValue)
-    {
-        if (ReceiptList.Contains(pImage))
-        {
-            ReceiptList.Remove(pImage);
-            ValueList.Remove(pValue);
-            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
-            changedAttributes.Add(InteractionAttributes.ImageList);
-            changedAttributes.Add(InteractionAttributes.ValueList);
-            OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
-            ExpenseValueCalculation();
-        }
-    }
-
     /// <summary>
     /// Changes the state of this interaction and thus causes the stateCHanged event to be fired
     /// </summary>
@@ -293,13 +247,13 @@ public class Expense : IExpense, IInteraction
     /// <param name="pText"></param>
     /// <param name="pImageList"></param>
     /// <param name="pCreator"></param>
-    private void InitializeProperties(string pId, string pText, List<Image> pImageList, List<decimal> pValueList, IUser pCreator)
+    private void InitializeProperties(string pId, string pText, Image pImage, decimal pValue, IUser pCreator)
     {
         _id = pId;
         _creator = pCreator;
         Text = pText;
-        _receiptList = pImageList;
-        _valueList = pValueList;
+        _receipt = pImage;
+        _value = pValue;
         _createdDateTime = DateTime.Now;
         _modifiedDateTime = DateTime.Now;
         StartDateTime = DateTime.Now;
@@ -309,18 +263,6 @@ public class Expense : IExpense, IInteraction
         _stateTimer.Elapsed += OnTimerElapsed;
         _stateTimer.AutoReset = false;
         _stateTimer.Start();
-        ExpenseValueCalculation();
-    }
-
-    /// <summary>
-    /// It calculates the value of the entire valuelist
-    /// </summary>
-    private void ExpenseValueCalculation()
-    {
-        foreach(decimal value in ValueList)
-        {
-            _value =+ value;
-        }
     }
 
     /// <summary>
@@ -348,8 +290,6 @@ public class Expense : IExpense, IInteraction
         if (_state == InteractionState.Active || _state == InteractionState.Queued)
             _stateTimer.Start();
     }
-
-    
 
     #endregion
 }

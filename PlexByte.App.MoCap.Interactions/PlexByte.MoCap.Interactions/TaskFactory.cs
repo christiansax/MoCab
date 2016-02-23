@@ -6,43 +6,22 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 public class TaskFactory : ITaskFactory
 {
-	public virtual void Add(ITimeslice pTimeslice, ITask pTask)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void Add(IExpense pExpense, ITask pTask)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void Assign(IUser pUser)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void UpdateProgress(int pProgress)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual ITask CreateTask(string pId, string pText, IUser pCreator)
-	{
-		throw new System.NotImplementedException();
-	}
+	public virtual ITask CreateTask(string pId, string pText, IUser pCreator) { return (new Task(pId, pText, pCreator)); }
 
 	public virtual ITask CreateTask(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT)
 	{
-		throw new System.NotImplementedException();
-	}
+        return (new Task(pId, pText, pCreator, pStartDT, pEndDT, pDueDT));
+    }
 
 	public virtual ITask CreateTask(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT, decimal pBudget, int pDuration, int pPriority, InteractionState pState, List<IExpense> pExpenses, List<ITimeslice> pTime, List<ITask> pSubTask, int pProgress = 0)
 	{
-		throw new System.NotImplementedException();
-	}
+        //return (new Task(pId, pText, pCreator, pStartDT, pEndDT, pDueDT, pBudget, pDuration, pPriority, pState, ));
+    }
 
 }
 

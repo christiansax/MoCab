@@ -41,12 +41,12 @@ public class Account : IAccount, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddTimeslice(ITimeslice pTimeslice)
+	public virtual void AddTimeslice(int pTimeslice)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddExpense(IExpense pExpense)
+	public virtual void AddExpense(decimal pExpense)
 	{
 		throw new System.NotImplementedException();
 	}

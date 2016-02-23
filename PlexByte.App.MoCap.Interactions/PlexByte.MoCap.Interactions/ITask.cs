@@ -24,9 +24,9 @@ public interface ITask
 
     List<ITask> SubTasks { get; }
 
-    void AddTimeslice(ITimeslice pTimeslice);
+    void AddTimeslice(int pDuration);
 
-	void AddExpense(IExpense pExpense);
+	void AddExpense(decimal pExpenseValue);
 
     void UdateProgress(int pProgress);
 

@@ -47,7 +47,7 @@ public class Task : IInteraction,
     /// <summary>
     /// The type of interaction (will be always task)
     /// </summary>
-    public InteractionType Type { get; }
+    public InteractionType Type { get; } = InteractionType.Task;
     /// <summary>
     /// The user that created the task
     /// </summary>
@@ -81,11 +81,12 @@ public class Task : IInteraction,
     /// <summary>
     /// The time currently spent on this task in seconds
     /// </summary>
-    public int DurationCurrent { get; }
+    public int DurationCurrent { get; } = 0;
+
     /// <summary>
     /// The investment currently made in this task
     /// </summary>
-    public decimal BudgetUsed { get; }
+    public decimal BudgetUsed { get; } = 0;
     /// <summary>
     /// The list of sub tasks assigned
     /// </summary>
@@ -232,19 +233,19 @@ public class Task : IInteraction,
         }
     }
 
-    public virtual void AddTimeslice(ITimeslice pTimeslice)
+    public virtual void AddTimeslice(int pDuration)
     {
         // Update current duration
-        _duration += pTimeslice.Duration;
+        _duration += pDuration;
         List<InteractionAttributes> changedAttrs = new List<InteractionAttributes> {InteractionAttributes.UsedDuration};
         OnModify(new InteractionEventArgs("Time used changed", DateTime.Now, InteractionType.Task,
             changedAttrs));
     }
 
-    public virtual void AddExpense(IExpense pExpense)
+    public virtual void AddExpense(decimal pExpenseValue)
     {
         // Update budget used
-        _budgetUsed += pExpense.Expenditure;
+        _budgetUsed += pExpenseValue;
         List<InteractionAttributes> changedAttrs = new List<InteractionAttributes> {InteractionAttributes.UsedBudget};
         OnModify(new InteractionEventArgs("Budget used changed", DateTime.Now, InteractionType.Task,
             changedAttrs));

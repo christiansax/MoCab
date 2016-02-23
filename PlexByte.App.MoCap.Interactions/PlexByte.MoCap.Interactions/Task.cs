@@ -167,23 +167,10 @@ public class Task : IInteraction,
             0)
     { }
 
-    public Task(string pId,
-        string pText,
-        IUser pCreator,
-        DateTime pStartDt,
-        DateTime pEndDt,
-        DateTime pDueDt,
-        decimal pBudget,
-        int pDuration,
-        int pPriority,
-        InteractionState pState,
-        List<IExpense> pExpenses, 
-        List<ITimeslice> pTime, 
-        List<ITask> pSubTask,
-        int pProgress)
+    public Task(string pId,string pText,IUser pCreator,DateTime pStartDt,DateTime pEndDt,DateTime pDueDt,decimal pBudget,int pDuration,int pPriority,InteractionState pState,decimal pBudgetUsed, int pTimeUsed, List<ITask> pSubTask,int pProgress)
     {
         InitializeProperties(pId, pText, pCreator, pStartDt, pEndDt, pDueDt, pBudget, pDuration, pPriority, false, 
-            InteractionType.Task, pCreator, pState, pExpenses, pTime, pSubTask, pProgress);
+            InteractionType.Task, pCreator, pState, pBudgetUsed, pTimeUsed, pSubTask, pProgress);
     }
 
     #endregion
@@ -280,7 +267,8 @@ public class Task : IInteraction,
 
     private void InitializeProperties(string pId, string pText, IUser pCreator, DateTime pStartDt, DateTime pEndDt, 
         DateTime pDueDt, decimal pBudget, int pDuration, int pPriority, bool pIsActive, InteractionType pType, 
-        IUser pOwner, InteractionState pState, List<IExpense> pExpenses, List<ITimeslice> pTime, List<ITask> pSubTask, 
+        IUser pOwner, InteractionState pState, decimal pBudgetUsed,
+        int pTimeUsed, List<ITask> pSubTask, 
         int pProgress)
     {
         if(!string.IsNullOrEmpty(pId))
@@ -302,8 +290,8 @@ public class Task : IInteraction,
         _duration = pDuration;
         _priority = pPriority;
         _subTasks = pSubTask ?? new List<ITask>();
-        _budgetUsed = pExpenses?.Sum(x => x.value) ?? 0;
-        _durationCurrent = pTime?.Sum(x => x.Duration) ?? 0;
+        _budgetUsed = pBudgetUsed;
+        _durationCurrent = pTimeUsed;
         if (_subTasks.Count > 0)
         {
             int totalProgress= _subTasks.Sum(x => x.Progress);

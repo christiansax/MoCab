@@ -61,5 +61,22 @@ public class Task : IInteraction, ITask
 		throw new System.NotImplementedException();
 	}
 
+	public Task(string pId, string pText, IUser pCreator)
+	{
+	}
+
+	public Task(string pId, string pText, IUser pCreator, DateTime pStartDt, DateTime pEndDt, DateTime pDueDt)
+	{
+	}
+
+	public Task(string pId, string pText, IUser pCreator, DateTime pStartDt, DateTime pEndDt, DateTime pDueDt, decimal pBudget, int pDuration, int pPriority, InteractionState pState, decimal pBudgetUsed, int pTimeUsed, List<ITask> pSubTask, int pProgress)
+	{
+	}
+
+	public virtual void AddSubTask(ITask pTask)
+	{
+		throw new System.NotImplementedException();
+	}
+
 }
 

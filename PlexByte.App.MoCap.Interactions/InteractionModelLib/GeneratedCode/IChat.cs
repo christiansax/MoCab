@@ -9,19 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IExpense 
+public interface IChat 
 {
-	decimal Value { get;set; }
-
-	System.Drawing.Image Receipt { get;set; }
-
-	IInteraction Target { get;set; }
-
-	void AddReceipt(System.Drawing.Image pImage, decimal pValue);
-
-	void DeleteReceipt(System.Drawing.Image pImage, decimal pValue);
-
-	void EditReceipt(System.Drawing.Image pImage, System.Drawing.Image pNewImage, decimal pValue, decimal pNewValue);
-
 }
 

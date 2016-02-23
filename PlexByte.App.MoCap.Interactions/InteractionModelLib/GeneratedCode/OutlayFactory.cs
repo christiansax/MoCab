@@ -31,7 +31,7 @@ public class OutlayFactory : IOutlayFactory
 		throw new System.NotImplementedException();
 	}
 
-	public virtual IExpense CreateExpense(string pId, string pText, List<Image> pImageList, List<decimal> pValueList, IUser pUser)
+	public virtual IExpense CreateExpense(string pId, string pText, System.Drawing.Image pReceipt, decimal pValue, IUser pUser)
 	{
 		throw new System.NotImplementedException();
 	}

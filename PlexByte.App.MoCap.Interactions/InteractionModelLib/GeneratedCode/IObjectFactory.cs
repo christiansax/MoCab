@@ -9,17 +9,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IOutlayFactory 
+public interface IObjectFactory 
 {
-	ITimeslice CreateTimeslice(string pId, IUser pUser, int pDuration);
+	IVote CreateVote(string pId, IUser pUser, ISurveyOption pOption);
 
 	ITimeslice CreateTimeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT);
 
-	void AddReceipt(IExpense pExpense, System.Drawing.Image pImage);
+	ITimeslice CreateTimeslice(string pId, IUser pUser, int pDuration);
 
-	IExpense CreateExpense(string pId, string pText, IUser pUser);
+	SurveyOption CreateSurveyOption(string pId, string pText);
+
+	ISurveyOption CreateSurveyOption(string pId, string pText);
 
 	IExpense CreateExpense(string pId, string pText, System.Drawing.Image pReceipt, decimal pValue, IUser pUser);
+
+	IExpense CreateExpense(string pId, string pText, IUser pUser);
 
 }
 

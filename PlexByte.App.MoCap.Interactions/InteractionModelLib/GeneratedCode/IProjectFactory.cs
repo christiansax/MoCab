@@ -15,9 +15,9 @@ public interface IProjectFactory
 
 	void AddTask(ITask pTask);
 
-	IProject Create(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, IUser pCreator);
+	IProject CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, IUser pCreator);
 
-	IProject Create(string pId, string pText, IUser pCreatur, List<string> MemberList, List<string> InvitationList, bool pEnableBalance, bool pEnableSurvey, List<ITask> TaskList, List<ISurvey> SurveyList);
+	IProject CreateProject(string pId, string pText, IUser pCreatur, List<string> MemberList, List<string> InvitationList, bool pEnableBalance, bool pEnableSurvey, List<ITask> TaskList, List<ISurvey> SurveyList);
 
 	void Invite(IUser pUser);
 

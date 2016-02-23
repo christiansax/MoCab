@@ -17,13 +17,15 @@ public interface IProject
 
 	List<IUser> InvitationList { get;set; }
 
-	IAccount ProjectAccount { get;set; }
+	IAccount ProjectAccount { get; }
 
 	IEnumerable<ITask> TaskList { get;set; }
 
 	IEnumerable<ISurvey> SurveyList { get;set; }
 
 	IEnumerable<IUser> MemberList { get;set; }
+
+	IChat ProjectChat { get; }
 
 	void AddTask(ITask pTask);
 

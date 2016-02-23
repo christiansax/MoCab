@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Account : IAccount, IInteraction
+public class Chat : IChat, IInteraction
 {
 	public virtual void OnComplete(InteractionEventArgs pEventArgs)
 	{
@@ -37,26 +37,6 @@ public class Account : IAccount, IInteraction
 	}
 
 	public virtual void OnStateChanged(InteractionEventArgs pEventArgs)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void EditExpense(IExpense pExpense, IExpense pNewExpense)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void DeleteExpense(IExpense pExpense)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void EditTimeslice(ITimeslice PTimeslice, ITimeslice pNewTimeslice)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void DeleteTimeslice(ITimeslice pTimeslice)
 	{
 		throw new System.NotImplementedException();
 	}

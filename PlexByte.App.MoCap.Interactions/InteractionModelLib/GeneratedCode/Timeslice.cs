@@ -9,23 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Timeslice : ITimeslice, IInteraction
+public class Timeslice : ITimeslice
 {
-	public virtual void OnComplete(InteractionEventArgs pEventArgs)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void ChangeOwner(IUser pUser)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void ChangeIsActive(bool pActive)
-	{
-		throw new System.NotImplementedException();
-	}
-
 	public Timeslice(string pId, IUser pUser, int pDuration, IInteraction pTarget)
 	{
 	}
@@ -35,21 +20,6 @@ public class Timeslice : ITimeslice, IInteraction
 	}
 
 	public virtual int CalculateDuration(DateTime pStartDT, DateTime pEndDT)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void OnModify(InteractionEventArgs pEventArgs)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void ChangeState(InteractionState pState)
-	{
-		throw new System.NotImplementedException();
-	}
-
-	public virtual void OnStateChanged(InteractionEventArgs pEventArgs)
 	{
 		throw new System.NotImplementedException();
 	}

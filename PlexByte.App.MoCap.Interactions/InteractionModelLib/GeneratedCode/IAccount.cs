@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IAccount  : ITask
+public interface IAccount 
 {
 	IEnumerable<ITimeslice> TimesliceList { get;set; }
 

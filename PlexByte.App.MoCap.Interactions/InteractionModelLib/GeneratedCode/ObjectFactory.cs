@@ -9,34 +9,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class ProjectFactory : IProjectFactory
+public class ObjectFactory : IObjectFactory
 {
-	public virtual void AddSurvey(ISurvey pSurvey)
+	public virtual IVote CreateVote(string pId, IUser pUser, ISurveyOption pOption)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void AddTask(ITask pTask)
+	public virtual ITimeslice CreateTimeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual IProject CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, IUser pCreator)
+	public virtual ITimeslice CreateTimeslice(string pId, IUser pUser, int pDuration)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual IProject CreateProject(string pId, string pText, IUser pCreatur, List<string> MemberList, List<string> InvitationList, bool pEnableBalance, bool pEnableSurvey, List<ITask> TaskList, List<ISurvey> SurveyList)
+	public virtual SurveyOption CreateSurveyOption(string pId, string pText)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void Invite(IUser pUser)
+	public virtual ISurveyOption CreateSurveyOption(string pId, string pText)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void Accept(IUser pUser)
+	public virtual IExpense CreateExpense(string pId, string pText, System.Drawing.Image pReceipt, decimal pValue, IUser pUser)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual IExpense CreateExpense(string pId, string pText, IUser pUser)
 	{
 		throw new System.NotImplementedException();
 	}

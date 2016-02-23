@@ -2,11 +2,15 @@
 //                      Interface Task                              
 //      Author: Christian B. Sax            Date:   2016/02/23
 //      Implemented in class task
+
+using System;
 using System.Collections.Generic;
 
 public interface ITask 
 {
-	decimal Budget { get; }
+    DateTime DueDateTime { get; }
+
+    decimal Budget { get; }
 
 	int Duration { get; }
 

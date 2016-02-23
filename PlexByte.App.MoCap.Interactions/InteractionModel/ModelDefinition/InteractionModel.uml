@@ -2078,6 +2078,81 @@
                 LastKnownLocation="InteractionModel.uml" />
             </type_NamedElement>
           </property>
+          <property
+            Id="e9dd502c-b2ad-46b2-8d80-9dbeb59c658d"
+            name="DueDateTime"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f4c0d670-67d9-4317-811a-078a32b38645"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4dcfd7a5-fb2a-421e-a529-c867ec7ebb6c">
+                    <propertyInstance
+                      Id="cbd83a47-26d3-4e7e-896b-23d521081148"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="71d28d53-815a-4108-9761-5d40f45efc4c">
+                    <propertyInstance
+                      Id="df7630d9-1ec9-4342-89be-4f7cf4815ee5"
+                      name="Get"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a206d2b6-dbf6-4aea-ab65-faa3d63dcea3">
+                    <propertyInstance
+                      Id="f24984b0-4ad5-4bbc-a586-81472c7685ac"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="97d0cc8d-0ee0-4f6c-b616-7bef809e71bf">
+                    <propertyInstance
+                      Id="481fa5a3-bcbb-4686-b2ed-0c9d36e61000"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d6868aa-40c2-41c4-9799-f5133d8f6960">
+                    <propertyInstance
+                      Id="4562eedd-60ba-48f8-84e5-ec38b1ceabe9"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="454da7aa-3a1c-4c94-be66-05e30fcd8789">
+                    <propertyInstance
+                      Id="9d6b3e33-3393-401e-b39e-82cd91006268"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bdb38d47-86ee-42ce-91ae-02802e2c7795">
+                    <propertyInstance
+                      Id="d5ffb530-da99-4a04-855b-94d532b335a3"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="9e7f10da-0289-48fd-b29a-edf0d1087dd0"
+                LastKnownName="DateTime"
+                LastKnownLocation="InteractionModel.uml" />
+            </type_NamedElement>
+          </property>
         </ownedAttributes>
         <ownedOperations>
           <operation
@@ -20596,6 +20671,21 @@
           <enumerationLiteral
             Id="5ce4137c-db8b-41bc-8f63-3f2ad75086e8"
             name="UserList" />
+          <enumerationLiteral
+            Id="0708c55f-2f72-4dd2-b111-5b56aa0c797b"
+            name="Progress" />
+          <enumerationLiteral
+            Id="d8986566-793d-471e-a521-9eb3bba1aa1f"
+            name="Budget" />
+          <enumerationLiteral
+            Id="b306b230-469f-445d-9ac9-d6e9476272aa"
+            name="Duration" />
+          <enumerationLiteral
+            Id="18d9d35a-5f00-46f5-9b0a-376d504750b6"
+            name="UsedBudget" />
+          <enumerationLiteral
+            Id="c4d28d69-a92a-43b1-b73e-a10b6309f05c"
+            name="UsedDuration" />
         </ownedLiterals>
       </enumeration>
     </packageHasNamedElement>

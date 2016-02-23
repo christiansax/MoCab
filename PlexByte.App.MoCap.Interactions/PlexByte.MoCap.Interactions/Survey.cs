@@ -114,8 +114,7 @@ public class Survey : ISurvey,
         if (_owner != pUser)
         {
             _owner = pUser;
-            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
-            changedAttributes.Add(InteractionAttributes.Owner);
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes> {InteractionAttributes.Owner};
             OnModify(new InteractionEventArgs($"Survey owner changed [Id={Id}]", DateTime.Now, InteractionType.Survey));
         }
     }
@@ -130,8 +129,7 @@ public class Survey : ISurvey,
         if (_isActive != pActive)
         {
             _isActive = pActive;
-            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
-            changedAttributes.Add(InteractionAttributes.IsActive);
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes> {InteractionAttributes.IsActive};
             OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Survey));
         }
     }
@@ -146,8 +144,7 @@ public class Survey : ISurvey,
         if (_voteList.Count(x => x.User == pVote.User) < MaxVotesPerUser)
         {
             _voteList.Add(pVote);
-            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
-            changedAttributes.Add(InteractionAttributes.VoteList);
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes> {InteractionAttributes.VoteList};
             OnModify(new InteractionEventArgs($"Survey votes changed [Id={Id}]", DateTime.Now, InteractionType.Survey));
         }
 
@@ -168,8 +165,7 @@ public class Survey : ISurvey,
         if (!OptionList.Contains(pOption))
         {
             OptionList.Add(pOption);
-            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
-            changedAttributes.Add(InteractionAttributes.OptionList);
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes> {InteractionAttributes.OptionList};
             OnModify(new InteractionEventArgs($"Survey Option list changed [Id={Id}]", DateTime.Now, InteractionType.Survey));
         }
     }
@@ -183,8 +179,7 @@ public class Survey : ISurvey,
         if (!UserList.Contains(pUser))
         {
             UserList.Add(pUser);
-            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
-            changedAttributes.Add(InteractionAttributes.UserList);
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes> {InteractionAttributes.UserList};
             OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Survey));
         }
     }
@@ -198,8 +193,7 @@ public class Survey : ISurvey,
         if (UserList.Contains(pUser))
         {
             UserList.Remove(pUser);
-            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
-            changedAttributes.Add(InteractionAttributes.UserList);
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes> {InteractionAttributes.UserList};
             OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Survey));
         }
     }
@@ -215,8 +209,7 @@ public class Survey : ISurvey,
             _state == InteractionState.Cancelled ||
             _state == InteractionState.Expired)
             ChangeIsActive(false);
-        List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
-        changedAttributes.Add(InteractionAttributes.State);
+        List<InteractionAttributes> changedAttributes = new List<InteractionAttributes> {InteractionAttributes.State, InteractionAttributes.IsActive};
         OnStateChanged(new InteractionEventArgs($"Survey state changed [Id={Id}]", DateTime.Now, InteractionType.Survey));
     }
 

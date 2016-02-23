@@ -23,6 +23,8 @@ public interface ITask
 
 	int Progress { get; }
 
+	DateTime DueDateTime { get;set; }
+
 	IEnumerable<ITask> SubTasks { get; }
 
 	void AddTimeslice(ITimeslice pTimeslice);

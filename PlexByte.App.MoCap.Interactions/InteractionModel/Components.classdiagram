@@ -1514,6 +1514,61 @@
               <referencedTypeMoniker Id="6945b536-ea30-4079-9a2b-a6757c195a02" LastKnownName="int" />
             </type_NamedElement>
           </property>
+          <property Id="a84ecbe6-2164-4d99-88b4-45a34731d9a9" name="DueDateTime" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="bfc2d5a8-a071-4529-b32f-c04717e0149e" name="property" profile="CSharpProfile">
+                <elementDefinition Id="f4c0d670-67d9-4317-811a-078a32b38645" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a4b653f0-c496-48ed-b9f8-9c845feb73d0">
+                    <propertyInstance Id="3a96ad7a-9bbc-4276-9baa-dd55c6c802e5" name="ClrAttributes">
+                      <elementDefinition Id="cbd83a47-26d3-4e7e-896b-23d521081148" />
+                    </propertyInstance>
+                    <elementDefinition Id="4dcfd7a5-fb2a-421e-a529-c867ec7ebb6c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="bac7ce92-cf6b-4aa5-aa21-fe00e995b852">
+                    <propertyInstance Id="37f4901f-47df-42ec-84be-cd4b25429ee8" name="Get" value="none">
+                      <elementDefinition Id="df7630d9-1ec9-4342-89be-4f7cf4815ee5" />
+                    </propertyInstance>
+                    <elementDefinition Id="71d28d53-815a-4108-9761-5d40f45efc4c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e66e0a2a-f9b9-4b48-8788-a6d91b8a035f">
+                    <propertyInstance Id="bceca5e7-f64d-49e0-abe2-6b0f8ecddfd0" name="HasBody" value="false">
+                      <elementDefinition Id="f24984b0-4ad5-4bbc-a586-81472c7685ac" />
+                    </propertyInstance>
+                    <elementDefinition Id="a206d2b6-dbf6-4aea-ab65-faa3d63dcea3" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b8102460-a613-4fa5-8074-c969c2aaf18f">
+                    <propertyInstance Id="ff281fd7-ea4f-46b5-b50a-120c97fbdb19" name="IsUnsafe" value="false">
+                      <elementDefinition Id="481fa5a3-bcbb-4686-b2ed-0c9d36e61000" />
+                    </propertyInstance>
+                    <elementDefinition Id="97d0cc8d-0ee0-4f6c-b616-7bef809e71bf" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6b5f6a2f-032a-4afb-b798-c9272de6b38b">
+                    <propertyInstance Id="36515c07-315e-40a6-af7d-a1ea0a89042a" name="Inheritance" value="none">
+                      <elementDefinition Id="4562eedd-60ba-48f8-84e5-ec38b1ceabe9" />
+                    </propertyInstance>
+                    <elementDefinition Id="3d6868aa-40c2-41c4-9799-f5133d8f6960" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="65afc084-54ef-45d5-b7dc-27897d252601">
+                    <propertyInstance Id="2e02171e-a4c7-49c9-9630-f852861e1916" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="9d6b3e33-3393-401e-b39e-82cd91006268" />
+                    </propertyInstance>
+                    <elementDefinition Id="454da7aa-3a1c-4c94-be66-05e30fcd8789" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="dcbc7ec4-b681-405b-9ff6-19c3c2b216c7">
+                    <propertyInstance Id="dfc058d3-aba4-4919-96fd-8237036e06d0" name="Set" value="none">
+                      <elementDefinition Id="d5ffb530-da99-4a04-855b-94d532b335a3" />
+                    </propertyInstance>
+                    <elementDefinition Id="bdb38d47-86ee-42ce-91ae-02802e2c7795" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="e9dd502c-b2ad-46b2-8d80-9dbeb59c658d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c6e3efe8-f5de-45f5-ad22-b73fc404b969" LastKnownName="DateTime" />
+            </type_NamedElement>
+          </property>
         </ownedAttributes>
         <ownedOperations>
           <operation Id="e32fd14a-ff2c-4dd7-8665-53b7db49c528" name="AddTimeslice" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
@@ -14930,6 +14985,21 @@
           </enumerationLiteral>
           <enumerationLiteral Id="6f406fba-7df9-4b84-9bbb-520fa6487c99" name="UserList">
             <elementDefinition Id="5ce4137c-db8b-41bc-8f63-3f2ad75086e8" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="0da20975-9bf4-42a8-829a-d0b56d098d8f" name="Progress">
+            <elementDefinition Id="0708c55f-2f72-4dd2-b111-5b56aa0c797b" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="a6aa9eaa-c084-4c70-9597-f698794862e2" name="Budget">
+            <elementDefinition Id="d8986566-793d-471e-a521-9eb3bba1aa1f" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="4deae3c3-f048-4551-9f7a-2810e13ac64e" name="Duration">
+            <elementDefinition Id="b306b230-469f-445d-9ac9-d6e9476272aa" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="d6835460-e46c-4085-803e-f13eb1526a8c" name="UsedBudget">
+            <elementDefinition Id="18d9d35a-5f00-46f5-9b0a-376d504750b6" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="ccae1f2b-0f3c-4296-beb6-ab2e3fcbe93f" name="UsedDuration">
+            <elementDefinition Id="c4d28d69-a92a-43b1-b73e-a10b6309f05c" />
           </enumerationLiteral>
         </ownedLiterals>
       </enumeration>

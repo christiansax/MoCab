@@ -14,7 +14,8 @@ public class Task : IInteraction,
     /// <summary>
     /// The unique id of the task
     /// </summary>
-    public string Id { get { return _id; } }
+    public string Id => _id;
+
     /// <summary>
     /// The date and time this task becomes active and can be worked on. As long as this date is not reached the 
     /// state will remain queued and no work can be performed on the task as longs as it is in state queued
@@ -27,15 +28,18 @@ public class Task : IInteraction,
     /// <summary>
     /// The date and time the task was created
     /// </summary>
-    public DateTime CreatedDateTime { get { return _createdDateTime; } }
+    public DateTime CreatedDateTime => _createdDateTime;
+
     /// <summary>
     /// The date and time the task was last modified
     /// </summary>
-    public DateTime ModifiedDateTime { get { return _modifiedDateTime; } }
+    public DateTime ModifiedDateTime => _modifiedDateTime;
+
     /// <summary>
     /// Flag indicating whether or not the task can be worked on
     /// </summary>
-    public bool IsActive { get { return _isActive; } }
+    public bool IsActive => _isActive;
+
     /// <summary>
     /// The text of this task (description)
     /// </summary>
@@ -47,27 +51,33 @@ public class Task : IInteraction,
     /// <summary>
     /// The user that created the task
     /// </summary>
-    public IUser Creator { get { return _creator; } }
+    public IUser Creator => _creator;
+
     /// <summary>
     /// The user currently owning the task
     /// </summary>
-    public IUser Owner { get { return _owner; } }
+    public IUser Owner => _owner;
+
     /// <summary>
     /// The state of the task
     /// </summary>
-    public InteractionState State { get { return _state; } }
+    public InteractionState State => _state;
+
     /// <summary>
     /// The tasks budget
     /// </summary>
-    public decimal Budget { get { return _budget; } }
+    public decimal Budget => _budget;
+
     /// <summary>
     /// The task duration in seconds
     /// </summary>
-    public int Duration { get { return _duration; } }
+    public int Duration => _duration;
+
     /// <summary>
     /// The priority of this task
     /// </summary>
-    public int Priority { get { return _priority; } }
+    public int Priority => _priority;
+
     /// <summary>
     /// The time currently spent on this task in seconds
     /// </summary>
@@ -79,11 +89,14 @@ public class Task : IInteraction,
     /// <summary>
     /// The list of sub tasks assigned
     /// </summary>
-    public List<ITask> SubTasks { get { return _subTasks; } }
+    public List<ITask> SubTasks => _subTasks;
+
     /// <summary>
     /// The progresss of the task
     /// </summary>
-    public int Progress { get { return _progress; } }
+    public int Progress => _progress;
+
+    public DateTime DueDateTime => _dueDateTime;
 
     #endregion
 
@@ -92,6 +105,7 @@ public class Task : IInteraction,
     private string _id;
     private DateTime _createdDateTime;
     private DateTime _modifiedDateTime;
+    private DateTime _dueDateTime;
     private bool _isActive;
     private IUser _creator;
     private IUser _owner;
@@ -135,13 +149,13 @@ public class Task : IInteraction,
     {
     }
 
-    public Task(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT):
+    public Task(string pId, string pText, IUser pCreator, DateTime pStartDt, DateTime pEndDt, DateTime pDueDt):
         this(pId,
             pText,
             pCreator,
-            pStartDT,
-            pEndDT,
-            pDueDT,
+            pStartDt,
+            pEndDt,
+            pDueDt,
             0,
             0,
             1,
@@ -155,9 +169,9 @@ public class Task : IInteraction,
     public Task(string pId,
         string pText,
         IUser pCreator,
-        DateTime pStartDT,
-        DateTime pEndDT,
-        DateTime pDueDT,
+        DateTime pStartDt,
+        DateTime pEndDt,
+        DateTime pDueDt,
         decimal pBudget,
         int pDuration,
         int pPriority,
@@ -167,7 +181,7 @@ public class Task : IInteraction,
         List<ITask> pSubTask,
         int pProgress)
     {
-        InitializeProperties(pId, pText, pCreator, pStartDT, pEndDT, pDueDT, pBudget, pDuration, pPriority, false, 
+        InitializeProperties(pId, pText, pCreator, pStartDt, pEndDt, pDueDt, pBudget, pDuration, pPriority, false, 
             InteractionType.Task, pCreator, pState, pExpenses, pTime, pSubTask, pProgress);
     }
 
@@ -199,8 +213,7 @@ public class Task : IInteraction,
         if (Owner != pUser)
         {
             _owner = pUser;
-            List<InteractionAttributes> changedAttrs = new List<InteractionAttributes>();
-            changedAttrs.Add(InteractionAttributes.Owner);
+            List<InteractionAttributes> changedAttrs = new List<InteractionAttributes> {InteractionAttributes.Owner};
             OnModify(new InteractionEventArgs("Owner changed", DateTime.Now, InteractionType.Task, changedAttrs));
         }
     }
@@ -212,8 +225,7 @@ public class Task : IInteraction,
             if (IsActive != pActive)
             {
                 _isActive = pActive;
-                List<InteractionAttributes> changedAttrs = new List<InteractionAttributes>();
-                changedAttrs.Add(InteractionAttributes.IsActive);
+                List<InteractionAttributes> changedAttrs = new List<InteractionAttributes> {InteractionAttributes.IsActive};
                 OnModify(new InteractionEventArgs("IsActive state changed", DateTime.Now, InteractionType.Task, 
                     changedAttrs));
             }
@@ -224,28 +236,59 @@ public class Task : IInteraction,
     {
         // Update current duration
         _duration += pTimeslice.Duration;
+        List<InteractionAttributes> changedAttrs = new List<InteractionAttributes> {InteractionAttributes.UsedDuration};
+        OnModify(new InteractionEventArgs("Time used changed", DateTime.Now, InteractionType.Task,
+            changedAttrs));
     }
 
-    public virtual void AddExpense(IExpense pExpense) { throw new System.NotImplementedException(); }
+    public virtual void AddExpense(IExpense pExpense)
+    {
+        // Update budget used
+        _budgetUsed += pExpense.Value;
+        List<InteractionAttributes> changedAttrs = new List<InteractionAttributes> {InteractionAttributes.UsedBudget};
+        OnModify(new InteractionEventArgs("Budget used changed", DateTime.Now, InteractionType.Task,
+            changedAttrs));
+    }
 
-    public void ChangeState(InteractionState pState) { throw new NotImplementedException(); }
+    public void ChangeState(InteractionState pState)
+    {
+        this._state = pState;
+        switch (pState)
+        {
+            case InteractionState.Finished:
+                ChangeIsActive(false);
+                break;
+            case InteractionState.Cancelled:
+                ChangeIsActive(false);
+                break;
+            case InteractionState.Queued:
+                ChangeIsActive(false);
+                break;
+            default:
+                ChangeIsActive(true);
+                break;
+        }
+
+        List<InteractionAttributes> changedAttributes = new List<InteractionAttributes> {InteractionAttributes.State, InteractionAttributes.IsActive};
+        OnStateChanged(new InteractionEventArgs($"Survey state changed [Id={Id}]", DateTime.Now, InteractionType.Task));
+    }
 
     #endregion
 
     #region Private Methods
 
-    private void InitializeProperties(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, 
-        DateTime pDueDT, decimal pBudget, int pDuration, int pPriority, bool pIsActive, InteractionType pType, 
+    private void InitializeProperties(string pId, string pText, IUser pCreator, DateTime pStartDt, DateTime pEndDt, 
+        DateTime pDueDt, decimal pBudget, int pDuration, int pPriority, bool pIsActive, InteractionType pType, 
         IUser pOwner, InteractionState pState, List<IExpense> pExpenses, List<ITimeslice> pTime, List<ITask> pSubTask, 
         int pProgress)
     {
-        if(pId!=null && pId.Length>0)
+        if(!string.IsNullOrEmpty(pId))
             _id = pId;
         else
             _id = Helper.GenerateId();
-
-        StartDateTime = pStartDT;
-        EndDateTime = pEndDT;
+        _dueDateTime = pDueDt;
+        StartDateTime = pStartDt;
+        EndDateTime = pEndDt;
         _createdDateTime = DateTime.Now;
         _modifiedDateTime = DateTime.Now;
         _isActive = pIsActive;
@@ -284,7 +327,24 @@ public class Task : IInteraction,
 
     public void UdateProgress(int pProgress)
     {
-        throw new NotImplementedException();
+        if (pProgress > 0)
+        {
+            _progress=((pProgress+_progress)>=100)?100:
+            _progress + pProgress;
+            
+            if (_progress + pProgress == 100)
+            {
+                ChangeState(InteractionState.Finished);
+                ChangeIsActive(false);
+            }
+            else
+            {
+                List<InteractionAttributes> changedAttributes = new List<InteractionAttributes> {InteractionAttributes.Progress};
+                OnModify(new InteractionEventArgs($"Progress changed [NewValue={_progress}] [TaskId={_id}]", DateTime.Now, 
+                    InteractionType.Task, changedAttributes));
+            }
+
+        }
     }
 
     #endregion

@@ -22,4 +22,9 @@ public enum InteractionAttributes : int
 	VoteList,
 	OptionList,
 	UserList,
+	Progress,
+	Budget,
+	Duration,
+	UsedBudget,
+	UsedDuration,
 }

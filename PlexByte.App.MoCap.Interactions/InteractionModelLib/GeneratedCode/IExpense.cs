@@ -11,13 +11,13 @@ using System.Text;
 
 public interface IExpense 
 {
-	decimal Expenditure { get;set; }
+	decimal Value { get;set; }
 
 	List<System.Drawing.Image> ReceiptList { get;set; }
 
 	IInteraction Target { get;set; }
 
-	List<decimal> ExpenditureList { get;set; }
+	List<decimal> ValueList { get;set; }
 
 	void AddReceipt(System.Drawing.Image pImage, decimal pValue);
 

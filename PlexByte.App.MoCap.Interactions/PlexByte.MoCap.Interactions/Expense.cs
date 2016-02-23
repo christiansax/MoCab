@@ -70,11 +70,11 @@ public class Expense : IExpense, IInteraction
     /// <summary>
     /// A list of all expenes that are attached to a task, project or survey
     /// </summary>
-    public List<decimal> ExpenditureList { get { return _expenditureList; } }
+    public List<decimal> ValueList { get { return _valueList; } }
     /// <summary>
     /// The total expenses that are attached to a task, project or survey
     /// </summary>
-    public decimal Expenditure { get { return _expenditure; } }
+    public decimal value { get { return _value; } }
 
     #endregion
 
@@ -89,8 +89,8 @@ public class Expense : IExpense, IInteraction
     private bool _isActive;
     private string _id;
     private List<Image>  _receiptList;
-    private List<decimal>  _expenditureList;
-    private decimal _expenditure;
+    private List<decimal> _valueList;
+    private decimal _value;
 
     #endregion
 
@@ -204,7 +204,7 @@ public class Expense : IExpense, IInteraction
     /// <param name="pImage"></param>
     public virtual void AddReceipt(Image pImage, decimal pValue)
     {
-        ExpenditureList.Add(pValue);
+        ValueList.Add(pValue);
         List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
         changedAttributes.Add(InteractionAttributes.ValueList);
         if (pImage != null)
@@ -237,8 +237,8 @@ public class Expense : IExpense, IInteraction
                 }
                 if (pValue != pNewValue)
                 {
-                    ExpenditureList.Remove(pValue);
-                    ExpenditureList.Add(pNewValue);
+                    ValueList.Remove(pValue);
+                    ValueList.Add(pNewValue);
                     changedAttributes.Add(InteractionAttributes.ValueList);
                     ExpenseValueCalculation();
                 }
@@ -257,7 +257,7 @@ public class Expense : IExpense, IInteraction
         if (ReceiptList.Contains(pImage))
         {
             ReceiptList.Remove(pImage);
-            ExpenditureList.Remove(pValue);
+            ValueList.Remove(pValue);
             List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
             changedAttributes.Add(InteractionAttributes.ImageList);
             changedAttributes.Add(InteractionAttributes.ValueList);
@@ -299,7 +299,7 @@ public class Expense : IExpense, IInteraction
         _creator = pCreator;
         Text = pText;
         _receiptList = pImageList;
-        _expenditureList = pValueList;
+        _valueList = pValueList;
         _createdDateTime = DateTime.Now;
         _modifiedDateTime = DateTime.Now;
         StartDateTime = DateTime.Now;
@@ -317,9 +317,9 @@ public class Expense : IExpense, IInteraction
     /// </summary>
     private void ExpenseValueCalculation()
     {
-        foreach(decimal value in ExpenditureList)
+        foreach(decimal value in ValueList)
         {
-            _expenditure =+ value;
+            _value =+ value;
         }
     }
 

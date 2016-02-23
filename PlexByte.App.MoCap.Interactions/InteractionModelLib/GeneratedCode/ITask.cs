@@ -17,9 +17,9 @@ public interface ITask
 
 	int Priority { get; }
 
-	int DurationCurrent { get;set; }
+	int DurationCurrent { get; }
 
-	decimal BudgetUsed { get;set; }
+	decimal BudgetUsed { get; }
 
 	int Progress { get; }
 
@@ -28,6 +28,8 @@ public interface ITask
 	void AddTimeslice(ITimeslice pTimeslice);
 
 	void AddExpense(IExpense pExpense);
+
+	void UdateProgress(int pProgress);
 
 }
 

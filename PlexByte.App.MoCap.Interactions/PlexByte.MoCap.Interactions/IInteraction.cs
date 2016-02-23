@@ -30,7 +30,7 @@ public interface IInteraction
 
     string Text { get; set; }
 
-    InteractionType Type { get; set; }
+    InteractionType Type { get; }
 
     IUser Creator { get; }
 

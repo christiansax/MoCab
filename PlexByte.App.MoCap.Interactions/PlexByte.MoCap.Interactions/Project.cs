@@ -116,6 +116,9 @@ public class Project : IProject, IInteraction
     public event UserAdd UserAdded;
     public event UserBan UserBanned;
     public event Leave Left;
+    public event UserInvite UserInvited;
+    public event TaskAdd TaskAdded;
+    public event SurveyAdd SurveyAdded;
 
     #endregion
 
@@ -205,6 +208,33 @@ public class Project : IProject, IInteraction
     public virtual void OnLeave(InteractionEventArgs pEventArgs)
     {
         Left?.Invoke(this, pEventArgs);
+    }
+
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
+    public virtual void OnUserInvite(InteractionEventArgs pEventArgs)
+    {
+        UserInvited?.Invoke(this, pEventArgs);
+    }
+
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
+    public virtual void OnTaskAdd(InteractionEventArgs pEventArgs)
+    {
+        TaskAdded?.Invoke(this, pEventArgs);
+    }
+
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
+    public virtual void OnSurveyAdd(InteractionEventArgs pEventArgs)
+    {
+        SurveyAdded?.Invoke(this, pEventArgs);
     }
     #endregion
 

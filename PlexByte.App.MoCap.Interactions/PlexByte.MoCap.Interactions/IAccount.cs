@@ -6,8 +6,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+
+public delegate void ExpenseAdd(object sender, InteractionEventArgs e);
+public delegate void TimesliceAdd(object sender, InteractionEventArgs e);
+
 public interface IAccount
 {
+    event ExpenseAdd ExpenseAdded;
+    event TimesliceAdd TimesliceAdded;
+
+
+
     List<IExpense> ExpenseList { get;  }
 
     List<ITimeslice> TimesliceList { get;  }

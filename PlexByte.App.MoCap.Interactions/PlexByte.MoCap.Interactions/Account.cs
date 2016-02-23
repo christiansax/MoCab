@@ -87,6 +87,8 @@ public class Account : IAccount, IInteraction
     public event Complete Completed;
     public event Modify Modified;
     public event StateChange StateChanged;
+    public event ExpenseAdd ExpenseAdded;
+    public event TimesliceAdd TimesliceAdded;
     #endregion
 
     #region Ctor & Dtor
@@ -123,6 +125,7 @@ public class Account : IAccount, IInteraction
     #endregion
 
     #region Event raising methods
+
     /// <summary>
     /// This method raises the corresponding event in case subscribers are registered
     /// </summary>
@@ -149,6 +152,25 @@ public class Account : IAccount, IInteraction
     {
         StateChanged?.Invoke(this, pEventArgs);
     }
+
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
+    public virtual void OnExpenseAdded(InteractionEventArgs pEventArgs)
+    {
+        ExpenseAdded?.Invoke(this, pEventArgs);
+    }
+
+    /// <summary>
+    /// This method raises the corresponding event in case subscribers are registered
+    /// </summary>
+    /// <param name="pEventArgs"></param>
+    public virtual void OnTimesliceAdded(InteractionEventArgs pEventArgs)
+    {
+        TimesliceAdded?.Invoke(this, pEventArgs);
+    }
+
     #endregion
 
     #region Public methods

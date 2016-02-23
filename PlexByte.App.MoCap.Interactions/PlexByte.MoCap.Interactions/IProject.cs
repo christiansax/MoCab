@@ -6,16 +6,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+public delegate void UserInvite(object sender, InteractionEventArgs e);
 public delegate void UserAdd(object sender, InteractionEventArgs e);
 public delegate void UserBan(object sender, InteractionEventArgs e);
 public delegate void Leave(object sender, InteractionEventArgs e);
+public delegate void TaskAdd(object sender, InteractionEventArgs e);
+public delegate void SurveyAdd(object sender, InteractionEventArgs e);
 
 public interface IProject 
 {
 
+    event UserInvite UserInvited;
     event UserAdd UserAdded;
     event UserBan UserBanned;
     event Leave Left;
+    event TaskAdd TaskAdded;
+    event SurveyAdd SurveyAdded;
 
 
     bool EnableBalance { get;  }

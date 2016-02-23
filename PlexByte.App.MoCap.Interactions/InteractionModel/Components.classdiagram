@@ -7156,7 +7156,7 @@
               <referencedTypeMoniker Id="3539180f-0801-482c-b395-767c14313ff8" LastKnownName="decimal" />
             </type_NamedElement>
           </property>
-          <property Id="d1f9295f-8313-4da8-a6a7-678560f1bd72" name="ReceiptList" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="d1f9295f-8313-4da8-a6a7-678560f1bd72" name="Receipt" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="1e0b9b5e-9cd4-4929-9305-dccfb0af2d8c" name="property" profile="CSharpProfile">
                 <elementDefinition Id="327fde92-fa19-4fcf-9ef0-8d6b22675187" />
@@ -7208,7 +7208,7 @@
             </appliedStereotypesInternal>
             <elementDefinition Id="579e64e0-8880-4aa8-8caf-89ae86d1a7ce" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="00c36563-5239-4048-900e-7d4623e130c3" LastKnownName="List&lt;System.Drawing.Image&gt;" />
+              <referencedTypeMoniker Id="91c8e3b1-dce4-4126-aa1c-7ffbb76013a0" LastKnownName="System.Drawing.Image" />
             </type_NamedElement>
           </property>
           <property Id="f3789369-6d5f-46e1-a585-89dc96dcab45" name="Target" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -7264,61 +7264,6 @@
             <elementDefinition Id="3105a942-d6a6-4643-a578-fd305f1f76b3" />
             <type_NamedElement>
               <referencedTypeMoniker Id="25a3568e-6226-4ced-8e86-f9f8305985cf" LastKnownName="IInteraction" />
-            </type_NamedElement>
-          </property>
-          <property Id="77c73e53-7005-49fd-aa01-149da9b92c04" name="ValueList" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-            <appliedStereotypesInternal>
-              <stereotypeInstance Id="136de49d-8503-40c1-a365-8c7666ebdc2e" name="property" profile="CSharpProfile">
-                <elementDefinition Id="e9de91af-3c6b-4b51-9775-d9cbf4d16657" />
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="1da87eb1-d65f-4ee3-a47d-302559eb8ba5">
-                    <propertyInstance Id="a822e237-d4db-4add-aee7-8cf224431c16" name="ClrAttributes">
-                      <elementDefinition Id="19ae1edf-07c2-48a3-9027-ea7f71832514" />
-                    </propertyInstance>
-                    <elementDefinition Id="62c59169-fb11-4f12-9c03-649d4d16ee1e" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="89f34662-9651-4106-9c18-435e5d033fcd">
-                    <propertyInstance Id="f01f310e-d5af-4277-9518-5ecff9b2ed85" name="Get" value="none">
-                      <elementDefinition Id="f7b7783e-a2a9-4a50-8f53-3684ec813ced" />
-                    </propertyInstance>
-                    <elementDefinition Id="d031fd68-bbb1-43e8-8b4a-e70b2d1e1643" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="2632cb25-ae8d-4749-9d26-40b7434ec3a7">
-                    <propertyInstance Id="ece305c4-71a9-4be8-81c0-67ee08f970bc" name="HasBody" value="false">
-                      <elementDefinition Id="b223d744-147c-4125-a496-0d17c3dc599c" />
-                    </propertyInstance>
-                    <elementDefinition Id="91f47a7f-02f6-49e0-aad2-07a1e0d714f5" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="1d1d3244-737a-4268-93d0-09167ce59387">
-                    <propertyInstance Id="36be99e4-79ae-4372-b780-e27d48c7ea27" name="IsUnsafe" value="false">
-                      <elementDefinition Id="d9af0d8e-49be-4c3b-ba18-67041a6bc789" />
-                    </propertyInstance>
-                    <elementDefinition Id="a3a672b7-d556-4bf3-a480-d714bd0bbf07" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="c8839a64-d64a-4fc1-ba49-f46ce34c36e3">
-                    <propertyInstance Id="6a851eda-20c5-411f-88a1-f93a5521b4c2" name="Inheritance" value="none">
-                      <elementDefinition Id="e3d127c5-96e4-4730-afed-768b7ba30955" />
-                    </propertyInstance>
-                    <elementDefinition Id="2462b89b-7f47-47e2-bab7-afb5164566b2" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="c078810c-fdeb-4a2d-8fc5-d7e103da234d">
-                    <propertyInstance Id="ed893f95-cab0-4992-a78a-75923c8d68aa" name="PackageVisibility" value="internal">
-                      <elementDefinition Id="68cdfb60-1e0a-43f1-b368-388d784072f7" />
-                    </propertyInstance>
-                    <elementDefinition Id="e901ec83-45d9-4831-8687-7eb815a1f5e9" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances Id="34e2947b-ab73-493a-b4d4-06db6de0ff75">
-                    <propertyInstance Id="fcd97793-090c-4471-9ce3-c0ce2c22f3a9" name="Set" value="none">
-                      <elementDefinition Id="af65aa7d-fae0-4150-b199-395132d13641" />
-                    </propertyInstance>
-                    <elementDefinition Id="021a3de1-cd24-4eee-ba9d-fcc148dbabb3" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <elementDefinition Id="d3ce0fce-32bc-4872-baae-d509861cdead" />
-            <type_NamedElement>
-              <referencedTypeMoniker Id="432e0c62-0319-4abd-8bfd-8562f266683d" LastKnownName="List&lt;decimal&gt;" />
             </type_NamedElement>
           </property>
         </ownedAttributes>
@@ -8930,50 +8875,50 @@
             <elementDefinition Id="79e673bd-b9f5-4469-b2ac-19217a0b502e" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="5a1a7ea9-b5a9-4f57-bc91-4ca4c90b23ce" name="pId" direction="In" isUnique="false">
-                  <elementDefinition Id="9a136b79-aad7-4a80-8c57-43c076f858aa" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="bcb9f532-5011-4f7f-b947-a7f92d1fb07d" name="pText" direction="In" isUnique="false">
-                  <elementDefinition Id="b42464fd-a18d-4095-8c67-17ff95a67b18" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="60e7655a-c3ad-4365-9342-bf0b5f652f3e" name="pImageList" direction="In" isUnique="false">
-                  <elementDefinition Id="f829ce92-c12d-424a-8f02-4972175487c1" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="abaeb7ee-0848-4d78-9dae-1bc2fd8c0f57" LastKnownName="List&lt;Image&gt;" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="4d79c1fe-0d52-4b45-9b1c-8c3e466ca6a2" name="pValueList" direction="In" isUnique="false">
-                  <elementDefinition Id="5b77d45d-fb89-4fc6-b965-027b2b1a95fb" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="0e1e5af4-cd75-4082-8bb5-2197bd401dec" LastKnownName="List&lt;decimal&gt;" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="b8746787-3060-4b34-9025-2397ce6907ca" name="pUser" direction="In" isUnique="false">
-                  <elementDefinition Id="070b5a93-441e-4fe4-9efd-53ef68cddc2f" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="ae7be73d-24c5-4baa-8fca-478ed4db0b96" direction="Return">
+                <parameter Id="ae7be73d-24c5-4baa-8fca-478ed4db0b96" direction="Return" isUnique="false">
                   <elementDefinition Id="2bdff236-279e-479b-9ad1-4ff6b205741a" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="5f4b0384-51e8-4ca8-bc31-628d92d2a41e" LastKnownName="IExpense" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ed4b88ee-9902-4b95-999a-72b311602b81" name="pId" direction="In" isUnique="false">
+                  <elementDefinition Id="e524eae4-7a64-4dae-96b5-a10c38b26537" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="51930cb6-6d21-40a8-8624-b5cb077f5782" name="pText" direction="In" isUnique="false">
+                  <elementDefinition Id="7ab39d57-4e75-4588-b2ef-b21e776324af" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="963a1ec1-1572-4ab9-ac5a-71a2c2649a0b" name="pReceipt" direction="In" isUnique="false">
+                  <elementDefinition Id="443d1364-84ec-4d2b-842a-841c9f88479e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="414d0b4a-d69c-4e78-9091-4e8d5f49acd7" LastKnownName="System.Drawing.Image" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e5e8213e-7ac2-43b2-89c4-6786fbf2b56d" name="pValue" direction="In" isUnique="false">
+                  <elementDefinition Id="32d03a1d-f549-4836-bac7-a1135d53afb9" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="fa8123e6-d0d7-4e0f-958d-5e409fc015d4" LastKnownName="decimal" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3332fbf5-d200-45b6-9eb3-42a33f42a270" name="pUser" direction="In" isUnique="false">
+                  <elementDefinition Id="30c604a2-da4e-40f2-a4c8-031534156ff9" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -9396,50 +9341,50 @@
             <elementDefinition Id="8dad3e9c-0565-4b40-82ad-7cf60da31f5f" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="eddf4cb4-b0c5-4576-a278-c8b9f8b365f4" name="pId" direction="In" isUnique="false">
-                  <elementDefinition Id="66e0179b-fffb-43c6-9a81-e3c780379ba7" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="a87753bd-46be-4557-afb1-9c4bf37a698c" name="pText" direction="In" isUnique="false">
-                  <elementDefinition Id="f0526a4b-e9f3-4ec9-bc7d-61fcfd91ef71" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="673d1b3f-b464-435e-9a53-f67d8ccb9b9f" name="pImageList" direction="In" isUnique="false">
-                  <elementDefinition Id="45dc1169-cbe2-42b9-8223-6df7a88bf528" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="abaeb7ee-0848-4d78-9dae-1bc2fd8c0f57" LastKnownName="List&lt;Image&gt;" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="de89e64d-706d-4b3f-86a1-7de02fcf8b17" name="pValueList" direction="In" isUnique="false">
-                  <elementDefinition Id="b75caf0a-0327-40d9-90fb-c088c1bce07c" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="0e1e5af4-cd75-4082-8bb5-2197bd401dec" LastKnownName="List&lt;decimal&gt;" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="79d7ce3b-0fe7-4363-b959-06b99d4c76dd" name="pUser" direction="In" isUnique="false">
-                  <elementDefinition Id="c734a369-e970-4b42-81f6-f6d3ec9c7034" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="413350de-783f-497b-a4cf-0b0f80c9447f" direction="Return">
+                <parameter Id="413350de-783f-497b-a4cf-0b0f80c9447f" direction="Return" isUnique="false">
                   <elementDefinition Id="607fe93a-c967-4f74-a6bf-5f6e224f38c4" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="a95c3c8e-4ef1-408d-83c9-908671f6b111" LastKnownName="IExpense" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6a7b22ee-a88c-4d37-8ee7-86075c5ff94c" name="pId" direction="In" isUnique="false">
+                  <elementDefinition Id="c40c51aa-8326-4502-9ce9-9001b5527444" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="afb22fca-40b6-4032-8ee4-363b8d3bf9b9" name="pText" direction="In" isUnique="false">
+                  <elementDefinition Id="f1f4d0f9-3510-4b32-bedd-4a08319a3903" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="60728627-6b72-4f74-bf56-449c1dd6362c" name="pReceipt" direction="In" isUnique="false">
+                  <elementDefinition Id="3ebad85e-3dc7-450f-ac6e-9231ef8fc64e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="414d0b4a-d69c-4e78-9091-4e8d5f49acd7" LastKnownName="System.Drawing.Image" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4067a1d1-2f51-49f2-8ded-6f3c0f56aa7b" name="pValue" direction="In" isUnique="false">
+                  <elementDefinition Id="da0d7dc9-c783-4729-9d45-b21aa6880c28" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="fa8123e6-d0d7-4e0f-958d-5e409fc015d4" LastKnownName="decimal" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3d9b0224-ea6b-4b0f-b3d0-09cf42af805d" name="pUser" direction="In" isUnique="false">
+                  <elementDefinition Id="f1335e51-8d83-4bee-a312-79a902e6a390" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -15587,16 +15532,6 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="abaeb7ee-0848-4d78-9dae-1bc2fd8c0f57" name="List&lt;Image&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;Image&gt;">
-        <elementDefinition Id="942f3b4d-0e4b-48b2-ab8d-7162dbf03e06" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="0e1e5af4-cd75-4082-8bb5-2197bd401dec" name="List&lt;decimal&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;decimal&gt;">
-        <elementDefinition Id="719bee3a-b96b-4e62-94e2-daec6e84e7ba" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="87e01d1b-fb79-4904-b93f-2a17a416b44a" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
         <elementDefinition Id="fe64eea7-097f-4495-8943-b9809fad05ee" />
       </referencedType>
@@ -15682,18 +15617,13 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="00c36563-5239-4048-900e-7d4623e130c3" name="List&lt;System.Drawing.Image&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;System.Drawing.Image&gt;">
-        <elementDefinition Id="14f63c69-f99b-49ff-b635-fb131b0dc5c0" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <referencedType Id="432e0c62-0319-4abd-8bfd-8562f266683d" name="List&lt;decimal&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;decimal&gt;">
-        <elementDefinition Id="719bee3a-b96b-4e62-94e2-daec6e84e7ba" />
-      </referencedType>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
       <referencedType Id="3539180f-0801-482c-b395-767c14313ff8" name="decimal" isAbstract="false" isLeaf="false" cachedFullName="decimal">
         <elementDefinition Id="bf723d3e-44b1-470f-ac5a-29c1f3ad9ac5" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="91c8e3b1-dce4-4126-aa1c-7ffbb76013a0" name="System.Drawing.Image" isAbstract="false" isLeaf="false" cachedFullName="System.Drawing.Image">
+        <elementDefinition Id="bb0de6db-488e-4502-a300-f5a92f0ba7ef" />
       </referencedType>
     </packageHasNamedElement>
   </packagedElements>

@@ -17,7 +17,7 @@ public interface IExpense
 
     void AddReceipt(Image pImage);
 
-    void DeleteReceipt(Image pImage);
+    void DeleteReceipt();
 
     void EditValue(decimal pNewValue);
 

@@ -164,16 +164,16 @@ public class Expense : IExpense, IInteraction
     /// Method to add a Receipt to an expense
     /// </summary>
     /// <param name="pImage"></param>
-    public void AddReceipt(Image pImage)
+    public void AddReceipt(Image pReceipt)
     {
-        _receipt = pImage;
+        _receipt = pReceipt;
     }
 
     /// <summary>
     /// Method to remove a Receipt from an expense
     /// </summary>
     /// <param name="pImage"></param>
-    public void DeleteReceipt(Image pImage)
+    public void DeleteReceipt()
     {
         _receipt = null;
     }

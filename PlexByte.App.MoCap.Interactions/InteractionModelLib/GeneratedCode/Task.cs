@@ -36,18 +36,6 @@ public class Task : IInteraction, ITask
 		throw new System.NotImplementedException();
 	}
 
-	public Task(string pId, string pText, IUser pCreator)
-	{
-	}
-
-	public Task(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT)
-	{
-	}
-
-	public Task(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT, decimal pBudget, int pDuration, int pPriority, InteractionState pState, List<IExpense> pExpenses, List<ITimeslice> pTime, List<ITask> pSubTask, int pProgress = 0)
-	{
-	}
-
 	public virtual void OnModify(InteractionEventArgs pEventArgs)
 	{
 		throw new System.NotImplementedException();
@@ -64,6 +52,11 @@ public class Task : IInteraction, ITask
 	}
 
 	private void InitializeProperties()
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void UdateProgress(int pProgress)
 	{
 		throw new System.NotImplementedException();
 	}

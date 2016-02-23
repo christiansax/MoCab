@@ -11,9 +11,9 @@ using System.Text;
 
 public interface IAccount  : ITask
 {
-	IEnumerable<IExpense> ExpenseList { get;set; }
-
 	IEnumerable<ITimeslice> TimesliceList { get;set; }
+
+	IEnumerable<IExpense> ExpenseList { get;set; }
 
 	void AddExpense(IExpense pExpense);
 

@@ -81,5 +81,10 @@ public class Account : IAccount, IInteraction
 		throw new System.NotImplementedException();
 	}
 
+	public virtual void UdateProgress(int pProgress)
+	{
+		throw new System.NotImplementedException();
+	}
+
 }
 

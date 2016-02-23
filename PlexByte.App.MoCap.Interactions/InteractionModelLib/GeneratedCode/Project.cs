@@ -46,7 +46,7 @@ public class Project : IProject, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void Leave()
+	public virtual void Leave(IUser pUser)
 	{
 		throw new System.NotImplementedException();
 	}

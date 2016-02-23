@@ -11,17 +11,19 @@ using System.Text;
 
 public interface ITaskFactory 
 {
-	ITask CreateTask(string pId, string pText, IUser pCreator);
-
-	ITask CreateTask(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT);
-
-	ITask CreateTask(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT, decimal pBudget, int pDuration, int pPriority);
-
 	void Add(ITimeslice pTimeslice, ITask pTask);
 
 	void Add(IExpense pExpense, ITask pTask);
 
 	void Assign(IUser pUser);
+
+	void UpdateProgress(int pProgress);
+
+	ITask CreateTask(string pId, string pText, IUser pCreator);
+
+	ITask CreateTask(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT);
+
+	ITask CreateTask(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT, decimal pBudget, int pDuration, int pPriority, InteractionState pState, List<IExpense> pExpenses, List<ITimeslice> pTime, List<ITask> pSubTask, int pProgress = 0);
 
 }
 

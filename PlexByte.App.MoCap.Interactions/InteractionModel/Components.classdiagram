@@ -7151,7 +7151,7 @@
         </appliedStereotypesInternal>
         <elementDefinition Id="83ceaa31-1532-4a70-b5a8-875d8a1b173c" />
         <ownedAttributes>
-          <property Id="e96ef028-c3d0-4427-af25-0444dd68e698" name="Expenditure" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="e96ef028-c3d0-4427-af25-0444dd68e698" name="Value" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="2b986646-6b02-4127-95c9-64d4b669acb3" name="property" profile="CSharpProfile">
                 <elementDefinition Id="2f0e5715-520f-4b4e-8251-d0a47b21b492" />
@@ -7203,7 +7203,7 @@
             </appliedStereotypesInternal>
             <elementDefinition Id="70df80f1-b942-469b-8b89-0826a1829869" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="b3690fb9-3083-4530-a1d9-1a195dbb73af" LastKnownName="decimal" />
+              <referencedTypeMoniker Id="3539180f-0801-482c-b395-767c14313ff8" LastKnownName="decimal" />
             </type_NamedElement>
           </property>
           <property Id="d1f9295f-8313-4da8-a6a7-678560f1bd72" name="ReceiptList" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
@@ -7316,7 +7316,7 @@
               <referencedTypeMoniker Id="25a3568e-6226-4ced-8e86-f9f8305985cf" LastKnownName="IInteraction" />
             </type_NamedElement>
           </property>
-          <property Id="77c73e53-7005-49fd-aa01-149da9b92c04" name="ExpenditureList" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="77c73e53-7005-49fd-aa01-149da9b92c04" name="ValueList" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <appliedStereotypesInternal>
               <stereotypeInstance Id="136de49d-8503-40c1-a365-8c7666ebdc2e" name="property" profile="CSharpProfile">
                 <elementDefinition Id="e9de91af-3c6b-4b51-9775-d9cbf4d16657" />
@@ -7368,7 +7368,7 @@
             </appliedStereotypesInternal>
             <elementDefinition Id="d3ce0fce-32bc-4872-baae-d509861cdead" />
             <type_NamedElement>
-              <referencedTypeMoniker Id="0e1e5af4-cd75-4082-8bb5-2197bd401dec" LastKnownName="List&lt;decimal&gt;" />
+              <referencedTypeMoniker Id="432e0c62-0319-4abd-8bfd-8562f266683d" LastKnownName="List&lt;decimal&gt;" />
             </type_NamedElement>
           </property>
         </ownedAttributes>
@@ -14777,6 +14777,30 @@
           <enumerationLiteral Id="ccae1f2b-0f3c-4296-beb6-ab2e3fcbe93f" name="UsedDuration">
             <elementDefinition Id="c4d28d69-a92a-43b1-b73e-a10b6309f05c" />
           </enumerationLiteral>
+          <enumerationLiteral Id="718e67ff-d6f2-4217-bbf1-cff7af0cd58f" name="TaskList">
+            <elementDefinition Id="2b83e37e-ef55-4271-9c6c-523cecf8a32e" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="96af58f4-e08e-4fde-827d-2f131a195676" name="SurveyList">
+            <elementDefinition Id="5f69df46-3307-4a26-967d-044ceeee458a" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="4c978d59-1e8b-48f6-9b9b-bc771b68c0ca" name="MemberList">
+            <elementDefinition Id="fea5d418-c9b0-4e2f-bbb5-076e4e2aaa07" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="18d82571-b11e-40f2-b46e-74be12df833a" name="InvitationList">
+            <elementDefinition Id="3a54c0df-3a97-4681-a8f1-de7f3cd692f7" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="e1fb9bda-ab11-4565-b864-f7f454f7a844" name="ExpenseList">
+            <elementDefinition Id="915bbe3e-8851-4e0f-852e-4991113a5d3c" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="38f11f28-b338-4830-a148-3ea890dc38d6" name="ValueList">
+            <elementDefinition Id="7d38b7d4-1565-4057-b12f-1902068f062f" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="54ea3d00-f66c-4a7b-8f5e-d6b56cdfa675" name="TimesliceList">
+            <elementDefinition Id="cba8bf45-866a-4605-9ebe-d60726b2e8ac" />
+          </enumerationLiteral>
+          <enumerationLiteral Id="fc928c98-6a0b-44ad-85fc-330d5192ca98" name="ImageList">
+            <elementDefinition Id="afa7f2c0-238a-44b0-aa6d-d513fb6f1065" />
+          </enumerationLiteral>
         </ownedLiterals>
       </enumeration>
     </logicalClassDesignerModelHasTypes>
@@ -15657,7 +15681,12 @@
       </referencedType>
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <referencedType Id="b3690fb9-3083-4530-a1d9-1a195dbb73af" name="decimal" isAbstract="false" isLeaf="false" cachedFullName="decimal">
+      <referencedType Id="432e0c62-0319-4abd-8bfd-8562f266683d" name="List&lt;decimal&gt;" isAbstract="false" isLeaf="false" cachedFullName="List&lt;decimal&gt;">
+        <elementDefinition Id="719bee3a-b96b-4e62-94e2-daec6e84e7ba" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3539180f-0801-482c-b395-767c14313ff8" name="decimal" isAbstract="false" isLeaf="false" cachedFullName="decimal">
         <elementDefinition Id="bf723d3e-44b1-470f-ac5a-29c1f3ad9ac5" />
       </referencedType>
     </packageHasNamedElement>

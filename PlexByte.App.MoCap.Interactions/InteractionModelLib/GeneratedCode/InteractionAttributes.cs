@@ -27,4 +27,12 @@ public enum InteractionAttributes : int
 	Duration,
 	UsedBudget,
 	UsedDuration,
+	TaskList,
+	SurveyList,
+	MemberList,
+	InvitationList,
+	ExpenseList,
+	ValueList,
+	TimesliceList,
+	ImageList,
 }

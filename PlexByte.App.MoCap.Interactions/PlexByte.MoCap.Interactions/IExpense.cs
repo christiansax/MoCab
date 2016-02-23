@@ -9,13 +9,13 @@ using System.Text;
 
 public interface IExpense
 {
-    decimal Expenditure { get;  }
+    decimal value { get;  }
 
     List<Image> ReceiptList { get;  }
 
     IInteraction Target { get; set; }
 
-    List<decimal> ExpenditureList { get; }
+    List<decimal> ValueList { get; }
 
     void AddReceipt(Image pImage, decimal pValue);
 

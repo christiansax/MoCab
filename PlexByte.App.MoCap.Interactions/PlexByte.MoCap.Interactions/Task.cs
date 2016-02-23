@@ -244,7 +244,7 @@ public class Task : IInteraction,
     public virtual void AddExpense(IExpense pExpense)
     {
         // Update budget used
-        _budgetUsed += pExpense.Expenditure;
+        _budgetUsed += pExpense.value;
         List<InteractionAttributes> changedAttrs = new List<InteractionAttributes> {InteractionAttributes.UsedBudget};
         OnModify(new InteractionEventArgs("Budget used changed", DateTime.Now, InteractionType.Task,
             changedAttrs));
@@ -301,7 +301,7 @@ public class Task : IInteraction,
         _duration = pDuration;
         _priority = pPriority;
         _subTasks = pSubTask ?? new List<ITask>();
-        _budgetUsed = pExpenses?.Sum(x => x.Expenditure) ?? 0;
+        _budgetUsed = pExpenses?.Sum(x => x.value) ?? 0;
         _durationCurrent = pTime?.Sum(x => x.Duration) ?? 0;
         if (_subTasks.Count > 0)
         {

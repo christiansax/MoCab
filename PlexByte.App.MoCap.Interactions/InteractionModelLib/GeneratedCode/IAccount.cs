@@ -15,10 +15,6 @@ public interface IAccount  : ITask
 
 	IEnumerable<IExpense> ExpenseList { get;set; }
 
-	void AddExpense(IExpense pExpense);
-
-	void AddTimeslice(ITimeslice pTimeslice);
-
 	void EditExpense(IExpense pExpense, IExpense pNewExpense);
 
 	void DeleteExpense(IExpense pExpense);

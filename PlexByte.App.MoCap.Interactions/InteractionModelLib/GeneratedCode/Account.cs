@@ -76,5 +76,10 @@ public class Account : IAccount, IInteraction
 		throw new System.NotImplementedException();
 	}
 
+	public virtual void AddSubTask(ITask pTask)
+	{
+		throw new System.NotImplementedException();
+	}
+
 }
 

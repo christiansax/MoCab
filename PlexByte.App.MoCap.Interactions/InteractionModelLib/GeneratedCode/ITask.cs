@@ -33,5 +33,7 @@ public interface ITask
 
 	void UdateProgress(int pProgress);
 
+	void AddSubTask(ITask pTask);
+
 }
 

@@ -6,11 +6,29 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 public class TaskFactory : ITaskFactory
 {
+	public virtual void Add(ITimeslice pTimeslice, ITask pTask)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void Add(IExpense pExpense, ITask pTask)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void Assign(IUser pUser)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void UpdateProgress(int pProgress)
+	{
+		throw new System.NotImplementedException();
+	}
+
 	public virtual ITask CreateTask(string pId, string pText, IUser pCreator)
 	{
 		throw new System.NotImplementedException();

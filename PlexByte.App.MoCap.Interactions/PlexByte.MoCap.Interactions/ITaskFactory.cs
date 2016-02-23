@@ -11,6 +11,14 @@ using System.Text;
 
 public interface ITaskFactory 
 {
+	void Add(ITimeslice pTimeslice, ITask pTask);
+
+	void Add(IExpense pExpense, ITask pTask);
+
+	void Assign(IUser pUser);
+
+	void UpdateProgress(int pProgress);
+
 	ITask CreateTask(string pId, string pText, IUser pCreator);
 
 	ITask CreateTask(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT);

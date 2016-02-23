@@ -11,12 +11,12 @@ using System.Text;
 
 public class OutlayFactory : IOutlayFactory
 {
-	public virtual void CreateTimeslice(string pId, IUser pUser, int pDuration)
+	public virtual ITimeslice CreateTimeslice(string pId, IUser pUser, int pDuration)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void CreateTimeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT)
+	public virtual ITimeslice CreateTimeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -26,12 +26,12 @@ public class OutlayFactory : IOutlayFactory
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void CreateExpense(string pId, string pText, IUser pUser)
+	public virtual IExpense CreateExpense(string pId, string pText, IUser pUser)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void CreateExpense(string pId, string pText, List<Image> pImageList, List<decimal> pValueList, IUser pUser)
+	public virtual IExpense CreateExpense(string pId, string pText, List<Image> pImageList, List<decimal> pValueList, IUser pUser)
 	{
 		throw new System.NotImplementedException();
 	}

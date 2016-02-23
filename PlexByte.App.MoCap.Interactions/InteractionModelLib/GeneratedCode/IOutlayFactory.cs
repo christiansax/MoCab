@@ -11,11 +11,15 @@ using System.Text;
 
 public interface IOutlayFactory 
 {
-	void CreateTimeslice(string pId, IUser pUser, int pDuration);
+	ITimeslice CreateTimeslice(string pId, IUser pUser, int pDuration);
 
-	void CreateTimeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT);
+	ITimeslice CreateTimeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT);
 
 	void AddReceipt(IExpense pExpense, System.Drawing.Image pImage);
+
+	IExpense CreateExpense(string pId, string pText, IUser pUser);
+
+	IExpense CreateExpense(string pId, string pText, List<Image> pImageList, List<decimal> pValueList, IUser pUser);
 
 }
 

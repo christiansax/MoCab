@@ -11,7 +11,7 @@ using System.Text;
 
 public interface IAccountFactory 
 {
-	void Create(string pId, object pCreator, object IUser);
+	IAccount Create(string pId, object pCreator, object IUser);
 
 }
 

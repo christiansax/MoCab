@@ -11,7 +11,7 @@ using System.Text;
 
 public class AccountFactory : IAccountFactory
 {
-	public virtual void Create(string pId, object pCreator, object IUser)
+	public virtual IAccount Create(string pId, object pCreator, object IUser)
 	{
 		throw new System.NotImplementedException();
 	}

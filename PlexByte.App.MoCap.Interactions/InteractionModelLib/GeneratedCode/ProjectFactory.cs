@@ -21,12 +21,12 @@ public class ProjectFactory : IProjectFactory
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void Create(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, IUser pCreator)
+	public virtual IProject Create(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, IUser pCreator)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void Create(string pId, string pText, IUser pCreatur, List<string> MemberList, List<string> InvitationList, bool pEnableBalance, bool pEnableSurvey, List<ITask> TaskList, List<ISurvey> SurveyList)
+	public virtual IProject Create(string pId, string pText, IUser pCreatur, List<string> MemberList, List<string> InvitationList, bool pEnableBalance, bool pEnableSurvey, List<ITask> TaskList, List<ISurvey> SurveyList)
 	{
 		throw new System.NotImplementedException();
 	}

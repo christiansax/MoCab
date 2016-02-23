@@ -14,15 +14,11 @@ public interface ITask
 
     int Progress { get; }
 
-    int DurationCurrent { get;set; }
+    int DurationCurrent { get; }
 
-	decimal BudgetUsed { get;set; }
+	decimal BudgetUsed { get; }
 
     List<ITask> SubTasks { get; }
-
-    List<ITimeslice> TimesliceList { get; }
-
-    List<IExpense> ExpenseList { get; }
 
     void AddTimeslice(ITimeslice pTimeslice);
 

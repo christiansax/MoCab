@@ -17,17 +17,13 @@ public interface ITask
 
 	int Priority { get; }
 
-	int DurationCurrent { get;set; }
+	int DurationCurrent { get; }
 
-	decimal BudgetUsed { get;set; }
+	decimal BudgetUsed { get; }
 
 	int Progress { get; }
 
-	List<ITask> SubTasks { get; }
-
-    List<ITimeslice> TimesliceList { get; }
-
-    List<IExpense> ExpenseList { get; }
+	IEnumerable<ITask> SubTasks { get; }
 
 	void AddTimeslice(ITimeslice pTimeslice);
 

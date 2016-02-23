@@ -1626,110 +1626,6 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
-          <association
-            Id="a17e637e-6da0-4a87-90dd-2e05d57db64c"
-            isDerived="false"
-            sourceEndRoleName="ITask"
-            targetEndRoleName="TimesliceList"
-            isLeaf="false"
-            isAbstract="false">
-            <interfaceMoniker
-              Id="98ed5b50-ad31-4ecb-9482-6f0615de4c50"
-              LastKnownName="ITimeslice"
-              LastKnownLocation="InteractionModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="3eb5c05f-c76f-4fa6-b822-87ec39714f51"
-                  name="ITask"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Shared"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="eba42d49-ec8d-43e4-a74c-ff7195042ec9"
-                  name="TimesliceList"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="true"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="921f5f8b-8563-4f46-9d7e-b4f7d19e9150"
-                      name="Lower"
-                      value="*" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="1ec4ea37-e1e8-40f0-aa05-6a0674e3b4ba"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="05f1d428-16c3-4a6c-8f62-4fde42224f6d"
-            isDerived="false"
-            sourceEndRoleName="ITask"
-            targetEndRoleName="ExpenseList"
-            isLeaf="false"
-            isAbstract="false">
-            <interfaceMoniker
-              Id="83ceaa31-1532-4a70-b5a8-875d8a1b173c"
-              LastKnownName="IExpense"
-              LastKnownLocation="InteractionModel.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="d205ce70-a543-4a83-b6e1-fb474727320d"
-                  name="ITask"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Shared"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="341eb14e-243b-4c75-9cec-7839cd905f03"
-                  name="ExpenseList"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="true"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="45dfdb04-aa83-46ef-a9cc-fb6b04cd9e47"
-                      name="Lower"
-                      value="*" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="d39b07f8-d5c4-44bb-925f-e12100d96e3b"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
         </targetEnds>
         <ownedAttributes>
           <property
@@ -1962,7 +1858,7 @@
             name="DurationCurrent"
             isLeaf="false"
             isStatic="false"
-            isReadOnly="false"
+            isReadOnly="true"
             isUnique="false"
             isDerived="false"
             isDerivedUnion="false"
@@ -2037,7 +1933,7 @@
             name="BudgetUsed"
             isLeaf="false"
             isStatic="false"
-            isReadOnly="false"
+            isReadOnly="true"
             isUnique="false"
             isDerived="false"
             isDerivedUnion="false"
@@ -6389,7 +6285,7 @@
             name="Type"
             isLeaf="false"
             isStatic="false"
-            isReadOnly="false"
+            isReadOnly="true"
             isUnique="false"
             isDerived="false"
             isDerivedUnion="false"

@@ -143,8 +143,8 @@ public class Task : IInteraction,
             0,
             1,
             InteractionState.Active,
-            null,
-            null,
+            new decimal(0.00),
+            0,
             null,
             0)
     {
@@ -161,8 +161,8 @@ public class Task : IInteraction,
             0,
             1,
             InteractionState.Active,
-            null,
-            null,
+            new decimal(0.00),
+            0,
             null,
             0)
     { }
@@ -261,6 +261,30 @@ public class Task : IInteraction,
         OnStateChanged(new InteractionEventArgs($"Survey state changed [Id={Id}]", DateTime.Now, InteractionType.Task));
     }
 
+    public void AddSubTask(ITask pTask) { }
+
+    public void UdateProgress(int pProgress)
+    {
+        if (pProgress > 0)
+        {
+            _progress = ((pProgress + _progress) >= 100) ? 100 :
+            _progress + pProgress;
+
+            if (_progress + pProgress == 100)
+            {
+                ChangeState(InteractionState.Finished);
+                ChangeIsActive(false);
+            }
+            else
+            {
+                List<InteractionAttributes> changedAttributes = new List<InteractionAttributes> { InteractionAttributes.Progress };
+                OnModify(new InteractionEventArgs($"Progress changed [NewValue={_progress}] [TaskId={_id}]", DateTime.Now,
+                    InteractionType.Task, changedAttributes));
+            }
+
+        }
+    }
+
     #endregion
 
     #region Private Methods
@@ -312,28 +336,6 @@ public class Task : IInteraction,
         }
         else
             _progress = pProgress;
-    }
-
-    public void UdateProgress(int pProgress)
-    {
-        if (pProgress > 0)
-        {
-            _progress=((pProgress+_progress)>=100)?100:
-            _progress + pProgress;
-            
-            if (_progress + pProgress == 100)
-            {
-                ChangeState(InteractionState.Finished);
-                ChangeIsActive(false);
-            }
-            else
-            {
-                List<InteractionAttributes> changedAttributes = new List<InteractionAttributes> {InteractionAttributes.Progress};
-                OnModify(new InteractionEventArgs($"Progress changed [NewValue={_progress}] [TaskId={_id}]", DateTime.Now, 
-                    InteractionType.Task, changedAttributes));
-            }
-
-        }
     }
 
     #endregion

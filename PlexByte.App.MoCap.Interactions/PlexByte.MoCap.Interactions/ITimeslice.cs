@@ -13,7 +13,7 @@ public interface ITimeslice
 {
 	int Duration { get;set; }
 
-	IUser User { get;set; }
+	IUser User { get; }
 
 	int CalculateDuration(DateTime pStartDT, DateTime pEndDT);
 

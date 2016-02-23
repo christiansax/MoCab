@@ -80,7 +80,6 @@ public class Account : IAccount, IInteraction
     private string _id;
     private List<IExpense> _expenseList;
     private List<ITimeslice> _timesliceList;
-    private InteractionType _type;
 
     #endregion
 
@@ -311,7 +310,6 @@ public class Account : IAccount, IInteraction
         StartDateTime = DateTime.Now;
         EndDateTime = default(DateTime);
         _isActive = true;
-        _type = InteractionType.Project;
         _state = StartDateTime <= DateTime.Now ? InteractionState.Active : InteractionState.Queued;
         _stateTimer.Elapsed += OnTimerElapsed;
         _stateTimer.AutoReset = false;

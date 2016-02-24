@@ -61,5 +61,15 @@ public class Account : IAccount, IInteraction
 		throw new System.NotImplementedException();
 	}
 
+	public virtual int UserExpense(IUser pUser)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual int UserTimeslice(IUser pUser)
+	{
+		throw new System.NotImplementedException();
+	}
+
 }
 

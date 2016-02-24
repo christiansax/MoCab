@@ -119,6 +119,7 @@ public class Task : IInteraction,
     private int _progress = 0;
     private int _durationCurrent = 0;
     private decimal _budgetUsed = new decimal(0.00);
+    private System.Timers.Timer _stateTimer = new System.Timers.Timer(60 * 1000);
 
     #endregion
 
@@ -336,6 +337,30 @@ public class Task : IInteraction,
         }
         else
             _progress = pProgress;
+
+        _stateTimer.Elapsed += OnTimerElapsed;
+        _stateTimer.AutoReset = false;
+        _stateTimer.Start();
+    }
+
+    private void OnTimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
+    {
+        if (_state == InteractionState.Active || _state == InteractionState.Queued)
+        {
+            // Expired?
+            if (DueDateTime <= DateTime.Now)
+                ChangeState(InteractionState.Expired);
+            // Turns active?
+            if (StartDateTime <= DateTime.Now && _state == InteractionState.Queued)
+                ChangeState(InteractionState.Active);
+            // Finished, as progress >=100
+            if (Progress>=100)
+                ChangeState(InteractionState.Finished);
+        }
+
+        // Still active?
+        if (_state == InteractionState.Active || _state == InteractionState.Queued)
+            _stateTimer.Start();
     }
 
     #endregion

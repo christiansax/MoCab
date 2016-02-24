@@ -300,12 +300,21 @@ public class Account : IAccount, IInteraction
         }
     }
 
-
+    /// <summary>
+    /// Returns the overall expenses of an User in the project
+    /// </summary>
+    /// <param name="pUser"></param>
+    /// <returns></returns>
     public int UserExpense(IUser pUser)
     {
         throw new NotImplementedException();
     }
 
+    /// <summary>
+    /// Returns the overall time of an User in the project
+    /// </summary>
+    /// <param name="pUser"></param>
+    /// <returns></returns>
     public int UserTimeslice(IUser pUser)
     {
         throw new NotImplementedException();

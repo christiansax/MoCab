@@ -17,11 +17,11 @@ public interface IExpense
 
 	IInteraction Target { get;set; }
 
-	void AddReceipt(System.Drawing.Image pImage, decimal pValue);
+	void AddReceipt(System.Drawing.Image pReceipt);
 
-	void DeleteReceipt(System.Drawing.Image pImage, decimal pValue);
+	void DeleteReceipt();
 
-	void EditReceipt(System.Drawing.Image pImage, System.Drawing.Image pNewImage, decimal pValue, decimal pNewValue);
+	void EditValue(decimal pNewValue);
 
 }
 

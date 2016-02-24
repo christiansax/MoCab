@@ -11,7 +11,7 @@ using System.Text;
 
 public class Expense : IExpense
 {
-	public virtual void AddReceipt(System.Drawing.Image pImage, decimal pValue)
+	public virtual void AddReceipt(System.Drawing.Image pImage)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -20,12 +20,12 @@ public class Expense : IExpense
 	{
 	}
 
-	public virtual void DeleteReceipt(System.Drawing.Image pImage, decimal pValue)
+	public virtual void DeleteReceipt()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void EditReceipt(System.Drawing.Image pImage, System.Drawing.Image pNewImage, decimal pValue, decimal pNewValue)
+	public virtual void EditValue(decimal pImage)
 	{
 		throw new System.NotImplementedException();
 	}

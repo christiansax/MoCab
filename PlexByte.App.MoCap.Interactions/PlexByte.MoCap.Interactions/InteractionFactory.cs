@@ -22,7 +22,7 @@ public class InteractionFactory : IInteractionFactory
 	{
         if (string.IsNullOrEmpty(pId))
             pId = Helper.GenerateId();
-        return new Task(pId, pText, pCreator, pStartDT, pEndDT, pDueDT);
+        return (new Task(pId, pText, pCreator, pStartDT, pEndDT, pDueDT));
     }
 
     public IInteraction CreateTask(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT, 
@@ -31,19 +31,23 @@ public class InteractionFactory : IInteractionFactory
     {
         if (string.IsNullOrEmpty(pId))
             pId = Helper.GenerateId();
-        return new Task(pId, pText, pCreator, pStartDT, pEndDT, pDueDT, pBudget, pDuration, pPriority, 
-            pState, pBudgetUsed, pTimeUsed, pSubTask, pProgress);
+        return (new Task(pId, pText, pCreator, pStartDT, pEndDT, pDueDT, pBudget, pDuration, pPriority, 
+            pState, pBudgetUsed, pTimeUsed, pSubTask, pProgress));
     }
 
     public virtual IInteraction CreateSurvey(string pId, string pText, List<ISurveyOption> pOptions, IUser pCreator)
 	{
-		throw new System.NotImplementedException();
+        if (string.IsNullOrEmpty(pId))
+            pId = Helper.GenerateId();
+        return (new Survey(pId, pText, pOptions, pCreator));
 	}
 
 	public virtual IInteraction CreateSurvey(string pId, string pText, List<string> pOptions, IUser pCreator)
 	{
-		throw new System.NotImplementedException();
-	}
+        if (string.IsNullOrEmpty(pId))
+            pId = Helper.GenerateId();
+        return (new Survey(pId, pText, pOptions, pCreator));
+    }
 
 	public virtual IInteraction CreateAccount(string pId, object pCreator, object IUser)
 	{

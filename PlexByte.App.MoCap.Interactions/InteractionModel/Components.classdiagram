@@ -8999,6 +8999,48 @@
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
+          <operation Id="d5a262d2-64c5-49ae-92a7-18f3f51df969" name="UserExpense" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="003b8767-ecc8-4403-b03a-a73cbd50c0be" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="17523bd3-147a-4688-ac4b-39f5beb05ccb" name="pUser" direction="In" isUnique="false">
+                  <elementDefinition Id="0c3fd9b7-f166-4810-bf4c-9c5df329fc2b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4ccfba1e-23ca-4a23-9581-0a2536cacdd4" direction="Return">
+                  <elementDefinition Id="59527968-bdcc-44f8-9887-08925661f94d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="df56ef9e-a58c-4bf8-9041-68635fc5dae4" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b3d85620-9763-4a23-8983-0a64bcda328e" name="UserTimeslice" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="19ccf3aa-8793-4e53-b812-6c4d7029cfc7" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="fa0eebd8-3116-4911-a9c1-d3e191c104f5" name="pUser" direction="In" isUnique="false">
+                  <elementDefinition Id="2e5d5a60-c97b-47ee-85b4-641c49168145" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="dc8bb657-8e0c-4d02-b17a-85d36fb72491" direction="Return">
+                  <elementDefinition Id="8f4cb2e5-f97c-4c1f-abf4-aba7e15172a7" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="2106a339-bbb7-4044-b813-60c914775714" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
         </ownedOperations>
       </Interface>
     </logicalClassDesignerModelHasTypes>
@@ -9624,6 +9666,48 @@
                   <elementDefinition Id="47c01639-17db-45ec-a0ba-fbc0b7cdc405" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="93d38bb8-ed92-4733-98a4-92978bac741b" LastKnownName="ITimeslice" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b922ea85-7430-4da2-a331-93460f6996f6" name="UserExpense" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="7e9cd0b9-ac83-4239-ab8d-bf194a3d5437" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="40b19d6b-01f2-4450-ba78-bb612b6f6a66" name="pUser" direction="In" isUnique="false">
+                  <elementDefinition Id="39208fe6-7427-45c7-a1f6-5bc49af52ea3" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f6764626-b8cd-4c40-ae03-7468011897d1" direction="Return">
+                  <elementDefinition Id="06aa8b06-e735-4869-93f3-1272b0fbbbfb" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c5a3f239-ba10-4498-98b9-5afd0b310539" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="244609b7-f167-424c-acbf-df8482cf9eee" name="UserTimeslice" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="abb98a8e-922e-4016-9340-b9494ea29ca3" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="91cef6b1-686f-4d66-9403-142e4da69d64" name="pUser" direction="In" isUnique="false">
+                  <elementDefinition Id="3bd96610-aff8-48f1-a737-c155ba1bc54f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5b9a76cb-b97f-41a9-8d18-704c925a5c43" direction="Return">
+                  <elementDefinition Id="a2c135e5-eb7a-440e-b573-2124f21f12cf" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c5a3f239-ba10-4498-98b9-5afd0b310539" LastKnownName="Integer" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -14592,6 +14676,16 @@
         </ownedOperationsInternal>
       </class>
     </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="df56ef9e-a58c-4bf8-9041-68635fc5dae4" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="2106a339-bbb7-4044-b813-60c914775714" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="4cecf59a-e13e-477c-816e-9aaebbb8e7aa" name="InteractionModel">
     <elementDefinition Id="ad4d6cdc-fb9f-47da-888c-246cb0bab9e8" />

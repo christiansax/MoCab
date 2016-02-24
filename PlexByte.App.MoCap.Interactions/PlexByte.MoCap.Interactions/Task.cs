@@ -9,6 +9,12 @@ using System.Linq;
 public class Task : IInteraction,
     ITask
 {
+    #region Delegates
+
+    public delegate void ProgressUpdate(object sender, InteractionEventArgs e);
+
+    #endregion
+
     #region Properties
 
     /// <summary>
@@ -128,6 +134,7 @@ public class Task : IInteraction,
     public event Complete Completed;
     public event Modify Modified;
     public event StateChange StateChanged;
+    public event ProgressUpdate ProgressUpdated;
 
     #endregion
 
@@ -192,6 +199,8 @@ public class Task : IInteraction,
     {
         Modified?.Invoke(this, pEventArgs);
     }
+
+    protected virtual void OnProgressUpdated(InteractionEventArgs e) { ProgressUpdated?.Invoke(this, e); }
 
     #endregion
 
@@ -279,7 +288,7 @@ public class Task : IInteraction,
             else
             {
                 List<InteractionAttributes> changedAttributes = new List<InteractionAttributes> { InteractionAttributes.Progress };
-                OnModify(new InteractionEventArgs($"Progress changed [NewValue={_progress}] [TaskId={_id}]", DateTime.Now,
+                OnProgressUpdated(new InteractionEventArgs($"Progress changed [NewValue={_progress}] [TaskId={_id}]", DateTime.Now,
                     InteractionType.Task, changedAttributes));
             }
 

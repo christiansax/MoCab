@@ -66,5 +66,9 @@ public class InteractionFactory : IInteractionFactory
 		throw new System.NotImplementedException();
 	}
 
+	public InteractionFactory()
+	{
+	}
+
 }
 

@@ -1,6 +1,7 @@
 ﻿//////////////////////////////////////////////////////////////
 //                      Class Interaction Factory                              
 //      Author: Christian B. Sax            Date:   2016/02/24
+//              Fabian Ochsner
 //      Implementation of IInteractionFactory creating any object 
 //      that inherits of IInteraction
 using System;
@@ -46,20 +47,33 @@ public class InteractionFactory : IInteractionFactory
         return (new Survey(pId, pText, pOptions, pCreator));
     }
 
-	public virtual IInteraction CreateAccount(string pId, object pCreator, object IUser)
-	{
-		throw new System.NotImplementedException();
-	}
+    public virtual IInteraction CreateAccount(string pId, string pText, IUser pCreator)
+    {
+        if (string.IsNullOrEmpty(pId))
+            pId = Helper.GenerateId();
+        return (new Account(pId, pText, pCreator));
+    }
 
-	public virtual IInteraction CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, IUser pCreator)
-	{
-		throw new System.NotImplementedException();
-	}
+    public virtual IInteraction CreateAccount(string pId, string pText, List<IExpense> pExpenseList, List<ITimeslice> pTimesliceList, IUser pCreator)
+    {
+        if (string.IsNullOrEmpty(pId))
+            pId = Helper.GenerateId();
+        return (new Account(pId, pText, pExpenseList, pTimesliceList, pCreator));
+    }
 
-	public virtual IInteraction CreateProject(string pId, string pText, IUser pCreatur, IUser pOwner, List<string> MemberList, List<string> InvitationList, bool pEnableBalance, bool pEnableSurvey, List<ITask> TaskList, List<ISurvey> SurveyList)
-	{
-		throw new System.NotImplementedException();
-	}
+    public virtual IInteraction CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, IUser pCreator)
+    {
+        if (string.IsNullOrEmpty(pId))
+            pId = Helper.GenerateId();
+        return (new Project(pId, pText, pEnableBalance, pEnableSurvey, pCreator));
+    }
+
+	public virtual IInteraction CreateProject(string pId, string pText, IUser pCreator, IUser pOwner, List<IUser> pMemberList, List<IUser> pInvitationList, bool pEnableBalance, bool pEnableSurvey, List<ITask> TaskList, List<ISurvey> SurveyList)
+    {
+        if (string.IsNullOrEmpty(pId))
+            pId = Helper.GenerateId();
+        return (new Project(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, TaskList,  SurveyList, pCreator, pOwner));
+    }
 
 	public virtual IInteraction CreateChat(string pTextTitle, IUser pCreator, List<IUser> pUsers)
 	{
@@ -70,5 +84,6 @@ public class InteractionFactory : IInteractionFactory
 	{
 		throw new System.NotImplementedException();
 	}
+
 }
 

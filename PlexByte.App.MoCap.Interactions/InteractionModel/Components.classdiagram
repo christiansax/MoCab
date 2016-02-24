@@ -11391,21 +11391,27 @@
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="5bb7b462-a396-4d7e-a9af-9e528105fe6c" name="pId" direction="In" isUnique="false">
-                  <elementDefinition Id="42eaebbf-45f3-4fad-95ec-1f5338c112b2" />
+                <parameter Id="dff450cb-d0c2-4ff5-a086-f35e74e33387" name="pId" direction="In" isUnique="false">
+                  <elementDefinition Id="6ada14b1-447e-4f68-8749-7e3fa0cfa07a" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="dc52d530-8cfe-4fe4-8c7e-9685c786dc73" LastKnownName="string" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="25c8dbe9-d41f-4326-b1e3-553c9ec840b3" name="pCreator" direction="In" isUnique="false">
-                  <elementDefinition Id="4fc95e6a-b956-478a-a15c-373a4dc32f9d" />
+                <parameter Id="13c90eb6-6f43-43c0-8c66-0ef1f44cf83d" name="pText" direction="In" isUnique="false">
+                  <elementDefinition Id="82b4d62c-2d0e-4020-aeeb-192a2fcd41f1" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="934e3f2b-a6d0-4944-9652-4b20a1df43cf" name="IUser" direction="In" isUnique="false">
-                  <elementDefinition Id="07695281-7c29-4818-8dfe-17f66234d6c1" />
+                <parameter Id="382eb5a9-b26d-4a40-8262-8bd680d8a262" name="pCreator" direction="In" isUnique="false">
+                  <elementDefinition Id="e61feed3-718d-47e4-ac95-7229fe3994b6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
+                  </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
@@ -11821,6 +11827,102 @@
                   <elementDefinition Id="88cbd57c-914b-4d85-9361-3fe12d4255ad" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="25a3568e-6226-4ced-8e86-f9f8305985cf" LastKnownName="IInteraction" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="e9c93a7e-05d9-4b76-beb1-d0cf167b523c" name="CreateAccount" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="d495c2cd-e4bd-4045-8762-43ac9ff6da1c" name="method" profile="CSharpProfile">
+                <elementDefinition Id="5ce41d0a-9f48-402e-a8d1-42f6aedd1f87" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="9628b28e-284d-4a2a-b55a-a92716562cb1">
+                    <propertyInstance Id="6879b5cb-bae3-48d4-923d-d4796e1b7f00" name="ClrAttributes">
+                      <elementDefinition Id="6b01036c-53bc-4d30-a986-96496aacd1be" />
+                    </propertyInstance>
+                    <elementDefinition Id="22134f80-f942-4aef-8ac6-35837a5c067d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="507659a5-5477-4ecb-abbe-8248329ca977">
+                    <propertyInstance Id="a09f1178-4ba3-45b9-9545-a98df57847f4" name="IsPartial" value="false">
+                      <elementDefinition Id="c091145f-8479-48f6-a149-b04bd897f723" />
+                    </propertyInstance>
+                    <elementDefinition Id="55b4431d-0723-4f2c-87be-fabd79177040" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="411fd26f-5938-474f-a317-41d6f32d4986">
+                    <propertyInstance Id="3b5a592b-d5f2-44d1-9edc-5bb07d4df596" name="IsUnsafe" value="false">
+                      <elementDefinition Id="8a762703-c71b-4aeb-a65d-75d2f3800694" />
+                    </propertyInstance>
+                    <elementDefinition Id="72e51ea7-9418-4726-9d52-ccc2f0879f2e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7656eb7b-7bd4-40ce-9e25-6746e29c1dbf">
+                    <propertyInstance Id="e940ac92-9215-4f27-a53f-147905c701a8" name="Inheritance" value="none">
+                      <elementDefinition Id="2114c7e3-b4b2-409f-a15e-368354cee2a2" />
+                    </propertyInstance>
+                    <elementDefinition Id="61c01f16-a367-42b5-9cca-e1627ba127be" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="132e7e1d-7cfa-4290-921d-2116c9c765f6">
+                    <propertyInstance Id="f6514449-f707-44e2-9a93-8fcf383edf57" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="7dd7ad4c-b1ea-4683-b9b9-ec4d448ff7a8" />
+                    </propertyInstance>
+                    <elementDefinition Id="921fdee0-5a48-436d-a712-d6ca0ba21c09" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b52025b0-0def-4897-bc71-acf927c16642">
+                    <propertyInstance Id="120e44ed-cf72-4867-8607-7bbfe02cd272" name="params" value="false">
+                      <elementDefinition Id="cbfde6dc-1c0c-4e98-a99b-acff2c4face7" />
+                    </propertyInstance>
+                    <elementDefinition Id="44226564-2a5e-4dfc-9699-29e915c42e49" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="9b585704-8403-4871-83ff-2f0ceaff0678" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4c3910ba-05f5-414c-8852-cac48adb5381" direction="Return" isUnique="false">
+                  <elementDefinition Id="284820bb-935c-4922-936b-21c182d71466" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="25a3568e-6226-4ced-8e86-f9f8305985cf" LastKnownName="IInteraction" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5f4cd4f2-1786-4b38-baaf-770641f459cb" name="pId" direction="In" isUnique="false">
+                  <elementDefinition Id="1ac73c2e-6b9b-4c7b-98b1-772a81c2efa8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="eaac09e8-034b-4e44-b4ef-f1594af4be9e" name="pText" direction="In" isUnique="false">
+                  <elementDefinition Id="41bd6b6f-d648-4225-a592-203332ae2e5c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a6358c6e-ce13-4c63-8ac4-eccf0115b04d" name="pExpenseList" direction="In" isUnique="false">
+                  <elementDefinition Id="067f1a27-5448-4046-9fbf-90b5a2ff1e28" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="533df097-de32-4586-8520-9cd143f5e94f" LastKnownName="List&lt;IExpense&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="9ff6437e-0ec8-4928-9e73-6e399bde42a3" name="pTimesliceList" direction="In" isUnique="false">
+                  <elementDefinition Id="96aa2b0a-75df-4b52-ab6b-af985d0b8255" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="490e230f-9aab-4a06-b422-42a1857a9e88" LastKnownName="List&lt;ITimeslice&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="11f5c988-3195-433a-a5ba-2b40953bc681" name="pCreator" direction="In" isUnique="false">
+                  <elementDefinition Id="b1f06d89-5837-4afb-883c-f565c4a5f0a0" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -13748,28 +13850,34 @@
             <elementDefinition Id="04f596ba-9e99-47ac-95f6-5b85a1a0ffaf" />
             <ownedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="a0f2d647-4935-4a4f-bcb8-14ae00ac10f0" name="pId" direction="In" isUnique="false">
-                  <elementDefinition Id="01bbbc2a-e4aa-4eb1-9ece-20bf732d4b23" />
+                <parameter Id="840081e5-9f69-424f-a425-399b1fc011dc" direction="Return" isUnique="false">
+                  <elementDefinition Id="6c3b2043-9823-4474-b75c-9c44d7d17964" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="25a3568e-6226-4ced-8e86-f9f8305985cf" LastKnownName="IInteraction" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="52ccdc39-8476-4711-a575-043418ccaafc" name="pId" direction="In" isUnique="false">
+                  <elementDefinition Id="a3a4aa69-3958-40d4-863d-a4cb51e1185f" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="87030386-344d-43bf-ba62-34788173c8af" name="pCreator" direction="In" isUnique="false">
-                  <elementDefinition Id="ba8310bd-4306-45c7-a724-150cad49fd98" />
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="eed84413-8300-4f7c-bfd6-f583f28c7dad" name="IUser" direction="In" isUnique="false">
-                  <elementDefinition Id="c5cd44b0-89f9-4d60-be4e-75ad9b4545fe" />
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="840081e5-9f69-424f-a425-399b1fc011dc" direction="Return" isUnique="false">
-                  <elementDefinition Id="6c3b2043-9823-4474-b75c-9c44d7d17964" />
+                <parameter Id="5209438a-148e-452c-9cf3-42338dbffbd9" name="pText" direction="In" isUnique="false">
+                  <elementDefinition Id="c8472b8b-d980-4d87-99e1-bb65b20ce72a" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="25a3568e-6226-4ced-8e86-f9f8305985cf" LastKnownName="IInteraction" />
+                    <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a9cee324-3469-463f-9a50-0651b8ca347e" name="pCreator" direction="In" isUnique="false">
+                  <elementDefinition Id="6debf8c9-3eba-47df-982b-e5de3e9763f3" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -13926,72 +14034,72 @@
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="a4e6880f-f88b-4266-b0be-c6957f40d612" name="pId" direction="In" isUnique="false">
-                  <elementDefinition Id="75f95799-6119-4d6f-9322-e24172411166" />
+                <parameter Id="de7c89f3-e80e-40fc-b882-145f161df29a" name="pId" direction="In" isUnique="false">
+                  <elementDefinition Id="13a8baef-0353-4e08-9bec-4bf02fb2eec1" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="cf3b6ce0-3c84-4690-b7d1-fbb8c733767e" name="pText" direction="In" isUnique="false">
-                  <elementDefinition Id="ecf068c3-d004-427e-ad30-c66dfca16394" />
+                <parameter Id="edab167c-fb9e-4d50-b8f4-db0d9a00b6d8" name="pText" direction="In" isUnique="false">
+                  <elementDefinition Id="2afd698c-add9-4458-92dc-1ecb9cf664ba" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="91c0c9b9-581a-485c-98e3-50ed9e88fe75" name="pCreatur" direction="In" isUnique="false">
-                  <elementDefinition Id="7add26ab-f7e6-4cc1-8dc5-51d9f548c84d" />
+                <parameter Id="b60f1052-fe10-425d-8a0c-044033685dfa" name="pCreatur" direction="In" isUnique="false">
+                  <elementDefinition Id="ae8348b1-4b46-4128-870c-df306b6c009b" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="947250d0-353b-4d63-aaba-a3b24b78af5d" name="pOwner" direction="In" isUnique="false">
-                  <elementDefinition Id="9a6c0e95-3be8-41ce-935b-875423986815" />
+                <parameter Id="47dd3799-50dc-4067-9a79-3ba12ff2b265" name="pOwner" direction="In" isUnique="false">
+                  <elementDefinition Id="c556b63e-4aff-4441-b4a5-df1a1a2e7e8a" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="4a319498-97f0-4fd1-8f1b-c0e06c7674c5" LastKnownName="List&lt;string&gt;" />
+                    <referencedTypeMoniker Id="6512891f-5813-48f1-9453-72e6bee5f294" LastKnownName="List&lt;IUser&gt;" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="65b4c649-d793-472e-abb4-ccfc16924bd2" name="MemberList" direction="In" isUnique="false">
-                  <elementDefinition Id="270aac77-1a99-4a11-b0f5-b35bbe8c8955" />
+                <parameter Id="a86e9b8d-77eb-4618-a8da-3f5b346b494f" name="MemberList" direction="In" isUnique="false">
+                  <elementDefinition Id="4f2daffc-2f9f-48ef-8a01-4843e950c21a" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="4a319498-97f0-4fd1-8f1b-c0e06c7674c5" LastKnownName="List&lt;string&gt;" />
+                    <referencedTypeMoniker Id="6512891f-5813-48f1-9453-72e6bee5f294" LastKnownName="List&lt;IUser&gt;" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="7f2028f2-225d-4fa2-8716-0183a5b09616" name="InvitationList" direction="In" isUnique="false">
-                  <elementDefinition Id="7ad68698-e4c7-4662-a02a-104de616ec8a" />
-                  <type_NamedElement>
-                    <referencedTypeMoniker Id="158de8ff-acab-47da-935c-31d7df009011" LastKnownName="bool" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter Id="54ec1c12-5543-4509-99ad-aa677f84c58a" name="pEnableBalance" direction="In" isUnique="false">
-                  <elementDefinition Id="3d45b23b-1770-41f5-bf2e-c1aae27f6fd9" />
+                <parameter Id="0c8b08e2-4092-4a45-8262-e34e9adc9f40" name="InvitationList" direction="In" isUnique="false">
+                  <elementDefinition Id="85ec7cd2-996c-45a0-adbf-6fbf5d5af3e3" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="158de8ff-acab-47da-935c-31d7df009011" LastKnownName="bool" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="b97a4104-e067-4711-a6c2-4d70454bd0f3" name="pEnableSurvey" direction="In" isUnique="false">
-                  <elementDefinition Id="be1ba721-173e-432c-b329-456d6f528dd0" />
+                <parameter Id="c25fd897-e6ed-438a-914e-2c03c73d441b" name="pEnableBalance" direction="In" isUnique="false">
+                  <elementDefinition Id="be886b5e-d0e3-4a9b-a59c-7f1b0380445c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="158de8ff-acab-47da-935c-31d7df009011" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="836ac54b-8772-4f27-ac13-3f7c4319ca29" name="pEnableSurvey" direction="In" isUnique="false">
+                  <elementDefinition Id="a08d697a-5577-4837-80c9-9e391eda2cdf" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="e2ba7a05-7db1-4191-9486-4401002b8595" LastKnownName="List&lt;ITask&gt;" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="85a3f47c-a1da-4a19-a7d6-d02133fb5b20" name="TaskList" direction="In" isUnique="false">
-                  <elementDefinition Id="270ab6ee-59ab-4e31-b806-75f2aa9c4c13" />
+                <parameter Id="dbff41d9-de87-4f9c-96c4-50d5fc02a90f" name="TaskList" direction="In" isUnique="false">
+                  <elementDefinition Id="4986d971-2dbb-49b4-8987-b9fab004af00" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="5c0559ab-afde-470e-9db1-18021fa2935a" LastKnownName="List&lt;ISurvey&gt;" />
                   </type_NamedElement>
@@ -14176,6 +14284,102 @@
               <operationHasOwnedParameters>
                 <parameter Id="6c04cf94-0a52-417e-852c-01800af4d3b4" direction="Return" isUnique="false">
                   <elementDefinition Id="db869408-347a-49f1-a308-e040439fae2f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="25a3568e-6226-4ced-8e86-f9f8305985cf" LastKnownName="IInteraction" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="a46b2635-618a-4583-ad18-6237a199736a" name="CreateAccount" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="363f46a4-6363-4802-abf8-a231e4c0a472" name="method" profile="CSharpProfile">
+                <elementDefinition Id="90523db3-e1af-4240-b5f4-53acad3fccd2" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6f2ce2a7-9558-49a3-82a7-33c3e6b85284">
+                    <propertyInstance Id="e72d02e0-1ae8-4ce5-8033-62ae437f1385" name="ClrAttributes">
+                      <elementDefinition Id="9cce9fa6-3c57-400c-bcf1-ea84552c3e8a" />
+                    </propertyInstance>
+                    <elementDefinition Id="7904469a-3203-4e97-8da2-6e5520a8a44c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="07f5c4f6-9527-4289-9303-de5a3f308d59">
+                    <propertyInstance Id="1402a9ee-9f69-4d77-896d-ebf41e73fa79" name="IsPartial" value="false">
+                      <elementDefinition Id="ccc3e8c7-b1c3-45c5-9216-b7f07be77154" />
+                    </propertyInstance>
+                    <elementDefinition Id="9db61127-828d-465d-b815-ddc6d337dd08" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d8153478-8dad-4bbc-a525-c7cb5ee2997d">
+                    <propertyInstance Id="9350153c-2684-4bd5-af7e-e854c810bd80" name="IsUnsafe" value="false">
+                      <elementDefinition Id="9c84d4de-7a94-46bd-a702-b7b1eaaf8731" />
+                    </propertyInstance>
+                    <elementDefinition Id="a905e6e1-68ee-414c-956c-cf1114826d5f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="89a737d1-690d-4ea2-ab58-facad61a99a7">
+                    <propertyInstance Id="570a43fe-7f47-4979-be68-d914bcb7168a" name="Inheritance" value="none">
+                      <elementDefinition Id="ef66c0bd-581b-4991-a68a-828b11e7bbf6" />
+                    </propertyInstance>
+                    <elementDefinition Id="e3b400f1-a230-40c2-90b3-955174c5e27e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="216d18c6-8912-44c7-9eee-4c0d23e64188">
+                    <propertyInstance Id="1c1e8a98-767c-4ac2-8303-95c46027097a" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="8aae7338-97f8-4987-b937-330f38927d1a" />
+                    </propertyInstance>
+                    <elementDefinition Id="6cb335cc-3d69-4b20-ac07-49cecd2538bb" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b1896a9a-3ec0-42f2-99e3-0bfea92c2e38">
+                    <propertyInstance Id="4d14fc08-6783-426e-b9e9-6e578ea0e66f" name="params" value="false">
+                      <elementDefinition Id="dc8bd4b3-4ca4-4cd2-bef0-8a1fb450c9b2" />
+                    </propertyInstance>
+                    <elementDefinition Id="6af73da0-6ac6-46ad-a41b-cf0d779fe114" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="5daea2c6-da0e-4131-b4ad-25dfd14a6bc4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="79dea5a7-9c67-44ad-8d78-232ab30d686b" name="pId" direction="In" isUnique="false">
+                  <elementDefinition Id="39f803d0-ea7f-44ac-a20e-ef153254d876" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="96fd9394-0661-45d0-b9cf-c9bc9b29ae23" name="pText" direction="In" isUnique="false">
+                  <elementDefinition Id="a1ba560f-c7b8-48b1-ae8b-cc42493bcddb" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0edcb920-e22c-4e99-8de2-9ffa6154c8e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c0ed3eaf-dc34-406d-9e00-200ffec7f4ba" name="pExpenseList" direction="In" isUnique="false">
+                  <elementDefinition Id="ef740ea2-25da-4d30-a25e-0d543d058db8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="533df097-de32-4586-8520-9cd143f5e94f" LastKnownName="List&lt;IExpense&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4283a6fd-6c7f-4871-9793-fd85f5a8fa35" name="pSurveyList" direction="In" isUnique="false">
+                  <elementDefinition Id="c09be15e-33c6-48fa-8aeb-b493afc2f1a2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="490e230f-9aab-4a06-b422-42a1857a9e88" LastKnownName="List&lt;ITimeslice&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4b9167dd-addb-4f74-a9ba-411d8f368708" name="pCreator" direction="In" isUnique="false">
+                  <elementDefinition Id="2d019f10-531d-442a-8116-324e4797bd0d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ad137012-4e4d-4866-b7f0-750d5266581e" LastKnownName="IUser" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="38f6d3c5-f465-4b5d-87c9-5f8318b7a9ba" direction="Return" isUnique="false">
+                  <elementDefinition Id="09ee446c-4bd7-4b34-9ddd-3e4bcf4fa659" />
                   <type_NamedElement>
                     <referencedTypeMoniker Id="25a3568e-6226-4ced-8e86-f9f8305985cf" LastKnownName="IInteraction" />
                   </type_NamedElement>

@@ -23372,7 +23372,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="42eaebbf-45f3-4fad-95ec-1f5338c112b2"
+                  Id="6ada14b1-447e-4f68-8749-7e3fa0cfa07a"
                   name="pId"
                   direction="In"
                   isUnique="false">
@@ -23386,17 +23386,31 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="4fc95e6a-b956-478a-a15c-373a4dc32f9d"
-                  name="pCreator"
+                  Id="82b4d62c-2d0e-4020-aeeb-192a2fcd41f1"
+                  name="pText"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="fe64eea7-097f-4495-8943-b9809fad05ee"
+                      LastKnownName="string"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="07695281-7c29-4818-8dfe-17f66234d6c1"
-                  name="IUser"
+                  Id="e61feed3-718d-47e4-ac95-7229fe3994b6"
+                  name="pCreator"
                   direction="In"
-                  isUnique="false" />
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="ca220433-d919-44cc-b0e4-89889885ae49"
+                      LastKnownName="IUser"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
               </operationHasOwnedParameters>
             </ownedParameters>
           </operation>
@@ -24026,6 +24040,150 @@
                     <interfaceMoniker
                       Id="19b8536b-9b7a-4db8-9023-521474db27e8"
                       LastKnownName="IInteraction"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="9b585704-8403-4871-83ff-2f0ceaff0678"
+            name="CreateAccount"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5ce41d0a-9f48-402e-a8d1-42f6aedd1f87"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="22134f80-f942-4aef-8ac6-35837a5c067d">
+                    <propertyInstance
+                      Id="6b01036c-53bc-4d30-a986-96496aacd1be"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="55b4431d-0723-4f2c-87be-fabd79177040">
+                    <propertyInstance
+                      Id="c091145f-8479-48f6-a149-b04bd897f723"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="72e51ea7-9418-4726-9d52-ccc2f0879f2e">
+                    <propertyInstance
+                      Id="8a762703-c71b-4aeb-a65d-75d2f3800694"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="61c01f16-a367-42b5-9cca-e1627ba127be">
+                    <propertyInstance
+                      Id="2114c7e3-b4b2-409f-a15e-368354cee2a2"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="921fdee0-5a48-436d-a712-d6ca0ba21c09">
+                    <propertyInstance
+                      Id="7dd7ad4c-b1ea-4683-b9b9-ec4d448ff7a8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="44226564-2a5e-4dfc-9699-29e915c42e49">
+                    <propertyInstance
+                      Id="cbfde6dc-1c0c-4e98-a99b-acff2c4face7"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="284820bb-935c-4922-936b-21c182d71466"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="19b8536b-9b7a-4db8-9023-521474db27e8"
+                      LastKnownName="IInteraction"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1ac73c2e-6b9b-4c7b-98b1-772a81c2efa8"
+                  name="pId"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="fe64eea7-097f-4495-8943-b9809fad05ee"
+                      LastKnownName="string"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="41bd6b6f-d648-4225-a592-203332ae2e5c"
+                  name="pText"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="fe64eea7-097f-4495-8943-b9809fad05ee"
+                      LastKnownName="string"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="067f1a27-5448-4046-9fbf-90b5a2ff1e28"
+                  name="pExpenseList"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="dd710a57-570b-41fb-8e44-007050d2eecb"
+                      LastKnownName="List&lt;IExpense&gt;"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="96aa2b0a-75df-4b52-ab6b-af985d0b8255"
+                  name="pTimesliceList"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="dcb116ea-52fb-400b-9594-09c4635ba333"
+                      LastKnownName="List&lt;ITimeslice&gt;"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b1f06d89-5837-4afb-883c-f565c4a5f0a0"
+                  name="pCreator"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="ca220433-d919-44cc-b0e4-89889885ae49"
+                      LastKnownName="IUser"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -26433,7 +26591,20 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="01bbbc2a-e4aa-4eb1-9ece-20bf732d4b23"
+                  Id="6c3b2043-9823-4474-b75c-9c44d7d17964"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="19b8536b-9b7a-4db8-9023-521474db27e8"
+                      LastKnownName="IInteraction"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a3a4aa69-3958-40d4-863d-a4cb51e1185f"
                   name="pId"
                   direction="In"
                   isUnique="false">
@@ -26447,27 +26618,28 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="ba8310bd-4306-45c7-a724-150cad49fd98"
+                  Id="c8472b8b-d980-4d87-99e1-bb65b20ce72a"
+                  name="pText"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="fe64eea7-097f-4495-8943-b9809fad05ee"
+                      LastKnownName="string"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6debf8c9-3eba-47df-982b-e5de3e9763f3"
                   name="pCreator"
                   direction="In"
-                  isUnique="false" />
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="c5cd44b0-89f9-4d60-be4e-75ad9b4545fe"
-                  name="IUser"
-                  direction="In"
-                  isUnique="false" />
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="6c3b2043-9823-4474-b75c-9c44d7d17964"
-                  direction="Return"
                   isUnique="false">
                   <type_NamedElement>
                     <interfaceMoniker
-                      Id="19b8536b-9b7a-4db8-9023-521474db27e8"
-                      LastKnownName="IInteraction"
+                      Id="ca220433-d919-44cc-b0e4-89889885ae49"
+                      LastKnownName="IUser"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -26692,7 +26864,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="75f95799-6119-4d6f-9322-e24172411166"
+                  Id="13a8baef-0353-4e08-9bec-4bf02fb2eec1"
                   name="pId"
                   direction="In"
                   isUnique="false">
@@ -26706,7 +26878,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="ecf068c3-d004-427e-ad30-c66dfca16394"
+                  Id="2afd698c-add9-4458-92dc-1ecb9cf664ba"
                   name="pText"
                   direction="In"
                   isUnique="false">
@@ -26720,7 +26892,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="7add26ab-f7e6-4cc1-8dc5-51d9f548c84d"
+                  Id="ae8348b1-4b46-4128-870c-df306b6c009b"
                   name="pCreatur"
                   direction="In"
                   isUnique="false">
@@ -26734,35 +26906,35 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="9a6c0e95-3be8-41ce-935b-875423986815"
+                  Id="c556b63e-4aff-4441-b4a5-df1a1a2e7e8a"
                   name="pOwner"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
                     <undefinedTypeMoniker
-                      Id="64a97e22-4c11-44d2-a8d2-312a0a7dc938"
-                      LastKnownName="List&lt;string&gt;"
+                      Id="f341b309-e5d6-44f2-9fca-6af32b9c2ddf"
+                      LastKnownName="List&lt;IUser&gt;"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="270aac77-1a99-4a11-b0f5-b35bbe8c8955"
+                  Id="4f2daffc-2f9f-48ef-8a01-4843e950c21a"
                   name="MemberList"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
                     <undefinedTypeMoniker
-                      Id="64a97e22-4c11-44d2-a8d2-312a0a7dc938"
-                      LastKnownName="List&lt;string&gt;"
+                      Id="f341b309-e5d6-44f2-9fca-6af32b9c2ddf"
+                      LastKnownName="List&lt;IUser&gt;"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="7ad68698-e4c7-4662-a02a-104de616ec8a"
+                  Id="85ec7cd2-996c-45a0-adbf-6fbf5d5af3e3"
                   name="InvitationList"
                   direction="In"
                   isUnique="false">
@@ -26776,7 +26948,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="3d45b23b-1770-41f5-bf2e-c1aae27f6fd9"
+                  Id="be886b5e-d0e3-4a9b-a59c-7f1b0380445c"
                   name="pEnableBalance"
                   direction="In"
                   isUnique="false">
@@ -26790,7 +26962,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="be1ba721-173e-432c-b329-456d6f528dd0"
+                  Id="a08d697a-5577-4837-80c9-9e391eda2cdf"
                   name="pEnableSurvey"
                   direction="In"
                   isUnique="false">
@@ -26804,7 +26976,7 @@
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="270ab6ee-59ab-4e31-b806-75f2aa9c4c13"
+                  Id="4986d971-2dbb-49b4-8987-b9fab004af00"
                   name="TaskList"
                   direction="In"
                   isUnique="false">
@@ -27080,6 +27252,150 @@
               <operationHasOwnedParameters>
                 <parameter
                   Id="db869408-347a-49f1-a308-e040439fae2f"
+                  direction="Return"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="19b8536b-9b7a-4db8-9023-521474db27e8"
+                      LastKnownName="IInteraction"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5daea2c6-da0e-4131-b4ad-25dfd14a6bc4"
+            name="CreateAccount"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="90523db3-e1af-4240-b5f4-53acad3fccd2"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7904469a-3203-4e97-8da2-6e5520a8a44c">
+                    <propertyInstance
+                      Id="9cce9fa6-3c57-400c-bcf1-ea84552c3e8a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9db61127-828d-465d-b815-ddc6d337dd08">
+                    <propertyInstance
+                      Id="ccc3e8c7-b1c3-45c5-9216-b7f07be77154"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a905e6e1-68ee-414c-956c-cf1114826d5f">
+                    <propertyInstance
+                      Id="9c84d4de-7a94-46bd-a702-b7b1eaaf8731"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e3b400f1-a230-40c2-90b3-955174c5e27e">
+                    <propertyInstance
+                      Id="ef66c0bd-581b-4991-a68a-828b11e7bbf6"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6cb335cc-3d69-4b20-ac07-49cecd2538bb">
+                    <propertyInstance
+                      Id="8aae7338-97f8-4987-b937-330f38927d1a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6af73da0-6ac6-46ad-a41b-cf0d779fe114">
+                    <propertyInstance
+                      Id="dc8bd4b3-4ca4-4cd2-bef0-8a1fb450c9b2"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="39f803d0-ea7f-44ac-a20e-ef153254d876"
+                  name="pId"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="fe64eea7-097f-4495-8943-b9809fad05ee"
+                      LastKnownName="string"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a1ba560f-c7b8-48b1-ae8b-cc42493bcddb"
+                  name="pText"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="fe64eea7-097f-4495-8943-b9809fad05ee"
+                      LastKnownName="string"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ef740ea2-25da-4d30-a25e-0d543d058db8"
+                  name="pExpenseList"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="dd710a57-570b-41fb-8e44-007050d2eecb"
+                      LastKnownName="List&lt;IExpense&gt;"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c09be15e-33c6-48fa-8aeb-b493afc2f1a2"
+                  name="pSurveyList"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <undefinedTypeMoniker
+                      Id="dcb116ea-52fb-400b-9594-09c4635ba333"
+                      LastKnownName="List&lt;ITimeslice&gt;"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2d019f10-531d-442a-8116-324e4797bd0d"
+                  name="pCreator"
+                  direction="In"
+                  isUnique="false">
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="ca220433-d919-44cc-b0e4-89889885ae49"
+                      LastKnownName="IUser"
+                      LastKnownLocation="InteractionModel.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="09ee446c-4bd7-4b34-9ddd-3e4bcf4fa659"
                   direction="Return"
                   isUnique="false">
                   <type_NamedElement>

@@ -36,7 +36,7 @@ public class InteractionFactory : IInteractionFactory
 		throw new System.NotImplementedException();
 	}
 
-	public virtual IInteraction CreateAccount(string pId, object pCreator, object IUser)
+	public virtual IInteraction CreateAccount(string pId, string pText, IUser pCreator)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -46,7 +46,7 @@ public class InteractionFactory : IInteractionFactory
 		throw new System.NotImplementedException();
 	}
 
-	public virtual IInteraction CreateProject(string pId, string pText, IUser pCreatur, List<string> pOwner, List<string> MemberList, bool InvitationList, bool pEnableBalance, List<ITask> pEnableSurvey, List<ISurvey> TaskList)
+	public virtual IInteraction CreateProject(string pId, string pText, IUser pCreatur, List<IUser> pOwner, List<IUser> MemberList, bool InvitationList, bool pEnableBalance, List<ITask> pEnableSurvey, List<ISurvey> TaskList)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -57,6 +57,11 @@ public class InteractionFactory : IInteractionFactory
 	}
 
 	public virtual IInteraction CreateChat(string pTextTitle, IUser pCreator, List<IUser> pUsers, DateTime pStartDateTime, DateTime pEndDateTime, bool pAllowSelfdestructing)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual IInteraction CreateAccount(string pId, string pText, List<IExpense> pExpenseList, List<ITimeslice> pSurveyList, IUser pCreator)
 	{
 		throw new System.NotImplementedException();
 	}

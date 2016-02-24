@@ -25,7 +25,7 @@ public interface IInteractionFactory
 
 	IInteraction CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, IUser pCreator);
 
-	IInteraction CreateProject(string pId, string pText, IUser pCreatur, List<string> MemberList, List<string> InvitationList, bool pEnableBalance, bool pEnableSurvey, List<ITask> TaskList, List<ISurvey> SurveyList);
+	IInteraction CreateProject(string pId, string pText, IUser pCreatur, object , IUser pOwner, List<string> MemberList, List<string> InvitationList, bool pEnableBalance, bool pEnableSurvey, List<ITask> TaskList, List<ISurvey> SurveyList);
 
 	IInteraction CreateChat(string pTextTitle, IUser pCreator, List<IUser> pUsers);
 

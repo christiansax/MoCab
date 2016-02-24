@@ -14,7 +14,7 @@ public class Project : IProject, IInteraction
     /// <summary>
     /// The unique id of the task
     /// </summary>
-    public string Id { get { return _id; } }
+    public string Id { get; private set; }
     /// <summary>
     /// The date and time this task becomes active and can be worked on. As long as this date is not reached the 
     /// state will remain queued and no work can be performed on the task as longs as it is in state queued
@@ -27,15 +27,15 @@ public class Project : IProject, IInteraction
     /// <summary>
     /// The date and time the task was created
     /// </summary>
-    public DateTime CreatedDateTime { get { return _createdDateTime; } }
+    public DateTime CreatedDateTime { get; private set; }
     /// <summary>
     /// The date and time the task was last modified
     /// </summary>
-    public DateTime ModifiedDateTime { get { return _modifiedDateTime; } }
+    public DateTime ModifiedDateTime { get; private set; }
     /// <summary>
     /// Flag indicating whether or not the task can be worked on
     /// </summary>
-    public bool IsActive { get { return _isActive; } }
+    public bool IsActive { get; private set; }
     /// <summary>
     /// The text of this task (description)
     /// </summary>
@@ -47,25 +47,25 @@ public class Project : IProject, IInteraction
     /// <summary>
     /// The user that created the task
     /// </summary>
-    public IUser Creator { get { return _creator; } }
+    public IUser Creator { get; private set; }
     /// <summary>
     /// The user currently owning the task
     /// </summary>
-    public IUser Owner { get { return _owner; } }
+    public IUser Owner { get; private set; }
     /// <summary>
     /// The state of the task
     /// </summary>
-    public InteractionState State { get { return _state; } }
+    public InteractionState State { get; private set; }
     /// <summary>
     /// A bool to set, if it is possible to set a balance to a project
     /// if disabled it is not possible to book spended time or effort in a project
     /// </summary>
-    public bool EnableBalance { get { return _enableBalance; } }
+    public bool EnableBalance { get; private set; }
     /// <summary>
     /// A bool to set, if it is possible to set up a survey to a project
     /// if disabled it is not possible to create one
     /// </summary>
-    public bool EnableSurvey { get { return _enableSurvey; } }
+    public bool EnableSurvey { get; private set; }
     /// <summary>
     /// The account which is conectet do the project
     /// </summary>
@@ -73,38 +73,25 @@ public class Project : IProject, IInteraction
     /// <summary>
     /// In this list are all members which have to answer an invitation
     /// </summary>
-    public List<IUser> InvitationList { get { return _invitationList; } }
+    public List<IUser> InvitationList { get; private set; }
     /// <summary>
     /// A list of all tasks in a project
     /// </summary>
-    public List<ITask> TaskList { get { return _taskList; } }
+    public List<ITask> TaskList { get; private set; }
     /// <summary>
     /// A list of all surveys in a project
     /// </summary>
-    public List<ISurvey> SurveyList { get { return _surveyList; } }
+    public List<ISurvey> SurveyList { get; private set; }
     /// <summary>
     /// In this list are all members of a project
     /// </summary>
-    public List<IUser> MemberList { get { return _memberList; } }
-    
+    public List<IUser> MemberList { get; private set; }
+
     #endregion
 
     #region Variables
 
-    private IUser _owner;
-    private IUser _creator;
-    private DateTime _modifiedDateTime;
-    private DateTime _createdDateTime;
     private System.Timers.Timer _stateTimer = new System.Timers.Timer(60 * 1000);
-    private InteractionState _state;
-    private bool _isActive;
-    private string _id;
-    private bool _enableBalance;
-    private bool _enableSurvey;
-    private List<IUser> _memberList;
-    private List<IUser> _invitationList;
-    private List<ITask> _taskList;
-    private List<ISurvey> _surveyList;
 
     #endregion
 
@@ -135,8 +122,9 @@ public class Project : IProject, IInteraction
         List<IUser> pInvitationList = new List<IUser>();
         List<ITask> pTaskList = new List<ITask>();
         List<ISurvey> pSurveyList = new List<ISurvey>();
+        IUser pOwner = pCreator;
 
-        InitializeProperties(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pCreator);
+        InitializeProperties(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pCreator, pOwner);
     }
 
     /// <summary>
@@ -149,9 +137,9 @@ public class Project : IProject, IInteraction
     /// <param name="pCreator"></param>
     /// <param name="pMemberList"></param>
     /// <param name="pInvitationList"></param>
-    public Project(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList, IUser pCreator)
+    public Project(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList, IUser pCreator, IUser pOwner)
     {
-        InitializeProperties(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pCreator);
+        InitializeProperties(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pCreator, pOwner);
     }
     #endregion
 
@@ -246,9 +234,9 @@ public class Project : IProject, IInteraction
     /// <param name="pUser"></param>
     public virtual void ChangeOwner(IUser pUser)
     {
-        if (_owner != pUser)
+        if (Owner != pUser)
         {
-            _owner = pUser;
+            Owner = pUser;
             List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
             changedAttributes.Add(InteractionAttributes.Owner);
             OnModify(new InteractionEventArgs($"Survey owner changed [Id={Id}]", DateTime.Now, InteractionType.Project));
@@ -262,9 +250,9 @@ public class Project : IProject, IInteraction
     /// <param name="pActive"></param>
 	public virtual void ChangeIsActive(bool pActive)
 	{
-        if (_isActive != pActive)
+        if (IsActive != pActive)
         {
-            _isActive = pActive;
+            IsActive = pActive;
             List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
             changedAttributes.Add(InteractionAttributes.IsActive);
             OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Project));
@@ -357,10 +345,10 @@ public class Project : IProject, IInteraction
     public virtual void ChangeState(InteractionState pState)
 	{
 
-        this._state = pState;
-        if (_state == InteractionState.Finished ||
-            _state == InteractionState.Cancelled ||
-            _state == InteractionState.Expired)
+        this.State = pState;
+        if (State == InteractionState.Finished ||
+            State == InteractionState.Cancelled ||
+            State == InteractionState.Expired)
             ChangeIsActive(false);
         List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
         changedAttributes.Add(InteractionAttributes.State);
@@ -377,26 +365,25 @@ public class Project : IProject, IInteraction
     /// <param name="pMemberList"></param>
     /// <param name="pInvitationList"></param>
     /// <param name="pCreator"></param>
-    private void InitializeProperties(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList, IUser pCreator)
+    private void InitializeProperties(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList, IUser pCreator, IUser pOwner)
     {
         
-        _id = pId;
-        _enableBalance = pEnableBalance;
-        _enableSurvey = pEnableSurvey;
-        _memberList = pMemberList;
-        _invitationList = pInvitationList;
-        _taskList = pTaskList;
-        _surveyList = pSurveyList;
-        _creator = pCreator;
+        Id = pId;
+        EnableBalance = pEnableBalance;
+        EnableSurvey = pEnableSurvey;
+        MemberList = pMemberList;
+        InvitationList = pInvitationList;
+        TaskList = pTaskList;
+        SurveyList = pSurveyList;
+        Creator = pCreator;
+        Owner = pOwner;
         Text = pText;
-        _memberList = pMemberList;
-        _invitationList = pInvitationList;
-        _createdDateTime = DateTime.Now;
-        _modifiedDateTime = DateTime.Now;
+        CreatedDateTime = DateTime.Now;
+        ModifiedDateTime = DateTime.Now;
         StartDateTime = DateTime.Now;
         EndDateTime = default(DateTime);
-        _isActive = true;
-        _state = StartDateTime <= DateTime.Now ? InteractionState.Active : InteractionState.Queued;
+        IsActive = true;
+        State = StartDateTime <= DateTime.Now ? InteractionState.Active : InteractionState.Queued;
         _stateTimer.Elapsed += OnTimerElapsed;
         _stateTimer.AutoReset = false;
         _stateTimer.Start();
@@ -410,13 +397,13 @@ public class Project : IProject, IInteraction
     /// <param name="e">The event parameters passed</param>
     private void OnTimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
     {
-        if (_state == InteractionState.Active || _state == InteractionState.Queued)
+        if (State == InteractionState.Active || State == InteractionState.Queued)
         {
             // Behind schedule?
             if (EndDateTime <= DateTime.Now)
                 ChangeState(InteractionState.Expired);
             // Turns active?
-            if (StartDateTime <= DateTime.Now && _state == InteractionState.Queued)
+            if (StartDateTime <= DateTime.Now && State == InteractionState.Queued)
                 ChangeState(InteractionState.Active);
             // Finished if project is closed?
             if (IsActive==false)
@@ -424,7 +411,7 @@ public class Project : IProject, IInteraction
         }
 
         // Still active?
-        if (_state == InteractionState.Active || _state == InteractionState.Queued)
+        if (State == InteractionState.Active || State == InteractionState.Queued)
             _stateTimer.Start();
     }
     #endregion

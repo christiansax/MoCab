@@ -17,7 +17,7 @@ public class Expense : IExpense, IInteraction
     /// <summary>
     /// The unique id of the task
     /// </summary>
-    public string Id { get { return _id; } }
+    public string Id { get; private set; }
     /// <summary>
     /// The date and time this task becomes active and can be worked on. As long as this date is not reached the 
     /// state will remain queued and no work can be performed on the task as longs as it is in state queued
@@ -30,15 +30,15 @@ public class Expense : IExpense, IInteraction
     /// <summary>
     /// The date and time the task was created
     /// </summary>
-    public DateTime CreatedDateTime { get { return _createdDateTime; } }
+    public DateTime CreatedDateTime { get; private set; }
     /// <summary>
     /// The date and time the task was last modified
     /// </summary>
-    public DateTime ModifiedDateTime { get { return _modifiedDateTime; } }
+    public DateTime ModifiedDateTime { get; private set; }
     /// <summary>
     /// Flag indicating whether or not the task can be worked on
     /// </summary>
-    public bool IsActive { get { return _isActive; } }
+    public bool IsActive { get; private set; }
     /// <summary>
     /// The text of this task (description)
     /// </summary>
@@ -50,15 +50,15 @@ public class Expense : IExpense, IInteraction
     /// <summary>
     /// The user that created the task
     /// </summary>
-    public IUser Creator { get { return _creator; } }
+    public IUser Creator { get; private set; }
     /// <summary>
     /// The user currently owning the task
     /// </summary>
-    public IUser Owner { get { return _owner; } }
+    public IUser Owner { get; private set; }
     /// <summary>
     /// The state of the task
     /// </summary>
-    public InteractionState State { get { return _state; } }
+    public InteractionState State { get; private set; }
     /// <summary>
     /// The target to which a expense is connected
     /// </summary>
@@ -66,26 +66,17 @@ public class Expense : IExpense, IInteraction
     /// <summary>
     /// The image of a receipts that is attached to a task, project or survey
     /// </summary>
-    public Image Receipt { get { return _receipt; } }
+    public Image Receipt { get; private set; }
     /// <summary>
     /// The value of the expenses that is attached to a task, project or survey
     /// </summary>
-    public decimal Value { get { return _value; } }
+    public decimal Value { get; private set; }
 
     #endregion
 
     #region Variables
-
-    private IUser _owner;
-    private IUser _creator;
-    private DateTime _modifiedDateTime;
-    private DateTime _createdDateTime;
+    
     private System.Timers.Timer _stateTimer = new System.Timers.Timer(60 * 1000);
-    private InteractionState _state;
-    private bool _isActive;
-    private string _id;
-    private Image  _receipt;
-    private decimal _value;
 
     #endregion
 
@@ -166,7 +157,7 @@ public class Expense : IExpense, IInteraction
     /// <param name="pImage"></param>
     public void AddReceipt(Image pReceipt)
     {
-        _receipt = pReceipt;
+        Receipt = pReceipt;
     }
 
     /// <summary>
@@ -175,7 +166,7 @@ public class Expense : IExpense, IInteraction
     /// <param name="pImage"></param>
     public void DeleteReceipt()
     {
-        _receipt = null;
+        Receipt = null;
     }
 
     /// <summary>
@@ -184,7 +175,7 @@ public class Expense : IExpense, IInteraction
     /// <param name="pNewValue"></param>
     public void EditValue(decimal pNewValue)
     {
-        _value = pNewValue;
+        Value = pNewValue;
     }
 
 
@@ -195,9 +186,9 @@ public class Expense : IExpense, IInteraction
     /// <param name="pUser"></param>
 	public virtual void ChangeOwner(IUser pUser)
     {
-        if (_owner != pUser)
+        if (Owner != pUser)
         {
-            _owner = pUser;
+            Owner = pUser;
             List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
             changedAttributes.Add(InteractionAttributes.Owner);
             OnModify(new InteractionEventArgs($"Survey owner changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
@@ -211,9 +202,9 @@ public class Expense : IExpense, IInteraction
     /// <param name="pActive"></param>
 	public virtual void ChangeIsActive(bool pActive)
     {
-        if (_isActive != pActive)
+        if (IsActive != pActive)
         {
-            _isActive = pActive;
+            IsActive = pActive;
             List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
             changedAttributes.Add(InteractionAttributes.IsActive);
             OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
@@ -226,10 +217,10 @@ public class Expense : IExpense, IInteraction
     /// <param name="pState"></param>
 	public virtual void ChangeState(InteractionState pState)
     {
-        this._state = pState;
-        if (_state == InteractionState.Finished ||
-            _state == InteractionState.Cancelled ||
-            _state == InteractionState.Expired)
+        this.State = pState;
+        if (State == InteractionState.Finished ||
+            State == InteractionState.Cancelled ||
+            State == InteractionState.Expired)
             ChangeIsActive(false);
         List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
         changedAttributes.Add(InteractionAttributes.State);
@@ -249,17 +240,17 @@ public class Expense : IExpense, IInteraction
     /// <param name="pCreator"></param>
     private void InitializeProperties(string pId, string pText, Image pImage, decimal pValue, IUser pCreator)
     {
-        _id = pId;
-        _creator = pCreator;
+        Id = pId;
+        Creator = pCreator;
         Text = pText;
-        _receipt = pImage;
-        _value = pValue;
-        _createdDateTime = DateTime.Now;
-        _modifiedDateTime = DateTime.Now;
+        Receipt = pImage;
+        Value = pValue;
+        CreatedDateTime = DateTime.Now;
+        ModifiedDateTime = DateTime.Now;
         StartDateTime = DateTime.Now;
         EndDateTime = default(DateTime);
-        _isActive = true;
-        _state = StartDateTime <= DateTime.Now ? InteractionState.Active : InteractionState.Queued;
+        IsActive = true;
+        State = StartDateTime <= DateTime.Now ? InteractionState.Active : InteractionState.Queued;
         _stateTimer.Elapsed += OnTimerElapsed;
         _stateTimer.AutoReset = false;
         _stateTimer.Start();
@@ -273,13 +264,13 @@ public class Expense : IExpense, IInteraction
     /// <param name="e">The event parameters passed</param>
     private void OnTimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
     {
-        if (_state == InteractionState.Active || _state == InteractionState.Queued)
+        if (State == InteractionState.Active || State == InteractionState.Queued)
         {
             // Behind schedule?
             if (EndDateTime <= DateTime.Now)
                 ChangeState(InteractionState.Expired);
             // Turns active?
-            if (StartDateTime <= DateTime.Now && _state == InteractionState.Queued)
+            if (StartDateTime <= DateTime.Now && State == InteractionState.Queued)
                 ChangeState(InteractionState.Active);
             // Finished if project is closed?
             if (IsActive == false)
@@ -287,7 +278,7 @@ public class Expense : IExpense, IInteraction
         }
 
         // Still active?
-        if (_state == InteractionState.Active || _state == InteractionState.Queued)
+        if (State == InteractionState.Active || State == InteractionState.Queued)
             _stateTimer.Start();
     }
 

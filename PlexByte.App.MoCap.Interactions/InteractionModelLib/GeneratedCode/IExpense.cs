@@ -17,13 +17,11 @@ public interface IExpense
 
 	IInteraction Target { get;set; }
 
-	List<decimal> ValueList { get;set; }
-
 	void AddReceipt(System.Drawing.Image pImage, decimal pValue);
 
 	void DeleteReceipt(System.Drawing.Image pImage, decimal pValue);
 
-	void EditValue(decimal pNewValue);
+	void EditReceipt(System.Drawing.Image pImage, System.Drawing.Image pNewImage, decimal pValue, decimal pNewValue);
 
 }
 

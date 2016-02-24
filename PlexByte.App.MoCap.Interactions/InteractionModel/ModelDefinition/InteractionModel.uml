@@ -22765,13 +22765,13 @@
               <operationHasOwnedParameters>
                 <parameter
                   Id="00990660-0c0f-4912-8cab-6f5c98a3ddb6"
-                  name="pExpenses"
+                  name="pBudgetUsed"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
                     <undefinedTypeMoniker
-                      Id="dd710a57-570b-41fb-8e44-007050d2eecb"
-                      LastKnownName="List&lt;IExpense&gt;"
+                      Id="bf723d3e-44b1-470f-ac5a-29c1f3ad9ac5"
+                      LastKnownName="decimal"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -22779,13 +22779,13 @@
               <operationHasOwnedParameters>
                 <parameter
                   Id="3478e33e-c217-479a-b623-85c5ad20f1b3"
-                  name="pTime"
+                  name="pTimeUsed"
                   direction="In"
                   isUnique="false">
                   <type_NamedElement>
                     <undefinedTypeMoniker
-                      Id="dcb116ea-52fb-400b-9594-09c4635ba333"
-                      LastKnownName="List&lt;ITimeslice&gt;"
+                      Id="cdfe2cdd-4bcd-49e5-bd78-2f22e8ae3796"
+                      LastKnownName="int"
                       LastKnownLocation="InteractionModel.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -22818,8 +22818,7 @@
                   </type_NamedElement>
                   <defaultValue>
                     <literalString
-                      Id="28982b03-2a91-4f66-a5ff-7c646068fcb7"
-                      name="DefaultValue"
+                      Id="611d072f-8d38-4d37-8743-81b35a5cca28"
                       value="0" />
                   </defaultValue>
                 </parameter>

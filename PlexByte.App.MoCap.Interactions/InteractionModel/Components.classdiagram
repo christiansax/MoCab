@@ -10942,18 +10942,18 @@
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="ce91d082-6183-474d-9ddf-67d7d04dfa9d" name="pExpenses" direction="In" isUnique="false">
+                <parameter Id="ce91d082-6183-474d-9ddf-67d7d04dfa9d" name="pBudgetUsed" direction="In" isUnique="false">
                   <elementDefinition Id="00990660-0c0f-4912-8cab-6f5c98a3ddb6" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="533df097-de32-4586-8520-9cd143f5e94f" LastKnownName="List&lt;IExpense&gt;" />
+                    <referencedTypeMoniker Id="fa8123e6-d0d7-4e0f-958d-5e409fc015d4" LastKnownName="decimal" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
               <operationHasOwnedParameters>
-                <parameter Id="dc077fb9-a66c-48da-bc90-d64249ecfd32" name="pTime" direction="In" isUnique="false">
+                <parameter Id="dc077fb9-a66c-48da-bc90-d64249ecfd32" name="pTimeUsed" direction="In" isUnique="false">
                   <elementDefinition Id="3478e33e-c217-479a-b623-85c5ad20f1b3" />
                   <type_NamedElement>
-                    <referencedTypeMoniker Id="490e230f-9aab-4a06-b422-42a1857a9e88" LastKnownName="List&lt;ITimeslice&gt;" />
+                    <referencedTypeMoniker Id="6945b536-ea30-4079-9a2b-a6757c195a02" LastKnownName="int" />
                   </type_NamedElement>
                 </parameter>
               </operationHasOwnedParameters>
@@ -10972,8 +10972,8 @@
                     <referencedTypeMoniker Id="c5a3f239-ba10-4498-98b9-5afd0b310539" LastKnownName="Integer" />
                   </type_NamedElement>
                   <defaultValue>
-                    <literalString Id="63b6dd9a-6642-4ce2-94e0-99c38af01e94" name="DefaultValue" value="0">
-                      <elementDefinition Id="28982b03-2a91-4f66-a5ff-7c646068fcb7" />
+                    <literalString Id="f880a182-8f6d-49d2-b4f4-90ed9f97f92f" value="0">
+                      <elementDefinition Id="611d072f-8d38-4d37-8743-81b35a5cca28" />
                     </literalString>
                   </defaultValue>
                 </parameter>

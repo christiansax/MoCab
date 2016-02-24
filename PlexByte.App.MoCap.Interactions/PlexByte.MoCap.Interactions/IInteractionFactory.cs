@@ -15,9 +15,20 @@ public interface IInteractionFactory
 
 	IInteraction CreateTask(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT);
 
-	IInteraction CreateTask(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT,
-        decimal pBudget, int pDuration, int pPriority, InteractionState pState, decimal pBudgetUsed, int pTimeUsed,
-        List<ITask> pSubTask, int pProgress)
+    IInteraction CreateTask(string pId,
+        string pText,
+        IUser pCreator,
+        DateTime pStartDT,
+        DateTime pEndDT,
+        DateTime pDueDT,
+        decimal pBudget,
+        int pDuration,
+        int pPriority,
+        InteractionState pState,
+        decimal pBudgetUsed,
+        int pTimeUsed,
+        List<ITask> pSubTask,
+        int pProgress);
 
 
     IInteraction CreateSurvey(string pId, string pText, List<ISurveyOption> pOptions, IUser pCreator);
@@ -28,7 +39,7 @@ public interface IInteractionFactory
 
 	IInteraction CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, IUser pCreator);
 
-	IInteraction CreateProject(string pId, string pText, IUser pCreatur, object , IUser pOwner, List<string> MemberList, List<string> InvitationList, bool pEnableBalance, bool pEnableSurvey, List<ITask> TaskList, List<ISurvey> SurveyList);
+	IInteraction CreateProject(string pId, string pText, IUser pCreatur, IUser pOwner, List<string> MemberList, List<string> InvitationList, bool pEnableBalance, bool pEnableSurvey, List<ITask> TaskList, List<ISurvey> SurveyList);
 
 	IInteraction CreateChat(string pTextTitle, IUser pCreator, List<IUser> pUsers);
 

@@ -55,7 +55,7 @@ public class InteractionFactory : IInteractionFactory
 		throw new System.NotImplementedException();
 	}
 
-	public virtual IInteraction CreateProject(string pId, string pText, IUser pCreatur, object , IUser pOwner, List<string> MemberList, List<string> InvitationList, bool pEnableBalance, bool pEnableSurvey, List<ITask> TaskList, List<ISurvey> SurveyList)
+	public virtual IInteraction CreateProject(string pId, string pText, IUser pCreatur, IUser pOwner, List<string> MemberList, List<string> InvitationList, bool pEnableBalance, bool pEnableSurvey, List<ITask> TaskList, List<ISurvey> SurveyList)
 	{
 		throw new System.NotImplementedException();
 	}

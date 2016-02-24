@@ -32,7 +32,7 @@ public enum InteractionAttributes : int
 	MemberList,
 	InvitationList,
 	ExpenseList,
-	ValueList,
+	Value,
 	TimesliceList,
-	ImageList,
+	Receipt,
 }

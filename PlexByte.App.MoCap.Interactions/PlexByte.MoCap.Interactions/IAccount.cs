@@ -32,5 +32,9 @@ public interface IAccount
     void EditTimeslice(ITimeslice pTimeslice, ITimeslice pNewTimeslice);
 
     void DeleteTimeslice(ITimeslice pTimeslice);
+
+    int UserExpense(IUser pUser);
+
+    int UserTimeslice(IUser pUser);
 }
 

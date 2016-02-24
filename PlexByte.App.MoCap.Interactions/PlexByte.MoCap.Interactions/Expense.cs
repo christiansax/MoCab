@@ -157,7 +157,13 @@ public class Expense : IExpense, IInteraction
     /// <param name="pImage"></param>
     public void AddReceipt(Image pReceipt)
     {
-        Receipt = pReceipt;
+        if (Receipt == null)
+        {
+            Receipt = pReceipt;
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.Receipt);
+            OnModify(new InteractionEventArgs($"Survey owner changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
+        }
     }
 
     /// <summary>
@@ -166,7 +172,13 @@ public class Expense : IExpense, IInteraction
     /// <param name="pImage"></param>
     public void DeleteReceipt()
     {
-        Receipt = null;
+        if (Receipt != null)
+        {
+            Receipt = null;
+            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+            changedAttributes.Add(InteractionAttributes.Receipt);
+            OnModify(new InteractionEventArgs($"Survey owner changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
+        }
     }
 
     /// <summary>
@@ -176,6 +188,9 @@ public class Expense : IExpense, IInteraction
     public void EditValue(decimal pNewValue)
     {
         Value = pNewValue;
+        List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
+        changedAttributes.Add(InteractionAttributes.Value);
+        OnModify(new InteractionEventArgs($"Survey owner changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
     }
 
 

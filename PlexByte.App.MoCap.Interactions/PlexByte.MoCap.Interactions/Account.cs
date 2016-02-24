@@ -300,6 +300,18 @@ public class Account : IAccount, IInteraction
         }
     }
 
+
+    public int UserExpense(IUser pUser)
+    {
+        throw new NotImplementedException();
+    }
+
+    public int UserTimeslice(IUser pUser)
+    {
+        throw new NotImplementedException();
+    }
+
+
     #endregion
 
     #region Private methods

@@ -347,8 +347,7 @@ public class Project : IProject, IInteraction
 
         this.State = pState;
         if (State == InteractionState.Finished ||
-            State == InteractionState.Cancelled ||
-            State == InteractionState.Expired)
+            State == InteractionState.Cancelled)
             ChangeIsActive(false);
         List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
         changedAttributes.Add(InteractionAttributes.State);

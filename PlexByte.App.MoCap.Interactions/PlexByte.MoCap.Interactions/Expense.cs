@@ -9,74 +9,59 @@ using System.Linq;
 using System.Text;
 
 
-public class Expense : IExpense, IInteraction
+public class Expense : IExpense
 {
 
     #region Properties
 
     /// <summary>
-    /// The unique id of the task
+    /// The unique id of the expense
     /// </summary>
     public string Id { get; private set; }
     /// <summary>
-    /// The date and time this task becomes active and can be worked on. As long as this date is not reached the 
-    /// state will remain queued and no work can be performed on the task as longs as it is in state queued
-    /// </summary>
-    public DateTime StartDateTime { get; set; }
-    /// <summary>
-    /// The date and time this task should be finished. If this date is reached the state will change to expired
-    /// </summary>
-    public DateTime EndDateTime { get; set; }
-    /// <summary>
-    /// The date and time the task was created
+    /// The date and time the expense was created
     /// </summary>
     public DateTime CreatedDateTime { get; private set; }
     /// <summary>
-    /// The date and time the task was last modified
+    /// The date and time the expense was last modified
     /// </summary>
     public DateTime ModifiedDateTime { get; private set; }
     /// <summary>
-    /// Flag indicating whether or not the task can be worked on
+    /// Flag indicating whether or not the expense can be worked on
     /// </summary>
     public bool IsActive { get; private set; }
     /// <summary>
-    /// The text of this task (description)
+    /// The text of this expense (description)
     /// </summary>
     public string Text { get; set; }
     /// <summary>
-    /// The type of interaction (will be always task)
+    /// The type of interaction (will be always expense)
     /// </summary>
     public InteractionType Type { get; }
     /// <summary>
-    /// The user that created the task
-    /// </summary>
-    public IUser Creator { get; private set; }
-    /// <summary>
-    /// The user currently owning the task
-    /// </summary>
-    public IUser Owner { get; private set; }
-    /// <summary>
-    /// The state of the task
+    /// The state of the expense
     /// </summary>
     public InteractionState State { get; private set; }
     /// <summary>
     /// The target to which a expense is connected
     /// </summary>
-    public IInteraction Target { get; set; }
+    public IInteraction Target { get; private set; }
     /// <summary>
-    /// The image of a receipts that is attached to a task, project or survey
+    /// The image of a receipts from the expense
     /// </summary>
     public Image Receipt { get; private set; }
     /// <summary>
-    /// The value of the expenses that is attached to a task, project or survey
+    /// The value of the expenses
     /// </summary>
     public decimal Value { get; private set; }
-
-    #endregion
-
-    #region Variables
-    
-    private System.Timers.Timer _stateTimer = new System.Timers.Timer(60 * 1000);
+    /// <summary>
+    /// The user that created the task
+    /// </summary>
+    public IUser Creator { get; private set; }
+    /// <summary>
+    /// The user the expenses belongs to
+    /// </summary>
+    public IUser User { get; private set; }
 
     #endregion
 
@@ -96,12 +81,12 @@ public class Expense : IExpense, IInteraction
     /// <param name="pId"></param>
     /// <param name="pText"></param>
     /// <param name="pCreator"></param>
-    public Expense(string pId, string pText, IUser pCreator)
+    public Expense(string pId, string pText, IUser pCreator, IInteraction pTarget)
     {
         Image pReceipt= null;
         decimal pValue= 0;
 
-        InitializeProperties(pId, pText, pReceipt, pValue, pCreator);
+        InitializeProperties(pId, pText, pReceipt, pValue, pCreator, pTarget);
     }
 
     /// <summary>
@@ -111,9 +96,9 @@ public class Expense : IExpense, IInteraction
     /// <param name="pText"></param>
     /// <param name="pImageList"></param>
     /// <param name="pCreator"></param>
-    public Expense(string pId, string pText, Image pReceipt, decimal pValue, IUser pCreator)
+    public Expense(string pId, string pText, Image pReceipt, decimal pValue, IUser pCreator, IInteraction pTarget)
     {
-        InitializeProperties(pId, pText, pReceipt, pValue, pCreator);
+        InitializeProperties(pId, pText, pReceipt, pValue, pCreator, pTarget);
     }
 
     #endregion
@@ -162,7 +147,7 @@ public class Expense : IExpense, IInteraction
             Receipt = pReceipt;
             List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
             changedAttributes.Add(InteractionAttributes.Receipt);
-            OnModify(new InteractionEventArgs($"Survey owner changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
+            OnModify(new InteractionEventArgs($"Receipt added [Id={Id}]", DateTime.Now, InteractionType.Expense));
         }
     }
 
@@ -177,7 +162,7 @@ public class Expense : IExpense, IInteraction
             Receipt = null;
             List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
             changedAttributes.Add(InteractionAttributes.Receipt);
-            OnModify(new InteractionEventArgs($"Survey owner changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
+            OnModify(new InteractionEventArgs($"Receipt deleted [Id={Id}]", DateTime.Now, InteractionType.Expense));
         }
     }
 
@@ -190,24 +175,7 @@ public class Expense : IExpense, IInteraction
         Value = pNewValue;
         List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
         changedAttributes.Add(InteractionAttributes.Value);
-        OnModify(new InteractionEventArgs($"Survey owner changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
-    }
-
-
-    /// <summary>
-    /// This method changes the owner of the expense and raises the modified event if the owner is different
-    /// used to create a secound project-admin
-    /// </summary>
-    /// <param name="pUser"></param>
-	public virtual void ChangeOwner(IUser pUser)
-    {
-        if (Owner != pUser)
-        {
-            Owner = pUser;
-            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
-            changedAttributes.Add(InteractionAttributes.Owner);
-            OnModify(new InteractionEventArgs($"Survey owner changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
-        }
+        OnModify(new InteractionEventArgs($"Value edited [Id={Id}]", DateTime.Now, InteractionType.Expense));
     }
 
     /// <summary>
@@ -222,7 +190,7 @@ public class Expense : IExpense, IInteraction
             IsActive = pActive;
             List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
             changedAttributes.Add(InteractionAttributes.IsActive);
-            OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
+            OnModify(new InteractionEventArgs($"Expense IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
         }
     }
 
@@ -234,12 +202,11 @@ public class Expense : IExpense, IInteraction
     {
         this.State = pState;
         if (State == InteractionState.Finished ||
-            State == InteractionState.Cancelled ||
-            State == InteractionState.Expired)
+            State == InteractionState.Cancelled)
             ChangeIsActive(false);
         List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
         changedAttributes.Add(InteractionAttributes.State);
-        OnStateChanged(new InteractionEventArgs($"Survey state changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
+        OnStateChanged(new InteractionEventArgs($"Expense state changed [Id={Id}]", DateTime.Now, InteractionType.Expense));
     }
 
     #endregion
@@ -247,54 +214,26 @@ public class Expense : IExpense, IInteraction
     #region Private methods
 
     /// <summary>
-    /// Initializes all attributes and started the state timer, which validates the interaction's state every 60
+    /// Initializes all attributes
     /// </summary>
     /// <param name="pId"></param>
     /// <param name="pText"></param>
-    /// <param name="pImageList"></param>
+    /// <param name="pImage"></param>
+    /// <param name="pValue"></param>
     /// <param name="pCreator"></param>
-    private void InitializeProperties(string pId, string pText, Image pImage, decimal pValue, IUser pCreator)
+    /// <param name="pTarget"></param>
+    private void InitializeProperties(string pId, string pText, Image pImage, decimal pValue, IUser pCreator, IInteraction pTarget)
     {
         Id = pId;
+        User = pCreator;
         Creator = pCreator;
         Text = pText;
         Receipt = pImage;
         Value = pValue;
+        Target = pTarget;
         CreatedDateTime = DateTime.Now;
         ModifiedDateTime = DateTime.Now;
-        StartDateTime = DateTime.Now;
-        EndDateTime = default(DateTime);
         IsActive = true;
-        State = StartDateTime <= DateTime.Now ? InteractionState.Active : InteractionState.Queued;
-        _stateTimer.Elapsed += OnTimerElapsed;
-        _stateTimer.AutoReset = false;
-        _stateTimer.Start();
-    }
-
-    /// <summary>
-    /// This method validates the object state and chages if required. Once the interaction is either 
-    /// cancelled, finished or expired the state check will suspend
-    /// </summary>
-    /// <param name="sender">The object calling this method (timer)</param>
-    /// <param name="e">The event parameters passed</param>
-    private void OnTimerElapsed(object sender, System.Timers.ElapsedEventArgs e)
-    {
-        if (State == InteractionState.Active || State == InteractionState.Queued)
-        {
-            // Behind schedule?
-            if (EndDateTime <= DateTime.Now)
-                ChangeState(InteractionState.Expired);
-            // Turns active?
-            if (StartDateTime <= DateTime.Now && State == InteractionState.Queued)
-                ChangeState(InteractionState.Active);
-            // Finished if project is closed?
-            if (IsActive == false)
-                ChangeState(InteractionState.Finished);
-        }
-
-        // Still active?
-        if (State == InteractionState.Active || State == InteractionState.Queued)
-            _stateTimer.Start();
     }
 
     #endregion

@@ -71,6 +71,8 @@ public class Account : IAccount, IInteraction
     #region Variables
     
     private System.Timers.Timer _stateTimer = new System.Timers.Timer(60 * 1000);
+    private int _userTime;
+    private decimal _userValue;
 
     #endregion
 
@@ -206,8 +208,7 @@ public class Account : IAccount, IInteraction
 	{
         this.State = pState;
         if (State == InteractionState.Finished ||
-            State == InteractionState.Cancelled ||
-            State == InteractionState.Expired)
+            State == InteractionState.Cancelled)
             ChangeIsActive(false);
         List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
         changedAttributes.Add(InteractionAttributes.State);
@@ -304,20 +305,34 @@ public class Account : IAccount, IInteraction
     /// Returns the overall expenses of an User in the project
     /// </summary>
     /// <param name="pUser"></param>
-    /// <returns></returns>
-    public int UserExpense(IUser pUser)
+    /// <returns>decimal _userValue</returns>
+    public decimal UserExpense(IUser pUser)
     {
-        throw new NotImplementedException();
+        foreach(Expense Expense in ExpenseList)
+        {
+            if (pUser == Expense.User)
+            {
+                _userValue += Expense.Value;
+            }
+        }
+        return _userValue;
     }
 
     /// <summary>
     /// Returns the overall time of an User in the project
     /// </summary>
     /// <param name="pUser"></param>
-    /// <returns></returns>
+    /// <returns>int _userTime</returns>
     public int UserTimeslice(IUser pUser)
     {
-        throw new NotImplementedException();
+        foreach (Timeslice time in TimesliceList)
+        {
+            if (pUser == time.User)
+            {
+                _userTime += time.Duration;
+            }
+        }
+        return _userTime;
     }
 
 

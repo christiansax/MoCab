@@ -1,11 +1,12 @@
 ﻿CREATE TABLE [dbo].[TaskMapping]
 (
-	[Id] BIGINT NOT NULL PRIMARY KEY DEFAULT NEWID(), 
+	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
     [TaskId] BIGINT NOT NULL, 
     [MainTaskId] BIGINT NOT NULL, 
     [CreatedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
     [ModifiedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
-    CONSTRAINT [FK_TaskMapping_Task] FOREIGN KEY ([MainTaskId]) REFERENCES [Task]([Id])
+    CONSTRAINT [FK_TaskMapping_Task] FOREIGN KEY ([MainTaskId]) REFERENCES [Task]([Id]), 
+    CONSTRAINT [FK_TaskMapping_TaskId] FOREIGN KEY ([TaskId]) REFERENCES [Task]([Id])
 )
 
 GO

@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Interaction]
 (
-	[Id] BIGINT NOT NULL PRIMARY KEY DEFAULT NEWID(), 
+	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY, 
     [StartDateTime] DATETIME NULL DEFAULT GETDATE(), 
     [EndDateTime] DATETIME NULL DEFAULT DATEADD(YEAR, 10, GETDATE()), 
     [IsActive] BIT NOT NULL DEFAULT 1, 
@@ -8,7 +8,7 @@
     [Type] NVARCHAR(MAX) NOT NULL DEFAULT 'Project', 
     [CreatorId] BIGINT NOT NULL, 
     [OwnerId] BIGINT NOT NULL, 
-    [State] NVARCHAR(MAX) NOT NULL DEFAULT 'Active',
+    [State] INT NOT NULL ,
 	[CreatedDateTime] DATETIME NULL DEFAULT GETDATE(), 
     [ModifiedDateTime] DATETIME NULL DEFAULT GETDATE(), 
     CONSTRAINT [FK_Interaction_UserCreator] FOREIGN KEY ([CreatorId]) REFERENCES [User]([Id]),

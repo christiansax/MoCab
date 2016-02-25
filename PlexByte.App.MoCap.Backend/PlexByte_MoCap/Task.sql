@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Task]
 (
-	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY , 
+	[Id] BIGINT NOT NULL PRIMARY KEY, 
     [DueDateTime] DATETIME NULL, 
     [Budget] DECIMAL(18, 2) NULL, 
     [Duration] INT NULL, 

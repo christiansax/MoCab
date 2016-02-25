@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Task]
 (
-	[Id] BIGINT NOT NULL PRIMARY KEY DEFAULT NEWID(), 
+	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY , 
     [DueDateTime] DATETIME NULL, 
     [Budget] DECIMAL(18, 2) NULL, 
     [Duration] INT NULL, 
@@ -10,7 +10,6 @@
     [BudgetUsed] DECIMAL(18, 2) NULL, 
     [CreatedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
     [ModifiedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
-    CONSTRAINT [FK_Task_TaskMapping] FOREIGN KEY ([Id]) REFERENCES [TaskMapping]([TaskId]), 
     CONSTRAINT [FK_Task_Interaction] FOREIGN KEY ([Id]) REFERENCES [Interaction]([Id]), 
 )
 

@@ -18812,95 +18812,6 @@
         </targetEnds>
         <ownedOperations>
           <operation
-            Id="1cc71512-0a4f-486d-be46-3e36ed283851"
-            name="EditExpense"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="true"
-            concurrency="Sequential"
-            isQuery="false">
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="ed0a2056-c0c3-4295-905c-516ff116e1fa"
-                name="method"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="d02f9792-827b-4391-90d8-083e3d3a648b">
-                    <propertyInstance
-                      Id="5e0661a6-b399-49a9-9773-f1ebe6b2b6c1"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="45461035-a562-4364-9364-bc4c3113ded9">
-                    <propertyInstance
-                      Id="01182049-f048-4689-8371-9ae4aeb0c5c6"
-                      name="IsPartial"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="24929462-02bb-41f2-9873-f64ad43013f7">
-                    <propertyInstance
-                      Id="b7159888-de9b-4f36-a3be-9b0e088044d7"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="bb4cdb64-2be0-4c23-ac0c-a5d150b985d9">
-                    <propertyInstance
-                      Id="dccac197-9322-4502-90d0-4d44571a7650"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="e7759cda-7651-4c6e-ab48-5debb28acd1b">
-                    <propertyInstance
-                      Id="e10ca1b3-f83d-4344-841a-428fe7d06d6d"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="9c74db16-a07f-484a-8a16-0edfde0ce613">
-                    <propertyInstance
-                      Id="06924409-0b8d-48a7-b1aa-5cb5f7170b2e"
-                      name="params"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="c6934472-7f45-402d-ae34-18d372e450e6"
-                  name="pExpense"
-                  direction="In"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <interfaceMoniker
-                      Id="83ceaa31-1532-4a70-b5a8-875d8a1b173c"
-                      LastKnownName="IExpense"
-                      LastKnownLocation="InteractionModel.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="9bec3920-f71c-429d-90b1-b8adec1fc75d"
-                  name="pNewExpense"
-                  direction="In"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <interfaceMoniker
-                      Id="83ceaa31-1532-4a70-b5a8-875d8a1b173c"
-                      LastKnownName="IExpense"
-                      LastKnownLocation="InteractionModel.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation
             Id="c09eacfd-4c23-4767-bcdf-027d38c4573a"
             name="DeleteExpense"
             isLeaf="false"
@@ -19835,95 +19746,6 @@
             </ownedParameters>
           </operation>
           <operation
-            Id="25d44f34-c76e-4b30-aab7-77be86f19dd4"
-            name="EditExpense"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false">
-            <appliedStereotypesInternal>
-              <stereotypeInstance
-                Id="7d681d8c-1fd1-46ea-9dfd-b1a70bcb5c9e"
-                name="method"
-                profile="CSharpProfile">
-                <propertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="3ee02201-d5f1-4c7c-9f89-dd43cb7664a0">
-                    <propertyInstance
-                      Id="50973c5e-dfcd-4efc-b3d0-c3dc76300b8f"
-                      name="ClrAttributes" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="54fff09e-670f-434d-b273-2c6a5af463cd">
-                    <propertyInstance
-                      Id="09593351-42b1-47dd-b865-73b41831bfa4"
-                      name="IsPartial"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="b6328f4f-bef2-4c9a-8436-308d182984c0">
-                    <propertyInstance
-                      Id="634d9090-009b-4c1a-b9c6-cf68b7325e96"
-                      name="IsUnsafe"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="4027973d-0813-4e2e-a7e6-7a0d2aeae360">
-                    <propertyInstance
-                      Id="5b3b73ec-92d6-406b-acb2-a1fc26925f02"
-                      name="Inheritance"
-                      value="none" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="354f38bc-fa0a-45ee-9f7e-207f4be3e244">
-                    <propertyInstance
-                      Id="dfef5f89-6455-4e8d-a0c8-6b4653189894"
-                      name="PackageVisibility"
-                      value="internal" />
-                  </stereotypeInstanceHasPropertyInstances>
-                  <stereotypeInstanceHasPropertyInstances
-                    Id="11ca1ffd-3cf8-499f-a32d-c09a76b8b481">
-                    <propertyInstance
-                      Id="5b90cddb-7415-48c6-9fc9-f15696fa1313"
-                      name="params"
-                      value="false" />
-                  </stereotypeInstanceHasPropertyInstances>
-                </propertyInstances>
-              </stereotypeInstance>
-            </appliedStereotypesInternal>
-            <ownedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="0705556a-4fd3-4fe4-bf4f-7058603c8894"
-                  name="pExpense"
-                  direction="In"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <interfaceMoniker
-                      Id="83ceaa31-1532-4a70-b5a8-875d8a1b173c"
-                      LastKnownName="IExpense"
-                      LastKnownLocation="InteractionModel.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-              <operationHasOwnedParameters>
-                <parameter
-                  Id="c518133e-2227-4e85-91d8-264fe7aaa116"
-                  name="pNewExpense"
-                  direction="In"
-                  isUnique="false">
-                  <type_NamedElement>
-                    <interfaceMoniker
-                      Id="83ceaa31-1532-4a70-b5a8-875d8a1b173c"
-                      LastKnownName="IExpense"
-                      LastKnownLocation="InteractionModel.uml" />
-                  </type_NamedElement>
-                </parameter>
-              </operationHasOwnedParameters>
-            </ownedParameters>
-          </operation>
-          <operation
             Id="ba7ac3be-907c-4b0e-8614-7e79437bbc96"
             name="DeleteExpense"
             isLeaf="false"
@@ -20750,9 +20572,6 @@
           <enumerationLiteral
             Id="d8986566-793d-471e-a521-9eb3bba1aa1f"
             name="Budget" />
-          <enumerationLiteral
-            Id="b306b230-469f-445d-9ac9-d6e9476272aa"
-            name="Duration" />
           <enumerationLiteral
             Id="18d9d35a-5f00-46f5-9b0a-376d504750b6"
             name="UsedBudget" />

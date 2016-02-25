@@ -15,8 +15,6 @@ public interface IAccount
     event ExpenseAdd ExpenseAdded;
     event TimesliceAdd TimesliceAdded;
 
-
-
     List<IExpense> ExpenseList { get;  }
 
     List<ITimeslice> TimesliceList { get;  }
@@ -24,8 +22,6 @@ public interface IAccount
     void AddExpense(IExpense pExpense);
 
     void AddTimeslice(ITimeslice pTimeslice);
-
-    void EditExpense(IExpense pExpense, IExpense pNewExpense);
 
     void DeleteExpense(IExpense pExpense);
 

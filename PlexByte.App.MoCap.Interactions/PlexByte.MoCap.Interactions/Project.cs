@@ -12,48 +12,48 @@ public class Project : IProject, IInteraction
     #region Properties
 
     /// <summary>
-    /// The unique id of the task
+    /// The unique id of the project
     /// </summary>
     public string Id { get; private set; }
     /// <summary>
-    /// The date and time this task becomes active and can be worked on. As long as this date is not reached the 
-    /// state will remain queued and no work can be performed on the task as longs as it is in state queued
+    /// The date and time this project becomes active and can be worked on. As long as this date is not reached the 
+    /// state will remain queued and no work can be performed on the project as longs as it is in state queued
     /// </summary>
     public DateTime StartDateTime { get; set; }
     /// <summary>
-    /// The date and time this task should be finished. If this date is reached the state will change to expired
+    /// The date and time this project should be finished. If this date is reached the state will change to expired
     /// </summary>
     public DateTime EndDateTime { get; set; }
     /// <summary>
-    /// The date and time the task was created
+    /// The date and time the project was created
     /// </summary>
     public DateTime CreatedDateTime { get; private set; }
     /// <summary>
-    /// The date and time the task was last modified
+    /// The date and time the project was last modified
     /// </summary>
     public DateTime ModifiedDateTime { get; private set; }
     /// <summary>
-    /// Flag indicating whether or not the task can be worked on
+    /// Flag indicating whether or not the project can be worked on
     /// </summary>
     public bool IsActive { get; private set; }
     /// <summary>
-    /// The text of this task (description)
+    /// The text of this project (description)
     /// </summary>
     public string Text { get; set; }
     /// <summary>
-    /// The type of interaction (will be always task)
+    /// The type of interaction (will be always project)
     /// </summary>
     public InteractionType Type { get; }
     /// <summary>
-    /// The user that created the task
+    /// The user that created the project
     /// </summary>
     public IUser Creator { get; private set; }
     /// <summary>
-    /// The user currently owning the task
+    /// The user currently owning the project
     /// </summary>
     public IUser Owner { get; private set; }
     /// <summary>
-    /// The state of the task
+    /// The state of the project
     /// </summary>
     public InteractionState State { get; private set; }
     /// <summary>
@@ -110,11 +110,14 @@ public class Project : IProject, IInteraction
     #endregion
 
     #region Ctor & Dtor
+
     /// <summary>
     /// Constructor of the class
     /// </summary>
     /// <param name="pId"></param>
     /// <param name="pText"></param>
+    /// <param name="pEnableBalance"></param>
+    /// <param name="pEnableSurvey"></param>
     /// <param name="pCreator"></param>
     public Project(string pId, string pText,bool pEnableBalance, bool pEnableSurvey, IUser pCreator)
     {
@@ -134,9 +137,12 @@ public class Project : IProject, IInteraction
     /// <param name="pText"></param>
     /// <param name="pEnableBalance"></param>
     /// <param name="pEnableSurvey"></param>
-    /// <param name="pCreator"></param>
     /// <param name="pMemberList"></param>
     /// <param name="pInvitationList"></param>
+    /// <param name="pTaskList"></param>
+    /// <param name="pSurveyList"></param>
+    /// <param name="pCreator"></param>
+    /// <param name="pOwner"></param>
     public Project(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList, IUser pCreator, IUser pOwner)
     {
         InitializeProperties(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pCreator, pOwner);
@@ -312,9 +318,11 @@ public class Project : IProject, IInteraction
             OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Project));
         }
     }
+
     /// <summary>
-    /// Remove oneself from the memberlist of the project
+    /// Removes oneself from the memberlist of the project
     /// </summary>
+    /// <param name="pUser"></param>
 	public virtual void Leave(IUser pUser)
     {
         MemberList.Remove(pUser);
@@ -339,7 +347,7 @@ public class Project : IProject, IInteraction
     }
 
     /// <summary>
-    /// Changes the state of this interaction and thus causes the stateCHanged event to be fired
+    /// Changes the state of this interaction and thus causes the stateChanged event to be fired
     /// </summary>
     /// <param name="pState"></param>
     public virtual void ChangeState(InteractionState pState)
@@ -356,14 +364,20 @@ public class Project : IProject, IInteraction
     #endregion
 
     #region Private methods
+
     /// <summary>
     /// Initializes all attributes and started the state timer, which validates the interaction's state every 60
     /// </summary>
     /// <param name="pId"></param>
     /// <param name="pText"></param>
+    /// <param name="pEnableBalance"></param>
+    /// <param name="pEnableSurvey"></param>
     /// <param name="pMemberList"></param>
     /// <param name="pInvitationList"></param>
+    /// <param name="pTaskList"></param>
+    /// <param name="pSurveyList"></param>
     /// <param name="pCreator"></param>
+    /// <param name="pOwner"></param>
     private void InitializeProperties(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList, IUser pCreator, IUser pOwner)
     {
         

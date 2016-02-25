@@ -16,12 +16,12 @@ public class ObjectFactory : IObjectFactory
 		throw new System.NotImplementedException();
 	}
 
-	public virtual ITimeslice CreateTimeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT)
+	public virtual ITimeslice CreateTimeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT, IInteraction pTarget)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual ITimeslice CreateTimeslice(string pId, IUser pUser, int pDuration)
+	public virtual ITimeslice CreateTimeslice(string pId, IUser pUser, int pDuration, IInteraction pTarget)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -31,12 +31,12 @@ public class ObjectFactory : IObjectFactory
 		throw new System.NotImplementedException();
 	}
 
-	public virtual IExpense CreateExpense(string pId, string pText, System.Drawing.Image pReceipt, decimal pValue, IUser pUser)
+	public virtual IExpense CreateExpense(string pId, string pText, System.Drawing.Image pReceipt, decimal pValue, IUser pUser, IInteraction pTarget)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual IExpense CreateExpense(string pId, string pText, IUser pUser)
+	public virtual IExpense CreateExpense(string pId, string pText, IUser pUser, IInteraction pTarget)
 	{
 		throw new System.NotImplementedException();
 	}

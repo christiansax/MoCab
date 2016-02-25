@@ -15,15 +15,19 @@ public class ObjectFactory : IObjectFactory
 	    return (new Vote(pId, pUser, pOption));
 	}
 
-	public virtual ITimeslice CreateTimeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT)
-	{
-		throw new System.NotImplementedException();
-	}
+	public virtual ITimeslice CreateTimeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT, IInteraction pTarget)
+    {
+        if (string.IsNullOrEmpty(pId))
+            pId = Helper.GenerateId();
+        return (new Timeslice(pId, pUser, pStartDT, pEndDT, pTarget));
+    }
 
-	public virtual ITimeslice CreateTimeslice(string pId, IUser pUser, int pDuration)
-	{
-		throw new System.NotImplementedException();
-	}
+	public virtual ITimeslice CreateTimeslice(string pId, IUser pUser, int pDuration, IInteraction pTarget)
+    {
+        if (string.IsNullOrEmpty(pId))
+            pId = Helper.GenerateId();
+        return (new Timeslice(pId, pUser, pDuration, pTarget));
+    }
 
 	public virtual ISurveyOption CreateSurveyOption(string pId, string pText)
 	{
@@ -32,15 +36,19 @@ public class ObjectFactory : IObjectFactory
         return (new SurveyOption(pId, pText));
     }
 
-	public virtual IExpense CreateExpense(string pId, string pText, System.Drawing.Image pReceipt, decimal pValue, IUser pUser)
-	{
-		throw new System.NotImplementedException();
-	}
+	public virtual IExpense CreateExpense(string pId, string pText, System.Drawing.Image pReceipt, decimal pValue, IUser pUser, IInteraction pTarget)
+    {
+        if (string.IsNullOrEmpty(pId))
+            pId = Helper.GenerateId();
+        return (new Expense(pId, pText, pReceipt, pValue, pUser, pTarget));
+    }
 
-	public virtual IExpense CreateExpense(string pId, string pText, IUser pUser)
-	{
-		throw new System.NotImplementedException();
-	}
+	public virtual IExpense CreateExpense(string pId, string pText, IUser pUser, IInteraction pTarget)
+    {
+        if (string.IsNullOrEmpty(pId))
+            pId = Helper.GenerateId();
+        return (new Expense(pId, pText, pUser, pTarget));
+    }
 
 }
 

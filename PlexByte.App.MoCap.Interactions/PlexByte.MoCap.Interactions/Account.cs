@@ -12,48 +12,48 @@ public class Account : IAccount, IInteraction
     #region Properties
 
     /// <summary>
-    /// The unique id of the task
+    /// The unique id of the account
     /// </summary>
     public string Id { get; private set; }
     /// <summary>
-    /// The date and time this task becomes active and can be worked on. As long as this date is not reached the 
-    /// state will remain queued and no work can be performed on the task as longs as it is in state queued
+    /// The date and time this account becomes active and can be worked on. As long as this date is not reached the 
+    /// state will remain queued and no work can be performed on the account as longs as it is in state queued
     /// </summary>
     public DateTime StartDateTime { get; set; }
     /// <summary>
-    /// The date and time this task should be finished. If this date is reached the state will change to expired
+    /// The date and time this account should be finished. If this date is reached the state will change to expired
     /// </summary>
     public DateTime EndDateTime { get; set; }
     /// <summary>
-    /// The date and time the task was created
+    /// The date and time the account was created
     /// </summary>
     public DateTime CreatedDateTime { get; private set; }
     /// <summary>
-    /// The date and time the task was last modified
+    /// The date and time the account was last modified
     /// </summary>
     public DateTime ModifiedDateTime { get; private set; }
     /// <summary>
-    /// Flag indicating whether or not the task can be worked on
+    /// Flag indicating whether or not the account can be worked on
     /// </summary>
     public bool IsActive { get; private set; }
     /// <summary>
-    /// The text of this task (description)
+    /// The text of this account (description)
     /// </summary>
     public string Text { get; set; }
     /// <summary>
-    /// The type of interaction (will be always task)
+    /// The type of interaction (will be always account)
     /// </summary>
     public InteractionType Type { get; }
     /// <summary>
-    /// The user that created the task
+    /// The user that created the account
     /// </summary>
     public IUser Creator { get; private set; }
     /// <summary>
-    /// The user currently owning the task
+    /// The user currently owning the account
     /// </summary>
     public IUser Owner { get; private set; }
     /// <summary>
-    /// The state of the task
+    /// The state of the account
     /// </summary>
     public InteractionState State { get; private set; }
     /// <summary>
@@ -71,6 +71,8 @@ public class Account : IAccount, IInteraction
     #region Variables
     
     private System.Timers.Timer _stateTimer = new System.Timers.Timer(60 * 1000);
+    private int _userTime;
+    private decimal _userValue;
 
     #endregion
 
@@ -206,8 +208,7 @@ public class Account : IAccount, IInteraction
 	{
         this.State = pState;
         if (State == InteractionState.Finished ||
-            State == InteractionState.Cancelled ||
-            State == InteractionState.Expired)
+            State == InteractionState.Cancelled)
             ChangeIsActive(false);
         List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
         changedAttributes.Add(InteractionAttributes.State);
@@ -236,22 +237,6 @@ public class Account : IAccount, IInteraction
         List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
         changedAttributes.Add(InteractionAttributes.TimesliceList);
         OnModify(new InteractionEventArgs($"Survey IsActive changed [Id={Id}]", DateTime.Now, InteractionType.Account));
-    }
-
-    /// <summary>
-    /// To edit the expense the old one is removed and a new is being created
-    /// </summary>
-    /// <param name="pExpense"></param>
-    public void EditExpense(IExpense pExpense, IExpense pNewExpense)
-    {
-        if (ExpenseList.Contains(pExpense))
-        {
-            ExpenseList.Remove(pExpense);
-            ExpenseList.Add(pNewExpense);
-            List<InteractionAttributes> changedAttributes = new List<InteractionAttributes>();
-            changedAttributes.Add(InteractionAttributes.ExpenseList);
-            OnModify(new InteractionEventArgs($"Survey user list changed [Id={Id}]", DateTime.Now, InteractionType.Account));
-        }
     }
 
     /// <summary>
@@ -304,20 +289,34 @@ public class Account : IAccount, IInteraction
     /// Returns the overall expenses of an User in the project
     /// </summary>
     /// <param name="pUser"></param>
-    /// <returns></returns>
-    public int UserExpense(IUser pUser)
+    /// <returns>decimal _userValue</returns>
+    public decimal UserExpense(IUser pUser)
     {
-        throw new NotImplementedException();
+        foreach(Expense Expense in ExpenseList)
+        {
+            if (pUser == Expense.User)
+            {
+                _userValue += Expense.Value;
+            }
+        }
+        return _userValue;
     }
 
     /// <summary>
     /// Returns the overall time of an User in the project
     /// </summary>
     /// <param name="pUser"></param>
-    /// <returns></returns>
+    /// <returns>int _userTime</returns>
     public int UserTimeslice(IUser pUser)
     {
-        throw new NotImplementedException();
+        foreach (Timeslice time in TimesliceList)
+        {
+            if (pUser == time.User)
+            {
+                _userTime += time.Duration;
+            }
+        }
+        return _userTime;
     }
 
 

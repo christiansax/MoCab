@@ -41,11 +41,6 @@ public class Account : IAccount, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void EditExpense(IExpense pExpense, IExpense pNewExpense)
-	{
-		throw new System.NotImplementedException();
-	}
-
 	public virtual void DeleteExpense(IExpense pExpense)
 	{
 		throw new System.NotImplementedException();
@@ -61,7 +56,7 @@ public class Account : IAccount, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public virtual int UserExpense(IUser pUser)
+	public virtual decimal UserExpense(IUser pUser)
 	{
 		throw new System.NotImplementedException();
 	}

@@ -24,7 +24,6 @@ public enum InteractionAttributes : int
 	UserList,
 	Progress,
 	Budget,
-	Duration,
 	UsedBudget,
 	UsedDuration,
 	TaskList,

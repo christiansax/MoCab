@@ -15,12 +15,12 @@ public class User : IUser
 	{
 	}
 
-	public virtual void Logon(string pUser, string pPassword)
+	public virtual void LogOn(string pUser, string pPassword)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void Logout(string pUser)
+	public virtual void LogOff(string pUser)
 	{
 		throw new System.NotImplementedException();
 	}
@@ -46,6 +46,21 @@ public class User : IUser
 	}
 
 	public virtual void SetLogonState(LogonState pState)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void OnLogOn(object pSender, EventArgs e)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void OnLogOff(object pSender, EventArgs e)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void OnStateChanged(object psender, EventArgs e)
 	{
 		throw new System.NotImplementedException();
 	}

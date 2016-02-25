@@ -18,7 +18,6 @@ public enum InteractionAttributes
 	UserList,
 	Progress,
 	Budget,
-	Duration,
 	UsedBudget,
 	UsedDuration,
 	TaskList,

@@ -15,15 +15,13 @@ public interface IAccount
 
 	IEnumerable<IExpense> ExpenseList { get;set; }
 
-	void EditExpense(IExpense pExpense, IExpense pNewExpense);
-
 	void DeleteExpense(IExpense pExpense);
 
 	void EditTimeslice(ITimeslice pTimeslice, ITimeslice pNewTimeslice);
 
 	void DeleteTimeslice(ITimeslice pTimeslice);
 
-	int UserExpense(IUser pUser);
+	decimal UserExpense(IUser pUser);
 
 	int UserTimeslice(IUser pUser);
 

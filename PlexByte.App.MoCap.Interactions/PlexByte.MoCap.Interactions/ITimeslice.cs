@@ -6,13 +6,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface ITimeslice 
+public interface ITimeslice
 {
-	int Duration { get; }
+    int Duration { get; }
 
-	IUser User { get; }
+    IUser User { get; }
 
-	int CalculateDuration(DateTime pStartDT, DateTime pEndDT);
+    IInteraction Target { get; }
+
+    int CalculateDuration(DateTime pStartDT, DateTime pEndDT);
 
 }
 

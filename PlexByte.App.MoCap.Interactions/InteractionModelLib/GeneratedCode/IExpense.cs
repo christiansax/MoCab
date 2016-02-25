@@ -17,6 +17,8 @@ public interface IExpense
 
 	IInteraction Target { get;set; }
 
+	IUser User { get;set; }
+
 	void AddReceipt(System.Drawing.Image pReceipt);
 
 	void DeleteReceipt();

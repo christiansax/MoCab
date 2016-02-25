@@ -11,11 +11,13 @@ public interface IExpense
 {
     decimal Value { get; }
 
-    Image Receipt { get; }
+    System.Drawing.Image Receipt { get; }
 
-    IInteraction Target { get; set; }
+    IInteraction Target { get; }
 
-    void AddReceipt(Image pImage);
+    IUser User { get; }
+
+    void AddReceipt(Image pReceipt);
 
     void DeleteReceipt();
 

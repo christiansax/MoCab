@@ -9,40 +9,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Chat : IChat, IInteraction
+public class User : IUser
 {
-	public virtual void OnComplete(InteractionEventArgs pEventArgs)
+	public User(string pUserName, string pPassword)
+	{
+	}
+
+	public virtual void Logon(string pUser, string pPassword)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void ChangeOwner(IUser pUser)
+	public virtual void Logout(string pUser)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void ChangeIsActive(bool pActive)
+	public virtual void Register()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void OnModify(InteractionEventArgs pEventArgs)
+	public virtual void Decline()
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void ChangeState(InteractionState pState)
+	public virtual void AddInteraction(IInteraction pInteraction)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual void OnStateChanged(InteractionEventArgs pEventArgs)
+	public virtual void RemoveInteraction(IInteraction pInteraction)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public Chat(List<IUser> pUsers)
+	public virtual void SetLogonState(LogonState pState)
 	{
+		throw new System.NotImplementedException();
 	}
 
 }

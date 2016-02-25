@@ -6,10 +6,33 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 
-public interface IUser 
+public interface IUser  : IPerson
 {
+	string UserName { get; }
+
+	string Password { get; }
+
+	DateTime CreatedDate { get; }
+
+	DateTime ModifiedDate { get; }
+
+	List<IInteraction> InteractionList { get; }
+
+    LogonState LogonState { get; }
+
+    void Logon(string pUser, string pPassword);
+
+	void Logout(string pUser);
+
+	void AddInteraction(IInteraction pInteraction);
+
+	void RemoveInteraction(IInteraction pInteraction);
+
+	void SetLogonState(LogonState pState);
+
 }
 

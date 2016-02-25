@@ -9,9 +9,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IChat 
+public interface IChatMessage 
 {
-	IEnumerable<IChatMessage> MessageList { get; }
+	void Destroy();
+
+	void Forward(List<IUser> pUsers);
+
+	void Reply(string pText, int pTimeToLive, DateTime pActiveDateTime);
 
 }
 

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Chat : IChat, IInteraction
+public class ChatMessage : IInteraction, IChatMessage
 {
 	public virtual void OnComplete(InteractionEventArgs pEventArgs)
 	{
@@ -41,8 +41,19 @@ public class Chat : IChat, IInteraction
 		throw new System.NotImplementedException();
 	}
 
-	public Chat(List<IUser> pUsers)
+	public virtual void Destroy()
 	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void Forward(List<IUser> pUsers)
+	{
+		throw new System.NotImplementedException();
+	}
+
+	public virtual void Reply(string pText, int pTimeToLive, DateTime pActiveDateTime)
+	{
+		throw new System.NotImplementedException();
 	}
 
 }

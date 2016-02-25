@@ -9,9 +9,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface IChat 
+public enum LogonState : int
 {
-	IEnumerable<IChatMessage> MessageList { get; }
-
+	Online,
+	Busy,
+	Break,
+	Meeting,
+	Training,
 }
-

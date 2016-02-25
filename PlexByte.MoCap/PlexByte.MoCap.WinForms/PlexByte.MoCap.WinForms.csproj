@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -68,6 +69,12 @@
     <Compile Include="UserControls\uc_Overview.Designer.cs">
       <DependentUpon>uc_Overview.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\uc_Project.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\uc_Project.Designer.cs">
+      <DependentUpon>uc_Project.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\uc_Task.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\uc_Overview.resx">
       <DependentUpon>uc_Overview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\uc_Project.resx">
+      <DependentUpon>uc_Project.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\uc_Task.resx">
       <DependentUpon>uc_Task.cs</DependentUpon>

@@ -1,8 +1,10 @@
 ﻿CREATE VIEW [dbo].[View_VoteCount]
 	AS
-	SELECT	[s].[Text] as Survey, [so].[Text] as SurveyOption, [v].[UserId], COUNT([v].[Id]) as Total
+	SELECT	[s].[Id] AS SurveyId, [s].[Text] as Survey, [so].[Id] AS OptionId, [so].[Text] as SurveyOption, [v].[UserId], [u].[Username], COUNT([v].[Id]) as Total
 	FROM	[Vote] v INNER JOIN [SurveyOption] so
 	ON		[v].[SurveyOptionId]=[so].[Id]
 			INNER JOIN [View_Survey] s
 	ON		[so].[SurveyId]=[s].[Id]
-	GROUP BY ROLLUP ([s].[Text], [so].[Text], [v].[UserId])
+			INNER JOIN [User] u
+	ON		[u].[Id]=[v].[UserId]
+	GROUP BY ROLLUP ([s].[Id], [s].[Text], [so].[Id], [so].[Text], [v].[UserId], [u].[Username])

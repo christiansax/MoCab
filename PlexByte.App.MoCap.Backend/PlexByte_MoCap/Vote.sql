@@ -1,12 +1,14 @@
 ﻿CREATE TABLE [dbo].[Vote]
 (
-	[Id] BIGINT NOT NULL PRIMARY KEY IDENTITY , 
+	[Id] BIGINT NOT NULL PRIMARY KEY , 
     [UserId] BIGINT NOT NULL, 
+	[SurveyId] BIGINT NOT NULL, 
     [SurveyOptionId] BIGINT NOT NULL, 
     [CreatedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
     [ModifiedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
     CONSTRAINT [FK_Vote_User] FOREIGN KEY ([UserId]) REFERENCES [User]([Id]), 
-    CONSTRAINT [FK_Vote_SurveyOption] FOREIGN KEY ([SurveyOptionId]) REFERENCES [SurveyOption]([Id])
+    CONSTRAINT [FK_Vote_SurveyOption] FOREIGN KEY ([SurveyOptionId]) REFERENCES [SurveyOption]([Id]), 
+    CONSTRAINT [FK_Vote_Survey] FOREIGN KEY ([SurveyId]) REFERENCES [Survey]([Id])
 )
 
 GO

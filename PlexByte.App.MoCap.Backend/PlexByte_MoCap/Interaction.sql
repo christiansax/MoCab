@@ -8,11 +8,12 @@
     [Type] NVARCHAR(MAX) NOT NULL DEFAULT 'Project', 
     [CreatorId] BIGINT NOT NULL, 
     [OwnerId] BIGINT NOT NULL, 
-    [State] INT NOT NULL ,
+    [StateId] BIGINT NOT NULL ,
 	[CreatedDateTime] DATETIME NULL DEFAULT GETDATE(), 
     [ModifiedDateTime] DATETIME NULL DEFAULT GETDATE(), 
     CONSTRAINT [FK_Interaction_UserCreator] FOREIGN KEY ([CreatorId]) REFERENCES [User]([Id]),
-	CONSTRAINT [FK_Interaction_UserOwner] FOREIGN KEY ([OwnerId]) REFERENCES [User]([Id])
+	CONSTRAINT [FK_Interaction_UserOwner] FOREIGN KEY ([OwnerId]) REFERENCES [User]([Id]), 
+    CONSTRAINT [FK_Interaction_InteractionState] FOREIGN KEY ([StateId]) REFERENCES [InteractionState]([Id])
 )
 
 GO
@@ -35,4 +36,4 @@ GO
 CREATE INDEX [IX_Interaction_Creator] ON [dbo].[Interaction] ([CreatorId])
 GO
 
-CREATE INDEX [IX_Interaction_State] ON [dbo].[Interaction] ([State])
+CREATE INDEX [IX_Interaction_State] ON [dbo].[Interaction] ([StateId])

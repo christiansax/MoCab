@@ -1,13 +1,15 @@
 ﻿CREATE TABLE [dbo].[Survey]
 (
-	[Id] BIGINT NOT NULL PRIMARY KEY, 
+	[Id] BIGINT NOT NULL , 
+	[InteractionId] BIGINT NOT NULL , 
     [MaxVotePerUser] INT NOT NULL DEFAULT 1, 
 	[DueDateTime] DATETIME NULL,
     [TaskId] BIGINT NULL, 
     [CreatedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
     [ModifiedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
     CONSTRAINT [FK_Survey_Task] FOREIGN KEY ([TaskId]) REFERENCES [Task]([Id]), 
-    CONSTRAINT [FK_Survey_Interaction] FOREIGN KEY ([Id]) REFERENCES [Interaction]([Id]) 
+    CONSTRAINT [FK_Survey_Interaction] FOREIGN KEY ([InteractionId]) REFERENCES [Interaction]([Id]), 
+    CONSTRAINT [PK_Survey] PRIMARY KEY ([Id]) 
 )
 
 GO

@@ -57,6 +57,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\uc_Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\uc_Account.Designer.cs">
+      <DependentUpon>uc_Account.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\uc_MenuBar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\uc_Account.resx">
+      <DependentUpon>uc_Account.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\uc_MenuBar.resx">
       <DependentUpon>uc_MenuBar.cs</DependentUpon>
     </EmbeddedResource>

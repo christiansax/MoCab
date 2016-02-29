@@ -1,4 +1,8 @@
-﻿using System.Windows.Forms;
+﻿//////////////////////////////////////////////////////////////
+//                      Windows form frm_MoCapMain                              
+//      Author: Christian B. Sax            Date:   2016/02/14
+//      The main layer of mocap application holding any other form within docking pannel
+using System.Windows.Forms;
 using PlexByte.MoCap.WinForms.UserControls;
 using WeifenLuo.WinFormsUI.Docking;
 

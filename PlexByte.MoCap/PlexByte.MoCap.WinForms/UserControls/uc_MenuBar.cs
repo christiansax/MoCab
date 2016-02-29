@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//////////////////////////////////////////////////////////////
+//                      Windows form uc_MenuBar                              
+//      Author: Christian B. Sax            Date:   2016/02/14
+//      Contains the menu layer form, which is docked in the main form
+using System;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 

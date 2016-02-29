@@ -1,4 +1,8 @@
-﻿using System;
+﻿//////////////////////////////////////////////////////////////
+//                      Class SOAPWebServiceAdapter                              
+//      Author: Christian B. Sax            Date:   2016/03/1
+//      Implementation of the IWebSeriveAdapter interface implementing SOAP based service
+using System;
 using System.Net;
 using System.Xml;
 using PlexByte.MoCap.Interactions;

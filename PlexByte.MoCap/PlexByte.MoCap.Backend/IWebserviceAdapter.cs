@@ -1,4 +1,8 @@
-﻿namespace PlexByte.MoCap.Backend
+﻿//////////////////////////////////////////////////////////////
+//                      Interface IWebServiceAdapter                              
+//      Author: Christian B. Sax            Date:   2016/03/1
+//      Interface to define the web service adaptr methods
+namespace PlexByte.MoCap.Backend
 {
     public interface IWebServiceAdapter
     {

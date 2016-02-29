@@ -41,39 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeneratedCode\Interactions\IInteraction.cs" />
-    <Compile Include="GeneratedCode\Interactions\IOption.cs" />
-    <Compile Include="GeneratedCode\Interactions\IPoll.cs" />
-    <Compile Include="GeneratedCode\Interactions\ITask.cs" />
-    <Compile Include="GeneratedCode\Interactions\IVote.cs" />
-    <Compile Include="GeneratedCode\Interactions\Option.cs" />
-    <Compile Include="GeneratedCode\Interactions\Poll.cs" />
-    <Compile Include="GeneratedCode\Interactions\Task.cs" />
-    <Compile Include="GeneratedCode\Interactions\Vote.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\Accounting.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\Bill.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\IAccounting.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\IBill.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\IInteraction.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\InteractionEventArgs.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\InteractionType.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\IOption.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\IPoll.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\IProject.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\ITask.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\ITimeSlice.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\IVote.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\Option.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\Poll.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\Project.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\Task.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Interactions\Vote.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Security\IPerson.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Security\IUser.cs" />
-    <Compile Include="GeneratedCode\PlexByte.MoCap.Security\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="GeneratedCode\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

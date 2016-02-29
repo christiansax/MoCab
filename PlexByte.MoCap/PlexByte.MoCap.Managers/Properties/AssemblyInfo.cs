@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PlexByte.MoCap.Security")]
+[assembly: AssemblyTitle("PlexByte.MoCap.Managers")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PlexByte.MoCap.Security")]
+[assembly: AssemblyProduct("PlexByte.MoCap.Managers")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("265f3562-24a8-4b4f-8140-56d566c18f53")]
+[assembly: Guid("7e8d8811-3167-41b9-863f-451615f52624")]
 
 // Version information for an assembly consists of the following four values:
 //

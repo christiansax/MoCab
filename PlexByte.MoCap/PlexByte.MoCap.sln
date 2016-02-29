@@ -7,19 +7,13 @@ Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "PlexByte.MoCap", "PlexByte.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlexByte.MoCapLib", "PlexByte.MoCapLib\PlexByte.MoCapLib.csproj", "{CAC8494F-5DFC-455E-9795-59A21D8751CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlexByte.MoCap.Interactions", "PlexByte.MoCap.Interactions\PlexByte.MoCap.Interactions.csproj", "{40B9ACF4-0C17-4249-94C8-F3445E53832B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlexByte.MoCap.WinForms", "PlexByte.MoCap.WinForms\PlexByte.MoCap.WinForms.csproj", "{B1DEF6CC-3943-4FF5-AE6D-724BBAAE9734}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlexByte.MoCap.Logging", "PlexByte.MoCap.Logging\PlexByte.MoCap.Logging.csproj", "{4E69895D-A80A-4D7E-9BA4-3B6E2E5D74EB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlexByte.MoCap.Security", "PlexByte.MoCap.Security\PlexByte.MoCap.Security.csproj", "{714705B8-C060-41D8-81A0-78BDE90F2DD3}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MocapWebService/InteractionService", "http://localhost:54663/InteractionService", "{95F50AF4-BFE1-46EE-AD27-50CDA246AF71}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
-		ProjectReferences = "{40b9acf4-0c17-4249-94c8-f3445e53832b}|PlexByte.MoCap.Interactions.dll;"
+		ProjectReferences = ""
 		Debug.AspNetCompiler.VirtualPath = "/InteractionService"
 		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\My Web Sites\MocapWebService\InteractionService\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\InteractionService\"
@@ -42,7 +36,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MocapWebService/UserService
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
-		ProjectReferences = "{714705b8-c060-41d8-81a0-78bde90f2dd3}|PlexByte.MoCap.Security.dll;"
+		ProjectReferences = ""
 		Debug.AspNetCompiler.VirtualPath = "/UserService"
 		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\My Web Sites\MocapWebService\UserService\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\UserService\"
@@ -61,6 +55,14 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MocapWebService/UserService
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlexByte.MoCap.Interactions", "PlexByte.MoCap.Interactions\PlexByte.MoCap.Interactions.csproj", "{1656F717-ADA8-4C21-A310-069262387695}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlexByte.MoCap.Security", "PlexByte.MoCap.Security\PlexByte.MoCap.Security.csproj", "{265F3562-24A8-4B4F-8140-56D566C18F53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlexByte.MoCap.Managers", "PlexByte.MoCap.Managers\PlexByte.MoCap.Managers.csproj", "{7E8D8811-3167-41B9-863F-451615F52624}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlexByte.MoCap.Helpers", "PlexByte.MoCap.Helpers\PlexByte.MoCap.Helpers.csproj", "{34506AA0-EE70-4637-9352-6D044E29823A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,22 +77,10 @@ Global
 		{CAC8494F-5DFC-455E-9795-59A21D8751CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAC8494F-5DFC-455E-9795-59A21D8751CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAC8494F-5DFC-455E-9795-59A21D8751CC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{40B9ACF4-0C17-4249-94C8-F3445E53832B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{40B9ACF4-0C17-4249-94C8-F3445E53832B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{40B9ACF4-0C17-4249-94C8-F3445E53832B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{40B9ACF4-0C17-4249-94C8-F3445E53832B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B1DEF6CC-3943-4FF5-AE6D-724BBAAE9734}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B1DEF6CC-3943-4FF5-AE6D-724BBAAE9734}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1DEF6CC-3943-4FF5-AE6D-724BBAAE9734}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1DEF6CC-3943-4FF5-AE6D-724BBAAE9734}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4E69895D-A80A-4D7E-9BA4-3B6E2E5D74EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E69895D-A80A-4D7E-9BA4-3B6E2E5D74EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E69895D-A80A-4D7E-9BA4-3B6E2E5D74EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E69895D-A80A-4D7E-9BA4-3B6E2E5D74EB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{714705B8-C060-41D8-81A0-78BDE90F2DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{714705B8-C060-41D8-81A0-78BDE90F2DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{714705B8-C060-41D8-81A0-78BDE90F2DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{714705B8-C060-41D8-81A0-78BDE90F2DD3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{95F50AF4-BFE1-46EE-AD27-50CDA246AF71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{95F50AF4-BFE1-46EE-AD27-50CDA246AF71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95F50AF4-BFE1-46EE-AD27-50CDA246AF71}.Release|Any CPU.ActiveCfg = Debug|Any CPU
@@ -99,6 +89,22 @@ Global
 		{838D05A6-80EB-42E0-A22B-9F9D24697096}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{838D05A6-80EB-42E0-A22B-9F9D24697096}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{838D05A6-80EB-42E0-A22B-9F9D24697096}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{1656F717-ADA8-4C21-A310-069262387695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1656F717-ADA8-4C21-A310-069262387695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1656F717-ADA8-4C21-A310-069262387695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1656F717-ADA8-4C21-A310-069262387695}.Release|Any CPU.Build.0 = Release|Any CPU
+		{265F3562-24A8-4B4F-8140-56D566C18F53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{265F3562-24A8-4B4F-8140-56D566C18F53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{265F3562-24A8-4B4F-8140-56D566C18F53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{265F3562-24A8-4B4F-8140-56D566C18F53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E8D8811-3167-41B9-863F-451615F52624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E8D8811-3167-41B9-863F-451615F52624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E8D8811-3167-41B9-863F-451615F52624}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E8D8811-3167-41B9-863F-451615F52624}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34506AA0-EE70-4637-9352-6D044E29823A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34506AA0-EE70-4637-9352-6D044E29823A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34506AA0-EE70-4637-9352-6D044E29823A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34506AA0-EE70-4637-9352-6D044E29823A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

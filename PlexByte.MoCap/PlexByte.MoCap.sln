@@ -15,6 +15,52 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlexByte.MoCap.Logging", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlexByte.MoCap.Security", "PlexByte.MoCap.Security\PlexByte.MoCap.Security.csproj", "{714705B8-C060-41D8-81A0-78BDE90F2DD3}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MocapWebService/InteractionService", "http://localhost:54663/InteractionService", "{95F50AF4-BFE1-46EE-AD27-50CDA246AF71}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		ProjectReferences = "{40b9acf4-0c17-4249-94c8-f3445e53832b}|PlexByte.MoCap.Interactions.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/InteractionService"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\My Web Sites\MocapWebService\InteractionService\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\InteractionService\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/InteractionService"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\My Web Sites\MocapWebService\InteractionService\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\InteractionService\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\..\..\..\My Web Sites\MocapWebService\InteractionService\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MocapWebService/UserService", "http://localhost:54663/UserService", "{838D05A6-80EB-42E0-A22B-9F9D24697096}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
+		ProjectReferences = "{714705b8-c060-41d8-81a0-78bde90f2dd3}|PlexByte.MoCap.Security.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/UserService"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\My Web Sites\MocapWebService\UserService\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\UserService\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/UserService"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\My Web Sites\MocapWebService\UserService\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\UserService\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\..\..\..\My Web Sites\MocapWebService\UserService\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +91,14 @@ Global
 		{714705B8-C060-41D8-81A0-78BDE90F2DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{714705B8-C060-41D8-81A0-78BDE90F2DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{714705B8-C060-41D8-81A0-78BDE90F2DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95F50AF4-BFE1-46EE-AD27-50CDA246AF71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F50AF4-BFE1-46EE-AD27-50CDA246AF71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95F50AF4-BFE1-46EE-AD27-50CDA246AF71}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F50AF4-BFE1-46EE-AD27-50CDA246AF71}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{838D05A6-80EB-42E0-A22B-9F9D24697096}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{838D05A6-80EB-42E0-A22B-9F9D24697096}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{838D05A6-80EB-42E0-A22B-9F9D24697096}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{838D05A6-80EB-42E0-A22B-9F9D24697096}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

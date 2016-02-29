@@ -63,20 +63,18 @@ public class InteractionFactory : IInteractionFactory
         return (new Account(pId, pText, pExpenseList, pTimesliceList, pCreator));
     }
 
-    public virtual IInteraction CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, IUser pCreator)
+    public virtual IInteraction CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator)
     {
         if (string.IsNullOrEmpty(pId))
             pId = Helper.GenerateId();
-        return (new Project(pId, pText, pEnableBalance, pEnableSurvey, pCreator));
+        return (new Project(pId, pText, pEnableBalance, pEnableSurvey, pStartDT, pEndDT, pCreator));
     }
 
-	public virtual IInteraction CreateProject(string pId, string pText, IUser pCreator, IUser pOwner, List<IUser> pMemberList, 
-        List<IUser> pInvitationList, bool pEnableBalance, bool pEnableSurvey, List<ITask> TaskList, List<ISurvey> SurveyList)
+    public virtual IInteraction CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator, IUser pOwner, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList)
     {
         if (string.IsNullOrEmpty(pId))
             pId = Helper.GenerateId();
-        return (new Project(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, TaskList,  SurveyList, 
-            pCreator, pOwner));
+        return (new Project(pId, pText, pEnableBalance, pEnableSurvey, pStartDT, pEndDT, pCreator, pOwner, pMemberList, pInvitationList, pTaskList,  pSurveyList));
     }
 
 	public virtual IInteraction CreateChat(string pTextTitle, IUser pCreator, List<IUser> pUsers)

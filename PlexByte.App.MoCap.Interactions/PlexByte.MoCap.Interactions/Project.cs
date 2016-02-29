@@ -119,7 +119,7 @@ public class Project : IProject, IInteraction
     /// <param name="pEnableBalance"></param>
     /// <param name="pEnableSurvey"></param>
     /// <param name="pCreator"></param>
-    public Project(string pId, string pText,bool pEnableBalance, bool pEnableSurvey, IUser pCreator)
+    public Project(string pId, string pText,bool pEnableBalance, bool pEnableSurvey, DateTime pStartDt, DateTime pEndDt, IUser pCreator)
     {
         List<IUser> pMemberList = new List<IUser>();
         List<IUser> pInvitationList = new List<IUser>();
@@ -127,7 +127,7 @@ public class Project : IProject, IInteraction
         List<ISurvey> pSurveyList = new List<ISurvey>();
         IUser pOwner = pCreator;
 
-        InitializeProperties(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pCreator, pOwner);
+        InitializeProperties(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pStartDt, pEndDt, pCreator, pOwner);
     }
 
     /// <summary>
@@ -143,9 +143,9 @@ public class Project : IProject, IInteraction
     /// <param name="pSurveyList"></param>
     /// <param name="pCreator"></param>
     /// <param name="pOwner"></param>
-    public Project(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList, IUser pCreator, IUser pOwner)
+    public Project(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDt, DateTime pEndDt, IUser pCreator, IUser pOwner, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList)
     {
-        InitializeProperties(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pCreator, pOwner);
+        InitializeProperties(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pStartDt, pEndDt, pCreator, pOwner);
     }
     #endregion
 
@@ -378,7 +378,7 @@ public class Project : IProject, IInteraction
     /// <param name="pSurveyList"></param>
     /// <param name="pCreator"></param>
     /// <param name="pOwner"></param>
-    private void InitializeProperties(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList, IUser pCreator, IUser pOwner)
+    private void InitializeProperties(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList, DateTime pStartDt, DateTime pEndDt, IUser pCreator, IUser pOwner)
     {
         
         Id = pId;

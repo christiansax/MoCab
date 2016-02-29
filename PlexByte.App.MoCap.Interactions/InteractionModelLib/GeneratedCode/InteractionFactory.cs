@@ -41,12 +41,12 @@ public class InteractionFactory : IInteractionFactory
 		throw new System.NotImplementedException();
 	}
 
-	public virtual IInteraction CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, IUser pCreator)
+	public virtual IInteraction CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator)
 	{
 		throw new System.NotImplementedException();
 	}
 
-	public virtual IInteraction CreateProject(string pId, string pText, IUser pCreatur, List<IUser> pOwner, List<IUser> MemberList, bool InvitationList, bool pEnableBalance, List<ITask> pEnableSurvey, List<ISurvey> TaskList)
+	public virtual IInteraction CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator, IUser pOwner, List<IUser> MemberList, List<IUser> InvitationList, List<ITask> TaskList, List<ISurvey> SurveyList)
 	{
 		throw new System.NotImplementedException();
 	}

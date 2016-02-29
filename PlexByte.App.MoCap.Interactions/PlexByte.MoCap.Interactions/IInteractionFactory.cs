@@ -35,11 +35,11 @@ public interface IInteractionFactory
 
     IInteraction CreateAccount(string pId, string pText, List<IExpense> pExpenseList, List<ITimeslice> pTimesliceList, IUser pCreator);
 
-    IInteraction CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, IUser pCreator);
+    IInteraction CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator);
 
-	IInteraction CreateProject(string pId, string pText, IUser pCreatur, IUser pOwner, List<IUser> MemberList, List<IUser> InvitationList, bool pEnableBalance, bool pEnableSurvey, List<ITask> TaskList, List<ISurvey> SurveyList);
+    IInteraction CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator, IUser pOwner, List<IUser> MemberList, List<IUser> InvitationList, List<ITask> TaskList, List<ISurvey> SurveyList);
 
-	IInteraction CreateChat(string pTextTitle, IUser pCreator, List<IUser> pUsers);
+    IInteraction CreateChat(string pTextTitle, IUser pCreator, List<IUser> pUsers);
 
 	IInteraction CreateChat(string pTextTitle, IUser pCreator, List<IUser> pUsers, DateTime pStartDateTime, DateTime pEndDateTime, bool pAllowSelfdestructing);
 

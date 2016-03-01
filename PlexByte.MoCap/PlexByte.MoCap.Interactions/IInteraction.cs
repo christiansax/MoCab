@@ -8,7 +8,6 @@ using PlexByte.MoCap.Security;
 
 namespace PlexByte.MoCap.Interactions
 {
-
     public delegate void Complete(object sender, InteractionEventArgs e);
 
     public delegate void Modify(object sender, InteractionEventArgs e);

@@ -6,31 +6,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
-public delegate void ExpenseAdd(object sender, InteractionEventArgs e);
-public delegate void TimesliceAdd(object sender, InteractionEventArgs e);
-
-public interface IAccount
+namespace PlexByte.MoCap.Interactions
 {
-    event ExpenseAdd ExpenseAdded;
-    event TimesliceAdd TimesliceAdded;
 
-    List<IExpense> ExpenseList { get;  }
+    public delegate void ExpenseAdd(object sender, InteractionEventArgs e);
+    public delegate void TimesliceAdd(object sender, InteractionEventArgs e);
 
-    List<ITimeslice> TimesliceList { get;  }
+    public interface IAccount
+    {
+        event ExpenseAdd ExpenseAdded;
+        event TimesliceAdd TimesliceAdded;
 
-    void AddExpense(IExpense pExpense);
+        List<IExpense> ExpenseList { get; }
 
-    void AddTimeslice(ITimeslice pTimeslice);
+        List<ITimeslice> TimesliceList { get; }
 
-    void DeleteExpense(IExpense pExpense);
+        void AddExpense(IExpense pExpense);
 
-    void EditTimeslice(ITimeslice pTimeslice, ITimeslice pNewTimeslice);
+        void AddTimeslice(ITimeslice pTimeslice);
 
-    void DeleteTimeslice(ITimeslice pTimeslice);
+        void DeleteExpense(IExpense pExpense);
 
-    decimal UserExpense(IUser pUser);
+        void EditTimeslice(ITimeslice pTimeslice, ITimeslice pNewTimeslice);
 
-    int UserTimeslice(IUser pUser);
+        void DeleteTimeslice(ITimeslice pTimeslice);
+
+        decimal UserExpense(IUser pUser);
+
+        int UserTimeslice(IUser pUser);
+    }
+
 }
-

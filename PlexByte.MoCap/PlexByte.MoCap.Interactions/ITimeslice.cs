@@ -6,15 +6,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public interface ITimeslice
+namespace PlexByte.MoCap.Interactions
 {
-    int Duration { get; }
 
-    IUser User { get; }
+    public interface ITimeslice
+    {
+        int Duration { get; }
 
-    IInteraction Target { get; }
+        IUser User { get; }
 
-    int CalculateDuration(DateTime pStartDT, DateTime pEndDT);
+        IInteraction Target { get; }
+
+        int CalculateDuration(DateTime pStartDT, DateTime pEndDT);
+
+    }
 
 }
-

@@ -5,7 +5,6 @@
 using System;
 using System.Net;
 using System.Xml;
-using PlexByte.MoCap.Interactions;
 
 /*
 https://msdn.microsoft.com/en-us/library/hh534080.aspx

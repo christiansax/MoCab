@@ -34,11 +34,20 @@ namespace PlexByte.MoCap.Backend
 
         #region Implementation of IWebServiceAdapter
 
-        public XmlSerializer Serialize<IInteraction, XmlSerializer>(ref IInteraction pObjectToSerialize) { throw new System.NotImplementedException(); }
+        public XmlSerializer Serialize<IInteraction, XmlSerializer>(ref IInteraction pObjectToSerialize)
+        {
+            throw new System.NotImplementedException();
+        }
 
-        public IInteraction Deserialize<XmlDocument, IInteraction>(ref XmlDocument pObjectToDeserialize) { throw new System.NotImplementedException(); }
+        public IInteraction Deserialize<XmlDocument, IInteraction>(ref XmlDocument pObjectToDeserialize)
+        {
+            throw new System.NotImplementedException();
+        }
 
-        public void SendResponse<XmlDocument>(ref XmlDocument pResponseObject) { throw new System.NotImplementedException(); }
+        public void SendResponse<XmlDocument>(ref XmlDocument pResponseObject)
+        {
+            throw new System.NotImplementedException();
+        }
 
         public void SendRequest<XmlSerializer>(string pServiceName, string pServiceMethod, ref XmlSerializer pRequestObject)
         {

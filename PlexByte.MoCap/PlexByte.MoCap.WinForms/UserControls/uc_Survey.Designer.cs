@@ -28,21 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("fsdf");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("sadfsd");
             System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("sdf");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("fsdf");
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("sadfsd");
             System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("sdfs");
-            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("sdf");
             System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("dssf");
-            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("dfsdf");
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("sdfs");
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("dssf");
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("dfsdf");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("1. sdfs (2)");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("2. sdfs (1)");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("3. fsdf (1)");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("4. sadfsd (1)");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_Survey));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
@@ -54,23 +58,30 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbl_Title = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.lbl_Description = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.btn_Vote = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lbl_TotalVotes = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lbl_VotesPerUser = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lbl_State = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbl_DueDate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_Vote = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.tbx_SurveyTitle = new System.Windows.Forms.TextBox();
+            this.tbx_SurveyVoteCount = new System.Windows.Forms.TextBox();
+            this.tbx_State = new System.Windows.Forms.TextBox();
+            this.tbx_DueDate = new System.Windows.Forms.TextBox();
+            this.tbx_Description = new System.Windows.Forms.TextBox();
+            this.tbx_VotesPerUser = new System.Windows.Forms.TextBox();
+            this.tbx_LastVoteBy = new System.Windows.Forms.TextBox();
+            this.lsv_VoteOverview = new System.Windows.Forms.ListView();
             this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.lbl_AssignTask = new System.Windows.Forms.Label();
+            this.tbx_TaskTitle = new System.Windows.Forms.TextBox();
+            this.btn_TaskView = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -88,7 +99,7 @@
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Location = new System.Drawing.Point(12, 118);
+            this.groupBox1.Location = new System.Drawing.Point(12, 243);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(625, 75);
             this.groupBox1.TabIndex = 12;
@@ -98,6 +109,7 @@
             // dateTimePicker3
             // 
             this.dateTimePicker3.CustomFormat = "ddd dd MMM yyyy        HH:mm";
+            this.dateTimePicker3.Enabled = false;
             this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker3.Location = new System.Drawing.Point(416, 45);
             this.dateTimePicker3.Name = "dateTimePicker3";
@@ -107,6 +119,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.CustomFormat = "ddd dd MMM yyyy        HH:mm";
+            this.dateTimePicker2.Enabled = false;
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker2.Location = new System.Drawing.Point(416, 19);
             this.dateTimePicker2.Name = "dateTimePicker2";
@@ -115,6 +128,7 @@
             // 
             // textBox8
             // 
+            this.textBox8.Enabled = false;
             this.textBox8.Location = new System.Drawing.Point(89, 45);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(133, 20);
@@ -122,6 +136,7 @@
             // 
             // textBox7
             // 
+            this.textBox7.Enabled = false;
             this.textBox7.Location = new System.Drawing.Point(89, 19);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(133, 20);
@@ -166,20 +181,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Location = new System.Drawing.Point(6, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 13;
             this.label1.Text = "Title:";
-            // 
-            // lbl_Title
-            // 
-            this.lbl_Title.AutoSize = true;
-            this.lbl_Title.Location = new System.Drawing.Point(86, 16);
-            this.lbl_Title.Name = "lbl_Title";
-            this.lbl_Title.Size = new System.Drawing.Size(36, 13);
-            this.lbl_Title.TabIndex = 14;
-            this.lbl_Title.Text = "Title...";
             // 
             // label2
             // 
@@ -190,49 +196,101 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "Description:";
             // 
-            // lbl_Description
-            // 
-            this.lbl_Description.AutoSize = true;
-            this.lbl_Description.Location = new System.Drawing.Point(413, 16);
-            this.lbl_Description.Name = "lbl_Description";
-            this.lbl_Description.Size = new System.Drawing.Size(69, 13);
-            this.lbl_Description.TabIndex = 16;
-            this.lbl_Description.Text = "Description...";
-            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btn_TaskView);
+            this.groupBox2.Controls.Add(this.tbx_TaskTitle);
+            this.groupBox2.Controls.Add(this.lbl_AssignTask);
             this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.lsv_VoteOverview);
+            this.groupBox2.Controls.Add(this.tbx_LastVoteBy);
+            this.groupBox2.Controls.Add(this.tbx_VotesPerUser);
+            this.groupBox2.Controls.Add(this.tbx_Description);
+            this.groupBox2.Controls.Add(this.tbx_DueDate);
+            this.groupBox2.Controls.Add(this.tbx_State);
+            this.groupBox2.Controls.Add(this.tbx_SurveyVoteCount);
+            this.groupBox2.Controls.Add(this.tbx_SurveyTitle);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.lbl_DueDate);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.lbl_State);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.lbl_VotesPerUser);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.lbl_TotalVotes);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.lbl_Title);
-            this.groupBox2.Controls.Add(this.lbl_Description);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(625, 100);
+            this.groupBox2.Size = new System.Drawing.Size(625, 225);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Survey Details:";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(296, 100);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Last Vote:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 100);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Due Date:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 74);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "State:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(271, 74);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(80, 13);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Votes per User:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Votes:";
+            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.textBox10);
+            this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.btn_Vote);
             this.groupBox3.Controls.Add(this.listView1);
             this.groupBox3.Enabled = false;
-            this.groupBox3.Location = new System.Drawing.Point(12, 200);
+            this.groupBox3.Location = new System.Drawing.Point(12, 324);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(625, 134);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Voting:";
+            // 
+            // btn_Vote
+            // 
+            this.btn_Vote.Location = new System.Drawing.Point(9, 19);
+            this.btn_Vote.Name = "btn_Vote";
+            this.btn_Vote.Size = new System.Drawing.Size(75, 23);
+            this.btn_Vote.TabIndex = 20;
+            this.btn_Vote.Text = "Vote";
+            this.btn_Vote.UseVisualStyleBackColor = true;
             // 
             // listView1
             // 
@@ -240,10 +298,6 @@
             this.listView1.CheckBoxes = true;
             this.listView1.HideSelection = false;
             this.listView1.HoverSelection = true;
-            listViewItem1.StateImageIndex = 0;
-            listViewItem2.StateImageIndex = 0;
-            listViewItem3.StateImageIndex = 0;
-            listViewItem4.StateImageIndex = 0;
             listViewItem5.StateImageIndex = 0;
             listViewItem6.StateImageIndex = 0;
             listViewItem7.StateImageIndex = 0;
@@ -255,11 +309,11 @@
             listViewItem13.StateImageIndex = 0;
             listViewItem14.StateImageIndex = 0;
             listViewItem15.StateImageIndex = 0;
+            listViewItem16.StateImageIndex = 0;
+            listViewItem17.StateImageIndex = 0;
+            listViewItem18.StateImageIndex = 0;
+            listViewItem19.StateImageIndex = 0;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4,
             listViewItem5,
             listViewItem6,
             listViewItem7,
@@ -270,118 +324,142 @@
             listViewItem12,
             listViewItem13,
             listViewItem14,
-            listViewItem15});
-            this.listView1.Location = new System.Drawing.Point(9, 19);
+            listViewItem15,
+            listViewItem16,
+            listViewItem17,
+            listViewItem18,
+            listViewItem19});
+            this.listView1.Location = new System.Drawing.Point(89, 19);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(608, 77);
+            this.listView1.Size = new System.Drawing.Size(528, 77);
             this.listView1.TabIndex = 19;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
             // 
-            // btn_Vote
+            // tbx_SurveyTitle
             // 
-            this.btn_Vote.Location = new System.Drawing.Point(9, 102);
-            this.btn_Vote.Name = "btn_Vote";
-            this.btn_Vote.Size = new System.Drawing.Size(75, 23);
-            this.btn_Vote.TabIndex = 20;
-            this.btn_Vote.Text = "Vote";
-            this.btn_Vote.UseVisualStyleBackColor = true;
+            this.tbx_SurveyTitle.Location = new System.Drawing.Point(89, 19);
+            this.tbx_SurveyTitle.Name = "tbx_SurveyTitle";
+            this.tbx_SurveyTitle.Size = new System.Drawing.Size(133, 20);
+            this.tbx_SurveyTitle.TabIndex = 26;
             // 
-            // label4
+            // tbx_SurveyVoteCount
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Votes:";
+            this.tbx_SurveyVoteCount.Location = new System.Drawing.Point(89, 45);
+            this.tbx_SurveyVoteCount.Name = "tbx_SurveyVoteCount";
+            this.tbx_SurveyVoteCount.Size = new System.Drawing.Size(133, 20);
+            this.tbx_SurveyVoteCount.TabIndex = 27;
             // 
-            // lbl_TotalVotes
+            // tbx_State
             // 
-            this.lbl_TotalVotes.AutoSize = true;
-            this.lbl_TotalVotes.Location = new System.Drawing.Point(86, 33);
-            this.lbl_TotalVotes.Name = "lbl_TotalVotes";
-            this.lbl_TotalVotes.Size = new System.Drawing.Size(83, 13);
-            this.lbl_TotalVotes.TabIndex = 18;
-            this.lbl_TotalVotes.Text = "number of votes";
+            this.tbx_State.Location = new System.Drawing.Point(89, 71);
+            this.tbx_State.Name = "tbx_State";
+            this.tbx_State.Size = new System.Drawing.Size(133, 20);
+            this.tbx_State.TabIndex = 28;
             // 
-            // label6
+            // tbx_DueDate
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(271, 50);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 13);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Votes per User:";
+            this.tbx_DueDate.Location = new System.Drawing.Point(89, 97);
+            this.tbx_DueDate.Name = "tbx_DueDate";
+            this.tbx_DueDate.Size = new System.Drawing.Size(133, 20);
+            this.tbx_DueDate.TabIndex = 29;
             // 
-            // lbl_VotesPerUser
+            // tbx_Description
             // 
-            this.lbl_VotesPerUser.AutoSize = true;
-            this.lbl_VotesPerUser.Location = new System.Drawing.Point(413, 50);
-            this.lbl_VotesPerUser.Name = "lbl_VotesPerUser";
-            this.lbl_VotesPerUser.Size = new System.Drawing.Size(35, 13);
-            this.lbl_VotesPerUser.TabIndex = 20;
-            this.lbl_VotesPerUser.Text = "label7";
+            this.tbx_Description.Location = new System.Drawing.Point(416, 19);
+            this.tbx_Description.Multiline = true;
+            this.tbx_Description.Name = "tbx_Description";
+            this.tbx_Description.Size = new System.Drawing.Size(201, 46);
+            this.tbx_Description.TabIndex = 30;
             // 
-            // label8
+            // tbx_VotesPerUser
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 50);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "State:";
+            this.tbx_VotesPerUser.Location = new System.Drawing.Point(416, 71);
+            this.tbx_VotesPerUser.Name = "tbx_VotesPerUser";
+            this.tbx_VotesPerUser.Size = new System.Drawing.Size(201, 20);
+            this.tbx_VotesPerUser.TabIndex = 31;
             // 
-            // lbl_State
+            // tbx_LastVoteBy
             // 
-            this.lbl_State.AutoSize = true;
-            this.lbl_State.Location = new System.Drawing.Point(86, 50);
-            this.lbl_State.Name = "lbl_State";
-            this.lbl_State.Size = new System.Drawing.Size(37, 13);
-            this.lbl_State.TabIndex = 22;
-            this.lbl_State.Text = "Active";
+            this.tbx_LastVoteBy.Location = new System.Drawing.Point(416, 97);
+            this.tbx_LastVoteBy.Name = "tbx_LastVoteBy";
+            this.tbx_LastVoteBy.Size = new System.Drawing.Size(201, 20);
+            this.tbx_LastVoteBy.TabIndex = 32;
             // 
-            // label3
+            // lsv_VoteOverview
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 67);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Due Date:";
-            // 
-            // lbl_DueDate
-            // 
-            this.lbl_DueDate.AutoSize = true;
-            this.lbl_DueDate.Location = new System.Drawing.Point(86, 67);
-            this.lbl_DueDate.Name = "lbl_DueDate";
-            this.lbl_DueDate.Size = new System.Drawing.Size(95, 13);
-            this.lbl_DueDate.TabIndex = 24;
-            this.lbl_DueDate.Text = "2016/01/20 01:00";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(296, 67);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 13);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Last Vote:";
+            this.lsv_VoteOverview.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4});
+            this.lsv_VoteOverview.Location = new System.Drawing.Point(89, 124);
+            this.lsv_VoteOverview.Name = "lsv_VoteOverview";
+            this.lsv_VoteOverview.Size = new System.Drawing.Size(528, 65);
+            this.lsv_VoteOverview.TabIndex = 33;
+            this.lsv_VoteOverview.UseCompatibleStateImageBehavior = false;
+            this.lsv_VoteOverview.View = System.Windows.Forms.View.List;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(413, 67);
+            this.label7.Location = new System.Drawing.Point(6, 124);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(95, 13);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "2016/01/20 01:00";
+            this.label7.Size = new System.Drawing.Size(80, 13);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "Vote Overview:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 106);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(79, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Custom Option:";
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(89, 103);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(528, 20);
+            this.textBox10.TabIndex = 22;
+            this.textBox10.Visible = false;
+            // 
+            // lbl_AssignTask
+            // 
+            this.lbl_AssignTask.AutoSize = true;
+            this.lbl_AssignTask.Location = new System.Drawing.Point(6, 200);
+            this.lbl_AssignTask.Name = "lbl_AssignTask";
+            this.lbl_AssignTask.Size = new System.Drawing.Size(300, 13);
+            this.lbl_AssignTask.TabIndex = 35;
+            this.lbl_AssignTask.Text = "Task to assign (User with highest vote count will be assigned):";
+            this.lbl_AssignTask.Visible = false;
+            // 
+            // tbx_TaskTitle
+            // 
+            this.tbx_TaskTitle.Enabled = false;
+            this.tbx_TaskTitle.Location = new System.Drawing.Point(335, 197);
+            this.tbx_TaskTitle.Name = "tbx_TaskTitle";
+            this.tbx_TaskTitle.Size = new System.Drawing.Size(237, 20);
+            this.tbx_TaskTitle.TabIndex = 36;
+            this.tbx_TaskTitle.Visible = false;
+            // 
+            // btn_TaskView
+            // 
+            this.btn_TaskView.Location = new System.Drawing.Point(578, 195);
+            this.btn_TaskView.Name = "btn_TaskView";
+            this.btn_TaskView.Size = new System.Drawing.Size(39, 23);
+            this.btn_TaskView.TabIndex = 37;
+            this.btn_TaskView.Text = "...";
+            this.btn_TaskView.UseVisualStyleBackColor = true;
+            this.btn_TaskView.Visible = false;
             // 
             // uc_Survey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 438);
+            this.ClientSize = new System.Drawing.Size(652, 470);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -393,6 +471,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -408,22 +487,29 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbl_Title;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbl_Description;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btn_Vote;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Label lbl_TotalVotes;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lbl_State;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lbl_VotesPerUser;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lbl_DueDate;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ListView lsv_VoteOverview;
+        private System.Windows.Forms.TextBox tbx_LastVoteBy;
+        private System.Windows.Forms.TextBox tbx_VotesPerUser;
+        private System.Windows.Forms.TextBox tbx_Description;
+        private System.Windows.Forms.TextBox tbx_DueDate;
+        private System.Windows.Forms.TextBox tbx_State;
+        private System.Windows.Forms.TextBox tbx_SurveyVoteCount;
+        private System.Windows.Forms.TextBox tbx_SurveyTitle;
+        private System.Windows.Forms.Button btn_TaskView;
+        private System.Windows.Forms.TextBox tbx_TaskTitle;
+        private System.Windows.Forms.Label lbl_AssignTask;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -16,10 +16,14 @@ namespace PlexByte.MoCap.WinForms
             InitializeComponent();
             // Place overview panel on the left and dock
             OverviewPannel.Show(dockPanel1, DockState.DockLeft);
+            uc_Project projectPanel1 = new uc_Project();
+            projectPanel1.Show(dockPanel1, DockState.Document);
             uc_Task taskPanel1 = new uc_Task();
             taskPanel1.Show(dockPanel1, DockState.Document);
             uc_Survey surveyPanel1 = new uc_Survey();
             surveyPanel1.Show(dockPanel1, DockState.Document);
+            uc_Account accountPanel1 = new uc_Account();
+            accountPanel1.Show(dockPanel1, DockState.Document);
             uc_MenuBar menu = new uc_MenuBar();
             menu.Show(dockPanel1, DockState.DockTop);
             dockPanel1.DockTopPortion = 100.00;

@@ -2,6 +2,7 @@
 //                      Interface Project                              
 //      Author: Fabian Ochsner            Date:   2016/02/19
 using System.Collections.Generic;
+using PlexByte.MoCap.Security;
 
 namespace PlexByte.MoCap.Interactions
 {

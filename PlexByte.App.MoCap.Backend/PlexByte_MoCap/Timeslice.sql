@@ -6,7 +6,8 @@
 	[User] BIGINT NOT NULL,
     [CreatedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
     [ModifiedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
-    CONSTRAINT [FK_Timeslice_Account] FOREIGN KEY ([Id]) REFERENCES [Account]([Id]), 
+    [AccountId] BIGINT NOT NULL, 
+    CONSTRAINT [FK_Timeslice_Account] FOREIGN KEY ([AccountId]) REFERENCES [Account]([Id]), 
     CONSTRAINT [FK_Timeslice_User] FOREIGN KEY ([User]) REFERENCES [User]([Id]), 
     CONSTRAINT [FK_Timeslice_Task] FOREIGN KEY ([Target]) REFERENCES [Task]([Id]), 
 )

@@ -7,7 +7,8 @@
 	[Creator] BIGINT NOT NULL,
     [CreatedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
     [ModifiedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
-    CONSTRAINT [FK_Expense_Account] FOREIGN KEY ([Id]) REFERENCES [Account]([Id]), 
+    [AccountId] BIGINT NOT NULL, 
+    CONSTRAINT [FK_Expense_Account] FOREIGN KEY ([AccountId]) REFERENCES [Account]([Id]), 
     CONSTRAINT [FK_Expense_User] FOREIGN KEY ([Creator]) REFERENCES [User]([Id]), 
     CONSTRAINT [FK_Expense_Task] FOREIGN KEY ([Target]) REFERENCES [Task]([Id]), 
 )

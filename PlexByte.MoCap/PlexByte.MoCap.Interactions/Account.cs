@@ -4,8 +4,6 @@
 //      Implementation of IAccount interface, handles the expense and timeslice of a Task or Project
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using PlexByte.MoCap.Security;
 
 namespace PlexByte.MoCap.Interactions

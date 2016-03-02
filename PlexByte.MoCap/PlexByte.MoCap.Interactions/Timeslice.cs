@@ -3,9 +3,6 @@
 //      Author: Fabian Ochsner            Date:   2016/02/23
 //      Implementation of ITimeslice interface, handles the time spent on a Task or Project
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using PlexByte.MoCap.Security;
 
 namespace PlexByte.MoCap.Interactions

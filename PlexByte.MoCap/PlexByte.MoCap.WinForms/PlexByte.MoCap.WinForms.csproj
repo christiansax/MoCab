@@ -56,6 +56,12 @@
     <Compile Include="frm_MoCapMain.Designer.cs">
       <DependentUpon>frm_MoCapMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Test.Designer.cs">
+      <DependentUpon>frm_Test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControls\uc_Account.cs">
@@ -96,6 +102,9 @@
     </Compile>
     <EmbeddedResource Include="frm_MoCapMain.resx">
       <DependentUpon>frm_MoCapMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Test.resx">
+      <DependentUpon>frm_Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -208,6 +217,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\surveyOption.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PlexByte.MoCap.Backend\PlexByte.MoCap.Backend.csproj">
+      <Project>{be9a7d39-113a-4e48-960e-3c5bfed0db70}</Project>
+      <Name>PlexByte.MoCap.Backend</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

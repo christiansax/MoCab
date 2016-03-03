@@ -19,6 +19,7 @@ namespace PlexByte.MoCap.WinForms
 //            Application.Run(new frmTraceViewer());
 
             Application.Run(new frm_MoCapMain());
+            Application.Run(new frm_Test());
         }
     }
 }

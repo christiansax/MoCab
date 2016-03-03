@@ -4,14 +4,16 @@
 //      This class provides backend functionality by reading and writing to the database. The class is not intended 
 //      for converting business logic but to return record set to the caller for further business logic process.
 //      Also inserting is not intended to convert from business objects into the db. Use Adapter classes, to do this
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using PlexByte.MoCap.Helpers;
 
-namespace MoCap.PlexByte.MoCap.Backend
+namespace PlexByte.MoCap.Backend
 {
-    public class InteractionService
+    public class BackendService
     {
         private static string _DBServer = "198.38.83.33";
         private static string _Password = "MoCap";
@@ -24,9 +26,27 @@ namespace MoCap.PlexByte.MoCap.Backend
         /// </summary>
         /// <param name="pUserId">The id of the user to query results for</param>
         /// <returns>DataTable containing all tasks for the user in question</returns>
+        public DataTable AuthenticateUser(string pUserId, string pPassword)
+        {
+            DataTable userInfo = new DataTable();
+            pPassword = CryptoHelper.Decrypt(pPassword, _Password);
+
+            userInfo = ExecuteQueryString($"select * from View_User where (Username={pUserId} or EmailAddress={pUserId}) " +
+                                          $"AND Password={pPassword}");
+            if (userInfo.Rows.Count < 1)
+                throw new Exception($"Authentification failed! Username or password is invalid [UserName={pUserId}] [Password={pPassword}]");
+            else
+                return userInfo;
+        }
+
+        /// <summary>
+        /// This method gets all task for the userId specified and returns the datatable. It is using the SQL view_task
+        /// </summary>
+        /// <param name="pUserId">The id of the user to query results for</param>
+        /// <returns>DataTable containing all tasks for the user in question</returns>
         public DataTable GetTasksByUser(string pUserId)
         {
-            return ExecuteQueryString("select * from View_Task wherer OwnerId = " + pUserId + 
+            return ExecuteQueryString("select * from View_Task where OwnerId = " + pUserId + 
                     " or CreatorId=" + pUserId);
         }
 

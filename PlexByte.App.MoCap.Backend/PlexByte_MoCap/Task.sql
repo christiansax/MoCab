@@ -10,7 +10,6 @@
     [BudgetUsed] DECIMAL(18, 2) NULL, 
     [CreatedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
     [ModifiedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
-    [ProjectId] BIGINT NULL, 
     CONSTRAINT [FK_Task_Interaction] FOREIGN KEY ([Id]) REFERENCES [Interaction]([Id]), 
 )
 

@@ -10,7 +10,6 @@
 	@ResultMsg NVARCHAR(250) OUTPUT
 AS
 	DECLARE @Id BIGINT;
-	DECLARE @ReturnCode INT = 0;
 	SET @ResultMsg='OK';
 
 	IF (NOT EXISTS (
@@ -31,8 +30,7 @@ AS
 	BEGIN CATCH
 		IF @@TRANCOUNT > 0
         ROLLBACK
-		SET	@ReturnCode = 1;
-		SET @ResultMsg = 'Error while processing insert. Rolled back transaction...';
+		RAISERROR ('Error in try block', 16, -1);
 	END CATCH
 	ELSE
 	BEGIN TRY
@@ -58,7 +56,6 @@ AS
 	BEGIN CATCH
 		IF @@TRANCOUNT > 0
         ROLLBACK
-		SET	@ReturnCode = 1;
-		SET @ResultMsg = 'Error while processing update. Rolled back transaction...';
+		RAISERROR ('Error in try block', 16, -1);
 	END CATCH
-RETURN @ReturnCode
+RETURN 0

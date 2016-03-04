@@ -3,7 +3,6 @@
 	@ResultMsg NVARCHAR(250) OUTPUT
 AS
 	DECLARE @Id BIGINT;
-	DECLARE @ReturnCode INT = 0;
 	SET @ResultMsg='OK';
 
 	IF(EXISTS (
@@ -23,11 +22,10 @@ AS
 	BEGIN CATCH
 		IF @@TRANCOUNT > 0
         ROLLBACK
-		SET	@ReturnCode = 1;
-		SET @ResultMsg = 'Error while processing deletion. Rolled back transaction...';
+		RAISERROR ('Error in try block', 16, -1);
 	END CATCH
 	ELSE
 	BEGIN
 		SET @ResultMsg = 'OK: User did not exist';
 	END
-RETURN @ReturnCode
+RETURN 0

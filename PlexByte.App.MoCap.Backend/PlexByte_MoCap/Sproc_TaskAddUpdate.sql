@@ -33,8 +33,9 @@ AS
 			select	@Id	=	format(getdate(), 'yyyyMMddHHmmssfff')
 			INSERT INTO [dbo].[Interaction] ([Id], [StartDateTime], [EndDateTime], [IsActive], [Text], [Type], [CreatorId],
 											[OwnerId], [StateId], [CreatedDateTime], [ModifiedDateTime])
-					VALUES			(@Id, @StartDateTime, @EndDateTime, @IsActive, @Text, @Type, @CreatorId, 
-									@OwnerId, @StateId, GETDATE(), GETDATE())
+					VALUES					(@Id, @StartDateTime, @EndDateTime, @IsActive, @Text, @Type, @CreatorId, 
+											@OwnerId, @StateId, GETDATE(), GETDATE())
+
 			INSERT INTO [dbo].[Task]		([Id], [DueDateTime], [Budget], [Duration], [Priority], [Progress], [DurationUsed],
 											[BudgetUsed], [CreatedDateTime], [ModifiedDateTime])
 					VALUES					(@TaskId, @DueDateTime, @Budget, @Duration, @Priority, @Progress, @DurationUsed,

@@ -5,7 +5,7 @@
     [EndDateTime] DATETIME NULL DEFAULT DATEADD(YEAR, 10, GETDATE()), 
     [IsActive] BIT NOT NULL DEFAULT 1, 
     [Text] NVARCHAR(MAX) NULL, 
-    [Type] NVARCHAR(MAX) NOT NULL DEFAULT 'Project', 
+    [Type] BIGINT NOT NULL DEFAULT 1, 
     [CreatorId] BIGINT NOT NULL, 
     [OwnerId] BIGINT NOT NULL, 
     [StateId] BIGINT NOT NULL ,

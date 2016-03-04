@@ -13,7 +13,11 @@
 	ON		[s].[Id]=[i].[StateId]
 			INNER JOIN [Account] a
 	ON		[p].[Id]=[a].[ProjectId]
+			INNER JOIN [ProjectTaskMapping] ptm
+	ON		[p].[Id]=[ptm].[ProjectId]
 			INNER JOIN [Task] t
-	ON		[p].[Id]=[t].[ProjectId]
+	ON		[ptm].[TaskId]=[t].[Id]
+			INNER JOIN [ProjectSurveyMapping] psm
+	ON		[p].[Id]=[psm].[ProjectId]
 			INNER JOIN [Survey] su
-	ON		[p].[Id]=[su].[ProjectId]
+	ON		[psm].[SurveyId]=[su].[Id]

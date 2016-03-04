@@ -39,6 +39,9 @@ AS
 												[OwnerId], [StateId], [CreatedDateTime], [ModifiedDateTime])
 						VALUES					(@Id, @StartDateTime, @EndDateTime, @IsActive, @Text, @Type, @CreatorId, 
 												@OwnerId, @StateId, GETDATE(), GETDATE())
+				
+				INSERT INTO [ProjectTaskMapping]([ProjectId], [TaskId], [CreatedDateTime], [ModifiedDateTime])
+						VALUES					(@ProjectId, @TaskId, GETDATE(), GETDATE())
 
 				INSERT INTO [dbo].[Task]		([Id], [DueDateTime], [Budget], [Duration], [Priority], [Progress], [DurationUsed],
 												[BudgetUsed], [CreatedDateTime], [ModifiedDateTime])
@@ -67,7 +70,16 @@ AS
 					   [StateId] = @StateId,
 					   [ModifiedDateTime] = GETDATE()
 				 WHERE [Id] = @InteractionId
-			
+				
+				SELECT @Id = [ProjectId] FROM [ProjectTaskMapping] WHERE [TaskId] = @TaskId;
+				IF(@Id <> @ProjectId)
+				BEGIN
+					-- Task has changed project
+					UPDATE	[dbo].[ProjectTaskMapping]
+					SET		[ProjectId] = @ProjectId
+					WHERE	[TaskId] = @TaskId
+				END
+
 				UPDATE [dbo].[Task]
 				   SET [DueDateTime] = @DueDateTime,
 					   [Budget] = @Budget,

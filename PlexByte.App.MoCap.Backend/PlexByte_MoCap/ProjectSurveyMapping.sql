@@ -1,4 +1,7 @@
-﻿CREATE TABLE [dbo].[ProjectSurveyMapping]
+﻿--	ProjectSurveyMapping table referencing all survey in a project
+--	Author:	Christian B. Sax
+--	Date:	2016/02/21
+CREATE TABLE [dbo].[ProjectSurveyMapping]
 (
 	[Id] BIGINT NOT NULL PRIMARY KEY, 
     [ProjectId] BIGINT NOT NULL, 

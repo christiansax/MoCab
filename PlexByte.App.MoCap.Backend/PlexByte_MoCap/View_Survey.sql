@@ -1,6 +1,9 @@
-﻿CREATE VIEW [dbo].[View_Survey]
+﻿--	View_Survey displays an overview of surveys configured
+--	Author:	Christian B. Sax
+--	Date:	2016/03/06
+CREATE VIEW [dbo].[View_Survey]
 	AS 
-	SELECT	[t].[Id], [i].[Text], [i].[StartDateTime], [i].[EndDateTime], [t].[DueDateTime], [i].[StateId], [s].[Text] AS StateName, 
+	SELECT	[t].[Id], [i].[Text], [t].[InteractionId],  [i].[StartDateTime], [i].[EndDateTime], [t].[DueDateTime], [i].[StateId], [s].[Text] AS StateName, 
 			[i].[IsActive], [i].[CreatorId], [u].[Username] AS Creator, [i].[OwnerId], [o].[Username] AS [Owner], [t].[ModifiedDateTime], 
 			[t].[CreatedDateTime], [i].[Type]
 	FROM	[Survey] t INNER JOIN [Interaction] i

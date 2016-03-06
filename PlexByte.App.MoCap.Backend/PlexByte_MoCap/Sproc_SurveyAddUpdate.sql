@@ -1,16 +1,12 @@
-﻿--	Sproc_TaskAddUpdate updated or inserts a task
+﻿--	Sproc_SurveyAddUpdate adds or updated the survey
 --	Author:	Christian B. Sax
 --	Date:	2016/03/05
-CREATE PROCEDURE [dbo].[Sproc_TaskAddUpdate]
-	@TaskId AS BIGINT,
+CREATE PROCEDURE [dbo].[Sproc_SurveyAddUpdate]
+	@SurveyId AS BIGINT,
 	@InteractionId BIGINT,
+    @MaxVotePerUser AS INT,
     @DueDateTime AS DATETIME,
-    @Budget AS DECIMAL,
-    @Duration AS INT,
-    @Priority AS INT,
-    @Progress AS INT,
-    @DurationUsed AS INT,
-    @BudgetUsed AS DECIMAL,
+    @TaskId AS BIGINT,
 	@StartDateTime AS DATETIME,
 	@EndDateTime AS DATETIME,
     @IsActive AS BIT,
@@ -32,8 +28,8 @@ AS
 	BEGIN
 		IF (NOT EXISTS (
 		SELECT	*
-		FROM	View_Task
-		WHERE	[Id] = @TaskId AND [InteractionId]	= @InteractionId AND [StartDateTime] = @StartDateTime AND [EndDateTime] = @EndDateTime))
+		FROM	View_Survey
+		WHERE	[Id] = @SurveyId AND [InteractionId] = @InteractionId AND [StartDateTime] = @StartDateTime AND [EndDateTime] = @EndDateTime))
 		BEGIN TRY
 			-- This is a new user, insert...
 			BEGIN TRANSACTION
@@ -43,13 +39,11 @@ AS
 						VALUES					(@Id, @StartDateTime, @EndDateTime, @IsActive, @Text, @Type, @CreatorId, 
 												@OwnerId, @StateId, GETDATE(), GETDATE())
 				
-				INSERT INTO [ProjectTaskMapping]([ProjectId], [TaskId], [CreatedDateTime], [ModifiedDateTime])
-						VALUES					(@ProjectId, @TaskId, GETDATE(), GETDATE())
+				INSERT INTO [ProjectSurveyMapping]([ProjectId], [SurveyId], [CreatedDateTime], [ModifiedDateTime])
+						VALUES					(@ProjectId, @SurveyId, GETDATE(), GETDATE())
 
-				INSERT INTO [dbo].[Task]		([Id], [DueDateTime], [Budget], [Duration], [Priority], [Progress], [DurationUsed],
-												[BudgetUsed], [CreatedDateTime], [ModifiedDateTime])
-						VALUES					(@TaskId, @DueDateTime, @Budget, @Duration, @Priority, @Progress, @DurationUsed,
-												@BudgetUsed, GETDATE(), GETDATE())
+				INSERT INTO [dbo].[Survey]		([Id], [DueDateTime], [TaskId], [CreatedDateTime], [ModifiedDateTime])
+						VALUES					(@TaskId, @DueDateTime, @TaskId, GETDATE(), GETDATE())
 			COMMIT TRANSACTION
 			SET @ResultMsg = @ResultMsg + ': Inserted';
 		END TRY
@@ -74,25 +68,20 @@ AS
 					   [ModifiedDateTime] = GETDATE()
 				 WHERE [Id] = @InteractionId
 				
-				SELECT @Id = [ProjectId] FROM [ProjectTaskMapping] WHERE [TaskId] = @TaskId;
+				SELECT @Id = [ProjectId] FROM [ProjectSurveyMapping] WHERE [SurveyId] = @SurveyId;
 				IF(@Id <> @ProjectId)
 				BEGIN
-					-- Task has changed project
+					-- Survey has changed project
 					UPDATE	[dbo].[ProjectTaskMapping]
 					SET		[ProjectId] = @ProjectId
-					WHERE	[TaskId] = @TaskId
+					WHERE	[Id] = @SurveyId
 				END
 
-				UPDATE [dbo].[Task]
+				UPDATE [dbo].[Survey]
 				   SET [DueDateTime] = @DueDateTime,
-					   [Budget] = @Budget,
-					   [Duration] = @Duration,
-					   [Priority] = @Priority,
-					   [Progress] = @Progress,
-					   [DurationUsed] = @Duration,
-					   [BudgetUsed] = @BudgetUsed,
+					   [TaskId] = @TaskId,
 					   [ModifiedDateTime] = GETDATE()
-				 WHERE [Id] = @TaskId
+				 WHERE [Id] = @SurveyId
 			COMMIT TRANSACTION
 			SET @ResultMsg = @ResultMsg + ': Updated';
 		END TRY

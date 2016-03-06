@@ -1,4 +1,7 @@
-﻿CREATE TABLE [dbo].[ProjectTaskMapping]
+﻿--	ProjectTaskMapping table holding all projects mapped to their corresponding tasks
+--	Author:	Christian B. Sax
+--	Date:	2016/02/21
+CREATE TABLE [dbo].[ProjectTaskMapping]
 (
 	[Id] BIGINT NOT NULL PRIMARY KEY, 
     [ProjectId] BIGINT NOT NULL, 

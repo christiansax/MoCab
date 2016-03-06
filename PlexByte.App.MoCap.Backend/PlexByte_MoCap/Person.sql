@@ -1,4 +1,7 @@
-﻿CREATE TABLE [dbo].[Person]
+﻿--	Person table containing all persons. Persons are unregistered useds
+--	Author:	Christian B. Sax
+--	Date:	2016/02/21
+CREATE TABLE [dbo].[Person]
 (
 	[Id] BIGINT NOT NULL PRIMARY KEY, 
     [FirstName] NVARCHAR(MAX) NOT NULL, 

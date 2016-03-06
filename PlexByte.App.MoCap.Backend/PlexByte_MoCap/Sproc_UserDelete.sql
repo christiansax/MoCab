@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [dbo].[Sproc_UserDelete]
+﻿--	Sproc_UserDelete deleted the user specified
+--	Author:	Christian B. Sax
+--	Date:	2016/03/05
+CREATE PROCEDURE [dbo].[Sproc_UserDelete]
 	@UserId BIGINT = 0,
 	@ResultMsg NVARCHAR(250) OUTPUT
 AS
@@ -8,9 +11,9 @@ AS
 	IF(EXISTS (
 		SELECT	*
 		FROM	[User]
-		WHERE	@UserId=[Id]))
+		WHERE	[Id] = @UserId))
 	BEGIN TRY
-		SELECT	@Id	=	(SELECT	[PersonId] FROM [User] WHERE @UserId=[Id])
+		SELECT	@Id	=	(SELECT	[PersonId] FROM [User] WHERE [Id] = @UserId)
 		BEGIN TRANSACTION
 			DELETE	[User]
 			WHERE	[Id]		=	(SELECT [PersonId] FROM [User] WHERE [Id]=@UserId)

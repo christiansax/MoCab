@@ -1,7 +1,11 @@
-﻿CREATE TABLE [dbo].[Task]
+﻿--	Task Table holding all tasks
+--	Author:	Christian B. Sax
+--	Date:	2016/02/21
+CREATE TABLE [dbo].[Task]
 (
 	[Id] BIGINT NOT NULL PRIMARY KEY, 
 	[InteractionId] BIGINT NOT NULL,
+	[Title] NVARCHAR(250) NULL, 
     [DueDateTime] DATETIME NULL, 
     [Budget] DECIMAL(18, 2) NULL, 
     [Duration] INT NULL, 

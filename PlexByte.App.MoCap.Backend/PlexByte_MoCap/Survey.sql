@@ -1,4 +1,7 @@
-﻿CREATE TABLE [dbo].[Survey]
+﻿--	Survey table holding all survey configured
+--	Author:	Christian B. Sax
+--	Date:	2016/02/21
+CREATE TABLE [dbo].[Survey]
 (
 	[Id] BIGINT NOT NULL , 
 	[InteractionId] BIGINT NOT NULL , 

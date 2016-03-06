@@ -1,4 +1,7 @@
-﻿CREATE TABLE [dbo].[Interaction]
+﻿--	Interaction table holding all interactions, which are base types for any MoCap object
+--	Author:	Christian B. Sax
+--	Date:	2016/02/21
+CREATE TABLE [dbo].[Interaction]
 (
 	[Id] BIGINT NOT NULL PRIMARY KEY, 
     [StartDateTime] DATETIME NULL DEFAULT GETDATE(), 

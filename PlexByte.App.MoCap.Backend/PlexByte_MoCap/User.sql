@@ -1,4 +1,7 @@
-﻿CREATE TABLE [dbo].[User]
+﻿--	User Table holding all users registered in the system
+--	Author:	Christian B. Sax
+--	Date:	2016/02/21
+CREATE TABLE [dbo].[User]
 (
 	[Id] BIGINT NOT NULL PRIMARY KEY, 
     [PersonId] BIGINT NOT NULL, 

@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [dbo].[Sproc_UserAddUpdate]
+﻿--	Sproc_UserAddUpdate inserts or updates a user
+--	Author:	Christian B. Sax
+--	Date:	2016/03/05
+CREATE PROCEDURE [dbo].[Sproc_UserAddUpdate]
 	@UserId BIGINT,
 	@FirstName NVARCHAR(MAX) = '',
 	@LastName NVARCHAR(MAX) = '',

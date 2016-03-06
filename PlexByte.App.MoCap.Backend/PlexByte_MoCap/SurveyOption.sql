@@ -1,4 +1,7 @@
-﻿CREATE TABLE [dbo].[SurveyOption]
+﻿--	SurveyOptions table containng all survey options available
+--	Author:	Christian B. Sax
+--	Date:	2016/02/21
+CREATE TABLE [dbo].[SurveyOption]
 (
 	[Id] BIGINT NOT NULL PRIMARY KEY, 
     [SurveyId] BIGINT NULL, 

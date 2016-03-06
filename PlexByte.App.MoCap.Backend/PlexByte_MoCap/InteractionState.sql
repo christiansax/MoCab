@@ -1,4 +1,7 @@
-﻿CREATE TABLE [dbo].[InteractionState]
+﻿--	InteractionState table specifying all states that are available
+--	Author:	Christian B. Sax
+--	Date:	2016/02/21
+CREATE TABLE [dbo].[InteractionState]
 (
 	[Id] BIGINT NOT NULL PRIMARY KEY, 
     [Text] NVARCHAR(50) NOT NULL, 

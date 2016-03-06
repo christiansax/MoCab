@@ -1,4 +1,7 @@
-﻿CREATE TABLE [dbo].[TaskMapping]
+﻿--	TaskMapping table referencing subtasks of a task
+--	Author:	Christian B. Sax
+--	Date:	2016/02/21
+CREATE TABLE [dbo].[TaskMapping]
 (
 	[Id] BIGINT NOT NULL PRIMARY KEY, 
     [TaskId] BIGINT NOT NULL, 

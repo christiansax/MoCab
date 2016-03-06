@@ -3,20 +3,14 @@
 --	Date:	2016/03/05
 CREATE VIEW [dbo].[View_Project]
 	AS 
-	SELECT	[p].[Id], [p].[Name], [i].[StartDateTime], [i].[EndDateTime], [p].[EnableBalance], [i].[StateId], [i].[IsActive], 
-			[p].[EnableSurvey], [i].[CreatorId], [c].[Username] AS Creator, [i].[OwnerId], [u].[Username] AS [Owner], 
-			[p].[ModifiedDateTime], [p].[CreatedDateTime], [i].[Type], [su].[Id] AS SurveyId, [p].[InteractionId]
+	SELECT	[p].[Id], [p].[Name], [p].[EnableBalance], [p].[EnableSurvey], [p].[InteractionId], [i].[Text] AS ProjectDescription,
+			[i].[StartDateTime], [i].[EndDateTime], [i].[StateId], [s].[Text] AS StateName, [i].[CreatorId], [c].[Username] 
+			AS ProjectCreator, [i].[OwnerId], [u].[Username] AS ProjectOwner
 	FROM	[Project] p INNER JOIN [Interaction] i
-	ON		[p].[Id]=[i].[Id]
+			ON [p].[Id]=[i].[Id]
 			INNER JOIN [View_User] u
-	ON		[u].Id=[i].[OwnerId]
+			ON [u].Id=[i].[OwnerId]
 			INNER JOIN [View_User] c
-	ON		[c].Id=[i].[CreatorId]
+			ON [c].Id=[i].[CreatorId]
 			INNER JOIN [InteractionState] s
-	ON		[s].[Id]=[i].[StateId]
-			INNER JOIN [ProjectTaskMapping] ptm
-	ON		[p].[Id]=[ptm].[ProjectId]
-			INNER JOIN [ProjectSurveyMapping] psm
-	ON		[p].[Id]=[psm].[ProjectId]
-			INNER JOIN [Survey] su
-	ON		[psm].[SurveyId]=[su].[Id]
+			ON [s].[Id]=[i].[StateId]

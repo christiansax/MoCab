@@ -1,6 +1,6 @@
 ﻿--	Vote Table holding the votes, which maps user to an option and survey
 --	Author:	Christian B. Sax
---	Date:	2016/05/03
+--	Date:	2016/03/05
 CREATE TABLE [dbo].[Vote]
 (
 	[Id] BIGINT NOT NULL PRIMARY KEY , 

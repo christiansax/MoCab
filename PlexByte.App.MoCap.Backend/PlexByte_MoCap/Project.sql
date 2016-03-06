@@ -5,9 +5,7 @@ CREATE TABLE [dbo].[Project]
 (
 	[Id] BIGINT NOT NULL PRIMARY KEY, 
 	[Name] NVARCHAR(250) NOT NULL,
-	[Description] NVARCHAR(MAX) NOT NULL,
 	[InteractionId] BIGINT NOT NULL,
-	[IsActive] BIT NOT NULL, 
     [EnableBalance] BIT NOT NULL, 
     [EnableSurvey] BIT NOT NULL, 
     [CreatedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
@@ -17,10 +15,6 @@ CREATE TABLE [dbo].[Project]
 GO
 
 CREATE INDEX [IX_Project_InteractionId] ON [dbo].[Project] ([InteractionId])
-
-GO
-
-CREATE INDEX [IX_Project_IsActive] ON [dbo].[Project] ([IsActive])
 
 GO
 

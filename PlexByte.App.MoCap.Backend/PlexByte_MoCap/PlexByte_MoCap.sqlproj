@@ -80,7 +80,7 @@
     <Build Include="Expense.sql" />
     <Build Include="Timeslice.sql" />
     <Build Include="View_Project.sql" />
-    <Build Include="View_ProjectAccounting.sql" />
+    <Build Include="View_ProjectAccountSummary.sql" />
     <Build Include="View_Expense.sql" />
     <Build Include="View_Timeslice.sql" />
     <Build Include="SurveyUserMapping.sql" />
@@ -91,13 +91,19 @@
     <Build Include="InteractionType.sql" />
     <Build Include="ProjectTaskMapping.sql" />
     <Build Include="ProjectSurveyMapping.sql" />
-    <Build Include="View_ProjectExpense.sql" />
-    <Build Include="View_ProjectTimeslice.sql" />
+    <Build Include="View_ProjectExpenseMapping.sql" />
+    <Build Include="View_ProjectTimesliceMapping.sql" />
     <Build Include="Sproc_TaskDelete.sql" />
     <Build Include="Sproc_SurveyAddUpdate.sql" />
     <Build Include="Sproc_SurveyAddUser.sql" />
     <Build Include="Sproc_SurveyRemoveUser.sql" />
     <Build Include="Sproc_VoteAdd.sql" />
+    <Build Include="Sproc_SurveyAddOption.sql" />
+    <Build Include="Sproc_SurveyDelete.sql" />
+    <Build Include="Sproc_ProjectAddUpdate.sql" />
+    <Build Include="Sproc_ProjectDelete.sql" />
+    <Build Include="ProjectUserMapping.sql" />
+    <Build Include="View_ProjectUserMapping.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="PlexByte_MoCap.refactorlog" />

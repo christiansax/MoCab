@@ -1,4 +1,7 @@
-﻿CREATE PROCEDURE [dbo].[Sproc_VoteAdd]
+﻿--	Sproc_VoteAdd adds a vote associated with a survey
+--	Author:	Christian B. Sax
+--	Date:	2016/03/06
+CREATE PROCEDURE [dbo].[Sproc_VoteAdd]
 	@SurveyId AS BIGINT,
 	@UserId BIGINT,
     @SurveyOptionId AS BIGINT,

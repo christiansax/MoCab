@@ -1,0 +1,77 @@
+﻿--	Sproc_ProjectAddUpdate inserts or updates a project and the corresponding Interaction
+--	Author:	Christian B. Sax
+--	Date:	2016/03/06
+CREATE PROCEDURE [dbo].[Sproc_ProjectAddUpdate]
+	@ProjectId AS BIGINT,
+	@Name AS NVARCHAR(250),
+    @Description AS NVARCHAR(MAX),
+    @EnableBalance AS BIT,
+    @EnableSurvey AS BIT,
+	@StartDateTime AS DATETIME,
+	@EndDateTime AS DATETIME,
+    @IsActive AS BIT,
+    @Type AS BIGINT,
+    @CreatorId AS BIGINT,
+    @OwnerId AS BIGINT,
+    @StateId AS BIGINT,
+	@ResultMsg NVARCHAR(250) OUTPUT
+AS
+	DECLARE @Id BIGINT;
+	SET @ResultMsg = 'OK';
+
+	BEGIN
+		IF (NOT EXISTS (
+		SELECT	*
+		FROM	View_Project
+		WHERE	[Id] = @ProjectId))
+		BEGIN TRY
+			-- This is a new project, insert...
+			BEGIN TRANSACTION
+				SELECT	@Id	=	FORMAT(GETDATE(), 'yyyyMMddHHmmssfff')
+				INSERT INTO [dbo].[Interaction] ([Id], [StartDateTime], [EndDateTime], [IsActive], [Text], [Type], [CreatorId],
+												[OwnerId], [StateId], [CreatedDateTime], [ModifiedDateTime])
+						VALUES					(@Id, @StartDateTime, @EndDateTime, @IsActive, @Description, @Type, @CreatorId, 
+												@OwnerId, @StateId, GETDATE(), GETDATE())
+
+				INSERT INTO [dbo].[Project]		([Id], [Name], [EnableBalance], [EnableSurvey], [CreatedDateTime], [ModifiedDateTime])
+						VALUES					(@ProjectId, @Name, @EnableBalance, @EnableSurvey, GETDATE(), GETDATE())
+			COMMIT TRANSACTION
+			SET @ResultMsg = @ResultMsg + ': Inserted';
+		END TRY
+		BEGIN CATCH
+			IF @@TRANCOUNT > 0
+			ROLLBACK
+			RAISERROR ('Error in try block', 16, -1);
+		END CATCH
+		ELSE
+		BEGIN TRY
+			-- This is an update
+			BEGIN TRANSACTION
+				UPDATE [dbo].[Interaction]
+				   SET [StartDateTime]		=	@StartDateTime,
+					   [EndDateTime]		=	@EndDateTime,
+					   [IsActive]			=	@IsActive,
+					   [Text]				=	@Description,
+					   [Type]				=	@Type,
+					   [CreatorId]			=	@CreatorId,
+					   [OwnerId]			=	@OwnerId,
+					   [StateId]			=	@StateId,
+					   [ModifiedDateTime]	=	GETDATE()
+				 WHERE [Id] = (SELECT [InteractionId] FROM [dbo].[Project] WHERE [Id] = @ProjectId)
+
+				UPDATE [dbo].[Project]
+				   SET [Name]				=	@Name,
+					   [EnableBalance]		=	@EnableBalance,
+					   [EnableSurvey]		=	@EnableSurvey,
+					   [ModifiedDateTime]	=	GETDATE()
+				 WHERE [Id] = @ProjectId
+			COMMIT TRANSACTION
+			SET @ResultMsg = @ResultMsg + ': Updated';
+		END TRY
+		BEGIN CATCH
+			IF @@TRANCOUNT > 0
+			ROLLBACK
+			RAISERROR ('Error in try block', 16, -1);
+		END CATCH
+	END
+RETURN 0

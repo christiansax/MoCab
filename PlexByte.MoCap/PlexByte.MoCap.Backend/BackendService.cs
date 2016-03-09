@@ -13,6 +13,12 @@ using PlexByte.MoCap.Helpers;
 
 namespace PlexByte.MoCap.Backend
 {
+    public enum ParentType
+    {
+        User,
+        Project
+    }
+
     public class BackendService
     {
         private static string _DBServer = "198.38.83.33";
@@ -26,17 +32,34 @@ namespace PlexByte.MoCap.Backend
         /// </summary>
         /// <param name="pUserId">The id of the user to query results for</param>
         /// <returns>DataTable containing all tasks for the user in question</returns>
-        public DataTable AuthenticateUser(string pUserId, string pPassword)
+        public string AuthenticateUser(string pUserName, string pPassword)
         {
             DataTable userInfo = new DataTable();
             pPassword = CryptoHelper.Decrypt(pPassword, _Password);
 
-            userInfo = ExecuteQueryString($"select * from View_User where (Username={pUserId} or EmailAddress={pUserId}) " +
+            userInfo = ExecuteQueryString($"select * from View_User where (Username={pUserName} or EmailAddress={pUserName}) " +
                                           $"AND Password={pPassword}");
             if (userInfo.Rows.Count < 1)
-                throw new Exception($"Authentification failed! Username or password is invalid [UserName={pUserId}] [Password={pPassword}]");
+                throw new Exception($"Authentification failed! Username or password is invalid [UserName={pUserName}] [Password={pPassword}]");
             else
-                return userInfo;
+            {
+                return userInfo.Columns["Id"].ToString();
+            }
+        }
+
+        public DataTable GetUserById(string pId, ParentType pType)
+        {
+            string sQueryString = string.Empty;
+            switch (pType)
+            {
+                case ParentType.Project:
+                    sQueryString = $"select * from View_ProjectUserMapping where ProjectId={pId}";
+                    break;
+                case ParentType.User:
+                    sQueryString = $"select * from View_User where Id={pId}";
+                    break;
+            }
+            return ExecuteQueryString(sQueryString);
         }
 
         /// <summary>
@@ -44,10 +67,21 @@ namespace PlexByte.MoCap.Backend
         /// </summary>
         /// <param name="pUserId">The id of the user to query results for</param>
         /// <returns>DataTable containing all tasks for the user in question</returns>
-        public DataTable GetTasksByUser(string pUserId)
+        public DataTable GetTasksById(string pId, ParentType pType)
         {
-            return ExecuteQueryString("select * from View_Task where OwnerId = " + pUserId + 
-                    " or CreatorId=" + pUserId);
+            string sQueryString = string.Empty;
+            switch (pType)
+            {
+                case ParentType.Project:
+                    sQueryString = $"select * from View_ProjectTaskMapping where ProjectId={pId}";
+                    break;
+                case ParentType.User:
+                    sQueryString = $"select * from View_Task where OwnerId = " + pId +
+                    " or CreatorId=" + pId);
+                    break;
+            }
+            
+            return ExecuteQueryString(sQueryString);
         }
 
         /// <summary>
@@ -55,7 +89,7 @@ namespace PlexByte.MoCap.Backend
         /// </summary>
         /// <param name="pUserId">The id of the user to query results for</param>
         /// <returns>DataTable containing all Survey for the user in question</returns>
-        public DataTable GetSurveyUser(string pUserId)
+        public DataTable GetSurveysByUser(string pUserId)
         {
             return ExecuteQueryString("select * from View_SurveyUserMapping where UserId = "+ pUserId);
         }
@@ -94,6 +128,28 @@ namespace PlexByte.MoCap.Backend
         public DataTable GetVoteCount(string pSurveyId)
         {
             return ExecuteQueryString("select * from View_VoteCount where SurveyId = " + pSurveyId);
+        }
+
+        public DataTable GetProjectsByUser(string pUserId)
+        {
+            return ExecuteQueryString("select * from View_Project where Id in (select ProjectId from View_ProjectUserMapping where UserId = '" 
+                + pUserId + "') order by [Name]");
+        }
+
+        public DataTable GetExpensesByUser(string pUserId)
+        {
+            return ExecuteQueryString(@"select 
+                ProjectId, ExpenseId, TaskId, ExpUserName, ExpDescription, Value, CreatedDateTime 
+                from View_Accounting where [ExpUserName] = '" + pUserId
+                + "' and ExpenseId is not null order by ProjectId");
+        }
+
+        public DataTable GetTimeSliceByUser(string pUserId)
+        {
+            return ExecuteQueryString(@"select 
+                ProjectId, TimesliceId, TaskId, TsUserName, TsDescription, Duration, CreatedDateTime 
+                from View_Accounting where [ExpUserName] = '" + pUserId
+                + "' and ExpenseId is not null order by ProjectId");
         }
 
         /// <summary>

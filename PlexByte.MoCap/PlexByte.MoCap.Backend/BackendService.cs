@@ -13,7 +13,7 @@ using PlexByte.MoCap.Helpers;
 
 namespace PlexByte.MoCap.Backend
 {
-    public enum ParentType
+    public enum ObjectType
     {
         User,
         Project
@@ -30,15 +30,15 @@ namespace PlexByte.MoCap.Backend
         /// <summary>
         /// This method gets all task for the userId specified and returns the datatable. It is using the SQL view_task
         /// </summary>
-        /// <param name="pUserId">The id of the user to query results for</param>
+        /// <param name="pId">The id of the user to query results for</param>
         /// <returns>DataTable containing all tasks for the user in question</returns>
         public string AuthenticateUser(string pUserName, string pPassword)
         {
             DataTable userInfo = new DataTable();
             pPassword = CryptoHelper.Decrypt(pPassword, _Password);
 
-            userInfo = ExecuteQueryString($"select * from View_User where (Username={pUserName} or EmailAddress={pUserName}) " +
-                                          $"AND Password={pPassword}");
+            userInfo = ExecuteQueryString($"select * from View_User where (Username = {pUserName} or EmailAddress = {pUserName}) " +
+                                          $"AND Password = {pPassword}");
             if (userInfo.Rows.Count < 1)
                 throw new Exception($"Authentification failed! Username or password is invalid [UserName={pUserName}] [Password={pPassword}]");
             else
@@ -47,51 +47,75 @@ namespace PlexByte.MoCap.Backend
             }
         }
 
-        public DataTable GetUserById(string pId, ParentType pType)
+        /// <summary>
+        /// If project is the type, all users being member of the project with the Id specified will be returned.
+        /// Otherwise the user with the Id given is returned
+        /// </summary>
+        /// <param name="pId">The Id to use in the lookup</param>
+        /// <param name="pType">The object type to use in the query (either Project or User)</param>
+        /// <returns>DataTable containing either all members of a project or the user matching the Id</returns>
+        public DataTable GetUserById(string pId, ObjectType pType)
         {
             string sQueryString = string.Empty;
             switch (pType)
             {
-                case ParentType.Project:
-                    sQueryString = $"select * from View_ProjectUserMapping where ProjectId={pId}";
+                case ObjectType.Project:
+                    sQueryString = $"select * from View_ProjectUserMapping where ProjectId = {pId}";
                     break;
-                case ParentType.User:
-                    sQueryString = $"select * from View_User where Id={pId}";
+                case ObjectType.User:
+                    sQueryString = $"select * from View_User where Id = {pId}";
                     break;
+                default:
+                    throw new Exception("Object type is null or unknown!");
             }
             return ExecuteQueryString(sQueryString);
         }
 
         /// <summary>
-        /// This method gets all task for the userId specified and returns the datatable. It is using the SQL view_task
+        /// This method gets all task for the userId or projectId specified and returns the datatable.
         /// </summary>
-        /// <param name="pUserId">The id of the user to query results for</param>
-        /// <returns>DataTable containing all tasks for the user in question</returns>
-        public DataTable GetTasksById(string pId, ParentType pType)
+        /// <param name="pId">The id of the user or project to query</param>
+        /// <param name="pType">The object type to use in the query (either Project or User)</param>
+        /// <returns>DataTable containing all tasks for the user or project in question</returns>
+        public DataTable GetTasksById(string pId, ObjectType pType)
         {
             string sQueryString = string.Empty;
             switch (pType)
             {
-                case ParentType.Project:
-                    sQueryString = $"select * from View_ProjectTaskMapping where ProjectId={pId}";
+                case ObjectType.Project:
+                    sQueryString = $"select * from View_ProjectTaskMapping where ProjectId = {pId}";
                     break;
-                case ParentType.User:
-                    sQueryString = $"select * from View_Task where OwnerId = " + pId +
-                    " or CreatorId=" + pId);
+                case ObjectType.User:
+                    sQueryString = $"select * from View_Task where OwnerId = {pId} or CreatorId = {pId}";
                     break;
+                default:
+                    throw new Exception("Object type is null or unknown!");
             }
             
             return ExecuteQueryString(sQueryString);
         }
 
         /// <summary>
-        /// This method gets all Surveys a user has been enabled to participate. It uses the SQL view_SurveyUserMapping
+        /// This method gets all Surveys a user can participate in or were assigned to the projectId.
         /// </summary>
-        /// <param name="pUserId">The id of the user to query results for</param>
-        /// <returns>DataTable containing all Survey for the user in question</returns>
-        public DataTable GetSurveysByUser(string pUserId)
+        /// <param name="pId">The id of the user or project to query</param>
+        /// <param name="pType">The object type to use in the query (either Project or User)</param>
+        /// <returns>DataTable containing all Survey for the user or project in question</returns>
+        public DataTable GetSurveysById(string pId, ObjectType pType)
         {
-            return ExecuteQueryString("select * from View_SurveyUserMapping where UserId = "+ pUserId);
+            string sQueryString = string.Empty;
+            switch (pType)
+            {
+                case ObjectType.Project:
+                    sQueryString = $"select * from View_ProjectSurveyMapping where ProjectId = {pId}";
+                    break;
+                case ObjectType.User:
+                    sQueryString = $"select * from View_SurveyUserMapping where UserId = {pId}";
+                    break;
+                default:
+                    throw new Exception("Object type is null or unknown!");
+            }
+            return ExecuteQueryString(sQueryString);
         }
 
         /// <summary>
@@ -101,7 +125,7 @@ namespace PlexByte.MoCap.Backend
         /// <returns>DataTable containing all Survey Options for the Survey in question</returns>
         public DataTable GetSurveyOptions(string pSurveyId)
         {
-            return ExecuteQueryString("select * from View_SurveyOptions where SurveyId = " + pSurveyId);
+            return ExecuteQueryString($"select * from View_SurveyOptions where SurveyId = {pSurveyId}");
         }
 
         /// <summary>
@@ -127,29 +151,73 @@ namespace PlexByte.MoCap.Backend
         /// <returns></returns>
         public DataTable GetVoteCount(string pSurveyId)
         {
-            return ExecuteQueryString("select * from View_VoteCount where SurveyId = " + pSurveyId);
+            return ExecuteQueryString($"select * from View_VoteCount where SurveyId = {pSurveyId}");
         }
 
+        /// <summary>
+        /// Returns all projects a user created, owns or is a member of
+        /// </summary>
+        /// <param name="pUserId">The user Id to use in the query</param>
+        /// <returns>DataSet containing all projects for this user</returns>
         public DataTable GetProjectsByUser(string pUserId)
         {
-            return ExecuteQueryString("select * from View_Project where Id in (select ProjectId from View_ProjectUserMapping where UserId = '" 
-                + pUserId + "') order by [Name]");
+            return ExecuteQueryString($"select * from View_Project where Id in (select ProjectId from View_ProjectUserMapping where " +
+                                      $"UserId = {pUserId}) AND ([OwnerId] = {pUserId} OR [CreatorId] = {pUserId}) order by [Name]");
         }
 
-        public DataTable GetExpensesByUser(string pUserId)
+        /// <summary>
+        /// This method returns all expenses for the user or projectId specified
+        /// </summary>
+        /// <param name="pId">The id to use in the query</param>
+        /// <param name="pType">The object type to use in the query (either Project or User)</param>
+        /// <returns>DataTable containing all expenses</returns>
+        public DataTable GetExpensesById(string pId, ObjectType pType)
         {
-            return ExecuteQueryString(@"select 
-                ProjectId, ExpenseId, TaskId, ExpUserName, ExpDescription, Value, CreatedDateTime 
-                from View_Accounting where [ExpUserName] = '" + pUserId
-                + "' and ExpenseId is not null order by ProjectId");
+            // TODO: Need to revise the sql statement, it should lookup expense table in the end
+            string sQueryString = string.Empty;
+            switch (pType)
+            {
+                case ObjectType.Project:
+                    sQueryString = $"select ProjectId, ExpenseId, TaskId, ExpUserName, ExpDescription, Value, CreatedDateTime " +
+                                   $"from View_Accounting where [ProjectId] = {pId}) and ExpenseId is not null order by ProjectId";
+                    break;
+                case ObjectType.User:
+                    sQueryString = $"select ProjectId, ExpenseId, TaskId, ExpUserName, ExpDescription, Value, CreatedDateTime " +
+                                   $"from View_Accounting where [ExpUserName] = '(select Username from View_User where Id = {pId})'" +
+                                   $" and ExpenseId is not null order by ProjectId";
+                    break;
+                default:
+                    throw new Exception("Object type is null or unknown!");
+            }
+            return ExecuteQueryString(sQueryString);
         }
 
-        public DataTable GetTimeSliceByUser(string pUserId)
+        /// <summary>
+        /// This method returns all timeslices for the user or projectId specified
+        /// </summary>
+        /// <param name="pId">The id to use in the query</param>
+        /// <param name="pType">The object type to use in the query (either Project or User)</param>
+        /// <returns>DataTable containing all timeslices</returns>
+        /// <returns></returns>
+        public DataTable GetTimeSliceById(string pId, ObjectType pType)
         {
-            return ExecuteQueryString(@"select 
-                ProjectId, TimesliceId, TaskId, TsUserName, TsDescription, Duration, CreatedDateTime 
-                from View_Accounting where [ExpUserName] = '" + pUserId
-                + "' and ExpenseId is not null order by ProjectId");
+            // TODO: Need to revise the sql statement, it should lookup timeslice table in the end
+            string sQueryString = string.Empty;
+            switch (pType)
+            {
+                case ObjectType.Project:
+                    sQueryString = $"select ProjectId, TimesliceId, TaskId, TsUserName, TsDescription, Duration, CreatedDateTime " +
+                                   $"from View_Accounting where [ProjectId] = {pId}) and TimesliceId is not null order by ProjectId";
+                    break;
+                case ObjectType.User:
+                    sQueryString = $"select ProjectId, TimesliceId, TaskId, TsUserName, TsDescription, Duration, CreatedDateTime " +
+                                   $"from View_Accounting where [ExpUserName] = '(select Username from View_User where Id = {pId})'" +
+                                   $" and TimesliceId is not null order by ProjectId";
+                    break;
+                default:
+                    throw new Exception("Object type is null or unknown!");
+            }
+            return ExecuteQueryString(sQueryString);
         }
 
         /// <summary>

@@ -20,7 +20,7 @@ namespace PlexByte.MoCap.WinForms
         private void button1_Click(object sender, EventArgs e)
         {
             PlexByte.MoCap.Backend.BackendService isvc = new PlexByte.MoCap.Backend.BackendService();
-            DataTable tbl = isvc.GetTasksByUser("1");
+            //DataTable tbl = isvc.GetTasksByUser("1");
         }
     }
 }

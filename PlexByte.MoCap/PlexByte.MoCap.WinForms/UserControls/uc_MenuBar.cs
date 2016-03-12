@@ -4,17 +4,29 @@
 //      Contains the menu layer form, which is docked in the main form
 using System;
 using System.Windows.Forms;
+using MoCap.PlexByte.MoCap.WinForms;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace PlexByte.MoCap.WinForms.UserControls
 {
     public partial class uc_MenuBar : DockContent
     {
-        private const string PanelTitle = "Main Menu";
         public uc_MenuBar()
         {
             InitializeComponent();
-            this.TabText = PanelTitle;
+        }
+
+        public void RegisterEvents(UIManager pManagerInstance)
+        {
+            btn_Task.Click += new System.EventHandler(pManagerInstance.MenuButtonClicked);
+            btn_Project.Click += new System.EventHandler(pManagerInstance.MenuButtonClicked);
+            btn_Account.Click += new System.EventHandler(pManagerInstance.MenuButtonClicked);
+            btn_Expense.Click += new System.EventHandler(pManagerInstance.MenuButtonClicked);
+            btn_Survey.Click += new System.EventHandler(pManagerInstance.MenuButtonClicked);
+            btn_SurveyOptions.Click += new System.EventHandler(pManagerInstance.MenuButtonClicked);
+            btn_Timeslice.Click += new System.EventHandler(pManagerInstance.MenuButtonClicked);
+            btn_User.Click += new System.EventHandler(pManagerInstance.MenuButtonClicked);
+            btn_Vote.Click += new System.EventHandler(pManagerInstance.MenuButtonClicked);
         }
 
         private void Project_MouseEnter(object sender, EventArgs e)

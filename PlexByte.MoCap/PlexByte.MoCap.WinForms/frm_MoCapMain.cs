@@ -3,6 +3,7 @@
 //      Author: Christian B. Sax            Date:   2016/02/14
 //      The main layer of mocap application holding any other form within docking pannel
 using System.Windows.Forms;
+using MoCap.PlexByte.MoCap.WinForms;
 using PlexByte.MoCap.WinForms.UserControls;
 using WeifenLuo.WinFormsUI.Docking;
 
@@ -10,23 +11,21 @@ namespace PlexByte.MoCap.WinForms
 {
     public partial class frm_MoCapMain : Form
     {
-        private uc_Overview OverviewPannel = new uc_Overview();
+        public DockPanel Panel => dockPanel1;
+        public UIManager UIManager => _uiManager;
+
+
+        private readonly UIManager _uiManager;
+
         public frm_MoCapMain()
         {
             InitializeComponent();
-            // Place overview panel on the left and dock
-            OverviewPannel.Show(dockPanel1, DockState.DockLeft);
-            uc_Project projectPanel1 = new uc_Project();
-            projectPanel1.Show(dockPanel1, DockState.Document);
-            uc_Task taskPanel1 = new uc_Task();
-            taskPanel1.Show(dockPanel1, DockState.Document);
-            uc_Survey surveyPanel1 = new uc_Survey();
-            surveyPanel1.Show(dockPanel1, DockState.Document);
-            uc_Account accountPanel1 = new uc_Account();
-            accountPanel1.Show(dockPanel1, DockState.Document);
-            uc_MenuBar menu = new uc_MenuBar();
-            menu.Show(dockPanel1, DockState.DockTop);
-            dockPanel1.DockTopPortion = 100.00;
+            _uiManager = new UIManager(this);
+            _uiManager.AddMenuBar();
+            _uiManager.AddOverview();
+            _uiManager.AddUserPanel();
+
+            dockPanel1.DockTopPortion = 80.00;
             dockPanel1.DockLeftPortion = 300.00;
         }
     }

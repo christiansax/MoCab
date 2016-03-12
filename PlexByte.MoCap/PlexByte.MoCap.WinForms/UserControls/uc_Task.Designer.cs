@@ -30,16 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_Task));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dtp_Modified = new System.Windows.Forms.DateTimePicker();
+            this.dtp_Created = new System.Windows.Forms.DateTimePicker();
+            this.tbx_ModifiedBy = new System.Windows.Forms.TextBox();
+            this.tbx_CreatedBy = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgw_Subtasks = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,16 +53,23 @@
             this.Owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Progress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.pbr_Progress = new System.Windows.Forms.ProgressBar();
+            this.btn_ChangeOwner = new System.Windows.Forms.Button();
+            this.tbx_Owner = new System.Windows.Forms.TextBox();
+            this.tbx_Description = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.num_Priority = new System.Windows.Forms.NumericUpDown();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.num_EffortsMin = new System.Windows.Forms.NumericUpDown();
+            this.num_EffortsHours = new System.Windows.Forms.NumericUpDown();
+            this.dtp_DueDate = new System.Windows.Forms.DateTimePicker();
+            this.tbx_ProjectName = new System.Windows.Forms.TextBox();
+            this.cbx_IsToDo = new System.Windows.Forms.CheckBox();
+            this.tbx_Title = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -67,60 +77,99 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.num_TotalCosts = new System.Windows.Forms.NumericUpDown();
+            this.num_Budget = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgw_Subtasks)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_Priority)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_EffortsMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_EffortsHours)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_TotalCosts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_Budget)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.dateTimePicker3);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.dtp_Modified);
+            this.groupBox1.Controls.Add(this.dtp_Created);
+            this.groupBox1.Controls.Add(this.tbx_ModifiedBy);
+            this.groupBox1.Controls.Add(this.tbx_CreatedBy);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Location = new System.Drawing.Point(12, 201);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(625, 75);
+            this.groupBox1.Size = new System.Drawing.Size(625, 115);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Activity";
             // 
-            // label12
+            // button4
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 48);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(64, 13);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "Modified by:";
+            this.button4.Location = new System.Drawing.Point(542, 80);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 21;
+            this.button4.Text = "Subtask";
+            this.button4.UseVisualStyleBackColor = true;
             // 
-            // label13
+            // button3
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 22);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 13);
-            this.label13.TabIndex = 6;
-            this.label13.Text = "Created by:";
+            this.button3.Location = new System.Drawing.Point(276, 80);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "Update";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(9, 80);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Edit";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // dtp_Modified
+            // 
+            this.dtp_Modified.CustomFormat = "ddd dd MMM yyyy        HH:mm";
+            this.dtp_Modified.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_Modified.Location = new System.Drawing.Point(416, 45);
+            this.dtp_Modified.Name = "dtp_Modified";
+            this.dtp_Modified.Size = new System.Drawing.Size(201, 20);
+            this.dtp_Modified.TabIndex = 18;
+            // 
+            // dtp_Created
+            // 
+            this.dtp_Created.CustomFormat = "ddd dd MMM yyyy        HH:mm";
+            this.dtp_Created.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_Created.Location = new System.Drawing.Point(416, 19);
+            this.dtp_Created.Name = "dtp_Created";
+            this.dtp_Created.Size = new System.Drawing.Size(201, 20);
+            this.dtp_Created.TabIndex = 17;
+            // 
+            // tbx_ModifiedBy
+            // 
+            this.tbx_ModifiedBy.Location = new System.Drawing.Point(89, 45);
+            this.tbx_ModifiedBy.Name = "tbx_ModifiedBy";
+            this.tbx_ModifiedBy.Size = new System.Drawing.Size(133, 20);
+            this.tbx_ModifiedBy.TabIndex = 15;
+            // 
+            // tbx_CreatedBy
+            // 
+            this.tbx_CreatedBy.Location = new System.Drawing.Point(89, 19);
+            this.tbx_CreatedBy.Name = "tbx_CreatedBy";
+            this.tbx_CreatedBy.Size = new System.Drawing.Size(133, 20);
+            this.tbx_CreatedBy.TabIndex = 14;
             // 
             // label14
             // 
@@ -140,62 +189,48 @@
             this.label15.TabIndex = 8;
             this.label15.Text = "at:";
             // 
-            // textBox7
+            // label12
             // 
-            this.textBox7.Location = new System.Drawing.Point(89, 19);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(133, 20);
-            this.textBox7.TabIndex = 14;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 48);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(64, 13);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "Modified by:";
             // 
-            // textBox8
+            // label13
             // 
-            this.textBox8.Location = new System.Drawing.Point(89, 45);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(133, 20);
-            this.textBox8.TabIndex = 15;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.CustomFormat = "ddd dd MMM yyyy        HH:mm";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(416, 19);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(201, 20);
-            this.dateTimePicker2.TabIndex = 17;
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.CustomFormat = "ddd dd MMM yyyy        HH:mm";
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker3.Location = new System.Drawing.Point(416, 45);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(201, 20);
-            this.dateTimePicker3.TabIndex = 18;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 22);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(61, 13);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Created by:";
             // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 282);
+            this.groupBox2.Controls.Add(this.dgw_Subtasks);
+            this.groupBox2.Location = new System.Drawing.Point(12, 322);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(625, 135);
+            this.groupBox2.Size = new System.Drawing.Size(625, 167);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sub Tasks";
             // 
-            // dataGridView1
+            // dgw_Subtasks
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgw_Subtasks.AllowUserToAddRows = false;
+            this.dgw_Subtasks.AllowUserToDeleteRows = false;
+            this.dgw_Subtasks.AllowUserToOrderColumns = true;
+            this.dgw_Subtasks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeight = 20;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgw_Subtasks.ColumnHeadersHeight = 20;
+            this.dgw_Subtasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgw_Subtasks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Title,
             this.DueDate,
@@ -205,20 +240,20 @@
             this.CurrentDuration,
             this.Owner,
             this.Progress});
-            this.dataGridView1.Location = new System.Drawing.Point(9, 20);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 15;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.ShowCellErrors = false;
-            this.dataGridView1.ShowCellToolTips = false;
-            this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.ShowRowErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(610, 109);
-            this.dataGridView1.TabIndex = 0;
+            this.dgw_Subtasks.Location = new System.Drawing.Point(9, 20);
+            this.dgw_Subtasks.MultiSelect = false;
+            this.dgw_Subtasks.Name = "dgw_Subtasks";
+            this.dgw_Subtasks.ReadOnly = true;
+            this.dgw_Subtasks.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgw_Subtasks.RowHeadersVisible = false;
+            this.dgw_Subtasks.RowTemplate.Height = 15;
+            this.dgw_Subtasks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgw_Subtasks.ShowCellErrors = false;
+            this.dgw_Subtasks.ShowCellToolTips = false;
+            this.dgw_Subtasks.ShowEditingIcon = false;
+            this.dgw_Subtasks.ShowRowErrors = false;
+            this.dgw_Subtasks.Size = new System.Drawing.Size(610, 141);
+            this.dgw_Subtasks.TabIndex = 0;
             // 
             // Id
             // 
@@ -287,25 +322,25 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.textBox6);
-            this.groupBox3.Controls.Add(this.progressBar1);
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.textBox5);
-            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.Controls.Add(this.num_Budget);
+            this.groupBox3.Controls.Add(this.num_TotalCosts);
+            this.groupBox3.Controls.Add(this.pbr_Progress);
+            this.groupBox3.Controls.Add(this.btn_ChangeOwner);
+            this.groupBox3.Controls.Add(this.tbx_Owner);
+            this.groupBox3.Controls.Add(this.tbx_Description);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.numericUpDown4);
-            this.groupBox3.Controls.Add(this.textBox9);
+            this.groupBox3.Controls.Add(this.num_Priority);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.numericUpDown5);
-            this.groupBox3.Controls.Add(this.numericUpDown6);
-            this.groupBox3.Controls.Add(this.dateTimePicker4);
-            this.groupBox3.Controls.Add(this.textBox10);
-            this.groupBox3.Controls.Add(this.checkBox2);
-            this.groupBox3.Controls.Add(this.textBox11);
+            this.groupBox3.Controls.Add(this.num_EffortsMin);
+            this.groupBox3.Controls.Add(this.num_EffortsHours);
+            this.groupBox3.Controls.Add(this.dtp_DueDate);
+            this.groupBox3.Controls.Add(this.tbx_ProjectName);
+            this.groupBox3.Controls.Add(this.cbx_IsToDo);
+            this.groupBox3.Controls.Add(this.tbx_Title);
             this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.label21);
             this.groupBox3.Controls.Add(this.label22);
@@ -313,6 +348,7 @@
             this.groupBox3.Controls.Add(this.label24);
             this.groupBox3.Controls.Add(this.label25);
             this.groupBox3.Controls.Add(this.label26);
+            this.groupBox3.Enabled = false;
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(625, 183);
@@ -320,19 +356,79 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Settings";
             // 
-            // numericUpDown4
+            // pbr_Progress
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(243, 48);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(60, 20);
-            this.numericUpDown4.TabIndex = 44;
+            this.pbr_Progress.Location = new System.Drawing.Point(416, 124);
+            this.pbr_Progress.Name = "pbr_Progress";
+            this.pbr_Progress.Size = new System.Drawing.Size(201, 20);
+            this.pbr_Progress.TabIndex = 52;
             // 
-            // textBox9
+            // btn_ChangeOwner
             // 
-            this.textBox9.Location = new System.Drawing.Point(89, 152);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(213, 20);
-            this.textBox9.TabIndex = 43;
+            this.btn_ChangeOwner.Location = new System.Drawing.Point(583, 95);
+            this.btn_ChangeOwner.Name = "btn_ChangeOwner";
+            this.btn_ChangeOwner.Size = new System.Drawing.Size(34, 23);
+            this.btn_ChangeOwner.TabIndex = 51;
+            this.btn_ChangeOwner.Text = "=>";
+            this.btn_ChangeOwner.UseVisualStyleBackColor = true;
+            // 
+            // tbx_Owner
+            // 
+            this.tbx_Owner.Location = new System.Drawing.Point(416, 97);
+            this.tbx_Owner.Name = "tbx_Owner";
+            this.tbx_Owner.Size = new System.Drawing.Size(161, 20);
+            this.tbx_Owner.TabIndex = 50;
+            // 
+            // tbx_Description
+            // 
+            this.tbx_Description.Location = new System.Drawing.Point(416, 22);
+            this.tbx_Description.Multiline = true;
+            this.tbx_Description.Name = "tbx_Description";
+            this.tbx_Description.Size = new System.Drawing.Size(201, 67);
+            this.tbx_Description.TabIndex = 49;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(324, 155);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(63, 13);
+            this.label11.TabIndex = 48;
+            this.label11.Text = "Total Costs:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(324, 128);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(51, 13);
+            this.label10.TabIndex = 47;
+            this.label10.Text = "Progress:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(324, 98);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(41, 13);
+            this.label9.TabIndex = 46;
+            this.label9.Text = "Owner:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(324, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(63, 13);
+            this.label8.TabIndex = 45;
+            this.label8.Text = "Description:";
+            // 
+            // num_Priority
+            // 
+            this.num_Priority.Location = new System.Drawing.Point(243, 48);
+            this.num_Priority.Name = "num_Priority";
+            this.num_Priority.Size = new System.Drawing.Size(60, 20);
+            this.num_Priority.TabIndex = 44;
             // 
             // label18
             // 
@@ -352,51 +448,51 @@
             this.label19.TabIndex = 41;
             this.label19.Text = "h";
             // 
-            // numericUpDown5
+            // num_EffortsMin
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(214, 126);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(60, 20);
-            this.numericUpDown5.TabIndex = 40;
+            this.num_EffortsMin.Location = new System.Drawing.Point(214, 126);
+            this.num_EffortsMin.Name = "num_EffortsMin";
+            this.num_EffortsMin.Size = new System.Drawing.Size(60, 20);
+            this.num_EffortsMin.TabIndex = 40;
             // 
-            // numericUpDown6
+            // num_EffortsHours
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(89, 126);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(60, 20);
-            this.numericUpDown6.TabIndex = 39;
+            this.num_EffortsHours.Location = new System.Drawing.Point(89, 126);
+            this.num_EffortsHours.Name = "num_EffortsHours";
+            this.num_EffortsHours.Size = new System.Drawing.Size(60, 20);
+            this.num_EffortsHours.TabIndex = 39;
             // 
-            // dateTimePicker4
+            // dtp_DueDate
             // 
-            this.dateTimePicker4.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker4.Location = new System.Drawing.Point(89, 100);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(214, 20);
-            this.dateTimePicker4.TabIndex = 38;
+            this.dtp_DueDate.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
+            this.dtp_DueDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_DueDate.Location = new System.Drawing.Point(89, 100);
+            this.dtp_DueDate.Name = "dtp_DueDate";
+            this.dtp_DueDate.Size = new System.Drawing.Size(214, 20);
+            this.dtp_DueDate.TabIndex = 38;
             // 
-            // textBox10
+            // tbx_ProjectName
             // 
-            this.textBox10.Location = new System.Drawing.Point(89, 74);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(214, 20);
-            this.textBox10.TabIndex = 37;
+            this.tbx_ProjectName.Location = new System.Drawing.Point(89, 74);
+            this.tbx_ProjectName.Name = "tbx_ProjectName";
+            this.tbx_ProjectName.Size = new System.Drawing.Size(214, 20);
+            this.tbx_ProjectName.TabIndex = 37;
             // 
-            // checkBox2
+            // cbx_IsToDo
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(89, 50);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(15, 14);
-            this.checkBox2.TabIndex = 36;
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cbx_IsToDo.AutoSize = true;
+            this.cbx_IsToDo.Location = new System.Drawing.Point(89, 50);
+            this.cbx_IsToDo.Name = "cbx_IsToDo";
+            this.cbx_IsToDo.Size = new System.Drawing.Size(15, 14);
+            this.cbx_IsToDo.TabIndex = 36;
+            this.cbx_IsToDo.UseVisualStyleBackColor = true;
             // 
-            // textBox11
+            // tbx_Title
             // 
-            this.textBox11.Location = new System.Drawing.Point(89, 22);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(214, 20);
-            this.textBox11.TabIndex = 35;
+            this.tbx_Title.Location = new System.Drawing.Point(89, 22);
+            this.tbx_Title.Name = "tbx_Title";
+            this.tbx_Title.Size = new System.Drawing.Size(214, 20);
+            this.tbx_Title.TabIndex = 35;
             // 
             // label20
             // 
@@ -461,85 +557,37 @@
             this.label26.TabIndex = 28;
             this.label26.Text = "Title:";
             // 
-            // textBox6
+            // num_TotalCosts
             // 
-            this.textBox6.Location = new System.Drawing.Point(416, 152);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(201, 20);
-            this.textBox6.TabIndex = 53;
+            this.num_TotalCosts.DecimalPlaces = 2;
+            this.num_TotalCosts.Location = new System.Drawing.Point(416, 152);
+            this.num_TotalCosts.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.num_TotalCosts.Name = "num_TotalCosts";
+            this.num_TotalCosts.Size = new System.Drawing.Size(201, 20);
+            this.num_TotalCosts.TabIndex = 54;
             // 
-            // progressBar1
+            // num_Budget
             // 
-            this.progressBar1.Location = new System.Drawing.Point(416, 124);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(201, 20);
-            this.progressBar1.TabIndex = 52;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(583, 95);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 23);
-            this.button1.TabIndex = 51;
-            this.button1.Text = "=>";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(416, 97);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(161, 20);
-            this.textBox5.TabIndex = 50;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(416, 22);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(201, 67);
-            this.textBox4.TabIndex = 49;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(324, 155);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(63, 13);
-            this.label11.TabIndex = 48;
-            this.label11.Text = "Total Costs:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(324, 128);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(51, 13);
-            this.label10.TabIndex = 47;
-            this.label10.Text = "Progress:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(324, 98);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(41, 13);
-            this.label9.TabIndex = 46;
-            this.label9.Text = "Owner:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(324, 25);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 13);
-            this.label8.TabIndex = 45;
-            this.label8.Text = "Description:";
+            this.num_Budget.DecimalPlaces = 2;
+            this.num_Budget.Location = new System.Drawing.Point(89, 152);
+            this.num_Budget.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.num_Budget.Name = "num_Budget";
+            this.num_Budget.Size = new System.Drawing.Size(214, 20);
+            this.num_Budget.TabIndex = 55;
             // 
             // uc_Task
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 438);
+            this.ClientSize = new System.Drawing.Size(652, 510);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -549,12 +597,14 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgw_Subtasks)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_Priority)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_EffortsMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_EffortsHours)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_TotalCosts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_Budget)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -565,12 +615,12 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.DateTimePicker dtp_Modified;
+        private System.Windows.Forms.DateTimePicker dtp_Created;
+        private System.Windows.Forms.TextBox tbx_ModifiedBy;
+        private System.Windows.Forms.TextBox tbx_CreatedBy;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgw_Subtasks;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn DueDate;
@@ -581,25 +631,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Owner;
         private System.Windows.Forms.DataGridViewTextBoxColumn Progress;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ProgressBar pbr_Progress;
+        private System.Windows.Forms.Button btn_ChangeOwner;
+        private System.Windows.Forms.TextBox tbx_Owner;
+        private System.Windows.Forms.TextBox tbx_Description;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.NumericUpDown num_Priority;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.NumericUpDown num_EffortsMin;
+        private System.Windows.Forms.NumericUpDown num_EffortsHours;
+        private System.Windows.Forms.DateTimePicker dtp_DueDate;
+        private System.Windows.Forms.TextBox tbx_ProjectName;
+        private System.Windows.Forms.CheckBox cbx_IsToDo;
+        private System.Windows.Forms.TextBox tbx_Title;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
@@ -607,5 +655,10 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.NumericUpDown num_TotalCosts;
+        private System.Windows.Forms.NumericUpDown num_Budget;
     }
 }

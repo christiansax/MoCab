@@ -50,6 +50,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomForms\frm_TaskUpdateProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomForms\frm_TaskUpdateProgress.Designer.cs">
+      <DependentUpon>frm_TaskUpdateProgress.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_MoCapMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     <Compile Include="UserControls\uc_Task.Designer.cs">
       <DependentUpon>uc_Task.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CustomForms\frm_TaskUpdateProgress.resx">
+      <DependentUpon>frm_TaskUpdateProgress.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_MoCapMain.resx">
       <DependentUpon>frm_MoCapMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -188,9 +197,7 @@
   <ItemGroup>
     <None Include="Resources\Refresh.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CustomControls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\project.png" />
   </ItemGroup>

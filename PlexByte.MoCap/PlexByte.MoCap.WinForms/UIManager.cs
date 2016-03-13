@@ -18,7 +18,9 @@ namespace MoCap.PlexByte.MoCap.WinForms
         Task,
         Project,
         Account, 
-        Survey
+        Survey,
+        Expense,
+        Timeslice
     }
 
     /// <summary>
@@ -96,6 +98,24 @@ namespace MoCap.PlexByte.MoCap.WinForms
         }
 
         /// <summary>
+        /// Adds the expense panel to the form
+        /// </summary>
+        public void AddExpensePanel()
+        {
+            DockContent tmp = CreateContentPanel(UiType.Expense);
+            tmp.TabText = "Expense Dialog";
+        }
+
+        /// <summary>
+        /// Adds the timeslice panel to the form
+        /// </summary>
+        public void AddTimeslicePanel()
+        {
+            DockContent tmp = CreateContentPanel(UiType.Timeslice);
+            tmp.TabText = "Timeslice Dialog";
+        }
+
+        /// <summary>
         /// Adds the menu bar and registers to its events
         /// </summary>
         public void AddMenuBar()
@@ -140,6 +160,12 @@ namespace MoCap.PlexByte.MoCap.WinForms
                 case "btn_Account":
                     AddAccoutPanel();
                     break;
+                case "btn_Expense":
+                    AddExpensePanel();
+                    break;
+                case "btn_Timeslice":
+                    AddTimeslicePanel();
+                    break;
                 default:
                     break;
             }
@@ -175,6 +201,12 @@ namespace MoCap.PlexByte.MoCap.WinForms
                     break;
                 case UiType.User:
                     panel = new uc_User();
+                    break;
+                case UiType.Expense:
+                    panel = new uc_Expense();
+                    break;
+                case UiType.Timeslice:
+                    panel = new uc_Timeslice();
                     break;
                 default:
                     break;

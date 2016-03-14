@@ -226,7 +226,24 @@
   <ItemGroup>
     <None Include="Resources\Refresh.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PlexByte.MoCap.Backend\PlexByte.MoCap.Backend.csproj">
+      <Project>{be9a7d39-113a-4e48-960e-3c5bfed0db70}</Project>
+      <Name>PlexByte.MoCap.Backend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlexByte.MoCap.Helpers\PlexByte.MoCap.Helpers.csproj">
+      <Project>{34506aa0-ee70-4637-9352-6d044e29823a}</Project>
+      <Name>PlexByte.MoCap.Helpers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlexByte.MoCap.Interactions\PlexByte.MoCap.Interactions.csproj">
+      <Project>{1656f717-ada8-4c21-a310-069262387695}</Project>
+      <Name>PlexByte.MoCap.Interactions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlexByte.MoCap.Security\PlexByte.MoCap.Security.csproj">
+      <Project>{265f3562-24a8-4b4f-8140-56d566c18f53}</Project>
+      <Name>PlexByte.MoCap.Security</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\project.png" />
   </ItemGroup>

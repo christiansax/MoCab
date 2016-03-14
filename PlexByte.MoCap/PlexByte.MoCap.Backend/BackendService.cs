@@ -28,10 +28,10 @@ namespace PlexByte.MoCap.Backend
         private string _connectionString = string.Format("Server={0}; Database=csax2277_MoCap_Prod;User Id={1};Password={2};", _DBServer, _DBUser, _DBPWD);
 
         /// <summary>
-        /// This method gets all task for the userId specified and returns the datatable. It is using the SQL view_task
+        /// This method authenticates the given user and password against the database. If suceeded the ID of the authenticated user will be returnes
         /// </summary>
         /// <param name="pId">The id of the user to query results for</param>
-        /// <returns>DataTable containing all tasks for the user in question</returns>
+        /// <returns>The Users Id</returns>
         public string AuthenticateUser(string pUserName, string pPassword)
         {
             DataTable userInfo = new DataTable();

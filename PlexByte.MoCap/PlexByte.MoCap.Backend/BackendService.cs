@@ -38,7 +38,7 @@ namespace PlexByte.MoCap.Backend
             pPassword = CryptoHelper.Decrypt(pPassword, _Password);
 
             userInfo = ExecuteQueryString($"select * from View_User where (Username = {pUserName} or EmailAddress = {pUserName}) " +
-                                          $"AND Password = {pPassword}");
+                                          $"AND Password = {pPassword}  AND IsActive = 1");
             if (userInfo.Rows.Count < 1)
                 throw new Exception($"Authentification failed! Username or password is invalid [UserName={pUserName}] [Password={pPassword}]");
             else
@@ -60,10 +60,10 @@ namespace PlexByte.MoCap.Backend
             switch (pType)
             {
                 case ObjectType.Project:
-                    sQueryString = $"select * from View_ProjectUserMapping where ProjectId = {pId}";
+                    sQueryString = $"select * from View_ProjectUserMapping where ProjectId = {pId}  AND IsActive = 1";
                     break;
                 case ObjectType.User:
-                    sQueryString = $"select * from View_User where Id = {pId}";
+                    sQueryString = $"select * from View_User where Id = {pId}  AND IsActive = 1";
                     break;
                 default:
                     throw new Exception("Object type is null or unknown!");
@@ -83,10 +83,10 @@ namespace PlexByte.MoCap.Backend
             switch (pType)
             {
                 case ObjectType.Project:
-                    sQueryString = $"select * from View_ProjectTaskMapping where ProjectId = {pId}";
+                    sQueryString = $"select * from View_ProjectTaskMapping where ProjectId = {pId}  AND IsActive = 1";
                     break;
                 case ObjectType.User:
-                    sQueryString = $"select * from View_Task where OwnerId = {pId} or CreatorId = {pId}";
+                    sQueryString = $"select * from View_Task where OwnerId = {pId} or CreatorId = {pId}  AND IsActive = 1";
                     break;
                 default:
                     throw new Exception("Object type is null or unknown!");
@@ -107,10 +107,10 @@ namespace PlexByte.MoCap.Backend
             switch (pType)
             {
                 case ObjectType.Project:
-                    sQueryString = $"select * from View_ProjectSurveyMapping where ProjectId = {pId}";
+                    sQueryString = $"select * from View_ProjectSurveyMapping where ProjectId = {pId}  AND IsActive = 1";
                     break;
                 case ObjectType.User:
-                    sQueryString = $"select * from View_SurveyUserMapping where UserId = {pId}";
+                    sQueryString = $"select * from View_SurveyUserMapping where UserId = {pId}  AND IsActive = 1";
                     break;
                 default:
                     throw new Exception("Object type is null or unknown!");
@@ -162,7 +162,8 @@ namespace PlexByte.MoCap.Backend
         public DataTable GetProjectsByUser(string pUserId)
         {
             return ExecuteQueryString($"select * from View_Project where Id in (select ProjectId from View_ProjectUserMapping where " +
-                                      $"UserId = {pUserId}) AND ([OwnerId] = {pUserId} OR [CreatorId] = {pUserId}) order by [Name]");
+                                      $"UserId = {pUserId}) AND ([OwnerId] = {pUserId} OR [CreatorId] = {pUserId})  AND IsActive = 1" +
+                                      $" order by [Name]");
         }
 
         /// <summary>
@@ -179,12 +180,12 @@ namespace PlexByte.MoCap.Backend
             {
                 case ObjectType.Project:
                     sQueryString = $"select ProjectId, ExpenseId, TaskId, ExpUserName, ExpDescription, Value, CreatedDateTime " +
-                                   $"from View_Accounting where [ProjectId] = {pId}) and ExpenseId is not null order by ProjectId";
+                                   $"from View_Accounting where [ProjectId] = {pId}) and ExpenseId is not null AND IsActive = 1 order by ProjectId";
                     break;
                 case ObjectType.User:
                     sQueryString = $"select ProjectId, ExpenseId, TaskId, ExpUserName, ExpDescription, Value, CreatedDateTime " +
                                    $"from View_Accounting where [ExpUserName] = '(select Username from View_User where Id = {pId})'" +
-                                   $" and ExpenseId is not null order by ProjectId";
+                                   $" and ExpenseId is not null AND IsActive = 1 order by ProjectId";
                     break;
                 default:
                     throw new Exception("Object type is null or unknown!");
@@ -207,12 +208,12 @@ namespace PlexByte.MoCap.Backend
             {
                 case ObjectType.Project:
                     sQueryString = $"select ProjectId, TimesliceId, TaskId, TsUserName, TsDescription, Duration, CreatedDateTime " +
-                                   $"from View_Accounting where [ProjectId] = {pId}) and TimesliceId is not null order by ProjectId";
+                                   $"from View_Accounting where [ProjectId] = {pId}) and TimesliceId is not null AND IsActive = 1 order by ProjectId";
                     break;
                 case ObjectType.User:
                     sQueryString = $"select ProjectId, TimesliceId, TaskId, TsUserName, TsDescription, Duration, CreatedDateTime " +
                                    $"from View_Accounting where [ExpUserName] = '(select Username from View_User where Id = {pId})'" +
-                                   $" and TimesliceId is not null order by ProjectId";
+                                   $" and TimesliceId is not null AND IsActive = 1 order by ProjectId";
                     break;
                 default:
                     throw new Exception("Object type is null or unknown!");

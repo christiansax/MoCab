@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.tbxm_Password = new System.Windows.Forms.MaskedTextBox();
+            this.dtp_Modified = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dpt_Created = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbx_Birthdate = new System.Windows.Forms.TextBox();
+            this.tbx_Email = new System.Windows.Forms.TextBox();
+            this.tbx_UserName = new System.Windows.Forms.TextBox();
+            this.tbx_LastName = new System.Windows.Forms.TextBox();
+            this.tbx_FirstName = new System.Windows.Forms.TextBox();
+            this.tbx_MiddleName = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -59,18 +59,18 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
+            this.groupBox1.Controls.Add(this.tbxm_Password);
+            this.groupBox1.Controls.Add(this.dtp_Modified);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dpt_Created);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.textBox7);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.tbx_Birthdate);
+            this.groupBox1.Controls.Add(this.tbx_Email);
+            this.groupBox1.Controls.Add(this.tbx_UserName);
+            this.groupBox1.Controls.Add(this.tbx_LastName);
+            this.groupBox1.Controls.Add(this.tbx_FirstName);
+            this.groupBox1.Controls.Add(this.tbx_MiddleName);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
@@ -86,14 +86,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Details";
             // 
-            // dateTimePicker2
+            // tbxm_Password
             // 
-            this.dateTimePicker2.CustomFormat = "ddd dd MMM yyyy  HH:mm";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(358, 124);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(166, 20);
-            this.dateTimePicker2.TabIndex = 19;
+            this.tbxm_Password.Location = new System.Drawing.Point(358, 45);
+            this.tbxm_Password.Name = "tbxm_Password";
+            this.tbxm_Password.PasswordChar = '*';
+            this.tbxm_Password.Size = new System.Drawing.Size(166, 20);
+            this.tbxm_Password.TabIndex = 20;
+            // 
+            // dtp_Modified
+            // 
+            this.dtp_Modified.CustomFormat = "ddd dd MMM yyyy  HH:mm";
+            this.dtp_Modified.Enabled = false;
+            this.dtp_Modified.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_Modified.Location = new System.Drawing.Point(358, 124);
+            this.dtp_Modified.Name = "dtp_Modified";
+            this.dtp_Modified.Size = new System.Drawing.Size(166, 20);
+            this.dtp_Modified.TabIndex = 19;
             // 
             // label10
             // 
@@ -104,14 +113,15 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "Modified:";
             // 
-            // dateTimePicker1
+            // dpt_Created
             // 
-            this.dateTimePicker1.CustomFormat = "ddd dd MMM yyyy  HH:mm";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(88, 124);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(166, 20);
-            this.dateTimePicker1.TabIndex = 17;
+            this.dpt_Created.CustomFormat = "ddd dd MMM yyyy  HH:mm";
+            this.dpt_Created.Enabled = false;
+            this.dpt_Created.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpt_Created.Location = new System.Drawing.Point(88, 124);
+            this.dpt_Created.Name = "dpt_Created";
+            this.dpt_Created.Size = new System.Drawing.Size(166, 20);
+            this.dpt_Created.TabIndex = 17;
             // 
             // label9
             // 
@@ -131,54 +141,52 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "BirthDate:";
             // 
-            // textBox8
+            // tbx_Birthdate
             // 
-            this.textBox8.Location = new System.Drawing.Point(358, 97);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(166, 20);
-            this.textBox8.TabIndex = 14;
+            this.tbx_Birthdate.Enabled = false;
+            this.tbx_Birthdate.Location = new System.Drawing.Point(358, 97);
+            this.tbx_Birthdate.Name = "tbx_Birthdate";
+            this.tbx_Birthdate.Size = new System.Drawing.Size(166, 20);
+            this.tbx_Birthdate.TabIndex = 14;
             // 
-            // textBox7
+            // tbx_Email
             // 
-            this.textBox7.Location = new System.Drawing.Point(358, 71);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(166, 20);
-            this.textBox7.TabIndex = 13;
+            this.tbx_Email.Enabled = false;
+            this.tbx_Email.Location = new System.Drawing.Point(358, 71);
+            this.tbx_Email.Name = "tbx_Email";
+            this.tbx_Email.Size = new System.Drawing.Size(166, 20);
+            this.tbx_Email.TabIndex = 13;
             // 
-            // textBox6
+            // tbx_UserName
             // 
-            this.textBox6.Location = new System.Drawing.Point(358, 45);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(166, 20);
-            this.textBox6.TabIndex = 12;
+            this.tbx_UserName.Location = new System.Drawing.Point(358, 19);
+            this.tbx_UserName.Name = "tbx_UserName";
+            this.tbx_UserName.Size = new System.Drawing.Size(166, 20);
+            this.tbx_UserName.TabIndex = 11;
             // 
-            // textBox5
+            // tbx_LastName
             // 
-            this.textBox5.Location = new System.Drawing.Point(358, 19);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(166, 20);
-            this.textBox5.TabIndex = 11;
+            this.tbx_LastName.Enabled = false;
+            this.tbx_LastName.Location = new System.Drawing.Point(88, 97);
+            this.tbx_LastName.Name = "tbx_LastName";
+            this.tbx_LastName.Size = new System.Drawing.Size(166, 20);
+            this.tbx_LastName.TabIndex = 10;
             // 
-            // textBox4
+            // tbx_FirstName
             // 
-            this.textBox4.Location = new System.Drawing.Point(88, 97);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(166, 20);
-            this.textBox4.TabIndex = 10;
+            this.tbx_FirstName.Enabled = false;
+            this.tbx_FirstName.Location = new System.Drawing.Point(88, 45);
+            this.tbx_FirstName.Name = "tbx_FirstName";
+            this.tbx_FirstName.Size = new System.Drawing.Size(166, 20);
+            this.tbx_FirstName.TabIndex = 9;
             // 
-            // textBox3
+            // tbx_MiddleName
             // 
-            this.textBox3.Location = new System.Drawing.Point(88, 45);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(166, 20);
-            this.textBox3.TabIndex = 9;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(88, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(166, 20);
-            this.textBox2.TabIndex = 8;
+            this.tbx_MiddleName.Enabled = false;
+            this.tbx_MiddleName.Location = new System.Drawing.Point(88, 71);
+            this.tbx_MiddleName.Name = "tbx_MiddleName";
+            this.tbx_MiddleName.Size = new System.Drawing.Size(166, 20);
+            this.tbx_MiddleName.TabIndex = 8;
             // 
             // label7
             // 
@@ -236,6 +244,7 @@
             // 
             // tbx_Id
             // 
+            this.tbx_Id.Enabled = false;
             this.tbx_Id.Location = new System.Drawing.Point(88, 19);
             this.tbx_Id.Name = "tbx_Id";
             this.tbx_Id.Size = new System.Drawing.Size(166, 20);
@@ -271,13 +280,13 @@
             // btn_Edit
             // 
             this.btn_Edit.AllowDrop = true;
-            this.btn_Edit.Enabled = false;
             this.btn_Edit.Location = new System.Drawing.Point(237, 172);
             this.btn_Edit.Name = "btn_Edit";
             this.btn_Edit.Size = new System.Drawing.Size(75, 23);
             this.btn_Edit.TabIndex = 3;
             this.btn_Edit.Text = "Edit";
             this.btn_Edit.UseVisualStyleBackColor = true;
+            this.btn_Edit.Visible = false;
             // 
             // uc_User
             // 
@@ -306,22 +315,22 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dpt_Created;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbx_Birthdate;
+        private System.Windows.Forms.TextBox tbx_Email;
+        private System.Windows.Forms.TextBox tbx_UserName;
+        private System.Windows.Forms.TextBox tbx_LastName;
+        private System.Windows.Forms.TextBox tbx_FirstName;
+        private System.Windows.Forms.TextBox tbx_MiddleName;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtp_Modified;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btn_New;
         private System.Windows.Forms.Button btn_Login;
         private System.Windows.Forms.Button btn_Edit;
+        private System.Windows.Forms.MaskedTextBox tbxm_Password;
     }
 }

@@ -5,12 +5,13 @@
 //      registers to all available events and executes the corresponding action
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using PlexByte.MoCap.WinForms;
 using PlexByte.MoCap.WinForms.UserControls;
 using WeifenLuo.WinFormsUI.Docking;
 
-namespace MoCap.PlexByte.MoCap.WinForms
+namespace PlexByte.MoCap.WinForms
 {
     public enum UiType
     {
@@ -145,7 +146,40 @@ namespace MoCap.PlexByte.MoCap.WinForms
             }
         }
 
-        public void UserButtonClicked(object sender, EventArgs e) { }
+        public void UserButtonClicked(object sender, EventArgs e)
+        {
+            switch (((Button) sender).Name)
+            {
+                case "btn_Edit":
+                case "btn_New":
+                    bool isSave = ((Button) sender).Text.ToLower() == "save";
+                    List<Control> ctrls = GetAllControls(((Button) sender).Parent);
+                    foreach (var VARIABLE in ctrls)
+                    {
+                        if (isSave)
+                        {
+                            if (VARIABLE.Text.ToLower() != "btn_new" ||
+                                VARIABLE.Text.ToLower() != "btn_login" ||
+                                VARIABLE.Text.ToLower() != "tbx_username" ||
+                                VARIABLE.Text.ToLower() == "tbx_password")
+                                VARIABLE.Enabled = false;
+                        }
+                        else
+                        {
+                            VARIABLE.Enabled = true;
+                        }
+                            
+                    }
+                    ((Button) sender).Text = (!isSave) ? "Save" : "New";
+                    break;
+                //case "btn_Edit":
+                  //  break;
+                case "btn_Login":
+                    break;
+                default:
+                    break;
+            }
+        }
 
         #endregion
 

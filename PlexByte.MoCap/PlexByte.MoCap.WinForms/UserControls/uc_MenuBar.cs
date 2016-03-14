@@ -4,7 +4,6 @@
 //      Contains the menu layer form, which is docked in the main form
 using System;
 using System.Windows.Forms;
-using MoCap.PlexByte.MoCap.WinForms;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace PlexByte.MoCap.WinForms.UserControls

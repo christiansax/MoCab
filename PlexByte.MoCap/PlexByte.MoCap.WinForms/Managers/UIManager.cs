@@ -214,6 +214,7 @@ namespace PlexByte.MoCap.WinForms
                             _MainUI.Enabled = false;
                             _MainUI.DataManager = new DataManager(sUserName, sPassword);
                             _MainUI.Enabled = true;
+                            GetControlByName<Button>(ctrls, "btn_Login").Text = "LogOut";
                         }
                         catch (Exception exp)
                         {
@@ -236,6 +237,46 @@ namespace PlexByte.MoCap.WinForms
         #endregion
 
         #region Private methods
+
+        private void LoginUser(List<Control> pControlList)
+        {
+            string sUserName = GetControlByName<TextBox>(pControlList, "tbx_username").Text;
+            string sPassword = GetControlByName<MaskedTextBox>(pControlList, "tbx_password").Text;
+            if (!string.IsNullOrEmpty(sUserName) && !string.IsNullOrEmpty(sPassword))
+            {
+                _MainUI.Enabled = false;
+                _MainUI.DataManager = new DataManager(sUserName, sPassword);
+                _MainUI.Enabled = true;
+                GetControlByName<Button>(pControlList, "btn_Login").Text = "Logout";
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(sUserName))
+                    _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_username"), "UserName is not specified");
+                if (string.IsNullOrEmpty(sPassword))
+                    _errorProvider.SetError(GetControlByName<MaskedTextBox>(pControlList, "tbx_password"), "Password is not specified");
+            }
+        }
+
+        private void LogoutUser(List<Control> pControlList)
+        {
+            string sUserName = GetControlByName<TextBox>(pControlList, "tbx_username").Text;
+            string sPassword = GetControlByName<MaskedTextBox>(pControlList, "tbx_password").Text;
+            if (!string.IsNullOrEmpty(sUserName) && !string.IsNullOrEmpty(sPassword))
+            {
+                _MainUI.Enabled = false;
+                _MainUI.DataManager = new DataManager(sUserName, sPassword);
+                _MainUI.Enabled = true;
+                GetControlByName<Button>(pControlList, "btn_Login").Text = "Login";
+            }
+            else
+            {
+                if (string.IsNullOrEmpty(sUserName))
+                    _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_username"), "UserName is not specified");
+                if (string.IsNullOrEmpty(sPassword))
+                    _errorProvider.SetError(GetControlByName<MaskedTextBox>(pControlList, "tbx_password"), "Password is not specified");
+            }
+        }
 
         /// <summary>
         /// Creates a dock content panel and returns its instance

@@ -25,7 +25,7 @@ namespace PlexByte.MoCap.Backend
         private static string _Password = "MoCap";
         private static string _DBUser = CryptoHelper.Decrypt("BjjfgaK9bvsBcQCzh2cA7D0OQnwJ1lrU/36zDXs5bKfbK/mCnQChL74+/wtOu1+6", _Password);
         private static string _DBPWD = CryptoHelper.Decrypt("mFntrazoOtZJqDO+T8vCdtnm6aUjkfvf0Lh8kATxrZQkfNE0NiPDC7zXkb2h22MM", _Password);
-        private string _connectionString = string.Format("Server={0}; Database=csax2277_MoCap_Prod;User Id={1};Password={2};", _DBServer, _DBUser, _DBPWD);
+        private string _connectionString = string.Format("Server={0}; Database=csax2277_MoCap;User Id={1};Password={2};", _DBServer, _DBUser, _DBPWD);
 
         /// <summary>
         /// This method authenticates the given user and password against the database. If suceeded the ID of the authenticated user will be returnes
@@ -37,8 +37,8 @@ namespace PlexByte.MoCap.Backend
             DataTable userInfo = new DataTable();
             pPassword = CryptoHelper.Encrypt(pPassword, _Password);
 
-            userInfo = ExecuteQueryString($"select * from View_User where (Username = {pUserName} or EmailAddress = {pUserName}) " +
-                                          $"AND Password = {pPassword}  AND IsActive = 1");
+            userInfo = ExecuteQueryString($"select * from View_User where (Username = '{pUserName}' or EmailAddress = '{pUserName}') " +
+                                          $"AND [Password] = '{pPassword}'");
             if (userInfo.Rows.Count < 1)
                 throw new Exception($"Authentification failed! Username or password is invalid [UserName={pUserName}] [Password={pPassword}]");
             else

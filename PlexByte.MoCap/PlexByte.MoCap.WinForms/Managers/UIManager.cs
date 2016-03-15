@@ -205,8 +205,8 @@ namespace PlexByte.MoCap.WinForms
                 //case "btn_Edit":
                   //  break;
                 case "btn_Login":
-                    string sUserName = GetControlByName<TextBox>(((Control)sender).Parent, "tbx_username").Text;
-                    string sPassword = GetControlByName<MaskedTextBox>(((Control) sender).Parent, "tbx_password").Text;
+                    string sUserName = GetControlByName<TextBox>(ctrls, "tbx_username").Text;
+                    string sPassword = GetControlByName<MaskedTextBox>(ctrls, "tbx_password").Text;
                     if (!string.IsNullOrEmpty(sUserName) && !string.IsNullOrEmpty(sPassword))
                     {
                         try
@@ -223,9 +223,9 @@ namespace PlexByte.MoCap.WinForms
                     else
                     {
                         if (string.IsNullOrEmpty(sUserName))
-                            _errorProvider.SetError(GetControlByName<TextBox>(((Control) sender).Parent, "tbx_username"), "UserName is not specified");
+                            _errorProvider.SetError(GetControlByName<TextBox>(ctrls, "tbx_username"), "UserName is not specified");
                         if (string.IsNullOrEmpty(sPassword))
-                            _errorProvider.SetError(GetControlByName<MaskedTextBox>(((Control) sender).Parent, "tbx_password"), "Password is not specified");
+                            _errorProvider.SetError(GetControlByName<MaskedTextBox>(ctrls, "tbx_password"), "Password is not specified");
                     }
                     break;
                 default:
@@ -294,6 +294,13 @@ namespace PlexByte.MoCap.WinForms
             return ctrlList;
         }
 
+        /// <summary>
+        /// This generic method returns the control fo type specified, which is named as provided in the controlName
+        /// </summary>
+        /// <typeparam name="T">The type of control to use</typeparam>
+        /// <param name="pContainer">The parent container (form), which hosts the control</param>
+        /// <param name="pControlName">The name of the control</param>
+        /// <returns>Control of type T specified</returns>
         private T GetControlByName<T>(Control pContainer, string pControlName)
         {
             object control = default (T);
@@ -312,7 +319,36 @@ namespace PlexByte.MoCap.WinForms
             }
             catch (Exception exp)
             {
-                throw;
+                throw new Exception($"Expection while trying to get control of type {typeof(T).Name} and name {pControlName}. Excption message= {exp.Message}");
+            }
+        }
+
+        /// <summary>
+        /// This generic method was optimized to improved performance, as you can input the list of controls contained on the form,
+        /// rather than generating the list of contained controls at with every call
+        /// </summary>
+        /// <typeparam name="T">The type of control to use</typeparam>
+        /// <param name="pControls">The list of controls to search</param>
+        /// <param name="pControlName">The name of the control</param>
+        /// <returns>Control of type T specified</returns>
+        private T GetControlByName<T>(List<Control> pControls, string pControlName)
+        {
+            object control = default(T);
+            try
+            {
+                foreach (var VARIABLE in pControls)
+                {
+                    if (VARIABLE.GetType() == typeof(T))
+                    {
+                        if (VARIABLE.Name.ToLower() == pControlName.ToLower())
+                            return (T)(control = VARIABLE);
+                    }
+                }
+                return (T)control;
+            }
+            catch (Exception exp)
+            {
+                throw new Exception($"Expection while trying to get control of type {typeof (T).Name} and name {pControlName}. Excption message= {exp.Message}");
             }
         }
 

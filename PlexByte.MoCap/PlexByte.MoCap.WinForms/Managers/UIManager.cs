@@ -7,7 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using PlexByte.MoCap.Helpers;
 using PlexByte.MoCap.WinForms;
 using PlexByte.MoCap.WinForms.UserControls;
@@ -40,6 +42,7 @@ namespace PlexByte.MoCap.WinForms
 
         private frm_MoCapMain _MainUI = null;
         private ErrorProvider _errorProvider = new ErrorProvider();
+        private DataManager _dataManager = new DataManager();
 
         #endregion
 
@@ -205,28 +208,16 @@ namespace PlexByte.MoCap.WinForms
                 //case "btn_Edit":
                   //  break;
                 case "btn_Login":
-                    string sUserName = GetControlByName<TextBox>(ctrls, "tbx_username").Text;
-                    string sPassword = GetControlByName<MaskedTextBox>(ctrls, "tbx_password").Text;
-                    if (!string.IsNullOrEmpty(sUserName) && !string.IsNullOrEmpty(sPassword))
+                    try
                     {
-                        try
-                        {
-                            _MainUI.Enabled = false;
-                            _MainUI.DataManager = new DataManager(sUserName, sPassword);
-                            _MainUI.Enabled = true;
-                            GetControlByName<Button>(ctrls, "btn_Login").Text = "LogOut";
-                        }
-                        catch (Exception exp)
-                        {
-                            _MainUI.ShowErrorMessage(exp.Message);
-                        }
+                        if(GetControlByName<Button>(ctrls, "btn_Login").Text.ToLower() == "logout")
+                            LogoutUser(ctrls);
+                        else
+                            LoginUser(ctrls);
                     }
-                    else
+                    catch (Exception exp)
                     {
-                        if (string.IsNullOrEmpty(sUserName))
-                            _errorProvider.SetError(GetControlByName<TextBox>(ctrls, "tbx_username"), "UserName is not specified");
-                        if (string.IsNullOrEmpty(sPassword))
-                            _errorProvider.SetError(GetControlByName<MaskedTextBox>(ctrls, "tbx_password"), "Password is not specified");
+                        _MainUI.ShowErrorMessage($"Exception while trying process login/logout. Exception thrown: {exp.Message}");
                     }
                     break;
                 default:
@@ -245,7 +236,7 @@ namespace PlexByte.MoCap.WinForms
             if (!string.IsNullOrEmpty(sUserName) && !string.IsNullOrEmpty(sPassword))
             {
                 _MainUI.Enabled = false;
-                _MainUI.DataManager = new DataManager(sUserName, sPassword);
+                Task.Factory.StartNew(() => _dataManager.InitializeDataManager(sUserName, sPassword));
                 _MainUI.Enabled = true;
                 GetControlByName<Button>(pControlList, "btn_Login").Text = "Logout";
             }
@@ -260,22 +251,8 @@ namespace PlexByte.MoCap.WinForms
 
         private void LogoutUser(List<Control> pControlList)
         {
-            string sUserName = GetControlByName<TextBox>(pControlList, "tbx_username").Text;
-            string sPassword = GetControlByName<MaskedTextBox>(pControlList, "tbx_password").Text;
-            if (!string.IsNullOrEmpty(sUserName) && !string.IsNullOrEmpty(sPassword))
-            {
-                _MainUI.Enabled = false;
-                _MainUI.DataManager = new DataManager(sUserName, sPassword);
-                _MainUI.Enabled = true;
-                GetControlByName<Button>(pControlList, "btn_Login").Text = "Login";
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(sUserName))
-                    _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_username"), "UserName is not specified");
-                if (string.IsNullOrEmpty(sPassword))
-                    _errorProvider.SetError(GetControlByName<MaskedTextBox>(pControlList, "tbx_password"), "Password is not specified");
-            }
+            Task.Factory.StartNew(() => _dataManager.Logout());
+            GetControlByName<Button>(pControlList, "btn_Login").Text = "Login";
         }
 
         /// <summary>

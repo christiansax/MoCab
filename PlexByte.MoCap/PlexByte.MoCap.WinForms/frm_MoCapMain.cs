@@ -5,6 +5,7 @@
 
 using System;
 using System.Windows.Forms;
+using PlexByte.MoCap.Security;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace PlexByte.MoCap.WinForms
@@ -13,7 +14,11 @@ namespace PlexByte.MoCap.WinForms
     {
         public DockPanel Panel => dockPanel1;
         public UIManager UIManager => _uiManager;
-        public DataManager DataManager { get; set; }
+
+        /// <summary>
+        /// The user this datamanager runs under
+        /// </summary>
+        public User LoggedInUser { get; set; }
 
         private readonly UIManager _uiManager;
 

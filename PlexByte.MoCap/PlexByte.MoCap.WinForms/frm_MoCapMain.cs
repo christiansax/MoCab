@@ -2,6 +2,8 @@
 //                      Windows form frm_MoCapMain                              
 //      Author: Christian B. Sax            Date:   2016/02/14
 //      The main layer of mocap application holding any other form within docking pannel
+
+using System;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 
@@ -11,20 +13,34 @@ namespace PlexByte.MoCap.WinForms
     {
         public DockPanel Panel => dockPanel1;
         public UIManager UIManager => _uiManager;
-
+        public DataManager DataManager { get; set; }
 
         private readonly UIManager _uiManager;
 
         public frm_MoCapMain()
         {
             InitializeComponent();
-            _uiManager = new UIManager(this);
-            _uiManager.AddMenuBar();
-            _uiManager.AddOverview();
-            _uiManager.AddUserPanel();
+            try
+            {
+                _uiManager = new UIManager(this);
+                _uiManager.AddMenuBar();
+                _uiManager.AddOverview();
+                _uiManager.AddUserPanel();
 
-            dockPanel1.DockTopPortion = 80.00;
-            dockPanel1.DockLeftPortion = 300.00;
+                dockPanel1.DockTopPortion = 80.00;
+                dockPanel1.DockLeftPortion = 300.00;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        public void ShowErrorMessage(string pErrorMessage)
+        {
+            if(MessageBox.Show(pErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
+                this.Enabled=true;
         }
     }
 }

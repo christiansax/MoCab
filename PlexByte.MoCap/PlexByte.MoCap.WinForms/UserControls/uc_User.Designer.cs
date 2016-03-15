@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tbxm_Password = new System.Windows.Forms.MaskedTextBox();
+            this.tbx_Password = new System.Windows.Forms.MaskedTextBox();
             this.dtp_Modified = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
             this.dpt_Created = new System.Windows.Forms.DateTimePicker();
@@ -59,7 +59,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.tbxm_Password);
+            this.groupBox1.Controls.Add(this.tbx_Password);
             this.groupBox1.Controls.Add(this.dtp_Modified);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.dpt_Created);
@@ -86,13 +86,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Details";
             // 
-            // tbxm_Password
+            // tbx_Password
             // 
-            this.tbxm_Password.Location = new System.Drawing.Point(358, 45);
-            this.tbxm_Password.Name = "tbxm_Password";
-            this.tbxm_Password.PasswordChar = '*';
-            this.tbxm_Password.Size = new System.Drawing.Size(166, 20);
-            this.tbxm_Password.TabIndex = 20;
+            this.tbx_Password.Location = new System.Drawing.Point(358, 45);
+            this.tbx_Password.Name = "tbx_Password";
+            this.tbx_Password.PasswordChar = '*';
+            this.tbx_Password.Size = new System.Drawing.Size(166, 20);
+            this.tbx_Password.TabIndex = 20;
             // 
             // dtp_Modified
             // 
@@ -331,6 +331,6 @@
         private System.Windows.Forms.Button btn_New;
         private System.Windows.Forms.Button btn_Login;
         private System.Windows.Forms.Button btn_Edit;
-        private System.Windows.Forms.MaskedTextBox tbxm_Password;
+        private System.Windows.Forms.MaskedTextBox tbx_Password;
     }
 }

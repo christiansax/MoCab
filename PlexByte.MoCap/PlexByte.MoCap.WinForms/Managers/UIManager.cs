@@ -6,7 +6,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
+using PlexByte.MoCap.Helpers;
 using PlexByte.MoCap.WinForms;
 using PlexByte.MoCap.WinForms.UserControls;
 using WeifenLuo.WinFormsUI.Docking;
@@ -37,6 +39,7 @@ namespace PlexByte.MoCap.WinForms
         #region Variables
 
         private frm_MoCapMain _MainUI = null;
+        private ErrorProvider _errorProvider = new ErrorProvider();
 
         #endregion
 
@@ -174,12 +177,13 @@ namespace PlexByte.MoCap.WinForms
 
         public void UserButtonClicked(object sender, EventArgs e)
         {
+            _errorProvider.Clear();
+            List<Control> ctrls = GetAllControls(((Button)sender).Parent);
             switch (((Button) sender).Name)
             {
                 case "btn_Edit":
                 case "btn_New":
                     bool isSave = ((Button) sender).Text.ToLower() == "save";
-                    List<Control> ctrls = GetAllControls(((Button) sender).Parent);
                     foreach (var VARIABLE in ctrls)
                     {
                         if (isSave)
@@ -201,6 +205,28 @@ namespace PlexByte.MoCap.WinForms
                 //case "btn_Edit":
                   //  break;
                 case "btn_Login":
+                    string sUserName = GetControlByName<TextBox>(((Control)sender).Parent, "tbx_username").Text;
+                    string sPassword = GetControlByName<MaskedTextBox>(((Control) sender).Parent, "tbx_password").Text;
+                    if (!string.IsNullOrEmpty(sUserName) && !string.IsNullOrEmpty(sPassword))
+                    {
+                        try
+                        {
+                            _MainUI.Enabled = false;
+                            _MainUI.DataManager = new DataManager(sUserName, sPassword);
+                            _MainUI.Enabled = true;
+                        }
+                        catch (Exception exp)
+                        {
+                            _MainUI.ShowErrorMessage(exp.Message);
+                        }
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(sUserName))
+                            _errorProvider.SetError(GetControlByName<TextBox>(((Control) sender).Parent, "tbx_username"), "UserName is not specified");
+                        if (string.IsNullOrEmpty(sPassword))
+                            _errorProvider.SetError(GetControlByName<MaskedTextBox>(((Control) sender).Parent, "tbx_password"), "Password is not specified");
+                    }
                     break;
                 default:
                     break;
@@ -266,6 +292,28 @@ namespace PlexByte.MoCap.WinForms
                     ctrlList.Add(c);
             }
             return ctrlList;
+        }
+
+        private T GetControlByName<T>(Control pContainer, string pControlName)
+        {
+            object control = default (T);
+            try
+            {
+                List<Control> ctrls = GetAllControls(pContainer);
+                foreach (var VARIABLE in ctrls)
+                {
+                    if (VARIABLE.GetType() == typeof (T))
+                    {
+                        if (VARIABLE.Name.ToLower() == pControlName.ToLower())
+                            return (T)(control = VARIABLE);
+                    }
+                }
+                return (T)control;
+            }
+            catch (Exception exp)
+            {
+                throw;
+            }
         }
 
         #endregion

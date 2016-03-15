@@ -35,7 +35,7 @@ namespace PlexByte.MoCap.Backend
         public string AuthenticateUser(string pUserName, string pPassword)
         {
             DataTable userInfo = new DataTable();
-            pPassword = CryptoHelper.Decrypt(pPassword, _Password);
+            pPassword = CryptoHelper.Encrypt(pPassword, _Password);
 
             userInfo = ExecuteQueryString($"select * from View_User where (Username = {pUserName} or EmailAddress = {pUserName}) " +
                                           $"AND Password = {pPassword}  AND IsActive = 1");

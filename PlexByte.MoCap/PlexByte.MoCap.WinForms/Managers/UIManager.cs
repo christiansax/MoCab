@@ -5,13 +5,8 @@
 //      registers to all available events and executes the corresponding action
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using PlexByte.MoCap.Helpers;
-using PlexByte.MoCap.WinForms;
 using PlexByte.MoCap.WinForms.UserControls;
 using WeifenLuo.WinFormsUI.Docking;
 

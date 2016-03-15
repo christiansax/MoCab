@@ -174,15 +174,51 @@ namespace PlexByte.MoCap.WinForms.Managers
 
         //public List<Project> GetProjectsForUser() 
 
-        public T CreateObjectFromDataTable<T>(List<Control> pFormControls, string pId) { throw new NotImplementedException(); }
+        public T CreateObjectFromDataTable<T>(string pId)
+        {
+            throw new NotImplementedException();
+        }
 
-        public T CreateObjectFromDataTable<T>(List<Control> pFormControls, DataTable pRecordSet) { throw new NotImplementedException(); }
+        public T CreateObjectFromDataTable<T>(DataTable pRecordSet)
+        {
+            T tmp = default(T);
+            if (typeof(IProject) == typeof(T))
+            {
+            }
+            else if (typeof(ITask) == typeof(T))
+            {
+            }
+            else if (typeof(ISurvey) == typeof(T))
+            {
+            }
+            else if (typeof(IExpense) == typeof(T))
+            {
+            }
+            else if (typeof(ITimeslice) == typeof(T))
+            {
+            }
+            else if (typeof(ISurveyOption) == typeof(T))
+            {
+            }
+            else if (typeof(IVote) == typeof(T))
+            {
+            }
+            else
+                throw new ArgumentException($"The generic method does not implement functionality for type {typeof(T).ToString()}");
+
+            return tmp;
+        }
 
         #endregion
 
         private void UpdateTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void CreatedInventory(bool pCheckChanged)
+        {
+
         }
     }
 }

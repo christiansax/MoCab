@@ -5,8 +5,13 @@
 //      registers to all available events and executes the corresponding action
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PlexByte.MoCap.Backend;
+using PlexByte.MoCap.Interactions;
+using PlexByte.MoCap.Security;
+using PlexByte.MoCap.WinForms.Managers;
 using PlexByte.MoCap.WinForms.UserControls;
 using WeifenLuo.WinFormsUI.Docking;
 
@@ -27,17 +32,21 @@ namespace PlexByte.MoCap.WinForms
     /// This class is responsible for any window that is being presented to the user 
     /// and manages its corresponding events
     /// </summary>
-    public class UIManager
+    public class UIManager:IDisposable
     {
         #region Properties
+
+        public IUser UserContext => _userContext;
 
         #endregion
 
         #region Variables
 
-        private frm_MoCapMain _MainUI = null;
-        private ErrorProvider _errorProvider = new ErrorProvider();
-        private DataManager _dataManager = new DataManager();
+        private readonly frm_MoCapMain _MainUI = null;
+        private readonly ErrorProvider _errorProvider = null;
+        private ObjectManager _objectManager = null;
+        private BackendService _backendService = null;
+        private IUser _userContext = null;
 
         #endregion
 
@@ -47,7 +56,21 @@ namespace PlexByte.MoCap.WinForms
         /// Constructor of the class
         /// </summary>
         /// <param name="pMainUI">The pointer to the main form, which hosts any other window</param>
-        public UIManager(frm_MoCapMain pMainUI) { _MainUI = pMainUI; }
+        public UIManager(frm_MoCapMain pMainUI)
+        {
+            _MainUI = pMainUI;
+            _errorProvider = new ErrorProvider();
+            _backendService = new BackendService();
+            _objectManager = new ObjectManager();
+        }
+
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
+            
+        }
 
         #endregion
 
@@ -182,19 +205,19 @@ namespace PlexByte.MoCap.WinForms
                 case "btn_Edit":
                 case "btn_New":
                     bool isSave = ((Button) sender).Text.ToLower() == "save";
-                    foreach (var VARIABLE in ctrls)
+                    foreach (var variable in ctrls)
                     {
                         if (isSave)
                         {
-                            if (VARIABLE.Text.ToLower() != "btn_new" ||
-                                VARIABLE.Text.ToLower() != "btn_login" ||
-                                VARIABLE.Text.ToLower() != "tbx_username" ||
-                                VARIABLE.Text.ToLower() == "tbx_password")
-                                VARIABLE.Enabled = false;
+                            if (variable.Text.ToLower() != "btn_new" ||
+                                variable.Text.ToLower() != "btn_login" ||
+                                variable.Text.ToLower() != "tbx_username" ||
+                                variable.Text.ToLower() == "tbx_password")
+                                variable.Enabled = false;
                         }
                         else
                         {
-                            VARIABLE.Enabled = true;
+                            variable.Enabled = true;
                         }
                             
                     }
@@ -203,52 +226,65 @@ namespace PlexByte.MoCap.WinForms
                 //case "btn_Edit":
                   //  break;
                 case "btn_Login":
-                    try
-                    {
-                        if(GetControlByName<Button>(ctrls, "btn_Login").Text.ToLower() == "logout")
-                            LogoutUser(ctrls);
-                        else
-                            LoginUser(ctrls);
-                    }
-                    catch (Exception exp)
-                    {
-                        _MainUI.ShowErrorMessage($"Exception while trying process login/logout. Exception thrown: {exp.Message}");
-                    }
+                    UserButtonLogin(ctrls);
                     break;
                 default:
                     break;
             }
         }
 
+        private void UserButtonLogin(List<Control> pControlList)
+        {
+            try
+            {
+                if (_userContext == null)
+                {
+                    // There is no user context now, thus we attempt to login
+                    string sUserName = GetControlByName<TextBox>(pControlList, "tbx_username").Text;
+                    string sPassword = GetControlByName<MaskedTextBox>(pControlList, "tbx_password").Text;
+                    if (!string.IsNullOrEmpty(sUserName) && !string.IsNullOrEmpty(sPassword))
+                    {
+                        _MainUI.Enabled = false;
+                        _userContext = _objectManager.CreateUsers(_backendService.AuthenticateUser(sUserName, sPassword)).FirstOrDefault();
+                        _MainUI.Enabled = true;
+                        GetControlByName<Button>(pControlList, "btn_Login").Text = "Logout";
+                        GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
+                        //TODO:Pickup here
+                        // GetControlByName<Button>(pControlList, "tbx_Id").Visible = UserContext.Id;
+                        GetControlByName<Button>(pControlList, "tbx_FirstName").Visible = true;
+                        GetControlByName<Button>(pControlList, "tbx_MiddleName").Visible = true;
+                        GetControlByName<Button>(pControlList, "tbx_LastName").Visible = true;
+                        GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
+                        GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
+                        GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(sUserName))
+                            _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_username"), "UserName is not specified");
+                        if (string.IsNullOrEmpty(sPassword))
+                            _errorProvider.SetError(GetControlByName<MaskedTextBox>(pControlList, "tbx_password"), "Password is not specified");
+                    }
+                }
+                else
+                {
+                    // We do have a user context, hence we logout
+                    _userContext = null;
+                    _objectManager.Dispose();
+                    _objectManager = null;
+                    GetControlByName<Button>(pControlList, "btn_Login").Text = "Login";
+                    GetControlByName<Button>(pControlList, "btn_Edit").Visible = false;
+                }
+            }
+            catch (Exception exp)
+            {
+                _MainUI.ShowErrorMessage($"Exception while trying process login/logout. Exception thrown: {exp.Message}");
+            }
+        }
+
         #endregion
 
         #region Private methods
-
-        private void LoginUser(List<Control> pControlList)
-        {
-            string sUserName = GetControlByName<TextBox>(pControlList, "tbx_username").Text;
-            string sPassword = GetControlByName<MaskedTextBox>(pControlList, "tbx_password").Text;
-            if (!string.IsNullOrEmpty(sUserName) && !string.IsNullOrEmpty(sPassword))
-            {
-                _MainUI.Enabled = false;
-                Task.Factory.StartNew(() => _dataManager.InitializeDataManager(sUserName, sPassword));
-                _MainUI.Enabled = true;
-                GetControlByName<Button>(pControlList, "btn_Login").Text = "Logout";
-            }
-            else
-            {
-                if (string.IsNullOrEmpty(sUserName))
-                    _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_username"), "UserName is not specified");
-                if (string.IsNullOrEmpty(sPassword))
-                    _errorProvider.SetError(GetControlByName<MaskedTextBox>(pControlList, "tbx_password"), "Password is not specified");
-            }
-        }
-
-        private void LogoutUser(List<Control> pControlList)
-        {
-            Task.Factory.StartNew(() => _dataManager.Logout());
-            GetControlByName<Button>(pControlList, "btn_Login").Text = "Login";
-        }
 
         /// <summary>
         /// Creates a dock content panel and returns its instance
@@ -320,12 +356,12 @@ namespace PlexByte.MoCap.WinForms
             try
             {
                 List<Control> ctrls = GetAllControls(pContainer);
-                foreach (var VARIABLE in ctrls)
+                foreach (var variable in ctrls)
                 {
-                    if (VARIABLE.GetType() == typeof (T))
+                    if (variable.GetType() == typeof (T))
                     {
-                        if (VARIABLE.Name.ToLower() == pControlName.ToLower())
-                            return (T)(control = VARIABLE);
+                        if (variable.Name.ToLower() == pControlName.ToLower())
+                            return (T)(control = variable);
                     }
                 }
                 return (T)control;
@@ -349,12 +385,12 @@ namespace PlexByte.MoCap.WinForms
             object control = default(T);
             try
             {
-                foreach (var VARIABLE in pControls)
+                foreach (var variable in pControls)
                 {
-                    if (VARIABLE.GetType() == typeof(T))
+                    if (variable.GetType() == typeof(T))
                     {
-                        if (VARIABLE.Name.ToLower() == pControlName.ToLower())
-                            return (T)(control = VARIABLE);
+                        if (variable.Name.ToLower() == pControlName.ToLower())
+                            return (T)(control = variable);
                     }
                 }
                 return (T)control;

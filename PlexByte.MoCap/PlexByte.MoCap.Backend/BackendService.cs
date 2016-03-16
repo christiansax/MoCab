@@ -33,7 +33,7 @@ namespace PlexByte.MoCap.Backend
         /// </summary>
         /// <param name="pId">The id of the user to query results for</param>
         /// <returns>The Users Id</returns>
-        public string AuthenticateUser(string pUserName, string pPassword)
+        public DataTable AuthenticateUser(string pUserName, string pPassword)
         {
             DataTable userInfo = new DataTable();
             pPassword = CryptoHelper.Encrypt(pPassword, _Password);
@@ -43,9 +43,7 @@ namespace PlexByte.MoCap.Backend
             if (userInfo.Rows.Count < 1)
                 throw new Exception($"Authentification failed! Username or password is invalid [UserName={pUserName}] [Password={pPassword}]");
             else
-            {
-                return userInfo.Columns["Id"].ToString();
-            }
+                return userInfo;
         }
 
         public DataTable GetProjectById(string pId)

@@ -85,18 +85,16 @@ namespace PlexByte.MoCap.WinForms.Managers
         private IInteractionFactory _interactionFactory = null;
         private IObjectFactory _objectFactory = null;
         private Timer _updateTimer = null;
-        private DataManager _dataManager = null;
 
         #endregion
 
         #region Ctor & Dtor
 
-        public ObjectManager(DataManager pDataManager)
+        public ObjectManager()
         {
             // Instanciate factories to create object
             _interactionFactory = new InteractionFactory();
             _objectFactory = new ObjectFactory();
-            _dataManager = pDataManager;
 
             // Instanciate the interaction lists
             TaskList = new List<Task>();
@@ -169,7 +167,6 @@ namespace PlexByte.MoCap.WinForms.Managers
             ExpenseList = null;
             TimeSliceList.Clear();
             TimeSliceList = null;
-            _dataManager = null;
             _objectFactory = null;
             _interactionFactory = null;
             if (_updateTimer != null && _updateTimer.Enabled)

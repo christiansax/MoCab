@@ -25,27 +25,29 @@ namespace PlexByte.MoCap.WinForms
         
 
         private BackendService _backend = new BackendService();
-        private ObjectManager _objectManager=new ObjectManager();
+        private ObjectManager _objectManager=null;
 
         /// <summary>
         /// The default constructor requiring to call initialize datamanger manually
         /// </summary>
-        public DataManager() { }
+        public DataManager()
+        {
+            _objectManager = new ObjectManager(this);
+        }
 
-        public DataManager(string pUserId, string pPassword)
+        public DataManager(ref DataManager pParent, string pUserId, string pPassword)
         {
             InitializeDataManager(pUserId, pPassword);
+            _objectManager = new ObjectManager(pParent);
             IsInitialized = true;
         }
 
         public void Login(string pUserName, string pPassword)
         {
-            //LoggedInUser = _objectManager.CreateObjectFromDataTable<User>(_backend.AuthenticateUser(pUserName, pPassword));
         }
 
         public void Logout()
         {
-            LoggedInUser = null;
             IsInitialized = false;
            
         }
@@ -57,9 +59,9 @@ namespace PlexByte.MoCap.WinForms
                 if(IsInitialized)
                     Logout();
                 Login(pUserId, pPassword);
-
+                
                 // Get all user specific data
-                QueryDataBaseObjects();
+                LookupObjectByUser();
 
                 IsInitialized = true;
             }
@@ -69,9 +71,18 @@ namespace PlexByte.MoCap.WinForms
             }
         }
 
-        private void QueryDataBaseObjects()
+        private void LookupObjectByUser()
         {
             // Get projects, tasks, survey, timeslices, expenses etc this user is involved in
+        }
+
+        public DataTable LookupById(string pId)
+        {
+            DataTable result = new DataTable();
+
+            //_backend.
+
+            return result;
         }
     }
 }

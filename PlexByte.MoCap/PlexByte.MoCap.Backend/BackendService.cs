@@ -4,7 +4,6 @@
 //      This class provides backend functionality by reading and writing to the database. The class is not intended 
 //      for converting business logic but to return record set to the caller for further business logic process.
 //      Also inserting is not intended to convert from business objects into the db. Use Adapter classes, to do this
-
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,6 +17,8 @@ namespace PlexByte.MoCap.Backend
         User,
         Project
     }
+
+    // TODO: Update documentation
 
     public class BackendService
     {
@@ -47,6 +48,46 @@ namespace PlexByte.MoCap.Backend
             }
         }
 
+        public DataTable GetProjectById(string pId)
+        {
+            return ExecuteQueryString($"select * from View_Project where Id = '{pId}'");
+        }
+
+        public DataTable GetTaskById(string pId)
+        {
+            return ExecuteQueryString($"select * from View_Task where Id = '{pId}'");
+        }
+
+        public DataTable GetSurveyById(string pId)
+        {
+            return ExecuteQueryString($"select * from View_Survey where Id = '{pId}'");
+        }
+
+        public DataTable GetExpenseById(string pId)
+        {
+            return ExecuteQueryString($"select * from View_Expense where Id = '{pId}'");
+        }
+
+        public DataTable GetTimesliceById(string pId)
+        {
+            return ExecuteQueryString($"select * from View_Timeslice where Id = '{pId}'");
+        }
+
+        public DataTable GeSurveyOptionById(string pId)
+        {
+            return ExecuteQueryString($"select * from View_SurveyOption where Id = '{pId}'");
+        }
+
+        public DataTable GetVoteById(string pId)
+        {
+            return ExecuteQueryString($"select * from View_Vote where Id = '{pId}'");
+        }
+
+        public DataTable GetUserById(string pId)
+        {
+            return ExecuteQueryString($"select * from View_User where Id = '{pId}'");
+        }
+
         /// <summary>
         /// If project is the type, all users being member of the project with the Id specified will be returned.
         /// Otherwise the user with the Id given is returned
@@ -54,21 +95,9 @@ namespace PlexByte.MoCap.Backend
         /// <param name="pId">The Id to use in the lookup</param>
         /// <param name="pType">The object type to use in the query (either Project or User)</param>
         /// <returns>DataTable containing either all members of a project or the user matching the Id</returns>
-        public DataTable GetUserById(string pId, ObjectType pType)
+        public DataTable GetUserByProjectId(string pId)
         {
-            string sQueryString = string.Empty;
-            switch (pType)
-            {
-                case ObjectType.Project:
-                    sQueryString = $"select * from View_ProjectUserMapping where ProjectId = {pId}  AND IsActive = 1";
-                    break;
-                case ObjectType.User:
-                    sQueryString = $"select * from View_User where Id = {pId}  AND IsActive = 1";
-                    break;
-                default:
-                    throw new Exception("Object type is null or unknown!");
-            }
-            return ExecuteQueryString(sQueryString);
+            return ExecuteQueryString($"select * from View_ProjectUserMapping where ProjectId = '{pId}' AND IsActive = 1");
         }
 
         /// <summary>
@@ -77,22 +106,9 @@ namespace PlexByte.MoCap.Backend
         /// <param name="pId">The id of the user or project to query</param>
         /// <param name="pType">The object type to use in the query (either Project or User)</param>
         /// <returns>DataTable containing all tasks for the user or project in question</returns>
-        public DataTable GetTasksById(string pId, ObjectType pType)
+        public DataTable GetTaskByProjectId(string pId)
         {
-            string sQueryString = string.Empty;
-            switch (pType)
-            {
-                case ObjectType.Project:
-                    sQueryString = $"select * from View_ProjectTaskMapping where ProjectId = {pId}  AND IsActive = 1";
-                    break;
-                case ObjectType.User:
-                    sQueryString = $"select * from View_Task where OwnerId = {pId} or CreatorId = {pId}  AND IsActive = 1";
-                    break;
-                default:
-                    throw new Exception("Object type is null or unknown!");
-            }
-            
-            return ExecuteQueryString(sQueryString);
+            return ExecuteQueryString($"select * from View_ProjectTaskMapping where ProjectId = '{pId}' AND IsActive = 1");
         }
 
         /// <summary>
@@ -101,21 +117,9 @@ namespace PlexByte.MoCap.Backend
         /// <param name="pId">The id of the user or project to query</param>
         /// <param name="pType">The object type to use in the query (either Project or User)</param>
         /// <returns>DataTable containing all Survey for the user or project in question</returns>
-        public DataTable GetSurveysById(string pId, ObjectType pType)
+        public DataTable GetSurveyByProjectId(string pId, ObjectType pType)
         {
-            string sQueryString = string.Empty;
-            switch (pType)
-            {
-                case ObjectType.Project:
-                    sQueryString = $"select * from View_ProjectSurveyMapping where ProjectId = {pId}  AND IsActive = 1";
-                    break;
-                case ObjectType.User:
-                    sQueryString = $"select * from View_SurveyUserMapping where UserId = {pId}  AND IsActive = 1";
-                    break;
-                default:
-                    throw new Exception("Object type is null or unknown!");
-            }
-            return ExecuteQueryString(sQueryString);
+            return ExecuteQueryString($"select * from View_ProjectSurveyMapping where ProjectId = '{pId}' AND IsActive = 1");
         }
 
         /// <summary>
@@ -172,25 +176,10 @@ namespace PlexByte.MoCap.Backend
         /// <param name="pId">The id to use in the query</param>
         /// <param name="pType">The object type to use in the query (either Project or User)</param>
         /// <returns>DataTable containing all expenses</returns>
-        public DataTable GetExpensesById(string pId, ObjectType pType)
+        public DataTable GetExpenseByProjectId(string pId)
         {
-            // TODO: Need to revise the sql statement, it should lookup expense table in the end
-            string sQueryString = string.Empty;
-            switch (pType)
-            {
-                case ObjectType.Project:
-                    sQueryString = $"select ProjectId, ExpenseId, TaskId, ExpUserName, ExpDescription, Value, CreatedDateTime " +
-                                   $"from View_Accounting where [ProjectId] = {pId}) and ExpenseId is not null AND IsActive = 1 order by ProjectId";
-                    break;
-                case ObjectType.User:
-                    sQueryString = $"select ProjectId, ExpenseId, TaskId, ExpUserName, ExpDescription, Value, CreatedDateTime " +
-                                   $"from View_Accounting where [ExpUserName] = '(select Username from View_User where Id = {pId})'" +
-                                   $" and ExpenseId is not null AND IsActive = 1 order by ProjectId";
-                    break;
-                default:
-                    throw new Exception("Object type is null or unknown!");
-            }
-            return ExecuteQueryString(sQueryString);
+            return ExecuteQueryString($"select ProjectId, ExpenseId, TaskId, ExpUserName, ExpDescription, Value, CreatedDateTime " +
+                                   $"from View_Accounting where [ProjectId] = '{pId}') and ExpenseId is not null AND IsActive = 1 order by ProjectId");
         }
 
         /// <summary>
@@ -200,25 +189,10 @@ namespace PlexByte.MoCap.Backend
         /// <param name="pType">The object type to use in the query (either Project or User)</param>
         /// <returns>DataTable containing all timeslices</returns>
         /// <returns></returns>
-        public DataTable GetTimeSliceById(string pId, ObjectType pType)
+        public DataTable GetTimeSliceByProjectId(string pId)
         {
-            // TODO: Need to revise the sql statement, it should lookup timeslice table in the end
-            string sQueryString = string.Empty;
-            switch (pType)
-            {
-                case ObjectType.Project:
-                    sQueryString = $"select ProjectId, TimesliceId, TaskId, TsUserName, TsDescription, Duration, CreatedDateTime " +
-                                   $"from View_Accounting where [ProjectId] = {pId}) and TimesliceId is not null AND IsActive = 1 order by ProjectId";
-                    break;
-                case ObjectType.User:
-                    sQueryString = $"select ProjectId, TimesliceId, TaskId, TsUserName, TsDescription, Duration, CreatedDateTime " +
-                                   $"from View_Accounting where [ExpUserName] = '(select Username from View_User where Id = {pId})'" +
-                                   $" and TimesliceId is not null AND IsActive = 1 order by ProjectId";
-                    break;
-                default:
-                    throw new Exception("Object type is null or unknown!");
-            }
-            return ExecuteQueryString(sQueryString);
+            return ExecuteQueryString($"select ProjectId, TimesliceId, TaskId, TsUserName, TsDescription, Duration, CreatedDateTime " +
+                                   $"from View_Accounting where [ProjectId] = '{pId}') and TimesliceId is not null AND IsActive = 1 order by ProjectId");
         }
 
         /// <summary>

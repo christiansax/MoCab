@@ -4,6 +4,7 @@ using System.Data;
 using System.Windows.Forms;
 using PlexByte.MoCap.Interactions;
 using PlexByte.MoCap.Security;
+using PlexByte.MoCap.WinForms.UserControls;
 using Timer = System.Timers.Timer;
 
 namespace PlexByte.MoCap.WinForms.Managers
@@ -81,19 +82,21 @@ namespace PlexByte.MoCap.WinForms.Managers
 
         #region Variables
 
-        private InteractionFactory _interactionFactory = null;
-        private ObjectFactory _objectFactory = null;
-        private Timer _UpdateTimer = null;
+        private IInteractionFactory _interactionFactory = null;
+        private IObjectFactory _objectFactory = null;
+        private Timer _updateTimer = null;
+        private DataManager _dataManager = null;
 
         #endregion
 
         #region Ctor & Dtor
 
-        public ObjectManager()
+        public ObjectManager(DataManager pDataManager)
         {
             // Instanciate factories to create object
             _interactionFactory = new InteractionFactory();
             _objectFactory = new ObjectFactory();
+            _dataManager = pDataManager;
 
             // Instanciate the interaction lists
             TaskList = new List<Task>();
@@ -102,9 +105,9 @@ namespace PlexByte.MoCap.WinForms.Managers
             TimeSliceList = new List<Timeslice>();
 
             // Initialize the time which will periodically update the objects
-            _UpdateTimer = new Timer(20000);
-            _UpdateTimer.AutoReset = false;
-            _UpdateTimer.Elapsed += UpdateTimer_Elapsed;
+            _updateTimer = new Timer(20000);
+            _updateTimer.AutoReset = false;
+            _updateTimer.Elapsed += UpdateTimer_Elapsed;
         }
 
         public List<T> ProcessResultSet<T>(DataTable pDataTable)
@@ -166,6 +169,15 @@ namespace PlexByte.MoCap.WinForms.Managers
             ExpenseList = null;
             TimeSliceList.Clear();
             TimeSliceList = null;
+            _dataManager = null;
+            _objectFactory = null;
+            _interactionFactory = null;
+            if (_updateTimer != null && _updateTimer.Enabled)
+            {
+                _updateTimer.Stop();
+                _updateTimer.Enabled = false;
+            }
+            _updateTimer = null;
         }
 
         #endregion
@@ -176,43 +188,43 @@ namespace PlexByte.MoCap.WinForms.Managers
         /// This method populates the project list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the projects to create</param>
-        public void CreateProjects(DataTable pResultSet) { ProjectList = CreateObjectFromDataTable<List<Project>>(pResultSet); }
+        public List<IProject> CreateProjects(DataTable pResultSet) { return CreateObjectFromDataTable<IProject>(pResultSet); }
 
         /// <summary>
         /// This method populates the task list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the tasks to create</param>
-        public void CreateTasks(DataTable pResultSet) { TaskList = CreateObjectFromDataTable<List<Task>>(pResultSet); }
+        public List<ITask> CreateTasks(DataTable pResultSet) { return CreateObjectFromDataTable<ITask>(pResultSet); }
 
         /// <summary>
         /// This method populates the survey list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the surveys to create</param>
-        public void CreateSurveys(DataTable pResultSet) { SurveyList = CreateObjectFromDataTable<List<Survey>>(pResultSet); }
+        public List<ISurvey> CreateSurveys(DataTable pResultSet) { return CreateObjectFromDataTable<ISurvey>(pResultSet); }
 
         /// <summary>
         /// This method populates the account list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the accounts to create</param>
-        public void CreateAccounts(DataTable pResultSet) { }
+        public List<IAccount> CreateAccounts(DataTable pResultSet) { throw new NotImplementedException(); }
 
         /// <summary>
         /// This method populates the Expense list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the expenses to create</param>
-        public void CreateExpenses(DataTable pResultSet) { ExpenseList = CreateObjectFromDataTable<List<Expense>>(pResultSet); }
+        public List<IExpense> CreateExpenses(DataTable pResultSet) { return CreateObjectFromDataTable<IExpense>(pResultSet); }
 
         /// <summary>
         /// This method populates the Timeslice list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the timeslices to create</param>
-        public void CreateTimeslices(DataTable pResultSet) { TimeSliceList = CreateObjectFromDataTable<List<Timeslice>>(pResultSet); }
+        public List<ITimeslice> CreateTimeslices(DataTable pResultSet) { return CreateObjectFromDataTable<ITimeslice>(pResultSet); }
 
         /// <summary>
         /// This method populates the user list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the users to create</param>
-        public User CreateUsers(DataTable pResultSet) { return CreateObjectFromDataTable<User>(pResultSet); }
+        public List<IUser> CreateUsers(DataTable pResultSet) { return CreateObjectFromDataTable<IUser>(pResultSet); }
 
         #endregion
 
@@ -264,37 +276,57 @@ namespace PlexByte.MoCap.WinForms.Managers
         /// <typeparam name="T">The type of object to create</typeparam>
         /// <param name="pRecordSet">The dataTable which contains the recordset to process</param>
         /// <returns>Object of type specified</returns>
-        private T CreateObjectFromDataTable<T>(DataTable pRecordSet)
+        private List<T> CreateObjectFromDataTable<T>(DataTable pRecordSet)
         {
-            T tmp = default(T);
-            if (typeof (IProject) == typeof (T))
-            {
-            }
-            else if (typeof (ITask) == typeof (T))
-            {
-            }
-            else if (typeof (ISurvey) == typeof (T))
-            {
-            }
-            else if (typeof (IExpense) == typeof (T))
-            {
-            }
-            else if (typeof (ITimeslice) == typeof (T))
-            {
-            }
-            else if (typeof (ISurveyOption) == typeof (T))
-            {
-            }
-            else if (typeof (IVote) == typeof (T))
-            {
-            }
-            else if (typeof (ITask) == typeof (T))
-            {
-            }
-            else
-                throw new ArgumentException($"The generic method does not implement functionality for type {typeof (T).ToString()}");
+            if(_interactionFactory==null)
+                _interactionFactory=new InteractionFactory();
+            if(_objectFactory==null)
+                _objectFactory=new ObjectFactory();
 
-            return tmp;
+            List<T> objectCollection = new List<T>();
+
+            foreach (DataRow row in pRecordSet.Rows)
+            {
+                if (typeof (IProject) == typeof (T))
+                {
+                    /*
+                    objectCollection.Add(
+                        _interactionFactory.CreateProject(row["Id"], row["Name"],Convert.ToBoolean(row["EnableBalance"]), 
+                        Convert.ToBoolean(row["EnableSurvey"]), Convert.ToDateTime(row["StartDateTime"]), Convert.ToDateTime(row["EndDateTime"]),
+
+                        )
+                        );
+                    tmp = _interactionFactory.CreateProject()
+                    */
+                }
+                else if (typeof (ITask) == typeof (T))
+                {
+                }
+                else if (typeof (ISurvey) == typeof (T))
+                {
+                }
+                else if (typeof (IExpense) == typeof (T))
+                {
+                }
+                else if (typeof (ITimeslice) == typeof (T))
+                {
+                }
+                else if (typeof (ISurveyOption) == typeof (T))
+                {
+                }
+                else if (typeof (IVote) == typeof (T))
+                {
+                }
+                else if (typeof (ITask) == typeof (T))
+                {
+                }
+                else if (typeof(IUser) == typeof(T))
+                {
+                }
+                else
+                    throw new ArgumentException($"The generic method does not implement functionality for type {typeof (T).ToString()}");
+            }
+            return objectCollection;
         }
 
         private void UpdateTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e) { throw new NotImplementedException(); }

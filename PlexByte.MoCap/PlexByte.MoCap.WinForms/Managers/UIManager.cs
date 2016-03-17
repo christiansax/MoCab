@@ -390,79 +390,98 @@ namespace PlexByte.MoCap.WinForms
         private void UserButtonSave(List<Control> pControlList)
         {
             _errorProvider.Clear();
+            // Initialize default values for controls
+            GetControlByName<DateTimePicker>(pControlList, "dpt_Created").Value = DateTime.Now;
+            GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
+            GetControlByName<TextBox>(pControlList, "tbx_Id").Text = DateTime.Now.ToString(_dateTimeIdFmt);
+
+            // Disabled control list
+            List<Control> expCtrls = new List<Control>();
+            expCtrls.Add(GetControlByName<Button>(pControlList, "dpt_Created"));
+            expCtrls.Add(GetControlByName<Button>(pControlList, "dtp_Modified"));
+            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Login"));
+            expCtrls.Add(GetControlByName<TextBox>(pControlList, "tbx_Id"));
+
             if (GetControlByName<Button>(pControlList, "btn_New").Text.ToLower() == "save")
             {
                 // Save command
                 try
                 {
+                    bool bError = false;
                     _MainUI.Enabled = false;
 
                     // Deactivate controls
-                    List<Control> expCtrls = new List<Control>();
-                    expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Login"));
-                    expCtrls.Add(GetControlByName<Button>(pControlList, "btn_New"));
                     UserButtonSetControlsState(pControlList, expCtrls, false);
 
                     // Check if all fields have values
-                    if(GetControlByName<TextBox>(pControlList, "tbx_FirstName").Text.Length<1)
+                    if (GetControlByName<TextBox>(pControlList, "tbx_FirstName").Text.Length < 1)
+                    {
                         _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_FirstName"),
                             "First name is not specified");
-                        if(GetControlByName<TextBox>(pControlList, "tbx_LastName").Text.Length < 1)
+                        bError = true;
+                    }
+                    if(GetControlByName<TextBox>(pControlList, "tbx_LastName").Text.Length < 1)
+                    { 
                         _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_LastName"),
                             "Last name is not specified");
+                        bError = true;
+                    }
                     if (GetControlByName<TextBox>(pControlList, "tbx_Email").Text.Length < 1)
+                    { 
                         _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Email"),
                             "Email is not specified");
-                    if (GetControlByName<DateTimePicker>(pControlList, "dpt_Birthdate").Value>DateTime.Now.AddYears(-18))
-                        _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "dpt_Birthdate"),
+                        bError = true;
+                    }
+                    if (GetControlByName<DateTimePicker>(pControlList, "dtp_Birthdate").Value>DateTime.Now.AddYears(-18))
+                    { 
+                        _errorProvider.SetError(GetControlByName<DateTimePicker>(pControlList, "dtp_Birthdate"),
                             "You must be 18+ to register with this service");
+                        bError = true;
+                    }
                     if (GetControlByName<TextBox>(pControlList, "tbx_UserName").Text.Length < 1)
+                    { 
                         _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_UserName"),
                             "User name is not specified");
+                        bError = true;
+                    }
                     if (GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text.Length < 1)
-                        _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Password"),
+                    { 
+                        _errorProvider.SetError(GetControlByName<MaskedTextBox>(pControlList, "tbx_Password"),
                             "Password name is not specified");
+                        bError = true;
+                    }
 
-                    // Insert user in db
-                    _backendService.InsertUser(GetControlByName<TextBox>(pControlList, "tbx_Id").Text,
-                        GetControlByName<TextBox>(pControlList, "tbx_FirstName").Text,
-                        GetControlByName<TextBox>(pControlList, "tbx_LastName").Text,
-                        GetControlByName<TextBox>(pControlList, "tbx_MiddleName").Text,
-                        GetControlByName<TextBox>(pControlList, "tbx_Email").Text,
-                        GetControlByName<DateTimePicker>(pControlList, "dpt_Birthdate").Value,
-                        GetControlByName<TextBox>(pControlList, "tbx_UserName").Text,
-                        CryptoHelper.Encrypt(GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text,
-                            GetControlByName<TextBox>(pControlList, "tbx_UserName").Text));
+                    if (!bError)
+                    {
+                        // Insert user in db
+                        _backendService.InsertUser(GetControlByName<TextBox>(pControlList, "tbx_Id").Text,
+                            GetControlByName<TextBox>(pControlList, "tbx_FirstName").Text,
+                            GetControlByName<TextBox>(pControlList, "tbx_LastName").Text,
+                            GetControlByName<TextBox>(pControlList, "tbx_MiddleName").Text,
+                            GetControlByName<TextBox>(pControlList, "tbx_Email").Text,
+                            GetControlByName<DateTimePicker>(pControlList, "dtp_Birthdate").Value,
+                            GetControlByName<TextBox>(pControlList, "tbx_UserName").Text,
+                            CryptoHelper.Encrypt(GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text,
+                                GetControlByName<TextBox>(pControlList, "tbx_UserName").Text));
 
-                    // Login using data given
-                    UserButtonLogin(pControlList);
+                        // Login using data given
+                        UserButtonLogin(pControlList);
+                        GetControlByName<Button>(pControlList, "btn_New").Text = "New";
+                    }
 
                     // Enable Main GUI again
                     _MainUI.Enabled = true;
-                    GetControlByName<Button>(pControlList, "btn_New").Text = "New";
+                    UserButtonSetControlsState(pControlList, expCtrls, true);
                 }
                 catch (Exception exp)
                 {
                     _MainUI.ShowErrorMessage($"Exception while trying to save user. Exception thrown: {exp.Message}");
-                    List<Control> expCtrls = new List<Control>();
-                    expCtrls.Add(GetControlByName<Button>(pControlList, "dpt_Created"));
-                    expCtrls.Add(GetControlByName<Button>(pControlList, "dtp_Modified"));
-                    expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Login"));
                     UserButtonSetControlsState(pControlList, expCtrls, true);
-
-                    // Initialize default values for controls
-                    GetControlByName<DateTimePicker>(pControlList, "dpt_Created").Value = DateTime.Now;
-                    GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
-                    GetControlByName<TextBox>(pControlList, "tbx_Id").Text = DateTime.Now.ToString(_dateTimeIdFmt);
                 }
             }
             else
             {
                 // New command
-                List<Control> expCtrls = new List<Control>();
-                expCtrls.Add(GetControlByName<Button>(pControlList, "dpt_Created"));
-                expCtrls.Add(GetControlByName<Button>(pControlList, "dtp_Modified"));
-                expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Login"));
                 UserButtonSetControlsState(pControlList, expCtrls, true);
                 GetControlByName<Button>(pControlList, "btn_New").Text = "Save";
             }

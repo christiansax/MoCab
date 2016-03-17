@@ -21,9 +21,10 @@ AS
 			SET @ResultMsg = @ResultMsg + ': Record deleted';
 	END TRY
 	BEGIN CATCH
-		IF @@TRANCOUNT > 0
-		ROLLBACK
-		RAISERROR ('Error in try block while deleting', 12, -1);
+		SET @ResultMsg = 'Error in delete try block: ' + ERROR_MESSAGE();
+			IF @@TRANCOUNT > 0
+			ROLLBACK
+			RAISERROR ('Caught exception %s', 16, -1, @ResultMsg);
 	END CATCH
 	ELSE
 	BEGIN

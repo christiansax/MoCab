@@ -3,13 +3,13 @@
 --	Date:	2016/03/05
 CREATE PROCEDURE [dbo].[Sproc_UserAddUpdate]
 	@UserId BIGINT,
-	@FirstName NVARCHAR(MAX) = '',
-	@LastName NVARCHAR(MAX) = '',
-	@MiddleName NVARCHAR(MAX) = '',
-	@EmailAddress NVARCHAR(MAX) = '',
+	@FirstName NVARCHAR(MAX),
+	@LastName NVARCHAR(MAX),
+	@MiddleName NVARCHAR(MAX),
+	@EmailAddress NVARCHAR(MAX),
 	@BirthDate DATETIME,
-	@UserName NVARCHAR(MAX) = '',
-	@Password NVARCHAR(MAX) = '',
+	@UserName NVARCHAR(MAX),
+	@Password NVARCHAR(MAX),
 	@ResultMsg NVARCHAR(250) OUTPUT
 AS
 	DECLARE @Id BIGINT;
@@ -31,9 +31,10 @@ AS
 		SET @ResultMsg = @ResultMsg + ': Inserted';
 	END TRY
 	BEGIN CATCH
+		SET @ResultMsg = 'Error in insert try block: ' + ERROR_MESSAGE();
 		IF @@TRANCOUNT > 0
         ROLLBACK
-		RAISERROR ('Error in try block', 16, -1);
+		RAISERROR ('Caught exception %s', 16, -1, @ResultMsg);
 	END CATCH
 	ELSE
 	BEGIN TRY
@@ -57,8 +58,9 @@ AS
 		SET @ResultMsg = @ResultMsg + ': Updated';
 	END TRY
 	BEGIN CATCH
+		SET @ResultMsg = 'Error in update try block: ' + ERROR_MESSAGE();
 		IF @@TRANCOUNT > 0
         ROLLBACK
-		RAISERROR ('Error in try block', 16, -1);
+		RAISERROR ('Caught exception %s', 16, -1, @ResultMsg);
 	END CATCH
 RETURN 0

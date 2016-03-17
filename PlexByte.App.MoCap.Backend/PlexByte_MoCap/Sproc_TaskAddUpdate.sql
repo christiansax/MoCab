@@ -54,9 +54,10 @@ AS
 			SET @ResultMsg = @ResultMsg + ': Inserted';
 		END TRY
 		BEGIN CATCH
+			SET @ResultMsg = 'Error in insert try block: ' + ERROR_MESSAGE();
 			IF @@TRANCOUNT > 0
 			ROLLBACK
-			RAISERROR ('Error in try block', 16, -1);
+			RAISERROR ('Caught exception %s', 16, -1, @ResultMsg);
 		END CATCH
 		ELSE
 		BEGIN TRY
@@ -97,9 +98,10 @@ AS
 			SET @ResultMsg = @ResultMsg + ': Updated';
 		END TRY
 		BEGIN CATCH
+			SET @ResultMsg = 'Error in update try block: ' + ERROR_MESSAGE();
 			IF @@TRANCOUNT > 0
 			ROLLBACK
-			RAISERROR ('Error in try block', 16, -1);
+			RAISERROR ('Caught exception %s', 16, -1, @ResultMsg);
 		END CATCH
 	END
 	ELSE

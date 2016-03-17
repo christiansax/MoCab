@@ -63,9 +63,10 @@ AS
 			SET @ResultMsg = 'OK: Deleted task with Id: ' + Cast(@TaskId as VARCHAR) + ' and subtasks deleted';
 		END TRY
 		BEGIN CATCH
+			SET @ResultMsg = 'Error in delete try block: ' + ERROR_MESSAGE();
 			IF @@TRANCOUNT > 0
 			ROLLBACK
-			RAISERROR ('Error in try block', 16, -1);
+			RAISERROR ('Caught exception %s', 16, -1, @ResultMsg);
 		END CATCH
 		ELSE
 		BEGIN

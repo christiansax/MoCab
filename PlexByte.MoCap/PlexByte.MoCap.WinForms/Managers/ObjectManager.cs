@@ -108,50 +108,6 @@ namespace PlexByte.MoCap.WinForms.Managers
             _updateTimer.Elapsed += UpdateTimer_Elapsed;
         }
 
-        public List<T> ProcessResultSet<T>(DataTable pDataTable)
-        {
-            List<T> tmp = new List<T>();
-
-            if (typeof (Project) == typeof (T))
-            {
-                // Assemble project interaction from resultset
-            }
-            else if (typeof (Task) == typeof (T))
-            {
-                // Assemble task interaction from resultset
-            }
-            else if (typeof (Survey) == typeof (T))
-            {
-                // Assemble survey interaction from resultset
-            }
-            else if (typeof (Expense) == typeof (T))
-            {
-                // Assemble Expense interaction from resultset
-            }
-            else if (typeof (Timeslice) == typeof (T))
-            {
-                // Assemble Timeslice interaction from resultset
-            }
-            else if (typeof (SurveyOption) == typeof (T))
-            {
-                // Assemble SurveyOption from resultset
-            }
-            else if (typeof (Vote) == typeof (T))
-            {
-                // Assemble vote from recordset
-            }
-            else if (typeof (User) == typeof (T))
-            {
-                // Assemble user from recordset
-            }
-            else
-            {
-                throw new ArgumentException($"The type provided is not implemented. Cannot assemble type {typeof (T).ToString()}");
-            }
-
-            return tmp;
-        }
-
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
@@ -185,43 +141,43 @@ namespace PlexByte.MoCap.WinForms.Managers
         /// This method populates the project list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the projects to create</param>
-        public List<IProject> CreateProjects(DataTable pResultSet) { return CreateObjectFromDataTable<IProject>(pResultSet); }
+        public List<Project> CreateProjects(DataTable pResultSet) { return CreateObjectFromDataTable<Project>(pResultSet); }
 
         /// <summary>
         /// This method populates the task list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the tasks to create</param>
-        public List<ITask> CreateTasks(DataTable pResultSet) { return CreateObjectFromDataTable<ITask>(pResultSet); }
+        public List<Task> CreateTasks(DataTable pResultSet) { return CreateObjectFromDataTable<Task>(pResultSet); }
 
         /// <summary>
         /// This method populates the survey list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the surveys to create</param>
-        public List<ISurvey> CreateSurveys(DataTable pResultSet) { return CreateObjectFromDataTable<ISurvey>(pResultSet); }
+        public List<Survey> CreateSurveys(DataTable pResultSet) { return CreateObjectFromDataTable<Survey>(pResultSet); }
 
         /// <summary>
         /// This method populates the account list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the accounts to create</param>
-        public List<IAccount> CreateAccounts(DataTable pResultSet) { throw new NotImplementedException(); }
+        public List<Account> CreateAccounts(DataTable pResultSet) { throw new NotImplementedException(); }
 
         /// <summary>
         /// This method populates the Expense list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the expenses to create</param>
-        public List<IExpense> CreateExpenses(DataTable pResultSet) { return CreateObjectFromDataTable<IExpense>(pResultSet); }
+        public List<Expense> CreateExpenses(DataTable pResultSet) { return CreateObjectFromDataTable<Expense>(pResultSet); }
 
         /// <summary>
         /// This method populates the Timeslice list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the timeslices to create</param>
-        public List<ITimeslice> CreateTimeslices(DataTable pResultSet) { return CreateObjectFromDataTable<ITimeslice>(pResultSet); }
+        public List<Timeslice> CreateTimeslices(DataTable pResultSet) { return CreateObjectFromDataTable<Timeslice>(pResultSet); }
 
         /// <summary>
         /// This method populates the user list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the users to create</param>
-        public List<IUser> CreateUsers(DataTable pResultSet) { return CreateObjectFromDataTable<IUser>(pResultSet); }
+        public List<User> CreateUsers(DataTable pResultSet) { return CreateObjectFromDataTable<User>(pResultSet); }
 
         #endregion
 

@@ -267,5 +267,7 @@ namespace PlexByte.MoCap.Backend
             }
             return affectedRecords;
         }
+
+        public void InsertUser() { throw new NotImplementedException(); }
     }
 }

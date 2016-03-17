@@ -5,6 +5,7 @@
 //      registers to all available events and executes the corresponding action
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -36,7 +37,7 @@ namespace PlexByte.MoCap.WinForms
     {
         #region Properties
 
-        public IUser UserContext => _userContext;
+        public User UserContext => _userContext;
 
         #endregion
 
@@ -46,7 +47,12 @@ namespace PlexByte.MoCap.WinForms
         private readonly ErrorProvider _errorProvider = null;
         private ObjectManager _objectManager = null;
         private BackendService _backendService = null;
-        private IUser _userContext = null;
+        private User _userContext = null;
+        private const string _longDateTimeFtm = "ddd dd MMM yyyy  HH:mm";
+        private const string _DateTimeFtm = "yyyy.MM.dd HH:mm:ss";
+        private const string _DateFtm = "yyyy.MM.dd";
+        private const string _TimeFtm = "HH:mm:ss";
+        private const string _dateTimeIdFmt = "yyyyMMddHHmmssfff";
 
         #endregion
 
@@ -203,82 +209,16 @@ namespace PlexByte.MoCap.WinForms
             switch (((Button) sender).Name)
             {
                 case "btn_Edit":
-                case "btn_New":
-                    bool isSave = ((Button) sender).Text.ToLower() == "save";
-                    foreach (var variable in ctrls)
-                    {
-                        if (isSave)
-                        {
-                            if (variable.Text.ToLower() != "btn_new" ||
-                                variable.Text.ToLower() != "btn_login" ||
-                                variable.Text.ToLower() != "tbx_username" ||
-                                variable.Text.ToLower() == "tbx_password")
-                                variable.Enabled = false;
-                        }
-                        else
-                        {
-                            variable.Enabled = true;
-                        }
-                            
-                    }
-                    ((Button) sender).Text = (!isSave) ? "Save" : "New";
+                    UserButtonEdit(ctrls);
                     break;
-                //case "btn_Edit":
-                  //  break;
+                case "btn_New":
+                    UserButtonSave(ctrls);
+                    break;
                 case "btn_Login":
                     UserButtonLogin(ctrls);
                     break;
                 default:
                     break;
-            }
-        }
-
-        private void UserButtonLogin(List<Control> pControlList)
-        {
-            try
-            {
-                if (_userContext == null)
-                {
-                    // There is no user context now, thus we attempt to login
-                    string sUserName = GetControlByName<TextBox>(pControlList, "tbx_username").Text;
-                    string sPassword = GetControlByName<MaskedTextBox>(pControlList, "tbx_password").Text;
-                    if (!string.IsNullOrEmpty(sUserName) && !string.IsNullOrEmpty(sPassword))
-                    {
-                        _MainUI.Enabled = false;
-                        _userContext = _objectManager.CreateUsers(_backendService.AuthenticateUser(sUserName, sPassword)).FirstOrDefault();
-                        _MainUI.Enabled = true;
-                        GetControlByName<Button>(pControlList, "btn_Login").Text = "Logout";
-                        GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
-                        //TODO:Pickup here
-                        // GetControlByName<Button>(pControlList, "tbx_Id").Visible = UserContext.Id;
-                        GetControlByName<Button>(pControlList, "tbx_FirstName").Visible = true;
-                        GetControlByName<Button>(pControlList, "tbx_MiddleName").Visible = true;
-                        GetControlByName<Button>(pControlList, "tbx_LastName").Visible = true;
-                        GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
-                        GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
-                        GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
-                    }
-                    else
-                    {
-                        if (string.IsNullOrEmpty(sUserName))
-                            _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_username"), "UserName is not specified");
-                        if (string.IsNullOrEmpty(sPassword))
-                            _errorProvider.SetError(GetControlByName<MaskedTextBox>(pControlList, "tbx_password"), "Password is not specified");
-                    }
-                }
-                else
-                {
-                    // We do have a user context, hence we logout
-                    _userContext = null;
-                    _objectManager.Dispose();
-                    _objectManager = null;
-                    GetControlByName<Button>(pControlList, "btn_Login").Text = "Login";
-                    GetControlByName<Button>(pControlList, "btn_Edit").Visible = false;
-                }
-            }
-            catch (Exception exp)
-            {
-                _MainUI.ShowErrorMessage($"Exception while trying process login/logout. Exception thrown: {exp.Message}");
             }
         }
 
@@ -398,6 +338,141 @@ namespace PlexByte.MoCap.WinForms
             catch (Exception exp)
             {
                 throw new Exception($"Expection while trying to get control of type {typeof (T).Name} and name {pControlName}. Excption message= {exp.Message}");
+            }
+        }
+
+        private void UserButtonSetControlsState(List<Control> pControlList, List<Control> pExceptionList, bool pIsEnabled)
+        {
+            foreach (var control in pControlList)
+            {
+                if (!pExceptionList.Contains(control))
+                    control.Enabled = pIsEnabled;
+                else
+                    control.Enabled = !pIsEnabled;
+            }
+        }
+
+        private void UserButtonEdit(List<Control> pControlList)
+        {
+            List<Control> expCtrls = new List<Control>();
+            expCtrls.Add(GetControlByName<Button>(pControlList, "dpt_Created"));
+            expCtrls.Add(GetControlByName<Button>(pControlList, "dtp_Modified"));
+            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Login"));
+            UserButtonSetControlsState(pControlList, expCtrls, true);
+            GetControlByName<Button>(pControlList, "btn_New").Text = "Save";
+        }
+
+        private void UserButtonSave(List<Control> pControlList)
+        {
+            if (GetControlByName<Button>(pControlList, "btn_New").Text.ToLower() == "save")
+            {
+                // Save command
+                try
+                {
+                    _MainUI.Enabled = false;
+                    
+                    // Deactivate controls
+                    List<Control> expCtrls = new List<Control>();
+                    expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Login"));
+                    expCtrls.Add(GetControlByName<Button>(pControlList, "btn_New"));
+                    UserButtonSetControlsState(pControlList, expCtrls, false);
+                    
+                    // TODO: Execute sproc to save user and login
+                    _backendService.InsertUser();
+
+                    // Login using data given
+                    UserButtonLogin(pControlList);
+
+                    // Enable Main GUI again
+                    _MainUI.Enabled = true;
+                    GetControlByName<Button>(pControlList, "btn_New").Text = "New";
+                }
+                catch (Exception exp)
+                {
+                    _MainUI.ShowErrorMessage($"Exception while trying to save user. Exception thrown: {exp.Message}");
+                    List<Control> expCtrls = new List<Control>();
+                    expCtrls.Add(GetControlByName<Button>(pControlList, "dpt_Created"));
+                    expCtrls.Add(GetControlByName<Button>(pControlList, "dtp_Modified"));
+                    expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Login"));
+                    UserButtonSetControlsState(pControlList, expCtrls, true);
+                }
+            }
+            else
+            {
+                // New command
+                List<Control> expCtrls = new List<Control>();
+                expCtrls.Add(GetControlByName<Button>(pControlList, "dpt_Created"));
+                expCtrls.Add(GetControlByName<Button>(pControlList, "dtp_Modified"));
+                expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Login"));
+                UserButtonSetControlsState(pControlList, expCtrls, true);
+                GetControlByName<Button>(pControlList, "btn_New").Text = "Save";
+            }
+        }
+
+        private void UserButtonLogin(List<Control> pControlList)
+        {
+            try
+            {
+                if (_userContext == null)
+                {
+                    // There is no user context now, thus we attempt to login
+                    string sUserName = GetControlByName<TextBox>(pControlList, "tbx_username").Text;
+                    string sPassword = GetControlByName<MaskedTextBox>(pControlList, "tbx_password").Text;
+                    if (!string.IsNullOrEmpty(sUserName) && !string.IsNullOrEmpty(sPassword))
+                    {
+                        _MainUI.Enabled = false;
+                        _userContext = _objectManager.CreateUsers(_backendService.AuthenticateUser(sUserName, sPassword)).FirstOrDefault();
+                        _MainUI.Enabled = true;
+                        GetControlByName<Button>(pControlList, "btn_Login").Text = "Logout";
+                        GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
+
+                        // Set Control values
+                        GetControlByName<TextBox>(pControlList, "tbx_Id").Text = UserContext.Id;
+                        GetControlByName<TextBox>(pControlList, "tbx_FirstName").Text = UserContext.FirstName;
+                        GetControlByName<TextBox>(pControlList, "tbx_MiddleName").Text = UserContext.MiddleName;
+                        GetControlByName<TextBox>(pControlList, "tbx_LastName").Text = UserContext.LastName;
+                        GetControlByName<TextBox>(pControlList, "tbx_UserName").Text = UserContext.Username;
+                        GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text = UserContext.Password;
+                        GetControlByName<TextBox>(pControlList, "tbx_Email").Text = UserContext.EmailAddress;
+                        GetControlByName<TextBox>(pControlList, "tbx_Birthdate").Text = UserContext.Birthdate.ToString(_longDateTimeFtm);
+                        GetControlByName<DateTimePicker>(pControlList, "dpt_Created").Value = UserContext.CreatedDateTime;
+                        GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = UserContext.ModifiedDateTime;
+
+                        _MainUI.Enabled = true;
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(sUserName))
+                            _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_username"), "UserName is not specified");
+                        if (string.IsNullOrEmpty(sPassword))
+                            _errorProvider.SetError(GetControlByName<MaskedTextBox>(pControlList, "tbx_password"), "Password is not specified");
+                    }
+                }
+                else
+                {
+                    // We do have a user context, hence we logout
+                    _userContext = null;
+                    _objectManager.Dispose();
+                    _objectManager = null;
+                    GetControlByName<Button>(pControlList, "btn_Login").Text = "Login";
+                    GetControlByName<Button>(pControlList, "btn_Edit").Visible = false;
+
+                    // Set Control values
+                    GetControlByName<TextBox>(pControlList, "tbx_Id").Text = string.Empty;
+                    GetControlByName<TextBox>(pControlList, "tbx_FirstName").Text = string.Empty;
+                    GetControlByName<TextBox>(pControlList, "tbx_MiddleName").Text = string.Empty;
+                    GetControlByName<TextBox>(pControlList, "tbx_LastName").Text = string.Empty;
+                    GetControlByName<TextBox>(pControlList, "tbx_UserName").Text = string.Empty;
+                    GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text = string.Empty;
+                    GetControlByName<TextBox>(pControlList, "tbx_Email").Text = string.Empty;
+                    GetControlByName<TextBox>(pControlList, "tbx_Birthdate").Text = string.Empty;
+                    GetControlByName<DateTimePicker>(pControlList, "dpt_Created").Value = default(DateTime);
+                    GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = default(DateTime);
+                }
+            }
+            catch (Exception exp)
+            {
+                _MainUI.ShowErrorMessage($"Exception while trying process login/logout. Exception thrown: {exp.Message}");
             }
         }
 

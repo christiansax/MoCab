@@ -6,10 +6,12 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PlexByte.MoCap.Backend;
+using PlexByte.MoCap.Helpers;
 using PlexByte.MoCap.Interactions;
 using PlexByte.MoCap.Security;
 using PlexByte.MoCap.WinForms.Managers;
@@ -66,6 +68,7 @@ namespace PlexByte.MoCap.WinForms
         {
             _MainUI = pMainUI;
             _errorProvider = new ErrorProvider();
+            _errorProvider.BlinkStyle= ErrorBlinkStyle.BlinkIfDifferentError;
             _backendService = new BackendService();
             _objectManager = new ObjectManager();
         }
@@ -75,7 +78,15 @@ namespace PlexByte.MoCap.WinForms
         /// </summary>
         public void Dispose()
         {
-            
+            if (_backendService != null)
+                _backendService = null;
+
+            if (UserContext != null)
+                _userContext = null;
+
+            if(_objectManager!=null)
+                _objectManager.Dispose();
+            _objectManager = null;
         }
 
         #endregion
@@ -341,6 +352,12 @@ namespace PlexByte.MoCap.WinForms
             }
         }
 
+        /// <summary>
+        /// This method either en- or disables the contols found on the uc_User form except controls excluded
+        /// </summary>
+        /// <param name="pControlList">The list of controls contained by the form</param>
+        /// <param name="pExceptionList">The list of control to set opposit state</param>
+        /// <param name="pIsEnabled">Indicating whether the controls should be enabled or not</param>
         private void UserButtonSetControlsState(List<Control> pControlList, List<Control> pExceptionList, bool pIsEnabled)
         {
             foreach (var control in pControlList)
@@ -352,6 +369,10 @@ namespace PlexByte.MoCap.WinForms
             }
         }
 
+        /// <summary>
+        /// This method deals with the edit button on the uc_User form
+        /// </summary>
+        /// <param name="pControlList">The list of controld contained on the form</param>
         private void UserButtonEdit(List<Control> pControlList)
         {
             List<Control> expCtrls = new List<Control>();
@@ -362,23 +383,56 @@ namespace PlexByte.MoCap.WinForms
             GetControlByName<Button>(pControlList, "btn_New").Text = "Save";
         }
 
+        /// <summary>
+        /// This method deals with the New / Save button on the uc_User form
+        /// </summary>
+        /// <param name="pControlList">The list of controld contained on the form</param>
         private void UserButtonSave(List<Control> pControlList)
         {
+            _errorProvider.Clear();
             if (GetControlByName<Button>(pControlList, "btn_New").Text.ToLower() == "save")
             {
                 // Save command
                 try
                 {
                     _MainUI.Enabled = false;
-                    
+
                     // Deactivate controls
                     List<Control> expCtrls = new List<Control>();
                     expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Login"));
                     expCtrls.Add(GetControlByName<Button>(pControlList, "btn_New"));
                     UserButtonSetControlsState(pControlList, expCtrls, false);
-                    
-                    // TODO: Execute sproc to save user and login
-                    _backendService.InsertUser();
+
+                    // Check if all fields have values
+                    if(GetControlByName<TextBox>(pControlList, "tbx_FirstName").Text.Length<1)
+                        _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_FirstName"),
+                            "First name is not specified");
+                        if(GetControlByName<TextBox>(pControlList, "tbx_LastName").Text.Length < 1)
+                        _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_LastName"),
+                            "Last name is not specified");
+                    if (GetControlByName<TextBox>(pControlList, "tbx_Email").Text.Length < 1)
+                        _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Email"),
+                            "Email is not specified");
+                    if (GetControlByName<DateTimePicker>(pControlList, "dpt_Birthdate").Value>DateTime.Now.AddYears(-18))
+                        _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "dpt_Birthdate"),
+                            "You must be 18+ to register with this service");
+                    if (GetControlByName<TextBox>(pControlList, "tbx_UserName").Text.Length < 1)
+                        _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_UserName"),
+                            "User name is not specified");
+                    if (GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text.Length < 1)
+                        _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Password"),
+                            "Password name is not specified");
+
+                    // Insert user in db
+                    _backendService.InsertUser(GetControlByName<TextBox>(pControlList, "tbx_Id").Text,
+                        GetControlByName<TextBox>(pControlList, "tbx_FirstName").Text,
+                        GetControlByName<TextBox>(pControlList, "tbx_LastName").Text,
+                        GetControlByName<TextBox>(pControlList, "tbx_MiddleName").Text,
+                        GetControlByName<TextBox>(pControlList, "tbx_Email").Text,
+                        GetControlByName<DateTimePicker>(pControlList, "dpt_Birthdate").Value,
+                        GetControlByName<TextBox>(pControlList, "tbx_UserName").Text,
+                        CryptoHelper.Encrypt(GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text,
+                            GetControlByName<TextBox>(pControlList, "tbx_UserName").Text));
 
                     // Login using data given
                     UserButtonLogin(pControlList);
@@ -395,6 +449,11 @@ namespace PlexByte.MoCap.WinForms
                     expCtrls.Add(GetControlByName<Button>(pControlList, "dtp_Modified"));
                     expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Login"));
                     UserButtonSetControlsState(pControlList, expCtrls, true);
+
+                    // Initialize default values for controls
+                    GetControlByName<DateTimePicker>(pControlList, "dpt_Created").Value = DateTime.Now;
+                    GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
+                    GetControlByName<TextBox>(pControlList, "tbx_Id").Text = DateTime.Now.ToString(_dateTimeIdFmt);
                 }
             }
             else
@@ -409,6 +468,10 @@ namespace PlexByte.MoCap.WinForms
             }
         }
 
+        /// <summary>
+        /// This mehtod deals with the Login button on the uc_User form
+        /// </summary>
+        /// <param name="pControlList">The list of controld contained on the form</param>
         private void UserButtonLogin(List<Control> pControlList)
         {
             try
@@ -434,7 +497,7 @@ namespace PlexByte.MoCap.WinForms
                         GetControlByName<TextBox>(pControlList, "tbx_UserName").Text = UserContext.Username;
                         GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text = UserContext.Password;
                         GetControlByName<TextBox>(pControlList, "tbx_Email").Text = UserContext.EmailAddress;
-                        GetControlByName<TextBox>(pControlList, "tbx_Birthdate").Text = UserContext.Birthdate.ToString(_longDateTimeFtm);
+                        GetControlByName<DateTimePicker>(pControlList, "dpt_Birthdate").Value = UserContext.Birthdate;
                         GetControlByName<DateTimePicker>(pControlList, "dpt_Created").Value = UserContext.CreatedDateTime;
                         GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = UserContext.ModifiedDateTime;
 
@@ -465,7 +528,7 @@ namespace PlexByte.MoCap.WinForms
                     GetControlByName<TextBox>(pControlList, "tbx_UserName").Text = string.Empty;
                     GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text = string.Empty;
                     GetControlByName<TextBox>(pControlList, "tbx_Email").Text = string.Empty;
-                    GetControlByName<TextBox>(pControlList, "tbx_Birthdate").Text = string.Empty;
+                    GetControlByName<DateTimePicker>(pControlList, "dpt_Birthdate").Value = default(DateTime);
                     GetControlByName<DateTimePicker>(pControlList, "dpt_Created").Value = default(DateTime);
                     GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = default(DateTime);
                 }

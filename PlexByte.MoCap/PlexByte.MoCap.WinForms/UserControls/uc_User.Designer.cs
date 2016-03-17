@@ -35,7 +35,6 @@
             this.dpt_Created = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.tbx_Birthdate = new System.Windows.Forms.TextBox();
             this.tbx_Email = new System.Windows.Forms.TextBox();
             this.tbx_UserName = new System.Windows.Forms.TextBox();
             this.tbx_LastName = new System.Windows.Forms.TextBox();
@@ -52,6 +51,7 @@
             this.btn_New = new System.Windows.Forms.Button();
             this.btn_Login = new System.Windows.Forms.Button();
             this.btn_Edit = new System.Windows.Forms.Button();
+            this.dtp_Birthdate = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,13 +59,13 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.dtp_Birthdate);
             this.groupBox1.Controls.Add(this.tbx_Password);
             this.groupBox1.Controls.Add(this.dtp_Modified);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.dpt_Created);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.tbx_Birthdate);
             this.groupBox1.Controls.Add(this.tbx_Email);
             this.groupBox1.Controls.Add(this.tbx_UserName);
             this.groupBox1.Controls.Add(this.tbx_LastName);
@@ -140,14 +140,6 @@
             this.label8.Size = new System.Drawing.Size(54, 13);
             this.label8.TabIndex = 15;
             this.label8.Text = "BirthDate:";
-            // 
-            // tbx_Birthdate
-            // 
-            this.tbx_Birthdate.Enabled = false;
-            this.tbx_Birthdate.Location = new System.Drawing.Point(358, 97);
-            this.tbx_Birthdate.Name = "tbx_Birthdate";
-            this.tbx_Birthdate.Size = new System.Drawing.Size(166, 20);
-            this.tbx_Birthdate.TabIndex = 14;
             // 
             // tbx_Email
             // 
@@ -288,6 +280,16 @@
             this.btn_Edit.UseVisualStyleBackColor = true;
             this.btn_Edit.Visible = false;
             // 
+            // dtp_Birthdate
+            // 
+            this.dtp_Birthdate.CustomFormat = "ddd dd MMM yyyy";
+            this.dtp_Birthdate.Enabled = false;
+            this.dtp_Birthdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_Birthdate.Location = new System.Drawing.Point(358, 97);
+            this.dtp_Birthdate.Name = "dtp_Birthdate";
+            this.dtp_Birthdate.Size = new System.Drawing.Size(166, 20);
+            this.dtp_Birthdate.TabIndex = 20;
+            // 
             // uc_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,7 +320,6 @@
         private System.Windows.Forms.DateTimePicker dpt_Created;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tbx_Birthdate;
         private System.Windows.Forms.TextBox tbx_Email;
         private System.Windows.Forms.TextBox tbx_UserName;
         private System.Windows.Forms.TextBox tbx_LastName;
@@ -332,5 +333,6 @@
         private System.Windows.Forms.Button btn_Login;
         private System.Windows.Forms.Button btn_Edit;
         private System.Windows.Forms.MaskedTextBox tbx_Password;
+        private System.Windows.Forms.DateTimePicker dtp_Birthdate;
     }
 }

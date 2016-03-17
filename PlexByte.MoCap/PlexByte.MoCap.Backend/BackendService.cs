@@ -268,6 +268,101 @@ namespace PlexByte.MoCap.Backend
             return affectedRecords;
         }
 
-        public void InsertUser() { throw new NotImplementedException(); }
+        public void InsertUser(string pUserId,
+            string pFirstName,
+            string pLastName,
+            string pMiddleName,
+            string pEmail,
+            DateTime pBirthdate,
+            string pUserName,
+            string pPassword)
+        {
+            string execString = string.Empty;
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                // Create the command and set its properties.
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = "Sproc_UserAddUpdate";
+                command.CommandType = CommandType.StoredProcedure;
+
+                // Add the input parameter and set its properties.
+                SqlParameter parameter = new SqlParameter("@UserId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pUserId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@FirstName", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pFirstName
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@LastName", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pLastName
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@MiddleName", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pMiddleName
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@EmailAddress", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pEmail
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@BirthDate", SqlDbType.DateTime)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pBirthdate
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@UserName", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pUserName
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@Password", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pPassword
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@ResultMsg", SqlDbType.VarChar) {Direction = ParameterDirection.Output};
+                command.Parameters.Add(parameter);
+
+                // Open the connection and execute the reader.
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Console.WriteLine("{0}: {1:C}", reader[0], reader[1]);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+                reader.Close();
+            }
+        }
     }
 }

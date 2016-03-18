@@ -30,9 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_Task));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_Subtask = new System.Windows.Forms.Button();
-            this.btn_Update = new System.Windows.Forms.Button();
-            this.btn_New = new System.Windows.Forms.Button();
             this.dtp_Modified = new System.Windows.Forms.DateTimePicker();
             this.dtp_Created = new System.Windows.Forms.DateTimePicker();
             this.tbx_ModifiedBy = new System.Windows.Forms.TextBox();
@@ -41,6 +38,9 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.btn_Subtask = new System.Windows.Forms.Button();
+            this.btn_Update = new System.Windows.Forms.Button();
+            this.btn_New = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgw_Subtasks = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +53,7 @@
             this.Owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Progress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_AssignProject = new System.Windows.Forms.Button();
             this.num_Budget = new System.Windows.Forms.NumericUpDown();
             this.num_TotalCosts = new System.Windows.Forms.NumericUpDown();
             this.pbr_Progress = new System.Windows.Forms.ProgressBar();
@@ -79,7 +80,6 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.btn_AssignProject = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_Subtasks)).BeginInit();
@@ -110,36 +110,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Activity";
             // 
-            // btn_Subtask
-            // 
-            this.btn_Subtask.Location = new System.Drawing.Point(554, 282);
-            this.btn_Subtask.Name = "btn_Subtask";
-            this.btn_Subtask.Size = new System.Drawing.Size(75, 23);
-            this.btn_Subtask.TabIndex = 20;
-            this.btn_Subtask.Text = "Subtask";
-            this.btn_Subtask.UseVisualStyleBackColor = true;
-            // 
-            // btn_Update
-            // 
-            this.btn_Update.Location = new System.Drawing.Point(288, 282);
-            this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(75, 23);
-            this.btn_Update.TabIndex = 19;
-            this.btn_Update.Text = "Update";
-            this.btn_Update.UseVisualStyleBackColor = true;
-            // 
-            // btn_New
-            // 
-            this.btn_New.Location = new System.Drawing.Point(21, 282);
-            this.btn_New.Name = "btn_New";
-            this.btn_New.Size = new System.Drawing.Size(75, 23);
-            this.btn_New.TabIndex = 18;
-            this.btn_New.Text = "New";
-            this.btn_New.UseVisualStyleBackColor = true;
-            // 
             // dtp_Modified
             // 
             this.dtp_Modified.CustomFormat = "ddd dd MMM yyyy        HH:mm";
+            this.dtp_Modified.Enabled = false;
             this.dtp_Modified.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_Modified.Location = new System.Drawing.Point(416, 45);
             this.dtp_Modified.Name = "dtp_Modified";
@@ -149,6 +123,7 @@
             // dtp_Created
             // 
             this.dtp_Created.CustomFormat = "ddd dd MMM yyyy        HH:mm";
+            this.dtp_Created.Enabled = false;
             this.dtp_Created.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_Created.Location = new System.Drawing.Point(416, 19);
             this.dtp_Created.Name = "dtp_Created";
@@ -157,6 +132,7 @@
             // 
             // tbx_ModifiedBy
             // 
+            this.tbx_ModifiedBy.Enabled = false;
             this.tbx_ModifiedBy.Location = new System.Drawing.Point(89, 45);
             this.tbx_ModifiedBy.Name = "tbx_ModifiedBy";
             this.tbx_ModifiedBy.Size = new System.Drawing.Size(133, 20);
@@ -164,6 +140,7 @@
             // 
             // tbx_CreatedBy
             // 
+            this.tbx_CreatedBy.Enabled = false;
             this.tbx_CreatedBy.Location = new System.Drawing.Point(89, 19);
             this.tbx_CreatedBy.Name = "tbx_CreatedBy";
             this.tbx_CreatedBy.Size = new System.Drawing.Size(133, 20);
@@ -205,6 +182,34 @@
             this.label13.TabIndex = 6;
             this.label13.Text = "Created by:";
             // 
+            // btn_Subtask
+            // 
+            this.btn_Subtask.Location = new System.Drawing.Point(554, 282);
+            this.btn_Subtask.Name = "btn_Subtask";
+            this.btn_Subtask.Size = new System.Drawing.Size(75, 23);
+            this.btn_Subtask.TabIndex = 20;
+            this.btn_Subtask.Text = "Subtask";
+            this.btn_Subtask.UseVisualStyleBackColor = true;
+            // 
+            // btn_Update
+            // 
+            this.btn_Update.Enabled = false;
+            this.btn_Update.Location = new System.Drawing.Point(288, 282);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(75, 23);
+            this.btn_Update.TabIndex = 19;
+            this.btn_Update.Text = "Update";
+            this.btn_Update.UseVisualStyleBackColor = true;
+            // 
+            // btn_New
+            // 
+            this.btn_New.Location = new System.Drawing.Point(21, 282);
+            this.btn_New.Name = "btn_New";
+            this.btn_New.Size = new System.Drawing.Size(75, 23);
+            this.btn_New.TabIndex = 18;
+            this.btn_New.Text = "New";
+            this.btn_New.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -238,6 +243,7 @@
             this.CurrentDuration,
             this.Owner,
             this.Progress});
+            this.dgw_Subtasks.Enabled = false;
             this.dgw_Subtasks.Location = new System.Drawing.Point(9, 20);
             this.dgw_Subtasks.MultiSelect = false;
             this.dgw_Subtasks.Name = "dgw_Subtasks";
@@ -355,9 +361,20 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Settings";
             // 
+            // btn_AssignProject
+            // 
+            this.btn_AssignProject.Enabled = false;
+            this.btn_AssignProject.Location = new System.Drawing.Point(269, 72);
+            this.btn_AssignProject.Name = "btn_AssignProject";
+            this.btn_AssignProject.Size = new System.Drawing.Size(34, 23);
+            this.btn_AssignProject.TabIndex = 49;
+            this.btn_AssignProject.Text = "=>";
+            this.btn_AssignProject.UseVisualStyleBackColor = true;
+            // 
             // num_Budget
             // 
             this.num_Budget.DecimalPlaces = 2;
+            this.num_Budget.Enabled = false;
             this.num_Budget.Location = new System.Drawing.Point(89, 152);
             this.num_Budget.Maximum = new decimal(new int[] {
             100000,
@@ -371,6 +388,7 @@
             // num_TotalCosts
             // 
             this.num_TotalCosts.DecimalPlaces = 2;
+            this.num_TotalCosts.Enabled = false;
             this.num_TotalCosts.Location = new System.Drawing.Point(416, 152);
             this.num_TotalCosts.Maximum = new decimal(new int[] {
             100000,
@@ -383,6 +401,7 @@
             // 
             // pbr_Progress
             // 
+            this.pbr_Progress.Enabled = false;
             this.pbr_Progress.Location = new System.Drawing.Point(416, 124);
             this.pbr_Progress.Name = "pbr_Progress";
             this.pbr_Progress.Size = new System.Drawing.Size(201, 20);
@@ -390,6 +409,7 @@
             // 
             // btn_ChangeOwner
             // 
+            this.btn_ChangeOwner.Enabled = false;
             this.btn_ChangeOwner.Location = new System.Drawing.Point(583, 95);
             this.btn_ChangeOwner.Name = "btn_ChangeOwner";
             this.btn_ChangeOwner.Size = new System.Drawing.Size(34, 23);
@@ -399,6 +419,7 @@
             // 
             // tbx_Owner
             // 
+            this.tbx_Owner.Enabled = false;
             this.tbx_Owner.Location = new System.Drawing.Point(416, 97);
             this.tbx_Owner.Name = "tbx_Owner";
             this.tbx_Owner.Size = new System.Drawing.Size(161, 20);
@@ -406,6 +427,7 @@
             // 
             // tbx_Description
             // 
+            this.tbx_Description.Enabled = false;
             this.tbx_Description.Location = new System.Drawing.Point(416, 22);
             this.tbx_Description.Multiline = true;
             this.tbx_Description.Name = "tbx_Description";
@@ -450,6 +472,7 @@
             // 
             // num_Priority
             // 
+            this.num_Priority.Enabled = false;
             this.num_Priority.Location = new System.Drawing.Point(243, 48);
             this.num_Priority.Name = "num_Priority";
             this.num_Priority.Size = new System.Drawing.Size(60, 20);
@@ -475,6 +498,7 @@
             // 
             // num_EffortsMin
             // 
+            this.num_EffortsMin.Enabled = false;
             this.num_EffortsMin.Location = new System.Drawing.Point(214, 126);
             this.num_EffortsMin.Name = "num_EffortsMin";
             this.num_EffortsMin.Size = new System.Drawing.Size(60, 20);
@@ -482,6 +506,7 @@
             // 
             // num_EffortsHours
             // 
+            this.num_EffortsHours.Enabled = false;
             this.num_EffortsHours.Location = new System.Drawing.Point(89, 126);
             this.num_EffortsHours.Name = "num_EffortsHours";
             this.num_EffortsHours.Size = new System.Drawing.Size(60, 20);
@@ -490,6 +515,7 @@
             // dtp_DueDate
             // 
             this.dtp_DueDate.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
+            this.dtp_DueDate.Enabled = false;
             this.dtp_DueDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_DueDate.Location = new System.Drawing.Point(89, 100);
             this.dtp_DueDate.Name = "dtp_DueDate";
@@ -498,6 +524,7 @@
             // 
             // tbx_ProjectName
             // 
+            this.tbx_ProjectName.Enabled = false;
             this.tbx_ProjectName.Location = new System.Drawing.Point(89, 74);
             this.tbx_ProjectName.Name = "tbx_ProjectName";
             this.tbx_ProjectName.Size = new System.Drawing.Size(174, 20);
@@ -506,6 +533,7 @@
             // cbx_IsToDo
             // 
             this.cbx_IsToDo.AutoSize = true;
+            this.cbx_IsToDo.Enabled = false;
             this.cbx_IsToDo.Location = new System.Drawing.Point(89, 50);
             this.cbx_IsToDo.Name = "cbx_IsToDo";
             this.cbx_IsToDo.Size = new System.Drawing.Size(15, 14);
@@ -514,6 +542,7 @@
             // 
             // tbx_Title
             // 
+            this.tbx_Title.Enabled = false;
             this.tbx_Title.Location = new System.Drawing.Point(89, 22);
             this.tbx_Title.Name = "tbx_Title";
             this.tbx_Title.Size = new System.Drawing.Size(214, 20);
@@ -581,15 +610,6 @@
             this.label26.Size = new System.Drawing.Size(30, 13);
             this.label26.TabIndex = 28;
             this.label26.Text = "Title:";
-            // 
-            // btn_AssignProject
-            // 
-            this.btn_AssignProject.Location = new System.Drawing.Point(269, 72);
-            this.btn_AssignProject.Name = "btn_AssignProject";
-            this.btn_AssignProject.Size = new System.Drawing.Size(34, 23);
-            this.btn_AssignProject.TabIndex = 49;
-            this.btn_AssignProject.Text = "=>";
-            this.btn_AssignProject.UseVisualStyleBackColor = true;
             // 
             // uc_Task
             // 

@@ -8,6 +8,10 @@ namespace PlexByte.MoCap.WinForms.UserControls
 {
     public partial class uc_Task : DockContent
     {
+        public string TaskId { get; set; }
+        public string InteractionId { get; set; }
+        public string MainTaskId { get; set; }
+
         private const string PanelTitle = "Task Details";
 
         public uc_Task()

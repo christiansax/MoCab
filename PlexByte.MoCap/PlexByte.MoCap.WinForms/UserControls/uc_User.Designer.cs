@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtp_Birthdate = new System.Windows.Forms.DateTimePicker();
             this.tbx_Password = new System.Windows.Forms.MaskedTextBox();
             this.dtp_Modified = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
-            this.dpt_Created = new System.Windows.Forms.DateTimePicker();
+            this.dtp_Created = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tbx_Email = new System.Windows.Forms.TextBox();
@@ -51,7 +52,6 @@
             this.btn_New = new System.Windows.Forms.Button();
             this.btn_Login = new System.Windows.Forms.Button();
             this.btn_Edit = new System.Windows.Forms.Button();
-            this.dtp_Birthdate = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +63,7 @@
             this.groupBox1.Controls.Add(this.tbx_Password);
             this.groupBox1.Controls.Add(this.dtp_Modified);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.dpt_Created);
+            this.groupBox1.Controls.Add(this.dtp_Created);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.tbx_Email);
@@ -86,13 +86,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Details";
             // 
+            // dtp_Birthdate
+            // 
+            this.dtp_Birthdate.CustomFormat = "ddd dd MMM yyyy";
+            this.dtp_Birthdate.Enabled = false;
+            this.dtp_Birthdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_Birthdate.Location = new System.Drawing.Point(358, 97);
+            this.dtp_Birthdate.Name = "dtp_Birthdate";
+            this.dtp_Birthdate.Size = new System.Drawing.Size(166, 20);
+            this.dtp_Birthdate.TabIndex = 8;
+            // 
             // tbx_Password
             // 
             this.tbx_Password.Location = new System.Drawing.Point(358, 45);
             this.tbx_Password.Name = "tbx_Password";
             this.tbx_Password.PasswordChar = '*';
             this.tbx_Password.Size = new System.Drawing.Size(166, 20);
-            this.tbx_Password.TabIndex = 20;
+            this.tbx_Password.TabIndex = 6;
             // 
             // dtp_Modified
             // 
@@ -102,7 +112,7 @@
             this.dtp_Modified.Location = new System.Drawing.Point(358, 124);
             this.dtp_Modified.Name = "dtp_Modified";
             this.dtp_Modified.Size = new System.Drawing.Size(166, 20);
-            this.dtp_Modified.TabIndex = 19;
+            this.dtp_Modified.TabIndex = 9;
             // 
             // label10
             // 
@@ -113,15 +123,15 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "Modified:";
             // 
-            // dpt_Created
+            // dtp_Created
             // 
-            this.dpt_Created.CustomFormat = "ddd dd MMM yyyy  HH:mm";
-            this.dpt_Created.Enabled = false;
-            this.dpt_Created.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dpt_Created.Location = new System.Drawing.Point(88, 124);
-            this.dpt_Created.Name = "dpt_Created";
-            this.dpt_Created.Size = new System.Drawing.Size(166, 20);
-            this.dpt_Created.TabIndex = 17;
+            this.dtp_Created.CustomFormat = "ddd dd MMM yyyy  HH:mm";
+            this.dtp_Created.Enabled = false;
+            this.dtp_Created.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_Created.Location = new System.Drawing.Point(88, 124);
+            this.dtp_Created.Name = "dtp_Created";
+            this.dtp_Created.Size = new System.Drawing.Size(166, 20);
+            this.dtp_Created.TabIndex = 10;
             // 
             // label9
             // 
@@ -147,14 +157,14 @@
             this.tbx_Email.Location = new System.Drawing.Point(358, 71);
             this.tbx_Email.Name = "tbx_Email";
             this.tbx_Email.Size = new System.Drawing.Size(166, 20);
-            this.tbx_Email.TabIndex = 13;
+            this.tbx_Email.TabIndex = 7;
             // 
             // tbx_UserName
             // 
             this.tbx_UserName.Location = new System.Drawing.Point(358, 19);
             this.tbx_UserName.Name = "tbx_UserName";
             this.tbx_UserName.Size = new System.Drawing.Size(166, 20);
-            this.tbx_UserName.TabIndex = 11;
+            this.tbx_UserName.TabIndex = 5;
             // 
             // tbx_LastName
             // 
@@ -162,7 +172,7 @@
             this.tbx_LastName.Location = new System.Drawing.Point(88, 97);
             this.tbx_LastName.Name = "tbx_LastName";
             this.tbx_LastName.Size = new System.Drawing.Size(166, 20);
-            this.tbx_LastName.TabIndex = 10;
+            this.tbx_LastName.TabIndex = 4;
             // 
             // tbx_FirstName
             // 
@@ -170,7 +180,7 @@
             this.tbx_FirstName.Location = new System.Drawing.Point(88, 45);
             this.tbx_FirstName.Name = "tbx_FirstName";
             this.tbx_FirstName.Size = new System.Drawing.Size(166, 20);
-            this.tbx_FirstName.TabIndex = 9;
+            this.tbx_FirstName.TabIndex = 2;
             // 
             // tbx_MiddleName
             // 
@@ -178,7 +188,7 @@
             this.tbx_MiddleName.Location = new System.Drawing.Point(88, 71);
             this.tbx_MiddleName.Name = "tbx_MiddleName";
             this.tbx_MiddleName.Size = new System.Drawing.Size(166, 20);
-            this.tbx_MiddleName.TabIndex = 8;
+            this.tbx_MiddleName.TabIndex = 3;
             // 
             // label7
             // 
@@ -256,7 +266,7 @@
             this.btn_New.Location = new System.Drawing.Point(13, 172);
             this.btn_New.Name = "btn_New";
             this.btn_New.Size = new System.Drawing.Size(75, 23);
-            this.btn_New.TabIndex = 1;
+            this.btn_New.TabIndex = 12;
             this.btn_New.Text = "New";
             this.btn_New.UseVisualStyleBackColor = true;
             // 
@@ -265,7 +275,7 @@
             this.btn_Login.Location = new System.Drawing.Point(453, 172);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(75, 23);
-            this.btn_Login.TabIndex = 2;
+            this.btn_Login.TabIndex = 11;
             this.btn_Login.Text = "Login";
             this.btn_Login.UseVisualStyleBackColor = true;
             // 
@@ -275,20 +285,10 @@
             this.btn_Edit.Location = new System.Drawing.Point(237, 172);
             this.btn_Edit.Name = "btn_Edit";
             this.btn_Edit.Size = new System.Drawing.Size(75, 23);
-            this.btn_Edit.TabIndex = 3;
+            this.btn_Edit.TabIndex = 13;
             this.btn_Edit.Text = "Edit";
             this.btn_Edit.UseVisualStyleBackColor = true;
             this.btn_Edit.Visible = false;
-            // 
-            // dtp_Birthdate
-            // 
-            this.dtp_Birthdate.CustomFormat = "ddd dd MMM yyyy";
-            this.dtp_Birthdate.Enabled = false;
-            this.dtp_Birthdate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_Birthdate.Location = new System.Drawing.Point(358, 97);
-            this.dtp_Birthdate.Name = "dtp_Birthdate";
-            this.dtp_Birthdate.Size = new System.Drawing.Size(166, 20);
-            this.dtp_Birthdate.TabIndex = 20;
             // 
             // uc_User
             // 
@@ -317,7 +317,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dpt_Created;
+        private System.Windows.Forms.DateTimePicker dtp_Created;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbx_Email;

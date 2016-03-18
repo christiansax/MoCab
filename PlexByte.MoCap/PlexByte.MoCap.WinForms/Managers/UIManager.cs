@@ -415,13 +415,13 @@ namespace PlexByte.MoCap.WinForms
         {
             _errorProvider.Clear();
             // Initialize default values for controls
-            GetControlByName<DateTimePicker>(pControlList, "dpt_Created").Value = DateTime.Now;
+            GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = DateTime.Now;
             GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
             GetControlByName<TextBox>(pControlList, "tbx_Id").Text = DateTime.Now.ToString(_dateTimeIdFmt);
 
             // Disabled control list
             List<Control> expCtrls = new List<Control>();
-            expCtrls.Add(GetControlByName<Button>(pControlList, "dpt_Created"));
+            expCtrls.Add(GetControlByName<Button>(pControlList, "dtp_Created"));
             expCtrls.Add(GetControlByName<Button>(pControlList, "dtp_Modified"));
             expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Login"));
             expCtrls.Add(GetControlByName<TextBox>(pControlList, "tbx_Id"));
@@ -487,6 +487,13 @@ namespace PlexByte.MoCap.WinForms
                             GetControlByName<TextBox>(pControlList, "tbx_UserName").Text,
                             CryptoHelper.Encrypt(GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text,"MoCap"));
 
+                        if (UserContext != null)
+                        {
+                            // User is logged in logout
+                            UserButtonLogin(pControlList);
+                            _MainUI.Enabled = true;
+                            return;
+                        }
                         // Login using data given
                         UserButtonLogin(pControlList);
                         GetControlByName<Button>(pControlList, "btn_New").Text = "New";
@@ -539,8 +546,8 @@ namespace PlexByte.MoCap.WinForms
                         GetControlByName<TextBox>(pControlList, "tbx_UserName").Text = UserContext.Username;
                         GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text = UserContext.Password;
                         GetControlByName<TextBox>(pControlList, "tbx_Email").Text = UserContext.EmailAddress;
-                        GetControlByName<DateTimePicker>(pControlList, "dpt_Birthdate").Value = UserContext.Birthdate;
-                        GetControlByName<DateTimePicker>(pControlList, "dpt_Created").Value = UserContext.CreatedDateTime;
+                        GetControlByName<DateTimePicker>(pControlList, "dtp_Birthdate").Value = UserContext.Birthdate;
+                        GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = UserContext.CreatedDateTime;
                         GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = UserContext.ModifiedDateTime;
 
                         _MainUI.Enabled = true;
@@ -557,9 +564,10 @@ namespace PlexByte.MoCap.WinForms
                 {
                     // We do have a user context, hence we logout
                     _userContext = null;
-                    _dataManager.Dispose();
-                    _dataManager = null;
                     GetControlByName<Button>(pControlList, "btn_Login").Text = "Login";
+                    GetControlByName<Button>(pControlList, "btn_Login").Enabled = true;
+                    GetControlByName<Button>(pControlList, "btn_New").Text = "New";
+                    GetControlByName<Button>(pControlList, "btn_New").Enabled = true;
                     GetControlByName<Button>(pControlList, "btn_Edit").Visible = false;
 
                     // Set Control values
@@ -570,9 +578,9 @@ namespace PlexByte.MoCap.WinForms
                     GetControlByName<TextBox>(pControlList, "tbx_UserName").Text = string.Empty;
                     GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text = string.Empty;
                     GetControlByName<TextBox>(pControlList, "tbx_Email").Text = string.Empty;
-                    GetControlByName<DateTimePicker>(pControlList, "dpt_Birthdate").Value = default(DateTime);
-                    GetControlByName<DateTimePicker>(pControlList, "dpt_Created").Value = default(DateTime);
-                    GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = default(DateTime);
+                    GetControlByName<DateTimePicker>(pControlList, "dtp_Birthdate").Value = DateTime.Now;
+                    GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = DateTime.Now;
+                    GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
                 }
             }
             catch (Exception exp)

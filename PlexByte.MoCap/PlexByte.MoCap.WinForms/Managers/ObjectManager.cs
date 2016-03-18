@@ -224,11 +224,11 @@ namespace PlexByte.MoCap.WinForms.Managers
                     curRow["LastName"].ToString(),
                     curRow["MiddleName"].ToString(),
                     curRow["EmailAddress"].ToString(),
-                    DateTime.ParseExact(curRow["Birthdate"].ToString(), "yyyy-mm-dd", CultureInfo.InvariantCulture),
+                    DateTime.Parse(curRow["Birthdate"].ToString()),
                     curRow["Username"].ToString(),
                     curRow["Password"].ToString(),
-                    DateTime.ParseExact(curRow["ModifiedDateTime"].ToString(), "yyyy-mm-dd HH:mm:ss.fff", CultureInfo.InvariantCulture),
-                    DateTime.ParseExact(curRow["CreatedDateTime"].ToString(), "yyyy-mm-dd HH:mm:ss.fff", CultureInfo.InvariantCulture),
+                    DateTime.Parse(curRow["ModifiedDateTime"].ToString()),
+                    DateTime.Parse(curRow["CreatedDateTime"].ToString()),
                     curRow["PersonId"].ToString()));
             }
             return (result.Count > 0) ? result : null;

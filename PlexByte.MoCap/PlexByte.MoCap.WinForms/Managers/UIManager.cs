@@ -343,7 +343,10 @@ namespace PlexByte.MoCap.WinForms
             foreach (Control c in container.Controls)
             {
                 if (c.HasChildren)
+                {
+                    ctrlList.Add(c);
                     ctrlList.AddRange(GetAllControls(c));
+                }
                 else
                     ctrlList.Add(c);
             }

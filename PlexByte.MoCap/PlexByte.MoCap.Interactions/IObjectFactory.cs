@@ -23,5 +23,7 @@ namespace PlexByte.MoCap.Interactions
 
         IExpense CreateExpense(string pId, string pText, IUser pUser, IInteraction pTarget);
 
+        IUser CreateUser(string pId, string pFirstName, string pLastName, string pMiddleName, string pEmail, DateTime pBirthdate,
+            string pUserName, string pPassword, DateTime pModified, DateTime pCreated, string pPersonId);
     }
 }

@@ -10,11 +10,11 @@ namespace PlexByte.MoCap.Interactions
 {
     public interface IInteractionFactory
     {
-        IInteraction CreateTask(string pId, string pText, IUser pCreator);
+        ITask CreateTask(string pId, string pText, IUser pCreator);
 
-        IInteraction CreateTask(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT);
+        ITask CreateTask(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT);
 
-        IInteraction CreateTask(string pId,
+        ITask CreateTask(string pId,
             string pText,
             IUser pCreator,
             DateTime pStartDT,
@@ -30,17 +30,17 @@ namespace PlexByte.MoCap.Interactions
             int pProgress);
 
 
-        IInteraction CreateSurvey(string pId, string pText, List<ISurveyOption> pOptions, IUser pCreator);
+        ISurvey CreateSurvey(string pId, string pText, List<ISurveyOption> pOptions, IUser pCreator);
 
-        IInteraction CreateSurvey(string pId, string pText, List<string> pOptions, IUser pCreator);
+        ISurvey CreateSurvey(string pId, string pText, List<string> pOptions, IUser pCreator);
 
-        IInteraction CreateAccount(string pId, string pText, IUser pCreator);
+        IAccount CreateAccount(string pId, string pText, IUser pCreator);
 
-        IInteraction CreateAccount(string pId, string pText, List<IExpense> pExpenseList, List<ITimeslice> pTimesliceList, IUser pCreator);
+        IAccount CreateAccount(string pId, string pText, List<IExpense> pExpenseList, List<ITimeslice> pTimesliceList, IUser pCreator);
 
-        IInteraction CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator);
+        IProject CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator);
 
-        IInteraction CreateProject(string pId,
+        IProject CreateProject(string pId,
             string pText,
             bool pEnableBalance,
             bool pEnableSurvey,

@@ -1,4 +1,4 @@
-﻿--	Sproc_ProjectAddUpdate inserts or updates a project and the corresponding Interaction
+﻿--	Sproc_ProjectAddUpdate inserts or updates a project and the corresponding Interaction.
 --	Author:	Christian B. Sax
 --	Date:	2016/03/06
 CREATE PROCEDURE [dbo].[Sproc_ProjectAddUpdate]
@@ -10,7 +10,6 @@ CREATE PROCEDURE [dbo].[Sproc_ProjectAddUpdate]
 	@StartDateTime AS DATETIME,
 	@EndDateTime AS DATETIME,
     @IsActive AS BIT,
-    @Type AS BIGINT,
     @CreatorId AS BIGINT,
     @OwnerId AS BIGINT,
     @StateId AS BIGINT,
@@ -30,7 +29,7 @@ AS
 				SELECT	@Id	=	FORMAT(GETDATE(), 'yyyyMMddHHmmssfff')
 				INSERT INTO [dbo].[Interaction] ([Id], [StartDateTime], [EndDateTime], [IsActive], [Text], [Type], [CreatorId],
 												[OwnerId], [StateId], [CreatedDateTime], [ModifiedDateTime])
-						VALUES					(@Id, @StartDateTime, @EndDateTime, @IsActive, @Description, @Type, @CreatorId, 
+						VALUES					(@Id, @StartDateTime, @EndDateTime, @IsActive, @Description, 1, @CreatorId, 
 												@OwnerId, @StateId, GETDATE(), GETDATE())
 
 				INSERT INTO [dbo].[Project]		([Id], [Name], [EnableBalance], [EnableSurvey], [CreatedDateTime], [ModifiedDateTime])
@@ -53,7 +52,6 @@ AS
 					   [EndDateTime]		=	@EndDateTime,
 					   [IsActive]			=	@IsActive,
 					   [Text]				=	@Description,
-					   [Type]				=	@Type,
 					   [CreatorId]			=	@CreatorId,
 					   [OwnerId]			=	@OwnerId,
 					   [StateId]			=	@StateId,

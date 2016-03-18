@@ -13,14 +13,14 @@ namespace PlexByte.MoCap.Interactions
 {
     public class InteractionFactory : IInteractionFactory
     {
-        public virtual IInteraction CreateTask(string pId, string pText, IUser pCreator)
+        public virtual ITask CreateTask(string pId, string pText, IUser pCreator)
         {
             if (string.IsNullOrEmpty(pId))
                 pId = GenericHelper.GenerateId();
             return new Task(pId, pText, pCreator);
         }
 
-        public virtual IInteraction CreateTask(string pId,
+        public virtual ITask CreateTask(string pId,
             string pText,
             IUser pCreator,
             DateTime pStartDT,
@@ -32,7 +32,7 @@ namespace PlexByte.MoCap.Interactions
             return (new Task(pId, pText, pCreator, pStartDT, pEndDT, pDueDT));
         }
 
-        public IInteraction CreateTask(string pId,
+        public ITask CreateTask(string pId,
             string pText,
             IUser pCreator,
             DateTime pStartDT,
@@ -65,28 +65,28 @@ namespace PlexByte.MoCap.Interactions
                 pProgress));
         }
 
-        public virtual IInteraction CreateSurvey(string pId, string pText, List<ISurveyOption> pOptions, IUser pCreator)
+        public virtual ISurvey CreateSurvey(string pId, string pText, List<ISurveyOption> pOptions, IUser pCreator)
         {
             if (string.IsNullOrEmpty(pId))
                 pId = GenericHelper.GenerateId();
             return (new Survey(pId, pText, pOptions, pCreator));
         }
 
-        public virtual IInteraction CreateSurvey(string pId, string pText, List<string> pOptions, IUser pCreator)
+        public virtual ISurvey CreateSurvey(string pId, string pText, List<string> pOptions, IUser pCreator)
         {
             if (string.IsNullOrEmpty(pId))
                 pId = GenericHelper.GenerateId();
             return (new Survey(pId, pText, pOptions, pCreator));
         }
 
-        public virtual IInteraction CreateAccount(string pId, string pText, IUser pCreator)
+        public virtual IAccount CreateAccount(string pId, string pText, IUser pCreator)
         {
             if (string.IsNullOrEmpty(pId))
                 pId = GenericHelper.GenerateId();
             return (new Account(pId, pText, pCreator));
         }
 
-        public virtual IInteraction CreateAccount(string pId,
+        public virtual IAccount CreateAccount(string pId,
             string pText,
             List<IExpense> pExpenseList,
             List<ITimeslice> pTimesliceList,
@@ -97,14 +97,14 @@ namespace PlexByte.MoCap.Interactions
             return (new Account(pId, pText, pExpenseList, pTimesliceList, pCreator));
         }
 
-        public virtual IInteraction CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator)
+        public virtual IProject CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator)
         {
             if (string.IsNullOrEmpty(pId))
                 pId = GenericHelper.GenerateId();
             return (new Project(pId, pText, pEnableBalance, pEnableSurvey, pStartDT, pEndDT, pCreator));
         }
 
-        public virtual IInteraction CreateProject(string pId,
+        public virtual IProject CreateProject(string pId,
             string pText,
             bool pEnableBalance,
             bool pEnableSurvey,

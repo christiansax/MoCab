@@ -11,7 +11,6 @@ CREATE PROCEDURE [dbo].[Sproc_SurveyAddUpdate]
 	@EndDateTime AS DATETIME,
     @IsActive AS BIT,
     @Text AS NVARCHAR(MAX),
-    @Type AS BIGINT,
     @CreatorId AS BIGINT,
     @OwnerId AS BIGINT,
     @StateId AS BIGINT,
@@ -36,7 +35,7 @@ AS
 				select	@Id	=	format(getdate(), 'yyyyMMddHHmmssfff')
 				INSERT INTO [dbo].[Interaction] ([Id], [StartDateTime], [EndDateTime], [IsActive], [Text], [Type], [CreatorId],
 												[OwnerId], [StateId], [CreatedDateTime], [ModifiedDateTime])
-						VALUES					(@Id, @StartDateTime, @EndDateTime, @IsActive, @Text, @Type, @CreatorId, 
+						VALUES					(@Id, @StartDateTime, @EndDateTime, @IsActive, @Text, 3, @CreatorId, 
 												@OwnerId, @StateId, GETDATE(), GETDATE())
 				
 				INSERT INTO [ProjectSurveyMapping]([ProjectId], [SurveyId], [CreatedDateTime], [ModifiedDateTime])
@@ -62,7 +61,6 @@ AS
 					   [EndDateTime] = @EndDateTime,
 					   [IsActive] = @IsActive,
 					   [Text] = @Text,
-					   [Type] = @Type,
 					   [CreatorId] = @CreatorId,
 					   [OwnerId] = @OwnerId,
 					   [StateId] = @StateId,

@@ -54,5 +54,36 @@ namespace PlexByte.MoCap.Interactions
             return (new Expense(pId, pText, pUser, pTarget));
         }
 
+        public virtual IUser CreateUser(string pId,
+            string pFirstName,
+            string pLastName,
+            string pMiddleName,
+            string pEmail,
+            DateTime pBirthdate,
+            string pUserName,
+            string pPassword,
+            DateTime pModified,
+            DateTime pCreated,
+            string pPersonId)
+        {
+            try
+            {
+                return new User(pId,
+                    pPersonId,
+                    pFirstName,
+                    pLastName,
+                    pMiddleName,
+                    pEmail,
+                    pBirthdate,
+                    pCreated,
+                    pModified,
+                    pUserName,
+                    pPassword);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

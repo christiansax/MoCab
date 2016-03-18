@@ -47,8 +47,7 @@ namespace PlexByte.MoCap.WinForms
 
         private readonly frm_MoCapMain _MainUI = null;
         private readonly ErrorProvider _errorProvider = null;
-        private ObjectManager _objectManager = null;
-        private BackendService _backendService = null;
+        private DataManager _dataManager = null;
         private User _userContext = null;
         private const string _longDateTimeFtm = "ddd dd MMM yyyy  HH:mm";
         private const string _DateTimeFtm = "yyyy.MM.dd HH:mm:ss";
@@ -69,8 +68,7 @@ namespace PlexByte.MoCap.WinForms
             _MainUI = pMainUI;
             _errorProvider = new ErrorProvider();
             _errorProvider.BlinkStyle= ErrorBlinkStyle.BlinkIfDifferentError;
-            _backendService = new BackendService();
-            _objectManager = new ObjectManager();
+            _dataManager=new DataManager();
         }
 
         /// <summary>
@@ -78,15 +76,10 @@ namespace PlexByte.MoCap.WinForms
         /// </summary>
         public void Dispose()
         {
-            if (_backendService != null)
-                _backendService = null;
-
             if (UserContext != null)
                 _userContext = null;
-
-            if(_objectManager!=null)
-                _objectManager.Dispose();
-            _objectManager = null;
+            if (_dataManager != null)
+                _dataManager = null;
         }
 
         #endregion
@@ -485,7 +478,7 @@ namespace PlexByte.MoCap.WinForms
                     if (!bError)
                     {
                         // Insert user in db
-                        _backendService.InsertUser(GetControlByName<TextBox>(pControlList, "tbx_Id").Text,
+                        _dataManager.InsertUser(GetControlByName<TextBox>(pControlList, "tbx_Id").Text,
                             GetControlByName<TextBox>(pControlList, "tbx_FirstName").Text,
                             GetControlByName<TextBox>(pControlList, "tbx_LastName").Text,
                             GetControlByName<TextBox>(pControlList, "tbx_MiddleName").Text,
@@ -533,7 +526,7 @@ namespace PlexByte.MoCap.WinForms
                     if (!string.IsNullOrEmpty(sUserName) && !string.IsNullOrEmpty(sPassword))
                     {
                         _MainUI.Enabled = false;
-                        _userContext = _objectManager.CreateUsers(_backendService.AuthenticateUser(sUserName, sPassword)).FirstOrDefault();
+                        _userContext = (User)_dataManager.AuthenticateUser(sUserName, sPassword);
                         _MainUI.Enabled = true;
                         GetControlByName<Button>(pControlList, "btn_Login").Text = "Logout";
                         GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
@@ -564,8 +557,8 @@ namespace PlexByte.MoCap.WinForms
                 {
                     // We do have a user context, hence we logout
                     _userContext = null;
-                    _objectManager.Dispose();
-                    _objectManager = null;
+                    _dataManager.Dispose();
+                    _dataManager = null;
                     GetControlByName<Button>(pControlList, "btn_Login").Text = "Login";
                     GetControlByName<Button>(pControlList, "btn_Edit").Visible = false;
 

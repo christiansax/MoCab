@@ -14,6 +14,7 @@ using PlexByte.MoCap.Backend;
 using PlexByte.MoCap.Helpers;
 using PlexByte.MoCap.Interactions;
 using PlexByte.MoCap.Security;
+using PlexByte.MoCap.WinForms.CustomForms;
 using PlexByte.MoCap.WinForms.Managers;
 using PlexByte.MoCap.WinForms.UserControls;
 using WeifenLuo.WinFormsUI.Docking;
@@ -210,6 +211,9 @@ namespace PlexByte.MoCap.WinForms
         public void UserButtonClicked(object sender, EventArgs e)
         {
             _errorProvider.Clear();
+            // for testing
+            frm_ProjectSelectionList psl = new frm_ProjectSelectionList();
+            DialogResult tmp= psl.ShowDialog();
             List<Control> ctrls = GetAllControls(((Button)sender).Parent);
             switch (((Button) sender).Name)
             {
@@ -541,6 +545,9 @@ namespace PlexByte.MoCap.WinForms
                     GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = UserContext.CreatedDateTime;
                     GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = UserContext.ModifiedDateTime;
 
+                    DockContent tmp = (DockContent)pControlList[0].FindForm();
+                    tmp.TabText = $"User Details ({UserContext.Username})";
+
                     _MainUI.Enabled = true;
 
                     GetControlByName<Button>(pControlList, "btn_Login").Text = "Logout";
@@ -602,6 +609,9 @@ namespace PlexByte.MoCap.WinForms
             GetControlByName<DateTimePicker>(pControlList, "dtp_Birthdate").Value = DateTime.Now;
             GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = DateTime.Now;
             GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
+
+            DockContent tmp = (DockContent)pControlList[0].FindForm();
+            tmp.TabText = "User Details";
         }
 
         /// <summary>

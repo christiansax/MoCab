@@ -193,28 +193,31 @@ namespace PlexByte.MoCap.WinForms.Managers
         private T CreateObjectFromId<T>(string pId)
         {
             T tmp = default(T);
-            if (typeof (IProject) == typeof (T))
+            if (typeof (Project) == typeof (T))
             {
             }
-            else if (typeof (ITask) == typeof (T))
+            else if (typeof (Task) == typeof (T))
             {
             }
-            else if (typeof (ISurvey) == typeof (T))
+            else if (typeof (Survey) == typeof (T))
             {
             }
-            else if (typeof (IExpense) == typeof (T))
+            else if (typeof (Expense) == typeof (T))
             {
             }
-            else if (typeof (ITimeslice) == typeof (T))
+            else if (typeof (Timeslice) == typeof (T))
             {
             }
-            else if (typeof (ISurveyOption) == typeof (T))
+            else if (typeof (SurveyOption) == typeof (T))
             {
             }
-            else if (typeof (IVote) == typeof (T))
+            else if (typeof (Vote) == typeof (T))
             {
             }
-            else if (typeof (ITask) == typeof (T))
+            else if (typeof (Task) == typeof (T))
+            {
+            }
+            else if (typeof(User) == typeof(T))
             {
             }
             else
@@ -252,28 +255,28 @@ namespace PlexByte.MoCap.WinForms.Managers
                     tmp = _interactionFactory.CreateProject()
                     */
                 }
-                else if (typeof (ITask) == typeof (T))
+                else if (typeof (Task) == typeof (T))
                 {
                 }
-                else if (typeof (ISurvey) == typeof (T))
+                else if (typeof (Survey) == typeof (T))
                 {
                 }
-                else if (typeof (IExpense) == typeof (T))
+                else if (typeof (Expense) == typeof (T))
                 {
                 }
-                else if (typeof (ITimeslice) == typeof (T))
+                else if (typeof (Timeslice) == typeof (T))
                 {
                 }
-                else if (typeof (ISurveyOption) == typeof (T))
+                else if (typeof (SurveyOption) == typeof (T))
                 {
                 }
-                else if (typeof (IVote) == typeof (T))
+                else if (typeof (Vote) == typeof (T))
                 {
                 }
-                else if (typeof (ITask) == typeof (T))
+                else if (typeof (Task) == typeof (T))
                 {
                 }
-                else if (typeof(IUser) == typeof(T))
+                else if (typeof(User) == typeof(T))
                 {
                 }
                 else

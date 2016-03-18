@@ -461,8 +461,7 @@ namespace PlexByte.MoCap.WinForms
                             GetControlByName<TextBox>(pControlList, "tbx_Email").Text,
                             GetControlByName<DateTimePicker>(pControlList, "dtp_Birthdate").Value,
                             GetControlByName<TextBox>(pControlList, "tbx_UserName").Text,
-                            CryptoHelper.Encrypt(GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text,
-                                GetControlByName<TextBox>(pControlList, "tbx_UserName").Text));
+                            CryptoHelper.Encrypt(GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text,"MoCap"));
 
                         // Login using data given
                         UserButtonLogin(pControlList);

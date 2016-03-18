@@ -38,8 +38,7 @@ namespace PlexByte.MoCap.Backend
             DataTable userInfo = new DataTable();
             pPassword = CryptoHelper.Encrypt(pPassword, _Password);
 
-            userInfo = ExecuteQueryString($"select * from View_User where (Username = '{pUserName}' or EmailAddress = '{pUserName}') " +
-                                          $"AND [Password] = '{pPassword}'");
+            userInfo = ExecuteQueryString($"select * from View_User where (Username = '{pUserName}' or EmailAddress = '{pUserName}') AND [Password] = '{pPassword}'");
             if (userInfo.Rows.Count < 1)
                 throw new Exception($"Authentification failed! Username or password is invalid [UserName={pUserName}] [Password={pPassword}]");
             else

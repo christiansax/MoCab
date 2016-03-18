@@ -23,8 +23,8 @@ AS
 		-- This is a new user, insert...
 		BEGIN TRANSACTION
 			select	@Id	=	format(getdate(), 'yyyyMMddHHmmssfff')
-			INSERT	INTO [Person]	([Id], [LastName], [MiddleName], [EmailAddress], [Birthdate])
-					VALUES			(@Id, @LastName, @FirstName, @EmailAddress, @BirthDate)
+			INSERT	INTO [Person]	([Id], [FirstName], [LastName], [MiddleName], [EmailAddress], [Birthdate])
+					VALUES			(@Id, @FirstName, @LastName, @MiddleName, @EmailAddress, @BirthDate)
 			INSERT	INTO [User]		([Id], [PersonId], [Username], [Password])
 					VALUES			(@UserId, @Id, @UserName, @Password)
 		COMMIT TRANSACTION

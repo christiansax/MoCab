@@ -343,7 +343,11 @@ namespace PlexByte.MoCap.Backend
                 };
                 command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@ResultMsg", SqlDbType.VarChar) {Direction = ParameterDirection.Output};
+                parameter = new SqlParameter("@ResultMsg", SqlDbType.VarChar)
+                {
+                    Direction = ParameterDirection.Output,
+                    Value = string.Empty
+                };
                 command.Parameters.Add(parameter);
 
                 // Open the connection and execute the reader.

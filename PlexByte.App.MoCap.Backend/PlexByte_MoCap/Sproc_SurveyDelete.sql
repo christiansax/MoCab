@@ -31,9 +31,10 @@ AS
 			SET @ResultMsg = @ResultMsg + ': All corresponding objects deleted for Survey with Id: ' + CAST(@SurveyId AS VARCHAR);
 		END TRY
 		BEGIN CATCH
+			SET @ResultMsg = 'Error in delete try block: ' + ERROR_MESSAGE();
 			IF @@TRANCOUNT > 0
 			ROLLBACK
-			RAISERROR ('Error in try block while deleting Survey', 11, -1);
+			RAISERROR ('Caught exception %s', 16, -1, @ResultMsg);
 		END CATCH
 		ELSE
 			-- This is an update

@@ -23,9 +23,10 @@ AS
 		SET @ResultMsg = 'OK: Deleted User with ID: ' + Cast(@UserId as VARCHAR) + ' and Person with ID: ' + Cast(@Id as VARCHAR) ;
 	END TRY
 	BEGIN CATCH
-		IF @@TRANCOUNT > 0
-        ROLLBACK
-		RAISERROR ('Error in try block', 16, -1);
+		SET @ResultMsg = 'Error in delete try block: ' + ERROR_MESSAGE();
+			IF @@TRANCOUNT > 0
+			ROLLBACK
+			RAISERROR ('Caught exception %s', 16, -1, @ResultMsg);
 	END CATCH
 	ELSE
 	BEGIN

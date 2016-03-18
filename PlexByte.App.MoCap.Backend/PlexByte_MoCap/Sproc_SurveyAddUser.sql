@@ -22,9 +22,10 @@ AS
 		SET @ResultMsg = @ResultMsg + ': Inserted';
 	END TRY
 	BEGIN CATCH
-		IF @@TRANCOUNT > 0
+		SET @ResultMsg = 'Error in insert try block: ' + ERROR_MESSAGE();
+			IF @@TRANCOUNT > 0
 			ROLLBACK
-			RAISERROR ('Error trying to insert project user mapping [UserId=%d] [SurveyId=%d]', 12, 11, @UserId, @SurveyId);
+			RAISERROR ('Caught exception %s', 16, -1, @ResultMsg);
 	END CATCH
 	ELSE
 	BEGIN

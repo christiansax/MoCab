@@ -707,7 +707,7 @@ namespace PlexByte.MoCap.WinForms
         {
             // Is task loaded?
             uc_Task tmp = (uc_Task) pControlList[0].Parent;
-            if (tmp.TaskId.Length > 0)
+            if (!string.IsNullOrEmpty(tmp.TaskId))
             {
                 tmp.TabText = $"Task Details ({tmp.TaskId})";
                 frm_TaskUpdateProgress progressForm = new frm_TaskUpdateProgress();
@@ -723,8 +723,8 @@ namespace PlexByte.MoCap.WinForms
         private void TaskButtonSubTask(List<Control> pControlList)
         {
             uc_Task tmp = (uc_Task)pControlList[0].Parent;
-            if (tmp.TaskId.Length > 0)
-            {
+            if(!string.IsNullOrEmpty(tmp.TaskId))
+            { 
                 uc_Task subTask = new uc_Task();
                 subTask.MainTaskId = tmp.TaskId;
                 subTask.TaskId = DateTime.Now.ToString(_dateTimeIdFmt);

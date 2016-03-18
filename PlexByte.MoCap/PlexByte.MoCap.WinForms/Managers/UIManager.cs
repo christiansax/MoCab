@@ -104,6 +104,7 @@ namespace PlexByte.MoCap.WinForms
         {
             DockContent tmp = CreateContentPanel(UiType.Task);
             tmp.TabText = "Task Dialog";
+            ((uc_Task)tmp).RegisterEvents(this);
         }
 
         /// <summary>
@@ -237,22 +238,29 @@ namespace PlexByte.MoCap.WinForms
             }
         }
 
-        public void ProjectButtonClicked(object sender, EventArgs e)
+        public void TaskButtonClicked(object sender, EventArgs e)
         {
             _errorProvider.Clear();
             List<Control> ctrls = GetAllControls(((Button)sender).Parent);
             switch (((Button)sender).Name)
             {
                 case "btn_New":
+                    if (GetControlByName<Button>(ctrls, "btn_New").Text.ToLower() == "new")
+                        TaskButtonNew(ctrls);
+                    else
+                        TaskButtonSave(ctrls);
                     break;
                 case "btn_Update":
+                    TaskButtonUpdate(ctrls);
                     break;
                 case "btn_Subtask":
+                    TaskButtonSubTask(ctrls);
+                    break;
                 default:
                     break;
             }
         }
-        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Already exists!
+
         /// <summary>
         /// Eventlistener for the Project form.
         /// </summary>
@@ -280,7 +288,6 @@ namespace PlexByte.MoCap.WinForms
                     break;
             }
         }
-        */
 
         #endregion
 

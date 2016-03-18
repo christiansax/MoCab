@@ -19,5 +19,12 @@ namespace PlexByte.MoCap.WinForms.UserControls
             InitializeComponent();
             this.TabText = PanelTitle;
         }
+
+        public void RegisterEvents(UIManager pManagerInstance)
+        {
+            btn_New.Click += new System.EventHandler(pManagerInstance.TaskButtonClicked);
+            btn_Update.Click += new System.EventHandler(pManagerInstance.TaskButtonClicked);
+            btn_Subtask.Click += new System.EventHandler(pManagerInstance.TaskButtonClicked);
+        }
     }
 }

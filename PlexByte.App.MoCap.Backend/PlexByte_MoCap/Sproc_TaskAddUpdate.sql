@@ -26,8 +26,8 @@ AS
 
 	IF (EXISTS (
 			SELECT	[Id]
-			FROM	[View_Project]
-			WHERE	[Id] = @ProjectId))
+			FROM	[View_Task]
+			WHERE	[Id] = @TaskId))
 	BEGIN
 		IF (NOT EXISTS (
 		SELECT	*

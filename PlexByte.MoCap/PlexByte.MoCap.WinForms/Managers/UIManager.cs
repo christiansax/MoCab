@@ -261,8 +261,6 @@ namespace PlexByte.MoCap.WinForms
             }
         }
 
-
-
         #endregion
 
         #region Private methods
@@ -397,21 +395,6 @@ namespace PlexByte.MoCap.WinForms
                 else
                     control.Enabled = !pIsEnabled;
             }
-        }
-
-        /// <summary>
-        /// This method deals with the edit button on the uc_User form
-        /// </summary>
-        /// <param name="pControlList">The list of controld contained on the form</param>
-        private void UserButtonEdit(List<Control> pControlList)
-        {
-            List<Control> expCtrls = new List<Control>();
-            expCtrls.Add(GetControlByName<DateTimePicker>(pControlList, "dtp_Created"));
-            expCtrls.Add(GetControlByName<DateTimePicker>(pControlList, "dtp_Modified"));
-            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Login"));
-            UserButtonSetControlsState(pControlList, expCtrls, true);
-            GetControlByName<Button>(pControlList, "btn_New").Text = "Save";
-            GetControlByName<Button>(pControlList, "btn_Edit").Visible = false;
         }
 
         /// <summary>
@@ -584,6 +567,10 @@ namespace PlexByte.MoCap.WinForms
             }
         }
 
+        /// <summary>
+        /// This method logsout a user
+        /// </summary>
+        /// <param name="pControlList">The controls contained on the uc_User form</param>
         private void UserButtonLogout(List<Control> pControlList)
         {
             _userContext = null;
@@ -617,6 +604,10 @@ namespace PlexByte.MoCap.WinForms
             GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
         }
 
+        /// <summary>
+        /// This method is called when the New button is clicked on the uc_User form
+        /// </summary>
+        /// <param name="pControlList">The controls contained on the uc_User form</param>
         private void UserButtonNew(List<Control> pControlList)
         {
             // Initialize default values for controls
@@ -634,7 +625,20 @@ namespace PlexByte.MoCap.WinForms
             UserButtonSetControlsState(pControlList, expCtrls, true);
         }
 
-
+        /// <summary>
+        /// This method deals with the edit button on the uc_User form
+        /// </summary>
+        /// <param name="pControlList">The list of controld contained on the form</param>
+        private void UserButtonEdit(List<Control> pControlList)
+        {
+            List<Control> expCtrls = new List<Control>();
+            expCtrls.Add(GetControlByName<DateTimePicker>(pControlList, "dtp_Created"));
+            expCtrls.Add(GetControlByName<DateTimePicker>(pControlList, "dtp_Modified"));
+            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Login"));
+            UserButtonSetControlsState(pControlList, expCtrls, true);
+            GetControlByName<Button>(pControlList, "btn_New").Text = "Save";
+            GetControlByName<Button>(pControlList, "btn_Edit").Visible = false;
+        }
 
         /// <summary>
         /// This mehtod deals with the Create button on the uc_Project form
@@ -671,7 +675,6 @@ namespace PlexByte.MoCap.WinForms
             }
 
         }
-
 
         private void ProjectButtonUpdatel(List<Control> pControlList)
         {

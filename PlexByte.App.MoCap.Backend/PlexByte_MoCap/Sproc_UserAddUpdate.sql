@@ -17,8 +17,8 @@ AS
 
 	IF (NOT EXISTS (
 		SELECT	*
-		FROM	[Person]
-		WHERE	[FirstName]	=	@FirstName AND [LastName]=@LastName AND [Birthdate]=@BirthDate))
+		FROM	[View_User]
+		WHERE	[Id] = @UserId))
 	BEGIN TRY
 		-- This is a new user, insert...
 		BEGIN TRANSACTION

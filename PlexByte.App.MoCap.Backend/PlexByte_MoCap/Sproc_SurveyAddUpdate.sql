@@ -22,8 +22,8 @@ AS
 
 	IF (EXISTS (
 			SELECT	[Id]
-			FROM	[View_Project]
-			WHERE	[Id] = @ProjectId))
+			FROM	[View_Survey]
+			WHERE	[Id] = @SurveyId))
 	BEGIN
 		IF (NOT EXISTS (
 		SELECT	*

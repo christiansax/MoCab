@@ -128,6 +128,7 @@ namespace PlexByte.MoCap.WinForms
         {
             DockContent tmp = CreateContentPanel(UiType.Project);
             tmp.TabText = "Project Dialog";
+            ((uc_Project)tmp).RegisterEvents(this);
         }
 
         /// <summary>
@@ -232,6 +233,36 @@ namespace PlexByte.MoCap.WinForms
                     break;
             }
         }
+
+        /// <summary>
+        /// Eventlistener for the Project form.
+        /// </summary>
+        /// <param name="sender">The sender of the event</param>
+        /// <param name="e">The event arguements</param>
+        internal void ProjectButtonClicked(object sender, EventArgs e)
+        {
+            _errorProvider.Clear();
+            List<Control> ctrls = GetAllControls(((Button)sender).Parent);
+            switch (((Button)sender).Name)
+            {
+                case "btn_Create":
+                    ProjectButtonCreate(ctrls);
+                    break;
+                case "btn_Update":
+                    ProjectButtonUpdatel(ctrls);
+                    break;
+                case "btn_InviteUser":
+                    ProjectButtonInviteUser(ctrls);
+                    break;
+                case "btn_AcceptInvite":
+                    ProjectButtonAcceptInvite(ctrls);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
 
         #endregion
 
@@ -555,6 +586,58 @@ namespace PlexByte.MoCap.WinForms
             {
                 _MainUI.ShowErrorMessage($"Exception while trying process login/logout. Exception thrown: {exp.Message}");
             }
+        }
+
+        /// <summary>
+        /// This mehtod deals with the Create button on the uc_Project form
+        /// </summary>
+        /// <param name="pControlList">The list of controld contained on the form</param>
+        private void ProjectButtonCreate(List<Control> pControlList)
+        {
+            if (GetControlByName<Button>(pControlList, "btn_Create").Text.ToLower() == "create")
+            {
+                
+                string sTitle = GetControlByName<TextBox>(pControlList, "tbx_Title").Text;
+                if (!string.IsNullOrEmpty(sTitle))
+                {
+
+                    List<Control> expCtrls = new List<Control>();
+                    GetControlByName<Button>(pControlList, "btn_Update").Enabled = true;
+                    GetControlByName<Button>(pControlList, "btn_InviteUser").Enabled = true;
+                    GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").Enabled = false;
+                    GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").Enabled = false;
+                    GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Enabled = false;
+                    GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Enabled = false;
+                    GetControlByName<TextBox>(pControlList, "tbx_Title").Enabled = false;
+                    GetControlByName<TextBox>(pControlList, "tbx_Description").Enabled = false;
+                    GetControlByName<Button>(pControlList, "btn_Create").Text = "Edit";
+
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(sTitle))
+                        _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Title"), "Title is not specified");
+                }
+
+
+            }
+
+        }
+
+
+        private void ProjectButtonUpdatel(List<Control> pControlList)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ProjectButtonAcceptInvite(List<Control> ctrls)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ProjectButtonInviteUser(List<Control> ctrls)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

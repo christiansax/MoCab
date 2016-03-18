@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace PlexByte.MoCap.WinForms.UserControls
@@ -19,6 +11,13 @@ namespace PlexByte.MoCap.WinForms.UserControls
         {
             InitializeComponent();
             this.TabText = PanelTitle;
+        }
+        public void RegisterEvents(UIManager pManagerInstance)
+        {
+            btn_Create.Click += new EventHandler(pManagerInstance.ProjectButtonClicked);
+            btn_Update.Click += new EventHandler(pManagerInstance.ProjectButtonClicked);
+            btn_InviteUser.Click += new EventHandler(pManagerInstance.ProjectButtonClicked);
+            btn_AcceptInvite.Click += new EventHandler(pManagerInstance.ProjectButtonClicked);
         }
     }
 }

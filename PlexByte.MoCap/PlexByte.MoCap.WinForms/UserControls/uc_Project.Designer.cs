@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_Project));
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbx_ProjectSettings = new System.Windows.Forms.GroupBox();
             this.dtp_StartDate = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.cbx_EnableSurvey = new System.Windows.Forms.CheckBox();
             this.cbx_EnableBalance = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.dtp_DueDate = new System.Windows.Forms.DateTimePicker();
+            this.dtp_EndDate = new System.Windows.Forms.DateTimePicker();
             this.label22 = new System.Windows.Forms.Label();
             this.lbl_Countdown = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -67,9 +67,7 @@
             this.UserInSurvey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btn_Update = new System.Windows.Forms.Button();
-            this.btn_Edit = new System.Windows.Forms.Button();
+            this.gbx_ProjectActivity = new System.Windows.Forms.GroupBox();
             this.dtp_Modified = new System.Windows.Forms.DateTimePicker();
             this.tbx_CreatedBy = new System.Windows.Forms.TextBox();
             this.dtp_Created = new System.Windows.Forms.DateTimePicker();
@@ -78,67 +76,75 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.btn_Update = new System.Windows.Forms.Button();
+            this.btn_Create = new System.Windows.Forms.Button();
+            this.btn_InviteUser = new System.Windows.Forms.Button();
+            this.btn_AcceptInvite = new System.Windows.Forms.Button();
+            this.gbx_ProjectSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.groupBox4.SuspendLayout();
+            this.gbx_ProjectActivity.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 20);
+            this.label1.Location = new System.Drawing.Point(8, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.Size = new System.Drawing.Size(39, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Title:";
             // 
-            // groupBox1
+            // gbx_ProjectSettings
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbx_ProjectSettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.dtp_StartDate);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.cbx_EnableSurvey);
-            this.groupBox1.Controls.Add(this.cbx_EnableBalance);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.dtp_DueDate);
-            this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.lbl_Countdown);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.btn_ChangeOwner);
-            this.groupBox1.Controls.Add(this.tbx_Owner);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.tbx_Description);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.tbx_Title);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Enabled = false;
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(625, 120);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Settings";
+            this.gbx_ProjectSettings.Controls.Add(this.dtp_StartDate);
+            this.gbx_ProjectSettings.Controls.Add(this.label8);
+            this.gbx_ProjectSettings.Controls.Add(this.cbx_EnableSurvey);
+            this.gbx_ProjectSettings.Controls.Add(this.cbx_EnableBalance);
+            this.gbx_ProjectSettings.Controls.Add(this.label7);
+            this.gbx_ProjectSettings.Controls.Add(this.label6);
+            this.gbx_ProjectSettings.Controls.Add(this.dtp_EndDate);
+            this.gbx_ProjectSettings.Controls.Add(this.label22);
+            this.gbx_ProjectSettings.Controls.Add(this.lbl_Countdown);
+            this.gbx_ProjectSettings.Controls.Add(this.label4);
+            this.gbx_ProjectSettings.Controls.Add(this.btn_ChangeOwner);
+            this.gbx_ProjectSettings.Controls.Add(this.tbx_Owner);
+            this.gbx_ProjectSettings.Controls.Add(this.label3);
+            this.gbx_ProjectSettings.Controls.Add(this.tbx_Description);
+            this.gbx_ProjectSettings.Controls.Add(this.label2);
+            this.gbx_ProjectSettings.Controls.Add(this.tbx_Title);
+            this.gbx_ProjectSettings.Controls.Add(this.label1);
+            this.gbx_ProjectSettings.Location = new System.Drawing.Point(14, 7);
+            this.gbx_ProjectSettings.Margin = new System.Windows.Forms.Padding(4);
+            this.gbx_ProjectSettings.Name = "gbx_ProjectSettings";
+            this.gbx_ProjectSettings.Padding = new System.Windows.Forms.Padding(4);
+            this.gbx_ProjectSettings.Size = new System.Drawing.Size(643, 145);
+            this.gbx_ProjectSettings.TabIndex = 1;
+            this.gbx_ProjectSettings.TabStop = false;
+            this.gbx_ProjectSettings.Text = "Settings";
             // 
             // dtp_StartDate
             // 
             this.dtp_StartDate.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
             this.dtp_StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_StartDate.Location = new System.Drawing.Point(89, 42);
+            this.dtp_StartDate.Location = new System.Drawing.Point(92, 48);
+            this.dtp_StartDate.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_StartDate.Name = "dtp_StartDate";
-            this.dtp_StartDate.Size = new System.Drawing.Size(214, 19);
+            this.dtp_StartDate.Size = new System.Drawing.Size(219, 22);
             this.dtp_StartDate.TabIndex = 67;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 44);
+            this.label8.Location = new System.Drawing.Point(8, 53);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 13);
+            this.label8.Size = new System.Drawing.Size(76, 17);
             this.label8.TabIndex = 66;
             this.label8.Text = "Start Date:";
             // 
@@ -147,9 +153,10 @@
             this.cbx_EnableSurvey.AutoSize = true;
             this.cbx_EnableSurvey.Checked = true;
             this.cbx_EnableSurvey.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbx_EnableSurvey.Location = new System.Drawing.Point(565, 95);
+            this.cbx_EnableSurvey.Location = new System.Drawing.Point(613, 114);
+            this.cbx_EnableSurvey.Margin = new System.Windows.Forms.Padding(4);
             this.cbx_EnableSurvey.Name = "cbx_EnableSurvey";
-            this.cbx_EnableSurvey.Size = new System.Drawing.Size(15, 14);
+            this.cbx_EnableSurvey.Size = new System.Drawing.Size(18, 17);
             this.cbx_EnableSurvey.TabIndex = 65;
             this.cbx_EnableSurvey.UseVisualStyleBackColor = true;
             // 
@@ -158,124 +165,140 @@
             this.cbx_EnableBalance.AutoSize = true;
             this.cbx_EnableBalance.Checked = true;
             this.cbx_EnableBalance.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbx_EnableBalance.Location = new System.Drawing.Point(428, 95);
+            this.cbx_EnableBalance.Location = new System.Drawing.Point(453, 114);
+            this.cbx_EnableBalance.Margin = new System.Windows.Forms.Padding(4);
             this.cbx_EnableBalance.Name = "cbx_EnableBalance";
-            this.cbx_EnableBalance.Size = new System.Drawing.Size(15, 14);
+            this.cbx_EnableBalance.Size = new System.Drawing.Size(18, 17);
             this.cbx_EnableBalance.TabIndex = 64;
             this.cbx_EnableBalance.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(469, 95);
+            this.label7.Location = new System.Drawing.Point(501, 113);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(79, 13);
+            this.label7.Size = new System.Drawing.Size(104, 17);
             this.label7.TabIndex = 63;
             this.label7.Text = "Enable Survey:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(324, 95);
+            this.label6.Location = new System.Drawing.Point(334, 113);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 13);
+            this.label6.Size = new System.Drawing.Size(111, 17);
             this.label6.TabIndex = 60;
             this.label6.Text = "Enable Balance:";
             // 
-            // dtp_DueDate
+            // dtp_EndDate
             // 
-            this.dtp_DueDate.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
-            this.dtp_DueDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_DueDate.Location = new System.Drawing.Point(89, 67);
-            this.dtp_DueDate.Name = "dtp_DueDate";
-            this.dtp_DueDate.Size = new System.Drawing.Size(214, 19);
-            this.dtp_DueDate.TabIndex = 59;
+            this.dtp_EndDate.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
+            this.dtp_EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_EndDate.Location = new System.Drawing.Point(92, 79);
+            this.dtp_EndDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtp_EndDate.Name = "dtp_EndDate";
+            this.dtp_EndDate.Size = new System.Drawing.Size(219, 22);
+            this.dtp_EndDate.TabIndex = 59;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(6, 69);
+            this.label22.Location = new System.Drawing.Point(8, 84);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(55, 13);
+            this.label22.Size = new System.Drawing.Size(71, 17);
             this.label22.TabIndex = 58;
             this.label22.Text = "End Date:";
             // 
             // lbl_Countdown
             // 
             this.lbl_Countdown.AutoSize = true;
-            this.lbl_Countdown.Location = new System.Drawing.Point(413, 69);
+            this.lbl_Countdown.Location = new System.Drawing.Point(424, 81);
+            this.lbl_Countdown.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_Countdown.Name = "lbl_Countdown";
-            this.lbl_Countdown.Size = new System.Drawing.Size(83, 13);
+            this.lbl_Countdown.Size = new System.Drawing.Size(110, 17);
             this.lbl_Countdown.TabIndex = 57;
             this.lbl_Countdown.Text = "000d:00h:00min";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(324, 69);
+            this.label4.Location = new System.Drawing.Point(334, 81);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
+            this.label4.Size = new System.Drawing.Size(82, 17);
             this.label4.TabIndex = 56;
             this.label4.Text = "Countdown:";
             // 
             // btn_ChangeOwner
             // 
-            this.btn_ChangeOwner.Location = new System.Drawing.Point(270, 90);
+            this.btn_ChangeOwner.Enabled = false;
+            this.btn_ChangeOwner.Location = new System.Drawing.Point(266, 107);
+            this.btn_ChangeOwner.Margin = new System.Windows.Forms.Padding(4);
             this.btn_ChangeOwner.Name = "btn_ChangeOwner";
-            this.btn_ChangeOwner.Size = new System.Drawing.Size(34, 23);
+            this.btn_ChangeOwner.Size = new System.Drawing.Size(45, 28);
             this.btn_ChangeOwner.TabIndex = 6;
             this.btn_ChangeOwner.Text = "=>";
             this.btn_ChangeOwner.UseVisualStyleBackColor = true;
             // 
             // tbx_Owner
             // 
-            this.tbx_Owner.Location = new System.Drawing.Point(89, 92);
+            this.tbx_Owner.Enabled = false;
+            this.tbx_Owner.Location = new System.Drawing.Point(92, 110);
+            this.tbx_Owner.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_Owner.Name = "tbx_Owner";
-            this.tbx_Owner.Size = new System.Drawing.Size(175, 19);
+            this.tbx_Owner.Size = new System.Drawing.Size(160, 22);
             this.tbx_Owner.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 95);
+            this.label3.Location = new System.Drawing.Point(8, 113);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(53, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Owner:";
             // 
             // tbx_Description
             // 
-            this.tbx_Description.Location = new System.Drawing.Point(416, 17);
+            this.tbx_Description.Location = new System.Drawing.Point(427, 18);
+            this.tbx_Description.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_Description.Multiline = true;
             this.tbx_Description.Name = "tbx_Description";
-            this.tbx_Description.Size = new System.Drawing.Size(201, 44);
+            this.tbx_Description.Size = new System.Drawing.Size(204, 53);
             this.tbx_Description.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(324, 20);
+            this.label2.Location = new System.Drawing.Point(333, 21);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(83, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Description:";
             // 
             // tbx_Title
             // 
-            this.tbx_Title.Location = new System.Drawing.Point(89, 17);
+            this.tbx_Title.Location = new System.Drawing.Point(92, 18);
+            this.tbx_Title.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_Title.Name = "tbx_Title";
-            this.tbx_Title.Size = new System.Drawing.Size(214, 19);
+            this.tbx_Title.Size = new System.Drawing.Size(219, 22);
             this.tbx_Title.TabIndex = 1;
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 226);
+            this.groupBox2.Location = new System.Drawing.Point(14, 267);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(625, 110);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(643, 108);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tasks";
@@ -300,7 +323,8 @@
             this.CurrentDuration,
             this.Owner,
             this.Progress});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 21);
+            this.dataGridView1.Location = new System.Drawing.Point(8, 24);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -312,7 +336,7 @@
             this.dataGridView1.ShowCellToolTips = false;
             this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.ShowRowErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(610, 83);
+            this.dataGridView1.Size = new System.Drawing.Size(623, 75);
             this.dataGridView1.TabIndex = 1;
             // 
             // Id
@@ -380,13 +404,14 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.dataGridView2);
-            this.groupBox3.Location = new System.Drawing.Point(12, 335);
+            this.groupBox3.Location = new System.Drawing.Point(14, 375);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(625, 94);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(643, 116);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Surveys";
@@ -409,7 +434,8 @@
             this.UserInSurvey,
             this.UserCount,
             this.dataGridViewTextBoxColumn9});
-            this.dataGridView2.Location = new System.Drawing.Point(6, 21);
+            this.dataGridView2.Location = new System.Drawing.Point(8, 26);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
@@ -421,7 +447,7 @@
             this.dataGridView2.ShowCellToolTips = false;
             this.dataGridView2.ShowEditingIcon = false;
             this.dataGridView2.ShowRowErrors = false;
-            this.dataGridView2.Size = new System.Drawing.Size(610, 67);
+            this.dataGridView2.Size = new System.Drawing.Size(623, 82);
             this.dataGridView2.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
@@ -473,133 +499,173 @@
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             this.dataGridViewTextBoxColumn9.Width = 110;
             // 
-            // groupBox4
+            // gbx_ProjectActivity
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbx_ProjectActivity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Controls.Add(this.btn_Update);
-            this.groupBox4.Controls.Add(this.btn_Edit);
-            this.groupBox4.Controls.Add(this.dtp_Modified);
-            this.groupBox4.Controls.Add(this.tbx_CreatedBy);
-            this.groupBox4.Controls.Add(this.dtp_Created);
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.tbx_ModifiedBy);
-            this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Controls.Add(this.label15);
-            this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Location = new System.Drawing.Point(12, 131);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(625, 95);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Activity";
-            // 
-            // btn_Update
-            // 
-            this.btn_Update.Location = new System.Drawing.Point(270, 64);
-            this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(75, 23);
-            this.btn_Update.TabIndex = 28;
-            this.btn_Update.Text = "Update";
-            this.btn_Update.UseVisualStyleBackColor = true;
-            // 
-            // btn_Edit
-            // 
-            this.btn_Edit.Location = new System.Drawing.Point(9, 64);
-            this.btn_Edit.Name = "btn_Edit";
-            this.btn_Edit.Size = new System.Drawing.Size(75, 23);
-            this.btn_Edit.TabIndex = 27;
-            this.btn_Edit.Text = "Edit";
-            this.btn_Edit.UseVisualStyleBackColor = true;
+            this.gbx_ProjectActivity.Controls.Add(this.dtp_Modified);
+            this.gbx_ProjectActivity.Controls.Add(this.tbx_CreatedBy);
+            this.gbx_ProjectActivity.Controls.Add(this.dtp_Created);
+            this.gbx_ProjectActivity.Controls.Add(this.label13);
+            this.gbx_ProjectActivity.Controls.Add(this.tbx_ModifiedBy);
+            this.gbx_ProjectActivity.Controls.Add(this.label12);
+            this.gbx_ProjectActivity.Controls.Add(this.label15);
+            this.gbx_ProjectActivity.Controls.Add(this.label14);
+            this.gbx_ProjectActivity.Location = new System.Drawing.Point(14, 155);
+            this.gbx_ProjectActivity.Margin = new System.Windows.Forms.Padding(4);
+            this.gbx_ProjectActivity.Name = "gbx_ProjectActivity";
+            this.gbx_ProjectActivity.Padding = new System.Windows.Forms.Padding(4);
+            this.gbx_ProjectActivity.Size = new System.Drawing.Size(643, 78);
+            this.gbx_ProjectActivity.TabIndex = 4;
+            this.gbx_ProjectActivity.TabStop = false;
+            this.gbx_ProjectActivity.Text = "Activity";
             // 
             // dtp_Modified
             // 
             this.dtp_Modified.CustomFormat = "ddd dd MMM yyyy        HH:mm";
+            this.dtp_Modified.Enabled = false;
             this.dtp_Modified.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_Modified.Location = new System.Drawing.Point(416, 40);
+            this.dtp_Modified.Location = new System.Drawing.Point(427, 46);
+            this.dtp_Modified.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_Modified.Name = "dtp_Modified";
-            this.dtp_Modified.Size = new System.Drawing.Size(201, 19);
+            this.dtp_Modified.Size = new System.Drawing.Size(204, 22);
             this.dtp_Modified.TabIndex = 26;
             // 
             // tbx_CreatedBy
             // 
-            this.tbx_CreatedBy.Location = new System.Drawing.Point(89, 15);
+            this.tbx_CreatedBy.Enabled = false;
+            this.tbx_CreatedBy.Location = new System.Drawing.Point(92, 17);
+            this.tbx_CreatedBy.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_CreatedBy.Name = "tbx_CreatedBy";
-            this.tbx_CreatedBy.Size = new System.Drawing.Size(133, 19);
+            this.tbx_CreatedBy.Size = new System.Drawing.Size(160, 22);
             this.tbx_CreatedBy.TabIndex = 23;
             // 
             // dtp_Created
             // 
             this.dtp_Created.CustomFormat = "ddd dd MMM yyyy        HH:mm";
+            this.dtp_Created.Enabled = false;
             this.dtp_Created.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_Created.Location = new System.Drawing.Point(416, 15);
+            this.dtp_Created.Location = new System.Drawing.Point(427, 15);
+            this.dtp_Created.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_Created.Name = "dtp_Created";
-            this.dtp_Created.Size = new System.Drawing.Size(201, 19);
+            this.dtp_Created.Size = new System.Drawing.Size(204, 22);
             this.dtp_Created.TabIndex = 25;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 18);
+            this.label13.Location = new System.Drawing.Point(8, 20);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 13);
+            this.label13.Size = new System.Drawing.Size(81, 17);
             this.label13.TabIndex = 19;
             this.label13.Text = "Created by:";
             // 
             // tbx_ModifiedBy
             // 
-            this.tbx_ModifiedBy.Location = new System.Drawing.Point(89, 40);
+            this.tbx_ModifiedBy.Enabled = false;
+            this.tbx_ModifiedBy.Location = new System.Drawing.Point(92, 48);
+            this.tbx_ModifiedBy.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_ModifiedBy.Name = "tbx_ModifiedBy";
-            this.tbx_ModifiedBy.Size = new System.Drawing.Size(133, 19);
+            this.tbx_ModifiedBy.Size = new System.Drawing.Size(160, 22);
             this.tbx_ModifiedBy.TabIndex = 24;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 43);
+            this.label12.Location = new System.Drawing.Point(8, 51);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(64, 13);
+            this.label12.Size = new System.Drawing.Size(84, 17);
             this.label12.TabIndex = 20;
             this.label12.Text = "Modified by:";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(332, 43);
+            this.label15.Location = new System.Drawing.Point(334, 51);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(19, 13);
+            this.label15.Size = new System.Drawing.Size(24, 17);
             this.label15.TabIndex = 21;
             this.label15.Text = "at:";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(332, 18);
+            this.label14.Location = new System.Drawing.Point(334, 20);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(19, 13);
+            this.label14.Size = new System.Drawing.Size(24, 17);
             this.label14.TabIndex = 22;
             this.label14.Text = "at:";
             // 
+            // btn_Update
+            // 
+            this.btn_Update.Enabled = false;
+            this.btn_Update.Location = new System.Drawing.Point(166, 239);
+            this.btn_Update.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(100, 28);
+            this.btn_Update.TabIndex = 28;
+            this.btn_Update.Text = "Update";
+            this.btn_Update.UseVisualStyleBackColor = true;
+            // 
+            // btn_Create
+            // 
+            this.btn_Create.Location = new System.Drawing.Point(25, 239);
+            this.btn_Create.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Create.Name = "btn_Create";
+            this.btn_Create.Size = new System.Drawing.Size(100, 28);
+            this.btn_Create.TabIndex = 27;
+            this.btn_Create.Text = "Create";
+            this.btn_Create.UseVisualStyleBackColor = true;
+            // 
+            // btn_InviteUser
+            // 
+            this.btn_InviteUser.Enabled = false;
+            this.btn_InviteUser.Location = new System.Drawing.Point(407, 239);
+            this.btn_InviteUser.Name = "btn_InviteUser";
+            this.btn_InviteUser.Size = new System.Drawing.Size(100, 28);
+            this.btn_InviteUser.TabIndex = 29;
+            this.btn_InviteUser.Text = "Invite User";
+            this.btn_InviteUser.UseVisualStyleBackColor = true;
+            // 
+            // btn_AcceptInvite
+            // 
+            this.btn_AcceptInvite.Enabled = false;
+            this.btn_AcceptInvite.Location = new System.Drawing.Point(545, 239);
+            this.btn_AcceptInvite.Name = "btn_AcceptInvite";
+            this.btn_AcceptInvite.Size = new System.Drawing.Size(100, 28);
+            this.btn_AcceptInvite.TabIndex = 30;
+            this.btn_AcceptInvite.Text = "Accept Invite";
+            this.btn_AcceptInvite.UseVisualStyleBackColor = true;
+            // 
             // uc_Project
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 438);
-            this.Controls.Add(this.groupBox4);
+            this.ClientSize = new System.Drawing.Size(670, 500);
+            this.Controls.Add(this.btn_AcceptInvite);
+            this.Controls.Add(this.btn_InviteUser);
+            this.Controls.Add(this.btn_Update);
+            this.Controls.Add(this.btn_Create);
+            this.Controls.Add(this.gbx_ProjectActivity);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbx_ProjectSettings);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uc_Project";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbx_ProjectSettings.ResumeLayout(false);
+            this.gbx_ProjectSettings.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.gbx_ProjectActivity.ResumeLayout(false);
+            this.gbx_ProjectActivity.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -607,7 +673,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbx_ProjectSettings;
         private System.Windows.Forms.TextBox tbx_Title;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbx_Description;
@@ -616,7 +682,7 @@
         private System.Windows.Forms.Button btn_ChangeOwner;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox gbx_ProjectActivity;
         private System.Windows.Forms.DateTimePicker dtp_Modified;
         private System.Windows.Forms.TextBox tbx_CreatedBy;
         private System.Windows.Forms.DateTimePicker dtp_Created;
@@ -645,9 +711,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.Label lbl_Countdown;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btn_Edit;
+        private System.Windows.Forms.Button btn_Create;
         private System.Windows.Forms.Button btn_Update;
-        private System.Windows.Forms.DateTimePicker dtp_DueDate;
+        private System.Windows.Forms.DateTimePicker dtp_EndDate;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.CheckBox cbx_EnableSurvey;
         private System.Windows.Forms.CheckBox cbx_EnableBalance;
@@ -655,5 +721,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtp_StartDate;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btn_InviteUser;
+        private System.Windows.Forms.Button btn_AcceptInvite;
     }
 }

@@ -756,7 +756,7 @@ namespace PlexByte.MoCap.WinForms
             expCtrls.Add(GetControlByName<Button>(pControlList, "btn_AcceptInvite"));
             expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Create"));
 
-            if (GetControlByName<Button>(pControlList, "btn_Create").Text.ToLower() == "create")
+            if (GetControlByName<Button>(pControlList, "btn_Create").Text.ToLower() == "create" && _userContext != null)
             {
 
                 // Save command

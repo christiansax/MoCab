@@ -33,7 +33,42 @@ namespace PlexByte.MoCap.Interactions
         }
 
         public ITask CreateTask(string pId,
+           string pText,
+           IUser pCreator,
+           DateTime pStartDT,
+           DateTime pEndDT,
+           DateTime pDueDT,
+           decimal pBudget,
+           int pDuration,
+           int pPriority,
+           InteractionState pState,
+           decimal pBudgetUsed,
+           int pTimeUsed,
+           List<ITask> pSubTask,
+           int pProgress)
+        {
+            if (string.IsNullOrEmpty(pId))
+                pId = GenericHelper.GenerateId();
+            return (new Task(pId,
+                pText,
+                "",
+                pCreator,
+                pStartDT,
+                pEndDT,
+                pDueDT,
+                pBudget,
+                pDuration,
+                pPriority,
+                pState,
+                pBudgetUsed,
+                pTimeUsed,
+                pSubTask,
+                pProgress));
+        }
+
+        public ITask CreateTask(string pId,
             string pText,
+            string pTitle,
             IUser pCreator,
             DateTime pStartDT,
             DateTime pEndDT,
@@ -51,6 +86,7 @@ namespace PlexByte.MoCap.Interactions
                 pId = GenericHelper.GenerateId();
             return (new Task(pId,
                 pText,
+                pTitle,
                 pCreator,
                 pStartDT,
                 pEndDT,

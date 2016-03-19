@@ -24,6 +24,8 @@ namespace PlexByte.MoCap.Interactions
 
         decimal BudgetUsed { get; }
 
+        string Title { get; set; }
+
         List<ITask> SubTasks { get; }
 
         void AddTimeslice(int pDuration);

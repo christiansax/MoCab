@@ -724,7 +724,7 @@ namespace PlexByte.MoCap.WinForms
             expCtrls.Add(GetControlByName<Button>(pControlList, "btn_AcceptInvite"));
             expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Create"));
 
-            if (GetControlByName<Button>(pControlList, "btn_Create").Text.ToLower() == "create" && _userContext != null)
+            if ((GetControlByName<Button>(pControlList, "btn_Create").Text.ToLower() == "create"|| GetControlByName<Button>(pControlList, "btn_Create").Text.ToLower() == "save") && _userContext != null)
             {
 
                 // Save command
@@ -732,25 +732,30 @@ namespace PlexByte.MoCap.WinForms
                 {
                     _MainUI.Enabled = false;
                     int _IsActive = Convert.ToInt32(false);
+                    string _ProjectId= null;
 
                     string sTitle = GetControlByName<TextBox>(pControlList, "tbx_Title").Text;
                     if (!string.IsNullOrEmpty(sTitle))
                     {
                         // Initialize default values for controls
-                        GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = DateTime.Now;
+                        if(GetControlByName<Button>(pControlList, "btn_Create").Text.ToLower() == "create")
+                        {
+                            GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = DateTime.Now;
+                            _ProjectId = DateTime.Now.ToString(_dateTimeIdFmt);
+                            GetControlByName<TextBox>(pControlList, "tbx_Owner").Text = UserContext.Username;
+
+                        }
                         GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
-                        GetControlByName<TextBox>(pControlList, "tbx_Id").Text = DateTime.Now.ToString(_dateTimeIdFmt);
-                        GetControlByName<TextBox>(pControlList, "tbx_Owner").Text = UserContext.Username;
 
                         //Convert
                         int _EnableBalance = Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").CheckState);
                         int _EnableSurveye = Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").CheckState);
                         if (GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value <= DateTime.Now)
                             _IsActive = Convert.ToInt32(true);
-                        
+
 
                         //Insert project in db
-                        _dataManager.InsertProject(GetControlByName<TextBox>(pControlList, "tbx_Id").Text,
+                        _dataManager.InsertProject(_ProjectId,
                             GetControlByName<TextBox>(pControlList, "tbx_Title").Text,
                             GetControlByName<TextBox>(pControlList, "tbx_Description").Text,
                             GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value,
@@ -782,9 +787,28 @@ namespace PlexByte.MoCap.WinForms
                 }
                 catch (Exception exp)
                 {
-                    _MainUI.ShowErrorMessage($"Exception while trying to create project. Exception thrown: {exp.Message}");
+                    _MainUI.ShowErrorMessage($"Exception while trying to create/edit project. Exception thrown: {exp.Message}");
                 }
 
+            }
+            else if (GetControlByName<Button>(pControlList, "btn_Create").Text.ToLower() == "edit" && _userContext != null)
+            {
+                //Eisable setting controls for editing project
+                GetControlByName<Button>(pControlList, "btn_Update").Enabled = false;
+                GetControlByName<Button>(pControlList, "btn_InviteUser").Enabled = false;
+                GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").Enabled = true;
+                GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").Enabled = true;
+                GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Enabled = true;
+                GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Enabled = true;
+                GetControlByName<TextBox>(pControlList, "tbx_Title").Enabled = true;
+                GetControlByName<TextBox>(pControlList, "tbx_Description").Enabled = true;
+                GetControlByName<Button>(pControlList, "btn_Create").Text = "Save";
+
+                
+            }
+            else
+            {
+                _MainUI.ShowErrorMessage($"Cannot create new project while no user is logged in!");
             }
 
         }

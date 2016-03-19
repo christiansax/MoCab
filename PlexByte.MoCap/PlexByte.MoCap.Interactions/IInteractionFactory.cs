@@ -40,18 +40,7 @@ namespace PlexByte.MoCap.Interactions
 
         IProject CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator);
 
-        IProject CreateProject(string pId,
-            string pText,
-            bool pEnableBalance,
-            bool pEnableSurvey,
-            DateTime pStartDT,
-            DateTime pEndDT,
-            IUser pCreator,
-            IUser pOwner,
-            List<IUser> MemberList,
-            List<IUser> InvitationList,
-            List<ITask> TaskList,
-            List<ISurvey> SurveyList);
+        IProject CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator, IUser pOwner, List<IUser> MemberList, List<IUser> InvitationList, List<ITask> TaskList, List<ISurvey> SurveyList, string pName);
 
         IInteraction CreateChat(string pTextTitle, IUser pCreator, List<IUser> pUsers);
 

@@ -12,16 +12,21 @@ namespace PlexByte.MoCap.WinForms.CustomForms
     public partial class frm_UserSelectionList : Form
     {
         public List<string> UserIds { get; private set; }
+        private string _projectId = null;
+        private string _UserId = null;
 
-        public frm_UserSelectionList()
+        public frm_UserSelectionList(string pProjectId, string pUserId)
         {
             InitializeComponent();
 
             //Register event handlers
-            CustomFormController controller = new CustomFormController(this);
+            CustomFormController controller = new CustomFormController(this, pUserId);
             btn_Add.Click += controller.UserSelectionListController;
             btn_OK.Click += controller.UserSelectionListController;
             btn_Remove.Click += controller.UserSelectionListController;
+            _projectId = pProjectId;
+            _UserId = pUserId;
+            controller.FillUserGrid(_projectId);
         }
 
         /// <summary>

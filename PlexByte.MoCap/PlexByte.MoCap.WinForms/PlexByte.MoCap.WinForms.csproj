@@ -51,12 +51,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomForms\frm_ProjectSelectionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomForms\frm_ProjectSelectionList.Designer.cs">
+      <DependentUpon>frm_ProjectSelectionList.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomForms\frm_TaskUpdateProgress.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CustomForms\frm_TaskUpdateProgress.Designer.cs">
       <DependentUpon>frm_TaskUpdateProgress.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomForms\frm_UserSelectionList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomForms\frm_UserSelectionList.Designer.cs">
+      <DependentUpon>frm_UserSelectionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Managers\CustomFormController.cs" />
     <Compile Include="Managers\DataManager.cs" />
     <Compile Include="frm_MoCapMain.cs">
       <SubType>Form</SubType>
@@ -128,8 +141,14 @@
     <Compile Include="UserControls\uc_User.Designer.cs">
       <DependentUpon>uc_User.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CustomForms\frm_ProjectSelectionList.resx">
+      <DependentUpon>frm_ProjectSelectionList.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomForms\frm_TaskUpdateProgress.resx">
       <DependentUpon>frm_TaskUpdateProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomForms\frm_UserSelectionList.resx">
+      <DependentUpon>frm_UserSelectionList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_MoCapMain.resx">
       <DependentUpon>frm_MoCapMain.cs</DependentUpon>

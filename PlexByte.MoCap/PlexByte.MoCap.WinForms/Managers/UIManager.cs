@@ -14,6 +14,7 @@ using PlexByte.MoCap.Backend;
 using PlexByte.MoCap.Helpers;
 using PlexByte.MoCap.Interactions;
 using PlexByte.MoCap.Security;
+using PlexByte.MoCap.WinForms.CustomForms;
 using PlexByte.MoCap.WinForms.Managers;
 using PlexByte.MoCap.WinForms.UserControls;
 using WeifenLuo.WinFormsUI.Docking;
@@ -103,6 +104,7 @@ namespace PlexByte.MoCap.WinForms
         {
             DockContent tmp = CreateContentPanel(UiType.Task);
             tmp.TabText = "Task Dialog";
+            ((uc_Task)tmp).RegisterEvents(this);
         }
 
         /// <summary>
@@ -210,6 +212,9 @@ namespace PlexByte.MoCap.WinForms
         public void UserButtonClicked(object sender, EventArgs e)
         {
             _errorProvider.Clear();
+            // for testing
+            frm_ProjectSelectionList psl = new frm_ProjectSelectionList();
+            DialogResult tmp= psl.ShowDialog();
             List<Control> ctrls = GetAllControls(((Button)sender).Parent);
             switch (((Button) sender).Name)
             {
@@ -227,6 +232,29 @@ namespace PlexByte.MoCap.WinForms
                         UserButtonLogin(ctrls);
                     else
                         UserButtonLogout(ctrls);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public void TaskButtonClicked(object sender, EventArgs e)
+        {
+            _errorProvider.Clear();
+            List<Control> ctrls = GetAllControls(((Button)sender).Parent);
+            switch (((Button)sender).Name)
+            {
+                case "btn_New":
+                    if (GetControlByName<Button>(ctrls, "btn_New").Text.ToLower() == "new")
+                        TaskButtonNew(ctrls);
+                    else
+                        TaskButtonSave(ctrls);
+                    break;
+                case "btn_Update":
+                    TaskButtonUpdate(ctrls);
+                    break;
+                case "btn_Subtask":
+                    TaskButtonSubTask(ctrls);
                     break;
                 default:
                     break;
@@ -315,7 +343,10 @@ namespace PlexByte.MoCap.WinForms
             foreach (Control c in container.Controls)
             {
                 if (c.HasChildren)
+                {
+                    ctrlList.Add(c);
                     ctrlList.AddRange(GetAllControls(c));
+                }
                 else
                     ctrlList.Add(c);
             }
@@ -541,6 +572,9 @@ namespace PlexByte.MoCap.WinForms
                     GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = UserContext.CreatedDateTime;
                     GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = UserContext.ModifiedDateTime;
 
+                    DockContent tmp = (DockContent)pControlList[0].FindForm();
+                    tmp.TabText = $"User Details ({UserContext.Username})";
+
                     _MainUI.Enabled = true;
 
                     GetControlByName<Button>(pControlList, "btn_Login").Text = "Logout";
@@ -602,6 +636,9 @@ namespace PlexByte.MoCap.WinForms
             GetControlByName<DateTimePicker>(pControlList, "dtp_Birthdate").Value = DateTime.Now;
             GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = DateTime.Now;
             GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
+
+            DockContent tmp = (DockContent)pControlList[0].FindForm();
+            tmp.TabText = "User Details";
         }
 
         /// <summary>
@@ -638,6 +675,71 @@ namespace PlexByte.MoCap.WinForms
             UserButtonSetControlsState(pControlList, expCtrls, true);
             GetControlByName<Button>(pControlList, "btn_New").Text = "Save";
             GetControlByName<Button>(pControlList, "btn_Edit").Visible = false;
+        }
+
+        private void TaskButtonNew(List<Control> pControlList)
+        {
+            // Initialize button state
+            List<Control> expCtrls = new List<Control>();
+            expCtrls.Add(GetControlByName<TextBox>(pControlList, "tbx_CreatedBy"));
+            expCtrls.Add(GetControlByName<TextBox>(pControlList, "tbx_ModifiedBy"));
+            expCtrls.Add(GetControlByName<DateTimePicker>(pControlList, "dtp_Created"));
+            expCtrls.Add(GetControlByName<DateTimePicker>(pControlList, "dtp_Modified"));
+            UserButtonSetControlsState(pControlList, expCtrls, true);
+            GetControlByName<Button>(pControlList, "btn_New").Text = "Save";
+        }
+
+        private void TaskButtonSave(List<Control> pControlList)
+        {
+            // Initialize button state
+            List<Control> expCtrls = new List<Control>();
+            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Update"));
+            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_New"));
+            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Subtask"));
+            expCtrls.Add(GetControlByName<DataGridView>(pControlList, "dgw_Subtasks"));
+            UserButtonSetControlsState(pControlList, expCtrls, false);
+            GetControlByName<Button>(pControlList, "btn_New").Text = "New";
+
+            // Save task
+        }
+
+        private void TaskButtonUpdate(List<Control> pControlList)
+        {
+            // Is task loaded?
+            uc_Task tmp = (uc_Task) pControlList[0].Parent;
+            if (!string.IsNullOrEmpty(tmp.TaskId))
+            {
+                tmp.TabText = $"Task Details ({tmp.TaskId})";
+                frm_TaskUpdateProgress progressForm = new frm_TaskUpdateProgress();
+                if (progressForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Get settings...
+
+                    // Update current task with settings
+                }
+            }
+        }
+
+        private void TaskButtonSubTask(List<Control> pControlList)
+        {
+            uc_Task tmp = (uc_Task)pControlList[0].Parent;
+            if(!string.IsNullOrEmpty(tmp.TaskId))
+            { 
+                uc_Task subTask = new uc_Task();
+                subTask.MainTaskId = tmp.TaskId;
+                subTask.TaskId = DateTime.Now.ToString(_dateTimeIdFmt);
+                subTask.TabText = $"Task Details ({subTask.TaskId})";
+                subTask.Show(_MainUI.Panel, DockState.Document);
+                List<Control> subTaskCrtls = GetAllControls(subTask);
+                GetControlByName<Button>(subTaskCrtls, "btn_Subtask").Visible = false;
+                GetControlByName<Button>(subTaskCrtls, "btn_New").Text = "Save";
+                GetControlByName<TextBox>(subTaskCrtls, "tbx_ProjectName").Text = GetControlByName<TextBox>(pControlList, "tbx_ProjectName").Text;
+                GetControlByName<TextBox>(subTaskCrtls, "tbx_Owner").Text = UserContext.Username;
+                GetControlByName<TextBox>(subTaskCrtls, "tbx_CreatedBy").Text = UserContext.Username;
+                GetControlByName<TextBox>(subTaskCrtls, "tbx_ModifiedBy").Text = UserContext.Username;
+                GetControlByName<DateTimePicker>(subTaskCrtls, "dtp_Created").Value = DateTime.Now;
+                GetControlByName<DateTimePicker>(subTaskCrtls, "dtp_Modified").Value = DateTime.Now;
+            }
         }
 
         /// <summary>

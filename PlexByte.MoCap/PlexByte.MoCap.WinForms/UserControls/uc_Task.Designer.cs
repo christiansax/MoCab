@@ -30,9 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_Task));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.dtp_Modified = new System.Windows.Forms.DateTimePicker();
             this.dtp_Created = new System.Windows.Forms.DateTimePicker();
             this.tbx_ModifiedBy = new System.Windows.Forms.TextBox();
@@ -41,6 +38,9 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.btn_Subtask = new System.Windows.Forms.Button();
+            this.btn_Update = new System.Windows.Forms.Button();
+            this.btn_New = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgw_Subtasks = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,6 +53,9 @@
             this.Owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Progress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_AssignProject = new System.Windows.Forms.Button();
+            this.num_Budget = new System.Windows.Forms.NumericUpDown();
+            this.num_TotalCosts = new System.Windows.Forms.NumericUpDown();
             this.pbr_Progress = new System.Windows.Forms.ProgressBar();
             this.btn_ChangeOwner = new System.Windows.Forms.Button();
             this.tbx_Owner = new System.Windows.Forms.TextBox();
@@ -77,26 +80,21 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.num_TotalCosts = new System.Windows.Forms.NumericUpDown();
-            this.num_Budget = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_Subtasks)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_Budget)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_TotalCosts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_Priority)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_EffortsMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_EffortsHours)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_TotalCosts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_Budget)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.dtp_Modified);
             this.groupBox1.Controls.Add(this.dtp_Created);
             this.groupBox1.Controls.Add(this.tbx_ModifiedBy);
@@ -105,60 +103,37 @@
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(12, 201);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(625, 115);
+            this.groupBox1.Size = new System.Drawing.Size(625, 75);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Activity";
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(542, 80);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "Subtask";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(276, 80);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Update";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(9, 80);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Edit";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // dtp_Modified
             // 
             this.dtp_Modified.CustomFormat = "ddd dd MMM yyyy        HH:mm";
+            this.dtp_Modified.Enabled = false;
             this.dtp_Modified.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_Modified.Location = new System.Drawing.Point(416, 45);
             this.dtp_Modified.Name = "dtp_Modified";
             this.dtp_Modified.Size = new System.Drawing.Size(201, 20);
-            this.dtp_Modified.TabIndex = 18;
+            this.dtp_Modified.TabIndex = 17;
             // 
             // dtp_Created
             // 
             this.dtp_Created.CustomFormat = "ddd dd MMM yyyy        HH:mm";
+            this.dtp_Created.Enabled = false;
             this.dtp_Created.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_Created.Location = new System.Drawing.Point(416, 19);
             this.dtp_Created.Name = "dtp_Created";
             this.dtp_Created.Size = new System.Drawing.Size(201, 20);
-            this.dtp_Created.TabIndex = 17;
+            this.dtp_Created.TabIndex = 16;
             // 
             // tbx_ModifiedBy
             // 
+            this.tbx_ModifiedBy.Enabled = false;
             this.tbx_ModifiedBy.Location = new System.Drawing.Point(89, 45);
             this.tbx_ModifiedBy.Name = "tbx_ModifiedBy";
             this.tbx_ModifiedBy.Size = new System.Drawing.Size(133, 20);
@@ -166,6 +141,7 @@
             // 
             // tbx_CreatedBy
             // 
+            this.tbx_CreatedBy.Enabled = false;
             this.tbx_CreatedBy.Location = new System.Drawing.Point(89, 19);
             this.tbx_CreatedBy.Name = "tbx_CreatedBy";
             this.tbx_CreatedBy.Size = new System.Drawing.Size(133, 20);
@@ -207,15 +183,43 @@
             this.label13.TabIndex = 6;
             this.label13.Text = "Created by:";
             // 
+            // btn_Subtask
+            // 
+            this.btn_Subtask.Location = new System.Drawing.Point(554, 282);
+            this.btn_Subtask.Name = "btn_Subtask";
+            this.btn_Subtask.Size = new System.Drawing.Size(75, 23);
+            this.btn_Subtask.TabIndex = 20;
+            this.btn_Subtask.Text = "Subtask";
+            this.btn_Subtask.UseVisualStyleBackColor = true;
+            // 
+            // btn_Update
+            // 
+            this.btn_Update.Enabled = false;
+            this.btn_Update.Location = new System.Drawing.Point(288, 282);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(75, 23);
+            this.btn_Update.TabIndex = 19;
+            this.btn_Update.Text = "Update";
+            this.btn_Update.UseVisualStyleBackColor = true;
+            // 
+            // btn_New
+            // 
+            this.btn_New.Location = new System.Drawing.Point(21, 282);
+            this.btn_New.Name = "btn_New";
+            this.btn_New.Size = new System.Drawing.Size(75, 23);
+            this.btn_New.TabIndex = 18;
+            this.btn_New.Text = "New";
+            this.btn_New.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.dgw_Subtasks);
-            this.groupBox2.Location = new System.Drawing.Point(12, 322);
+            this.groupBox2.Location = new System.Drawing.Point(12, 311);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(625, 167);
+            this.groupBox2.Size = new System.Drawing.Size(625, 178);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sub Tasks";
@@ -240,6 +244,7 @@
             this.CurrentDuration,
             this.Owner,
             this.Progress});
+            this.dgw_Subtasks.Enabled = false;
             this.dgw_Subtasks.Location = new System.Drawing.Point(9, 20);
             this.dgw_Subtasks.MultiSelect = false;
             this.dgw_Subtasks.Name = "dgw_Subtasks";
@@ -252,7 +257,7 @@
             this.dgw_Subtasks.ShowCellToolTips = false;
             this.dgw_Subtasks.ShowEditingIcon = false;
             this.dgw_Subtasks.ShowRowErrors = false;
-            this.dgw_Subtasks.Size = new System.Drawing.Size(610, 141);
+            this.dgw_Subtasks.Size = new System.Drawing.Size(610, 152);
             this.dgw_Subtasks.TabIndex = 0;
             // 
             // Id
@@ -322,6 +327,7 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.btn_AssignProject);
             this.groupBox3.Controls.Add(this.num_Budget);
             this.groupBox3.Controls.Add(this.num_TotalCosts);
             this.groupBox3.Controls.Add(this.pbr_Progress);
@@ -348,7 +354,6 @@
             this.groupBox3.Controls.Add(this.label24);
             this.groupBox3.Controls.Add(this.label25);
             this.groupBox3.Controls.Add(this.label26);
-            this.groupBox3.Enabled = false;
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(625, 183);
@@ -356,36 +361,78 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Settings";
             // 
+            // btn_AssignProject
+            // 
+            this.btn_AssignProject.Enabled = false;
+            this.btn_AssignProject.Location = new System.Drawing.Point(269, 72);
+            this.btn_AssignProject.Name = "btn_AssignProject";
+            this.btn_AssignProject.Size = new System.Drawing.Size(34, 23);
+            this.btn_AssignProject.TabIndex = 49;
+            this.btn_AssignProject.Text = "=>";
+            this.btn_AssignProject.UseVisualStyleBackColor = true;
+            // 
+            // num_Budget
+            // 
+            this.num_Budget.DecimalPlaces = 2;
+            this.num_Budget.Enabled = false;
+            this.num_Budget.Location = new System.Drawing.Point(89, 152);
+            this.num_Budget.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.num_Budget.Name = "num_Budget";
+            this.num_Budget.Size = new System.Drawing.Size(214, 20);
+            this.num_Budget.TabIndex = 8;
+            // 
+            // num_TotalCosts
+            // 
+            this.num_TotalCosts.DecimalPlaces = 2;
+            this.num_TotalCosts.Enabled = false;
+            this.num_TotalCosts.Location = new System.Drawing.Point(416, 152);
+            this.num_TotalCosts.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.num_TotalCosts.Name = "num_TotalCosts";
+            this.num_TotalCosts.Size = new System.Drawing.Size(201, 20);
+            this.num_TotalCosts.TabIndex = 13;
+            // 
             // pbr_Progress
             // 
+            this.pbr_Progress.Enabled = false;
             this.pbr_Progress.Location = new System.Drawing.Point(416, 124);
             this.pbr_Progress.Name = "pbr_Progress";
             this.pbr_Progress.Size = new System.Drawing.Size(201, 20);
-            this.pbr_Progress.TabIndex = 52;
+            this.pbr_Progress.TabIndex = 12;
             // 
             // btn_ChangeOwner
             // 
+            this.btn_ChangeOwner.Enabled = false;
             this.btn_ChangeOwner.Location = new System.Drawing.Point(583, 95);
             this.btn_ChangeOwner.Name = "btn_ChangeOwner";
             this.btn_ChangeOwner.Size = new System.Drawing.Size(34, 23);
-            this.btn_ChangeOwner.TabIndex = 51;
+            this.btn_ChangeOwner.TabIndex = 11;
             this.btn_ChangeOwner.Text = "=>";
             this.btn_ChangeOwner.UseVisualStyleBackColor = true;
             // 
             // tbx_Owner
             // 
+            this.tbx_Owner.Enabled = false;
             this.tbx_Owner.Location = new System.Drawing.Point(416, 97);
             this.tbx_Owner.Name = "tbx_Owner";
             this.tbx_Owner.Size = new System.Drawing.Size(161, 20);
-            this.tbx_Owner.TabIndex = 50;
+            this.tbx_Owner.TabIndex = 10;
             // 
             // tbx_Description
             // 
+            this.tbx_Description.Enabled = false;
             this.tbx_Description.Location = new System.Drawing.Point(416, 22);
             this.tbx_Description.Multiline = true;
             this.tbx_Description.Name = "tbx_Description";
             this.tbx_Description.Size = new System.Drawing.Size(201, 67);
-            this.tbx_Description.TabIndex = 49;
+            this.tbx_Description.TabIndex = 9;
             // 
             // label11
             // 
@@ -425,10 +472,11 @@
             // 
             // num_Priority
             // 
+            this.num_Priority.Enabled = false;
             this.num_Priority.Location = new System.Drawing.Point(243, 48);
             this.num_Priority.Name = "num_Priority";
             this.num_Priority.Size = new System.Drawing.Size(60, 20);
-            this.num_Priority.TabIndex = 44;
+            this.num_Priority.TabIndex = 3;
             // 
             // label18
             // 
@@ -450,49 +498,55 @@
             // 
             // num_EffortsMin
             // 
+            this.num_EffortsMin.Enabled = false;
             this.num_EffortsMin.Location = new System.Drawing.Point(214, 126);
             this.num_EffortsMin.Name = "num_EffortsMin";
             this.num_EffortsMin.Size = new System.Drawing.Size(60, 20);
-            this.num_EffortsMin.TabIndex = 40;
+            this.num_EffortsMin.TabIndex = 7;
             // 
             // num_EffortsHours
             // 
+            this.num_EffortsHours.Enabled = false;
             this.num_EffortsHours.Location = new System.Drawing.Point(89, 126);
             this.num_EffortsHours.Name = "num_EffortsHours";
             this.num_EffortsHours.Size = new System.Drawing.Size(60, 20);
-            this.num_EffortsHours.TabIndex = 39;
+            this.num_EffortsHours.TabIndex = 6;
             // 
             // dtp_DueDate
             // 
             this.dtp_DueDate.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
+            this.dtp_DueDate.Enabled = false;
             this.dtp_DueDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_DueDate.Location = new System.Drawing.Point(89, 100);
             this.dtp_DueDate.Name = "dtp_DueDate";
             this.dtp_DueDate.Size = new System.Drawing.Size(214, 20);
-            this.dtp_DueDate.TabIndex = 38;
+            this.dtp_DueDate.TabIndex = 5;
             // 
             // tbx_ProjectName
             // 
+            this.tbx_ProjectName.Enabled = false;
             this.tbx_ProjectName.Location = new System.Drawing.Point(89, 74);
             this.tbx_ProjectName.Name = "tbx_ProjectName";
-            this.tbx_ProjectName.Size = new System.Drawing.Size(214, 20);
-            this.tbx_ProjectName.TabIndex = 37;
+            this.tbx_ProjectName.Size = new System.Drawing.Size(174, 20);
+            this.tbx_ProjectName.TabIndex = 4;
             // 
             // cbx_IsToDo
             // 
             this.cbx_IsToDo.AutoSize = true;
+            this.cbx_IsToDo.Enabled = false;
             this.cbx_IsToDo.Location = new System.Drawing.Point(89, 50);
             this.cbx_IsToDo.Name = "cbx_IsToDo";
             this.cbx_IsToDo.Size = new System.Drawing.Size(15, 14);
-            this.cbx_IsToDo.TabIndex = 36;
+            this.cbx_IsToDo.TabIndex = 2;
             this.cbx_IsToDo.UseVisualStyleBackColor = true;
             // 
             // tbx_Title
             // 
+            this.tbx_Title.Enabled = false;
             this.tbx_Title.Location = new System.Drawing.Point(89, 22);
             this.tbx_Title.Name = "tbx_Title";
             this.tbx_Title.Size = new System.Drawing.Size(214, 20);
-            this.tbx_Title.TabIndex = 35;
+            this.tbx_Title.TabIndex = 1;
             // 
             // label20
             // 
@@ -557,39 +611,16 @@
             this.label26.TabIndex = 28;
             this.label26.Text = "Title:";
             // 
-            // num_TotalCosts
-            // 
-            this.num_TotalCosts.DecimalPlaces = 2;
-            this.num_TotalCosts.Location = new System.Drawing.Point(416, 152);
-            this.num_TotalCosts.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.num_TotalCosts.Name = "num_TotalCosts";
-            this.num_TotalCosts.Size = new System.Drawing.Size(201, 20);
-            this.num_TotalCosts.TabIndex = 54;
-            // 
-            // num_Budget
-            // 
-            this.num_Budget.DecimalPlaces = 2;
-            this.num_Budget.Location = new System.Drawing.Point(89, 152);
-            this.num_Budget.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.num_Budget.Name = "num_Budget";
-            this.num_Budget.Size = new System.Drawing.Size(214, 20);
-            this.num_Budget.TabIndex = 55;
-            // 
             // uc_Task
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(652, 510);
+            this.Controls.Add(this.btn_Update);
+            this.Controls.Add(this.btn_Subtask);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btn_New);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -600,11 +631,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgw_Subtasks)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num_Budget)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_TotalCosts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_Priority)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_EffortsMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_EffortsHours)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_TotalCosts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.num_Budget)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -655,10 +686,11 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_Subtask;
+        private System.Windows.Forms.Button btn_Update;
+        private System.Windows.Forms.Button btn_New;
         private System.Windows.Forms.NumericUpDown num_TotalCosts;
         private System.Windows.Forms.NumericUpDown num_Budget;
+        private System.Windows.Forms.Button btn_AssignProject;
     }
 }

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//////////////////////////////////////////////////////////////
+//                      Form frm_TaskUpdateProgress
+//      Author: Christian B. Sax            Date:   2016/03/5
+//      This form displays the options to update a task by adding hours or a percentage
+using System;
 using System.Windows.Forms;
 
 namespace PlexByte.MoCap.WinForms.CustomForms

@@ -212,9 +212,6 @@ namespace PlexByte.MoCap.WinForms
         public void UserButtonClicked(object sender, EventArgs e)
         {
             _errorProvider.Clear();
-            // for testing
-            frm_ProjectSelectionList psl = new frm_ProjectSelectionList();
-            DialogResult tmp= psl.ShowDialog();
             List<Control> ctrls = GetAllControls(((Button)sender).Parent);
             switch (((Button) sender).Name)
             {
@@ -608,37 +605,8 @@ namespace PlexByte.MoCap.WinForms
         private void UserButtonLogout(List<Control> pControlList)
         {
             _userContext = null;
-
-            // Initialize default values for controls
-            GetControlByName<Button>(pControlList, "btn_Login").Text = "Login";
-            GetControlByName<Button>(pControlList, "btn_New").Text = "New";
-            GetControlByName<Button>(pControlList, "btn_Edit").Visible = false;
-
-            GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
-            GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = DateTime.Now;
-
-            // Disabled control list
-            List<Control> expCtrls = new List<Control>();
-            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Login"));
-            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_New"));
-            expCtrls.Add(GetControlByName<TextBox>(pControlList, "tbx_UserName"));
-            expCtrls.Add(GetControlByName<MaskedTextBox>(pControlList, "tbx_Password"));
-            UserButtonSetControlsState(pControlList, expCtrls, false);
-
-            // Set Control values
-            GetControlByName<TextBox>(pControlList, "tbx_Id").Text = String.Empty;
-            GetControlByName<TextBox>(pControlList, "tbx_FirstName").Text = String.Empty;
-            GetControlByName<TextBox>(pControlList, "tbx_MiddleName").Text = String.Empty;
-            GetControlByName<TextBox>(pControlList, "tbx_LastName").Text = String.Empty;
-            GetControlByName<TextBox>(pControlList, "tbx_UserName").Text = String.Empty;
-            GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text = String.Empty;
-            GetControlByName<TextBox>(pControlList, "tbx_Email").Text = String.Empty;
-            GetControlByName<DateTimePicker>(pControlList, "dtp_Birthdate").Value = DateTime.Now;
-            GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = DateTime.Now;
-            GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
-
-            DockContent tmp = (DockContent)pControlList[0].FindForm();
-            tmp.TabText = "User Details";
+            uc_User tmp = (uc_User) pControlList[0].Parent;
+            tmp.Close();
         }
 
         /// <summary>

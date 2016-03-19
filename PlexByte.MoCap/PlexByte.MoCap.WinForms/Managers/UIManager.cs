@@ -763,6 +763,7 @@ namespace PlexByte.MoCap.WinForms
                 try
                 {
                     _MainUI.Enabled = false;
+                    int _IsActive = Convert.ToInt32(false);
 
                     string sTitle = GetControlByName<TextBox>(pControlList, "tbx_Title").Text;
                     if (!string.IsNullOrEmpty(sTitle))
@@ -771,6 +772,14 @@ namespace PlexByte.MoCap.WinForms
                         GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = DateTime.Now;
                         GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
                         GetControlByName<TextBox>(pControlList, "tbx_Id").Text = DateTime.Now.ToString(_dateTimeIdFmt);
+                        GetControlByName<TextBox>(pControlList, "tbx_Owner").Text = UserContext.Username;
+
+                        //Convert
+                        int _EnableBalance = Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").CheckState);
+                        int _EnableSurveye = Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").CheckState);
+                        if (GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value <= DateTime.Now)
+                            _IsActive = Convert.ToInt32(true);
+                        
 
                         //Insert project in db
                         _dataManager.InsertProject(GetControlByName<TextBox>(pControlList, "tbx_Id").Text,
@@ -779,9 +788,9 @@ namespace PlexByte.MoCap.WinForms
                             GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value,
                             GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value,
                             GetControlByName<TextBox>(pControlList, "tbx_Owner").Text,
-                            GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").CheckState,
-                            GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").CheckState,
-                            GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").CheckState,    // IsActive checkbox
+                            _EnableBalance,
+                            _EnableSurveye,
+                            _IsActive,
                             GetControlByName<TextBox>(pControlList, "tbx_Title").Text);                 // StateId
 
                         //Disable setting controls after project is created
@@ -805,7 +814,7 @@ namespace PlexByte.MoCap.WinForms
                 }
                 catch (Exception exp)
                 {
-                    _MainUI.ShowErrorMessage($"Exception while trying to save user. Exception thrown: {exp.Message}");
+                    _MainUI.ShowErrorMessage($"Exception while trying to create project. Exception thrown: {exp.Message}");
                 }
 
             }

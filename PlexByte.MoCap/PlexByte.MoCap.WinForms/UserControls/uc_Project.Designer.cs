@@ -41,7 +41,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.lbl_Countdown = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btn_ChangeOwner = new System.Windows.Forms.Button();
             this.tbx_Owner = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbx_Description = new System.Windows.Forms.TextBox();
@@ -80,6 +79,7 @@
             this.btn_Create = new System.Windows.Forms.Button();
             this.btn_InviteUser = new System.Windows.Forms.Button();
             this.btn_AcceptInvite = new System.Windows.Forms.Button();
+            this.btn_ChangeOwner = new System.Windows.Forms.Button();
             this.gbx_ProjectSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -231,17 +231,6 @@
             this.label4.Size = new System.Drawing.Size(82, 17);
             this.label4.TabIndex = 56;
             this.label4.Text = "Countdown:";
-            // 
-            // btn_ChangeOwner
-            // 
-            this.btn_ChangeOwner.Enabled = false;
-            this.btn_ChangeOwner.Location = new System.Drawing.Point(266, 107);
-            this.btn_ChangeOwner.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_ChangeOwner.Name = "btn_ChangeOwner";
-            this.btn_ChangeOwner.Size = new System.Drawing.Size(45, 28);
-            this.btn_ChangeOwner.TabIndex = 6;
-            this.btn_ChangeOwner.Text = "=>";
-            this.btn_ChangeOwner.UseVisualStyleBackColor = true;
             // 
             // tbx_Owner
             // 
@@ -641,6 +630,17 @@
             this.btn_AcceptInvite.Text = "Accept Invite";
             this.btn_AcceptInvite.UseVisualStyleBackColor = true;
             // 
+            // btn_ChangeOwner
+            // 
+            this.btn_ChangeOwner.Enabled = false;
+            this.btn_ChangeOwner.Location = new System.Drawing.Point(266, 107);
+            this.btn_ChangeOwner.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_ChangeOwner.Name = "btn_ChangeOwner";
+            this.btn_ChangeOwner.Size = new System.Drawing.Size(45, 28);
+            this.btn_ChangeOwner.TabIndex = 6;
+            this.btn_ChangeOwner.Text = "=>";
+            this.btn_ChangeOwner.UseVisualStyleBackColor = true;
+            // 
             // uc_Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -679,7 +679,6 @@
         private System.Windows.Forms.TextBox tbx_Description;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbx_Owner;
-        private System.Windows.Forms.Button btn_ChangeOwner;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox gbx_ProjectActivity;
@@ -723,5 +722,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_InviteUser;
         private System.Windows.Forms.Button btn_AcceptInvite;
+        private System.Windows.Forms.Button btn_ChangeOwner;
     }
 }

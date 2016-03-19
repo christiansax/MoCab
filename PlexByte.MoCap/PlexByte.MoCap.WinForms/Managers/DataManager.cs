@@ -87,18 +87,12 @@ namespace PlexByte.MoCap.WinForms
             DateTime pStartDate,
             DateTime pEndDate,
             string pOwner,
-            CheckState pEnableBalance,
-            CheckState pEnableSurvey,
-            CheckState pIsActive,
+            int pEnableBalance,
+            int pEnableSurvey,
+            int pIsActive,
             string pStateId)
         {
-            //bool _EnableBalance = Convert.ToBoolean(pEnableBalance);
-            //bool _EnableSurvey = Convert.ToBoolean(pEnableSurvey);
-            int _EnableBalance = Convert.ToInt32(pEnableBalance);
-            int _EnableSurvey = Convert.ToInt32(pEnableSurvey);
-            int _IsActive = Convert.ToInt32(pIsActive);
-
-            _backendService.InsertProject(pProjectId, pTitle, pDescription, pStartDate, pEndDate, pOwner, _EnableBalance, _EnableSurvey, _IsActive, pOwner, pStateId);
+            _backendService.InsertProject(pProjectId, pTitle, pDescription, pStartDate, pEndDate, pOwner, pEnableBalance, pEnableSurvey, pIsActive, pOwner, pStateId);
         }
     }
 }

@@ -57,27 +57,32 @@ namespace PlexByte.MoCap.WinForms.Managers
         /// <summary>
         /// The list of Survey available for this user
         /// </summary>
-        public List<Survey> SurveyList { get; set; }
+        public List<ISurvey> SurveyList { get; set; }
 
         /// <summary>
         /// The list of project for this user
         /// </summary>
-        public List<Project> ProjectList { get; set; }
+        public List<IProject> ProjectList { get; set; }
 
         /// <summary>
         /// The list of tasks for this user
         /// </summary>
-        public List<Task> TaskList { get; set; }
+        public List<ITask> TaskList { get; set; }
 
         /// <summary>
         /// The list of Expenses for this user
         /// </summary>
-        public List<Expense> ExpenseList { get; set; }
+        public List<IExpense> ExpenseList { get; set; }
 
         /// <summary>
         /// The list of timeslices for this user
         /// </summary>
-        public List<Timeslice> TimeSliceList { get; set; }
+        public List<ITimeslice> TimeSliceList { get; set; }
+
+        /// <summary>
+        /// The list of timeslices for this user
+        /// </summary>
+        public List<IUser> UserList { get; set; }
 
         #endregion
 
@@ -147,19 +152,45 @@ namespace PlexByte.MoCap.WinForms.Managers
         /// This method populates the project list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the projects to create</param>
-        public List<IProject> CreateProjects(DataTable pResultSet) { return CreateProjectsFromData(pResultSet); }
+        public List<IProject> CreateProjects(DataTable pResultSet)
+        {
+            List<IProject> tmp = CreateProjectsFromData(pResultSet);
+            foreach (IProject project in tmp)
+            {
+                ProjectList.Add(project);
+            }
+            return tmp;
+        }
 
         /// <summary>
         /// This method populates the task list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the tasks to create</param>
-        public List<ITask> CreateTasks(DataTable pResultSet) { return CreateTasksFromData(pResultSet); }
+        public List<ITask> CreateTasks(DataTable pResultSet)
+        {
+            List<ITask> tmp = CreateTasksFromData(pResultSet);
+            foreach (ITask task in tmp)
+            {
+                if (!TaskList.Contains(task))
+                    TaskList.Add(task);
+            }
+            return tmp;
+        }
 
         /// <summary>
         /// This method populates the survey list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the surveys to create</param>
-        public List<ISurvey> CreateSurveys(DataTable pResultSet) { return CreateSurveysFromData(pResultSet); }
+        public List<ISurvey> CreateSurveys(DataTable pResultSet)
+        {
+            List<ISurvey> tmp = CreateSurveysFromData(pResultSet);
+            foreach (ISurvey survey in tmp)
+            {
+                if(!SurveyList.Contains(survey))
+                    SurveyList.Add(survey);
+            }
+            return tmp;
+        }
 
         /// <summary>
         /// This method populates the account list based on the recordset given
@@ -171,19 +202,46 @@ namespace PlexByte.MoCap.WinForms.Managers
         /// This method populates the Expense list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the expenses to create</param>
-        public List<IExpense> CreateExpenses(DataTable pResultSet) { return CreateExpensesFromData(pResultSet); }
+        public List<IExpense> CreateExpenses(DataTable pResultSet)
+        {
+            List<IExpense> tmp = CreateExpensesFromData(pResultSet);
+            foreach (IExpense expense in tmp)
+            {
+                if (!ExpenseList.Contains(expense))
+                    ExpenseList.Add(expense);
+            }
+            return tmp;
+        }
 
         /// <summary>
         /// This method populates the Timeslice list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the timeslices to create</param>
-        public List<ITimeslice> CreateTimeslices(DataTable pResultSet) { return CreateTimeslicesFromData(pResultSet); }
+        public List<ITimeslice> CreateTimeslices(DataTable pResultSet)
+        {
+            List<ITimeslice> tmp = CreateTimeslicesFromData(pResultSet);
+            foreach (ITimeslice timeslice in tmp)
+            {
+                if (!TimeSliceList.Contains(timeslice))
+                    TimeSliceList.Add(timeslice);
+            }
+            return tmp;
+        }
 
         /// <summary>
         /// This method populates the user list based on the recordset given
         /// </summary>
         /// <param name="pResultSet">The recordset containing the users to create</param>
-        public List<IUser> CreateUsers(DataTable pResultSet) { return CreateUserFromData(pResultSet); }
+        public List<IUser> CreateUsers(DataTable pResultSet)
+        {
+            List<IUser> tmp = CreateUsers(pResultSet);
+            foreach (IUser user in tmp)
+            {
+                if (!UserList.Contains(user))
+                    UserList.Add(user);
+            }
+            return tmp;
+        }
 
         #endregion
 

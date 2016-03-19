@@ -88,6 +88,8 @@ namespace PlexByte.MoCap.Interactions
         /// </summary>
         public List<IUser> MemberList { get; private set; }
 
+        public string Name { get; private set; }
+
         #endregion
 
         #region Variables
@@ -128,7 +130,7 @@ namespace PlexByte.MoCap.Interactions
             List<ISurvey> pSurveyList = new List<ISurvey>();
             IUser pOwner = pCreator;
 
-            InitializeProperties(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pStartDt, pEndDt, pCreator, pOwner);
+            InitializeProperties(pId, pText.Substring(0,15), pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pStartDt, pEndDt, pCreator, pOwner);
         }
 
         /// <summary>
@@ -144,9 +146,9 @@ namespace PlexByte.MoCap.Interactions
         /// <param name="pSurveyList"></param>
         /// <param name="pCreator"></param>
         /// <param name="pOwner"></param>
-        public Project(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDt, DateTime pEndDt, IUser pCreator, IUser pOwner, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList)
+        public Project(string pId, string pName, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDt, DateTime pEndDt, IUser pCreator, IUser pOwner, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList)
         {
-            InitializeProperties(pId, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pStartDt, pEndDt, pCreator, pOwner);
+            InitializeProperties(pId, pName, pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pStartDt, pEndDt, pCreator, pOwner);
         }
         #endregion
 
@@ -379,7 +381,7 @@ namespace PlexByte.MoCap.Interactions
         /// <param name="pSurveyList"></param>
         /// <param name="pCreator"></param>
         /// <param name="pOwner"></param>
-        private void InitializeProperties(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList, DateTime pStartDt, DateTime pEndDt, IUser pCreator, IUser pOwner)
+        private void InitializeProperties(string pId, string pName, string pText, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList, DateTime pStartDt, DateTime pEndDt, IUser pCreator, IUser pOwner)
         {
 
             Id = pId;
@@ -401,6 +403,7 @@ namespace PlexByte.MoCap.Interactions
             _stateTimer.Elapsed += OnTimerElapsed;
             _stateTimer.AutoReset = false;
             _stateTimer.Start();
+            Name = pName;
         }
 
         /// <summary>

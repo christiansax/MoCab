@@ -104,22 +104,11 @@ namespace PlexByte.MoCap.Interactions
             return (new Project(pId, pText, pEnableBalance, pEnableSurvey, pStartDT, pEndDT, pCreator));
         }
 
-        public virtual IProject CreateProject(string pId,
-            string pText,
-            bool pEnableBalance,
-            bool pEnableSurvey,
-            DateTime pStartDT,
-            DateTime pEndDT,
-            IUser pCreator,
-            IUser pOwner,
-            List<IUser> pMemberList,
-            List<IUser> pInvitationList,
-            List<ITask> pTaskList,
-            List<ISurvey> pSurveyList)
+        public virtual IProject CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator, IUser pOwner, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList, string pName)
         {
             if (string.IsNullOrEmpty(pId))
                 pId = GenericHelper.GenerateId();
-            return (new Project(pId, pText, pEnableBalance, pEnableSurvey, pStartDT, pEndDT, pCreator, pOwner, pMemberList, pInvitationList, pTaskList, pSurveyList));
+            return (new Project(pId, pName, pText, pEnableBalance, pEnableSurvey, pStartDT, pEndDT, pCreator, pOwner, pMemberList, pInvitationList, pTaskList, pSurveyList));
         }
 
         public virtual IInteraction CreateChat(string pTextTitle, IUser pCreator, List<IUser> pUsers) { throw new System.NotImplementedException(); }

@@ -235,7 +235,7 @@ namespace PlexByte.MoCap.Backend
                 {
                     command.Connection = connection;
                     command.CommandType = CommandType.Text;
-                   // Find values section
+                    // Find values section
                     string valuesSection = string.Empty;
                     if (pInsertQuery.ToLower().IndexOf("values") > 0)
                     {
@@ -250,7 +250,7 @@ namespace PlexByte.MoCap.Backend
                         // What's left are the variables... lets split into list
                         string[] valueVarList = valuesSection.Split(',');
                         valuesSection = null;
-                        for(int i=0;i<valueVarList.Length;i++)
+                        for (int i = 0; i < valueVarList.Length; i++)
                         {
                             // Set the parameters according to parameter list...
                             command.Parameters.AddWithValue(valueVarList[i], pStringValueList[i]);
@@ -365,6 +365,143 @@ namespace PlexByte.MoCap.Backend
                     Console.WriteLine("No rows found.");
                 }
                 reader.Close();
+            }
+        }
+
+        public void InsertProject(string pProjectId,
+            string pTitle,
+            string pDescription,
+            DateTime pStartDate,
+            DateTime pEndDate,
+            string pOwner,
+            int pEnableBalance,
+            int pEnableSurvey,
+            int pIsActive,
+            string pCreator,
+            string pStateId)
+        {
+            string execString = string.Empty;
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                // Create the command and set its properties.
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = "Sproc_ProjectAddUpdate";
+                command.CommandType = CommandType.StoredProcedure;
+
+                // Add the input parameter and set its properties.
+                SqlParameter parameter = new SqlParameter("@ProjectId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pProjectId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@Name", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pTitle
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@Description", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pDescription
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@EnableBalance", SqlDbType.Bit)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pEnableBalance
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@EnableSurvey", SqlDbType.Bit)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pEnableSurvey
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@StartDateTime", SqlDbType.DateTime)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pStartDate
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@EndDateTime", SqlDbType.DateTime)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pEndDate
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@IsActive", SqlDbType.Bit)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pIsActive
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@CreatorId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pCreator)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@OwnerId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pOwner)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@StateId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pStateId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@ResultMsg", SqlDbType.VarChar)
+                {
+                    Direction = ParameterDirection.Output,
+                    Value = string.Empty
+                };
+                command.Parameters.Add(parameter);
+
+                // Open the connection and execute the reader.
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Console.WriteLine("{0}: {1:C}", reader[0], reader[1]);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+                reader.Close();
+                //           @ProjectId AS BIGINT,
+                //@Name AS NVARCHAR(250),
+                //   @Description AS NVARCHAR(MAX),
+                //   @EnableBalance AS BIT,
+                //   @EnableSurvey AS BIT,
+                //@StartDateTime AS DATETIME,
+                //@EndDateTime AS DATETIME,
+                //   @IsActive AS BIT,
+                //   @CreatorId AS BIGINT,
+                //   @OwnerId AS BIGINT,
+                //   @StateId AS BIGINT,
+                //@ResultMsg
             }
         }
     }

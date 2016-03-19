@@ -18,9 +18,9 @@ namespace PlexByte.MoCap.WinForms.UserControls
 
         public void RegisterEvents(UIManager pManagerInstance)
         {
-            btn_Edit.Click += new System.EventHandler(pManagerInstance.UserButtonClicked);
-            btn_Login.Click += new System.EventHandler(pManagerInstance.UserButtonClicked);
-            btn_New.Click += new System.EventHandler(pManagerInstance.UserButtonClicked);
+            btn_Edit.Click += pManagerInstance.UserButtonClicked;
+            btn_Login.Click += pManagerInstance.UserButtonClicked;
+            btn_New.Click += pManagerInstance.UserButtonClicked;
         }
 
         public void ToggelEnabled()

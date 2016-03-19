@@ -1,4 +1,9 @@
-﻿using System.Windows.Forms;
+﻿//////////////////////////////////////////////////////////////
+//                      Form frm_ProjectSelectionList
+//      Author: Christian B. Sax            Date:   2016/03/18
+//      This form displays a list of projects, whereof one is selected by doubleclicking it.
+//      Subsequently the selected project Id is set and the dialogresult is set to ok
+using System.Windows.Forms;
 
 namespace PlexByte.MoCap.WinForms.CustomForms
 {
@@ -16,7 +21,11 @@ namespace PlexByte.MoCap.WinForms.CustomForms
         private void dgw_Projects_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (dgw_Projects.SelectedRows.Count > 0)
+            {
                 SelectedProjectId = dgw_Projects.SelectedRows[0].Cells["Id"].ToString();
+                DialogResult=DialogResult.OK;
+                Close();
+            }
         }
     }
 }

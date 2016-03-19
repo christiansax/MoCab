@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Net.Sockets;
 using PlexByte.MoCap.Helpers;
 
 namespace PlexByte.MoCap.Backend
@@ -165,6 +166,25 @@ namespace PlexByte.MoCap.Backend
             return ExecuteQueryString($"select * from View_Project where Id in (select ProjectId from View_ProjectUserMapping where " +
                                       $"UserId = {pUserId}) AND ([OwnerId] = {pUserId} OR [CreatorId] = {pUserId})  AND IsActive = 1" +
                                       $" order by [Name]");
+        }
+
+        public DataTable GetAllReferencedUsers(string pUserId)
+        {
+            DataTable users = new DataTable();
+            // Get all projects for this user
+            foreach (DataRow row  in GetProjectsByUser(pUserId).Rows)
+            {
+                // Loop through all projects and check the usermapping
+                foreach (DataRow row2 in GetUserByProjectId(row["Id"].ToString()).Rows)
+                {
+                    foreach (DataRow userRow in GetUserById(row2["Id"].ToString()).Rows)
+                    {
+                        if(!users.Rows.Contains(userRow))
+                            users.Rows.Add(userRow);
+                    }
+                }
+            }
+            return users;
         }
 
         /// <summary>

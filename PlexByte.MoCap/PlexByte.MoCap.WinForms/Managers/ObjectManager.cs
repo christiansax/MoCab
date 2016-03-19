@@ -235,7 +235,7 @@ namespace PlexByte.MoCap.WinForms.Managers
         /// <param name="pResultSet">The recordset containing the users to create</param>
         public List<IUser> CreateUsers(DataTable pResultSet)
         {
-            List<IUser> tmp = CreateUsers(pResultSet);
+            List<IUser> tmp = CreateUserFromData(pResultSet);
             foreach (IUser user in tmp)
             {
                 if (!UserList.Contains(user))

@@ -761,7 +761,7 @@ namespace PlexByte.MoCap.WinForms
                             _EnableBalance,
                             _EnableSurveye,
                             _IsActive,
-                            GetControlByName<TextBox>(pControlList, "tbx_Title").Text);                 // StateId
+                            "1");                 // StateId
 
                         //Disable setting controls after project is created
                         GetControlByName<Button>(pControlList, "btn_Update").Enabled = true;

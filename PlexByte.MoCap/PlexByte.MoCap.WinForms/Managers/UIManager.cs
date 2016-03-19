@@ -748,31 +748,65 @@ namespace PlexByte.MoCap.WinForms
         /// <param name="pControlList">The list of controld contained on the form</param>
         private void ProjectButtonCreate(List<Control> pControlList)
         {
-            if (GetControlByName<Button>(pControlList, "btn_Create").Text.ToLower() == "create")
+
+            // Disable control list
+            List<Control> expCtrls = new List<Control>();
+            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Update"));
+            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_InviteUser"));
+            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_AcceptInvite"));
+            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Create"));
+
+            if (GetControlByName<Button>(pControlList, "btn_Create").Text.ToLower() == "create" && _userContext != null)
             {
-                
-                string sTitle = GetControlByName<TextBox>(pControlList, "tbx_Title").Text;
-                if (!string.IsNullOrEmpty(sTitle))
+
+                // Save command
+                try
                 {
+                    _MainUI.Enabled = false;
 
-                    List<Control> expCtrls = new List<Control>();
-                    GetControlByName<Button>(pControlList, "btn_Update").Enabled = true;
-                    GetControlByName<Button>(pControlList, "btn_InviteUser").Enabled = true;
-                    GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").Enabled = false;
-                    GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").Enabled = false;
-                    GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Enabled = false;
-                    GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Enabled = false;
-                    GetControlByName<TextBox>(pControlList, "tbx_Title").Enabled = false;
-                    GetControlByName<TextBox>(pControlList, "tbx_Description").Enabled = false;
-                    GetControlByName<Button>(pControlList, "btn_Create").Text = "Edit";
+                    string sTitle = GetControlByName<TextBox>(pControlList, "tbx_Title").Text;
+                    if (!string.IsNullOrEmpty(sTitle))
+                    {
+                        // Initialize default values for controls
+                        GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = DateTime.Now;
+                        GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
+                        GetControlByName<TextBox>(pControlList, "tbx_Id").Text = DateTime.Now.ToString(_dateTimeIdFmt);
 
+                        //Insert project in db
+                        _dataManager.InsertProject(GetControlByName<TextBox>(pControlList, "tbx_Id").Text,
+                            GetControlByName<TextBox>(pControlList, "tbx_Title").Text,
+                            GetControlByName<TextBox>(pControlList, "tbx_Description").Text,
+                            GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value,
+                            GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value,
+                            GetControlByName<TextBox>(pControlList, "tbx_Owner").Text,
+                            GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").CheckState,
+                            GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").CheckState,
+                            GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").CheckState,    // IsActive checkbox
+                            GetControlByName<TextBox>(pControlList, "tbx_Title").Text);                 // StateId
+
+                        //Disable setting controls after project is created
+                        GetControlByName<Button>(pControlList, "btn_Update").Enabled = true;
+                        GetControlByName<Button>(pControlList, "btn_InviteUser").Enabled = true;
+                        GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").Enabled = false;
+                        GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").Enabled = false;
+                        GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Enabled = false;
+                        GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Enabled = false;
+                        GetControlByName<TextBox>(pControlList, "tbx_Title").Enabled = false;
+                        GetControlByName<TextBox>(pControlList, "tbx_Description").Enabled = false;
+                        GetControlByName<Button>(pControlList, "btn_Create").Text = "Edit";
+
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(sTitle))
+                            _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Title"), "Title is not specified");
+                    }
+                    _MainUI.Enabled = true;
                 }
-                else
+                catch (Exception exp)
                 {
-                    if (string.IsNullOrEmpty(sTitle))
-                        _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Title"), "Title is not specified");
+                    _MainUI.ShowErrorMessage($"Exception while trying to save user. Exception thrown: {exp.Message}");
                 }
-
 
             }
 

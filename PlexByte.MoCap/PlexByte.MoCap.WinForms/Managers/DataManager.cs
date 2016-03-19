@@ -10,6 +10,7 @@ using PlexByte.MoCap.Backend;
 using PlexByte.MoCap.Interactions;
 using PlexByte.MoCap.Security;
 using PlexByte.MoCap.WinForms.Managers;
+using System.Windows.Forms;
 
 namespace PlexByte.MoCap.WinForms
 {
@@ -78,6 +79,26 @@ namespace PlexByte.MoCap.WinForms
             string pPassword)
         {
             _backendService.InsertUser(pUserId, pFirstName, pLastName, pMiddleName, pEmail, pBirthdate, pUserName, pPassword);
+        }
+
+        public void InsertProject(string pProjectId,
+            string pTitle,
+            string pDescription,
+            DateTime pStartDate,
+            DateTime pEndDate,
+            string pOwner,
+            CheckState pEnableBalance,
+            CheckState pEnableSurvey,
+            CheckState pIsActive,
+            string pStateId)
+        {
+            //bool _EnableBalance = Convert.ToBoolean(pEnableBalance);
+            //bool _EnableSurvey = Convert.ToBoolean(pEnableSurvey);
+            int _EnableBalance = Convert.ToInt32(pEnableBalance);
+            int _EnableSurvey = Convert.ToInt32(pEnableSurvey);
+            int _IsActive = Convert.ToInt32(pIsActive);
+
+            _backendService.InsertProject(pProjectId, pTitle, pDescription, pStartDate, pEndDate, pOwner, _EnableBalance, _EnableSurvey, _IsActive, pOwner, pStateId);
         }
     }
 }

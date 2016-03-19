@@ -50,6 +50,7 @@ namespace PlexByte.MoCap.WinForms
         private readonly ErrorProvider _errorProvider = null;
         private DataManager _dataManager = null;
         private User _userContext = null;
+        private uc_Overview _overviewPanel = null;
         private const string _longDateTimeFtm = "ddd dd MMM yyyy  HH:mm";
         private const string _DateTimeFtm = "yyyy.MM.dd HH:mm:ss";
         private const string _DateFtm = "yyyy.MM.dd";
@@ -172,6 +173,7 @@ namespace PlexByte.MoCap.WinForms
         {
             DockContent tmp = new uc_Overview();
             tmp.Show(_MainUI.Panel, DockState.DockLeft);
+            _overviewPanel = (uc_Overview) tmp;
         }
 
         /// <summary>
@@ -802,6 +804,11 @@ namespace PlexByte.MoCap.WinForms
         private void ProjectButtonInviteUser(List<Control> ctrls)
         {
             throw new NotImplementedException();
+        }
+
+        private void GenerateOverviewPanel()
+        {
+            // _overviewPanel.
         }
 
         #endregion

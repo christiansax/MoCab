@@ -104,10 +104,11 @@ namespace PlexByte.MoCap.WinForms.Managers
             _objectFactory = new ObjectFactory();
 
             // Instanciate the interaction lists
-            TaskList = new List<Task>();
-            SurveyList = new List<Survey>();
-            ExpenseList = new List<Expense>();
-            TimeSliceList = new List<Timeslice>();
+            TaskList = new List<ITask>();
+            SurveyList = new List<ISurvey>();
+            ExpenseList = new List<IExpense>();
+            TimeSliceList = new List<ITimeslice>();
+            UserList = new List<IUser>();
 
             // Initialize the time which will periodically update the objects
             _updateTimer = new Timer(20000);

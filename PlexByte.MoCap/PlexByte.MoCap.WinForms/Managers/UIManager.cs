@@ -41,7 +41,6 @@ namespace PlexByte.MoCap.WinForms
         #region Properties
 
         public User UserContext => _userContext;
-        public Project ProjectContext => _ProjectContext;
 
         #endregion
 
@@ -52,7 +51,7 @@ namespace PlexByte.MoCap.WinForms
         private DataManager _dataManager = null;
         private User _userContext = null;
         private uc_Overview _overviewPanel = null;
-        private Project _ProjectContext = null;
+        private InteractionFactory _interactionFactory = null;
         private const string _longDateTimeFtm = "ddd dd MMM yyyy  HH:mm";
         private const string _DateTimeFtm = "yyyy.MM.dd HH:mm:ss";
         private const string _DateFtm = "yyyy.MM.dd";
@@ -73,6 +72,7 @@ namespace PlexByte.MoCap.WinForms
             _errorProvider = new ErrorProvider();
             _errorProvider.BlinkStyle= ErrorBlinkStyle.BlinkIfDifferentError;
             _dataManager=new DataManager();
+            _interactionFactory=new InteractionFactory();
         }
 
         /// <summary>
@@ -84,6 +84,8 @@ namespace PlexByte.MoCap.WinForms
                 _userContext = null;
             if (_dataManager != null)
                 _dataManager = null;
+
+            _interactionFactory = null;
         }
 
         #endregion
@@ -678,6 +680,7 @@ namespace PlexByte.MoCap.WinForms
             GetControlByName<Button>(pControlList, "btn_New").Text = "New";
 
             // Save task
+            
         }
 
         private void TaskButtonUpdate(List<Control> pControlList)
@@ -739,35 +742,13 @@ namespace PlexByte.MoCap.WinForms
                 // Save command
                 try
                 {
-                    bool bError = false;
                     _MainUI.Enabled = false;
                     int _IsActive = Convert.ToInt32(false);
-                    int _State = Convert.ToInt32(InteractionState.Queued);
+                    string _StateId = "1";
                     string _ProjectId= null;
+
                     string sTitle = GetControlByName<TextBox>(pControlList, "tbx_Title").Text;
-                    
-
-                    // Check if all fields are valid
-                    if (GetControlByName<TextBox>(pControlList, "tbx_Title").Text.Length < 1)
-                    {
-                        if (string.IsNullOrEmpty(sTitle))
-                            _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Title"), "Title is not specified");
-                        bError = true;
-                    }
-                    if (GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value > GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value)
-                    {
-                        _errorProvider.SetError(GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate"),
-                            "The project cannot end at an earlier date than it starts. Set the end date to a later time.");
-                        bError = true;
-                    }
-                    if (GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value < DateTime.Now)
-                    {
-                        _errorProvider.SetError(GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate"),
-                            "The project end date has to be in the future.");
-                        bError = true;
-                    }
-
-                    if (!bError)
+                    if (!string.IsNullOrEmpty(sTitle))
                     {
                         // Initialize default values for controls
                         GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
@@ -780,11 +761,8 @@ namespace PlexByte.MoCap.WinForms
 
                         //Convert
                         if (GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value <= DateTime.Now)
-                        {
-                            _IsActive = Convert.ToInt32(true);
-                            _State = Convert.ToInt32(InteractionState.Active);
-                        }
-                        
+                            _IsActive = Convert.ToInt32(false);
+
                         //Insert project in db
                         _dataManager.InsertProject(_ProjectId,
                             GetControlByName<TextBox>(pControlList, "tbx_Title").Text,
@@ -792,10 +770,10 @@ namespace PlexByte.MoCap.WinForms
                             GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value,
                             GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value,
                             GetControlByName<TextBox>(pControlList, "tbx_Owner").Text,
-                            Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").CheckState),
-                            Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").CheckState),
+                            _EnableBalance,
+                            _EnableSurveye,
                             _IsActive,
-                            Convert.ToString(_State));
+                            _StateId);
 
                         //Disable setting controls after project is created
                         GetControlByName<Button>(pControlList, "btn_Update").Enabled = true;
@@ -862,10 +840,7 @@ namespace PlexByte.MoCap.WinForms
 
         private void ProjectButtonInviteUser(List<Control> ctrls)
         {
-            _MainUI.Enabled = false;
-            frm_UserSelectionList userSelectionList = new frm_UserSelectionList(ProjectContext.Id, UserContext.Id);
-            userSelectionList.Show();
-            _MainUI.Enabled = true;
+            throw new NotImplementedException();
         }
 
         private void GenerateOverviewPanel()

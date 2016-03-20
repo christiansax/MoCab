@@ -5,6 +5,7 @@
 //      The objective is to encapsulate any backend related conversions within this class and 
 //      expose objects to calling classes only
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using PlexByte.MoCap.Backend;
 using PlexByte.MoCap.Interactions;
@@ -23,6 +24,12 @@ namespace PlexByte.MoCap.WinForms
         {
             _backendService = new BackendService();
             _objectManager = new ObjectManager(this);
+            ProjectList=new List<IProject>();
+            TaskList=new List<ITask>();
+            SurveyList =new List<ISurvey>();
+            ExpenseList=new List<IExpense>();
+            TimeSliceList=new List<ITimeslice>();
+            UserList=new List<IUser>();
         }
         public void Dispose()
         {
@@ -32,36 +39,93 @@ namespace PlexByte.MoCap.WinForms
             if (_objectManager != null)
                 _objectManager.Dispose();
             _objectManager = null;
+
+            ProjectList.Clear();
+            ProjectList = null;
+            TaskList.Clear();
+            TaskList = null;
+            SurveyList.Clear();
+            SurveyList = null;
+            ExpenseList.Clear();
+            ExpenseList = null;
+            TimeSliceList.Clear();
+            TimeSliceList = null;
+            UserList = null;
         }
+
+        /// <summary>
+        /// The list of Survey available for this user
+        /// </summary>
+        public List<ISurvey> SurveyList { get; set; }
+
+        /// <summary>
+        /// The list of project for this user
+        /// </summary>
+        public List<IProject> ProjectList { get; set; }
+
+        /// <summary>
+        /// The list of tasks for this user
+        /// </summary>
+        public List<ITask> TaskList { get; set; }
+
+        /// <summary>
+        /// The list of Expenses for this user
+        /// </summary>
+        public List<IExpense> ExpenseList { get; set; }
+
+        /// <summary>
+        /// The list of timeslices for this user
+        /// </summary>
+        public List<ITimeslice> TimeSliceList { get; set; }
+
+        public List<IUser> UserList { get; set; }
 
         public IProject CreateProjectById(string pId)
         {
-            return (_objectManager.CreateProjects(_backendService.GetProjectById(pId)).First());
+            IProject tmp = _objectManager.CreateProjects(_backendService.GetProjectById(pId)).First();
+            if (!ProjectList.Contains(tmp))
+                ProjectList.Add(tmp);
+            return tmp;
         }
 
         public ITask CreateTaskById(string pId)
         {
-            return (_objectManager.CreateTasks(_backendService.GetProjectById(pId)).First());
+            ITask tmp = _objectManager.CreateTasks(_backendService.GetTaskById(pId)).First();
+            if (!TaskList.Contains(tmp))
+                TaskList.Add(tmp);
+            return tmp;
         }
 
         public ISurvey CreateSurveyById(string pId)
         {
-            return (_objectManager.CreateSurveys(_backendService.GetProjectById(pId)).First());
+            ISurvey tmp = _objectManager.CreateSurveys(_backendService.GetSurveyById(pId)).First();
+            if (!SurveyList.Contains(tmp))
+                SurveyList.Add(tmp);
+            return tmp;
         }
 
         public IExpense CreateExpenseById(string pId)
         {
-            return (_objectManager.CreateExpenses(_backendService.GetProjectById(pId)).First());
+            IExpense tmp = _objectManager.CreateExpenses(_backendService.GetExpenseById(pId)).First();
+            if (!ExpenseList.Contains(tmp))
+                ExpenseList.Add(tmp);
+            return tmp;
         }
 
         public ITimeslice CreateTimesliceById(string pId)
         {
-            return (_objectManager.CreateTimeslices(_backendService.GetProjectById(pId)).First());
+            ITimeslice tmp = _objectManager.CreateTimeslices(_backendService.GetTimesliceById(pId)).First();
+            if (!TimeSliceList.Contains(tmp))
+                TimeSliceList.Add(tmp);
+            return tmp;
         }
 
         public IUser CreateUserById(string pId)
         {
-            return (_objectManager.CreateUsers(_backendService.GetProjectById(pId)).First());
+            IUser tmp=_objectManager.CreateUsers(_backendService.GetUserById(pId)).First();
+            if(!UserList.Contains(tmp))
+                UserList.Add(tmp);
+            return tmp;
         }
 
         public IUser AuthenticateUser(string pUserName, string pPassword)

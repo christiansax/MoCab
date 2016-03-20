@@ -51,6 +51,7 @@ namespace PlexByte.MoCap.WinForms
         private DataManager _dataManager = null;
         private User _userContext = null;
         private uc_Overview _overviewPanel = null;
+        private InteractionFactory _interactionFactory = null;
         private const string _longDateTimeFtm = "ddd dd MMM yyyy  HH:mm";
         private const string _DateTimeFtm = "yyyy.MM.dd HH:mm:ss";
         private const string _DateFtm = "yyyy.MM.dd";
@@ -71,6 +72,7 @@ namespace PlexByte.MoCap.WinForms
             _errorProvider = new ErrorProvider();
             _errorProvider.BlinkStyle= ErrorBlinkStyle.BlinkIfDifferentError;
             _dataManager=new DataManager();
+            _interactionFactory=new InteractionFactory();
         }
 
         /// <summary>
@@ -676,6 +678,7 @@ namespace PlexByte.MoCap.WinForms
             GetControlByName<Button>(pControlList, "btn_New").Text = "New";
 
             // Save task
+            
         }
 
         private void TaskButtonUpdate(List<Control> pControlList)

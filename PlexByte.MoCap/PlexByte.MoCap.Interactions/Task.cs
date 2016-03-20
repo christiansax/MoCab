@@ -47,6 +47,8 @@ namespace PlexByte.MoCap.Interactions
         /// </summary>
         public DateTime ModifiedDateTime => _modifiedDateTime;
 
+        public string Title { get; set; }
+
         /// <summary>
         /// Flag indicating whether or not the task can be worked on
         /// </summary>
@@ -152,6 +154,7 @@ namespace PlexByte.MoCap.Interactions
         public Task(string pId, string pText, IUser pCreator) :
             this(pId,
                 pText,
+                "",
                 pCreator,
                 DateTime.Now,
                 default(DateTime),
@@ -170,6 +173,7 @@ namespace PlexByte.MoCap.Interactions
         public Task(string pId, string pText, IUser pCreator, DateTime pStartDt, DateTime pEndDt, DateTime pDueDt) :
             this(pId,
                 pText,
+                "",
                 pCreator,
                 pStartDt,
                 pEndDt,
@@ -187,6 +191,7 @@ namespace PlexByte.MoCap.Interactions
 
         public Task(string pId,
             string pText,
+            string pTitle,
             IUser pCreator,
             DateTime pStartDt,
             DateTime pEndDt,
@@ -202,6 +207,7 @@ namespace PlexByte.MoCap.Interactions
         {
             InitializeProperties(pId,
                 pText,
+                pTitle,
                 pCreator,
                 pStartDt,
                 pEndDt,
@@ -339,6 +345,7 @@ namespace PlexByte.MoCap.Interactions
 
         private void InitializeProperties(string pId,
             string pText,
+            string pTitle,
             IUser pCreator,
             DateTime pStartDt,
             DateTime pEndDt,
@@ -366,6 +373,7 @@ namespace PlexByte.MoCap.Interactions
             _modifiedDateTime = DateTime.Now;
             _isActive = pIsActive;
             Text = pText;
+            Title = pTitle;
             _type = pType;
             _creator = pCreator;
             _owner = pOwner;

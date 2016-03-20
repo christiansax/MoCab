@@ -38,12 +38,57 @@ namespace PlexByte.MoCap.Backend
         {
             DataTable userInfo = new DataTable();
             pPassword = CryptoHelper.Encrypt(pPassword, _Password);
-
             userInfo = ExecuteQueryString($"select * from View_User where (Username = '{pUserName}' or EmailAddress = '{pUserName}') AND [Password] = '{pPassword}'");
             if (userInfo.Rows.Count < 1)
                 throw new Exception($"Authentification failed! Username or password is invalid [UserName={pUserName}] [Password={pPassword}]");
             else
-                return userInfo;
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    // Create the command and set its properties.
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = "SPROC_AddUserLog";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    // Add the input parameter and set its properties.
+                    SqlParameter parameter = new SqlParameter("@UserId", SqlDbType.BigInt)
+                    {
+                        Direction = ParameterDirection.Input,
+                        Value = Convert.ToInt64(userInfo.Rows[0]["Id"])
+                    };
+                    command.Parameters.Add(parameter);
+
+                    parameter = new SqlParameter("@ResultMsg", SqlDbType.VarChar)
+                    {
+                        Direction = ParameterDirection.Output,
+                        Value = string.Empty
+                    };
+                    command.Parameters.Add(parameter);
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            Console.WriteLine("{0}: {1:C}", reader[0], reader[1]);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No rows found.");
+                    }
+                    reader.Close();
+                    return userInfo;
+                }
+            }
+        }
+
+        public DateTime LastUserLogin(string pUserId)
+        {
+            return DateTime.Parse(ExecuteQueryString($"select MAX([LogDateTime] from [View_UserLog] where UserId = '{pUserId}'").
+                Rows[0]["LogDateTime"].ToString());
         }
 
         public DataTable GetProjectById(string pId)
@@ -198,6 +243,8 @@ namespace PlexByte.MoCap.Backend
             return ExecuteQueryString($"select ProjectId, ExpenseId, TaskId, ExpUserName, ExpDescription, Value, CreatedDateTime " +
                                    $"from View_Accounting where [ProjectId] = '{pId}') and ExpenseId is not null AND IsActive = 1 order by ProjectId");
         }
+
+        //public DataTable GetChangedInteractionsForUser()
 
         /// <summary>
         /// This method returns all timeslices for the user or projectId specified
@@ -400,7 +447,6 @@ namespace PlexByte.MoCap.Backend
             string pCreator,
             string pStateId)
         {
-            string execString = string.Empty;
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 // Create the command and set its properties.

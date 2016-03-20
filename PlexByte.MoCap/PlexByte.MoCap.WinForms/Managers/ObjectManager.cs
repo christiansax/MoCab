@@ -244,6 +244,17 @@ namespace PlexByte.MoCap.WinForms.Managers
             return tmp;
         }
 
+        public List<IInteraction> CreateInteractions(DataTable pResultSet)
+        {
+            List<IInteraction> tmp = CreateInteractionFromData(pResultSet);
+            foreach (IUser user in tmp)
+            {
+                if (!UserList.Contains(user))
+                    UserList.Add(user);
+            }
+            return tmp;
+        }
+
         #endregion
 
         #region Private methods
@@ -289,6 +300,26 @@ namespace PlexByte.MoCap.WinForms.Managers
                     DateTime.Parse(curRow["ModifiedDateTime"].ToString()),
                     DateTime.Parse(curRow["CreatedDateTime"].ToString()),
                     curRow["PersonId"].ToString()));
+            }
+            return (result.Count > 0) ? result : null;
+        }
+
+        public List<IInteraction> CreateInteractionFromData(DataTable pRecordSet)
+        {
+            List<IInteraction> result = new List<IInteraction>();
+            foreach (DataRow curRow in pRecordSet.Rows)
+            {
+                result.Add(_interactionFactory.CreateInteraction(curRow["Id"].ToString(),
+                    DateTime.Parse(curRow["StartDateTime"].ToString()),
+                    DateTime.Parse(curRow["EndDateTime"].ToString()),
+                    Convert.ToBoolean(curRow["IsActive"]),
+                    curRow["Text"].ToString(),
+                    (InteractionType) Convert.ToInt32(curRow["Type"].ToString()),
+                    (InteractionState)Convert.ToInt32(curRow["StateId"].ToString()),
+                    _dataManager.CreateUserById(curRow["OwnerId"].ToString()),
+                    _dataManager.CreateUserById(curRow["CreatorId"].ToString()),
+                    DateTime.Parse(curRow["CreatedDateTime"].ToString()),
+                    DateTime.Parse(curRow["ModifiedDateTime"].ToString())));
             }
             return (result.Count > 0) ? result : null;
         }

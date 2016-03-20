@@ -173,10 +173,12 @@ namespace PlexByte.MoCap.WinForms
         /// </summary>
         public void AddOverview()
         {
-            DockContent tmp = new uc_Overview();
+            DockContent tmp = new uc_Overview(this);
             tmp.Show(_MainUI.Panel, DockState.DockLeft);
             _overviewPanel = (uc_Overview) tmp;
         }
+
+        public DateTime LastUserLogin() { return _dataManager.GetLastUserLogin(UserContext.Id); }
 
         /// <summary>
         /// Eventlistener for the menu form. Any button event is captured here and corresponding action is executed

@@ -33,7 +33,42 @@ namespace PlexByte.MoCap.Interactions
         }
 
         public ITask CreateTask(string pId,
+           string pText,
+           IUser pCreator,
+           DateTime pStartDT,
+           DateTime pEndDT,
+           DateTime pDueDT,
+           decimal pBudget,
+           int pDuration,
+           int pPriority,
+           InteractionState pState,
+           decimal pBudgetUsed,
+           int pTimeUsed,
+           List<ITask> pSubTask,
+           int pProgress)
+        {
+            if (string.IsNullOrEmpty(pId))
+                pId = GenericHelper.GenerateId();
+            return (new Task(pId,
+                pText,
+                "",
+                pCreator,
+                pStartDT,
+                pEndDT,
+                pDueDT,
+                pBudget,
+                pDuration,
+                pPriority,
+                pState,
+                pBudgetUsed,
+                pTimeUsed,
+                pSubTask,
+                pProgress));
+        }
+
+        public ITask CreateTask(string pId,
             string pText,
+            string pTitle,
             IUser pCreator,
             DateTime pStartDT,
             DateTime pEndDT,
@@ -51,6 +86,7 @@ namespace PlexByte.MoCap.Interactions
                 pId = GenericHelper.GenerateId();
             return (new Task(pId,
                 pText,
+                pTitle,
                 pCreator,
                 pStartDT,
                 pEndDT,
@@ -121,6 +157,33 @@ namespace PlexByte.MoCap.Interactions
             bool pAllowSelfdestructing)
         {
             throw new System.NotImplementedException();
+        }
+
+        public virtual IInteraction CreateInteraction(string pId,
+            DateTime pStartDateTime,
+            DateTime pEndDateTime,
+            bool pIsActive,
+            string pText,
+            InteractionType pType,
+            InteractionState pState,
+            IUser pOwner,
+            IUser pCreator,
+            DateTime pCreated,
+            DateTime pModified)
+        {
+            if (string.IsNullOrEmpty(pId))
+                pId = GenericHelper.GenerateId();
+            return (new Interaction(pId,
+                pStartDateTime,
+                pEndDateTime,
+                pCreated,
+                pModified,
+                pIsActive,
+                pText,
+                pType,
+                pCreator,
+                pOwner,
+                pState));
         }
 
     }

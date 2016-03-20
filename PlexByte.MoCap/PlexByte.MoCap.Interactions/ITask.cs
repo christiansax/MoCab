@@ -5,11 +5,13 @@
 
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace PlexByte.MoCap.Interactions
 {
     public interface ITask
     {
+        string Id { get; }
         DateTime DueDateTime { get; }
 
         decimal Budget { get; }
@@ -35,6 +37,5 @@ namespace PlexByte.MoCap.Interactions
         void UdateProgress(int pProgress);
 
         void AddSubTask(ITask pTask);
-
     }
 }

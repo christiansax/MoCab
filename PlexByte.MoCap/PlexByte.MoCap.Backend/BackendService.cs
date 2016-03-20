@@ -575,5 +575,178 @@ namespace PlexByte.MoCap.Backend
                 //@ResultMsg
             }
         }
+
+        public void InsertTask(string TaskId,
+            string InteractionId,
+            DateTime DueDateTime,
+            decimal Budget,
+            int Duration,
+            int Priority,
+            int Progress,
+            int DurationUsed,
+            decimal BudgetUsed,
+            DateTime StartDateTime,
+            DateTime EndDateTime,
+            bool IsActive,
+            string Text,
+            string CreatorId,
+            string OwnerId,
+            string StateId,
+            string ProjectId)
+        {
+            string execString = string.Empty;
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                // Create the command and set its properties.
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = "Sproc_UserAddUpdate";
+                command.CommandType = CommandType.StoredProcedure;
+
+                // Add the input parameter and set its properties.
+                SqlParameter parameter = new SqlParameter("@TaskId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pUserId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@InteractionId", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pFirstName
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@DueDateTime", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pLastName
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@Budget", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pMiddleName
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@Duration", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pEmail
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@Priority", SqlDbType.DateTime)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pBirthdate
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@Progress", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pUserName
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@DurationUsed", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pPassword
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@BudgetUsed", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pPassword
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@StartDateTime", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pPassword
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@EndDateTime", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pPassword
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@IsActive", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pPassword
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@Text", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pPassword
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@CreatorId", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pPassword
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@OwnerId", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pPassword
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@StateId", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pPassword
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@ProjectId", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pPassword
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@ResultMsg", SqlDbType.VarChar)
+                {
+                    Direction = ParameterDirection.Output,
+                    Value = string.Empty
+                };
+                command.Parameters.Add(parameter);
+
+                // Open the connection and execute the reader.
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Console.WriteLine("{0}: {1:C}", reader[0], reader[1]);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+                reader.Close();
+            }
+        }
     }
 }

@@ -45,5 +45,17 @@ namespace PlexByte.MoCap.Interactions
         IInteraction CreateChat(string pTextTitle, IUser pCreator, List<IUser> pUsers);
 
         IInteraction CreateChat(string pTextTitle, IUser pCreator, List<IUser> pUsers, DateTime pStartDateTime, DateTime pEndDateTime, bool pAllowSelfdestructing);
+
+        IInteraction CreateInteraction(string pId,
+            DateTime pStartDateTime,
+            DateTime pEndDateTime,
+            bool pIsActive,
+            string pText,
+            InteractionType pType,
+            InteractionState pState,
+            IUser pOwner,
+            IUser pCreator,
+            DateTime pCreated,
+            DateTime pModified);
     }
 }

@@ -159,5 +159,32 @@ namespace PlexByte.MoCap.Interactions
             throw new System.NotImplementedException();
         }
 
+        public virtual IInteraction CreateInteraction(string pId,
+            DateTime pStartDateTime,
+            DateTime pEndDateTime,
+            bool pIsActive,
+            string pText,
+            InteractionType pType,
+            InteractionState pState,
+            IUser pOwner,
+            IUser pCreator,
+            DateTime pCreated,
+            DateTime pModified)
+        {
+            if (string.IsNullOrEmpty(pId))
+                pId = GenericHelper.GenerateId();
+            return (new Interaction(pId,
+                pStartDateTime,
+                pEndDateTime,
+                pCreated,
+                pModified,
+                pIsActive,
+                pText,
+                pType,
+                pCreator,
+                pOwner,
+                pState));
+        }
+
     }
 }

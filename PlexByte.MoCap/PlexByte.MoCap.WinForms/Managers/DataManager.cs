@@ -94,5 +94,7 @@ namespace PlexByte.MoCap.WinForms
         {
             _backendService.InsertProject(pProjectId, pTitle, pDescription, pStartDate, pEndDate, pOwner, pEnableBalance, pEnableSurvey, pIsActive, pOwner, pStateId);
         }
+
+        public DateTime GetLastUserLogin(string pUserId) { return _backendService.LastUserLogin(pUserId); }
     }
 }

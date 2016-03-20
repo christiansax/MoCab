@@ -85,6 +85,12 @@ namespace PlexByte.MoCap.Backend
             }
         }
 
+        public DateTime LastUserLogin(string pUserId)
+        {
+            return DateTime.Parse(ExecuteQueryString($"select MAX([LogDateTime] from [View_UserLog] where UserId = '{pUserId}'").
+                Rows[0]["LogDateTime"].ToString());
+        }
+
         public DataTable GetProjectById(string pId)
         {
             return ExecuteQueryString($"select * from View_Project where Id = '{pId}'");
@@ -237,6 +243,8 @@ namespace PlexByte.MoCap.Backend
             return ExecuteQueryString($"select ProjectId, ExpenseId, TaskId, ExpUserName, ExpDescription, Value, CreatedDateTime " +
                                    $"from View_Accounting where [ProjectId] = '{pId}') and ExpenseId is not null AND IsActive = 1 order by ProjectId");
         }
+
+        //public DataTable GetChangedInteractionsForUser()
 
         /// <summary>
         /// This method returns all timeslices for the user or projectId specified

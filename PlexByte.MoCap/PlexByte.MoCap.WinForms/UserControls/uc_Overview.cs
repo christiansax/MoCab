@@ -5,7 +5,9 @@
 
 using System;
 using System.Collections.Generic;
+using PlexByte.MoCap.Backend;
 using PlexByte.MoCap.Interactions;
+using PlexByte.MoCap.WinForms.Managers;
 using WeifenLuo.WinFormsUI.Docking;
 
 namespace PlexByte.MoCap.WinForms.UserControls
@@ -17,10 +19,13 @@ namespace PlexByte.MoCap.WinForms.UserControls
         /// </summary>
         private const string ControlTitle = "Interactions Overview";
 
-        public uc_Overview()
+        private UIManager _manager = null;
+
+        public uc_Overview(UIManager pManager)
         {
             InitializeComponent();
             this.TabText = ControlTitle;
+            _manager = pManager;
         }
 
         public void AddRecentlyChangedInteraction(IInteraction pInteraction)
@@ -78,6 +83,14 @@ namespace PlexByte.MoCap.WinForms.UserControls
             Project tmp = (Project) pProject;
             dgw_Project.Rows.Add(tmp.Id.ToString(), tmp.Name, tmp.State.ToString(), tmp.ModifiedDateTime);
             dgw_Project.Refresh();
+        }
+
+        private void Initialize()
+        {
+            _manager.LastUserLogin();
+            BackendService backend = new BackendService();
+            ObjectManager objectManager = new ObjectManager(new DataManager());
+            //objectManager.CreateInteractions(backend.)
         }
     }
 }

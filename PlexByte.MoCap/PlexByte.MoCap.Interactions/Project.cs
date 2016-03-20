@@ -130,7 +130,7 @@ namespace PlexByte.MoCap.Interactions
             List<ISurvey> pSurveyList = new List<ISurvey>();
             IUser pOwner = pCreator;
 
-            InitializeProperties(pId, pText.Substring(0,15), pText, pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pStartDt, pEndDt, pCreator, pOwner);
+            InitializeProperties(pId, pText.Remove(pText.IndexOf(@";") + 0), pText.Substring(pText.IndexOf(@";") + 1), pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pStartDt, pEndDt, pCreator, pOwner);
         }
 
         /// <summary>

@@ -787,6 +787,7 @@ namespace PlexByte.MoCap.WinForms
                             _IsActive = Convert.ToInt32(true);
                             _StateId = Convert.ToInt32(InteractionState.Active);
                         }
+                        
 
                         //Create project
                         _interactionFactory.CreateProject(_ProjectId,
@@ -822,10 +823,10 @@ namespace PlexByte.MoCap.WinForms
                         GetControlByName<TextBox>(pControlList, "tbx_Title").Enabled = false;
                         GetControlByName<TextBox>(pControlList, "tbx_Description").Enabled = false;
                         GetControlByName<Button>(pControlList, "btn_Create").Text = "Edit";
-
-
-                        _MainUI.Enabled = true;
                     }
+
+                    _MainUI.Enabled = true;
+                    
                 }
                 catch (Exception exp)
                 {

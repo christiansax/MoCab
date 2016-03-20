@@ -162,19 +162,6 @@ namespace PlexByte.MoCap.WinForms.Managers
             return CreateUserFromData(pResultSet);
         }
 
-        /*
-        public List<IInteraction> CreateInteractions(DataTable pResultSet)
-        {
-            List<IInteraction> tmp = CreateInteractionFromData(pResultSet);
-            foreach (IUser user in tmp)
-            {
-                if (!UserList.Contains(user))
-                    UserList.Add(user);
-            }
-            return tmp;
-        }
-        */
-
         #endregion
 
         #region Private methods

@@ -131,6 +131,11 @@ namespace PlexByte.MoCap.Backend
             return ExecuteQueryString($"select * from View_User where Id = '{pId}'");
         }
 
+        public DataTable GetUserByUserName(string pUserName)
+        {
+            return ExecuteQueryString($"select * from View_User where Username = '{pUserName}'");
+        }
+
         /// <summary>
         /// If project is the type, all users being member of the project with the Id specified will be returned.
         /// Otherwise the user with the Id given is returned

@@ -446,7 +446,6 @@ namespace PlexByte.MoCap.WinForms
             // Initialize default values for controls
             GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = DateTime.Now;
             GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
-            GetControlByName<TextBox>(pControlList, "tbx_Id").Text = DateTime.Now.ToString(_dateTimeIdFmt);
 
             // Disable control list
             List<Control> expCtrls = new List<Control>();
@@ -648,6 +647,7 @@ namespace PlexByte.MoCap.WinForms
         private void UserButtonEdit(List<Control> pControlList)
         {
             List<Control> expCtrls = new List<Control>();
+            expCtrls.Add(GetControlByName<TextBox>(pControlList, "tbx_Id"));
             expCtrls.Add(GetControlByName<DateTimePicker>(pControlList, "dtp_Created"));
             expCtrls.Add(GetControlByName<DateTimePicker>(pControlList, "dtp_Modified"));
             expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Login"));
@@ -658,6 +658,10 @@ namespace PlexByte.MoCap.WinForms
 
         private void TaskButtonNew(List<Control> pControlList)
         {
+            // Get the form
+            uc_Task tmp = (uc_Task)pControlList[0].Parent;
+            tmp.TaskId = tmp.TaskId;
+            tmp.MainTaskId = DateTime.Now.ToString(_dateTimeIdFmt);
             // Initialize button state
             List<Control> expCtrls = new List<Control>();
             expCtrls.Add(GetControlByName<TextBox>(pControlList, "tbx_CreatedBy"));
@@ -666,6 +670,11 @@ namespace PlexByte.MoCap.WinForms
             expCtrls.Add(GetControlByName<DateTimePicker>(pControlList, "dtp_Modified"));
             UserButtonSetControlsState(pControlList, expCtrls, true);
             GetControlByName<Button>(pControlList, "btn_New").Text = "Save";
+            GetControlByName<TextBox>(pControlList, "tbx_ModifiedBy").Text = _userContext.Username;
+            GetControlByName<TextBox>(pControlList, "tbx_CreatedBy").Text = _userContext.Username;
+            GetControlByName<TextBox>(pControlList, "tbx_Owner").Text = _userContext.Username;
+            GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = DateTime.Now;
+            GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
         }
 
         private void TaskButtonSave(List<Control> pControlList)
@@ -679,8 +688,24 @@ namespace PlexByte.MoCap.WinForms
             UserButtonSetControlsState(pControlList, expCtrls, false);
             GetControlByName<Button>(pControlList, "btn_New").Text = "New";
 
+            // Get the form
+            uc_Task tmp = (uc_Task)pControlList[0].Parent;
+
             // Save task
-            
+           _dataManager.TaskList.Add(_interactionFactory.CreateTask(tmp.TaskId,
+                GetControlByName<TextBox>(pControlList, "tbx_Description").Text,
+                _userContext,
+                GetControlByName<DateTimePicker>(pControlList, "dtp_Start").Value,
+                GetControlByName<DateTimePicker>(pControlList, "dtp_End").Value,
+                GetControlByName<DateTimePicker>(pControlList, "dtp_DueDate").Value,
+                GetControlByName<NumericUpDown>(pControlList, "num_Budget").Value,
+                (Convert.ToInt32(GetControlByName<NumericUpDown>(pControlList, "num_EffortsHours").Value)*60) + Convert.ToInt32(GetControlByName<NumericUpDown>(pControlList, "num_EffortsMin").Value),
+                Convert.ToInt32(GetControlByName<NumericUpDown>(pControlList, "num_Priority").Value),
+                (GetControlByName<DateTimePicker>(pControlList, "dtp_Start").Value <= DateTime.Now) ? InteractionState.Active : InteractionState.Queued,
+                0,
+                0,
+                null,
+                0));
         }
 
         private void TaskButtonUpdate(List<Control> pControlList)

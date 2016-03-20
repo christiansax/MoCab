@@ -128,6 +128,14 @@ namespace PlexByte.MoCap.WinForms
             return tmp;
         }
 
+        public IUser CreateUserByUserName(string pUserName)
+        {
+            IUser tmp = _objectManager.CreateUsers(_backendService.GetUserByUserName(pUserName)).First();
+            if (!UserList.Contains(tmp))
+                UserList.Add(tmp);
+            return tmp;
+        }
+
         public IUser AuthenticateUser(string pUserName, string pPassword)
         {
             return _objectManager.CreateUsers(_backendService.AuthenticateUser(pUserName, pPassword)).First();

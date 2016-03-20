@@ -80,6 +80,10 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
+            this.dtp_Start = new System.Windows.Forms.DateTimePicker();
+            this.dtp_End = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_Subtasks)).BeginInit();
@@ -104,7 +108,7 @@
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Enabled = false;
-            this.groupBox1.Location = new System.Drawing.Point(12, 201);
+            this.groupBox1.Location = new System.Drawing.Point(12, 228);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(625, 75);
             this.groupBox1.TabIndex = 12;
@@ -185,7 +189,7 @@
             // 
             // btn_Subtask
             // 
-            this.btn_Subtask.Location = new System.Drawing.Point(554, 282);
+            this.btn_Subtask.Location = new System.Drawing.Point(554, 307);
             this.btn_Subtask.Name = "btn_Subtask";
             this.btn_Subtask.Size = new System.Drawing.Size(75, 23);
             this.btn_Subtask.TabIndex = 20;
@@ -195,7 +199,7 @@
             // btn_Update
             // 
             this.btn_Update.Enabled = false;
-            this.btn_Update.Location = new System.Drawing.Point(288, 282);
+            this.btn_Update.Location = new System.Drawing.Point(288, 307);
             this.btn_Update.Name = "btn_Update";
             this.btn_Update.Size = new System.Drawing.Size(75, 23);
             this.btn_Update.TabIndex = 19;
@@ -204,7 +208,7 @@
             // 
             // btn_New
             // 
-            this.btn_New.Location = new System.Drawing.Point(21, 282);
+            this.btn_New.Location = new System.Drawing.Point(21, 307);
             this.btn_New.Name = "btn_New";
             this.btn_New.Size = new System.Drawing.Size(75, 23);
             this.btn_New.TabIndex = 18;
@@ -217,9 +221,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.dgw_Subtasks);
-            this.groupBox2.Location = new System.Drawing.Point(12, 311);
+            this.groupBox2.Location = new System.Drawing.Point(12, 336);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(625, 178);
+            this.groupBox2.Size = new System.Drawing.Size(625, 199);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sub Tasks";
@@ -257,7 +261,7 @@
             this.dgw_Subtasks.ShowCellToolTips = false;
             this.dgw_Subtasks.ShowEditingIcon = false;
             this.dgw_Subtasks.ShowRowErrors = false;
-            this.dgw_Subtasks.Size = new System.Drawing.Size(610, 152);
+            this.dgw_Subtasks.Size = new System.Drawing.Size(610, 173);
             this.dgw_Subtasks.TabIndex = 0;
             // 
             // Id
@@ -327,6 +331,10 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.dtp_End);
+            this.groupBox3.Controls.Add(this.dtp_Start);
             this.groupBox3.Controls.Add(this.btn_AssignProject);
             this.groupBox3.Controls.Add(this.num_Budget);
             this.groupBox3.Controls.Add(this.num_TotalCosts);
@@ -356,7 +364,7 @@
             this.groupBox3.Controls.Add(this.label26);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(625, 183);
+            this.groupBox3.Size = new System.Drawing.Size(625, 210);
             this.groupBox3.TabIndex = 29;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Settings";
@@ -611,11 +619,49 @@
             this.label26.TabIndex = 28;
             this.label26.Text = "Title:";
             // 
+            // dtp_Start
+            // 
+            this.dtp_Start.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
+            this.dtp_Start.Enabled = false;
+            this.dtp_Start.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_Start.Location = new System.Drawing.Point(89, 178);
+            this.dtp_Start.Name = "dtp_Start";
+            this.dtp_Start.Size = new System.Drawing.Size(214, 20);
+            this.dtp_Start.TabIndex = 50;
+            // 
+            // dtp_End
+            // 
+            this.dtp_End.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
+            this.dtp_End.Enabled = false;
+            this.dtp_End.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_End.Location = new System.Drawing.Point(416, 178);
+            this.dtp_End.Name = "dtp_End";
+            this.dtp_End.Size = new System.Drawing.Size(201, 20);
+            this.dtp_End.TabIndex = 51;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 183);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "Start DateTime:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(324, 183);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.TabIndex = 53;
+            this.label2.Text = "End DateTime:";
+            // 
             // uc_Task
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 510);
+            this.ClientSize = new System.Drawing.Size(652, 547);
             this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.btn_Subtask);
             this.Controls.Add(this.groupBox3);
@@ -692,5 +738,9 @@
         private System.Windows.Forms.NumericUpDown num_TotalCosts;
         private System.Windows.Forms.NumericUpDown num_Budget;
         private System.Windows.Forms.Button btn_AssignProject;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dtp_End;
+        private System.Windows.Forms.DateTimePicker dtp_Start;
     }
 }

@@ -16,6 +16,7 @@ namespace PlexByte.MoCap.Interactions
 
         ITask CreateTask(string pId,
             string pText,
+            string pTitle,
             IUser pCreator,
             DateTime pStartDT,
             DateTime pEndDT,

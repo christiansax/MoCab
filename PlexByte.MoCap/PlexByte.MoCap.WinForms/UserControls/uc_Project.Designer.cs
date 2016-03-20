@@ -41,13 +41,14 @@
             this.label22 = new System.Windows.Forms.Label();
             this.lbl_Countdown = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btn_ChangeOwner = new System.Windows.Forms.Button();
             this.tbx_Owner = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbx_Description = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbx_Title = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_Tasks = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,7 +59,7 @@
             this.Owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Progress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgv_Surveys = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,12 +80,11 @@
             this.btn_Create = new System.Windows.Forms.Button();
             this.btn_InviteUser = new System.Windows.Forms.Button();
             this.btn_AcceptInvite = new System.Windows.Forms.Button();
-            this.btn_ChangeOwner = new System.Windows.Forms.Button();
             this.gbx_ProjectSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Tasks)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Surveys)).BeginInit();
             this.gbx_ProjectActivity.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -232,6 +232,17 @@
             this.label4.TabIndex = 56;
             this.label4.Text = "Countdown:";
             // 
+            // btn_ChangeOwner
+            // 
+            this.btn_ChangeOwner.Enabled = false;
+            this.btn_ChangeOwner.Location = new System.Drawing.Point(266, 107);
+            this.btn_ChangeOwner.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_ChangeOwner.Name = "btn_ChangeOwner";
+            this.btn_ChangeOwner.Size = new System.Drawing.Size(45, 28);
+            this.btn_ChangeOwner.TabIndex = 6;
+            this.btn_ChangeOwner.Text = "=>";
+            this.btn_ChangeOwner.UseVisualStyleBackColor = true;
+            // 
             // tbx_Owner
             // 
             this.tbx_Owner.Enabled = false;
@@ -282,7 +293,7 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.dgv_Tasks);
             this.groupBox2.Location = new System.Drawing.Point(14, 267);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
@@ -292,17 +303,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tasks";
             // 
-            // dataGridView1
+            // dgv_Tasks
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgv_Tasks.AllowUserToAddRows = false;
+            this.dgv_Tasks.AllowUserToDeleteRows = false;
+            this.dgv_Tasks.AllowUserToOrderColumns = true;
+            this.dgv_Tasks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeight = 20;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_Tasks.ColumnHeadersHeight = 20;
+            this.dgv_Tasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgv_Tasks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Title,
             this.DueDate,
@@ -312,21 +323,21 @@
             this.CurrentDuration,
             this.Owner,
             this.Progress});
-            this.dataGridView1.Location = new System.Drawing.Point(8, 24);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 15;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.ShowCellErrors = false;
-            this.dataGridView1.ShowCellToolTips = false;
-            this.dataGridView1.ShowEditingIcon = false;
-            this.dataGridView1.ShowRowErrors = false;
-            this.dataGridView1.Size = new System.Drawing.Size(623, 75);
-            this.dataGridView1.TabIndex = 1;
+            this.dgv_Tasks.Location = new System.Drawing.Point(8, 24);
+            this.dgv_Tasks.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_Tasks.MultiSelect = false;
+            this.dgv_Tasks.Name = "dgv_Tasks";
+            this.dgv_Tasks.ReadOnly = true;
+            this.dgv_Tasks.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgv_Tasks.RowHeadersVisible = false;
+            this.dgv_Tasks.RowTemplate.Height = 15;
+            this.dgv_Tasks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_Tasks.ShowCellErrors = false;
+            this.dgv_Tasks.ShowCellToolTips = false;
+            this.dgv_Tasks.ShowEditingIcon = false;
+            this.dgv_Tasks.ShowRowErrors = false;
+            this.dgv_Tasks.Size = new System.Drawing.Size(623, 75);
+            this.dgv_Tasks.TabIndex = 1;
             // 
             // Id
             // 
@@ -395,7 +406,7 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.dataGridView2);
+            this.groupBox3.Controls.Add(this.dgv_Surveys);
             this.groupBox3.Location = new System.Drawing.Point(14, 375);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
@@ -405,17 +416,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Surveys";
             // 
-            // dataGridView2
+            // dgv_Surveys
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToOrderColumns = true;
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgv_Surveys.AllowUserToAddRows = false;
+            this.dgv_Surveys.AllowUserToDeleteRows = false;
+            this.dgv_Surveys.AllowUserToOrderColumns = true;
+            this.dgv_Surveys.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView2.ColumnHeadersHeight = 20;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_Surveys.ColumnHeadersHeight = 20;
+            this.dgv_Surveys.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgv_Surveys.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
@@ -423,21 +434,21 @@
             this.UserInSurvey,
             this.UserCount,
             this.dataGridViewTextBoxColumn9});
-            this.dataGridView2.Location = new System.Drawing.Point(8, 26);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView2.MultiSelect = false;
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.RowTemplate.Height = 15;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.ShowCellErrors = false;
-            this.dataGridView2.ShowCellToolTips = false;
-            this.dataGridView2.ShowEditingIcon = false;
-            this.dataGridView2.ShowRowErrors = false;
-            this.dataGridView2.Size = new System.Drawing.Size(623, 82);
-            this.dataGridView2.TabIndex = 2;
+            this.dgv_Surveys.Location = new System.Drawing.Point(8, 26);
+            this.dgv_Surveys.Margin = new System.Windows.Forms.Padding(4);
+            this.dgv_Surveys.MultiSelect = false;
+            this.dgv_Surveys.Name = "dgv_Surveys";
+            this.dgv_Surveys.ReadOnly = true;
+            this.dgv_Surveys.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgv_Surveys.RowHeadersVisible = false;
+            this.dgv_Surveys.RowTemplate.Height = 15;
+            this.dgv_Surveys.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_Surveys.ShowCellErrors = false;
+            this.dgv_Surveys.ShowCellToolTips = false;
+            this.dgv_Surveys.ShowEditingIcon = false;
+            this.dgv_Surveys.ShowRowErrors = false;
+            this.dgv_Surveys.Size = new System.Drawing.Size(623, 82);
+            this.dgv_Surveys.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -630,17 +641,6 @@
             this.btn_AcceptInvite.Text = "Accept Invite";
             this.btn_AcceptInvite.UseVisualStyleBackColor = true;
             // 
-            // btn_ChangeOwner
-            // 
-            this.btn_ChangeOwner.Enabled = false;
-            this.btn_ChangeOwner.Location = new System.Drawing.Point(266, 107);
-            this.btn_ChangeOwner.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_ChangeOwner.Name = "btn_ChangeOwner";
-            this.btn_ChangeOwner.Size = new System.Drawing.Size(45, 28);
-            this.btn_ChangeOwner.TabIndex = 6;
-            this.btn_ChangeOwner.Text = "=>";
-            this.btn_ChangeOwner.UseVisualStyleBackColor = true;
-            // 
             // uc_Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -661,9 +661,9 @@
             this.gbx_ProjectSettings.ResumeLayout(false);
             this.gbx_ProjectSettings.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Tasks)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Surveys)).EndInit();
             this.gbx_ProjectActivity.ResumeLayout(false);
             this.gbx_ProjectActivity.PerformLayout();
             this.ResumeLayout(false);
@@ -699,8 +699,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DueDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Title;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgv_Tasks;
+        private System.Windows.Forms.DataGridView dgv_Surveys;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;

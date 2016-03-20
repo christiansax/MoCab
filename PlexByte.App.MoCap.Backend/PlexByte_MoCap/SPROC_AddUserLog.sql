@@ -15,9 +15,8 @@ AS
 	BEGIN TRY
 		-- This is a new user, insert...
 		BEGIN TRANSACTION
-			select	@Id	=	format(getdate(), 'yyyyMMddHHmmssfff')
-			INSERT	INTO [UserLog]	([Id], [UserId], [LogDateTime])
-					VALUES			(@Id, @UserId, GETDATE())
+			INSERT	INTO [UserLog]	([UserId], [LogDateTime])
+					VALUES			(@UserId, GETDATE())
 		COMMIT TRANSACTION
 		SET @ResultMsg = @ResultMsg + ': Inserted';
 	END TRY

@@ -679,33 +679,74 @@ namespace PlexByte.MoCap.WinForms
 
         private void TaskButtonSave(List<Control> pControlList)
         {
-            // Initialize button state
-            List<Control> expCtrls = new List<Control>();
-            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Update"));
-            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_New"));
-            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Subtask"));
-            expCtrls.Add(GetControlByName<DataGridView>(pControlList, "dgw_Subtasks"));
-            UserButtonSetControlsState(pControlList, expCtrls, false);
-            GetControlByName<Button>(pControlList, "btn_New").Text = "New";
+            _errorProvider.Clear();
+            bool isError = false;
+            try
+            {
+                if (_userContext != null)
+                {
+                    if (GetControlByName<TextBox>(pControlList, "tbx_Description").Text.Length < 1)
+                    {
+                        isError = true;
+                        _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Description"), "You must specify a description");
+                    }
+                    if (GetControlByName<DateTimePicker>(pControlList, "dtp_Start").Value < DateTime.Now)
+                    {
+                        isError = true;
+                        _errorProvider.SetError(GetControlByName<DateTimePicker>(pControlList, "dtp_Start"), "Start date cannot be set in the past");
+                    }
+                    if  (GetControlByName<DateTimePicker>(pControlList, "dtp_End").Value < GetControlByName<DateTimePicker>(pControlList, "dtp_Start").Value.AddDays(1))
+                    {
+                        isError = true;
+                        _errorProvider.SetError(GetControlByName<DateTimePicker>(pControlList, "dtp_End"), "End date must be at least one day ahead of start date");
+                    }
 
-            // Get the form
-            uc_Task tmp = (uc_Task)pControlList[0].Parent;
+                    if (!isError)
+                    {
+                        // Initialize button state
+                        List<Control> expCtrls = new List<Control>();
+                        expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Update"));
+                        expCtrls.Add(GetControlByName<Button>(pControlList, "btn_New"));
+                        expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Subtask"));
+                        expCtrls.Add(GetControlByName<DataGridView>(pControlList, "dgw_Subtasks"));
+                        UserButtonSetControlsState(pControlList, expCtrls, false);
+                        GetControlByName<Button>(pControlList, "btn_New").Text = "New";
 
-            // Save task
-           _dataManager.TaskList.Add(_interactionFactory.CreateTask(tmp.TaskId,
-                GetControlByName<TextBox>(pControlList, "tbx_Description").Text,
-                _userContext,
-                GetControlByName<DateTimePicker>(pControlList, "dtp_Start").Value,
-                GetControlByName<DateTimePicker>(pControlList, "dtp_End").Value,
-                GetControlByName<DateTimePicker>(pControlList, "dtp_DueDate").Value,
-                GetControlByName<NumericUpDown>(pControlList, "num_Budget").Value,
-                (Convert.ToInt32(GetControlByName<NumericUpDown>(pControlList, "num_EffortsHours").Value)*60) + Convert.ToInt32(GetControlByName<NumericUpDown>(pControlList, "num_EffortsMin").Value),
-                Convert.ToInt32(GetControlByName<NumericUpDown>(pControlList, "num_Priority").Value),
-                (GetControlByName<DateTimePicker>(pControlList, "dtp_Start").Value <= DateTime.Now) ? InteractionState.Active : InteractionState.Queued,
-                0,
-                0,
-                null,
-                0));
+                        // Get the form
+                        uc_Task tmp = (uc_Task) pControlList[0].Parent;
+
+                        // Save task
+                        ITask task = _interactionFactory.CreateTask(tmp.TaskId,
+                            GetControlByName<TextBox>(pControlList, "tbx_Description").Text,
+                            _userContext,
+                            GetControlByName<DateTimePicker>(pControlList, "dtp_Start").Value,
+                            GetControlByName<DateTimePicker>(pControlList, "dtp_End").Value,
+                            GetControlByName<DateTimePicker>(pControlList, "dtp_DueDate").Value,
+                            GetControlByName<NumericUpDown>(pControlList, "num_Budget").Value,
+                            (Convert.ToInt32(GetControlByName<NumericUpDown>(pControlList, "num_EffortsHours").Value)*60) +
+                            Convert.ToInt32(GetControlByName<NumericUpDown>(pControlList, "num_EffortsMin").Value),
+                            Convert.ToInt32(GetControlByName<NumericUpDown>(pControlList, "num_Priority").Value),
+                            (GetControlByName<DateTimePicker>(pControlList, "dtp_Start").Value <= DateTime.Now) ? InteractionState.Active : InteractionState.Queued,
+                            0,
+                            0,
+                            null,
+                            0);
+                        _dataManager.TaskList.Add(task);
+                        _dataManager.InsertTask()
+                        tmp.TabText = $"Task Details ({task.Id})";
+                    }
+                    else
+                        return;
+                }
+                else
+                {
+                    _MainUI.ShowErrorMessage("You must login first!");
+                }
+            }
+            catch (Exception exp)
+            {
+                _MainUI.ShowErrorMessage($"Exception caught: {exp.Message}");
+            }
         }
 
         private void TaskButtonUpdate(List<Control> pControlList)

@@ -159,12 +159,13 @@ namespace PlexByte.MoCap.WinForms
             DateTime pStartDate,
             DateTime pEndDate,
             string pOwner,
+            string pCreator,
             int pEnableBalance,
             int pEnableSurvey,
             int pIsActive,
             string pStateId)
         {
-            _backendService.InsertProject(pProjectId, pTitle, pDescription, pStartDate, pEndDate, pOwner, pEnableBalance, pEnableSurvey, pIsActive, pOwner, pStateId);
+            _backendService.InsertProject(pProjectId, pTitle, pDescription, pStartDate, pEndDate, pOwner, pEnableBalance, pEnableSurvey, pIsActive, pCreator, pStateId);
         }
 
         public DateTime GetLastUserLogin(string pUserId) { return _backendService.LastUserLogin(pUserId); }

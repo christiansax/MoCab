@@ -944,7 +944,7 @@ namespace PlexByte.MoCap.WinForms
         {
             List <IProject> _Project = _dataManager.ProjectList;
             List<IUser> _MemberList = null;
-
+            string _NewOwnerId = null;
 
             foreach (Project pProject in _Project)
             {
@@ -961,6 +961,8 @@ namespace PlexByte.MoCap.WinForms
             // Show the UserSelectionList form
             _OwnerSelectionList.Show();
 
+            if (_OwnerSelectionList.NewOwnerId != _userContext.Id)
+                _NewOwnerId = _OwnerSelectionList.NewOwnerId;
         }
 
 

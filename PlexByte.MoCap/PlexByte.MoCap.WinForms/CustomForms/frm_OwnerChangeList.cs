@@ -14,6 +14,7 @@ namespace PlexByte.MoCap.WinForms.CustomForms
 {
     public partial class frm_OwnerChangeList : Form
     {
+        public string NewOwnerId { get; private set; }
         private string _projectId = null;
         private string _UserId = null;
         List<IUser> _MemberList = null;
@@ -46,9 +47,10 @@ namespace PlexByte.MoCap.WinForms.CustomForms
         /// <summary>
         /// Adds a row from availableUsers to selectedUsers, updates the UserIds and removes the row from the availableUsers dgw
         /// </summary>
-        public void UserSelectionAddUser()
+        public void UserSelectionSelectOwner()
         {
-
+            if (dgw_AvailUsers.SelectedRows[0].Cells["Id"].ToString() != _UserId)
+                NewOwnerId = dgw_AvailUsers.SelectedRows[0].Cells["Id"].ToString();
         }
     }
 }

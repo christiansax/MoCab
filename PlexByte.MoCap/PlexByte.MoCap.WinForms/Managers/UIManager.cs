@@ -732,7 +732,7 @@ namespace PlexByte.MoCap.WinForms
                             null,
                             0);
                         _dataManager.TaskList.Add(task);
-                        _dataManager.InsertTask()
+                        _dataManager.InsertTask();
                         tmp.TabText = $"Task Details ({task.Id})";
                     }
                     else

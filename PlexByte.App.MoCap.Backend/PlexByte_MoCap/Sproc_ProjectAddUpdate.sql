@@ -32,8 +32,8 @@ AS
 						VALUES					(@Id, @StartDateTime, @EndDateTime, @IsActive, @Description, 1, @CreatorId, 
 												@OwnerId, @StateId, GETDATE(), GETDATE())
 
-				INSERT INTO [dbo].[Project]		([Id], [Name], [EnableBalance], [EnableSurvey], [CreatedDateTime], [ModifiedDateTime])
-						VALUES					(@ProjectId, @Name, @EnableBalance, @EnableSurvey, GETDATE(), GETDATE())
+				INSERT INTO [dbo].[Project]		([Id], [Name], [InteractionId], [EnableBalance], [EnableSurvey], [CreatedDateTime], [ModifiedDateTime])
+						VALUES					(@ProjectId, @Name, @Id, @EnableBalance, @EnableSurvey, GETDATE(), GETDATE())
 			COMMIT TRANSACTION
 			SET @ResultMsg = @ResultMsg + ': Inserted';
 		END TRY

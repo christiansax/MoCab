@@ -596,7 +596,7 @@ namespace PlexByte.MoCap.Backend
         {
             string execString = string.Empty;
             using (SqlConnection connection = new SqlConnection(_connectionString))
-            {
+            {/*
                 // Create the command and set its properties.
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
@@ -745,7 +745,7 @@ namespace PlexByte.MoCap.Backend
                 {
                     Console.WriteLine("No rows found.");
                 }
-                reader.Close();
+                reader.Close();*/
             }
         }
     }

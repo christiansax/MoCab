@@ -867,17 +867,17 @@ namespace PlexByte.MoCap.WinForms
                         _dataManager.ProjectList.Add(_NewProject);
 
                         //Insert project in db
-                        //_dataManager.InsertProject(_ProjectId,
-                        //    GetControlByName<TextBox>(pControlList, "tbx_Title").Text,
-                        //    GetControlByName<TextBox>(pControlList, "tbx_Description").Text,
-                        //    GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value,
-                        //    GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value,
-                        //    UserContext.Id,
-                        //    UserContext.Id,
-                        //    Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").CheckState),
-                        //    Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").CheckState),
-                        //    _IsActive,
-                        //    Convert.ToString(_StateId));
+                        _dataManager.InsertProject(_ProjectId,
+                            GetControlByName<TextBox>(pControlList, "tbx_Title").Text,
+                            GetControlByName<TextBox>(pControlList, "tbx_Description").Text,
+                            GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value,
+                            GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value,
+                            UserContext.Id,
+                            UserContext.Id,
+                            Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").CheckState),
+                            Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").CheckState),
+                            _IsActive,
+                            Convert.ToString(_StateId));
 
 
 

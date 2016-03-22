@@ -79,7 +79,6 @@
             this.btn_Update = new System.Windows.Forms.Button();
             this.btn_Create = new System.Windows.Forms.Button();
             this.btn_InviteUser = new System.Windows.Forms.Button();
-            this.btn_AcceptInvite = new System.Windows.Forms.Button();
             this.gbx_ProjectSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Tasks)).BeginInit();
@@ -624,29 +623,18 @@
             // btn_InviteUser
             // 
             this.btn_InviteUser.Enabled = false;
-            this.btn_InviteUser.Location = new System.Drawing.Point(407, 239);
+            this.btn_InviteUser.Location = new System.Drawing.Point(545, 239);
             this.btn_InviteUser.Name = "btn_InviteUser";
             this.btn_InviteUser.Size = new System.Drawing.Size(100, 28);
             this.btn_InviteUser.TabIndex = 29;
             this.btn_InviteUser.Text = "Invite User";
             this.btn_InviteUser.UseVisualStyleBackColor = true;
             // 
-            // btn_AcceptInvite
-            // 
-            this.btn_AcceptInvite.Enabled = false;
-            this.btn_AcceptInvite.Location = new System.Drawing.Point(545, 239);
-            this.btn_AcceptInvite.Name = "btn_AcceptInvite";
-            this.btn_AcceptInvite.Size = new System.Drawing.Size(100, 28);
-            this.btn_AcceptInvite.TabIndex = 30;
-            this.btn_AcceptInvite.Text = "Accept Invite";
-            this.btn_AcceptInvite.UseVisualStyleBackColor = true;
-            // 
             // uc_Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(670, 500);
-            this.Controls.Add(this.btn_AcceptInvite);
             this.Controls.Add(this.btn_InviteUser);
             this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.btn_Create);
@@ -721,7 +709,6 @@
         private System.Windows.Forms.DateTimePicker dtp_StartDate;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_InviteUser;
-        private System.Windows.Forms.Button btn_AcceptInvite;
         private System.Windows.Forms.Button btn_ChangeOwner;
     }
 }

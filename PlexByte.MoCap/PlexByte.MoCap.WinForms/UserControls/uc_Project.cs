@@ -17,7 +17,7 @@ namespace PlexByte.MoCap.WinForms.UserControls
             btn_Create.Click += new EventHandler(pManagerInstance.ProjectButtonClicked);
             btn_Update.Click += new EventHandler(pManagerInstance.ProjectButtonClicked);
             btn_InviteUser.Click += new EventHandler(pManagerInstance.ProjectButtonClicked);
-            btn_AcceptInvite.Click += new EventHandler(pManagerInstance.ProjectButtonClicked);
+            btn_ChangeOwner.Click += new EventHandler(pManagerInstance.ProjectButtonClicked);
         }
     }
 }

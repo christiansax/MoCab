@@ -289,8 +289,8 @@ namespace PlexByte.MoCap.WinForms
                 case "btn_InviteUser":
                     ProjectButtonInviteUser(ctrls);
                     break;
-                case "btn_AcceptInvite":
-                    ProjectButtonAcceptInvite(ctrls);
+                case "btn_ChangeOwner":
+                    ProjectButtonChangeOwner(ctrls);
                     break;
                 default:
                     break;
@@ -810,7 +810,7 @@ namespace PlexByte.MoCap.WinForms
                 {
                     _MainUI.Enabled = false;
                     bool bError = false;
-                    int _IsActive = Convert.ToInt32(false);
+                    int _IsActive = Convert.ToByte(false);
                     int _StateId = Convert.ToInt32(InteractionState.Queued);
                     string _ProjectId = null;
 
@@ -850,13 +850,13 @@ namespace PlexByte.MoCap.WinForms
                         //Convert
                         if (GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value <= DateTime.Now)
                         {
-                            _IsActive = Convert.ToInt32(true);
+                            _IsActive = Convert.ToByte(true);
                             _StateId = Convert.ToInt32(InteractionState.Active);
                         }
                         
 
                         //Create project
-                        _interactionFactory.CreateProject(_ProjectId,
+                        IProject _NewProject = _interactionFactory.CreateProject(_ProjectId,
                             GetControlByName<TextBox>(pControlList, "tbx_Title").Text + ";" + GetControlByName<TextBox>(pControlList, "tbx_Description").Text,
                             Convert.ToBoolean(GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").CheckState),
                             Convert.ToBoolean(GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").CheckState),
@@ -864,18 +864,20 @@ namespace PlexByte.MoCap.WinForms
                             GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value,
                             UserContext);
 
+                        _dataManager.ProjectList.Add(_NewProject);
 
                         //Insert project in db
-                        _dataManager.InsertProject(_ProjectId,
-                            GetControlByName<TextBox>(pControlList, "tbx_Title").Text,
-                            GetControlByName<TextBox>(pControlList, "tbx_Description").Text,
-                            GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value,
-                            GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value,
-                            GetControlByName<TextBox>(pControlList, "tbx_Owner").Text,
-                            Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").CheckState),
-                            Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").CheckState),
-                            _IsActive,
-                            Convert.ToString(_StateId));
+                        //_dataManager.InsertProject(_ProjectId,
+                        //    GetControlByName<TextBox>(pControlList, "tbx_Title").Text,
+                        //    GetControlByName<TextBox>(pControlList, "tbx_Description").Text,
+                        //    GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value,
+                        //    GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value,
+                        //    UserContext.Id,
+                        //    UserContext.Id,
+                        //    Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").CheckState),
+                        //    Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").CheckState),
+                        //    _IsActive,
+                        //    Convert.ToString(_StateId));
 
 
 
@@ -919,6 +921,7 @@ namespace PlexByte.MoCap.WinForms
                 //Eisable setting controls for editing project
                 GetControlByName<Button>(pControlList, "btn_Update").Enabled = false;
                 GetControlByName<Button>(pControlList, "btn_InviteUser").Enabled = false;
+                GetControlByName<Button>(pControlList, "btn_ChangeOwner").Enabled = true;
                 GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").Enabled = true;
                 GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").Enabled = true;
                 GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Enabled = true;
@@ -933,20 +936,66 @@ namespace PlexByte.MoCap.WinForms
             }
         }
 
+        /// <summary>
+        /// This method opens a form to select a new owner for the project
+        /// </summary>
+        /// <param name="pControlList"></param>
+        private void ProjectButtonChangeOwner(List<Control> pControlList)
+        {
+            List <IProject> _Project = _dataManager.ProjectList;
+            List<IUser> _MemberList = null;
+            string _NewOwnerId = null;
+
+            foreach (Project pProject in _Project)
+            {
+                if(pProject.Name == GetControlByName<TextBox>(pControlList, "tbx_Title").Text)
+                {
+                    _MemberList = pProject.MemberList;
+                }
+            }
+
+
+            // Create a new instance of the UserSelectionList class
+            frm_OwnerChangeList _OwnerSelectionList = new frm_OwnerChangeList(_MemberList, _userContext.Id);
+
+            // Show the UserSelectionList form
+            _OwnerSelectionList.Show();
+
+            if (_OwnerSelectionList.NewOwnerId != _userContext.Id)
+                _NewOwnerId = _OwnerSelectionList.NewOwnerId;
+        }
+
+
         private void ProjectButtonUpdatel(List<Control> pControlList)
         {
             throw new NotImplementedException();
         }
 
-        private void ProjectButtonAcceptInvite(List<Control> ctrls)
+        /// <summary>
+        /// This method opens a form to invite users to the project
+        /// </summary>
+        /// <param name="pControlList"></param>
+        private void ProjectButtonInviteUser(List<Control> pControlList)
         {
-            throw new NotImplementedException();
+            List<IProject> _Project = _dataManager.ProjectList;
+            string _ProjectId = null;
+
+            foreach (Project pProject in _Project)
+            {
+                if (pProject.Name == GetControlByName<TextBox>(pControlList, "tbx_Title").Text)
+                {
+                    _ProjectId = pProject.Id;
+                }
+            }
+            
+
+            // Create a new instance of the UserSelectionList class
+            frm_UserSelectionList _UserSelectionList = new frm_UserSelectionList(_ProjectId, _userContext.Id);
+
+            // Show the UserSelectionList form
+            _UserSelectionList.Show();
         }
 
-        private void ProjectButtonInviteUser(List<Control> ctrls)
-        {
-            throw new NotImplementedException();
-        }
 
         private void GenerateOverviewPanel()
         {

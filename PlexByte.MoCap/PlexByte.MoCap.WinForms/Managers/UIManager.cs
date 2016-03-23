@@ -815,6 +815,12 @@ namespace PlexByte.MoCap.WinForms
                     string _ProjectId = null;
 
 
+                    if (GetControlByName<TextBox>(pControlList, "tbx_Title").Text.Contains(";"))
+                    {
+                        _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Title"),
+                            "The symbol ';' is not allowed in Title");
+                        bError = true;
+                    }
                     if (GetControlByName<TextBox>(pControlList, "tbx_Title").Text.Length < 1)
                     {
                         _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Title"),

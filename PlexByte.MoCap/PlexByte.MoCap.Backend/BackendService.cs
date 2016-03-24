@@ -596,130 +596,130 @@ namespace PlexByte.MoCap.Backend
         {
             string execString = string.Empty;
             using (SqlConnection connection = new SqlConnection(_connectionString))
-            {/*
+            {
                 // Create the command and set its properties.
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
-                command.CommandText = "Sproc_UserAddUpdate";
+                command.CommandText = "Sproc_TaskAddUpdate";
                 command.CommandType = CommandType.StoredProcedure;
 
                 // Add the input parameter and set its properties.
                 SqlParameter parameter = new SqlParameter("@TaskId", SqlDbType.BigInt)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = Convert.ToInt64(pUserId)
+                    Value = Convert.ToInt64(TaskId)
                 };
                 command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@InteractionId", SqlDbType.NVarChar)
+                parameter = new SqlParameter("@InteractionId", SqlDbType.BigInt)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = pFirstName
+                    Value = Convert.ToInt64(InteractionId)
                 };
                 command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@DueDateTime", SqlDbType.NVarChar)
+                parameter = new SqlParameter("@DueDateTime", SqlDbType.Date)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = pLastName
+                    Value = DueDateTime
                 };
                 command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@Budget", SqlDbType.NVarChar)
+                parameter = new SqlParameter("@Budget", SqlDbType.Decimal)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = pMiddleName
+                    Value = Budget
                 };
                 command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@Duration", SqlDbType.NVarChar)
+                parameter = new SqlParameter("@Duration", SqlDbType.Int)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = pEmail
+                    Value = Duration
                 };
                 command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@Priority", SqlDbType.DateTime)
+                parameter = new SqlParameter("@Priority", SqlDbType.Int)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = pBirthdate
+                    Value = Priority
                 };
                 command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@Progress", SqlDbType.NVarChar)
+                parameter = new SqlParameter("@Progress", SqlDbType.Int)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = pUserName
+                    Value = Progress
                 };
                 command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@DurationUsed", SqlDbType.NVarChar)
+                parameter = new SqlParameter("@DurationUsed", SqlDbType.Int)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = pPassword
+                    Value = DurationUsed
                 };
                 command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@BudgetUsed", SqlDbType.NVarChar)
+                parameter = new SqlParameter("@BudgetUsed", SqlDbType.Decimal)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = pPassword
+                    Value = BudgetUsed
                 };
                 command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@StartDateTime", SqlDbType.NVarChar)
+                parameter = new SqlParameter("@StartDateTime", SqlDbType.Date)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = pPassword
+                    Value = StartDateTime
                 };
                 command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@EndDateTime", SqlDbType.NVarChar)
+                parameter = new SqlParameter("@EndDateTime", SqlDbType.Date)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = pPassword
+                    Value = EndDateTime
                 };
                 command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@IsActive", SqlDbType.NVarChar)
+                parameter = new SqlParameter("@IsActive", SqlDbType.Bit)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = pPassword
+                    Value = IsActive
                 };
                 command.Parameters.Add(parameter);
 
                 parameter = new SqlParameter("@Text", SqlDbType.NVarChar)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = pPassword
+                    Value = Text
                 };
                 command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@CreatorId", SqlDbType.NVarChar)
+                parameter = new SqlParameter("@CreatorId", SqlDbType.BigInt)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = pPassword
+                    Value = CreatorId
                 };
                 command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@OwnerId", SqlDbType.NVarChar)
+                parameter = new SqlParameter("@OwnerId", SqlDbType.BigInt)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = pPassword
+                    Value = OwnerId
                 };
                 command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@StateId", SqlDbType.NVarChar)
+                parameter = new SqlParameter("@StateId", SqlDbType.BigInt)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = pPassword
+                    Value = StateId
                 };
                 command.Parameters.Add(parameter);
 
-                parameter = new SqlParameter("@ProjectId", SqlDbType.NVarChar)
+                parameter = new SqlParameter("@ProjectId", SqlDbType.BigInt)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = pPassword
+                    Value = ProjectId
                 };
                 command.Parameters.Add(parameter);
 
@@ -745,7 +745,7 @@ namespace PlexByte.MoCap.Backend
                 {
                     Console.WriteLine("No rows found.");
                 }
-                reader.Close();*/
+                reader.Close();
             }
         }
     }

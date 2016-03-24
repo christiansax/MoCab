@@ -169,6 +169,8 @@ namespace PlexByte.MoCap.WinForms
         }
 
         public DateTime GetLastUserLogin(string pUserId) { return _backendService.LastUserLogin(pUserId); }
-        public void InsertTask() { throw new NotImplementedException(); }
+        public void InsertTask() {
+            _backendService.InsertTask()
+        }
     }
 }

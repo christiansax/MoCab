@@ -345,22 +345,31 @@ namespace PlexByte.MoCap.Managers
         {
             if (pForm.GetType() == typeof(uc_Project))
             {
-                return (_formManager.CreateObjectFromForm(pForm));
+                return (T)(_formManager.CreateObjectFromForm<IProject>(pForm));
             }
             else if (pForm.GetType() == typeof(uc_User))
             {
+                return (T)(_formManager.CreateObjectFromForm<IUser>(pForm));
             }
             else if (pForm.GetType() == typeof(uc_Task))
             {
+                return (T)(_formManager.CreateObjectFromForm<ITask>(pForm));
             }
             else if (pForm.GetType() == typeof(uc_Survey))
             {
+                return (T)(_formManager.CreateObjectFromForm<ISurvey>(pForm));
             }
             else if (pForm.GetType() == typeof(uc_Expense))
             {
+                return (T)(_formManager.CreateObjectFromForm<IExpense>(pForm));
             }
             else if (pForm.GetType() == typeof(uc_Timeslice))
             {
+                return (T)(_formManager.CreateObjectFromForm<ITimeslice>(pForm));
+            }
+            else
+            {
+                throw new InvalidCastException($"The type {pForm.GetType().ToString()} cannot be created as was never defined");
             }
         }
 

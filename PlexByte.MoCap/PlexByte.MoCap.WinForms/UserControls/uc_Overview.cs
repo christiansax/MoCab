@@ -88,8 +88,8 @@ namespace PlexByte.MoCap.WinForms.UserControls
         private void Initialize()
         {
             _manager.LastUserLogin();
-            BackendService backend = new BackendService();
-            ObjectManager objectManager = new ObjectManager(new DataManager());
+            // BackendService backend = new BackendService();
+            // ObjectManager objectManager = new ObjectManager(new DataManager());
             //objectManager.CreateInteractions(backend.)
         }
     }

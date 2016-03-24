@@ -170,59 +170,54 @@ namespace PlexByte.MoCap.Managers
 
         public DateTime GetLastUserLogin(string pUserId) { return _backendService.LastUserLogin(pUserId); }
         public void InsertTask() {
-            _backendService.InsertTask()
+           // _backendService.InsertTask()
         }
 
         #endregion
 
         #region NEW
 
-        public virtual IProject GetProjectById(string pId)
+        public IProject GetProjectById(string pId)
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual ITask GetTaskById(string pId)
+        public ITask GetTaskById(string pId)
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual ISurvey GetSurveyById(string pId)
+        public ISurvey GetSurveyById(string pId)
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual IExpense GetExpenseById(string pId)
+        public IExpense GetExpenseById(string pId)
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual ITimeslice GetTimesliceById(string pId)
+        public ITimeslice GetTimesliceById(string pId)
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual IUser GetUser(string pId)
+        public IUser GetUser(string pUserId, bool pIsUserName)
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual IUser GetUser(string pUserName)
+        public bool UpsertExpense(IExpense pExpense)
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual bool UpsertExpense(IExpense pExpense)
+        public bool UpsertProject(IProject pProject)
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual bool UpsertProject(IProject pProject)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public virtual bool UpsertSurvey(ISurvey pSurvey)
+        public bool UpsertSurvey(ISurvey pSurvey)
         {
             throw new System.NotImplementedException();
         }

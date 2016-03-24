@@ -5,19 +5,14 @@
 //      registers to all available events and executes the corresponding action
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Globalization;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using PlexByte.MoCap.Backend;
 using PlexByte.MoCap.Helpers;
 using PlexByte.MoCap.Interactions;
 using PlexByte.MoCap.Security;
 using PlexByte.MoCap.WinForms.CustomForms;
-using PlexByte.MoCap.WinForms.Managers;
 using PlexByte.MoCap.WinForms.UserControls;
 using WeifenLuo.WinFormsUI.Docking;
+using PlexByte.MoCap.Managers;
 
 namespace PlexByte.MoCap.WinForms
 {

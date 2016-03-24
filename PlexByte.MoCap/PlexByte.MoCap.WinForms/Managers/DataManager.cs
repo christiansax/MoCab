@@ -23,7 +23,7 @@ namespace PlexByte.MoCap.Managers
         public DataManager()
         {
             _backendService = new BackendService();
-            _objectManager = new ObjectManager(this);
+            // _objectManager = new ObjectManager(this);
             ProjectList=new List<IProject>();
             TaskList=new List<ITask>();
             SurveyList =new List<ISurvey>();

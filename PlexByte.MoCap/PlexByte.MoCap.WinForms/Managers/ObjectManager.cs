@@ -216,9 +216,10 @@ namespace PlexByte.MoCap.Managers
 
         #region NEW
 
+        
         DataManager _dataManager = new DataManager();
         FormManager _formManager = new FormManager();
-
+        
         #region Ctor & Dtor
 
         public ObjectManager(DataManager pDataManager)
@@ -232,7 +233,7 @@ namespace PlexByte.MoCap.Managers
             _updateTimer.AutoReset = false;
             _updateTimer.Elapsed += UpdateTimer_Elapsed;
 
-            _dataManager = pDataManager;
+            //_dataManager = pDataManager;
         }
 
         /// <summary>

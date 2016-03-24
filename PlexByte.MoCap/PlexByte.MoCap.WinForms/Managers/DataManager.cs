@@ -10,13 +10,13 @@ using System.Linq;
 using PlexByte.MoCap.Backend;
 using PlexByte.MoCap.Interactions;
 using PlexByte.MoCap.Security;
-using PlexByte.MoCap.WinForms.Managers;
-using System.Windows.Forms;
 
-namespace PlexByte.MoCap.WinForms
+namespace PlexByte.MoCap.Managers
 {
     public class DataManager:IDisposable
     {
+        #region OLD
+
         private ObjectManager _objectManager = null;
         private BackendService _backendService = null;
 
@@ -172,5 +172,106 @@ namespace PlexByte.MoCap.WinForms
         public void InsertTask() {
             _backendService.InsertTask()
         }
+
+        #endregion
+
+        #region NEW
+
+        public virtual IProject GetProjectById(string pId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual ITask GetTaskById(string pId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual ISurvey GetSurveyById(string pId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual IExpense GetExpenseById(string pId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual ITimeslice GetTimesliceById(string pId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual IUser GetUser(string pId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual IUser GetUser(string pUserName)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual bool UpsertExpense(IExpense pExpense)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual bool UpsertProject(IProject pProject)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual bool UpsertSurvey(ISurvey pSurvey)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual bool UpsertTask(ITask pTask)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual bool UpsertTimeslice(ITimeslice pTimeslice)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual bool UpsertUser(IUser pUser)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual ISurveyOption GetSurveyOption(string pId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual List<SurveyOption> GetSurveyOptions(string pSurveyId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual bool UpsertSurveyOption(ISurveyOption pSurveyOption)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual IVote GetVoteById(string pId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual List<IVote> GetVoteBySurveyId(string pId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual bool UpsertVote(IVote pVote)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        #endregion
     }
 }

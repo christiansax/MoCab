@@ -1,17 +1,27 @@
-﻿using System;
+﻿//////////////////////////////////////////////////////////////
+//                      Class ObjectManager
+//      Author: Christian B. Sax            Date:   2016/03/24
+//      The object manager controls the form- and dataManager. It is responsible 
+//      to maintain, create and convert objects from or to forms and finally updates 
+//      the database using BackendService.
+//      It also tracks each object instance created and provides access to then through
+//      its lists
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
-using System.Windows.Forms;
 using PlexByte.MoCap.Interactions;
 using PlexByte.MoCap.Security;
-using PlexByte.MoCap.WinForms.UserControls;
 using Timer = System.Timers.Timer;
+using WeifenLuo.WinFormsUI.Docking;
+using PlexByte.MoCap.WinForms.UserControls;
 
-namespace PlexByte.MoCap.WinForms.Managers
+namespace PlexByte.MoCap.Managers
 {
     public class ObjectManager : IDisposable
     {
+        #region OLD
+
         #region Delegates and Events
 
         /// <summary>
@@ -57,48 +67,15 @@ namespace PlexByte.MoCap.WinForms.Managers
         #endregion
 
         #region Variables
-
+        
         private IInteractionFactory _interactionFactory = null;
         private IObjectFactory _objectFactory = null;
         private Timer _updateTimer = null;
-        private DataManager _dataManager = null;
+        //  private DataManager _dataManager = null;
 
         #endregion
 
-        #region Ctor & Dtor
-
-        public ObjectManager(DataManager pDataManager)
-        {
-            // Instanciate factories to create object
-            _interactionFactory = new InteractionFactory();
-            _objectFactory = new ObjectFactory();
-
-            // Initialize the time which will periodically update the objects
-            _updateTimer = new Timer(20000);
-            _updateTimer.AutoReset = false;
-            _updateTimer.Elapsed += UpdateTimer_Elapsed;
-
-            _dataManager = pDataManager;
-        }
-
-        /// <summary>
-        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose()
-        {
-            _objectFactory = null;
-            _interactionFactory = null;
-            if (_updateTimer != null && _updateTimer.Enabled)
-            {
-                _updateTimer.Stop();
-                _updateTimer.Enabled = false;
-            }
-            _updateTimer = null;
-
-            _dataManager = null;
-        }
-
-        #endregion
+        
 
         #region Public methods
 
@@ -232,6 +209,165 @@ namespace PlexByte.MoCap.WinForms.Managers
         }
 
         private void UpdateTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e) { throw new NotImplementedException(); }
+
+        #endregion
+
+        #endregion
+
+        #region NEW
+
+        DataManager _dataManager = new DataManager();
+        FormManager _formManager = new FormManager();
+
+        #region Ctor & Dtor
+
+        public ObjectManager(DataManager pDataManager)
+        {
+            // Instanciate factories to create object
+            _interactionFactory = new InteractionFactory();
+            _objectFactory = new ObjectFactory();
+
+            // Initialize the time which will periodically update the objects
+            _updateTimer = new Timer(20000);
+            _updateTimer.AutoReset = false;
+            _updateTimer.Elapsed += UpdateTimer_Elapsed;
+
+            _dataManager = pDataManager;
+        }
+
+        /// <summary>
+        /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+        /// </summary>
+        public void Dispose()
+        {
+            _objectFactory = null;
+            _interactionFactory = null;
+            if (_updateTimer != null && _updateTimer.Enabled)
+            {
+                _updateTimer.Stop();
+                _updateTimer.Enabled = false;
+            }
+            _updateTimer = null;
+
+            if(_dataManager!=null)
+                _dataManager.Dispose();
+            _dataManager = null;
+
+            if (_formManager != null)
+                _formManager.Dispose();
+            _formManager = null;
+        }
+
+        #endregion
+
+        public List<IProject> ProjectList
+        {
+            get;
+            private set;
+        }
+
+        public List<ITask> TaskList
+        {
+            get;
+            private set;
+        }
+
+        public List<ISurvey> SurveyList
+        {
+            get;
+            private set;
+        }
+
+        public List<IExpense> ExpenseList
+        {
+            get;
+            private set;
+        }
+
+        public List<Timeslice> TimesliceList
+        {
+            get;
+            private set;
+        }
+
+        public List<IUser> UserList
+        {
+            get;
+            private set;
+        }
+
+        private void GetAllProjectUsers(string pProjectId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void GetAllTasks(string pId, bool pIsProjectId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void GetAllSurveys(string pId, bool pIsProjectId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void GetAllTimeslices(string pId, bool pIsProjectId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void GetAllExpenses(string pId, bool pIsProjectId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void InitializeDBObjects(string pUserId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public T GetObjectById<T>(string pId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void LoginUser(string pId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void LogoutUser()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public T CreateObjectFromForm<T>(DockContent pForm)
+        {
+            if (pForm.GetType() == typeof(uc_Project))
+            {
+                return (_formManager.CreateObjectFromForm(pForm));
+            }
+            else if (pForm.GetType() == typeof(uc_User))
+            {
+            }
+            else if (pForm.GetType() == typeof(uc_Task))
+            {
+            }
+            else if (pForm.GetType() == typeof(uc_Survey))
+            {
+            }
+            else if (pForm.GetType() == typeof(uc_Expense))
+            {
+            }
+            else if (pForm.GetType() == typeof(uc_Timeslice))
+            {
+            }
+        }
+
+        public DockContent CreateFormFromObject<T>(T pObject)
+        {
+            throw new System.NotImplementedException();
+        }
 
         #endregion
     }

@@ -39,6 +39,14 @@ namespace PlexByte.MoCap.Interactions
 
         IAccount CreateAccount(string pId, string pText, List<IExpense> pExpenseList, List<ITimeslice> pTimesliceList, IUser pCreator);
 
+        ITimeslice CreateTimeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT, IInteraction pTarget);
+
+        ITimeslice CreateTimeslice(string pId, IUser pUser, int pDuration, IInteraction pTarget);
+
+        IExpense CreateExpense(string pId, string pText, System.Drawing.Image pReceipt, decimal pValue, IUser pUser, IInteraction pTarget);
+
+        IExpense CreateExpense(string pId, string pText, IUser pUser, IInteraction pTarget);
+
         IProject CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator);
 
         IProject CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator, IUser pOwner, List<IUser> MemberList, List<IUser> InvitationList, List<ITask> TaskList, List<ISurvey> SurveyList, string pName);

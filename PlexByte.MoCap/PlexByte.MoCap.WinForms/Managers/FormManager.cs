@@ -56,10 +56,7 @@ namespace PlexByte.MoCap.Managers
 
             TimeSpan _Countdown = t.EndDateTime.Subtract(t.StartDateTime);
 
-
-
-
-
+            
             GetControlByName<TextBox>(ctrls, "tbx_Title").Text = t.Name;
             GetControlByName<TextBox>(ctrls, "tbx_Description").Text = t.Text;
             if (t.EnableBalance == true)
@@ -82,9 +79,24 @@ namespace PlexByte.MoCap.Managers
             return tmp;
         }
 
+        private void CreateAccountForm(IAccount pInstance)
+        {
+            throw new NotImplementedException();
+        }
+
         private DockContent CreateExpenseForm(IExpense pInstance)
         {
-            throw new System.NotImplementedException();
+            _errorProvider.Clear();
+            DockContent tmp = CreateContentPanel(UiType.Expense);
+            tmp.TabText = $"Expense Dialog ({pInstance.Target})";
+            List<Control> ctrls = GetAllControls(tmp);
+
+            Expense t = (Expense)pInstance;
+
+
+
+
+            return tmp;
         }
 
         private DockContent CreateSurveyForm(ISurvey pInstance)
@@ -94,7 +106,17 @@ namespace PlexByte.MoCap.Managers
 
         private DockContent CreateTimesliceForm(ITimeslice pInstance)
         {
-            throw new System.NotImplementedException();
+            _errorProvider.Clear();
+            DockContent tmp = CreateContentPanel(UiType.Timeslice);
+            tmp.TabText = $"Timeslice Dialog ({pInstance.Target})";
+            List<Control> ctrls = GetAllControls(tmp);
+
+            Timeslice t = (Timeslice)pInstance;
+
+
+
+
+            return tmp;
         }
 
         private DockContent CreateTaskForm(ITask pInstance)
@@ -162,18 +184,23 @@ namespace PlexByte.MoCap.Managers
             }
             else if (pInstance.GetType() == typeof(uc_Survey))
             {
-                
+
+            }
+            else if (pInstance.GetType() == typeof(uc_Account))
+            {
+                CreateAccountForm((IAccount)pObject);
             }
             else if (pInstance.GetType() == typeof(uc_Expense))
             {
-                
+                CreateExpenseForm((IExpense)pObject);
             }
             else if (pInstance.GetType() == typeof(uc_Timeslice))
             {
-                
+                CreateTimesliceForm((ITimeslice)pObject);
             }
             else { throw new InvalidCastException($"The type {pInstance.GetType().ToString()} is not a valid interaction type!"); }
         }
+
 
         public T CreateObjectFromForm<T>(DockContent pInstance)
         {

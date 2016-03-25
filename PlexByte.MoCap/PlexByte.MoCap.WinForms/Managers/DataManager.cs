@@ -6,6 +6,7 @@
 //      expose objects to calling classes only
 using System;
 using System.Collections.Generic;
+using System.Data;
 using PlexByte.MoCap.Interactions;
 using PlexByte.MoCap.Security;
 using PlexByte.MoCap.Backend;
@@ -130,23 +131,42 @@ namespace PlexByte.MoCap.Managers
 
         public ISurveyOption GetSurveyOption(string pId)
         {
-            return null;
-            // _backendService.GeSurveyOptionById()
+            DataTable record = _backendService.GeSurveyOptionById(pId);
+            return _objectFactory.CreateSurveyOption(record.Rows[0]["Id"].ToString(),
+                record.Rows[0]["Text"].ToString());
         }
 
-        public List<SurveyOption> GetSurveyOptions(string pSurveyId)
+        public List<ISurveyOption> GetSurveyOptions(string pSurveyId)
         {
-            throw new System.NotImplementedException();
+            List<ISurveyOption> options = new List<ISurveyOption>();
+            DataTable records = _backendService.GetSurveyOptions(pSurveyId);
+            foreach (DataRow row in records.Rows)
+            {
+                options.Add(_objectFactory.CreateSurveyOption(row["Id"].ToString(),
+                    row["Text"].ToString()));
+            }
+            return options;
         }
 
         public IVote GetVoteById(string pId)
         {
-            throw new System.NotImplementedException();
+            DataTable record = _backendService.GetVoteById(pId);
+            return (_objectFactory.CreateVote(row["Id"].ToString(),
+                GetUser(row["UserId"].ToString(), true),
+                GetSurveyOption(row["SurveyOptionId"].ToString())));
         }
 
         public List<IVote> GetVoteBySurveyId(string pId)
         {
-            throw new System.NotImplementedException();
+            List<IVote> votes = new List<IVote>();
+            DataTable records = _backendService.GetVoteById(pId);
+            foreach (DataRow row in records.Rows)
+            {
+                votes.Add(_objectFactory.CreateVote(row["Id"].ToString(),
+                    GetUser(row["UserId"].ToString(), true),
+                    GetSurveyOption(row["SurveyOptionId"].ToString())));
+            }
+            return votes;
         }
     }
 }

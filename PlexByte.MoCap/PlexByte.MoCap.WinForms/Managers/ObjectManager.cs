@@ -187,6 +187,19 @@ namespace PlexByte.MoCap.Managers
             }
         }
 
-        public DockContent CreateFormFromObject<T>(T pObject) { }
+        public DockContent CreateFormFromObject<T>(T pObject)
+        {
+            DockContent tmp = null;
+            if (pObject.GetType() == typeof (IUser))
+            {
+                tmp = _formManager.CreateUserFormFromObject((IUser)pObject);
+            }
+            else
+            {
+                tmp = _formManager.CreateFormFromObject((IInteraction)pObject);
+            }
+
+            return tmp;
+        }
     }
 }

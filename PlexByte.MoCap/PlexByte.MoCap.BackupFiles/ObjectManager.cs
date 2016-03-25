@@ -12,27 +12,71 @@ using PlexByte.MoCap.Interactions;
 using PlexByte.MoCap.Security;
 using Timer = System.Timers.Timer;
 using WeifenLuo.WinFormsUI.Docking;
-using PlexByte.MoCap.WinForms.UserControls;
 using System.Timers;
+using PlexByte.MoCap.OLD;
+using PlexByte.MoCap.WinForms.UserControls;
 
-namespace PlexByte.MoCap.Managers
+namespace PlexByte.MoCap.Managers.OLD
 {
     public class ObjectManager : IDisposable
     {
+        #region Delegates and Events
+
+        /// <summary>
+        /// Delegate used when InteractionsChanged event is raised
+        /// </summary>
+        /// <param name="pInteraction">The list of interactions changed</param>
+        /// <param name="e">The event arguments passed</param>
+        public delegate void InteractionsChangeEventHandler(List<IInteraction> pInteraction, EventArgs e);
+
+        /// <summary>
+        /// Delegate used when InteractionsAdded event is raised
+        /// </summary>
+        /// <param name="pInteraction"></param>
+        /// <param name="e"></param>
+        public delegate void InteractionsAddedEventHandler(List<IInteraction> pInteraction, EventArgs e);
+
+        /// <summary>
+        /// Delegate used when InteractionsRemoved event is raised
+        /// </summary>
+        /// <param name="pInteraction"></param>
+        /// <param name="e"></param>
+        public delegate void InteractionsRemovedEventHandler(List<IInteraction> pInteraction, EventArgs e);
+
+        /// <summary>
+        /// The event that is raised when interaction items in the collection have changed
+        /// </summary>
+        public event InteractionsChangeEventHandler InteractionsChanged;
+
+        /// <summary>
+        /// The event that is raised when interaction items were added to the collection
+        /// </summary>
+        public event InteractionsAddedEventHandler InteractionsAdded;
+
+        /// <summary>
+        /// The event that is raised when interaction items were removed from the collection (e.g. they are no longer active)
+        /// </summary>
+        public event InteractionsRemovedEventHandler InteractionsRemoved;
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+
+        #region Variables
+        
         DataManager _dataManager = new DataManager();
         FormManager _formManager = new FormManager();
-        IInteractionFactory _interactionFactory = null;
-        IObjectFactory _objectFactory = null;
-        Timer _updateTimer = null;
+        private Timer _updateTimer = null;
+        //  private DataManager _dataManager = null;
+
+        #endregion
         
         #region Ctor & Dtor
 
         public ObjectManager(DataManager pDataManager)
         {
-            // Instanciate factories to create object
-            _interactionFactory = new InteractionFactory();
-            _objectFactory = new ObjectFactory();
-
             // Initialize the time which will periodically update the objects
             _updateTimer = new Timer(20000);
             _updateTimer.AutoReset = false;
@@ -41,18 +85,11 @@ namespace PlexByte.MoCap.Managers
             //_dataManager = pDataManager;
         }
 
-        private void UpdateTimer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
         public void Dispose()
         {
-            _objectFactory = null;
-            _interactionFactory = null;
             if (_updateTimer != null && _updateTimer.Enabled)
             {
                 _updateTimer.Stop();
@@ -187,6 +224,11 @@ namespace PlexByte.MoCap.Managers
         public DockContent CreateFormFromObject<T>(T pObject)
         {
             throw new System.NotImplementedException();
+        }
+
+        private void UpdateTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

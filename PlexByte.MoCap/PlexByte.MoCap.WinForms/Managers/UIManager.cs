@@ -175,7 +175,11 @@ namespace PlexByte.MoCap.WinForms
             _overviewPanel = (uc_Overview) tmp;
         }
 
-        public DateTime LastUserLogin() { return _dataManager.GetLastUserLogin(UserContext.Id); }
+        public DateTime LastUserLogin()
+        {
+            // return _dataManager.GetLastUserLogin(UserContext.Id); 
+            return DateTime.Now;
+        }
 
         /// <summary>
         /// Eventlistener for the menu form. Any button event is captured here and corresponding action is executed
@@ -496,6 +500,7 @@ namespace PlexByte.MoCap.WinForms
 
                     if (!bError)
                     {
+                        /* NEW
                         // Insert user in db
                         _dataManager.InsertUser(GetControlByName<TextBox>(pControlList, "tbx_Id").Text,
                             GetControlByName<TextBox>(pControlList, "tbx_FirstName").Text,
@@ -509,6 +514,7 @@ namespace PlexByte.MoCap.WinForms
                         // Login using data given
                         UserButtonLogin(pControlList);
                         GetControlByName<Button>(pControlList, "btn_New").Text = "New";
+                        */
                     }
                     else
                     {
@@ -557,7 +563,7 @@ namespace PlexByte.MoCap.WinForms
                 if (!string.IsNullOrEmpty(sUserName) && !string.IsNullOrEmpty(sPassword))
                 {
                     _MainUI.Enabled = false;
-                    _userContext = (User) _dataManager.AuthenticateUser(sUserName, sPassword);
+                    // _userContext = (User) _dataManager.AuthenticateUser(sUserName, sPassword);
                     _MainUI.Enabled = true;
                     GetControlByName<Button>(pControlList, "btn_Login").Text = "Logout";
                     GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
@@ -726,8 +732,8 @@ namespace PlexByte.MoCap.WinForms
                             0,
                             null,
                             0);
-                        _dataManager.TaskList.Add(task);
-                        _dataManager.InsertTask();
+                        //_dataManager.TaskList.Add(task);
+                        //_dataManager.InsertTask();
                         tmp.TabText = $"Task Details ({task.Id})";
                     }
                     else
@@ -865,20 +871,20 @@ namespace PlexByte.MoCap.WinForms
                             GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value,
                             UserContext);
 
-                        _dataManager.ProjectList.Add(_NewProject);
+                        ////_dataManager.ProjectList.Add(_NewProject);
 
                         //Insert project in db
-                        _dataManager.InsertProject(_ProjectId,
-                            GetControlByName<TextBox>(pControlList, "tbx_Title").Text,
-                            GetControlByName<TextBox>(pControlList, "tbx_Description").Text,
-                            GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value,
-                            GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value,
-                            UserContext.Id,
-                            UserContext.Id,
-                            Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").CheckState),
-                            Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").CheckState),
-                            _IsActive,
-                            Convert.ToString(_StateId));
+                        //_dataManager.InsertProject(_ProjectId,
+                        //    GetControlByName<TextBox>(pControlList, "tbx_Title").Text,
+                        //    GetControlByName<TextBox>(pControlList, "tbx_Description").Text,
+                        //    GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value,
+                        //    GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value,
+                        //    UserContext.Id,
+                        //    UserContext.Id,
+                        //    Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").CheckState),
+                        //    Convert.ToInt32(GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").CheckState),
+                        //    _IsActive,
+                        //    Convert.ToString(_StateId));
 
 
 
@@ -943,27 +949,27 @@ namespace PlexByte.MoCap.WinForms
         /// <param name="pControlList"></param>
         private void ProjectButtonChangeOwner(List<Control> pControlList)
         {
-            List <IProject> _Project = _dataManager.ProjectList;
-            List<IUser> _MemberList = null;
-            string _NewOwnerId = null;
+            //List <IProject> _Project = _dataManager.ProjectList;
+            //List<IUser> _MemberList = null;
+            //string _NewOwnerId = null;
 
-            foreach (Project pProject in _Project)
-            {
-                if(pProject.Name == GetControlByName<TextBox>(pControlList, "tbx_Title").Text)
-                {
-                    _MemberList = pProject.MemberList;
-                }
-            }
+            //foreach (Project pProject in _Project)
+            //{
+            //    if(pProject.Name == GetControlByName<TextBox>(pControlList, "tbx_Title").Text)
+            //    {
+            //        _MemberList = pProject.MemberList;
+            //    }
+            //}
 
 
-            // Create a new instance of the UserSelectionList class
-            frm_OwnerChangeList _OwnerSelectionList = new frm_OwnerChangeList(_MemberList, _userContext.Id);
+            //// Create a new instance of the UserSelectionList class
+            //frm_OwnerChangeList _OwnerSelectionList = new frm_OwnerChangeList(_MemberList, _userContext.Id);
 
-            // Show the UserSelectionList form
-            _OwnerSelectionList.Show();
+            //// Show the UserSelectionList form
+            //_OwnerSelectionList.Show();
 
-            if (_OwnerSelectionList.NewOwnerId != _userContext.Id)
-                _NewOwnerId = _OwnerSelectionList.NewOwnerId;
+            //if (_OwnerSelectionList.NewOwnerId != _userContext.Id)
+            //    _NewOwnerId = _OwnerSelectionList.NewOwnerId;
         }
 
 
@@ -978,23 +984,23 @@ namespace PlexByte.MoCap.WinForms
         /// <param name="pControlList"></param>
         private void ProjectButtonInviteUser(List<Control> pControlList)
         {
-            List<IProject> _Project = _dataManager.ProjectList;
-            string _ProjectId = null;
+            //List<IProject> _Project = _dataManager.ProjectList;
+            //string _ProjectId = null;
 
-            foreach (Project pProject in _Project)
-            {
-                if (pProject.Name == GetControlByName<TextBox>(pControlList, "tbx_Title").Text)
-                {
-                    _ProjectId = pProject.Id;
-                }
-            }
+            //foreach (Project pProject in _Project)
+            //{
+            //    if (pProject.Name == GetControlByName<TextBox>(pControlList, "tbx_Title").Text)
+            //    {
+            //        _ProjectId = pProject.Id;
+            //    }
+            //}
             
 
-            // Create a new instance of the UserSelectionList class
-            frm_UserSelectionList _UserSelectionList = new frm_UserSelectionList(_ProjectId, _userContext.Id);
+            //// Create a new instance of the UserSelectionList class
+            //frm_UserSelectionList _UserSelectionList = new frm_UserSelectionList(_ProjectId, _userContext.Id);
 
-            // Show the UserSelectionList form
-            _UserSelectionList.Show();
+            //// Show the UserSelectionList form
+            //_UserSelectionList.Show();
         }
 
 

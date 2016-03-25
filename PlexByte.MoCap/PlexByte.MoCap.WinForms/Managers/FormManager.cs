@@ -12,6 +12,8 @@ using WeifenLuo.WinFormsUI.Docking;
 
 namespace PlexByte.MoCap.Managers
 {
+    #region Ctor & Dtor
+
     public class FormManager: IDisposable
     {
         IInteractionFactory _interactionFactory = null;
@@ -30,6 +32,8 @@ namespace PlexByte.MoCap.Managers
             if (_objectFactory != null)
                 _objectFactory = null;
         }
+
+        #endregion
 
         public DockContent CreateFormFromObject(IInteraction pObject)
         {

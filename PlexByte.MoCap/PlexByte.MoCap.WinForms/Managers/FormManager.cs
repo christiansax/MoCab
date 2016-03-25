@@ -95,14 +95,12 @@ namespace PlexByte.MoCap.Managers
             }
             else if (pInstance.GetType() == typeof(uc_Expense))
             {
-                // Factory misses method to create expenses... 
-                IExpense obj = new Expense("", "", new User(), new Task("", "", new User()));
+                IExpense obj = _interactionFactory.CreateExpense("", "", new User(), new Task("", "", new User()));
                 return (T)obj;
             }
             else if (pInstance.GetType() == typeof(uc_Timeslice))
             {
-                // Factory misses method to create timeslice ITimeslice obj = _interactionFactory.Create("", "", new User());
-                ITimeslice obj = new Timeslice("", new User(), 0, new Task("", "", new User()));
+                ITimeslice obj = _interactionFactory.CreateTimeslice("", new User(), 0, new Task("", "", new User()));
                 return (T)obj;
             }
             else { throw new InvalidCastException($"The type {pInstance.GetType().ToString()} is not a valid interaction type!"); }

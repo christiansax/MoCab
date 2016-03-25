@@ -130,7 +130,7 @@ namespace PlexByte.MoCap.Managers
 
         public ISurveyOption GetSurveyOption(string pId)
         {
-            return "";
+            return null;
             // _backendService.GeSurveyOptionById()
         }
 

@@ -14,6 +14,7 @@ using Timer = System.Timers.Timer;
 using WeifenLuo.WinFormsUI.Docking;
 using PlexByte.MoCap.WinForms.UserControls;
 using System.Timers;
+using PlexByte.MoCap.WinForms;
 
 namespace PlexByte.MoCap.Managers
 {
@@ -23,12 +24,14 @@ namespace PlexByte.MoCap.Managers
         FormManager _formManager = new FormManager();
         IInteractionFactory _interactionFactory = null;
         IObjectFactory _objectFactory = null;
+        private frm_MoCapMain _MainUI = null;
         Timer _updateTimer = null;
         
         #region Ctor & Dtor
 
-        public ObjectManager(DataManager pDataManager)
+        public ObjectManager(frm_MoCapMain pMainForm)
         {
+            _MainUI = pMainForm;
             // Instanciate factories to create object
             _interactionFactory = new InteractionFactory();
             _objectFactory = new ObjectFactory();
@@ -184,9 +187,6 @@ namespace PlexByte.MoCap.Managers
             }
         }
 
-        public DockContent CreateFormFromObject<T>(T pObject)
-        {
-            throw new System.NotImplementedException();
-        }
+        public DockContent CreateFormFromObject<T>(T pObject) { }
     }
 }

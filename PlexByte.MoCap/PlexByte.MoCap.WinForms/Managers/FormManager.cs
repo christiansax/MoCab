@@ -69,7 +69,7 @@ namespace PlexByte.MoCap.Managers
         {
             _errorProvider.Clear();
             DockContent tmp = CreateContentPanel(UiType.Task);
-            tmp.TabText = $"Task Dialog ({pInstance.Id})";
+            tmp.TabText = $"Task Details ({pInstance.Id})";
             List<Control> ctrls = GetAllControls(tmp);
 
             Task t = (Task) pInstance;
@@ -91,12 +91,31 @@ namespace PlexByte.MoCap.Managers
             GetControlByName<DateTimePicker>(ctrls, "dtp_Created").Value = t.CreatedDateTime;
             GetControlByName<DateTimePicker>(ctrls, "dtp_End").Value = t.ModifiedDateTime;
 
+            t = null;
+
             return tmp;
         }
 
         public DockContent CreateUserFormFromObject(IUser pInstance)
         {
-            throw new System.NotImplementedException();
+            _errorProvider.Clear();
+            DockContent tmp = CreateContentPanel(UiType.User);
+            tmp.TabText = $"User Details ({pInstance.Id})";
+            List<Control> ctrls = GetAllControls(tmp);
+
+            User u = (User) pInstance;
+            GetControlByName<TextBox>(ctrls, "tbx_Id").Text = u.Id;
+            GetControlByName<TextBox>(ctrls, "tbx_FirstName").Text = u.FirstName;
+            GetControlByName<TextBox>(ctrls, "tbx_LastName").Text = u.LastName;
+            GetControlByName<TextBox>(ctrls, "tbx_MiddleName").Text = u.MiddleName;
+            GetControlByName<TextBox>(ctrls, "tbx_UserName").Text = u.Username;
+            GetControlByName<TextBox>(ctrls, "tbx_Password").Text = u.Password;
+            GetControlByName<TextBox>(ctrls, "tbx_Email").Text = u.EmailAddress;
+            GetControlByName<DateTimePicker>(ctrls, "dtp_Birthdate").Value = u.Birthdate;
+            GetControlByName<DateTimePicker>(ctrls, "dtp_Modified").Value = u.ModifiedDateTime;
+            GetControlByName<DateTimePicker>(ctrls, "dtp_Created").Value = u.CreatedDateTime;
+
+            return tmp;
         }
 
         public DockContent CreateFormFromObject(IInteraction pObject, DockContent pInstance)

@@ -8,32 +8,44 @@ using System;
 using System.Collections.Generic;
 using PlexByte.MoCap.Interactions;
 using PlexByte.MoCap.Security;
+using PlexByte.MoCap.Backend;
 
 namespace PlexByte.MoCap.Managers
 {
     public class DataManager:IDisposable
     {
+        private BackendService _backendService = null;
+        private IInteractionFactory _interactionFactory = null;
+        private IObjectFactory _objectFactory = null;
+
         #region Ctor & Dtor
 
         public DataManager()
         {
+            _backendService = new BackendService();
+            _interactionFactory = new InteractionFactory();
+            _objectFactory = new ObjectFactory();
         }
 
         public void Dispose()
         {
+            _backendService?.Dispose();
+            _backendService = null;
 
+            _interactionFactory = null;
+            _objectFactory = null;
         }
 
         #endregion
 
         public IProject GetProjectById(string pId)
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public ITask GetTaskById(string pId)
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public ISurvey GetSurveyById(string pId)

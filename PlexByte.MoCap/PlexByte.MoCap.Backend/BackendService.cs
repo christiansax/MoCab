@@ -21,7 +21,7 @@ namespace PlexByte.MoCap.Backend
 
     // TODO: Update documentation
 
-    public class BackendService
+    public class BackendService:IDisposable
     {
         private const string _DBServer = "198.38.83.33";
         private const string _Password = "MoCap";
@@ -33,6 +33,8 @@ namespace PlexByte.MoCap.Backend
         {
             _connectionString = string.Format("Server={0}; Database=csax2277_MoCap;User Id={1};Password={2};", _DBServer, _DBUser, _DBPWD);
         }
+
+        public void Dispose() { _connectionString = null; }
 
         /// <summary>
         /// This method authenticates the given user and password against the database. If suceeded the ID of the authenticated user will be returnes

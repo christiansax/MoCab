@@ -27,10 +27,8 @@ namespace PlexByte.MoCap.Managers
 
         public void Dispose()
         {
-            if (_interactionFactory != null)
-                _interactionFactory = null;
-            if (_objectFactory != null)
-                _objectFactory = null;
+            _interactionFactory = null;
+            _objectFactory = null;
         }
 
         #endregion

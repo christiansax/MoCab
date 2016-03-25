@@ -67,9 +67,19 @@ namespace PlexByte.MoCap.Managers
             throw new System.NotImplementedException();
         }
 
-        public bool UpsertProject(Project pProject)
+        public void UpsertProject(Project pProject)
         {
-            throw new System.NotImplementedException();
+            _backendService.InsertProject(pProject.Id,
+               pProject.Name,
+               pProject.Text,
+               pProject.StartDateTime,
+               pProject.EndDateTime,
+               pProject.Owner.Id,
+               pProject.EnableBalance,
+               pProject.EnableSurvey,
+               pProject.IsActive,
+               pProject.Creator.Id,
+               pProject.State.ToString());
         }
 
         public void UpsertSurvey(Survey pSurvey)

@@ -95,7 +95,7 @@ namespace PlexByte.MoCap.Managers
             private set;
         }
 
-        public List<Timeslice> TimesliceList
+        public List<ITimeslice> TimesliceList
         {
             get;
             private set;

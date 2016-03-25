@@ -453,9 +453,9 @@ namespace PlexByte.MoCap.Backend
             DateTime pStartDate,
             DateTime pEndDate,
             string pOwner,
-            int pEnableBalance,
-            int pEnableSurvey,
-            int pIsActive,
+            bool pEnableBalance,
+            bool pEnableSurvey,
+            bool pIsActive,
             string pCreator,
             string pStateId)
         {
@@ -568,18 +568,6 @@ namespace PlexByte.MoCap.Backend
                     Console.WriteLine("No rows found.");
                 }
                 reader.Close();
-                //           @ProjectId AS BIGINT,
-                //@Name AS NVARCHAR(250),
-                //   @Description AS NVARCHAR(MAX),
-                //   @EnableBalance AS BIT,
-                //   @EnableSurvey AS BIT,
-                //@StartDateTime AS DATETIME,
-                //@EndDateTime AS DATETIME,
-                //   @IsActive AS BIT,
-                //   @CreatorId AS BIGINT,
-                //   @OwnerId AS BIGINT,
-                //   @StateId AS BIGINT,
-                //@ResultMsg
             }
         }
 

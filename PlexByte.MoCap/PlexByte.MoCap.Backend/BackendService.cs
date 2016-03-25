@@ -755,5 +755,22 @@ namespace PlexByte.MoCap.Backend
                 reader.Close();
             }
         }
+
+        public void InsertVote(string pId, string pOptionId, string pUserId, DateTime pCreated) { throw new NotImplementedException(); }
+
+        public void InsertSurvey(string pId,
+            string pInteractionId,
+            DateTime pDueDateTime,
+            DateTime pStartDateTime,
+            DateTime pEndDateTime,
+            string pCreatorId,
+            string pOwnerId,
+            bool pIsActive,
+            string pStateString)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void InsertSurveyOption(string pId, string pText, DateTime pCreatedDateTime) { throw new NotImplementedException(); }
     }
 }

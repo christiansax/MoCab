@@ -26,6 +26,10 @@ namespace PlexByte.MoCap.Interactions
         /// </summary>
         public string Id => _id;
 
+        public string InteractionId { get; set; }
+
+        public string ProjectId { get; set; }
+
         /// <summary>
         /// The date and time this task becomes active and can be worked on. As long as this date is not reached the 
         /// state will remain queued and no work can be performed on the task as longs as it is in state queued

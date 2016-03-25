@@ -12,6 +12,11 @@ namespace PlexByte.MoCap.Interactions
     public interface ITask
     {
         string Id { get; }
+
+        string InteractionId { get; set; }
+
+        string ProjectId { get; set; }
+
         DateTime DueDateTime { get; }
 
         decimal Budget { get; }

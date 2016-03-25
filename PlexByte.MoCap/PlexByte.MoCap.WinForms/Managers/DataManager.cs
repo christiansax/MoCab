@@ -62,47 +62,68 @@ namespace PlexByte.MoCap.Managers
             throw new System.NotImplementedException();
         }
 
-        public bool UpsertExpense(IExpense pExpense)
+        public bool UpsertExpense(Expense pExpense)
         {
             throw new System.NotImplementedException();
         }
 
-        public bool UpsertProject(IProject pProject)
+        public bool UpsertProject(Project pProject)
         {
             throw new System.NotImplementedException();
         }
 
-        public bool UpsertSurvey(ISurvey pSurvey)
+        public void UpsertSurvey(Survey pSurvey)
+        {
+            _backendService.InsertSurvey(pSurvey.Id,
+                pSurvey.InteractionId,
+                pSurvey.DueDateTime,
+                pSurvey.StartDateTime,
+                pSurvey.EndDateTime,
+                pSurvey.Creator.Id,
+                pSurvey.Owner.Id,
+                pSurvey.IsActive,
+                pSurvey.State.ToString());
+        }
+
+        public void UpsertTask(Task pTask)
+        {
+            _backendService.InsertTask(pTask.Id, pTask.InteractionId, pTask.DueDateTime, pTask.Budget, pTask.Duration,
+                pTask.Priority, pTask.Progress, pTask.DurationCurrent, pTask.BudgetUsed, pTask.StartDateTime, pTask.EndDateTime,
+                pTask.IsActive, pTask.Text, pTask.Creator.Id, pTask.Owner.Id, pTask.State.ToString(), pTask.ProjectId);
+        }
+
+        public bool UpsertTimeslice(Timeslice pTimeslice)
         {
             throw new System.NotImplementedException();
         }
 
-        public bool UpsertTask(ITask pTask)
+        public void UpsertUser(User pUser)
         {
-            throw new System.NotImplementedException();
+            _backendService.InsertUser(pUser.Id,pUser.FirstName, pUser.LastName, pUser.MiddleName, pUser.EmailAddress, 
+                pUser.Birthdate, pUser.Username, pUser.Password);
         }
 
-        public bool UpsertTimeslice(ITimeslice pTimeslice)
+        public void UpsertVote(Vote pVote)
         {
-            throw new System.NotImplementedException();
+            _backendService.InsertVote(pVote.Id,
+                pVote.Option.Id,
+                pVote.User.Id,
+                pVote.CreatedDateTime);
         }
 
-        public bool UpsertUser(IUser pUser)
+        public void UpsertSurveyOption(SurveyOption pSurveyOption)
         {
-            throw new System.NotImplementedException();
+            _backendService.InsertSurveyOption(pSurveyOption.Id,
+                pSurveyOption.Text,
+                pSurveyOption.CreatedDateTime);
         }
 
         public ISurveyOption GetSurveyOption(string pId)
         {
-            throw new System.NotImplementedException();
+            // _backendService.GeSurveyOptionById()
         }
 
         public List<SurveyOption> GetSurveyOptions(string pSurveyId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool UpsertSurveyOption(ISurveyOption pSurveyOption)
         {
             throw new System.NotImplementedException();
         }
@@ -113,11 +134,6 @@ namespace PlexByte.MoCap.Managers
         }
 
         public List<IVote> GetVoteBySurveyId(string pId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool UpsertVote(IVote pVote)
         {
             throw new System.NotImplementedException();
         }

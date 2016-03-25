@@ -16,6 +16,8 @@ namespace PlexByte.MoCap.Interactions
         public List<ISurveyOption> OptionList { get; set; }
         public List<IVote> VoteList => _voteList;
         public string Id => _id;
+        public string InteractionId { get; set; }
+        public string ProjectId { get; set; }
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public DateTime CreatedDateTime => _createdDateTime;

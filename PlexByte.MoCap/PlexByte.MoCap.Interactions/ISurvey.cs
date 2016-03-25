@@ -10,7 +10,12 @@ namespace PlexByte.MoCap.Interactions
 {
     public interface ISurvey
     {
+        string InteractionId { get; set; }
+
+        string ProjectId { get; set; }
+
         DateTime DueDateTime { get; set; }
+
         List<ISurveyOption> OptionList { get; set; }
 
         List<IVote> VoteList { get; }

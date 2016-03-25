@@ -38,15 +38,9 @@ namespace PlexByte.MoCap.Managers
 
         #endregion
 
-        public IProject GetProjectById(string pId)
-        {
-            
-        }
+        public IProject GetProjectById(string pId) { return null; }
 
-        public ITask GetTaskById(string pId)
-        {
-            
-        }
+        public ITask GetTaskById(string pId) { return null; }
 
         public ISurvey GetSurveyById(string pId)
         {

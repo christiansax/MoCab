@@ -25,6 +25,8 @@ namespace PlexByte.MoCap.Interactions
         event SurveyAdd SurveyAdded;
 
 
+        string Id { get; }
+
         bool EnableBalance { get; }
 
         bool EnableSurvey { get; }

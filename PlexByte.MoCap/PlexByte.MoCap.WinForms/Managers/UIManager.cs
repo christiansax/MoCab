@@ -925,7 +925,7 @@ namespace PlexByte.MoCap.WinForms
             if (_userContext != null)
             {
 
-                //Eisable setting controls for editing project
+                //Disable setting controls for editing project
                 GetControlByName<Button>(pControlList, "btn_Update").Enabled = false;
                 GetControlByName<Button>(pControlList, "btn_InviteUser").Enabled = false;
                 GetControlByName<Button>(pControlList, "btn_ChangeOwner").Enabled = true;

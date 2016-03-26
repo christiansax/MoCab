@@ -240,8 +240,7 @@ namespace PlexByte.MoCap.Managers
             {
                 if (pInstance.GetType() == typeof(uc_Project))
                 {
-                    IProject obj = CreatePojectFromForm(pInstance);
-                    return (T)obj;
+                    return (T)CreatePojectFromForm((uc_Project)pInstance); 
                 }
                 else if (pInstance.GetType() == typeof(uc_Task))
                 {
@@ -304,6 +303,7 @@ namespace PlexByte.MoCap.Managers
 
         private IProject CreatePojectFromForm(DockContent pInstance)
         {
+            //List<Control> expCtrls = new List<Control>();
             bool bError = false;
             string _ProjectId = null;
 
@@ -335,14 +335,12 @@ namespace PlexByte.MoCap.Managers
             if (!bError)
             {
                 // Initialize default values for controls
-                GetControlByName<DateTimePicker>(pInstance, "dtp_Modified").Value = DateTime.Now;
                 if (GetControlByName<Button>(pInstance, "btn_Create").Text.ToLower() == "create")
                 {
-                    GetControlByName<DateTimePicker>(pInstance, "dtp_Created").Value = DateTime.Now;
-                    //_ProjectId = DateTime.Now.ToString(_dateTimeIdFmt);
+                    _ProjectId = DateTime.Now.ToString(DateStringFormatId);
                     GetControlByName<TextBox>(pInstance, "tbx_Owner").Text = _objectManager.UserContext.Username;
                 }
-
+                
                 IProject obj = _interactionFactory.CreateProject(_ProjectId,
                     GetControlByName<TextBox>(pInstance, "tbx_Title").Text + ";" + GetControlByName<TextBox>(pInstance, "tbx_Description").Text,
                     Convert.ToBoolean(GetControlByName<CheckBox>(pInstance, "cbx_EnableBalance").CheckState),
@@ -350,6 +348,18 @@ namespace PlexByte.MoCap.Managers
                     GetControlByName<DateTimePicker>(pInstance, "dtp_StartDate").Value,
                     GetControlByName<DateTimePicker>(pInstance, "dtp_EndDate").Value,
                     _objectManager.UserContext);
+
+
+                GetControlByName<Button>(pInstance, "btn_Update").Enabled = true;
+                GetControlByName<Button>(pInstance, "btn_InviteUser").Enabled = true;
+                GetControlByName<CheckBox>(pInstance, "cbx_EnableBalance").Enabled = false;
+                GetControlByName<CheckBox>(pInstance, "cbx_EnableSurvey").Enabled = false;
+                GetControlByName<DateTimePicker>(pInstance, "dtp_StartDate").Enabled = false;
+                GetControlByName<DateTimePicker>(pInstance, "dtp_EndDate").Enabled = false;
+                GetControlByName<TextBox>(pInstance, "tbx_Title").Enabled = false;
+                GetControlByName<TextBox>(pInstance, "tbx_Description").Enabled = false;
+                GetControlByName<Button>(pInstance, "btn_Create").Text = "Edit";
+
 
                 return obj;
             }

@@ -47,6 +47,7 @@
             this.ExpenseInProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimeInvestedUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimeInvestedInProcent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_Update = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Tasks)).BeginInit();
@@ -62,7 +63,7 @@
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(625, 56);
+            this.groupBox1.Size = new System.Drawing.Size(625, 51);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings";
@@ -88,10 +89,11 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.btn_Update);
             this.groupBox2.Controls.Add(this.dgv_Tasks);
-            this.groupBox2.Location = new System.Drawing.Point(12, 69);
+            this.groupBox2.Location = new System.Drawing.Point(12, 62);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(625, 180);
+            this.groupBox2.Size = new System.Drawing.Size(625, 193);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tasks";
@@ -125,7 +127,7 @@
             this.dgv_Tasks.ShowCellToolTips = false;
             this.dgv_Tasks.ShowEditingIcon = false;
             this.dgv_Tasks.ShowRowErrors = false;
-            this.dgv_Tasks.Size = new System.Drawing.Size(610, 153);
+            this.dgv_Tasks.Size = new System.Drawing.Size(610, 130);
             this.dgv_Tasks.TabIndex = 1;
             // 
             // Id
@@ -246,6 +248,17 @@
             this.TimeInvestedInProcent.ReadOnly = true;
             this.TimeInvestedInProcent.Width = 150;
             // 
+            // btn_Update
+            // 
+            this.btn_Update.Enabled = false;
+            this.btn_Update.Location = new System.Drawing.Point(6, 158);
+            this.btn_Update.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(100, 28);
+            this.btn_Update.TabIndex = 29;
+            this.btn_Update.Text = "Update";
+            this.btn_Update.UseVisualStyleBackColor = true;
+            // 
             // uc_Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -287,5 +300,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpenseInProject;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Button btn_Update;
     }
 }

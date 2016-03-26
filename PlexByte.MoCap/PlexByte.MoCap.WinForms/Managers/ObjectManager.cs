@@ -8,12 +8,14 @@
 //      its lists
 using System;
 using System.Collections.Generic;
+using System.Security.Authentication;
 using PlexByte.MoCap.Interactions;
 using PlexByte.MoCap.Security;
 using Timer = System.Timers.Timer;
 using WeifenLuo.WinFormsUI.Docking;
 using PlexByte.MoCap.WinForms.UserControls;
 using System.Timers;
+using PlexByte.MoCap.Helpers;
 using PlexByte.MoCap.WinForms;
 
 namespace PlexByte.MoCap.Managers
@@ -27,7 +29,7 @@ namespace PlexByte.MoCap.Managers
         IInteractionFactory _interactionFactory = null;
         IObjectFactory _objectFactory = null;
         Timer _updateTimer = null;
-        
+
         #region Ctor & Dtor
 
         public ObjectManager()
@@ -46,11 +48,6 @@ namespace PlexByte.MoCap.Managers
             //_dataManager = pDataManager;
         }
 
-        private void UpdateTimer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary>
         /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
@@ -65,141 +62,103 @@ namespace PlexByte.MoCap.Managers
             }
             _updateTimer = null;
 
-            if(_dataManager!=null)
-                _dataManager.Dispose();
+            ProjectList.Clear();
+            TaskList.Clear();
+            SurveyList.Clear();
+            ExpenseList.Clear();
+            TimesliceList.Clear();
+            UserList.Clear();
+            UserContext = null;
+            ProjectList = null;
+            TaskList = null;
+            SurveyList = null;
+            ExpenseList = null;
+            TimesliceList = null;
+
+            _dataManager?.Dispose();
             _dataManager = null;
 
-            if (_formManager != null)
-                _formManager.Dispose();
+            _formManager?.Dispose();
             _formManager = null;
         }
 
         #endregion
 
-        public List<IProject> ProjectList
+        #region Public Methods
+
+        public List<IProject> ProjectList { get; private set; }
+
+        public List<ITask> TaskList { get; private set; }
+
+        public List<ISurvey> SurveyList { get; private set; }
+
+        public List<IExpense> ExpenseList { get; private set; }
+
+        public List<ITimeslice> TimesliceList { get; private set; }
+
+        public List<IUser> UserList { get; private set; }
+
+        public T GetObjectById<T>(string pId) { throw new System.NotImplementedException(); }
+
+        public void LoginUser(string pId, string pPassword)
         {
-            get;
-            private set;
+            IUser user = _dataManager.GetUser(pId, true);
+            if (user != null)
+            {
+                if (user.Password == CryptoHelper.Encrypt(pPassword, "MoCap"))
+                    UserContext = user;
+                else
+                    throw new InvalidCredentialException($"The password provided does not match password for user {pId}");
+            }
+            else
+                throw new InvalidCredentialException($"The user {pId} was not found");
         }
 
-        public List<ITask> TaskList
-        {
-            get;
-            private set;
-        }
-
-        public List<ISurvey> SurveyList
-        {
-            get;
-            private set;
-        }
-
-        public List<IExpense> ExpenseList
-        {
-            get;
-            private set;
-        }
-
-        public List<ITimeslice> TimesliceList
-        {
-            get;
-            private set;
-        }
-
-        public List<IUser> UserList
-        {
-            get;
-            private set;
-        }
-
-        private void GetAllProjectUsers(string pProjectId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void GetAllTasks(string pId, bool pIsProjectId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void GetAllSurveys(string pId, bool pIsProjectId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void GetAllTimeslices(string pId, bool pIsProjectId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private void GetAllExpenses(string pId, bool pIsProjectId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void InitializeDBObjects(string pUserId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public T GetObjectById<T>(string pId)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void LoginUser(string pId)
-        {
-            UserContext = _dataManager.GetUser(pId, true);
-        }
-
-        public void LogoutUser()
-        {
-            UserContext = null;
-        }
+        public void LogoutUser() { UserContext = null; }
 
         public T CreateObjectFromForm<T>(DockContent pForm)
         {
-            if (pForm.GetType() == typeof(uc_Project))
+            if (pForm.GetType() == typeof (uc_Project))
             {
                 IProject tmp = _formManager.CreateObjectFromForm<IProject>(pForm);
                 ProjectList.Add(tmp);
-                _dataManager.UpsertProject((Project)tmp);
+                _dataManager.UpsertProject((Project) tmp);
                 return (T) tmp;
             }
-            else if (pForm.GetType() == typeof(uc_User))
+            else if (pForm.GetType() == typeof (uc_User))
             {
-                IUser tmp =_formManager.CreateObjectFromForm<IUser>(pForm);
+                IUser tmp = _formManager.CreateObjectFromForm<IUser>(pForm);
                 UserList.Add(tmp);
-                _dataManager.UpsertUser((User)tmp);
+                _dataManager.UpsertUser((User) tmp);
                 return (T) tmp;
             }
-            else if (pForm.GetType() == typeof(uc_Task))
+            else if (pForm.GetType() == typeof (uc_Task))
             {
                 ITask tmp = _formManager.CreateObjectFromForm<ITask>(pForm);
                 TaskList.Add(tmp);
-                _dataManager.UpsertTask((Task)tmp);
+                _dataManager.UpsertTask((Task) tmp);
                 return (T) tmp;
             }
-            else if (pForm.GetType() == typeof(uc_Survey))
+            else if (pForm.GetType() == typeof (uc_Survey))
             {
                 ISurvey tmp = _formManager.CreateObjectFromForm<ISurvey>(pForm);
                 SurveyList.Add(tmp);
-                _dataManager.UpsertSurvey((Survey)tmp);
-                return (T)tmp;
+                _dataManager.UpsertSurvey((Survey) tmp);
+                return (T) tmp;
             }
-            else if (pForm.GetType() == typeof(uc_Expense))
+            else if (pForm.GetType() == typeof (uc_Expense))
             {
                 IExpense tmp = _formManager.CreateObjectFromForm<IExpense>(pForm);
                 ExpenseList.Add(tmp);
-                _dataManager.UpsertExpense((Expense)tmp);
-                return (T)tmp;
+                _dataManager.UpsertExpense((Expense) tmp);
+                return (T) tmp;
             }
-            else if (pForm.GetType() == typeof(uc_Timeslice))
+            else if (pForm.GetType() == typeof (uc_Timeslice))
             {
                 ITimeslice tmp = _formManager.CreateObjectFromForm<ITimeslice>(pForm);
                 TimesliceList.Add(tmp);
-                _dataManager.UpsertTimeslice((Timeslice)tmp);
-                return (T)tmp;
+                _dataManager.UpsertTimeslice((Timeslice) tmp);
+                return (T) tmp;
             }
             else
             {
@@ -212,14 +171,40 @@ namespace PlexByte.MoCap.Managers
             DockContent tmp = null;
             if (pObject.GetType() == typeof (IUser))
             {
-                tmp = _formManager.CreateUserFormFromObject((IUser)pObject);
+                tmp = _formManager.CreateUserFormFromObject((IUser) pObject);
             }
             else
             {
-                tmp = _formManager.CreateFormFromObject((IInteraction)pObject);
+                tmp = _formManager.CreateFormFromObject((IInteraction) pObject);
             }
 
             return tmp;
         }
+
+        #endregion
+
+        #region Private Methods
+
+        private void InitializeObjects() { }
+
+        private void RefreshObjects() { InitializeObjects(); }
+
+        private void UpdateTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            RefreshObjects();
+            _updateTimer.Start();
+        }
+
+        private void GetAllProjectUsers(string pProjectId) { throw new System.NotImplementedException(); }
+
+        private void GetAllTasks(string pId, bool pIsProjectId) { throw new System.NotImplementedException(); }
+
+        private void GetAllSurveys(string pId, bool pIsProjectId) { throw new System.NotImplementedException(); }
+
+        private void GetAllTimeslices(string pId, bool pIsProjectId) { throw new System.NotImplementedException(); }
+
+        private void GetAllExpenses(string pId, bool pIsProjectId) { throw new System.NotImplementedException(); }
+
+        #endregion
     }
 }

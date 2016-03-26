@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("1. sdfs (2)");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("2. sdfs (1)");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("3. fsdf (1)");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("4. sadfsd (1)");
             System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
             System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("fsdf");
             System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("");
@@ -43,10 +47,6 @@
             System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("dssf");
             System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("");
             System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("dfsdf");
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("1. sdfs (2)");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("2. sdfs (1)");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("3. fsdf (1)");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("4. sadfsd (1)");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_Survey));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
@@ -60,6 +60,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_TaskView = new System.Windows.Forms.Button();
+            this.tbx_TaskTitle = new System.Windows.Forms.TextBox();
+            this.lbl_AssignTask = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lsv_VoteOverview = new System.Windows.Forms.ListView();
+            this.tbx_LastVoteBy = new System.Windows.Forms.TextBox();
+            this.tbx_VotesPerUser = new System.Windows.Forms.TextBox();
+            this.tbx_Description = new System.Windows.Forms.TextBox();
+            this.tbx_DueDate = new System.Windows.Forms.TextBox();
+            this.tbx_State = new System.Windows.Forms.TextBox();
+            this.tbx_SurveyVoteCount = new System.Windows.Forms.TextBox();
+            this.tbx_SurveyTitle = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -67,21 +79,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_Vote = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.tbx_SurveyTitle = new System.Windows.Forms.TextBox();
-            this.tbx_SurveyVoteCount = new System.Windows.Forms.TextBox();
-            this.tbx_State = new System.Windows.Forms.TextBox();
-            this.tbx_DueDate = new System.Windows.Forms.TextBox();
-            this.tbx_Description = new System.Windows.Forms.TextBox();
-            this.tbx_VotesPerUser = new System.Windows.Forms.TextBox();
-            this.tbx_LastVoteBy = new System.Windows.Forms.TextBox();
-            this.lsv_VoteOverview = new System.Windows.Forms.ListView();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lv_Otions = new System.Windows.Forms.ListView();
+            this.btn_CreateOptions = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.lbl_AssignTask = new System.Windows.Forms.Label();
-            this.tbx_TaskTitle = new System.Windows.Forms.TextBox();
-            this.btn_TaskView = new System.Windows.Forms.Button();
+            this.lbl_State = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dtp_Start = new System.Windows.Forms.DateTimePicker();
+            this.dtp_End = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -99,7 +104,7 @@
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Location = new System.Drawing.Point(12, 243);
+            this.groupBox1.Location = new System.Drawing.Point(12, 301);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(625, 75);
             this.groupBox1.TabIndex = 12;
@@ -131,7 +136,7 @@
             this.textBox8.Enabled = false;
             this.textBox8.Location = new System.Drawing.Point(89, 45);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(133, 20);
+            this.textBox8.Size = new System.Drawing.Size(178, 20);
             this.textBox8.TabIndex = 15;
             // 
             // textBox7
@@ -139,7 +144,7 @@
             this.textBox7.Enabled = false;
             this.textBox7.Location = new System.Drawing.Point(89, 19);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(133, 20);
+            this.textBox7.Size = new System.Drawing.Size(178, 20);
             this.textBox7.TabIndex = 14;
             // 
             // label14
@@ -190,7 +195,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(288, 16);
+            this.label2.Location = new System.Drawing.Point(319, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 15;
@@ -200,6 +205,13 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.dtp_End);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.dtp_Start);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.lbl_State);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.btn_CreateOptions);
             this.groupBox2.Controls.Add(this.btn_TaskView);
             this.groupBox2.Controls.Add(this.tbx_TaskTitle);
             this.groupBox2.Controls.Add(this.lbl_AssignTask);
@@ -221,15 +233,117 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(625, 225);
+            this.groupBox2.Size = new System.Drawing.Size(625, 283);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Survey Details:";
             // 
+            // btn_TaskView
+            // 
+            this.btn_TaskView.Location = new System.Drawing.Point(578, 224);
+            this.btn_TaskView.Name = "btn_TaskView";
+            this.btn_TaskView.Size = new System.Drawing.Size(39, 23);
+            this.btn_TaskView.TabIndex = 37;
+            this.btn_TaskView.Text = "...";
+            this.btn_TaskView.UseVisualStyleBackColor = true;
+            this.btn_TaskView.Visible = false;
+            // 
+            // tbx_TaskTitle
+            // 
+            this.tbx_TaskTitle.Enabled = false;
+            this.tbx_TaskTitle.Location = new System.Drawing.Point(335, 226);
+            this.tbx_TaskTitle.Name = "tbx_TaskTitle";
+            this.tbx_TaskTitle.Size = new System.Drawing.Size(237, 20);
+            this.tbx_TaskTitle.TabIndex = 36;
+            this.tbx_TaskTitle.Visible = false;
+            // 
+            // lbl_AssignTask
+            // 
+            this.lbl_AssignTask.AutoSize = true;
+            this.lbl_AssignTask.Location = new System.Drawing.Point(6, 229);
+            this.lbl_AssignTask.Name = "lbl_AssignTask";
+            this.lbl_AssignTask.Size = new System.Drawing.Size(300, 13);
+            this.lbl_AssignTask.TabIndex = 35;
+            this.lbl_AssignTask.Text = "Task to assign (User with highest vote count will be assigned):";
+            this.lbl_AssignTask.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 153);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(80, 13);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "Vote Overview:";
+            // 
+            // lsv_VoteOverview
+            // 
+            this.lsv_VoteOverview.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4});
+            this.lsv_VoteOverview.Location = new System.Drawing.Point(89, 153);
+            this.lsv_VoteOverview.Name = "lsv_VoteOverview";
+            this.lsv_VoteOverview.Size = new System.Drawing.Size(528, 65);
+            this.lsv_VoteOverview.TabIndex = 33;
+            this.lsv_VoteOverview.UseCompatibleStateImageBehavior = false;
+            this.lsv_VoteOverview.View = System.Windows.Forms.View.List;
+            // 
+            // tbx_LastVoteBy
+            // 
+            this.tbx_LastVoteBy.Location = new System.Drawing.Point(416, 97);
+            this.tbx_LastVoteBy.Name = "tbx_LastVoteBy";
+            this.tbx_LastVoteBy.Size = new System.Drawing.Size(201, 20);
+            this.tbx_LastVoteBy.TabIndex = 32;
+            // 
+            // tbx_VotesPerUser
+            // 
+            this.tbx_VotesPerUser.Location = new System.Drawing.Point(416, 71);
+            this.tbx_VotesPerUser.Name = "tbx_VotesPerUser";
+            this.tbx_VotesPerUser.Size = new System.Drawing.Size(201, 20);
+            this.tbx_VotesPerUser.TabIndex = 31;
+            // 
+            // tbx_Description
+            // 
+            this.tbx_Description.Location = new System.Drawing.Point(416, 19);
+            this.tbx_Description.Multiline = true;
+            this.tbx_Description.Name = "tbx_Description";
+            this.tbx_Description.Size = new System.Drawing.Size(201, 46);
+            this.tbx_Description.TabIndex = 30;
+            // 
+            // tbx_DueDate
+            // 
+            this.tbx_DueDate.Location = new System.Drawing.Point(89, 97);
+            this.tbx_DueDate.Name = "tbx_DueDate";
+            this.tbx_DueDate.Size = new System.Drawing.Size(178, 20);
+            this.tbx_DueDate.TabIndex = 29;
+            // 
+            // tbx_State
+            // 
+            this.tbx_State.Location = new System.Drawing.Point(89, 71);
+            this.tbx_State.Name = "tbx_State";
+            this.tbx_State.Size = new System.Drawing.Size(178, 20);
+            this.tbx_State.TabIndex = 28;
+            // 
+            // tbx_SurveyVoteCount
+            // 
+            this.tbx_SurveyVoteCount.Location = new System.Drawing.Point(89, 45);
+            this.tbx_SurveyVoteCount.Name = "tbx_SurveyVoteCount";
+            this.tbx_SurveyVoteCount.Size = new System.Drawing.Size(178, 20);
+            this.tbx_SurveyVoteCount.TabIndex = 27;
+            // 
+            // tbx_SurveyTitle
+            // 
+            this.tbx_SurveyTitle.Location = new System.Drawing.Point(89, 19);
+            this.tbx_SurveyTitle.Name = "tbx_SurveyTitle";
+            this.tbx_SurveyTitle.Size = new System.Drawing.Size(178, 20);
+            this.tbx_SurveyTitle.TabIndex = 26;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(296, 100);
+            this.label5.Location = new System.Drawing.Point(319, 100);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(55, 13);
             this.label5.TabIndex = 25;
@@ -256,7 +370,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(271, 74);
+            this.label6.Location = new System.Drawing.Point(319, 74);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 13);
             this.label6.TabIndex = 19;
@@ -276,14 +390,12 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.textBox10);
-            this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.btn_Vote);
-            this.groupBox3.Controls.Add(this.listView1);
+            this.groupBox3.Controls.Add(this.lv_Otions);
             this.groupBox3.Enabled = false;
-            this.groupBox3.Location = new System.Drawing.Point(12, 324);
+            this.groupBox3.Location = new System.Drawing.Point(12, 382);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(625, 134);
+            this.groupBox3.Size = new System.Drawing.Size(625, 112);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Voting:";
@@ -297,12 +409,12 @@
             this.btn_Vote.Text = "Vote";
             this.btn_Vote.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // lv_Otions
             // 
-            this.listView1.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listView1.CheckBoxes = true;
-            this.listView1.HideSelection = false;
-            this.listView1.HoverSelection = true;
+            this.lv_Otions.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.lv_Otions.CheckBoxes = true;
+            this.lv_Otions.HideSelection = false;
+            this.lv_Otions.HoverSelection = true;
             listViewItem5.StateImageIndex = 0;
             listViewItem6.StateImageIndex = 0;
             listViewItem7.StateImageIndex = 0;
@@ -318,7 +430,7 @@
             listViewItem17.StateImageIndex = 0;
             listViewItem18.StateImageIndex = 0;
             listViewItem19.StateImageIndex = 0;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            this.lv_Otions.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem5,
             listViewItem6,
             listViewItem7,
@@ -334,137 +446,81 @@
             listViewItem17,
             listViewItem18,
             listViewItem19});
-            this.listView1.Location = new System.Drawing.Point(89, 19);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(528, 77);
-            this.listView1.TabIndex = 19;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
+            this.lv_Otions.Location = new System.Drawing.Point(89, 19);
+            this.lv_Otions.Name = "lv_Otions";
+            this.lv_Otions.Size = new System.Drawing.Size(528, 77);
+            this.lv_Otions.TabIndex = 19;
+            this.lv_Otions.UseCompatibleStateImageBehavior = false;
+            this.lv_Otions.View = System.Windows.Forms.View.List;
             // 
-            // tbx_SurveyTitle
+            // btn_CreateOptions
             // 
-            this.tbx_SurveyTitle.Location = new System.Drawing.Point(89, 19);
-            this.tbx_SurveyTitle.Name = "tbx_SurveyTitle";
-            this.tbx_SurveyTitle.Size = new System.Drawing.Size(133, 20);
-            this.tbx_SurveyTitle.TabIndex = 26;
-            // 
-            // tbx_SurveyVoteCount
-            // 
-            this.tbx_SurveyVoteCount.Location = new System.Drawing.Point(89, 45);
-            this.tbx_SurveyVoteCount.Name = "tbx_SurveyVoteCount";
-            this.tbx_SurveyVoteCount.Size = new System.Drawing.Size(133, 20);
-            this.tbx_SurveyVoteCount.TabIndex = 27;
-            // 
-            // tbx_State
-            // 
-            this.tbx_State.Location = new System.Drawing.Point(89, 71);
-            this.tbx_State.Name = "tbx_State";
-            this.tbx_State.Size = new System.Drawing.Size(133, 20);
-            this.tbx_State.TabIndex = 28;
-            // 
-            // tbx_DueDate
-            // 
-            this.tbx_DueDate.Location = new System.Drawing.Point(89, 97);
-            this.tbx_DueDate.Name = "tbx_DueDate";
-            this.tbx_DueDate.Size = new System.Drawing.Size(133, 20);
-            this.tbx_DueDate.TabIndex = 29;
-            // 
-            // tbx_Description
-            // 
-            this.tbx_Description.Location = new System.Drawing.Point(416, 19);
-            this.tbx_Description.Multiline = true;
-            this.tbx_Description.Name = "tbx_Description";
-            this.tbx_Description.Size = new System.Drawing.Size(201, 46);
-            this.tbx_Description.TabIndex = 30;
-            // 
-            // tbx_VotesPerUser
-            // 
-            this.tbx_VotesPerUser.Location = new System.Drawing.Point(416, 71);
-            this.tbx_VotesPerUser.Name = "tbx_VotesPerUser";
-            this.tbx_VotesPerUser.Size = new System.Drawing.Size(201, 20);
-            this.tbx_VotesPerUser.TabIndex = 31;
-            // 
-            // tbx_LastVoteBy
-            // 
-            this.tbx_LastVoteBy.Location = new System.Drawing.Point(416, 97);
-            this.tbx_LastVoteBy.Name = "tbx_LastVoteBy";
-            this.tbx_LastVoteBy.Size = new System.Drawing.Size(201, 20);
-            this.tbx_LastVoteBy.TabIndex = 32;
-            // 
-            // lsv_VoteOverview
-            // 
-            this.lsv_VoteOverview.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3,
-            listViewItem4});
-            this.lsv_VoteOverview.Location = new System.Drawing.Point(89, 124);
-            this.lsv_VoteOverview.Name = "lsv_VoteOverview";
-            this.lsv_VoteOverview.Size = new System.Drawing.Size(528, 65);
-            this.lsv_VoteOverview.TabIndex = 33;
-            this.lsv_VoteOverview.UseCompatibleStateImageBehavior = false;
-            this.lsv_VoteOverview.View = System.Windows.Forms.View.List;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 124);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 13);
-            this.label7.TabIndex = 34;
-            this.label7.Text = "Vote Overview:";
+            this.btn_CreateOptions.Location = new System.Drawing.Point(495, 253);
+            this.btn_CreateOptions.Name = "btn_CreateOptions";
+            this.btn_CreateOptions.Size = new System.Drawing.Size(122, 23);
+            this.btn_CreateOptions.TabIndex = 38;
+            this.btn_CreateOptions.Text = "Create Options";
+            this.btn_CreateOptions.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 106);
+            this.label9.Location = new System.Drawing.Point(6, 258);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 13);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "Custom Option:";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 39;
+            this.label9.Text = "State:";
             // 
-            // textBox10
+            // lbl_State
             // 
-            this.textBox10.Location = new System.Drawing.Point(89, 103);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(528, 20);
-            this.textBox10.TabIndex = 22;
-            this.textBox10.Visible = false;
+            this.lbl_State.AutoSize = true;
+            this.lbl_State.Location = new System.Drawing.Point(86, 258);
+            this.lbl_State.Name = "lbl_State";
+            this.lbl_State.Size = new System.Drawing.Size(37, 13);
+            this.lbl_State.TabIndex = 40;
+            this.lbl_State.Text = "Active";
             // 
-            // lbl_AssignTask
+            // label10
             // 
-            this.lbl_AssignTask.AutoSize = true;
-            this.lbl_AssignTask.Location = new System.Drawing.Point(6, 200);
-            this.lbl_AssignTask.Name = "lbl_AssignTask";
-            this.lbl_AssignTask.Size = new System.Drawing.Size(300, 13);
-            this.lbl_AssignTask.TabIndex = 35;
-            this.lbl_AssignTask.Text = "Task to assign (User with highest vote count will be assigned):";
-            this.lbl_AssignTask.Visible = false;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 127);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(32, 13);
+            this.label10.TabIndex = 41;
+            this.label10.Text = "Start:";
             // 
-            // tbx_TaskTitle
+            // dtp_Start
             // 
-            this.tbx_TaskTitle.Enabled = false;
-            this.tbx_TaskTitle.Location = new System.Drawing.Point(335, 197);
-            this.tbx_TaskTitle.Name = "tbx_TaskTitle";
-            this.tbx_TaskTitle.Size = new System.Drawing.Size(237, 20);
-            this.tbx_TaskTitle.TabIndex = 36;
-            this.tbx_TaskTitle.Visible = false;
+            this.dtp_Start.CustomFormat = "ddd dd. MMM yyyy";
+            this.dtp_Start.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_Start.Location = new System.Drawing.Point(89, 123);
+            this.dtp_Start.Name = "dtp_Start";
+            this.dtp_Start.Size = new System.Drawing.Size(178, 20);
+            this.dtp_Start.TabIndex = 42;
             // 
-            // btn_TaskView
+            // dtp_End
             // 
-            this.btn_TaskView.Location = new System.Drawing.Point(578, 195);
-            this.btn_TaskView.Name = "btn_TaskView";
-            this.btn_TaskView.Size = new System.Drawing.Size(39, 23);
-            this.btn_TaskView.TabIndex = 37;
-            this.btn_TaskView.Text = "...";
-            this.btn_TaskView.UseVisualStyleBackColor = true;
-            this.btn_TaskView.Visible = false;
+            this.dtp_End.CustomFormat = "ddd dd. MMM yyyy";
+            this.dtp_End.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_End.Location = new System.Drawing.Point(416, 123);
+            this.dtp_End.Name = "dtp_End";
+            this.dtp_End.Size = new System.Drawing.Size(201, 20);
+            this.dtp_End.TabIndex = 44;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(319, 127);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(32, 13);
+            this.label11.TabIndex = 43;
+            this.label11.Text = "Start:";
             // 
             // uc_Survey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 470);
+            this.ClientSize = new System.Drawing.Size(652, 506);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -476,7 +532,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -496,7 +551,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btn_Vote;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lv_Otions;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
@@ -514,7 +569,12 @@
         private System.Windows.Forms.TextBox tbx_TaskTitle;
         private System.Windows.Forms.Label lbl_AssignTask;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Button btn_CreateOptions;
+        private System.Windows.Forms.Label lbl_State;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker dtp_End;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DateTimePicker dtp_Start;
+        private System.Windows.Forms.Label label10;
     }
 }

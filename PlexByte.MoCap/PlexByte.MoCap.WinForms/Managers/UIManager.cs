@@ -66,7 +66,7 @@ namespace PlexByte.MoCap.WinForms
             _MainUI = pMainUI;
             _errorProvider = new ErrorProvider();
             _errorProvider.BlinkStyle= ErrorBlinkStyle.BlinkIfDifferentError;
-            _dataManager=new DataManager();
+            //_dataManager=new DataManager();
             _interactionFactory=new InteractionFactory();
         }
 

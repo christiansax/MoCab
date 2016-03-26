@@ -66,8 +66,8 @@ namespace PlexByte.MoCap.Managers.OLD
 
         #region Variables
         
-        DataManager _dataManager = new DataManager();
-        FormManager _formManager = new FormManager();
+        DataManager _dataManager = null;
+        FormManager _formManager = null;
         private Timer _updateTimer = null;
         //  private DataManager _dataManager = null;
 
@@ -81,6 +81,8 @@ namespace PlexByte.MoCap.Managers.OLD
             _updateTimer = new Timer(20000);
             _updateTimer.AutoReset = false;
             _updateTimer.Elapsed += UpdateTimer_Elapsed;
+
+            
 
             //_dataManager = pDataManager;
         }

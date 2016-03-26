@@ -20,18 +20,18 @@ namespace PlexByte.MoCap.Managers
 {
     public class ObjectManager : IDisposable
     {
-        DataManager _dataManager = new DataManager();
-        FormManager _formManager = new FormManager();
+        public IUser UserContext { get; private set; } = null;
+
+        DataManager _dataManager = null;
+        FormManager _formManager = null;
         IInteractionFactory _interactionFactory = null;
         IObjectFactory _objectFactory = null;
-        private frm_MoCapMain _MainUI = null;
         Timer _updateTimer = null;
         
         #region Ctor & Dtor
 
-        public ObjectManager(frm_MoCapMain pMainForm)
+        public ObjectManager()
         {
-            _MainUI = pMainForm;
             // Instanciate factories to create object
             _interactionFactory = new InteractionFactory();
             _objectFactory = new ObjectFactory();
@@ -40,6 +40,8 @@ namespace PlexByte.MoCap.Managers
             _updateTimer = new Timer(20000);
             _updateTimer.AutoReset = false;
             _updateTimer.Elapsed += UpdateTimer_Elapsed;
+            _formManager = new FormManager(this);
+            _dataManager = new DataManager(this);
 
             //_dataManager = pDataManager;
         }
@@ -147,12 +149,12 @@ namespace PlexByte.MoCap.Managers
 
         public void LoginUser(string pId)
         {
-            throw new System.NotImplementedException();
+            UserContext = _dataManager.GetUser(pId, true);
         }
 
         public void LogoutUser()
         {
-            throw new System.NotImplementedException();
+            UserContext = null;
         }
 
         public T CreateObjectFromForm<T>(DockContent pForm)

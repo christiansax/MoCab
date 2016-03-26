@@ -18,14 +18,16 @@ namespace PlexByte.MoCap.Managers
         private BackendService _backendService = null;
         private IInteractionFactory _interactionFactory = null;
         private IObjectFactory _objectFactory = null;
+        private ObjectManager _objectManager = null;
 
         #region Ctor & Dtor
 
-        public DataManager()
+        public DataManager(ObjectManager pInstance)
         {
             _backendService = new BackendService();
             _interactionFactory = new InteractionFactory();
             _objectFactory = new ObjectFactory();
+            _objectManager = pInstance;
         }
 
         public void Dispose()
@@ -150,7 +152,7 @@ namespace PlexByte.MoCap.Managers
 
         public IVote GetVoteById(string pId)
         {
-            DataTable record = _backendService.GetVoteById(pId);
+            DataTable record = _backendService.GetVoteById(pId, false);
             return (_objectFactory.CreateVote(record.Rows[0]["Id"].ToString(),
                 GetUser(record.Rows[0]["UserId"].ToString(), true),
                 GetSurveyOption(record.Rows[0]["SurveyOptionId"].ToString())));
@@ -159,7 +161,7 @@ namespace PlexByte.MoCap.Managers
         public List<IVote> GetVoteBySurveyId(string pId, bool pIsSurveyId)
         {
             List<IVote> votes = new List<IVote>();
-            DataTable records = _backendService.GetVoteById(pId);
+            DataTable records = _backendService.GetVoteById(pId, true);
             foreach (DataRow row in records.Rows)
             {
                 votes.Add(_objectFactory.CreateVote(row["Id"].ToString(),

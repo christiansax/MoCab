@@ -18,17 +18,17 @@ namespace PlexByte.MoCap.Managers
     public class FormManager: IDisposable
     {
         IInteractionFactory _interactionFactory = null;
+        ObjectManager _objectManager = null;
         IObjectFactory _objectFactory = null;
         ErrorProvider _errorProvider = null;
-        DataManager _dataManager = null;
 
         #region Ctor & Dtor
-        public FormManager(DataManager pInstance)
+        public FormManager(ObjectManager pInstance)
         {
             _interactionFactory = new InteractionFactory();
             _objectFactory = new ObjectFactory();
             _errorProvider=new ErrorProvider();
-            _dataManager = pInstance;
+            _objectManager = pInstance;
         }
 
         public void Dispose()
@@ -80,7 +80,7 @@ namespace PlexByte.MoCap.Managers
             return tmp;
         }
 
-        private void CreateAccountForm(IAccount pInstance)
+        private DockContent CreateAccountForm(IAccount pInstance)
         {
             throw new NotImplementedException();
         }
@@ -177,27 +177,27 @@ namespace PlexByte.MoCap.Managers
         {
             if (pInstance.GetType() == typeof(uc_Project))
             {
-                CreateProjectForm((IProject)pObject);
+                return CreateProjectForm((IProject)pObject);
             }
             else if (pInstance.GetType() == typeof(uc_Task))
             {
-                CreateTaskForm((ITask)pObject);
+                return CreateTaskForm((ITask)pObject);
             }
             else if (pInstance.GetType() == typeof(uc_Survey))
             {
-
+                return null;
             }
             else if (pInstance.GetType() == typeof(uc_Account))
             {
-                CreateAccountForm((IAccount)pObject);
+                return CreateAccountForm((IAccount)pObject);
             }
             else if (pInstance.GetType() == typeof(uc_Expense))
             {
-                CreateExpenseForm((IExpense)pObject);
+                return CreateExpenseForm((IExpense)pObject);
             }
             else if (pInstance.GetType() == typeof(uc_Timeslice))
             {
-                CreateTimesliceForm((ITimeslice)pObject);
+                return CreateTimesliceForm((ITimeslice)pObject);
             }
             else { throw new InvalidCastException($"The type {pInstance.GetType().ToString()} is not a valid interaction type!"); }
         }
@@ -255,10 +255,12 @@ namespace PlexByte.MoCap.Managers
                         Convert.ToBoolean(GetControlByName<CheckBox>(pInstance, "cbx_EnableSurvey").CheckState),
                         GetControlByName<DateTimePicker>(pInstance, "dtp_StartDate").Value,
                         GetControlByName<DateTimePicker>(pInstance, "dtp_EndDate").Value,
-                        GetControlByName<TextBox>(pInstance, "dtp_EndDate").Value,
+                        new User());
 
                     return (T)obj;
                 }
+                else
+                    throw new Exception("Error creating project");
 
             }
             else if (pInstance.GetType() == typeof(uc_Task))
@@ -276,10 +278,10 @@ namespace PlexByte.MoCap.Managers
                       GetControlByName<DateTimePicker>(pInstance, "num_Priority").Value,
                       60 +
                       GetControlByName<DateTimePicker>(pInstance, "num_EffortsMin").Value,
-                      
-
+                   
                 return (T)obj;
                 */
+                return default(T);
             }
             else if (pInstance.GetType() == typeof(uc_Survey))
             {
@@ -299,7 +301,10 @@ namespace PlexByte.MoCap.Managers
                 ITimeslice obj = _interactionFactory.CreateTimeslice("", new User(), 0, new Task("", "", new User()));
                 return (T)obj;
             }
-            else { throw new InvalidCastException($"The type {pInstance.GetType().ToString()} is not a valid interaction type!"); }
+            else
+            {
+                throw new InvalidCastException($"The type {pInstance.GetType().ToString()} is not a valid interaction type!");
+            }
         }
 
         public IUser CreateUserObjectFromFForm(DockContent pInstance)

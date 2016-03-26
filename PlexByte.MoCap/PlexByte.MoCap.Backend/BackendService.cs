@@ -138,7 +138,7 @@ namespace PlexByte.MoCap.Backend
                 case false:
                     return resultSet = ExecuteQueryString($"select * from View_Vote where Id = '{pId}'");
                 default:
-                    break:
+                    return null;
             }
 
             return ExecuteQueryString($"select * from View_Vote where Id = '{pId}'");

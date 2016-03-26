@@ -15,6 +15,9 @@ namespace PlexByte.MoCap.Interactions
         event ExpenseAdd ExpenseAdded;
         event TimesliceAdd TimesliceAdded;
 
+
+        string Id { get; }
+
         List<IExpense> ExpenseList { get; }
 
         List<ITimeslice> TimesliceList { get; }

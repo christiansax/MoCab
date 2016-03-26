@@ -243,33 +243,18 @@ namespace PlexByte.MoCap.Managers
                     IProject obj = CreatePojectFromForm(pInstance);
                     return (T)obj;
                 }
-
                 else if (pInstance.GetType() == typeof(uc_Task))
                 {
-                    /*
-                    ITask obj = _interactionFactory.CreateTask(GetControlByName<TextBox>(pInstance, "tbx_Id").Text,
-                        GetControlByName<TextBox>(pInstance, "tbx_Description").Text,
-                        GetControlByName<TextBox>(pInstance, "tbx_Title").Text,
-                        _dataManager.GetUser(GetControlByName<TextBox>(pInstance, "tbx_UserName").Text, true),
-                         GetControlByName<DateTimePicker>(pInstance, "dtp_Start").Value,
-                          GetControlByName<DateTimePicker>(pInstance, "dtp_End").Value,
-                          GetControlByName<DateTimePicker>(pInstance, "dtp_DueDate").Value,
-                          GetControlByName<DateTimePicker>(pInstance, "dtp_DueDate").Value,
-                          GetControlByName<DateTimePicker>(pInstance, "num_Budget").Value,
-                          GetControlByName<DateTimePicker>(pInstance, "num_Priority").Value,
-                          60 +
-                          GetControlByName<DateTimePicker>(pInstance, "num_EffortsMin").Value,
-
-                    return (T)obj;
-                    */
-                    return default(T);
+                    return (T)CreateTaskFromForm((uc_Task)pInstance);
                 }
                 else if (pInstance.GetType() == typeof(uc_Survey))
                 {
-                    ISurvey obj = _interactionFactory.CreateSurvey("", "", new System.Collections.Generic.List<ISurveyOption>()
-                    { new SurveyOption("", "") },
+                    ISurvey obj = _interactionFactory.CreateSurvey("",
+                        "",
+                        new System.Collections.Generic.List<ISurveyOption>()
+                        {new SurveyOption("", "")},
                         new User()
-                    );
+                        );
                     return (T)obj;
                 }
                 else if (pInstance.GetType() == typeof(uc_Expense))
@@ -287,6 +272,9 @@ namespace PlexByte.MoCap.Managers
                     throw new InvalidCastException($"The type {pInstance.GetType().ToString()} is not a valid interaction type!");
                 }
             }
+            else
+                throw new AuthenticationException("There seems to be no user logged in! Please login " +
+                                                  "before you start working");
         }
 
         public IUser CreateUserObjectFromForm(DockContent pInstance)
@@ -322,8 +310,6 @@ namespace PlexByte.MoCap.Managers
         private IProject CreatePojectFromForm(DockContent pInstance)
         {
             bool bError = false;
-            int _IsActive = Convert.ToByte(false);
-            int _StateId = Convert.ToInt32(InteractionState.Queued);
             string _ProjectId = null;
 
             if (GetControlByName<TextBox>(pInstance, "tbx_Title").Text.Contains(";"))

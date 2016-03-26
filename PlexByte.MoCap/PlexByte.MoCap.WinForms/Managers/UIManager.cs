@@ -274,6 +274,7 @@ namespace PlexByte.MoCap.WinForms
             {
                 case "btn_Create":
                     if (GetControlByName<Button>(ctrls, "btn_Create").Text.ToLower() == "edit")
+                        //_objectManager.CreateObjectFromForm();
                         ProjectButtonEdit(ctrls);
                     else
                         ProjectButtonCreate(ctrls);

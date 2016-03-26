@@ -252,8 +252,7 @@ namespace PlexByte.MoCap.Managers
                     GetControlByName<DateTimePicker>(ctrl, "dtp_StartDate").Value,
                     GetControlByName<DateTimePicker>(ctrl, "dtp_EndDate").Value,
                     _objectManager.UserContext);
-
-
+                
                 GetControlByName<Button>(ctrl, "btn_Update").Enabled = true;
                 GetControlByName<Button>(ctrl, "btn_InviteUser").Enabled = true;
                 GetControlByName<CheckBox>(ctrl, "cbx_EnableBalance").Enabled = false;
@@ -263,10 +262,13 @@ namespace PlexByte.MoCap.Managers
                 GetControlByName<TextBox>(ctrl, "tbx_Title").Enabled = false;
                 GetControlByName<TextBox>(ctrl, "tbx_Description").Enabled = false;
                 GetControlByName<Button>(ctrl, "btn_Create").Text = "Edit";
-
-
+                
+                ctrl.Clear();
+                ctrl = null;
                 return obj;
             }
+            ctrl.Clear();
+            ctrl = null;
             return null;
         }
 
@@ -302,7 +304,7 @@ namespace PlexByte.MoCap.Managers
             _errorProvider.Clear();
             DockContent tmp = CreateContentPanel(UiType.Project);
             tmp.TabText = $"Project Dialog ({pInstance.Id})";
-            List<Control> ctrls = GetAllControls(tmp);
+            List<Control> ctrl = GetAllControls(tmp);
 
             Project t = (Project)pInstance;
             TimeSpan _Countdown;
@@ -316,25 +318,27 @@ namespace PlexByte.MoCap.Managers
                 _Countdown = t.EndDateTime.Subtract(t.StartDateTime);
             }
 
-            GetControlByName<TextBox>(ctrls, "tbx_Title").Text = t.Name;
-            GetControlByName<TextBox>(ctrls, "tbx_Description").Text = t.Text;
+            GetControlByName<TextBox>(ctrl, "tbx_Title").Text = t.Name;
+            GetControlByName<TextBox>(ctrl, "tbx_Description").Text = t.Text;
             if (t.EnableBalance == true)
-                GetControlByName<CheckBox>(ctrls, "cbx_EnableBalance").CheckState = CheckState.Checked;
+                GetControlByName<CheckBox>(ctrl, "cbx_EnableBalance").CheckState = CheckState.Checked;
             else
-                GetControlByName<CheckBox>(ctrls, "cbx_EnableBalance").CheckState = CheckState.Unchecked;
+                GetControlByName<CheckBox>(ctrl, "cbx_EnableBalance").CheckState = CheckState.Unchecked;
             if (t.EnableSurvey == true)
-                GetControlByName<CheckBox>(ctrls, "cbx_EnableSurvey").CheckState = CheckState.Checked;
+                GetControlByName<CheckBox>(ctrl, "cbx_EnableSurvey").CheckState = CheckState.Checked;
             else
-                GetControlByName<CheckBox>(ctrls, "cbx_EnableSurvey").CheckState = CheckState.Unchecked;
-            GetControlByName<Label>(ctrls, "lbl_Countdown").Text = String.Format($"{_Countdown.TotalDays}d:{_Countdown.Hours}h:{_Countdown.Minutes}min");
-            GetControlByName<DateTimePicker>(ctrls, "dtp_StartDate").Value = t.StartDateTime;
-            GetControlByName<DateTimePicker>(ctrls, "dtp_EndDate").Value = t.EndDateTime;
-            GetControlByName<TextBox>(ctrls, "tbx_CreatedBy").Text = t.Creator.Username;
-            GetControlByName<TextBox>(ctrls, "tbx_ModifiedBy").Text = t.Owner.Username;
-            GetControlByName<DateTimePicker>(ctrls, "dtp_Created").Value = t.CreatedDateTime;
-            GetControlByName<DateTimePicker>(ctrls, "dtp_Modified").Value = t.ModifiedDateTime;
+                GetControlByName<CheckBox>(ctrl, "cbx_EnableSurvey").CheckState = CheckState.Unchecked;
+            GetControlByName<Label>(ctrl, "lbl_Countdown").Text = String.Format($"{_Countdown.TotalDays}d:{_Countdown.Hours}h:{_Countdown.Minutes}min");
+            GetControlByName<DateTimePicker>(ctrl, "dtp_StartDate").Value = t.StartDateTime;
+            GetControlByName<DateTimePicker>(ctrl, "dtp_EndDate").Value = t.EndDateTime;
+            GetControlByName<TextBox>(ctrl, "tbx_CreatedBy").Text = t.Creator.Username;
+            GetControlByName<TextBox>(ctrl, "tbx_ModifiedBy").Text = t.Owner.Username;
+            GetControlByName<DateTimePicker>(ctrl, "dtp_Created").Value = t.CreatedDateTime;
+            GetControlByName<DateTimePicker>(ctrl, "dtp_Modified").Value = t.ModifiedDateTime;
 
             t = null;
+            ctrl.Clear();
+            ctrl = null;
             return tmp;
         }
 
@@ -343,7 +347,7 @@ namespace PlexByte.MoCap.Managers
             _errorProvider.Clear();
             DockContent tmp = CreateContentPanel(UiType.Account);
             tmp.TabText = $"Account Dialog ({pInstance.Id})";
-            List<Control> ctrls = GetAllControls(tmp);
+            List<Control> ctrl = GetAllControls(tmp);
 
             Account t = (Account)pInstance;
             DataGridViewColumn column;
@@ -375,6 +379,8 @@ namespace PlexByte.MoCap.Managers
             //}
 
             t = null;
+            ctrl.Clear();
+            ctrl = null;
             return tmp;
         }
 

@@ -15,19 +15,20 @@ using WeifenLuo.WinFormsUI.Docking;
 
 namespace PlexByte.MoCap.Managers
 {
-    #region Ctor & Dtor
-
     public class FormManager: IDisposable
     {
         IInteractionFactory _interactionFactory = null;
         IObjectFactory _objectFactory = null;
-        private ErrorProvider _errorProvider = null;
+        ErrorProvider _errorProvider = null;
+        DataManager _dataManager = null;
 
-        public FormManager()
+        #region Ctor & Dtor
+        public FormManager(DataManager pInstance)
         {
             _interactionFactory = new InteractionFactory();
             _objectFactory = new ObjectFactory();
             _errorProvider=new ErrorProvider();
+            _dataManager = pInstance;
         }
 
         public void Dispose()
@@ -254,7 +255,7 @@ namespace PlexByte.MoCap.Managers
                         Convert.ToBoolean(GetControlByName<CheckBox>(pInstance, "cbx_EnableSurvey").CheckState),
                         GetControlByName<DateTimePicker>(pInstance, "dtp_StartDate").Value,
                         GetControlByName<DateTimePicker>(pInstance, "dtp_EndDate").Value,
-                        new User());
+                        GetControlByName<TextBox>(pInstance, "dtp_EndDate").Value,
 
                     return (T)obj;
                 }
@@ -262,8 +263,23 @@ namespace PlexByte.MoCap.Managers
             }
             else if (pInstance.GetType() == typeof(uc_Task))
             {
-                ITask obj = _interactionFactory.CreateTask("", "", new User());
+                /*
+                ITask obj = _interactionFactory.CreateTask(GetControlByName<TextBox>(pInstance, "tbx_Id").Text,
+                    GetControlByName<TextBox>(pInstance, "tbx_Description").Text,
+                    GetControlByName<TextBox>(pInstance, "tbx_Title").Text,
+                    _dataManager.GetUser(GetControlByName<TextBox>(pInstance, "tbx_UserName").Text, true),
+                     GetControlByName<DateTimePicker>(pInstance, "dtp_Start").Value,
+                      GetControlByName<DateTimePicker>(pInstance, "dtp_End").Value,
+                      GetControlByName<DateTimePicker>(pInstance, "dtp_DueDate").Value,
+                      GetControlByName<DateTimePicker>(pInstance, "dtp_DueDate").Value,
+                      GetControlByName<DateTimePicker>(pInstance, "num_Budget").Value,
+                      GetControlByName<DateTimePicker>(pInstance, "num_Priority").Value,
+                      60 +
+                      GetControlByName<DateTimePicker>(pInstance, "num_EffortsMin").Value,
+                      
+
                 return (T)obj;
+                */
             }
             else if (pInstance.GetType() == typeof(uc_Survey))
             {

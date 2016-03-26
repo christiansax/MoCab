@@ -128,8 +128,19 @@ namespace PlexByte.MoCap.Backend
             return ExecuteQueryString($"select * from View_SurveyOption where Id = '{pId}'");
         }
 
-        public DataTable GetVoteById(string pId)
+        public DataTable GetVoteById(string pId, bool pIsSurveyId)
         {
+            DataTable resultSet = null;
+            switch (pIsSurveyId)
+            {
+                case true:
+                    return resultSet = ExecuteQueryString($"select * from View_Vote where SurveyId = '{pId}'");
+                case false:
+                    return resultSet = ExecuteQueryString($"select * from View_Vote where Id = '{pId}'");
+                default:
+                    break:
+            }
+
             return ExecuteQueryString($"select * from View_Vote where Id = '{pId}'");
         }
 

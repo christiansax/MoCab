@@ -151,12 +151,12 @@ namespace PlexByte.MoCap.Managers
         public IVote GetVoteById(string pId)
         {
             DataTable record = _backendService.GetVoteById(pId);
-            return (_objectFactory.CreateVote(row["Id"].ToString(),
-                GetUser(row["UserId"].ToString(), true),
-                GetSurveyOption(row["SurveyOptionId"].ToString())));
+            return (_objectFactory.CreateVote(record.Rows[0]["Id"].ToString(),
+                GetUser(record.Rows[0]["UserId"].ToString(), true),
+                GetSurveyOption(record.Rows[0]["SurveyOptionId"].ToString())));
         }
 
-        public List<IVote> GetVoteBySurveyId(string pId)
+        public List<IVote> GetVoteBySurveyId(string pId, bool pIsSurveyId)
         {
             List<IVote> votes = new List<IVote>();
             DataTable records = _backendService.GetVoteById(pId);

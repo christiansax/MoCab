@@ -447,6 +447,7 @@
             listViewItem18,
             listViewItem19});
             this.lv_Otions.Location = new System.Drawing.Point(89, 19);
+            this.lv_Otions.MultiSelect = false;
             this.lv_Otions.Name = "lv_Otions";
             this.lv_Otions.Size = new System.Drawing.Size(528, 77);
             this.lv_Otions.TabIndex = 19;

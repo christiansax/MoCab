@@ -10,6 +10,7 @@ using PlexByte.MoCap.WinForms.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Authentication;
 using System.Windows.Forms;
 using PlexByte.MoCap.WinForms;
 using WeifenLuo.WinFormsUI.Docking;
@@ -177,119 +178,136 @@ namespace PlexByte.MoCap.Managers
 
         public DockContent CreateFormFromObject(IInteraction pObject, DockContent pInstance)
         {
-            if (pInstance.GetType() == typeof(uc_Project))
+            if (_objectManager.UserContext != null)
             {
-                return CreateProjectForm((IProject)pObject);
+                if (pInstance.GetType() == typeof (uc_Project))
+                {
+                    return CreateProjectForm((IProject) pObject);
+                }
+                else if (pInstance.GetType() == typeof (uc_Task))
+                {
+                    return CreateTaskForm((ITask) pObject);
+                }
+                else if (pInstance.GetType() == typeof (uc_Survey))
+                {
+                    return null;
+                }
+                else if (pInstance.GetType() == typeof (uc_Account))
+                {
+                    return CreateAccountForm((IAccount) pObject);
+                }
+                else if (pInstance.GetType() == typeof (uc_Expense))
+                {
+                    return CreateExpenseForm((IExpense) pObject);
+                }
+                else if (pInstance.GetType() == typeof (uc_Timeslice))
+                {
+                    return CreateTimesliceForm((ITimeslice) pObject);
+                }
+                else
+                {
+                    throw new InvalidCastException($"The type {pInstance.GetType().ToString()} is not a valid interaction type!");
+                }
             }
-            else if (pInstance.GetType() == typeof(uc_Task))
-            {
-                return CreateTaskForm((ITask)pObject);
-            }
-            else if (pInstance.GetType() == typeof(uc_Survey))
-            {
-                return null;
-            }
-            else if (pInstance.GetType() == typeof(uc_Account))
-            {
-                return CreateAccountForm((IAccount)pObject);
-            }
-            else if (pInstance.GetType() == typeof(uc_Expense))
-            {
-                return CreateExpenseForm((IExpense)pObject);
-            }
-            else if (pInstance.GetType() == typeof(uc_Timeslice))
-            {
-                return CreateTimesliceForm((ITimeslice)pObject);
-            }
-            else { throw new InvalidCastException($"The type {pInstance.GetType().ToString()} is not a valid interaction type!"); }
+            else
+                throw new AuthenticationException("There seems to be no user logged in! Please login " +
+                                                  "before you start working");
         }
 
         public T CreateObjectFromForm<T>(DockContent pInstance)
         {
-            if (pInstance.GetType() == typeof(uc_Project))
+            if (_objectManager.UserContext != null)
             {
-                bool bError = false;
-                int _IsActive = Convert.ToByte(false);
-                int _StateId = Convert.ToInt32(InteractionState.Queued);
-                string _ProjectId = null;
+                if (pInstance.GetType() == typeof (uc_Project))
+                {
+                    bool bError = false;
+                    int _IsActive = Convert.ToByte(false);
+                    int _StateId = Convert.ToInt32(InteractionState.Queued);
+                    string _ProjectId = null;
 
 
-                if (GetControlByName<TextBox>(pInstance, "tbx_Title").Text.Contains(";"))
-                {
-                    _errorProvider.SetError(GetControlByName<TextBox>(pInstance, "tbx_Title"),
-                        "The symbol ';' is not allowed in Title");
-                    bError = true;
-                }
-                if (GetControlByName<TextBox>(pInstance, "tbx_Title").Text.Length < 1)
-                {
-                    _errorProvider.SetError(GetControlByName<TextBox>(pInstance, "tbx_Title"),
-                        "Title is not specified");
-                    bError = true;
-                }
-                if (GetControlByName<DateTimePicker>(pInstance, "dtp_EndDate").Value < GetControlByName<DateTimePicker>(pInstance, "dtp_StartDate").Value)
-                {
-                    _errorProvider.SetError(GetControlByName<DateTimePicker>(pInstance, "dtp_EndDate"),
-                        "The project needs to end after it starts");
-                    bError = true;
-                }
-                if (GetControlByName<DateTimePicker>(pInstance, "dtp_EndDate").Value < DateTime.Now)
-                {
-                    _errorProvider.SetError(GetControlByName<DateTimePicker>(pInstance, "dtp_EndDate"),
-                        "The project end needs to be in the future");
-                    bError = true;
-                }
-
-                if (!bError)
-                {
-                    // Initialize default values for controls
-                    GetControlByName<DateTimePicker>(pInstance, "dtp_Modified").Value = DateTime.Now;
-                    if (GetControlByName<Button>(pInstance, "btn_Create").Text.ToLower() == "create")
+                    if (GetControlByName<TextBox>(pInstance, "tbx_Title").Text.Contains(";"))
                     {
-                        GetControlByName<DateTimePicker>(pInstance, "dtp_Created").Value = DateTime.Now;
-                        //_ProjectId = DateTime.Now.ToString(_dateTimeIdFmt);
-                        //GetControlByName<TextBox>(pInstance, "tbx_Owner").Text = UserContext.Username;
+                        _errorProvider.SetError(GetControlByName<TextBox>(pInstance, "tbx_Title"),
+                            "The symbol ';' is not allowed in Title");
+                        bError = true;
+                    }
+                    if (GetControlByName<TextBox>(pInstance, "tbx_Title").Text.Length < 1)
+                    {
+                        _errorProvider.SetError(GetControlByName<TextBox>(pInstance, "tbx_Title"),
+                            "Title is not specified");
+                        bError = true;
+                    }
+                    if (GetControlByName<DateTimePicker>(pInstance, "dtp_EndDate").Value < GetControlByName<DateTimePicker>(pInstance, "dtp_StartDate").Value)
+                    {
+                        _errorProvider.SetError(GetControlByName<DateTimePicker>(pInstance, "dtp_EndDate"),
+                            "The project needs to end after it starts");
+                        bError = true;
+                    }
+                    if (GetControlByName<DateTimePicker>(pInstance, "dtp_EndDate").Value < DateTime.Now)
+                    {
+                        _errorProvider.SetError(GetControlByName<DateTimePicker>(pInstance, "dtp_EndDate"),
+                            "The project end needs to be in the future");
+                        bError = true;
                     }
 
-                    IProject obj = _interactionFactory.CreateProject("",
-                        GetControlByName<TextBox>(pInstance, "tbx_Title").Text + ";" + GetControlByName<TextBox>(pInstance, "tbx_Description").Text,
-                        Convert.ToBoolean(GetControlByName<CheckBox>(pInstance, "cbx_EnableBalance").CheckState),
-                        Convert.ToBoolean(GetControlByName<CheckBox>(pInstance, "cbx_EnableSurvey").CheckState),
-                        GetControlByName<DateTimePicker>(pInstance, "dtp_StartDate").Value,
-                        GetControlByName<DateTimePicker>(pInstance, "dtp_EndDate").Value,
-                        new User());
+                    if (!bError)
+                    {
+                        // Initialize default values for controls
+                        GetControlByName<DateTimePicker>(pInstance, "dtp_Modified").Value = DateTime.Now;
+                        if (GetControlByName<Button>(pInstance, "btn_Create").Text.ToLower() == "create")
+                        {
+                            GetControlByName<DateTimePicker>(pInstance, "dtp_Created").Value = DateTime.Now;
+                            //_ProjectId = DateTime.Now.ToString(_dateTimeIdFmt);
+                            //GetControlByName<TextBox>(pInstance, "tbx_Owner").Text = UserContext.Username;
+                        }
 
-                    return (T)obj;
+                        IProject obj = _interactionFactory.CreateProject("",
+                            GetControlByName<TextBox>(pInstance, "tbx_Title").Text + ";" + GetControlByName<TextBox>(pInstance, "tbx_Description").Text,
+                            Convert.ToBoolean(GetControlByName<CheckBox>(pInstance, "cbx_EnableBalance").CheckState),
+                            Convert.ToBoolean(GetControlByName<CheckBox>(pInstance, "cbx_EnableSurvey").CheckState),
+                            GetControlByName<DateTimePicker>(pInstance, "dtp_StartDate").Value,
+                            GetControlByName<DateTimePicker>(pInstance, "dtp_EndDate").Value,
+                            new User());
+
+                        return (T) obj;
+                    }
+                    else
+                        throw new Exception("Error creating project");
+
+                }
+                else if (pInstance.GetType() == typeof (uc_Task))
+                {
+                    return (T) CreateTaskFromForm((uc_Task) pInstance);
+                }
+                else if (pInstance.GetType() == typeof (uc_Survey))
+                {
+                    ISurvey obj = _interactionFactory.CreateSurvey("",
+                        "",
+                        new System.Collections.Generic.List<ISurveyOption>()
+                        {new SurveyOption("", "")},
+                        new User()
+                        );
+                    return (T) obj;
+                }
+                else if (pInstance.GetType() == typeof (uc_Expense))
+                {
+                    IExpense obj = _interactionFactory.CreateExpense("", "", new User(), new Task("", "", new User()));
+                    return (T) obj;
+                }
+                else if (pInstance.GetType() == typeof (uc_Timeslice))
+                {
+                    ITimeslice obj = _interactionFactory.CreateTimeslice("", new User(), 0, new Task("", "", new User()));
+                    return (T) obj;
                 }
                 else
-                    throw new Exception("Error creating project");
-
-            }
-            else if (pInstance.GetType() == typeof(uc_Task))
-            {
-                return (T)CreateTaskFromForm((uc_Task)pInstance);
-            }
-            else if (pInstance.GetType() == typeof(uc_Survey))
-            {
-                ISurvey obj = _interactionFactory.CreateSurvey("", "", new System.Collections.Generic.List<ISurveyOption>()
-                    { new SurveyOption("", "") },
-                    new User()
-                );
-                return (T)obj;
-            }
-            else if (pInstance.GetType() == typeof(uc_Expense))
-            {
-                IExpense obj = _interactionFactory.CreateExpense("", "", new User(), new Task("", "", new User()));
-                return (T)obj;
-            }
-            else if (pInstance.GetType() == typeof(uc_Timeslice))
-            {
-                ITimeslice obj = _interactionFactory.CreateTimeslice("", new User(), 0, new Task("", "", new User()));
-                return (T)obj;
+                {
+                    throw new InvalidCastException($"The type {pInstance.GetType().ToString()} is not a valid interaction type!");
+                }
             }
             else
-            {
-                throw new InvalidCastException($"The type {pInstance.GetType().ToString()} is not a valid interaction type!");
-            }
+                throw new AuthenticationException("There seems to be no user logged in! Please login " +
+                                                  "before you start working");
         }
 
         public IUser CreateUserObjectFromForm(DockContent pInstance)

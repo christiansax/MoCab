@@ -202,31 +202,32 @@ namespace PlexByte.MoCap.Managers
                 if (pInstance.GetType() == typeof (uc_Project))
                 {
                     return CreateProjectForm((IProject) pObject);
-            }
+                }
                 else if (pInstance.GetType() == typeof (uc_Task))
-            {
+                {
                     return CreateTaskForm((ITask) pObject);
-            }
+                }
                 else if (pInstance.GetType() == typeof (uc_Survey))
-            {
-                return null;
-            }
+                {
+                    return null;
+                }
                 else if (pInstance.GetType() == typeof (uc_Account))
-            {
+                {
                     return CreateAccountForm((IAccount) pObject);
-            }
+                }
                 else if (pInstance.GetType() == typeof (uc_Expense))
-            {
+                {
                     return CreateExpenseForm((IExpense) pObject);
-            }
+                }
                 else if (pInstance.GetType() == typeof (uc_Timeslice))
-            {
+                {
                     return CreateTimesliceForm((ITimeslice) pObject);
-            }
+                }
                 else
                 {
-                    throw new InvalidCastException($"The type {pInstance.GetType().ToString()} is not a valid interaction type!");
-        }
+                    throw new InvalidCastException($"The type {pInstance.GetType().ToString()} " +
+                                                   $"is not a valid interaction type!");
+                }
             }
             else
                 throw new AuthenticationException("There seems to be no user logged in! Please login " +

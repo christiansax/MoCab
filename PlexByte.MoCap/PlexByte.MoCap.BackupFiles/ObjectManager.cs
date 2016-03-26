@@ -66,8 +66,8 @@ namespace PlexByte.MoCap.Managers.OLD
 
         #region Variables
         
-        DataManager _dataManager = null;
-        FormManager _formManager = null;
+        //DataManager _dataManager = null;
+        //FormManager _formManager = null;
         private Timer _updateTimer = null;
         //  private DataManager _dataManager = null;
 

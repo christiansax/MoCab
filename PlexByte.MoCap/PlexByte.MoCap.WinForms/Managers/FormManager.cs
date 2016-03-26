@@ -72,39 +72,40 @@ namespace PlexByte.MoCap.Managers
             return tmp;
         }
 
-        public DockContent CreateFormFromObject(IInteraction pObject, DockContent pInstance)
+        public DockContent CreateFormFromObject(IInteraction pObject, ref DockContent pInstance)
         {
             if (_objectManager.UserContext != null)
             {
                 if (pInstance.GetType() == typeof (uc_Project))
                 {
-                    return CreateProjectForm((IProject) pObject);
+                    pInstance = CreateProjectForm((IProject) pObject);
                 }
                 else if (pInstance.GetType() == typeof (uc_Task))
                 {
-                    return CreateTaskForm((ITask) pObject);
+                    pInstance = CreateTaskForm((ITask) pObject);
                 }
                 else if (pInstance.GetType() == typeof (uc_Survey))
                 {
-                    return null;
+                    pInstance = CreateSurveyForm((ISurvey) pObject);
                 }
                 else if (pInstance.GetType() == typeof (uc_Account))
                 {
-                    return CreateAccountForm((IAccount) pObject);
+                    pInstance = CreateAccountForm((IAccount) pObject);
                 }
                 else if (pInstance.GetType() == typeof (uc_Expense))
                 {
-                    return CreateExpenseForm((IExpense) pObject);
+                    pInstance = CreateExpenseForm((IExpense) pObject);
                 }
                 else if (pInstance.GetType() == typeof (uc_Timeslice))
                 {
-                    return CreateTimesliceForm((ITimeslice) pObject);
+                    pInstance = CreateTimesliceForm((ITimeslice) pObject);
                 }
                 else
                 {
                     throw new InvalidCastException($"The type {pInstance.GetType().ToString()} " +
                                                    $"is not a valid interaction type!");
                 }
+                return pInstance;
             }
             else
                 throw new AuthenticationException("There seems to be no user logged in! Please login " +
@@ -369,7 +370,30 @@ namespace PlexByte.MoCap.Managers
 
         private DockContent CreateSurveyForm(ISurvey pInstance)
         {
-            throw new System.NotImplementedException();
+            _errorProvider.Clear();
+            DockContent tmp = CreateContentPanel(UiType.Survey);
+            tmp.TabText = $"Survey Details ({pInstance.Id})";
+            List<Control> ctrls = GetAllControls(tmp);
+
+            Survey t = (Survey)pInstance;
+
+            GetControlByName<TextBox>(ctrls, "tbx_SurveyTitle").Text = t.Text;
+            GetControlByName<TextBox>(ctrls, "tbx_SurveyVoteCount").Text = t.VoteList.Count.ToString();
+            GetControlByName<TextBox>(ctrls, "tbx_State").Text = t.State.ToString();
+            GetControlByName<DateTimePicker>(ctrls, "dtp_DueDate").Value = t.DueDateTime;
+            GetControlByName<DateTimePicker>(ctrls, "dtp_Start").Value = t.StartDateTime;
+            GetControlByName<DateTimePicker>(ctrls, "dtp_End").Value = t.EndDateTime;
+            GetControlByName<TextBox>(ctrls, "tbx_Description").Text = t.Text;
+            GetControlByName<TextBox>(ctrls, "tbx_VotesPerUser").Text = t.MaxVotesPerUser.ToString();
+            GetControlByName<TextBox>(ctrls, "tbx_LastVoteBy").Text = t.VoteList.Max().User.Username;
+            GetControlByName<TextBox>(ctrls, "tbx_CreatedBy").Text = t.Creator.Username;
+            GetControlByName<TextBox>(ctrls, "tbx_ModifiedBy").Text = t.VoteList.Max().User.Username;
+            GetControlByName<DateTimePicker>(ctrls, "dtp_CreatedAt").Value = t.CreatedDateTime;
+            GetControlByName<DateTimePicker>(ctrls, "dtp_ModifiedAt").Value = t.VoteList.Max().CreatedDateTime;
+
+            t = null;
+
+            return tmp;
         }
 
         private DockContent CreateTimesliceForm(ITimeslice pInstance)

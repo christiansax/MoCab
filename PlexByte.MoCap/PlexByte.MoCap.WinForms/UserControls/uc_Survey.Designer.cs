@@ -49,10 +49,10 @@
             System.Windows.Forms.ListViewItem listViewItem19 = new System.Windows.Forms.ListViewItem("dfsdf");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_Survey));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.dtp_ModifiedAt = new System.Windows.Forms.DateTimePicker();
+            this.dtp_CreatedAt = new System.Windows.Forms.DateTimePicker();
+            this.tbx_ModifiedBy = new System.Windows.Forms.TextBox();
+            this.tbx_CreatedBy = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -68,7 +68,6 @@
             this.tbx_LastVoteBy = new System.Windows.Forms.TextBox();
             this.tbx_VotesPerUser = new System.Windows.Forms.TextBox();
             this.tbx_Description = new System.Windows.Forms.TextBox();
-            this.tbx_DueDate = new System.Windows.Forms.TextBox();
             this.tbx_State = new System.Windows.Forms.TextBox();
             this.tbx_SurveyVoteCount = new System.Windows.Forms.TextBox();
             this.tbx_SurveyTitle = new System.Windows.Forms.TextBox();
@@ -87,6 +86,7 @@
             this.dtp_Start = new System.Windows.Forms.DateTimePicker();
             this.dtp_End = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
+            this.dtp_DueDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -96,10 +96,10 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.dateTimePicker3);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.textBox8);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.dtp_ModifiedAt);
+            this.groupBox1.Controls.Add(this.dtp_CreatedAt);
+            this.groupBox1.Controls.Add(this.tbx_ModifiedBy);
+            this.groupBox1.Controls.Add(this.tbx_CreatedBy);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label12);
@@ -111,41 +111,41 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Activity";
             // 
-            // dateTimePicker3
+            // dtp_ModifiedAt
             // 
-            this.dateTimePicker3.CustomFormat = "ddd dd MMM yyyy        HH:mm";
-            this.dateTimePicker3.Enabled = false;
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker3.Location = new System.Drawing.Point(416, 45);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(201, 20);
-            this.dateTimePicker3.TabIndex = 18;
+            this.dtp_ModifiedAt.CustomFormat = "ddd dd MMM yyyy        HH:mm";
+            this.dtp_ModifiedAt.Enabled = false;
+            this.dtp_ModifiedAt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_ModifiedAt.Location = new System.Drawing.Point(416, 45);
+            this.dtp_ModifiedAt.Name = "dtp_ModifiedAt";
+            this.dtp_ModifiedAt.Size = new System.Drawing.Size(201, 20);
+            this.dtp_ModifiedAt.TabIndex = 18;
             // 
-            // dateTimePicker2
+            // dtp_CreatedAt
             // 
-            this.dateTimePicker2.CustomFormat = "ddd dd MMM yyyy        HH:mm";
-            this.dateTimePicker2.Enabled = false;
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(416, 19);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(201, 20);
-            this.dateTimePicker2.TabIndex = 17;
+            this.dtp_CreatedAt.CustomFormat = "ddd dd MMM yyyy        HH:mm";
+            this.dtp_CreatedAt.Enabled = false;
+            this.dtp_CreatedAt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_CreatedAt.Location = new System.Drawing.Point(416, 19);
+            this.dtp_CreatedAt.Name = "dtp_CreatedAt";
+            this.dtp_CreatedAt.Size = new System.Drawing.Size(201, 20);
+            this.dtp_CreatedAt.TabIndex = 17;
             // 
-            // textBox8
+            // tbx_ModifiedBy
             // 
-            this.textBox8.Enabled = false;
-            this.textBox8.Location = new System.Drawing.Point(89, 45);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(178, 20);
-            this.textBox8.TabIndex = 15;
+            this.tbx_ModifiedBy.Enabled = false;
+            this.tbx_ModifiedBy.Location = new System.Drawing.Point(89, 45);
+            this.tbx_ModifiedBy.Name = "tbx_ModifiedBy";
+            this.tbx_ModifiedBy.Size = new System.Drawing.Size(178, 20);
+            this.tbx_ModifiedBy.TabIndex = 15;
             // 
-            // textBox7
+            // tbx_CreatedBy
             // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(89, 19);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(178, 20);
-            this.textBox7.TabIndex = 14;
+            this.tbx_CreatedBy.Enabled = false;
+            this.tbx_CreatedBy.Location = new System.Drawing.Point(89, 19);
+            this.tbx_CreatedBy.Name = "tbx_CreatedBy";
+            this.tbx_CreatedBy.Size = new System.Drawing.Size(178, 20);
+            this.tbx_CreatedBy.TabIndex = 14;
             // 
             // label14
             // 
@@ -205,6 +205,7 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.dtp_DueDate);
             this.groupBox2.Controls.Add(this.dtp_End);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.dtp_Start);
@@ -220,7 +221,6 @@
             this.groupBox2.Controls.Add(this.tbx_LastVoteBy);
             this.groupBox2.Controls.Add(this.tbx_VotesPerUser);
             this.groupBox2.Controls.Add(this.tbx_Description);
-            this.groupBox2.Controls.Add(this.tbx_DueDate);
             this.groupBox2.Controls.Add(this.tbx_State);
             this.groupBox2.Controls.Add(this.tbx_SurveyVoteCount);
             this.groupBox2.Controls.Add(this.tbx_SurveyTitle);
@@ -311,13 +311,6 @@
             this.tbx_Description.Name = "tbx_Description";
             this.tbx_Description.Size = new System.Drawing.Size(201, 46);
             this.tbx_Description.TabIndex = 30;
-            // 
-            // tbx_DueDate
-            // 
-            this.tbx_DueDate.Location = new System.Drawing.Point(89, 97);
-            this.tbx_DueDate.Name = "tbx_DueDate";
-            this.tbx_DueDate.Size = new System.Drawing.Size(178, 20);
-            this.tbx_DueDate.TabIndex = 29;
             // 
             // tbx_State
             // 
@@ -492,8 +485,7 @@
             // 
             // dtp_Start
             // 
-            this.dtp_Start.CustomFormat = "ddd dd. MMM yyyy";
-            this.dtp_Start.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_Start.CustomFormat = "";
             this.dtp_Start.Location = new System.Drawing.Point(89, 123);
             this.dtp_Start.Name = "dtp_Start";
             this.dtp_Start.Size = new System.Drawing.Size(178, 20);
@@ -501,8 +493,7 @@
             // 
             // dtp_End
             // 
-            this.dtp_End.CustomFormat = "ddd dd. MMM yyyy";
-            this.dtp_End.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_End.CustomFormat = "";
             this.dtp_End.Location = new System.Drawing.Point(416, 123);
             this.dtp_End.Name = "dtp_End";
             this.dtp_End.Size = new System.Drawing.Size(201, 20);
@@ -513,9 +504,16 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(319, 127);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(32, 13);
+            this.label11.Size = new System.Drawing.Size(29, 13);
             this.label11.TabIndex = 43;
-            this.label11.Text = "Start:";
+            this.label11.Text = "End:";
+            // 
+            // dtp_DueDate
+            // 
+            this.dtp_DueDate.Location = new System.Drawing.Point(89, 97);
+            this.dtp_DueDate.Name = "dtp_DueDate";
+            this.dtp_DueDate.Size = new System.Drawing.Size(178, 20);
+            this.dtp_DueDate.TabIndex = 45;
             // 
             // uc_Survey
             // 
@@ -543,10 +541,10 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.DateTimePicker dtp_ModifiedAt;
+        private System.Windows.Forms.DateTimePicker dtp_CreatedAt;
+        private System.Windows.Forms.TextBox tbx_ModifiedBy;
+        private System.Windows.Forms.TextBox tbx_CreatedBy;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -562,7 +560,6 @@
         private System.Windows.Forms.TextBox tbx_LastVoteBy;
         private System.Windows.Forms.TextBox tbx_VotesPerUser;
         private System.Windows.Forms.TextBox tbx_Description;
-        private System.Windows.Forms.TextBox tbx_DueDate;
         private System.Windows.Forms.TextBox tbx_State;
         private System.Windows.Forms.TextBox tbx_SurveyVoteCount;
         private System.Windows.Forms.TextBox tbx_SurveyTitle;
@@ -577,5 +574,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DateTimePicker dtp_Start;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DateTimePicker dtp_DueDate;
     }
 }

@@ -43,10 +43,9 @@ namespace PlexByte.MoCap.WinForms
 
         private readonly frm_MoCapMain _MainUI = null;
         private readonly ErrorProvider _errorProvider = null;
-        private DataManager _dataManager = null;
+        private ObjectManager _objectManager = null;
         private User _userContext = null;
         private uc_Overview _overviewPanel = null;
-        private InteractionFactory _interactionFactory = null;
         private const string _longDateTimeFtm = "ddd dd MMM yyyy  HH:mm";
         private const string _DateTimeFtm = "yyyy.MM.dd HH:mm:ss";
         private const string _DateFtm = "yyyy.MM.dd";
@@ -66,8 +65,7 @@ namespace PlexByte.MoCap.WinForms
             _MainUI = pMainUI;
             _errorProvider = new ErrorProvider();
             _errorProvider.BlinkStyle= ErrorBlinkStyle.BlinkIfDifferentError;
-            //_dataManager=new DataManager();
-            _interactionFactory=new InteractionFactory();
+            _objectManager=new ObjectManager();
         }
 
         /// <summary>
@@ -77,10 +75,8 @@ namespace PlexByte.MoCap.WinForms
         {
             if (UserContext != null)
                 _userContext = null;
-            if (_dataManager != null)
-                _dataManager = null;
-
-            _interactionFactory = null;
+            _objectManager?.Dispose();
+            _objectManager = null;
         }
 
         #endregion
@@ -716,24 +712,7 @@ namespace PlexByte.MoCap.WinForms
                         // Get the form
                         uc_Task tmp = (uc_Task) pControlList[0].Parent;
 
-                        // Save task
-                        ITask task = _interactionFactory.CreateTask(tmp.TaskId,
-                            GetControlByName<TextBox>(pControlList, "tbx_Description").Text,
-                            _userContext,
-                            GetControlByName<DateTimePicker>(pControlList, "dtp_Start").Value,
-                            GetControlByName<DateTimePicker>(pControlList, "dtp_End").Value,
-                            GetControlByName<DateTimePicker>(pControlList, "dtp_DueDate").Value,
-                            GetControlByName<NumericUpDown>(pControlList, "num_Budget").Value,
-                            (Convert.ToInt32(GetControlByName<NumericUpDown>(pControlList, "num_EffortsHours").Value)*60) +
-                            Convert.ToInt32(GetControlByName<NumericUpDown>(pControlList, "num_EffortsMin").Value),
-                            Convert.ToInt32(GetControlByName<NumericUpDown>(pControlList, "num_Priority").Value),
-                            (GetControlByName<DateTimePicker>(pControlList, "dtp_Start").Value <= DateTime.Now) ? InteractionState.Active : InteractionState.Queued,
-                            0,
-                            0,
-                            null,
-                            0);
-                        //_dataManager.TaskList.Add(task);
-                        //_dataManager.InsertTask();
+                        ITask task = _objectManager.CreateObjectFromForm<ITask>(tmp);
                         tmp.TabText = $"Task Details ({task.Id})";
                     }
                     else

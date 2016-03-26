@@ -9,6 +9,7 @@ using PlexByte.MoCap.Security;
 using PlexByte.MoCap.WinForms.UserControls;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Authentication;
 using System.Windows.Forms;
@@ -402,6 +403,20 @@ namespace PlexByte.MoCap.Managers
 
             Survey t = (Survey)pInstance;
 
+            foreach (var option in pInstance.OptionList)
+            {
+                GetControlByName<ListView>(ctrls, "lv_Otions").Items.Add(option.Text);
+            }
+            var q = from x in pInstance.VoteList
+                    group x by x.Option into g
+                    let count = g.Count()
+                    orderby count descending
+                    select new { Name = g.Key, Count = count };
+            foreach (var x in q)
+            {
+                GetControlByName<ListView>(ctrls, "lsv_VoteOverview").Items.Add($"1. {x.Name.Text} ({x.Count} Votes)");
+            }
+
             GetControlByName<TextBox>(ctrls, "tbx_SurveyTitle").Text = t.Text;
             GetControlByName<TextBox>(ctrls, "tbx_SurveyVoteCount").Text = t.VoteList.Count.ToString();
             GetControlByName<TextBox>(ctrls, "tbx_State").Text = t.State.ToString();
@@ -417,6 +432,8 @@ namespace PlexByte.MoCap.Managers
             GetControlByName<DateTimePicker>(ctrls, "dtp_ModifiedAt").Value = t.VoteList.Max().CreatedDateTime;
 
             t = null;
+            ctrls.Clear();
+            ctrls = null;
 
             return tmp;
         }
@@ -464,6 +481,8 @@ namespace PlexByte.MoCap.Managers
             GetControlByName<DateTimePicker>(ctrls, "dtp_End").Value = t.ModifiedDateTime;
 
             t = null;
+            ctrls.Clear();
+            ctrls = null;
 
             return tmp;
         }

@@ -161,27 +161,45 @@ namespace PlexByte.MoCap.Managers
         {
             if (pForm.GetType() == typeof(uc_Project))
             {
-                return (T)(_formManager.CreateObjectFromForm<IProject>(pForm));
+                IProject tmp = _formManager.CreateObjectFromForm<IProject>(pForm);
+                ProjectList.Add(tmp);
+                _dataManager.UpsertProject((Project)tmp);
+                return (T) tmp;
             }
             else if (pForm.GetType() == typeof(uc_User))
             {
-                return (T)(_formManager.CreateObjectFromForm<IUser>(pForm));
+                IUser tmp =_formManager.CreateObjectFromForm<IUser>(pForm);
+                UserList.Add(tmp);
+                _dataManager.UpsertUser((User)tmp);
+                return (T) tmp;
             }
             else if (pForm.GetType() == typeof(uc_Task))
             {
-                return (T)(_formManager.CreateObjectFromForm<ITask>(pForm));
+                ITask tmp = _formManager.CreateObjectFromForm<ITask>(pForm);
+                TaskList.Add(tmp);
+                _dataManager.UpsertTask((Task)tmp);
+                return (T) tmp;
             }
             else if (pForm.GetType() == typeof(uc_Survey))
             {
-                return (T)(_formManager.CreateObjectFromForm<ISurvey>(pForm));
+                ISurvey tmp = _formManager.CreateObjectFromForm<ISurvey>(pForm);
+                SurveyList.Add(tmp);
+                _dataManager.UpsertSurvey((Survey)tmp);
+                return (T)tmp;
             }
             else if (pForm.GetType() == typeof(uc_Expense))
             {
-                return (T)(_formManager.CreateObjectFromForm<IExpense>(pForm));
+                IExpense tmp = _formManager.CreateObjectFromForm<IExpense>(pForm);
+                ExpenseList.Add(tmp);
+                _dataManager.UpsertExpense((Expense)tmp);
+                return (T)tmp;
             }
             else if (pForm.GetType() == typeof(uc_Timeslice))
             {
-                return (T)(_formManager.CreateObjectFromForm<ITimeslice>(pForm));
+                ITimeslice tmp = _formManager.CreateObjectFromForm<ITimeslice>(pForm);
+                TimesliceList.Add(tmp);
+                _dataManager.UpsertTimeslice((Timeslice)tmp);
+                return (T)tmp;
             }
             else
             {

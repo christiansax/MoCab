@@ -797,11 +797,11 @@ namespace PlexByte.MoCap.WinForms
         {
 
             // Disable control list
-            List<Control> expCtrls = new List<Control>();
-            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Update"));
-            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_InviteUser"));
-            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_AcceptInvite"));
-            expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Create"));
+            //List<Control> expCtrls = new List<Control>();
+            //expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Update"));
+            //expCtrls.Add(GetControlByName<Button>(pControlList, "btn_InviteUser"));
+            //expCtrls.Add(GetControlByName<Button>(pControlList, "btn_AcceptInvite"));
+            //expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Create"));
 
             if (_userContext != null)
             {
@@ -810,66 +810,66 @@ namespace PlexByte.MoCap.WinForms
                 try
                 {
                     _MainUI.Enabled = false;
-                    bool bError = false;
-                    int _IsActive = Convert.ToByte(false);
-                    int _StateId = Convert.ToInt32(InteractionState.Queued);
-                    string _ProjectId = null;
+                    //bool bError = false;
+                    //int _IsActive = Convert.ToByte(false);
+                    //int _StateId = Convert.ToInt32(InteractionState.Queued);
+                    //string _ProjectId = null;
 
 
-                    if (GetControlByName<TextBox>(pControlList, "tbx_Title").Text.Contains(";"))
-                    {
-                        _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Title"),
-                            "The symbol ';' is not allowed in Title");
-                        bError = true;
-                    }
-                    if (GetControlByName<TextBox>(pControlList, "tbx_Title").Text.Length < 1)
-                    {
-                        _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Title"),
-                            "Title is not specified");
-                        bError = true;
-                    }
-                    if (GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value < GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value)
-                    {
-                        _errorProvider.SetError(GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate"),
-                            "The project needs to end after it starts");
-                        bError = true;
-                    }
-                    if (GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value < DateTime.Now)
-                    {
-                        _errorProvider.SetError(GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate"),
-                            "The project end needs to be in the future");
-                        bError = true;
-                    }
+                    //if (GetControlByName<TextBox>(pControlList, "tbx_Title").Text.Contains(";"))
+                    //{
+                    //    _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Title"),
+                    //        "The symbol ';' is not allowed in Title");
+                    //    bError = true;
+                    //}
+                    //if (GetControlByName<TextBox>(pControlList, "tbx_Title").Text.Length < 1)
+                    //{
+                    //    _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Title"),
+                    //        "Title is not specified");
+                    //    bError = true;
+                    //}
+                    //if (GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value < GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value)
+                    //{
+                    //    _errorProvider.SetError(GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate"),
+                    //        "The project needs to end after it starts");
+                    //    bError = true;
+                    //}
+                    //if (GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value < DateTime.Now)
+                    //{
+                    //    _errorProvider.SetError(GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate"),
+                    //        "The project end needs to be in the future");
+                    //    bError = true;
+                    //}
 
 
-                    if (!bError)
-                    {
+                    //if (!bError)
+                    //{
 
-                        // Initialize default values for controls
-                        GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
-                        if (GetControlByName<Button>(pControlList, "btn_Create").Text.ToLower() == "create")
-                        {
-                            GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = DateTime.Now;
-                            _ProjectId = DateTime.Now.ToString(_dateTimeIdFmt);
-                            GetControlByName<TextBox>(pControlList, "tbx_Owner").Text = UserContext.Username;
-                        }
+                        //// Initialize default values for controls
+                        //GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
+                        //if (GetControlByName<Button>(pControlList, "btn_Create").Text.ToLower() == "create")
+                        //{
+                        //    GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = DateTime.Now;
+                        //    _ProjectId = DateTime.Now.ToString(_dateTimeIdFmt);
+                        //    GetControlByName<TextBox>(pControlList, "tbx_Owner").Text = UserContext.Username;
+                        //}
 
-                        //Convert
-                        if (GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value <= DateTime.Now)
-                        {
-                            _IsActive = Convert.ToByte(true);
-                            _StateId = Convert.ToInt32(InteractionState.Active);
-                        }
+                        ////Convert
+                        //if (GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value <= DateTime.Now)
+                        //{
+                        //    _IsActive = Convert.ToByte(true);
+                        //    _StateId = Convert.ToInt32(InteractionState.Active);
+                        //}
                         
 
                         //Create project
-                        IProject _NewProject = _interactionFactory.CreateProject(_ProjectId,
-                            GetControlByName<TextBox>(pControlList, "tbx_Title").Text + ";" + GetControlByName<TextBox>(pControlList, "tbx_Description").Text,
-                            Convert.ToBoolean(GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").CheckState),
-                            Convert.ToBoolean(GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").CheckState),
-                            GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value,
-                            GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value,
-                            UserContext);
+                        //IProject _NewProject = _interactionFactory.CreateProject(_ProjectId,
+                        //    GetControlByName<TextBox>(pControlList, "tbx_Title").Text + ";" + GetControlByName<TextBox>(pControlList, "tbx_Description").Text,
+                        //    Convert.ToBoolean(GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").CheckState),
+                        //    Convert.ToBoolean(GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").CheckState),
+                        //    GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value,
+                        //    GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value,
+                        //    UserContext);
 
                         ////_dataManager.ProjectList.Add(_NewProject);
 
@@ -888,20 +888,20 @@ namespace PlexByte.MoCap.WinForms
 
 
 
-                        //Disable setting controls after project is created
-                        GetControlByName<Button>(pControlList, "btn_Update").Enabled = true;
-                        GetControlByName<Button>(pControlList, "btn_InviteUser").Enabled = true;
-                        GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").Enabled = false;
-                        GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").Enabled = false;
-                        GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Enabled = false;
-                        GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Enabled = false;
-                        GetControlByName<TextBox>(pControlList, "tbx_Title").Enabled = false;
-                        GetControlByName<TextBox>(pControlList, "tbx_Description").Enabled = false;
-                        GetControlByName<Button>(pControlList, "btn_Create").Text = "Edit";
-                    }
+                        ////Disable setting controls after project is created
+                        //GetControlByName<Button>(pControlList, "btn_Update").Enabled = true;
+                        //GetControlByName<Button>(pControlList, "btn_InviteUser").Enabled = true;
+                        //GetControlByName<CheckBox>(pControlList, "cbx_EnableBalance").Enabled = false;
+                        //GetControlByName<CheckBox>(pControlList, "cbx_EnableSurvey").Enabled = false;
+                        //GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Enabled = false;
+                        //GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Enabled = false;
+                        //GetControlByName<TextBox>(pControlList, "tbx_Title").Enabled = false;
+                        //GetControlByName<TextBox>(pControlList, "tbx_Description").Enabled = false;
+                        //GetControlByName<Button>(pControlList, "btn_Create").Text = "Edit";
+                    //}
 
                     _MainUI.Enabled = true;
-                    
+
                 }
                 catch (Exception exp)
                 {

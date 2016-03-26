@@ -9,6 +9,7 @@ using PlexByte.MoCap.Security;
 using PlexByte.MoCap.WinForms.UserControls;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using PlexByte.MoCap.WinForms;
 using WeifenLuo.WinFormsUI.Docking;
@@ -21,6 +22,7 @@ namespace PlexByte.MoCap.Managers
         ObjectManager _objectManager = null;
         IObjectFactory _objectFactory = null;
         ErrorProvider _errorProvider = null;
+        const string DateStringFormatId = "yyyyMMddhhmmssfff";
 
         #region Ctor & Dtor
         public FormManager(ObjectManager pInstance)
@@ -202,7 +204,6 @@ namespace PlexByte.MoCap.Managers
             else { throw new InvalidCastException($"The type {pInstance.GetType().ToString()} is not a valid interaction type!"); }
         }
 
-
         public T CreateObjectFromForm<T>(DockContent pInstance)
         {
             if (pInstance.GetType() == typeof(uc_Project))
@@ -265,23 +266,7 @@ namespace PlexByte.MoCap.Managers
             }
             else if (pInstance.GetType() == typeof(uc_Task))
             {
-                /*
-                ITask obj = _interactionFactory.CreateTask(GetControlByName<TextBox>(pInstance, "tbx_Id").Text,
-                    GetControlByName<TextBox>(pInstance, "tbx_Description").Text,
-                    GetControlByName<TextBox>(pInstance, "tbx_Title").Text,
-                    _dataManager.GetUser(GetControlByName<TextBox>(pInstance, "tbx_UserName").Text, true),
-                     GetControlByName<DateTimePicker>(pInstance, "dtp_Start").Value,
-                      GetControlByName<DateTimePicker>(pInstance, "dtp_End").Value,
-                      GetControlByName<DateTimePicker>(pInstance, "dtp_DueDate").Value,
-                      GetControlByName<DateTimePicker>(pInstance, "dtp_DueDate").Value,
-                      GetControlByName<DateTimePicker>(pInstance, "num_Budget").Value,
-                      GetControlByName<DateTimePicker>(pInstance, "num_Priority").Value,
-                      60 +
-                      GetControlByName<DateTimePicker>(pInstance, "num_EffortsMin").Value,
-                   
-                return (T)obj;
-                */
-                return default(T);
+                return (T)CreateTaskFromForm((uc_Task)pInstance);
             }
             else if (pInstance.GetType() == typeof(uc_Survey))
             {
@@ -307,12 +292,48 @@ namespace PlexByte.MoCap.Managers
             }
         }
 
-        public IUser CreateUserObjectFromFForm(DockContent pInstance)
+        public IUser CreateUserObjectFromForm(DockContent pInstance)
         {
             throw new System.NotImplementedException();
         }
 
         #region Private Methods
+
+        private ITask CreateTaskFromForm(uc_Task pForm)
+        {
+            ITask obj = _interactionFactory.CreateTask(GetControlByName<TextBox>(pForm, "tbx_Id").Text,
+                GetControlByName<TextBox>(pForm, "tbx_Description").Text,
+                GetControlByName<TextBox>(pForm, "tbx_Title").Text,
+                _objectManager.UserContext,
+                GetControlByName<DateTimePicker>(pForm, "dtp_Start").Value,
+                GetControlByName<DateTimePicker>(pForm, "dtp_End").Value,
+                GetControlByName<DateTimePicker>(pForm, "dtp_DueDate").Value,
+                GetControlByName<NumericUpDown>(pForm, "num_Budget").Value,
+                Convert.ToInt32(GetControlByName<NumericUpDown>(pForm, "num_EffortsHours").Value)*60 +
+                Convert.ToInt32(GetControlByName<NumericUpDown>(pForm, "num_EffortsMin").Value),
+                Convert.ToInt32(GetControlByName<NumericUpDown>(pForm, "num_Priority").Value),
+                (GetControlByName<DateTimePicker>(pForm, "dtp_Start").Value < DateTime.Now)
+                    ? InteractionState.Active
+                    : InteractionState.Queued,
+                0.00m,
+                0,
+                null,
+                0);
+                return obj;
+        }
+
+        private ISurvey CreateSurveyFromForm(uc_Survey pForm)
+        {
+            List<ISurveyOption> options = (from ListViewItem lvi in GetControlByName<ListView>(pForm, "lv_Otions").Items
+                select _objectFactory.CreateSurveyOption(DateTime.Now.ToString(DateStringFormatId),
+                    lvi.Text)).ToList();
+            ISurvey obj = _interactionFactory.CreateSurvey(pForm.Id,
+                GetControlByName<TextBox>(pForm, "tbx_SurveyTitle").Text,
+                options,
+                _objectManager.UserContext);
+            options.Clear();
+            return obj;
+        }
 
         private DockContent CreateContentPanel(UiType pType)
         {

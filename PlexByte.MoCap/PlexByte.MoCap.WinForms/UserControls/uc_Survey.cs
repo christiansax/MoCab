@@ -8,6 +8,8 @@ namespace PlexByte.MoCap.WinForms.UserControls
 {
     public partial class uc_Survey : DockContent
     {
+        public string Id { get; set; }
+        public string InteractionId { get; set; }
         private const string PanelTitle = "Survey Details";
 
         public uc_Survey()

@@ -15,7 +15,7 @@ namespace PlexByte.MoCap.Interactions
 
         public List<ISurveyOption> OptionList { get; set; }
         public List<IVote> VoteList => _voteList;
-        public string Id => _id;
+        
         public string InteractionId { get; set; }
         public string ProjectId { get; set; }
         public DateTime StartDateTime { get; set; }
@@ -32,6 +32,8 @@ namespace PlexByte.MoCap.Interactions
         public int MaxVotesPerUser { get; set; }
         public List<IUser> UserList { get; set; }
 
+        public string Id { get; set; }
+
         #endregion
 
         #region Variables
@@ -44,7 +46,6 @@ namespace PlexByte.MoCap.Interactions
         private InteractionState _state;
         private System.Timers.Timer _stateTimer = new System.Timers.Timer(60*1000);
         private bool _isActive;
-        private string _id;
 
         #endregion
 
@@ -232,7 +233,7 @@ namespace PlexByte.MoCap.Interactions
         /// <param name="pCreator">The creator of this survey</param>
         private void InitializeProperties(string pId, string pText, List<ISurveyOption> pOptions, IUser pCreator)
         {
-            _id = pId;
+            Id = pId;
             _creator = pCreator;
             Text = pText;
             OptionList = pOptions;

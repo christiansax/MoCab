@@ -12,6 +12,8 @@ namespace PlexByte.MoCap.Interactions
     {
         string InteractionId { get; set; }
 
+        string Id { get; set; }
+
         string ProjectId { get; set; }
 
         DateTime DueDateTime { get; set; }

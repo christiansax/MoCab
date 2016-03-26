@@ -249,12 +249,7 @@ namespace PlexByte.MoCap.Managers
                 }
                 else if (pInstance.GetType() == typeof(uc_Survey))
                 {
-                    ISurvey obj = _interactionFactory.CreateSurvey("",
-                        "",
-                        new System.Collections.Generic.List<ISurveyOption>()
-                        {new SurveyOption("", "")},
-                        new User()
-                        );
+                    ISurvey obj = CreateSurveyFromForm((uc_Survey)pInstance);
                     return (T)obj;
                 }
                 else if (pInstance.GetType() == typeof(uc_Expense))

@@ -62,7 +62,25 @@ namespace PlexByte.MoCap.Managers
 
         public IUser GetUser(string pUserId, bool pIsUserName)
         {
-            throw new System.NotImplementedException();
+            IUser user = null;
+            DataTable dt = (pIsUserName)
+                ? _backendService.GetUserByUserName(pUserId)
+                : _backendService.GetUserById(pUserId);
+            if (dt.Rows.Count > 0)
+            {
+                user = _objectFactory.CreateUser(dt.Rows[0]["Id"].ToString(),
+                    dt.Rows[0]["FirstName"].ToString(),
+                    dt.Rows[0]["LastName"].ToString(),
+                    dt.Rows[0]["MiddleName"].ToString(),
+                    dt.Rows[0]["EmailAddress"].ToString(),
+                    DateTime.Parse(dt.Rows[0]["Birthdate"].ToString()),
+                    dt.Rows[0]["Username"].ToString(),
+                    dt.Rows[0]["Password"].ToString(),
+                    DateTime.Parse(dt.Rows[0]["ModifiedDateTime"].ToString()),
+                    DateTime.Parse(dt.Rows[0]["CreatedDateTime"].ToString()),
+                    dt.Rows[0]["PersonId"].ToString());
+            }
+            return user;
         }
 
         public bool UpsertExpense(Expense pExpense)

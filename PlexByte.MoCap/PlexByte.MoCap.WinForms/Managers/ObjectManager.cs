@@ -255,63 +255,6 @@ namespace PlexByte.MoCap.Managers
         }
 
         /// <summary>
-        /// This method creates an object from a form. It uses the fors input values to construct the object
-        /// of the type specified
-        /// </summary>
-        /// <typeparam name="T">The object type to use (IInteraction)</typeparam>
-        /// <param name="pForm">The form containing the input field to use constructing the object</param>
-        /// <returns>An object of the type specified that was constructed from the form inputs</returns>
-        public T CreateObjectFromForm<T>(DockContent pForm)
-        {
-            if (pForm.GetType() == typeof (uc_Project))
-            {
-                IProject tmp = _formManager.CreateObjectFromForm<IProject>(pForm);
-                ProjectList.Add(tmp);
-                _dataManager.UpsertProject((Project) tmp);
-                return (T) tmp;
-            }
-            else if (pForm.GetType() == typeof (uc_User))
-            {
-                IUser tmp = _formManager.CreateObjectFromForm<IUser>(pForm);
-                UserList.Add(tmp);
-                _dataManager.UpsertUser((User) tmp);
-                return (T) tmp;
-            }
-            else if (pForm.GetType() == typeof (uc_Task))
-            {
-                ITask tmp = _formManager.CreateObjectFromForm<ITask>(pForm);
-                TaskList.Add(tmp);
-                _dataManager.UpsertTask((Task) tmp);
-                return (T) tmp;
-            }
-            else if (pForm.GetType() == typeof (uc_Survey))
-            {
-                ISurvey tmp = _formManager.CreateObjectFromForm<ISurvey>(pForm);
-                SurveyList.Add(tmp);
-                _dataManager.UpsertSurvey((Survey) tmp);
-                return (T) tmp;
-            }
-            else if (pForm.GetType() == typeof (uc_Expense))
-            {
-                IExpense tmp = _formManager.CreateObjectFromForm<IExpense>(pForm);
-                ExpenseList.Add(tmp);
-                _dataManager.UpsertExpense((Expense) tmp);
-                return (T) tmp;
-            }
-            else if (pForm.GetType() == typeof (uc_Timeslice))
-            {
-                ITimeslice tmp = _formManager.CreateObjectFromForm<ITimeslice>(pForm);
-                TimesliceList.Add(tmp);
-                _dataManager.UpsertTimeslice((Timeslice) tmp);
-                return (T) tmp;
-            }
-            else
-            {
-                throw new InvalidCastException($"The type {pForm.GetType().ToString()} cannot be created as was never defined");
-            }
-        }
-
-        /// <summary>
         /// This method creates a form from an object passed
         /// </summary>
         /// <typeparam name="T">The type of object from which a form is contructed</typeparam>
@@ -372,17 +315,9 @@ namespace PlexByte.MoCap.Managers
                 tmp.Username,
                 StringComparison.CurrentCultureIgnoreCase)))
             {
-                User userUpdate = (User) UserList.First(x => String.Equals(x.Username,
-                    tmp.Username,
-                    StringComparison.CurrentCultureIgnoreCase));
-                userUpdate.Birthdate = tmp.Birthdate;
-                userUpdate.EmailAddress = tmp.EmailAddress;
-                userUpdate.FirstName = tmp.FirstName;
-                userUpdate.LastName = tmp.LastName;
-                userUpdate.MiddleName = tmp.MiddleName;
-                userUpdate.ModifiedDateTime=DateTime.Now;
-                userUpdate.Password = tmp.Password;
-                _dataManager.UpsertUser(userUpdate);
+                UserList[UserList.FindIndex(x => x.Id == tmp.Id)] = tmp;
+                _dataManager.UpsertUser(tmp);
+                UserContext = tmp;
             }
             else
             {
@@ -391,34 +326,13 @@ namespace PlexByte.MoCap.Managers
             }
         }
 
-        /// <summary>
-        ///  This method updates or insert a project object created from the form in the DB
-        /// </summary>
-        /// <param name="pForm"></param>
-        public void UpsertProjectFromForm(uc_Project pForm)
-        {
-            Project tmp = (Project)CreateObjectFromForm<IProject>(pForm);
-
-            // Is user in list?
-            if (TaskList.Any(x => String.Equals(x.Id,
-                tmp.Id,
-                StringComparison.CurrentCultureIgnoreCase)))
-            {
-                ProjectList[ProjectList.FindIndex(x => x.Id == tmp.Id)] = tmp;
-                _dataManager.UpsertProject(tmp);
-            }
-            else
-            {
-                ProjectList.Add(tmp);
-                _dataManager.UpsertProject(tmp);
-            }
-        }
+        public IProject UpsertProjectFromForm(uc_Project pForm) { return default(Project); }
 
         /// <summary>
         /// This method updated or insert a task object created from the form in the DB
         /// </summary>
         /// <param name="pForm">The form containing the task values</param>
-        public void UpsertTaskFromForm(uc_Task pForm)
+        public ITask UpsertTaskFromForm(uc_Task pForm)
         {
             Task tmp = (Task)CreateObjectFromForm<ITask>(pForm);
 
@@ -435,13 +349,15 @@ namespace PlexByte.MoCap.Managers
                 TaskList.Add(tmp);
                 _dataManager.UpsertTask(tmp);
             }
+
+            return tmp;
         }
 
         /// <summary>
         /// This method updated or insert a survey object created from the form in the DB
         /// </summary>
         /// <param name="pForm">The form containing the survey values</param>
-        public void UpsertSurveyFromForm(uc_Survey pForm)
+        public ISurvey UpsertSurveyFromForm(uc_Survey pForm)
         {
             Survey tmp = (Survey)CreateObjectFromForm<ISurvey>(pForm);
 
@@ -458,6 +374,7 @@ namespace PlexByte.MoCap.Managers
                 SurveyList.Add(tmp);
                 _dataManager.UpsertSurvey(tmp);
             }
+            return tmp;
         }
 
         /// <summary>
@@ -494,19 +411,71 @@ namespace PlexByte.MoCap.Managers
             */
         }
 
-        public void UpsertExpenseFromForm(frm_TaskUpdateProgress pForm)
-        {
+        public IExpense UpsertExpenseFromForm(frm_TaskUpdateProgress pForm) { return default(IExpense); }
 
-        }
-
-        public void UpsertTimesliceFromForm(frm_TaskUpdateProgress pForm)
-        {
-
-        }
+        public ITimeslice UpsertTimesliceFromForm(frm_TaskUpdateProgress pForm) { return default(ITimeslice); }
 
         #endregion
 
         #region Private Methods
+
+        /// <summary>
+        /// This method creates an object from a form. It uses the fors input values to construct the object
+        /// of the type specified
+        /// </summary>
+        /// <typeparam name="T">The object type to use (IInteraction)</typeparam>
+        /// <param name="pForm">The form containing the input field to use constructing the object</param>
+        /// <returns>An object of the type specified that was constructed from the form inputs</returns>
+        private T CreateObjectFromForm<T>(DockContent pForm)
+        {
+            if (pForm.GetType() == typeof(uc_Project))
+            {
+                IProject tmp = _formManager.CreateObjectFromForm<IProject>(pForm);
+                ProjectList.Add(tmp);
+                _dataManager.UpsertProject((Project)tmp);
+                return (T)tmp;
+            }
+            else if (pForm.GetType() == typeof(uc_User))
+            {
+                IUser tmp = _formManager.CreateUserObjectFromForm((uc_User)pForm);
+                if (!UserList.Contains(tmp))
+                    UserList.Add(tmp);
+                _dataManager.UpsertUser((User)tmp);
+                return (T)tmp;
+            }
+            else if (pForm.GetType() == typeof(uc_Task))
+            {
+                ITask tmp = _formManager.CreateObjectFromForm<ITask>(pForm);
+                TaskList.Add(tmp);
+                _dataManager.UpsertTask((Task)tmp);
+                return (T)tmp;
+            }
+            else if (pForm.GetType() == typeof(uc_Survey))
+            {
+                ISurvey tmp = _formManager.CreateObjectFromForm<ISurvey>(pForm);
+                SurveyList.Add(tmp);
+                _dataManager.UpsertSurvey((Survey)tmp);
+                return (T)tmp;
+            }
+            else if (pForm.GetType() == typeof(uc_Expense))
+            {
+                IExpense tmp = _formManager.CreateObjectFromForm<IExpense>(pForm);
+                ExpenseList.Add(tmp);
+                _dataManager.UpsertExpense((Expense)tmp);
+                return (T)tmp;
+            }
+            else if (pForm.GetType() == typeof(uc_Timeslice))
+            {
+                ITimeslice tmp = _formManager.CreateObjectFromForm<ITimeslice>(pForm);
+                TimesliceList.Add(tmp);
+                _dataManager.UpsertTimeslice((Timeslice)tmp);
+                return (T)tmp;
+            }
+            else
+            {
+                throw new InvalidCastException($"The type {pForm.GetType().ToString()} cannot be created as was never defined");
+            }
+        }
 
         /// <summary>
         /// This method initializes all objects this user has a relation to and updates the corresponding list

@@ -496,22 +496,8 @@ namespace PlexByte.MoCap.WinForms
 
                     if (!bError)
                     {
-                        _objectManager.CreateObjectFromForm<IUser>((uc_User) pControlList[0].Parent);
-                        /* NEW
-                        // Insert user in db
-                        _dataManager.InsertUser(GetControlByName<TextBox>(pControlList, "tbx_Id").Text,
-                            GetControlByName<TextBox>(pControlList, "tbx_FirstName").Text,
-                            GetControlByName<TextBox>(pControlList, "tbx_LastName").Text,
-                            GetControlByName<TextBox>(pControlList, "tbx_MiddleName").Text,
-                            GetControlByName<TextBox>(pControlList, "tbx_Email").Text,
-                            GetControlByName<DateTimePicker>(pControlList, "dtp_Birthdate").Value,
-                            GetControlByName<TextBox>(pControlList, "tbx_UserName").Text,
-                            CryptoHelper.Encrypt(GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text,"MoCap"));
-
-                        // Login using data given
-                        UserButtonLogin(pControlList);
-                        GetControlByName<Button>(pControlList, "btn_New").Text = "New";
-                        */
+                        _objectManager.UpsertUserFromForm((uc_User)pControlList[0].Parent);
+                        _userContext = (User)_objectManager.UserContext;
                     }
                     else
                     {
@@ -715,7 +701,7 @@ namespace PlexByte.MoCap.WinForms
                         // Get the form
                         uc_Task tmp = (uc_Task) pControlList[0].Parent;
 
-                        ITask task = _objectManager.CreateObjectFromForm<ITask>(tmp);
+                        ITask task = _objectManager.UpsertTaskFromForm((uc_Task)pControlList[0].Parent);
                         tmp.TabText = $"Task Details ({task.Id})";
                     }
                     else

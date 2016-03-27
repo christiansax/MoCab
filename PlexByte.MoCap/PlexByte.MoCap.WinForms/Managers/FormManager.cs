@@ -46,11 +46,21 @@ namespace PlexByte.MoCap.Managers
 
         #endregion
 
+        /// <summary>
+        /// This method creates a form based on the object type and initializes its fields with the objects values
+        /// </summary>
+        /// <param name="pObject">The interaction object to use</param>
+        /// <returns>DockContent form initialized with the objects values</returns>
         public DockContent CreateFormFromObject(IInteraction pObject)
         {
             throw new System.NotImplementedException();
         }
 
+        /// <summary>
+        /// This method creates a form based on the user and initializes its fields with the objects values
+        /// </summary>
+        /// <param name="pInstance">The user to use</param>
+        /// <returns>DockCOntent form initialized with the users values</returns>
         public DockContent CreateUserFormFromObject(IUser pInstance)
         {
             _errorProvider.Clear();
@@ -73,6 +83,12 @@ namespace PlexByte.MoCap.Managers
             return tmp;
         }
 
+        /// <summary>
+        /// This method creates a form based on an object provided and initializes the forms values using the objects properties
+        /// </summary>
+        /// <param name="pObject">The object from which the form is generated</param>
+        /// <param name="pInstance">The form to initialize</param>
+        /// <returns>DockContent form that was given in the input</returns>
         public DockContent CreateFormFromObject(IInteraction pObject, ref DockContent pInstance)
         {
             if (_objectManager.UserContext != null)
@@ -113,6 +129,12 @@ namespace PlexByte.MoCap.Managers
                                                   "before you start working");
         }
 
+        /// <summary>
+        /// This method created an object from the form given
+        /// </summary>
+        /// <typeparam name="T">The type of interaction object to generate</typeparam>
+        /// <param name="pInstance">The form to use creatin the interaction object</param>
+        /// <returns></returns>
         public T CreateObjectFromForm<T>(DockContent pInstance)
         {
             if (_objectManager.UserContext != null)
@@ -158,6 +180,11 @@ namespace PlexByte.MoCap.Managers
                                                   "before you start working");
         }
 
+        /// <summary>
+        /// This method created a user from a form given
+        /// </summary>
+        /// <param name="pInstance">The form to use creating the user</param>
+        /// <returns>IUser object created using the forms values</returns>
         public IUser CreateUserObjectFromForm(uc_User pInstance)
         {
             List<Control> ctrl = GetAllControls(pInstance);

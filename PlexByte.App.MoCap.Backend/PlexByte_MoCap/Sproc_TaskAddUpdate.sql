@@ -39,9 +39,9 @@ AS
 												@OwnerId, @StateId, GETDATE(), GETDATE())
 				
 				INSERT INTO [dbo].[Task]		([Id], [DueDateTime], [Budget], [Duration], [Priority], [Progress], [DurationUsed],
-												[BudgetUsed], [CreatedDateTime], [ModifiedDateTime])
+												[BudgetUsed], [CreatedDateTime], [ModifiedDateTime], [InteractionId])
 						VALUES					(@TaskId, @DueDateTime, @Budget, @Duration, @Priority, @Progress, @DurationUsed,
-												@BudgetUsed, GETDATE(), GETDATE())
+												@BudgetUsed, GETDATE(), GETDATE(), @Id)
 
 				IF (@ProjectId>0)
 				BEGIN

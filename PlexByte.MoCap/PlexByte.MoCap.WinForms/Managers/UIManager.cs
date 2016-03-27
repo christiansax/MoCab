@@ -702,7 +702,7 @@ namespace PlexByte.MoCap.WinForms
                         // Get the form
                         uc_Task tmp = (uc_Task) pControlList[0].Parent;
 
-                        ITask task = _objectManager.CreateObjectFromForm<ITask>(tmp);
+                        ITask task = _objectManager.UpsertTaskFromForm((uc_Task)pControlList[0].Parent);
                         tmp.TabText = $"Task Details ({task.Id})";
                     }
                     else

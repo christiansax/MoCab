@@ -315,17 +315,8 @@ namespace PlexByte.MoCap.Managers
                 tmp.Username,
                 StringComparison.CurrentCultureIgnoreCase)))
             {
-                User userUpdate = (User) UserList.First(x => String.Equals(x.Username,
-                    tmp.Username,
-                    StringComparison.CurrentCultureIgnoreCase));
-                userUpdate.Birthdate = tmp.Birthdate;
-                userUpdate.EmailAddress = tmp.EmailAddress;
-                userUpdate.FirstName = tmp.FirstName;
-                userUpdate.LastName = tmp.LastName;
-                userUpdate.MiddleName = tmp.MiddleName;
-                userUpdate.ModifiedDateTime=DateTime.Now;
-                userUpdate.Password = tmp.Password;
-                _dataManager.UpsertUser(userUpdate);
+                UserList[UserList.FindIndex(x => x.Id == tmp.Id)] = tmp;
+                _dataManager.UpsertUser(tmp);
                 UserContext = tmp;
             }
             else

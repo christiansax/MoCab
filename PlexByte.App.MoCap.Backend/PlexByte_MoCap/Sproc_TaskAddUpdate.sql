@@ -45,8 +45,9 @@ AS
 
 				IF (@ProjectId>0)
 				BEGIN
-					INSERT INTO [ProjectTaskMapping]([ProjectId], [TaskId], [CreatedDateTime], [ModifiedDateTime])
-							VALUES					(@ProjectId, @TaskId, GETDATE(), GETDATE())
+					select	@Id	=	format(getdate(), 'yyyyMMddHHmmssfff')
+					INSERT INTO [ProjectTaskMapping]([Id], [ProjectId], [TaskId], [CreatedDateTime], [ModifiedDateTime])
+							VALUES					(@Id, @ProjectId, @TaskId, GETDATE(), GETDATE())
 				END
 			COMMIT TRANSACTION
 			SET @ResultMsg = @ResultMsg + ': Inserted';

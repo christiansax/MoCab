@@ -41,8 +41,9 @@ AS
 				INSERT INTO [dbo].[Survey]		([Id], [InteractionId], [TaskId], [DueDateTime], [CreatedDateTime], [ModifiedDateTime])
 						VALUES					(@SurveyId, @Id, @TaskId, @DueDateTime, GETDATE(), GETDATE())
 
-				INSERT INTO [ProjectSurveyMapping]([ProjectId], [SurveyId], [CreatedDateTime], [ModifiedDateTime])
-						VALUES					(@ProjectId, @SurveyId, GETDATE(), GETDATE())
+				select	@Id	=	format(getdate(), 'yyyyMMddHHmmssfff')
+				INSERT INTO [ProjectSurveyMapping]([Id], [ProjectId], [SurveyId], [CreatedDateTime], [ModifiedDateTime])
+						VALUES					(@Id, @ProjectId, @SurveyId, GETDATE(), GETDATE())
 			COMMIT TRANSACTION
 			SET @ResultMsg = @ResultMsg + ': Inserted';
 		END TRY

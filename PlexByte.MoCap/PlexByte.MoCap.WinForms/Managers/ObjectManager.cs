@@ -8,7 +8,9 @@
 //      its lists
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Authentication;
+using System.Security.Cryptography.X509Certificates;
 using PlexByte.MoCap.Interactions;
 using PlexByte.MoCap.Security;
 using Timer = System.Timers.Timer;
@@ -17,6 +19,7 @@ using PlexByte.MoCap.WinForms.UserControls;
 using System.Timers;
 using PlexByte.MoCap.Helpers;
 using PlexByte.MoCap.WinForms;
+using PlexByte.MoCap.WinForms.CustomForms;
 
 namespace PlexByte.MoCap.Managers
 {
@@ -355,6 +358,133 @@ namespace PlexByte.MoCap.Managers
         /// This method clears the current userContext and hence logs out a user
         /// </summary>
         public void LogoutUser() { UserContext = null; }
+
+        /// <summary>
+        /// This method updates or insert a user object created from the form in the DB
+        /// </summary>
+        /// <param name="pForm">The form containing the user values</param>
+        public void UpsertUserFromForm(uc_User pForm)
+        {
+            User tmp = (User)CreateObjectFromForm<IUser>(pForm);
+
+            // Is user in list?
+            if (UserList.Any(x => String.Equals(x.Username,
+                tmp.Username,
+                StringComparison.CurrentCultureIgnoreCase)))
+            {
+                User userUpdate = (User) UserList.First(x => String.Equals(x.Username,
+                    tmp.Username,
+                    StringComparison.CurrentCultureIgnoreCase));
+                userUpdate.Birthdate = tmp.Birthdate;
+                userUpdate.EmailAddress = tmp.EmailAddress;
+                userUpdate.FirstName = tmp.FirstName;
+                userUpdate.LastName = tmp.LastName;
+                userUpdate.MiddleName = tmp.MiddleName;
+                userUpdate.ModifiedDateTime=DateTime.Now;
+                userUpdate.Password = tmp.Password;
+                _dataManager.UpsertUser(userUpdate);
+            }
+            else
+            {
+                UserList.Add(tmp);
+                _dataManager.UpsertUser(tmp);
+            }
+        }
+
+        public void UpsertProjectFromForm(uc_Project pForm)
+        {
+
+        }
+
+        /// <summary>
+        /// This method updated or insert a task object created from the form in the DB
+        /// </summary>
+        /// <param name="pForm">The form containing the task values</param>
+        public void UpsertTaskFromForm(uc_Task pForm)
+        {
+            Task tmp = (Task)CreateObjectFromForm<ITask>(pForm);
+
+            // Is user in list?
+            if (TaskList.Any(x => String.Equals(x.Id,
+                tmp.Id,
+                StringComparison.CurrentCultureIgnoreCase)))
+            {
+                TaskList[TaskList.FindIndex(x => x.Id == tmp.Id)] = tmp;
+                _dataManager.UpsertTask(tmp);
+            }
+            else
+            {
+                TaskList.Add(tmp);
+                _dataManager.UpsertTask(tmp);
+            }
+        }
+
+        /// <summary>
+        /// This method updated or insert a survey object created from the form in the DB
+        /// </summary>
+        /// <param name="pForm">The form containing the survey values</param>
+        public void UpsertSurveyFromForm(uc_Survey pForm)
+        {
+            Survey tmp = (Survey)CreateObjectFromForm<ISurvey>(pForm);
+
+            // Is user in list?
+            if (SurveyList.Any(x => String.Equals(x.Id,
+                tmp.Id,
+                StringComparison.CurrentCultureIgnoreCase)))
+            {
+                SurveyList[SurveyList.FindIndex(x => x.Id == tmp.Id)] = tmp;
+                _dataManager.UpsertSurvey(tmp);
+            }
+            else
+            {
+                SurveyList.Add(tmp);
+                _dataManager.UpsertSurvey(tmp);
+            }
+        }
+
+        /// <summary>
+        /// This method updated or insert a vote object created from the form in the DB
+        /// </summary>
+        /// <param name="pForm">The form containing the vote values</param>
+        public void UpsertVoteFromForm(uc_Survey pForm)
+        {
+            Vote tmp = (Vote) CreateObjectFromForm<IVote>(pForm);
+            //TODO: Need to adjust logic
+           /* 
+            // Is user in list?
+            if (SurveyList.Any(x =>x.VoteList.Any(y=>y.Id==tmp.Id)))
+            {
+                // Get survey with containing vote
+                Survey survey = (Survey)SurveyList.First(x => x.VoteList.Any(y => y.Id == tmp.Id));
+                // Create a new survey
+                Survey newSurvey = (Survey)_interactionFactory.CreateSurvey(survey.Id, survey.Text, survey.OptionList, survey.Creator);
+                foreach (var vote in survey.VoteList)
+                {
+                    if(vote.Id==tmp.Id)
+                        newSurvey.AddVote(tmp);
+                    else
+                        newSurvey.AddVote(vote);
+                }
+                SurveyList[SurveyList.FindIndex(x => x.Id == survey.Id)] = newSurvey;
+                _dataManager.UpsertSurvey(newSurvey);
+            }
+            else
+            {
+                SurveyList[SurveyList.FindIndex(x=>x.Id==tmp.)]
+                _dataManager.UpsertSurvey(tmp);
+            }
+            */
+        }
+
+        public void UpsertExpenseFromForm(frm_TaskUpdateProgress pForm)
+        {
+
+        }
+
+        public void UpsertTimesliceFromForm(frm_TaskUpdateProgress pForm)
+        {
+
+        }
 
         #endregion
 

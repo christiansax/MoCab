@@ -20,7 +20,7 @@ namespace PlexByte.MoCap.Security
         public string EmailAddress { get; set; }
         public DateTime Birthdate { get; set; }
         public DateTime CreatedDateTime => _createdDateTime;
-        public DateTime ModifiedDateTime => _modifiedDateTime;
+        public DateTime ModifiedDateTime { get; set; }
         public string PersonId => _personId;
         public string Username { get; set; }
         public string Password { get; set; }
@@ -28,9 +28,8 @@ namespace PlexByte.MoCap.Security
         private readonly string _id;
         private readonly string _personId;
         private readonly DateTime _createdDateTime;
-        private readonly DateTime _modifiedDateTime;
 
-        public User() { _createdDateTime = _modifiedDateTime = DateTime.Now; }
+        public User() { _createdDateTime = ModifiedDateTime = DateTime.Now; }
 
         public User(string pId,
             string pPersonId,
@@ -52,7 +51,7 @@ namespace PlexByte.MoCap.Security
             EmailAddress = pEmailAddress;
             Birthdate = pBirthDate;
             _createdDateTime= pCreatedDateTime;
-            _modifiedDateTime = pModifiedDateTime;
+            ModifiedDateTime = pModifiedDateTime;
             Username = pUserName;
             Password= pPassword;
         }

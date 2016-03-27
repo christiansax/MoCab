@@ -560,7 +560,8 @@ namespace PlexByte.MoCap.WinForms
                 if (!string.IsNullOrEmpty(sUserName) && !string.IsNullOrEmpty(sPassword))
                 {
                     _MainUI.Enabled = false;
-                    // _userContext = (User) _dataManager.AuthenticateUser(sUserName, sPassword);
+                    _objectManager.LoginUser(sUserName, sPassword);
+                    _userContext = (User)_objectManager.UserContext;
                     _MainUI.Enabled = true;
                     GetControlByName<Button>(pControlList, "btn_Login").Text = "Logout";
                     GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
@@ -612,7 +613,8 @@ namespace PlexByte.MoCap.WinForms
         /// <param name="pControlList">The controls contained on the uc_User form</param>
         private void UserButtonLogout(List<Control> pControlList)
         {
-            _userContext = null;
+            _objectManager.LogoutUser();
+            _userContext = (User) _objectManager.UserContext;
             uc_User tmp = (uc_User) pControlList[0].Parent;
             tmp.Close();
         }

@@ -22,6 +22,16 @@ namespace PlexByte.MoCap.Managers
 {
     public class ObjectManager : IDisposable
     {
+        #region Delegates and Events
+
+        public delegate void RefreshTimerElapsesEventHandler(object sender, EventArgs e);
+        public delegate void ObjectChangingEventHandler(object sender, EventArgs e);
+
+        public event RefreshTimerElapsesEventHandler RefreshTimerElapsed;
+        public event RefreshTimerElapsesEventHandler ObjectChanged;
+
+        #endregion
+
         #region Properties
 
         /// <summary>
@@ -73,11 +83,20 @@ namespace PlexByte.MoCap.Managers
 
         #region Ctor & Dtor
 
+        /// <summary>
+        /// Constructor of the class
+        /// </summary>
         public ObjectManager()
         {
             // Instanciate factories to create object
             _interactionFactory = new InteractionFactory();
             _objectFactory = new ObjectFactory();
+            ProjectList=new List<IProject>();
+            TaskList=new List<ITask>();
+            SurveyList=new List<ISurvey>();
+            ExpenseList=new List<IExpense>();
+            TimesliceList=new List<ITimeslice>();
+            UserList=new List<IUser>();
 
             // Initialize the time which will periodically update the objects
             _updateTimer = new Timer(20000);
@@ -129,34 +148,86 @@ namespace PlexByte.MoCap.Managers
 
         public T GetObjectById<T>(string pId)
         {
+            T tmp = default(T);
             if (typeof (T) == typeof (IProject))
             {
-
+                tmp = (T) _dataManager.GetProjectById(pId);
+                if (tmp != null)
+                {
+                    if (!ProjectList.Contains((IProject) tmp))
+                    {
+                        ProjectList.Add((IProject) tmp);
+                        OnObjectChanged(tmp, new EventArgs());
+                    }
+                }
             }
             else if (typeof (T) == typeof (ITask))
             {
-
+                tmp = (T) _dataManager.GetTaskById(pId);
+                if (tmp != null)
+                {
+                    if (!TaskList.Contains((ITask) tmp))
+                    {
+                        TaskList.Add((ITask) tmp);
+                        OnObjectChanged(tmp, new EventArgs());
+                    }
+                }
             }
             else if (typeof (T) == typeof (ISurvey))
             {
-
+                tmp = (T) _dataManager.GetSurveyById(pId);
+                if (tmp != null)
+                {
+                    if (!SurveyList.Contains((ISurvey) tmp))
+                    {
+                        SurveyList.Add((ISurvey) tmp);
+                        OnObjectChanged(tmp, new EventArgs());
+                    }
+                }
             }
             else if (typeof (T) == typeof (IExpense))
             {
-
+                tmp = (T) _dataManager.GetExpenseById(pId);
+                if (tmp != null)
+                {
+                    if (!ExpenseList.Contains((IExpense) tmp))
+                    {
+                        ExpenseList.Add((IExpense) tmp);
+                        OnObjectChanged(tmp, new EventArgs());
+                    }
+                }
             }
             else if (typeof (T) == typeof (ITimeslice))
             {
-
-            }
-            else if (typeof (T) == typeof (IVote))
-            {
-
+                tmp = (T) _dataManager.GetTimesliceById(pId);
+                if (tmp != null)
+                {
+                    if (!TimesliceList.Contains((ITimeslice) tmp))
+                    {
+                        TimesliceList.Add((ITimeslice) tmp);
+                        OnObjectChanged(tmp, new EventArgs());
+                    }
+                }
             }
             else if (typeof (T) == typeof (IUser))
             {
-
+                tmp = (_dataManager.GetUser(pId, false) == null)
+                    ? (T) _dataManager.GetUser(pId, true)
+                    : (T) _dataManager.GetUser(pId, false);
+                if (tmp != null)
+                {
+                    if (!UserList.Contains((IUser) tmp))
+                    {
+                        UserList.Add((IUser) tmp);
+                        OnObjectChanged(tmp, new EventArgs());
+                    }
+                }
             }
+            else
+            {
+                throw new InvalidCastException($"The type {typeof(T).ToString()} was not implemented");
+            }
+            return tmp;
         }
 
         public void LoginUser(string pId, string pPassword)
@@ -165,7 +236,10 @@ namespace PlexByte.MoCap.Managers
             if (user != null)
             {
                 if (user.Password == CryptoHelper.Encrypt(pPassword, "MoCap"))
+                {
                     UserContext = user;
+                    InitializeObjects();
+                }
                 else
                     throw new InvalidCredentialException($"The password provided does not match password for user {pId}");
             }
@@ -246,12 +320,32 @@ namespace PlexByte.MoCap.Managers
 
         private void InitializeObjects() { }
 
-        private void RefreshObjects() { InitializeObjects(); }
+        private void RefreshObjects()
+        {
+            InitializeObjects();
+            OnRefreshTimerElapsed(new EventArgs());
+        }
 
         private void UpdateTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             RefreshObjects();
             _updateTimer.Start();
+        }
+
+        public virtual void OnRefreshTimerElapsed(EventArgs e)
+        {
+            if (RefreshTimerElapsed != null)
+            {
+                RefreshTimerElapsed(this, e);
+            }
+        }
+
+        public virtual void OnObjectChanged(object changedObject, EventArgs e)
+        {
+            if (ObjectChanged != null)
+            {
+                ObjectChanged(changedObject, e);
+            }
         }
 
         #endregion

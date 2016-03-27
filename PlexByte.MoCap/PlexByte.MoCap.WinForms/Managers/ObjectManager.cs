@@ -325,8 +325,32 @@ namespace PlexByte.MoCap.Managers
                 _dataManager.UpsertUser(tmp);
             }
         }
+        
+        /// <summary>
+        ///  This method updates or insert a project object created from the form in the DB
+        /// </summary>
+        /// <param name="pForm"></param>
+        public IProject UpsertProjectFromForm(uc_Project pForm)
+        {
+            Project tmp = (Project)CreateObjectFromForm<IProject>(pForm);
 
-        public IProject UpsertProjectFromForm(uc_Project pForm) { return default(Project); }
+            // Is user in list?
+            if (TaskList.Any(x => String.Equals(x.Id,
+                tmp.Id,
+                StringComparison.CurrentCultureIgnoreCase)))
+            {
+                ProjectList[ProjectList.FindIndex(x => x.Id == tmp.Id)] = tmp;
+                _dataManager.UpsertProject(tmp);
+            }
+            else
+            {
+                ProjectList.Add(tmp);
+                _dataManager.UpsertProject(tmp);
+            }
+
+            return tmp;
+        }
+
 
         /// <summary>
         /// This method updated or insert a task object created from the form in the DB

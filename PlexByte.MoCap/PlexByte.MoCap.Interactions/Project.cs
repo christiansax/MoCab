@@ -396,8 +396,8 @@ namespace PlexByte.MoCap.Interactions
             Text = pText;
             CreatedDateTime = DateTime.Now;
             ModifiedDateTime = DateTime.Now;
-            StartDateTime = DateTime.Now;
-            EndDateTime = default(DateTime);
+            StartDateTime = pStartDt;
+            EndDateTime = pEndDt;
             IsActive = true;
             State = StartDateTime <= DateTime.Now ? InteractionState.Active : InteractionState.Queued;
             _stateTimer.Elapsed += OnTimerElapsed;

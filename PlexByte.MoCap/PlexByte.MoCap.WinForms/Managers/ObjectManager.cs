@@ -391,9 +391,27 @@ namespace PlexByte.MoCap.Managers
             }
         }
 
+        /// <summary>
+        ///  This method updates or insert a project object created from the form in the DB
+        /// </summary>
+        /// <param name="pForm"></param>
         public void UpsertProjectFromForm(uc_Project pForm)
         {
+            Project tmp = (Project)CreateObjectFromForm<IProject>(pForm);
 
+            // Is user in list?
+            if (TaskList.Any(x => String.Equals(x.Id,
+                tmp.Id,
+                StringComparison.CurrentCultureIgnoreCase)))
+            {
+                ProjectList[ProjectList.FindIndex(x => x.Id == tmp.Id)] = tmp;
+                _dataManager.UpsertProject(tmp);
+            }
+            else
+            {
+                ProjectList.Add(tmp);
+                _dataManager.UpsertProject(tmp);
+            }
         }
 
         /// <summary>

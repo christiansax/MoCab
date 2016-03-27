@@ -37,7 +37,6 @@
             this.cbx_EnableBalance = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.dtp_EndDate = new System.Windows.Forms.DateTimePicker();
             this.label22 = new System.Windows.Forms.Label();
             this.lbl_Countdown = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -79,6 +78,7 @@
             this.btn_Update = new System.Windows.Forms.Button();
             this.btn_Create = new System.Windows.Forms.Button();
             this.btn_InviteUser = new System.Windows.Forms.Button();
+            this.dtp_EndDate = new System.Windows.Forms.DateTimePicker();
             this.gbx_ProjectSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Tasks)).BeginInit();
@@ -101,13 +101,13 @@
             // 
             this.gbx_ProjectSettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbx_ProjectSettings.Controls.Add(this.dtp_EndDate);
             this.gbx_ProjectSettings.Controls.Add(this.dtp_StartDate);
             this.gbx_ProjectSettings.Controls.Add(this.label8);
             this.gbx_ProjectSettings.Controls.Add(this.cbx_EnableSurvey);
             this.gbx_ProjectSettings.Controls.Add(this.cbx_EnableBalance);
             this.gbx_ProjectSettings.Controls.Add(this.label7);
             this.gbx_ProjectSettings.Controls.Add(this.label6);
-            this.gbx_ProjectSettings.Controls.Add(this.dtp_EndDate);
             this.gbx_ProjectSettings.Controls.Add(this.label22);
             this.gbx_ProjectSettings.Controls.Add(this.lbl_Countdown);
             this.gbx_ProjectSettings.Controls.Add(this.label4);
@@ -190,16 +190,6 @@
             this.label6.Size = new System.Drawing.Size(111, 17);
             this.label6.TabIndex = 60;
             this.label6.Text = "Enable Balance:";
-            // 
-            // dtp_EndDate
-            // 
-            this.dtp_EndDate.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
-            this.dtp_EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_EndDate.Location = new System.Drawing.Point(92, 79);
-            this.dtp_EndDate.Margin = new System.Windows.Forms.Padding(4);
-            this.dtp_EndDate.Name = "dtp_EndDate";
-            this.dtp_EndDate.Size = new System.Drawing.Size(219, 22);
-            this.dtp_EndDate.TabIndex = 59;
             // 
             // label22
             // 
@@ -630,6 +620,15 @@
             this.btn_InviteUser.Text = "Invite User";
             this.btn_InviteUser.UseVisualStyleBackColor = true;
             // 
+            // dtp_EndDate
+            // 
+            this.dtp_EndDate.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
+            this.dtp_EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_EndDate.Location = new System.Drawing.Point(92, 76);
+            this.dtp_EndDate.Name = "dtp_EndDate";
+            this.dtp_EndDate.Size = new System.Drawing.Size(219, 22);
+            this.dtp_EndDate.TabIndex = 68;
+            // 
             // uc_Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -700,7 +699,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_Create;
         private System.Windows.Forms.Button btn_Update;
-        private System.Windows.Forms.DateTimePicker dtp_EndDate;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.CheckBox cbx_EnableSurvey;
         private System.Windows.Forms.CheckBox cbx_EnableBalance;
@@ -710,5 +708,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_InviteUser;
         private System.Windows.Forms.Button btn_ChangeOwner;
+        private System.Windows.Forms.DateTimePicker dtp_EndDate;
     }
 }

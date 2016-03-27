@@ -802,7 +802,7 @@ namespace PlexByte.MoCap.WinForms
                     uc_Project tmp = (uc_Project)pControlList[0].Parent;
 
                     //Create project
-                    _objectManager.CreateObjectFromForm<IProject>(tmp);
+                    IProject project = _objectManager.UpsertProjectFromForm((uc_Project)pControlList[0].Parent);
 
                     //Disable setting controls after project is created
                     GetControlByName<Button>(pControlList, "btn_Update").Enabled = true;

@@ -1,6 +1,8 @@
 ﻿//////////////////////////////////////////////////////////////
 //                      Interface Project                              
 //      Author: Fabian Ochsner            Date:   2016/02/19
+
+using System;
 using System.Collections.Generic;
 using PlexByte.MoCap.Security;
 
@@ -26,6 +28,10 @@ namespace PlexByte.MoCap.Interactions
 
 
         string Id { get; }
+
+        DateTime CreatedDateTIme { get; set; }
+
+        DateTime ModifiedDateTIme { get; set; }
 
         bool EnableBalance { get; }
 

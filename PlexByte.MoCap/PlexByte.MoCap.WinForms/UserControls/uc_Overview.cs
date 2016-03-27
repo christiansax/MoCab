@@ -19,15 +19,19 @@ namespace PlexByte.MoCap.WinForms.UserControls
         /// </summary>
         private const string ControlTitle = "Interactions Overview";
 
-        private UIManager _manager = null;
+        private UIManager _UIManager = null;
 
         public uc_Overview(UIManager pManager)
         {
             InitializeComponent();
             this.TabText = ControlTitle;
-            _manager = pManager;
+            _UIManager = pManager;
         }
 
+        /// <summary>
+        /// This method adds an interaction to the users overview section
+        /// </summary>
+        /// <param name="pInteraction">The interaction to add</param>
         public void AddRecentlyChangedInteraction(IInteraction pInteraction)
         {
             switch (pInteraction.Type)
@@ -78,6 +82,10 @@ namespace PlexByte.MoCap.WinForms.UserControls
             }
         }
 
+        /// <summary>
+        /// This method adds a project to the overview
+        /// </summary>
+        /// <param name="pProject">The project to add</param>
         public void AddAssignedProjects(IProject pProject)
         {
             Project tmp = (Project) pProject;
@@ -85,12 +93,23 @@ namespace PlexByte.MoCap.WinForms.UserControls
             dgw_Project.Refresh();
         }
 
-        private void Initialize()
+        /// <summary>
+        /// Clears all the gridviews and refreshes them
+        /// </summary>
+        public void ClearDataGridViews()
         {
-            _manager.LastUserLogin();
-            // BackendService backend = new BackendService();
-            // ObjectManager objectManager = new ObjectManager(new DataManager());
-            //objectManager.CreateInteractions(backend.)
+            dgw_Project.Rows.Clear();
+            dgw_Recent.Rows.Clear();
+            dgw_Project.Refresh();
+            dgw_Recent.Refresh();
+        }
+
+        /// <summary>
+        /// Registers the forms event to UIManager
+        /// </summary>
+        public void RegisterEvents()
+        {
+            dgw_Project.CellDoubleClick += _UIManager.OverviewGridviewDoubleClicked;
         }
     }
 }

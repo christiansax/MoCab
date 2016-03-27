@@ -24,15 +24,11 @@ AS
 	DECLARE @Id BIGINT;
 	SET @ResultMsg = 'OK';
 
-	IF (EXISTS (
-			SELECT	[Id]
-			FROM	[View_Task]
-			WHERE	[Id] = @TaskId))
 	BEGIN
 		IF (NOT EXISTS (
 		SELECT	*
 		FROM	View_Task
-		WHERE	[Id] = @TaskId AND [InteractionId]	= @InteractionId AND [StartDateTime] = @StartDateTime AND [EndDateTime] = @EndDateTime))
+		WHERE	[Id] = @TaskId))
 		BEGIN TRY
 			-- This is a new user, insert...
 			BEGIN TRANSACTION
@@ -42,13 +38,16 @@ AS
 						VALUES					(@Id, @StartDateTime, @EndDateTime, @IsActive, @Text, 2, @CreatorId, 
 												@OwnerId, @StateId, GETDATE(), GETDATE())
 				
-				INSERT INTO [ProjectTaskMapping]([ProjectId], [TaskId], [CreatedDateTime], [ModifiedDateTime])
-						VALUES					(@ProjectId, @TaskId, GETDATE(), GETDATE())
-
 				INSERT INTO [dbo].[Task]		([Id], [DueDateTime], [Budget], [Duration], [Priority], [Progress], [DurationUsed],
 												[BudgetUsed], [CreatedDateTime], [ModifiedDateTime])
 						VALUES					(@TaskId, @DueDateTime, @Budget, @Duration, @Priority, @Progress, @DurationUsed,
 												@BudgetUsed, GETDATE(), GETDATE())
+
+				IF (@ProjectId>0)
+				BEGIN
+					INSERT INTO [ProjectTaskMapping]([ProjectId], [TaskId], [CreatedDateTime], [ModifiedDateTime])
+							VALUES					(@ProjectId, @TaskId, GETDATE(), GETDATE())
+				END
 			COMMIT TRANSACTION
 			SET @ResultMsg = @ResultMsg + ': Inserted';
 		END TRY
@@ -101,9 +100,5 @@ AS
 			ROLLBACK
 			RAISERROR ('Caught exception %s', 16, -1, @ResultMsg);
 		END CATCH
-	END
-	ELSE
-	BEGIN
-		RAISERROR ('Error: Project with Id: %d does not exist', 16, 11, @ProjectId);
 	END
 RETURN 0

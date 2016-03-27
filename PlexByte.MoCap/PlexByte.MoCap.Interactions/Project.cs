@@ -90,6 +90,32 @@ namespace PlexByte.MoCap.Interactions
 
         public string Name { get; private set; }
 
+        public DateTime CreatedDateTIme
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public DateTime ModifiedDateTIme
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         #endregion
 
         #region Variables

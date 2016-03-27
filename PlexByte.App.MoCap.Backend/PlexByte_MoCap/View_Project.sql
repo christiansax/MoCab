@@ -7,7 +7,7 @@ CREATE VIEW [dbo].[View_Project]
 			[i].[StartDateTime], [i].[EndDateTime], [i].[StateId], [s].[Text] AS StateName, [i].[CreatorId], [c].[Username] 
 			AS Creator, [i].[OwnerId], [u].[Username] AS [Owner], [i].[IsActive]
 	FROM	[Project] p INNER JOIN [Interaction] i
-			ON [p].[Id]=[i].[Id]
+			ON [p].[InteractionId]=[i].[Id]
 			INNER JOIN [View_User] u
 			ON [u].Id=[i].[OwnerId]
 			INNER JOIN [View_User] c

@@ -8,7 +8,7 @@ CREATE VIEW [dbo].[View_Task]
 			[t].[Progress], [t].[Duration], [t].[Budget], [t].[DurationUsed], [t].[BudgetUsed], [i].[CreatorId], [c].[Username] AS Creator,
 			[i].[OwnerId], [u].[Username] AS [Owner], [t].[ModifiedDateTime], [t].[CreatedDateTime], [i].[Type]
 	FROM	[Task] t INNER JOIN [Interaction] i
-	ON		[t].[Id]=[i].[Id]
+	ON		[t].[InteractionId]=[i].[Id]
 			INNER JOIN [View_User] u
 	ON		[u].Id=[i].[OwnerId]
 			INNER JOIN [View_User] c

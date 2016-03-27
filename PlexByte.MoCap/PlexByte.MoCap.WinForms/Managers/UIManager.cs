@@ -261,12 +261,17 @@ namespace PlexByte.MoCap.WinForms
             }
         }
 
+        public void OverviewGridviewDoubleClicked(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
         /// <summary>
         /// Eventlistener for the Project form.
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguements</param>
-        internal void ProjectButtonClicked(object sender, EventArgs e)
+        public void ProjectButtonClicked(object sender, EventArgs e)
         {
             _errorProvider.Clear();
             List<Control> ctrls = GetAllControls(((Button)sender).Parent);
@@ -549,6 +554,7 @@ namespace PlexByte.MoCap.WinForms
                     _MainUI.Enabled = false;
                     _objectManager.LoginUser(sUserName, sPassword);
                     _userContext = (User)_objectManager.UserContext;
+                    GenerateOverviewPanel();
                     _MainUI.Enabled = true;
                     GetControlByName<Button>(pControlList, "btn_Login").Text = "Logout";
                     GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
@@ -941,7 +947,6 @@ namespace PlexByte.MoCap.WinForms
             //    _NewOwnerId = _OwnerSelectionList.NewOwnerId;
         }
 
-
         private void ProjectButtonUpdatel(List<Control> pControlList)
         {
             throw new NotImplementedException();
@@ -972,10 +977,24 @@ namespace PlexByte.MoCap.WinForms
             //_UserSelectionList.Show();
         }
 
-
         private void GenerateOverviewPanel()
         {
-            // _overviewPanel.
+            foreach (var project in _objectManager.ProjectList)
+            {
+                _overviewPanel.AddAssignedProjects(project);
+                if (project.ModifiedDateTIme > DateTime.Now.AddDays(-5))
+                    _overviewPanel.AddRecentlyChangedInteraction((IInteraction)project);
+            }
+            foreach (var task in _objectManager.TaskList)
+            {
+                if (((Task)task).ModifiedDateTime > DateTime.Now.AddDays(-5))
+                    _overviewPanel.AddRecentlyChangedInteraction((IInteraction)task);
+            }
+            foreach (var survey in _objectManager.SurveyList)
+            {
+                if (((Survey)survey).ModifiedDateTime > DateTime.Now.AddDays(-5))
+                    _overviewPanel.AddRecentlyChangedInteraction((IInteraction)survey);
+            }
         }
 
         #endregion

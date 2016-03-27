@@ -23,12 +23,27 @@ namespace PlexByte.MoCap.Managers
     public class ObjectManager : IDisposable
     {
         #region Delegates and Events
-
+        /// <summary>
+        /// Delegate for the refresh timer elapsed event
+        /// </summary>
+        /// <param name="sender">The sender of the event</param>
+        /// <param name="e">The event params</param>
         public delegate void RefreshTimerElapsesEventHandler(object sender, EventArgs e);
+        /// <summary>
+        ///  Delegate for the object changed event
+        /// </summary>
+        /// <param name="sender">The sender of the event</param>
+        /// <param name="e">The event params</param>
         public delegate void ObjectChangingEventHandler(object sender, EventArgs e);
 
+        /// <summary>
+        /// The RefreshTimerElapsed event
+        /// </summary>
         public event RefreshTimerElapsesEventHandler RefreshTimerElapsed;
-        public event RefreshTimerElapsesEventHandler ObjectChanged;
+        /// <summary>
+        /// The Object changed event
+        /// </summary>
+        public event ObjectChangingEventHandler ObjectChanged;
 
         #endregion
 
@@ -146,6 +161,12 @@ namespace PlexByte.MoCap.Managers
 
         #region Public Methods
 
+        /// <summary>
+        /// This method get an object bi its Id from the database
+        /// </summary>
+        /// <typeparam name="T">The type of object to create (Interaction)</typeparam>
+        /// <param name="pId">The id of the object to lookup</param>
+        /// <returns>An object of the type specified matching the id</returns>
         public T GetObjectById<T>(string pId)
         {
             T tmp = default(T);
@@ -230,25 +251,13 @@ namespace PlexByte.MoCap.Managers
             return tmp;
         }
 
-        public void LoginUser(string pId, string pPassword)
-        {
-            IUser user = _dataManager.GetUser(pId, true);
-            if (user != null)
-            {
-                if (user.Password == CryptoHelper.Encrypt(pPassword, "MoCap"))
-                {
-                    UserContext = user;
-                    InitializeObjects();
-                }
-                else
-                    throw new InvalidCredentialException($"The password provided does not match password for user {pId}");
-            }
-            else
-                throw new InvalidCredentialException($"The user {pId} was not found");
-        }
-
-        public void LogoutUser() { UserContext = null; }
-
+        /// <summary>
+        /// This method creates an object from a form. It uses the fors input values to construct the object
+        /// of the type specified
+        /// </summary>
+        /// <typeparam name="T">The object type to use (IInteraction)</typeparam>
+        /// <param name="pForm">The form containing the input field to use constructing the object</param>
+        /// <returns>An object of the type specified that was constructed from the form inputs</returns>
         public T CreateObjectFromForm<T>(DockContent pForm)
         {
             if (pForm.GetType() == typeof (uc_Project))
@@ -299,6 +308,12 @@ namespace PlexByte.MoCap.Managers
             }
         }
 
+        /// <summary>
+        /// This method creates a form from an object passed
+        /// </summary>
+        /// <typeparam name="T">The type of object from which a form is contructed</typeparam>
+        /// <param name="pObject">The object that hold the values and are mathed to the forms input</param>
+        /// <returns>A dockContent form that holds the objects values</returns>
         public DockContent CreateFormFromObject<T>(T pObject)
         {
             DockContent tmp = null;
@@ -314,24 +329,134 @@ namespace PlexByte.MoCap.Managers
             return tmp;
         }
 
+        /// <summary>
+        /// This method attempts to login the given user with the password specified
+        /// </summary>
+        /// <param name="pId">The user id</param>
+        /// <param name="pPassword">The users password</param>
+        public void LoginUser(string pId, string pPassword)
+        {
+            IUser user = _dataManager.GetUser(pId, true);
+            if (user != null)
+            {
+                if (user.Password == CryptoHelper.Encrypt(pPassword, "MoCap"))
+                {
+                    UserContext = user;
+                    InitializeObjects();
+                }
+                else
+                    throw new InvalidCredentialException($"The password provided does not match password for user {pId}");
+            }
+            else
+                throw new InvalidCredentialException($"The user {pId} was not found");
+        }
+
+        /// <summary>
+        /// This method clears the current userContext and hence logs out a user
+        /// </summary>
+        public void LogoutUser() { UserContext = null; }
+
         #endregion
 
         #region Private Methods
 
-        private void InitializeObjects() { }
+        /// <summary>
+        /// This method initializes all objects this user has a relation to and updates the corresponding list
+        /// </summary>
+        private void InitializeObjects()
+        {
+            // Read the objects for this user from the db and add them to the list collection
 
+            // Project
+            foreach (var project in _dataManager.GetAllInteractions<IProject>(UserContext.Id))
+            {
+                if (project != null)
+                {
+                    if (!ProjectList.Contains(project))
+                    {
+                        ProjectList.Add(project);
+                        ObjectChanged(project, new EventArgs());
+                    }
+                }
+            }
+
+            // Task
+            foreach (var task in _dataManager.GetAllInteractions<ITask>(UserContext.Id))
+            {
+                if (task != null)
+                {
+                    if (!TaskList.Contains(task))
+                    {
+                        TaskList.Add(task);
+                        ObjectChanged(task, new EventArgs());
+                    }
+                }
+            }
+
+            // Survey
+            foreach (var survey in _dataManager.GetAllInteractions<ISurvey>(UserContext.Id))
+            {
+                if (survey != null)
+                {
+                    if (!SurveyList.Contains(survey))
+                    {
+                        SurveyList.Add(survey);
+                        ObjectChanged(survey, new EventArgs());
+                    }
+                }
+            }
+
+            // Expenses
+            foreach (var expenses in _dataManager.GetAllInteractions<IExpense>(UserContext.Id))
+            {
+                if (expenses != null)
+                {
+                    if (!ExpenseList.Contains(expenses))
+                    {
+                        ExpenseList.Add(expenses);
+                        ObjectChanged(expenses, new EventArgs());
+                    }
+                }
+            }
+
+            // Timeslices
+            foreach (var timeslice in _dataManager.GetAllInteractions<ITimeslice>(UserContext.Id))
+            {
+                if (timeslice != null)
+                {
+                    if (!TimesliceList.Contains(timeslice))
+                    {
+                        TimesliceList.Add(timeslice);
+                        ObjectChanged(timeslice, new EventArgs());
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// This method is fired everytime the refreshtimer has elapsed, causing the interaction collection to update
+        /// </summary>
         private void RefreshObjects()
         {
             InitializeObjects();
             OnRefreshTimerElapsed(new EventArgs());
         }
 
+        /// <summary>
+        /// This method fires once the updateTimer has elapsed
+        /// </summary>
+        /// <param name="sender">The timer firing the eventhandler</param>
+        /// <param name="e">The event arguments</param>
         private void UpdateTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
             RefreshObjects();
             _updateTimer.Start();
         }
 
+        /// <summary>
+        /// The event handler for the Refresh event. This event fires whenever the updateTimer elapses
+        /// </summary>
+        /// <param name="e">The eventarguments</param>
         public virtual void OnRefreshTimerElapsed(EventArgs e)
         {
             if (RefreshTimerElapsed != null)
@@ -340,6 +465,11 @@ namespace PlexByte.MoCap.Managers
             }
         }
 
+        /// <summary>
+        /// The event handler for the object changed event. This fires whenever an object in the collection changes
+        /// </summary>
+        /// <param name="changedObject">The changed object raising this event</param>
+        /// <param name="e">The event arguments</param>
         public virtual void OnObjectChanged(object changedObject, EventArgs e)
         {
             if (ObjectChanged != null)

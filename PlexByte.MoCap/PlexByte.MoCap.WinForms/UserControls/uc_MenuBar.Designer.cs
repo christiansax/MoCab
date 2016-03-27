@@ -49,7 +49,7 @@
             // 
             this.btn_Task.Image = global::PlexByte.MoCap.WinForms.Properties.Resources.task1;
             this.btn_Task.Location = new System.Drawing.Point(58, 6);
-            this.btn_Task.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Task.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Task.Name = "btn_Task";
             this.btn_Task.Size = new System.Drawing.Size(48, 49);
             this.btn_Task.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             this.btn_Project.Image = ((System.Drawing.Image)(resources.GetObject("btn_Project.Image")));
             this.btn_Project.Location = new System.Drawing.Point(6, 6);
-            this.btn_Project.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Project.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Project.Name = "btn_Project";
             this.btn_Project.Size = new System.Drawing.Size(48, 49);
             this.btn_Project.TabIndex = 2;
@@ -71,7 +71,7 @@
             // 
             this.btn_Survey.Image = global::PlexByte.MoCap.WinForms.Properties.Resources.survey;
             this.btn_Survey.Location = new System.Drawing.Point(117, 6);
-            this.btn_Survey.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Survey.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Survey.Name = "btn_Survey";
             this.btn_Survey.Size = new System.Drawing.Size(48, 49);
             this.btn_Survey.TabIndex = 3;
@@ -82,7 +82,7 @@
             // 
             this.btn_Account.Image = global::PlexByte.MoCap.WinForms.Properties.Resources.account;
             this.btn_Account.Location = new System.Drawing.Point(280, 6);
-            this.btn_Account.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Account.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Account.Name = "btn_Account";
             this.btn_Account.Size = new System.Drawing.Size(48, 49);
             this.btn_Account.TabIndex = 4;
@@ -93,29 +93,31 @@
             // 
             this.btn_Timeslice.Image = global::PlexByte.MoCap.WinForms.Properties.Resources.timeslice;
             this.btn_Timeslice.Location = new System.Drawing.Point(386, 6);
-            this.btn_Timeslice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Timeslice.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Timeslice.Name = "btn_Timeslice";
             this.btn_Timeslice.Size = new System.Drawing.Size(48, 49);
             this.btn_Timeslice.TabIndex = 5;
             this.btn_Timeslice.UseVisualStyleBackColor = true;
+            this.btn_Timeslice.Visible = false;
             this.btn_Timeslice.MouseEnter += new System.EventHandler(this.Timeslice_MouseEnter);
             // 
             // btn_Expense
             // 
             this.btn_Expense.Image = global::PlexByte.MoCap.WinForms.Properties.Resources.expense;
             this.btn_Expense.Location = new System.Drawing.Point(333, 6);
-            this.btn_Expense.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Expense.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Expense.Name = "btn_Expense";
             this.btn_Expense.Size = new System.Drawing.Size(48, 49);
             this.btn_Expense.TabIndex = 6;
             this.btn_Expense.UseVisualStyleBackColor = true;
+            this.btn_Expense.Visible = false;
             this.btn_Expense.MouseEnter += new System.EventHandler(this.Expense_MouseEnter);
             // 
             // btn_User
             // 
             this.btn_User.Image = global::PlexByte.MoCap.WinForms.Properties.Resources.user;
             this.btn_User.Location = new System.Drawing.Point(444, 6);
-            this.btn_User.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_User.Margin = new System.Windows.Forms.Padding(2);
             this.btn_User.Name = "btn_User";
             this.btn_User.Size = new System.Drawing.Size(48, 49);
             this.btn_User.TabIndex = 7;
@@ -126,7 +128,7 @@
             // 
             this.btn_Vote.Image = global::PlexByte.MoCap.WinForms.Properties.Resources.vote;
             this.btn_Vote.Location = new System.Drawing.Point(222, 6);
-            this.btn_Vote.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Vote.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Vote.Name = "btn_Vote";
             this.btn_Vote.Size = new System.Drawing.Size(48, 49);
             this.btn_Vote.TabIndex = 8;
@@ -137,7 +139,7 @@
             // 
             this.btn_SurveyOptions.Image = global::PlexByte.MoCap.WinForms.Properties.Resources.surveyOption;
             this.btn_SurveyOptions.Location = new System.Drawing.Point(170, 6);
-            this.btn_SurveyOptions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_SurveyOptions.Margin = new System.Windows.Forms.Padding(2);
             this.btn_SurveyOptions.Name = "btn_SurveyOptions";
             this.btn_SurveyOptions.Size = new System.Drawing.Size(48, 49);
             this.btn_SurveyOptions.TabIndex = 9;
@@ -192,7 +194,7 @@
             this.Controls.Add(this.btn_Task);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "uc_MenuBar";
             this.ResumeLayout(false);
 

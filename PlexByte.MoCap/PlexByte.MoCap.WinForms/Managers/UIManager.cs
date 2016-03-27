@@ -497,6 +497,7 @@ namespace PlexByte.MoCap.WinForms
 
                     if (!bError)
                     {
+                        
                         /* NEW
                         // Insert user in db
                         _dataManager.InsertUser(GetControlByName<TextBox>(pControlList, "tbx_Id").Text,

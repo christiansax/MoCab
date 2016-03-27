@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using PlexByte.MoCap.Interactions;
 using PlexByte.MoCap.Security;
 using PlexByte.MoCap.Backend;
@@ -217,6 +218,64 @@ namespace PlexByte.MoCap.Managers
                     dt.Rows[0]["PersonId"].ToString());
             }
             return user;
+        }
+
+        /// <summary>
+        /// This method returns a list of interaction based on the user given and type specified
+        /// </summary>
+        /// <param name="pUserId">The user id to use in the search</param>
+        /// <returns>List of Interactions for this user</returns>
+        public List<T> GetAllInteractions<T>(string pUserId)
+        {
+            List<T> interactions = new List<T>();
+            if (typeof (T) == typeof (IProject))
+            {
+                interactions.AddRange(
+                    from DataRow row in _backendService.GetProjectsByUser(pUserId).Rows
+                    select (T) GetProjectById(row["Id"].ToString()));
+            }
+            else if (typeof (T) == typeof (ITask))
+            {
+                foreach (DataRow project in _backendService.GetProjectsByUser(pUserId).Rows)
+                {
+                    interactions.AddRange(
+                        from DataRow row in _backendService.GetTaskByProjectId(project["Id"].ToString()).Rows
+                        select (T) GetTaskById(row["Id"].ToString()));
+                }
+            }
+            else if (typeof (T) == typeof (ISurvey))
+            {
+                foreach (DataRow project in _backendService.GetProjectsByUser(pUserId).Rows)
+                {
+                    interactions.AddRange(
+                        from DataRow row in _backendService.GetSurveyByProjectId(project["Id"].ToString(),
+                            ObjectType.Project).Rows
+                        select (T) GetSurveyById(row["Id"].ToString()));
+                }
+            }
+            else if (typeof (T) == typeof (IExpense))
+            {
+                foreach (DataRow project in _backendService.GetProjectsByUser(pUserId).Rows)
+                {
+                    interactions.AddRange(
+                        from DataRow row in _backendService.GetExpenseByProjectId(project["Id"].ToString()).Rows
+                        select (T)GetExpenseById(row["Id"].ToString()));
+                }
+            }
+            else if (typeof (T) == typeof (ITimeslice))
+            {
+                foreach (DataRow project in _backendService.GetProjectsByUser(pUserId).Rows)
+                {
+                    interactions.AddRange(
+                        from DataRow row in _backendService.GetTimeSliceByProjectId(project["Id"].ToString()).Rows
+                        select (T)GetTimesliceById(row["Id"].ToString()));
+                }
+            }
+            else
+            {
+                throw new InvalidCastException($"The type {typeof (T).ToString()} is not implemented");
+            }
+            return interactions;
         }
 
         public void UpsertExpense(Expense pExpense) { throw new System.NotImplementedException(); }

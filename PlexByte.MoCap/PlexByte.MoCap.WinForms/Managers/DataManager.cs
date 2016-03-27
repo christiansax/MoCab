@@ -13,12 +13,20 @@ using PlexByte.MoCap.Backend;
 
 namespace PlexByte.MoCap.Managers
 {
-    public class DataManager:IDisposable
+    public class DataManager : IDisposable
     {
+        #region Properties
+
+        #endregion
+
+        #region Variables
+
         private BackendService _backendService = null;
         private IInteractionFactory _interactionFactory = null;
         private IObjectFactory _objectFactory = null;
         private ObjectManager _objectManager = null;
+
+        #endregion
 
         #region Ctor & Dtor
 
@@ -41,11 +49,40 @@ namespace PlexByte.MoCap.Managers
 
         #endregion
 
+        #region Public Methods
+
         public IProject GetProjectById(string pId) { return null; }
 
+        /// <summary>
+        /// This method get a task based on the id specified from the database
+        /// </summary>
+        /// <param name="pId">The id of the task to lookup</param>
+        /// <returns>ITask matching the id specified</returns>
         public ITask GetTaskById(string pId)
         {
-            return null;
+            DataTable record = _backendService.GetTaskById(pId);
+            if (record.Rows.Count > 0)
+            {
+                ITask task = _interactionFactory.CreateTask(record.Rows[0]["Id"].ToString(),
+                    record.Rows[0]["Text"].ToString(),
+                    record.Rows[0]["Title"].ToString(),
+                    GetUser(record.Rows[0]["CreatorId"].ToString(), false),
+                    DateTime.Parse(record.Rows[0]["StartDateTime"].ToString()),
+                    DateTime.Parse(record.Rows[0]["EndDateTime"].ToString()),
+                    DateTime.Parse(record.Rows[0]["DueDateTime"].ToString()),
+                    Convert.ToDecimal(record.Rows[0]["Budget"].ToString()),
+                    Convert.ToInt32(record.Rows[0]["Duration"].ToString()),
+                    Convert.ToInt32(record.Rows[0]["Priority"].ToString()),
+                    (InteractionState) Enum.Parse(typeof (InteractionState), record.Rows[0]["StateName"].ToString()),
+                    Convert.ToDecimal(record.Rows[0]["BudgetUsed"].ToString()),
+                    Convert.ToInt32(record.Rows[0]["DurationUsed"].ToString()),
+                    null,
+                    Convert.ToInt32(record.Rows[0]["Progress"].ToString()));
+                record = null;
+                return task;
+            }
+            else
+                return null;
         }
 
         /// <summary>
@@ -61,7 +98,7 @@ namespace PlexByte.MoCap.Managers
                 record.Rows[0]["Text"].ToString(),
                 surveyOptions ?? new List<ISurveyOption>(),
                 GetUser(record.Rows[0]["Creator"].ToString(), false));
-
+            record = null;
             // Get votes
             List<IVote> votes = GetVoteBySurveyId(pId);
             if (votes != null)
@@ -71,21 +108,12 @@ namespace PlexByte.MoCap.Managers
                     survey.AddVote(vote);
                 }
             }
-
-            record = null;
-
             return survey;
         }
 
-        public IExpense GetExpenseById(string pId)
-        {
-            throw new System.NotImplementedException();
-        }
+        public IExpense GetExpenseById(string pId) { throw new System.NotImplementedException(); }
 
-        public ITimeslice GetTimesliceById(string pId)
-        {
-            throw new System.NotImplementedException();
-        }
+        public ITimeslice GetTimesliceById(string pId) { throw new System.NotImplementedException(); }
 
         /// <summary>
         /// This method gets a survey option from the database
@@ -191,24 +219,21 @@ namespace PlexByte.MoCap.Managers
             return user;
         }
 
-        public bool UpsertExpense(Expense pExpense)
-        {
-            throw new System.NotImplementedException();
-        }
+        public void UpsertExpense(Expense pExpense) { throw new System.NotImplementedException(); }
 
         public void UpsertProject(Project pProject)
         {
             _backendService.InsertProject(pProject.Id,
-               pProject.Name,
-               pProject.Text,
-               pProject.StartDateTime,
-               pProject.EndDateTime,
-               pProject.Owner.Id,
-               pProject.EnableBalance,
-               pProject.EnableSurvey,
-               pProject.IsActive,
-               pProject.Creator.Id,
-               pProject.State.ToString());
+                pProject.Name,
+                pProject.Text,
+                pProject.StartDateTime,
+                pProject.EndDateTime,
+                pProject.Owner.Id,
+                pProject.EnableBalance,
+                pProject.EnableSurvey,
+                pProject.IsActive,
+                pProject.Creator.Id,
+                pProject.State.ToString());
         }
 
         /// <summary>
@@ -241,9 +266,23 @@ namespace PlexByte.MoCap.Managers
         /// <param name="pTask">The task to insert or update</param>
         public void UpsertTask(Task pTask)
         {
-            _backendService.InsertTask(pTask.Id, pTask.InteractionId, pTask.DueDateTime, pTask.Budget, pTask.Duration,
-                pTask.Priority, pTask.Progress, pTask.DurationCurrent, pTask.BudgetUsed, pTask.StartDateTime, pTask.EndDateTime,
-                pTask.IsActive, pTask.Text, pTask.Creator.Id, pTask.Owner.Id, pTask.State.ToString(), pTask.ProjectId);
+            _backendService.InsertTask(pTask.Id,
+                pTask.InteractionId,
+                pTask.DueDateTime,
+                pTask.Budget,
+                pTask.Duration,
+                pTask.Priority,
+                pTask.Progress,
+                pTask.DurationCurrent,
+                pTask.BudgetUsed,
+                pTask.StartDateTime,
+                pTask.EndDateTime,
+                pTask.IsActive,
+                pTask.Text,
+                pTask.Creator.Id,
+                pTask.Owner.Id,
+                pTask.State.ToString(),
+                pTask.ProjectId);
         }
 
         /// <summary>
@@ -266,8 +305,14 @@ namespace PlexByte.MoCap.Managers
         /// <param name="pUser">The user to insert or update</param>
         public void UpsertUser(User pUser)
         {
-            _backendService.InsertUser(pUser.Id,pUser.FirstName, pUser.LastName, pUser.MiddleName, pUser.EmailAddress, 
-                pUser.Birthdate, pUser.Username, pUser.Password);
+            _backendService.InsertUser(pUser.Id,
+                pUser.FirstName,
+                pUser.LastName,
+                pUser.MiddleName,
+                pUser.EmailAddress,
+                pUser.Birthdate,
+                pUser.Username,
+                pUser.Password);
         }
 
         /// <summary>
@@ -292,5 +337,7 @@ namespace PlexByte.MoCap.Managers
                 pSurveyOption.Text,
                 pSurveyOption.CreatedDateTime);
         }
+
+        #endregion
     }
 }

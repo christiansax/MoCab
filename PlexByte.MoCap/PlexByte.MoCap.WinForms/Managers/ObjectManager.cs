@@ -22,13 +22,54 @@ namespace PlexByte.MoCap.Managers
 {
     public class ObjectManager : IDisposable
     {
+        #region Properties
+
+        /// <summary>
+        /// The user being logged into this session
+        /// </summary>
         public IUser UserContext { get; private set; } = null;
+        
+        /// <summary>
+        /// The list of projects for this user
+        /// </summary>
+        public List<IProject> ProjectList { get; private set; }
+
+        /// <summary>
+        /// The list of tasks for this user
+        /// </summary>
+        public List<ITask> TaskList { get; private set; }
+
+        /// <summary>
+        /// The list of survey for this user
+        /// </summary>
+        public List<ISurvey> SurveyList { get; private set; }
+
+        /// <summary>
+        /// The list of expenses for this user
+        /// </summary>
+        public List<IExpense> ExpenseList { get; private set; }
+
+        /// <summary>
+        /// The list of timeslices for this user
+        /// </summary>
+        public List<ITimeslice> TimesliceList { get; private set; }
+
+        /// <summary>
+        /// The list of users this user has a relation with
+        /// </summary>
+        public List<IUser> UserList { get; private set; }
+
+        #endregion
+
+        #region Variables
 
         DataManager _dataManager = null;
         FormManager _formManager = null;
         IInteractionFactory _interactionFactory = null;
         IObjectFactory _objectFactory = null;
         Timer _updateTimer = null;
+
+        #endregion
 
         #region Ctor & Dtor
 
@@ -86,47 +127,35 @@ namespace PlexByte.MoCap.Managers
 
         #region Public Methods
 
-        public List<IProject> ProjectList { get; private set; }
-
-        public List<ITask> TaskList { get; private set; }
-
-        public List<ISurvey> SurveyList { get; private set; }
-
-        public List<IExpense> ExpenseList { get; private set; }
-
-        public List<ITimeslice> TimesliceList { get; private set; }
-
-        public List<IUser> UserList { get; private set; }
-
         public T GetObjectById<T>(string pId)
         {
             if (typeof (T) == typeof (IProject))
             {
-                
+
             }
-            else if(typeof(T)==typeof(ITask))
+            else if (typeof (T) == typeof (ITask))
             {
-                
+
             }
             else if (typeof (T) == typeof (ISurvey))
             {
-                
+
             }
-            else if(typeof(T)==typeof(IExpense))
+            else if (typeof (T) == typeof (IExpense))
             {
-                
+
             }
-            else if(typeof(T)==typeof(ITimeslice))
+            else if (typeof (T) == typeof (ITimeslice))
             {
-                
+
             }
-            else if(typeof(T)==typeof(IVote))
+            else if (typeof (T) == typeof (IVote))
             {
-                
+
             }
-            else if (typeof(T) == typeof(IUser))
+            else if (typeof (T) == typeof (IUser))
             {
-                
+
             }
         }
 

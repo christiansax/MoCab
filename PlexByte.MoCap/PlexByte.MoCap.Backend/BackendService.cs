@@ -128,6 +128,12 @@ namespace PlexByte.MoCap.Backend
             return ExecuteQueryString($"select * from View_SurveyOption where Id = '{pId}'");
         }
 
+        /// <summary>
+        /// This method returns either a single vote by its Id or a set of votes connected to a survey
+        /// </summary>
+        /// <param name="pId">The id to use in the lookup</param>
+        /// <param name="pIsSurveyId">True if the id was a surveyId</param>
+        /// <returns>DataTable containing either a single vote or a list of votes left for a survey</returns>
         public DataTable GetVoteById(string pId, bool pIsSurveyId)
         {
             DataTable resultSet = null;
@@ -140,8 +146,6 @@ namespace PlexByte.MoCap.Backend
                 default:
                     return null;
             }
-
-            return ExecuteQueryString($"select * from View_Vote where Id = '{pId}'");
         }
 
         public DataTable GetUserById(string pId)
@@ -771,5 +775,133 @@ namespace PlexByte.MoCap.Backend
         }
 
         public void InsertSurveyOption(string pId, string pText, DateTime pCreatedDateTime) { throw new NotImplementedException(); }
+
+        public void InsertTimeslice(string pId,
+            int pDuration,
+            string pTargetId,
+            string pDescription,
+            string pTargetType,
+            DateTime pCreatedDateTime)
+        {
+            string execString = string.Empty;
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                // Create the command and set its properties.
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = "Sproc_TimesliceAddUpdate";
+                command.CommandType = CommandType.StoredProcedure;
+
+                // Add the input parameter and set its properties.
+                SqlParameter parameter = new SqlParameter("@Id", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@Duration", SqlDbType.Int)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt32(pDuration)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@Description", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pDescription
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@ResultMsg", SqlDbType.VarChar)
+                {
+                    Direction = ParameterDirection.Output,
+                    Value = string.Empty
+                };
+                command.Parameters.Add(parameter);
+
+                // Open the connection and execute the reader.
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Console.WriteLine("{0}: {1:C}", reader[0], reader[1]);
+                    }
+                }
+                else
+                {
+                   Console.WriteLine("No rows found.");
+                }
+
+                // Insert mapping record
+                command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = "Sproc_AccountAddMapping";
+                command.CommandType = CommandType.StoredProcedure;
+
+                // Add the input parameter and set its properties.
+                parameter = new SqlParameter("@ProjectId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                };
+                if (pTargetType.ToLower() == "project")
+                    parameter.Value = Convert.ToInt64(pTargetId);
+                else
+                    parameter.Value = DBNull.Value;
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@ObjectId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@ObjectType", SqlDbType.Int)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = 2
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@TaskId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                };
+                if (pTargetType.ToLower() == "task")
+                    parameter.Value = Convert.ToInt64(pTargetId);
+                else
+                    parameter.Value = DBNull.Value;
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@ResultMsg", SqlDbType.VarChar)
+                {
+                    Direction = ParameterDirection.Output,
+                    Value = string.Empty
+                };
+                command.Parameters.Add(parameter);
+
+                // Open the connection and execute the reader.
+                connection.Open();
+                reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Console.WriteLine("{0}: {1:C}", reader[0], reader[1]);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+                reader.Close();
+            }
+        }
     }
 }

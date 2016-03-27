@@ -20,6 +20,10 @@ namespace PlexByte.MoCap.Interactions
         /// </summary>
         public int Duration { get; private set; }
         /// <summary>
+        /// The description for this timeslice
+        /// </summary>
+        public string Description { get; set; }
+        /// <summary>
         /// Owner of the time in the timeslice
         /// </summary>
         public IUser User { get; private set; }
@@ -27,6 +31,14 @@ namespace PlexByte.MoCap.Interactions
         /// The target to which a timeslice is connected
         /// </summary>
         public IInteraction Target { get; private set; }
+        /// <summary>
+        /// The date and time this timeslice was created
+        /// </summary>
+        public DateTime CreatedDateTime { get; set; }
+        /// <summary>
+        /// The date and time this timeslice was modified
+        /// </summary>
+        public DateTime ModifiedDateTime { get; set; }
 
         #endregion
 

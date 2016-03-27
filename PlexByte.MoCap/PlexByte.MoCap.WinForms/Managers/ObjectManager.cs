@@ -98,7 +98,37 @@ namespace PlexByte.MoCap.Managers
 
         public List<IUser> UserList { get; private set; }
 
-        public T GetObjectById<T>(string pId) { throw new System.NotImplementedException(); }
+        public T GetObjectById<T>(string pId)
+        {
+            if (typeof (T) == typeof (IProject))
+            {
+                
+            }
+            else if(typeof(T)==typeof(ITask))
+            {
+                
+            }
+            else if (typeof (T) == typeof (ISurvey))
+            {
+                
+            }
+            else if(typeof(T)==typeof(IExpense))
+            {
+                
+            }
+            else if(typeof(T)==typeof(ITimeslice))
+            {
+                
+            }
+            else if(typeof(T)==typeof(IVote))
+            {
+                
+            }
+            else if (typeof(T) == typeof(IUser))
+            {
+                
+            }
+        }
 
         public void LoginUser(string pId, string pPassword)
         {
@@ -194,16 +224,6 @@ namespace PlexByte.MoCap.Managers
             RefreshObjects();
             _updateTimer.Start();
         }
-
-        private void GetAllProjectUsers(string pProjectId) { throw new System.NotImplementedException(); }
-
-        private void GetAllTasks(string pId, bool pIsProjectId) { throw new System.NotImplementedException(); }
-
-        private void GetAllSurveys(string pId, bool pIsProjectId) { throw new System.NotImplementedException(); }
-
-        private void GetAllTimeslices(string pId, bool pIsProjectId) { throw new System.NotImplementedException(); }
-
-        private void GetAllExpenses(string pId, bool pIsProjectId) { throw new System.NotImplementedException(); }
 
         #endregion
     }

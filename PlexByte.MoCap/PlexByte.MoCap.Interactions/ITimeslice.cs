@@ -11,9 +11,15 @@ namespace PlexByte.MoCap.Interactions
     {
         int Duration { get; }
 
+        string Description { get; set; }
+
         IUser User { get; }
 
         IInteraction Target { get; }
+
+        DateTime CreatedDateTime{ get; set; }
+
+        DateTime ModifiedDateTime { get; set; }
 
         int CalculateDuration(DateTime pStartDT, DateTime pEndDT);
 

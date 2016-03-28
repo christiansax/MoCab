@@ -63,7 +63,7 @@ namespace PlexByte.MoCap.Managers
             if (record.Rows.Count > 0)
             {
                 IProject project = _interactionFactory.CreateProject(record.Rows[0]["Id"].ToString(),
-                    record.Rows[0]["Text"].ToString(),
+                    record.Rows[0]["ProjectDescription"].ToString(),
                     Convert.ToBoolean(record.Rows[0]["EnableBalance"].ToString()),
                     Convert.ToBoolean(record.Rows[0]["EnableSurvey"].ToString()),
                     DateTime.Parse(record.Rows[0]["StartDateTime"].ToString()),
@@ -76,6 +76,7 @@ namespace PlexByte.MoCap.Managers
                     null,
                     record.Rows[0]["Name"].ToString());
                 record = null;
+                ((Project) project).Name = record.Rows[0]["Name"].ToString();
                 return project;
             }
             else

@@ -44,7 +44,7 @@ namespace PlexByte.MoCap.Interactions
         /// <summary>
         /// The type of interaction (will be always project)
         /// </summary>
-        public InteractionType Type { get; }
+        public InteractionType Type { get; } = InteractionType.Project;
         /// <summary>
         /// The user that created the project
         /// </summary>

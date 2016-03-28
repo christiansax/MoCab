@@ -243,7 +243,7 @@ namespace PlexByte.MoCap.Managers
             uc_Project tmp = (uc_Project)pInstance;
 
             //Initialize default values for controls
-            if (!string.IsNullOrEmpty(tmp.ProjectId))
+            if (string.IsNullOrEmpty(tmp.ProjectId))
             {
                 tmp.ProjectId = DateTime.Now.ToString(DateStringFormatId);
             }

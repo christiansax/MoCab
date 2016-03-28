@@ -53,7 +53,8 @@ namespace PlexByte.MoCap.Managers
         /// <returns>DockContent form initialized with the objects values</returns>
         public DockContent CreateFormFromObject(IInteraction pObject)
         {
-            throw new System.NotImplementedException();
+            DockContent tmp = null;
+            tmp = CreateFormFromObject(pObject, ref tmp);
         }
 
         /// <summary>

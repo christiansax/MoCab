@@ -5,6 +5,7 @@
 //      registers to all available events and executes the corresponding action
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using PlexByte.MoCap.Helpers;
 using PlexByte.MoCap.Interactions;
@@ -89,6 +90,7 @@ namespace PlexByte.MoCap.WinForms
         private void ObjectManager_UserLoggedIn(object sender, EventArgs e)
         {
             _userContext = (User)_objectManager.UserContext;
+            _overviewPanel.UnRegisterEvents();
             GenerateOverviewPanel();
         }
 
@@ -99,6 +101,8 @@ namespace PlexByte.MoCap.WinForms
         {
             if (UserContext != null)
                 _userContext = null;
+            _objectManager.UserLoggedIn -= ObjectManager_UserLoggedIn;
+            _objectManager.UserLoggedOut -= ObjectManager_UserLoggedOut;
             _objectManager?.Dispose();
             _objectManager = null;
         }
@@ -230,6 +234,11 @@ namespace PlexByte.MoCap.WinForms
             }
         }
 
+        /// <summary>
+        /// Event handler method for the uc_User form button click events
+        /// </summary>
+        /// <param name="sender">The button raising the event</param>
+        /// <param name="e">The event args</param>
         public void UserButtonClicked(object sender, EventArgs e)
         {
             _errorProvider.Clear();
@@ -256,6 +265,11 @@ namespace PlexByte.MoCap.WinForms
             }
         }
 
+        /// <summary>
+        /// Event handler method for the uc_Task for button click events
+        /// </summary>
+        /// <param name="sender">The button raising the event</param>
+        /// <param name="e">The event args</param>
         public void TaskButtonClicked(object sender, EventArgs e)
         {
             _errorProvider.Clear();
@@ -281,7 +295,27 @@ namespace PlexByte.MoCap.WinForms
 
         public void OverviewGridviewDoubleClicked(object sender, DataGridViewCellEventArgs e)
         {
-            DockContent temp = _objectManager.CreateFormFromObject<object>(sender);
+            string clickedId = ((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value.ToString();
+            if (_objectManager.ProjectList.Any(x => x.Id == clickedId))
+            {
+                _objectManager.CreateFormFromObject<IInteraction>(
+                    (Project) _objectManager.ProjectList.First(x => x.Id == clickedId));
+            }
+            else if (_objectManager.TaskList.Any(x => x.Id == clickedId))
+            {
+                _objectManager.CreateFormFromObject<IInteraction>(
+                    (Task)_objectManager.TaskList.First(x => x.Id == clickedId));
+            }
+            else if (_objectManager.SurveyList.Any(x => x.Id == clickedId))
+            {
+                _objectManager.CreateFormFromObject<IInteraction>(
+                    (Survey)_objectManager.SurveyList.First(x => x.Id == clickedId));
+            }
+            else
+            {
+                _MainUI.ShowErrorMessage($"The id {clickedId} referenced did not resolve in either a project, " +
+                                         $"task or survey!");
+            }
         }
 
         /// <summary>
@@ -963,6 +997,10 @@ namespace PlexByte.MoCap.WinForms
             _UserSelectionList.Show();
         }
 
+        /// <summary>
+        /// This method builds the overview for this user. It fills the dataGridView with the 
+        /// objects in collection and registers dgw double click to call objectManager
+        /// </summary>
         private void GenerateOverviewPanel()
         {
             _objectManager.CreateUserOverview();
@@ -983,6 +1021,8 @@ namespace PlexByte.MoCap.WinForms
                 if (((Survey)survey).ModifiedDateTime > DateTime.Now.AddDays(-5))
                     _overviewPanel.AddRecentlyChangedInteraction((IInteraction)survey);
             }
+
+            _overviewPanel.RegisterEvents();
         }
 
         #endregion

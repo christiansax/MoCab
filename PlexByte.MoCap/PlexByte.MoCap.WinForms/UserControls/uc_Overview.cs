@@ -109,6 +109,16 @@ namespace PlexByte.MoCap.WinForms.UserControls
         public void RegisterEvents()
         {
             dgw_Project.CellDoubleClick += _UIManager.OverviewGridviewDoubleClicked;
+            dgw_Recent.CellDoubleClick += _UIManager.OverviewGridviewDoubleClicked;
+        }
+
+        /// <summary>
+        /// Registers the forms event to UIManager
+        /// </summary>
+        public void UnRegisterEvents()
+        {
+            dgw_Project.CellDoubleClick -= _UIManager.OverviewGridviewDoubleClicked;
+            dgw_Recent.CellDoubleClick -= _UIManager.OverviewGridviewDoubleClicked;
         }
     }
 }

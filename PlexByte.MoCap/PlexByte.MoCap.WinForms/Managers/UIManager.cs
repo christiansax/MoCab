@@ -996,6 +996,10 @@ namespace PlexByte.MoCap.WinForms
             //    _NewOwnerId = _OwnerSelectionList.NewOwnerId;
         }
 
+        /// <summary>
+        /// This method opens a form to add an expense or a timeslice for the project
+        /// </summary>
+        /// <param name="pControlList"></param>
         private void ProjectButtonUpdatel(List<Control> pControlList)
         {
             // Is project loaded?

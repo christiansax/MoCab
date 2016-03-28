@@ -343,13 +343,18 @@ namespace PlexByte.MoCap.Managers
             return null;
         }
 
+        /// <summary>
+        /// This method created a project form from the object given
+        /// </summary>
+        /// <param name="pInstance"></param>
+        /// <returns></returns>
         private DockContent CreateProjectForm(IProject pInstance)
         {
             _errorProvider.Clear();
             DockContent tmp = CreateContentPanel(UiType.Project);
             tmp.TabText = $"Project Dialog ({pInstance.Id})";
             List<Control> ctrl = GetAllControls(tmp);
-
+           
             Project t = (Project)pInstance;
             TimeSpan _Countdown;
 
@@ -384,6 +389,7 @@ namespace PlexByte.MoCap.Managers
             GetControlByName<Button>(ctrl, "btn_Create").Enabled = true;
             GetControlByName<Button>(ctrl, "btn_Create").Text = "Edit";
 
+            
             t = null;
             ctrl.Clear();
             ctrl = null;

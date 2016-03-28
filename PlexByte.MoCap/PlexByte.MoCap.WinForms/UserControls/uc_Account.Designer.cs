@@ -48,6 +48,9 @@
             this.ExpenseInProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimeInvestedUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimeInvestedInProcent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_AssignProject = new System.Windows.Forms.Button();
+            this.tbx_ProjectName = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Tasks)).BeginInit();
@@ -59,12 +62,15 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btn_AssignProject);
+            this.groupBox1.Controls.Add(this.tbx_ProjectName);
+            this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Controls.Add(this.tbx_TotalCost);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Location = new System.Drawing.Point(16, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(833, 63);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
@@ -73,7 +79,7 @@
             // tbx_TotalCost
             // 
             this.tbx_TotalCost.Location = new System.Drawing.Point(119, 22);
-            this.tbx_TotalCost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbx_TotalCost.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_TotalCost.Name = "tbx_TotalCost";
             this.tbx_TotalCost.Size = new System.Drawing.Size(284, 22);
             this.tbx_TotalCost.TabIndex = 55;
@@ -96,9 +102,9 @@
             this.groupBox2.Controls.Add(this.btn_Update);
             this.groupBox2.Controls.Add(this.dgv_Tasks);
             this.groupBox2.Location = new System.Drawing.Point(16, 76);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(833, 238);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
@@ -109,7 +115,7 @@
             this.btn_Update.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_Update.Enabled = false;
             this.btn_Update.Location = new System.Drawing.Point(8, 194);
-            this.btn_Update.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btn_Update.Margin = new System.Windows.Forms.Padding(5);
             this.btn_Update.Name = "btn_Update";
             this.btn_Update.Size = new System.Drawing.Size(133, 34);
             this.btn_Update.TabIndex = 29;
@@ -134,7 +140,7 @@
             this.BudgetUsed,
             this.TimeInvested});
             this.dgv_Tasks.Location = new System.Drawing.Point(8, 26);
-            this.dgv_Tasks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_Tasks.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_Tasks.MultiSelect = false;
             this.dgv_Tasks.Name = "dgv_Tasks";
             this.dgv_Tasks.ReadOnly = true;
@@ -196,9 +202,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.dgv_User);
             this.groupBox3.Location = new System.Drawing.Point(16, 314);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(833, 222);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
@@ -221,7 +227,7 @@
             this.TimeInvestedUser,
             this.TimeInvestedInProcent});
             this.dgv_User.Location = new System.Drawing.Point(8, 26);
-            this.dgv_User.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_User.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_User.MultiSelect = false;
             this.dgv_User.Name = "dgv_User";
             this.dgv_User.ReadOnly = true;
@@ -270,6 +276,33 @@
             this.TimeInvestedInProcent.ReadOnly = true;
             this.TimeInvestedInProcent.Width = 150;
             // 
+            // btn_AssignProject
+            // 
+            this.btn_AssignProject.Enabled = false;
+            this.btn_AssignProject.Location = new System.Drawing.Point(787, 19);
+            this.btn_AssignProject.Name = "btn_AssignProject";
+            this.btn_AssignProject.Size = new System.Drawing.Size(34, 23);
+            this.btn_AssignProject.TabIndex = 58;
+            this.btn_AssignProject.Text = "=>";
+            this.btn_AssignProject.UseVisualStyleBackColor = true;
+            // 
+            // tbx_ProjectName
+            // 
+            this.tbx_ProjectName.Enabled = false;
+            this.tbx_ProjectName.Location = new System.Drawing.Point(540, 19);
+            this.tbx_ProjectName.Name = "tbx_ProjectName";
+            this.tbx_ProjectName.Size = new System.Drawing.Size(241, 22);
+            this.tbx_ProjectName.TabIndex = 56;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(457, 22);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(56, 17);
+            this.label23.TabIndex = 57;
+            this.label23.Text = "Project:";
+            // 
             // uc_Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -280,7 +313,7 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "uc_Account";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -313,5 +346,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Button btn_Update;
+        private System.Windows.Forms.Button btn_AssignProject;
+        private System.Windows.Forms.TextBox tbx_ProjectName;
+        private System.Windows.Forms.Label label23;
     }
 }

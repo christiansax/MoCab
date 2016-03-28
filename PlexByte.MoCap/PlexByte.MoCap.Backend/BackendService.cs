@@ -236,7 +236,7 @@ namespace PlexByte.MoCap.Backend
         public DataTable GetProjectsByUser(string pUserId)
         {
             return ExecuteQueryString($"select * from View_Project where Id in (select ProjectId from View_ProjectUserMapping where " +
-                                      $"UserId = {pUserId}) AND ([OwnerId] = {pUserId} OR [CreatorId] = {pUserId})  AND IsActive = 1" +
+                                      $"UserId = '{pUserId}') OR ([OwnerId] = '{pUserId}' OR [CreatorId] = '{pUserId}')  AND IsActive = 1" +
                                       $" order by [Name]");
         }
 

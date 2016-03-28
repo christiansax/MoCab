@@ -5,7 +5,7 @@ CREATE VIEW [dbo].[View_Survey]
 	AS 
 	SELECT	[t].[Id], [i].[Text], [t].[InteractionId],  [i].[StartDateTime], [i].[EndDateTime], [t].[DueDateTime], [i].[StateId], [s].[Text] AS StateName, 
 			[i].[IsActive], [i].[CreatorId], [u].[Username] AS Creator, [i].[OwnerId], [o].[Username] AS [Owner], [t].[ModifiedDateTime], 
-			[t].[CreatedDateTime], [i].[Type]
+			[t].[CreatedDateTime], [i].[Type], [t].[MaxVotePerUser], [t].[Title]
 	FROM	[Survey] t INNER JOIN [Interaction] i
 	ON		[t].[InteractionId]=[i].[Id]
 			INNER JOIN [InteractionState] s

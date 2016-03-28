@@ -14,8 +14,8 @@ namespace PlexByte.MoCap.Interactions
         #region Properties
 
         public List<ISurveyOption> OptionList { get; set; }
-        public List<IVote> VoteList => _voteList;
-        
+        public List<IVote> VoteList { get; set; }
+        public string Title { get; set; }
         public string InteractionId { get; set; }
         public string ProjectId { get; set; }
         public DateTime StartDateTime { get; set; }
@@ -42,7 +42,6 @@ namespace PlexByte.MoCap.Interactions
         private IUser _creator;
         private DateTime _modifiedDateTime;
         private DateTime _createdDateTime;
-        private List<IVote> _voteList;
         private InteractionState _state;
         private System.Timers.Timer _stateTimer = new System.Timers.Timer(60*1000);
         private bool _isActive;
@@ -147,15 +146,15 @@ namespace PlexByte.MoCap.Interactions
         /// <param name="pVote">The vote to ass</param>
         public virtual void AddVote(IVote pVote)
         {
-            if (_voteList.Count(x => x.User == pVote.User) < MaxVotesPerUser)
+            if (VoteList.Count(x => x.User == pVote.User) < MaxVotesPerUser)
             {
-                _voteList.Add(pVote);
+                VoteList.Add(pVote);
                 List<InteractionAttributes> changedAttributes = new List<InteractionAttributes> {InteractionAttributes.VoteList};
                 OnModify(new InteractionEventArgs($"Survey votes changed [Id={Id}]", DateTime.Now, InteractionType.Survey));
             }
 
             // Is completed?
-            if (_voteList.Count >= (MaxVotesPerUser*UserList.Count))
+            if (VoteList.Count >= (MaxVotesPerUser*UserList.Count))
             {
                 _isActive = false;
                 ChangeState(InteractionState.Finished);
@@ -244,7 +243,7 @@ namespace PlexByte.MoCap.Interactions
             DueDateTime = default(DateTime);
             _isActive = true;
             Type = InteractionType.Survey;
-            _voteList = new List<IVote>();
+            VoteList = new List<IVote>();
             OptionList = new List<ISurveyOption>();
             _state = StartDateTime <= DateTime.Now ? InteractionState.Active : InteractionState.Queued;
             _stateTimer.Elapsed += OnTimerElapsed;
@@ -269,7 +268,7 @@ namespace PlexByte.MoCap.Interactions
                 if (StartDateTime <= DateTime.Now && _state == InteractionState.Queued)
                     ChangeState(InteractionState.Active);
                 // Finished, as all votes were made?
-                if (_voteList.Count >= UserList.Count*MaxVotesPerUser)
+                if (VoteList.Count >= UserList.Count*MaxVotesPerUser)
                     ChangeState(InteractionState.Finished);
             }
 

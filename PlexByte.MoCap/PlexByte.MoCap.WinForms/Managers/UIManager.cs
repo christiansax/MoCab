@@ -32,7 +32,7 @@ namespace PlexByte.MoCap.WinForms
     /// This class is responsible for any window that is being presented to the user 
     /// and manages its corresponding events
     /// </summary>
-    public class UIManager:IDisposable
+    public class UIManager : IDisposable
     {
         #region Properties
 
@@ -65,8 +65,8 @@ namespace PlexByte.MoCap.WinForms
         {
             _MainUI = pMainUI;
             _errorProvider = new ErrorProvider();
-            _errorProvider.BlinkStyle= ErrorBlinkStyle.BlinkIfDifferentError;
-            _objectManager=new ObjectManager();
+            _errorProvider.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
+            _objectManager = new ObjectManager();
             _objectManager.UserLoggedIn += ObjectManager_UserLoggedIn;
             _objectManager.UserLoggedOut += ObjectManager_UserLoggedOut;
         }
@@ -89,7 +89,7 @@ namespace PlexByte.MoCap.WinForms
         /// <param name="e">The event args</param>
         private void ObjectManager_UserLoggedIn(object sender, EventArgs e)
         {
-            _userContext = (User)_objectManager.UserContext;
+            _userContext = (User) _objectManager.UserContext;
             _overviewPanel.UnRegisterEvents();
             GenerateOverviewPanel();
         }
@@ -111,6 +111,8 @@ namespace PlexByte.MoCap.WinForms
 
         #region Public Methods
 
+        #region Content Panels
+
         /// <summary>
         /// Adds the user panel to the form and registers to its events
         /// </summary>
@@ -118,7 +120,7 @@ namespace PlexByte.MoCap.WinForms
         {
             DockContent tmp = CreateContentPanel(UiType.User);
             tmp.TabText = "User Dialog";
-            ((uc_User)tmp).RegisterEvents(this);
+            ((uc_User) tmp).RegisterEvents(this);
         }
 
         /// <summary>
@@ -128,7 +130,7 @@ namespace PlexByte.MoCap.WinForms
         {
             DockContent tmp = CreateContentPanel(UiType.Task);
             tmp.TabText = "Task Dialog";
-            ((uc_Task)tmp).RegisterEvents(this);
+            ((uc_Task) tmp).RegisterEvents(this);
         }
 
         /// <summary>
@@ -138,6 +140,7 @@ namespace PlexByte.MoCap.WinForms
         {
             DockContent tmp = CreateContentPanel(UiType.Survey);
             tmp.TabText = "Survey Dialog";
+            ((uc_Survey) tmp).RegisterEvents(this);
         }
 
         /// <summary>
@@ -147,7 +150,7 @@ namespace PlexByte.MoCap.WinForms
         {
             DockContent tmp = CreateContentPanel(UiType.Project);
             tmp.TabText = "Project Dialog";
-            ((uc_Project)tmp).RegisterEvents(this);
+            ((uc_Project) tmp).RegisterEvents(this);
         }
 
         /// <summary>
@@ -199,6 +202,10 @@ namespace PlexByte.MoCap.WinForms
             _overviewPanel = (uc_Overview) tmp;
         }
 
+        #endregion
+
+        #region UIEvents
+
         /// <summary>
         /// Eventlistener for the menu form. Any button event is captured here and corresponding action is executed
         /// </summary>
@@ -242,14 +249,14 @@ namespace PlexByte.MoCap.WinForms
         public void UserButtonClicked(object sender, EventArgs e)
         {
             _errorProvider.Clear();
-            List<Control> ctrls = GetAllControls(((Button)sender).Parent);
+            List<Control> ctrls = GetAllControls(((Button) sender).Parent);
             switch (((Button) sender).Name)
             {
                 case "btn_Edit":
                     UserButtonEdit(ctrls);
                     break;
                 case "btn_New":
-                    if(GetControlByName<Button>(ctrls, "btn_New").Text.ToLower()=="new")
+                    if (GetControlByName<Button>(ctrls, "btn_New").Text.ToLower() == "new")
                         UserButtonNew(ctrls);
                     else
                         UserButtonSave(ctrls);
@@ -273,8 +280,8 @@ namespace PlexByte.MoCap.WinForms
         public void TaskButtonClicked(object sender, EventArgs e)
         {
             _errorProvider.Clear();
-            List<Control> ctrls = GetAllControls(((Button)sender).Parent);
-            switch (((Button)sender).Name)
+            List<Control> ctrls = GetAllControls(((Button) sender).Parent);
+            switch (((Button) sender).Name)
             {
                 case "btn_New":
                     if (GetControlByName<Button>(ctrls, "btn_New").Text.ToLower() == "new")
@@ -293,24 +300,29 @@ namespace PlexByte.MoCap.WinForms
             }
         }
 
+        /// <summary>
+        /// This method handles gridView items being doubleclicked
+        /// </summary>
+        /// <param name="sender">The object that was clicked</param>
+        /// <param name="e">The dataGridView eventargs providing the row</param>
         public void OverviewGridviewDoubleClicked(object sender, DataGridViewCellEventArgs e)
         {
             DockContent tmp = null;
-            string clickedId = ((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value.ToString();
+            string clickedId = ((DataGridView) sender).Rows[e.RowIndex].Cells[0].Value.ToString();
             if (_objectManager.ProjectList.Any(x => x.Id == clickedId))
             {
-                tmp=_objectManager.CreateFormFromObject<IInteraction>(
+                tmp = _objectManager.CreateFormFromObject<IInteraction>(
                     (Project) _objectManager.ProjectList.First(x => x.Id == clickedId));
             }
             else if (_objectManager.TaskList.Any(x => x.Id == clickedId))
             {
-                tmp=_objectManager.CreateFormFromObject<IInteraction>(
-                    (Task)_objectManager.TaskList.First(x => x.Id == clickedId));
+                tmp = _objectManager.CreateFormFromObject<IInteraction>(
+                    (Task) _objectManager.TaskList.First(x => x.Id == clickedId));
             }
             else if (_objectManager.SurveyList.Any(x => x.Id == clickedId))
             {
-                tmp=_objectManager.CreateFormFromObject<IInteraction>(
-                    (Survey)_objectManager.SurveyList.First(x => x.Id == clickedId));
+                tmp = _objectManager.CreateFormFromObject<IInteraction>(
+                    (Survey) _objectManager.SurveyList.First(x => x.Id == clickedId));
             }
             else
             {
@@ -328,8 +340,8 @@ namespace PlexByte.MoCap.WinForms
         public void ProjectButtonClicked(object sender, EventArgs e)
         {
             _errorProvider.Clear();
-            List<Control> ctrls = GetAllControls(((Button)sender).Parent);
-            switch (((Button)sender).Name)
+            List<Control> ctrls = GetAllControls(((Button) sender).Parent);
+            switch (((Button) sender).Name)
             {
                 case "btn_Create":
                     if (GetControlByName<Button>(ctrls, "btn_Create").Text.ToLower() == "save")
@@ -350,6 +362,34 @@ namespace PlexByte.MoCap.WinForms
                     break;
             }
         }
+
+        /// <summary>
+        /// This method handles button event fired from the survey form
+        /// </summary>
+        /// <param name="sender">The button sending the event</param>
+        /// <param name="e">the event arguments</param>
+        public void SurveyButtonClicked(object sender, EventArgs e)
+        {
+            _errorProvider.Clear();
+            List<Control> ctrls = GetAllControls(((Button) sender).Parent);
+            switch (((Button) sender).Name.ToLower())
+            {
+                case "btn_createoptions":
+                    SurveyButtonOptions(ctrls);
+                    break;
+                case "btn_vote":
+                    SurveyButtonVote((uc_Survey) ((Button) sender).Parent);
+                    break;
+                case "btn_edit":
+                    SurveyButtonEdit(ctrls);
+                    break;
+                case "btn_new":
+                    SurveyButtonNew(ctrls);
+                    break;
+            }
+        }
+
+        #endregion
 
         #endregion
 
@@ -424,7 +464,7 @@ namespace PlexByte.MoCap.WinForms
         /// <returns>Control of type T specified</returns>
         private T GetControlByName<T>(Control pContainer, string pControlName)
         {
-            object control = default (T);
+            object control = default(T);
             try
             {
                 List<Control> ctrls = GetAllControls(pContainer);
@@ -433,14 +473,14 @@ namespace PlexByte.MoCap.WinForms
                     if (variable.GetType() == typeof (T))
                     {
                         if (variable.Name.ToLower() == pControlName.ToLower())
-                            return (T)(control = variable);
+                            return (T) (control = variable);
                     }
                 }
-                return (T)control;
+                return (T) control;
             }
             catch (Exception exp)
             {
-                throw new Exception($"Expection while trying to get control of type {typeof(T).Name} and name {pControlName}. Excption message= {exp.Message}");
+                throw new Exception($"Expection while trying to get control of type {typeof (T).Name} and name {pControlName}. Excption message= {exp.Message}");
             }
         }
 
@@ -459,13 +499,13 @@ namespace PlexByte.MoCap.WinForms
             {
                 foreach (var variable in pControls)
                 {
-                    if (variable.GetType() == typeof(T))
+                    if (variable.GetType() == typeof (T))
                     {
                         if (variable.Name.ToLower() == pControlName.ToLower())
-                            return (T)(control = variable);
+                            return (T) (control = variable);
                     }
                 }
-                return (T)control;
+                return (T) control;
             }
             catch (Exception exp)
             {
@@ -522,32 +562,32 @@ namespace PlexByte.MoCap.WinForms
                             "First name is not specified");
                         bError = true;
                     }
-                    if(GetControlByName<TextBox>(pControlList, "tbx_LastName").Text.Length < 1)
-                    { 
+                    if (GetControlByName<TextBox>(pControlList, "tbx_LastName").Text.Length < 1)
+                    {
                         _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_LastName"),
                             "Last name is not specified");
                         bError = true;
                     }
                     if (GetControlByName<TextBox>(pControlList, "tbx_Email").Text.Length < 1)
-                    { 
+                    {
                         _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Email"),
                             "Email is not specified");
                         bError = true;
                     }
-                    if (GetControlByName<DateTimePicker>(pControlList, "dtp_Birthdate").Value>DateTime.Now.AddYears(-18))
-                    { 
+                    if (GetControlByName<DateTimePicker>(pControlList, "dtp_Birthdate").Value > DateTime.Now.AddYears(-18))
+                    {
                         _errorProvider.SetError(GetControlByName<DateTimePicker>(pControlList, "dtp_Birthdate"),
                             "You must be 18+ to register with this service");
                         bError = true;
                     }
                     if (GetControlByName<TextBox>(pControlList, "tbx_UserName").Text.Length < 1)
-                    { 
+                    {
                         _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_UserName"),
                             "User name is not specified");
                         bError = true;
                     }
                     if (GetControlByName<MaskedTextBox>(pControlList, "tbx_Password").Text.Length < 1)
-                    { 
+                    {
                         _errorProvider.SetError(GetControlByName<MaskedTextBox>(pControlList, "tbx_Password"),
                             "Password name is not specified");
                         bError = true;
@@ -555,8 +595,8 @@ namespace PlexByte.MoCap.WinForms
 
                     if (!bError)
                     {
-                        _objectManager.UpsertUserFromForm((uc_User)pControlList[0].Parent);
-                        _userContext = (User)_objectManager.UserContext;
+                        _objectManager.UpsertUserFromForm((uc_User) pControlList[0].Parent);
+                        _userContext = (User) _objectManager.UserContext;
                     }
                     else
                     {
@@ -622,7 +662,7 @@ namespace PlexByte.MoCap.WinForms
                     GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = UserContext.CreatedDateTime;
                     GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = UserContext.ModifiedDateTime;
 
-                    DockContent tmp = (DockContent)pControlList[0].FindForm();
+                    DockContent tmp = (DockContent) pControlList[0].FindForm();
                     tmp.TabText = $"User Details ({UserContext.Username})";
 
                     _MainUI.Enabled = true;
@@ -703,7 +743,7 @@ namespace PlexByte.MoCap.WinForms
         private void TaskButtonNew(List<Control> pControlList)
         {
             // Get the form
-            uc_Task tmp = (uc_Task)pControlList[0].Parent;
+            uc_Task tmp = (uc_Task) pControlList[0].Parent;
             tmp.TaskId = tmp.TaskId;
             tmp.MainTaskId = DateTime.Now.ToString(_dateTimeIdFmt);
             // Initialize button state
@@ -739,7 +779,7 @@ namespace PlexByte.MoCap.WinForms
                         isError = true;
                         _errorProvider.SetError(GetControlByName<DateTimePicker>(pControlList, "dtp_Start"), "Start date cannot be set in the past");
                     }
-                    if  (GetControlByName<DateTimePicker>(pControlList, "dtp_End").Value < GetControlByName<DateTimePicker>(pControlList, "dtp_Start").Value.AddDays(1))
+                    if (GetControlByName<DateTimePicker>(pControlList, "dtp_End").Value < GetControlByName<DateTimePicker>(pControlList, "dtp_Start").Value.AddDays(1))
                     {
                         isError = true;
                         _errorProvider.SetError(GetControlByName<DateTimePicker>(pControlList, "dtp_End"), "End date must be at least one day ahead of start date");
@@ -759,7 +799,7 @@ namespace PlexByte.MoCap.WinForms
                         // Get the form
                         uc_Task tmp = (uc_Task) pControlList[0].Parent;
 
-                        ITask task = _objectManager.UpsertTaskFromForm((uc_Task)pControlList[0].Parent);
+                        ITask task = _objectManager.UpsertTaskFromForm((uc_Task) pControlList[0].Parent);
                         tmp.TabText = $"Task Details ({task.Id})";
                     }
                     else
@@ -795,9 +835,9 @@ namespace PlexByte.MoCap.WinForms
 
         private void TaskButtonSubTask(List<Control> pControlList)
         {
-            uc_Task tmp = (uc_Task)pControlList[0].Parent;
-            if(!string.IsNullOrEmpty(tmp.TaskId))
-            { 
+            uc_Task tmp = (uc_Task) pControlList[0].Parent;
+            if (!string.IsNullOrEmpty(tmp.TaskId))
+            {
                 uc_Task subTask = new uc_Task();
                 subTask.MainTaskId = tmp.TaskId;
                 subTask.TaskId = DateTime.Now.ToString(_dateTimeIdFmt);
@@ -857,7 +897,7 @@ namespace PlexByte.MoCap.WinForms
                 if (!bError)
                 {
                     // Get the form
-                    uc_Project tmp = (uc_Project)pControlList[0].Parent;
+                    uc_Project tmp = (uc_Project) pControlList[0].Parent;
 
                     TimeSpan _Countdown;
 
@@ -869,11 +909,11 @@ namespace PlexByte.MoCap.WinForms
                     {
                         _Countdown = GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value.Subtract(GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value);
                     }
-                    
-                    
+
+
 
                     //Create project
-                    IProject project = _objectManager.UpsertProjectFromForm((uc_Project)pControlList[0].Parent);
+                    IProject project = _objectManager.UpsertProjectFromForm((uc_Project) pControlList[0].Parent);
 
                     //Disable setting controls after project is created
                     GetControlByName<Button>(pControlList, "btn_Update").Enabled = true;
@@ -893,7 +933,7 @@ namespace PlexByte.MoCap.WinForms
             {
                 _MainUI.ShowErrorMessage($"Exception caught: {exp.Message}");
             }
-}
+        }
 
         /// <summary>
         /// This mehtod deals with the Edit button on the uc_Project form
@@ -959,7 +999,7 @@ namespace PlexByte.MoCap.WinForms
         private void ProjectButtonUpdatel(List<Control> pControlList)
         {
             // Is project loaded?
-            uc_Project tmp = (uc_Project)pControlList[0].Parent;
+            uc_Project tmp = (uc_Project) pControlList[0].Parent;
             if (!string.IsNullOrEmpty(tmp.ProjectId))
             {
                 tmp.TabText = $"Project Details ({tmp.ProjectId})";
@@ -1006,22 +1046,22 @@ namespace PlexByte.MoCap.WinForms
         private void GenerateOverviewPanel()
         {
             _objectManager.CreateUserOverview();
-            
+
             foreach (var project in _objectManager.ProjectList)
             {
                 _overviewPanel.AddAssignedProjects(project);
                 if (project.ModifiedDateTime > DateTime.Now.AddDays(-5))
-                    _overviewPanel.AddRecentlyChangedInteraction((IInteraction)project);
+                    _overviewPanel.AddRecentlyChangedInteraction((IInteraction) project);
             }
             foreach (var task in _objectManager.TaskList)
             {
-                if (((Task)task).ModifiedDateTime > DateTime.Now.AddDays(-5))
-                    _overviewPanel.AddRecentlyChangedInteraction((IInteraction)task);
+                if (((Task) task).ModifiedDateTime > DateTime.Now.AddDays(-5))
+                    _overviewPanel.AddRecentlyChangedInteraction((IInteraction) task);
             }
             foreach (var survey in _objectManager.SurveyList)
             {
-                if (((Survey)survey).ModifiedDateTime > DateTime.Now.AddDays(-5))
-                    _overviewPanel.AddRecentlyChangedInteraction((IInteraction)survey);
+                if (((Survey) survey).ModifiedDateTime > DateTime.Now.AddDays(-5))
+                    _overviewPanel.AddRecentlyChangedInteraction((IInteraction) survey);
             }
 
             _overviewPanel.RegisterEvents();
@@ -1033,12 +1073,12 @@ namespace PlexByte.MoCap.WinForms
         /// <param name="pControlList">The form controls to manipulate</param>
         private void SurveyButtonOptions(List<Control> pControlList)
         {
-            List<string> options= (from object item 
-                                   in GetControlByName<ListView>(pControlList, "lsv_VoteOverview").Items
-                                   select item.ToString()).ToList();
+            List<string> options = (from object item
+                in GetControlByName<ListView>(pControlList, "lsv_VoteOverview").Items
+                select item.ToString()).ToList();
 
             frm_CreateOptions tmp = new frm_CreateOptions(options);
-            if (tmp.DialogResult == DialogResult.OK)
+            if (tmp.ShowDialog() == DialogResult.OK)
             {
                 GetControlByName<ListView>(pControlList, "lsv_VoteOverview").Items.Clear();
                 foreach (var option in tmp.SurveyOptions)
@@ -1061,7 +1101,7 @@ namespace PlexByte.MoCap.WinForms
             }
             catch (Exception exp)
             {
-               _MainUI.ShowErrorMessage(exp.Message);
+                _MainUI.ShowErrorMessage(exp.Message);
             }
         }
 
@@ -1074,17 +1114,31 @@ namespace PlexByte.MoCap.WinForms
             if (GetControlByName<Button>(pControlList, "btn_New").Text.ToLower() == "new")
             {
                 ((uc_Survey) pControlList[0].Parent).Id = DateTime.Now.ToString(_dateTimeIdFmt);
+                ((uc_Survey)pControlList[0].Parent).Id = DateTime.Now.AddMilliseconds(10).ToString(_dateTimeIdFmt);
+                GetControlByName<TextBox>(pControlList, "tbx_CreatedBy").Text = UserContext.Username;
+                GetControlByName<TextBox>(pControlList, "tbx_ModifiedBy").Text = UserContext.Username;
+                GetControlByName<DateTimePicker>(pControlList, "dtp_CreatedAt").Value = DateTime.Now;
+                GetControlByName<DateTimePicker>(pControlList, "dtp_ModifiedAt").Value = DateTime.Now;
+                GetControlByName<TextBox>(pControlList, "tbx_SurveyVoteCount").Text = "0";
+                GetControlByName<TextBox>(pControlList, "tbx_VotesPerUser").Text = "1";
                 GetControlByName<GroupBox>(pControlList, "groupBox2").Enabled = true;
                 GetControlByName<GroupBox>(pControlList, "groupBox3").Enabled = false;
                 GetControlByName<Button>(pControlList, "btn_New").Text = "Save";
+                GetControlByName<Button>(pControlList, "btn_Edit").Visible = false;
             }
             else
             {
                 GetControlByName<Button>(pControlList, "btn_New").Text = "New";
                 GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
                 _objectManager.UpsertSurveyFromForm((uc_Survey) pControlList[0].Parent);
+                ISurvey tmp = _objectManager.SurveyList.First(x => x.Id == ((uc_Survey) pControlList[0].Parent).Id);
+                foreach (var option in tmp.OptionList)
+                {
+                    ((uc_Survey)pControlList[0].Parent).AddVoteOptions(option.Text);
+                }
                 GetControlByName<GroupBox>(pControlList, "groupBox2").Enabled = false;
                 GetControlByName<GroupBox>(pControlList, "groupBox3").Enabled = true;
+                GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
             }
         }
 
@@ -1101,31 +1155,5 @@ namespace PlexByte.MoCap.WinForms
         }
 
         #endregion
-
-        /// <summary>
-        /// This method handles button event fired from the survey form
-        /// </summary>
-        /// <param name="sender">The button sending the event</param>
-        /// <param name="e">the event arguments</param>
-        public void SurveyButtonClicked(object sender, EventArgs e)
-        {
-            _errorProvider.Clear();
-            List<Control> ctrls = GetAllControls(((Button)sender).Parent);
-            switch (((Button)sender).Name.ToLower())
-            {
-                case "btn_CreateOptions":
-                    SurveyButtonOptions(ctrls);
-                    break;
-                case "btn_Vote":
-                    SurveyButtonVote((uc_Survey)((Button) sender).Parent);
-                    break;
-                case "btn_Edit":
-                    SurveyButtonEdit(ctrls);
-                    break;
-                case "btn_New":
-                    SurveyButtonNew(ctrls);
-                    break;
-            }
-        }
     }
 }

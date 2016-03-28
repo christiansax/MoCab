@@ -16,11 +16,13 @@ namespace PlexByte.MoCap.Interactions
 
         string ProjectId { get; set; }
 
+        string Title { get; set; }
+
         DateTime DueDateTime { get; set; }
 
         List<ISurveyOption> OptionList { get; set; }
 
-        List<IVote> VoteList { get; }
+        List<IVote> VoteList { get; set; }
 
         int MaxVotesPerUser { get; set; }
         List<IUser> UserList { get; set; }

@@ -317,7 +317,7 @@ namespace PlexByte.MoCap.Managers
             DockContent tmp = CreateContentPanel(UiType.Project);
             tmp.TabText = $"Project Dialog ({pInstance.Id})";
             List<Control> ctrl = GetAllControls(tmp);
-
+           
             Project t = (Project)pInstance;
             TimeSpan _Countdown;
 
@@ -352,6 +352,7 @@ namespace PlexByte.MoCap.Managers
             GetControlByName<Button>(ctrl, "btn_Create").Enabled = true;
             GetControlByName<Button>(ctrl, "btn_Create").Text = "Edit";
 
+            
             t = null;
             ctrl.Clear();
             ctrl = null;

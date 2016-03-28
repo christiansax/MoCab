@@ -353,7 +353,7 @@ namespace PlexByte.MoCap.Managers
             Project tmp = (Project)CreateObjectFromForm<IProject>(pForm);
 
             // Is user in list?
-            if (TaskList.Any(x => String.Equals(x.Id,
+            if (ProjectList.Any(x => String.Equals(x.Id,
                 tmp.Id,
                 StringComparison.CurrentCultureIgnoreCase)))
             {
@@ -452,14 +452,60 @@ namespace PlexByte.MoCap.Managers
             */
         }
 
-        public IExpense UpsertExpenseFromForm(frm_TaskUpdateProgress pForm) { return default(IExpense); }
+        /// <summary>
+        /// This method updated or insert a expense object created from the form in the DB
+        /// </summary>
+        /// <param name="pForm"></param>
+        /// <returns></returns>
+        public IExpense UpsertExpenseFromForm(frm_TaskUpdateProgress pForm)
+        {
+            //Expense tmp = (Expense)CreateObjectFromForm<IExpense>(pForm);
 
-        public ITimeslice UpsertTimesliceFromForm(frm_TaskUpdateProgress pForm) { return default(ITimeslice); }
+            //// Is user in list?
+            //if (ExpenseList.Any(x => String.Equals(x.Id,
+            //    tmp.Id,
+            //    StringComparison.CurrentCultureIgnoreCase)))
+            //{
+            //    ExpenseList[ExpenseList.FindIndex(x => x.Id == tmp.Id)] = tmp;
+            //    _dataManager.UpsertExpense(tmp);
+            //}
+            //else
+            //{
+            //    ExpenseList.Add(tmp);
+            //    _dataManager.UpsertExpense(tmp);
+            //}
+            return default(IExpense);
+        }
 
         /// <summary>
-        /// The event handler for the Refresh event. This event fires whenever the updateTimer elapses
+        /// This method updated or insert a timeslice object created from the form in the DB
         /// </summary>
-        /// <param name="e">The eventarguments</param>
+        /// <param name="pForm"></param>
+        /// <returns></returns>
+        public ITimeslice UpsertTimesliceFromForm(frm_TaskUpdateProgress pForm)
+        {
+            //Timeslice tmp = (Timeslice)CreateObjectFromForm<ITimeslice>(pForm);
+
+            //// Is user in list?
+            //if (TimesliceList.Any(x => String.Equals(x.Id,
+            //    tmp.Id,
+            //    StringComparison.CurrentCultureIgnoreCase)))
+            //{
+            //    TimesliceList[TimesliceList.FindIndex(x => x.Id == tmp.Id)] = tmp;
+            //    _dataManager.UpsertTimeslice(tmp);
+            //}
+            //else
+            //{
+            //    TimesliceList.Add(tmp);
+            //    _dataManager.UpsertTimeslice(tmp);
+            //}
+                return default(ITimeslice);
+        }
+
+            /// <summary>
+            /// The event handler for the Refresh event. This event fires whenever the updateTimer elapses
+            /// </summary>
+            /// <param name="e">The eventarguments</param>
         public virtual void OnRefreshTimerElapsed(EventArgs e) { RefreshTimerElapsed?.Invoke(this, e); }
 
         /// <summary>

@@ -191,12 +191,6 @@ namespace PlexByte.MoCap.WinForms
             _overviewPanel = (uc_Overview) tmp;
         }
 
-        public DateTime LastUserLogin()
-        {
-            // return _dataManager.GetLastUserLogin(UserContext.Id); 
-            return DateTime.Now;
-        }
-
         /// <summary>
         /// Eventlistener for the menu form. Any button event is captured here and corresponding action is executed
         /// </summary>

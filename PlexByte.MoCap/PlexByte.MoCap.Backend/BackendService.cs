@@ -267,11 +267,8 @@ namespace PlexByte.MoCap.Backend
         /// <returns>DataTable containing all expenses</returns>
         public DataTable GetExpenseByProjectId(string pId)
         {
-            return ExecuteQueryString($"select ProjectId, ExpenseId, TaskId, ExpUserName, ExpDescription, Value, CreatedDateTime " +
-                                   $"from View_Accounting where [ProjectId] = '{pId}') and ExpenseId is not null AND IsActive = 1 order by ProjectId");
+            return ExecuteQueryString($"select * from [View_Expenses] where [ProjectId] = '{pId}' order by ProjectId");
         }
-
-        //public DataTable GetChangedInteractionsForUser()
 
         /// <summary>
         /// This method returns all timeslices for the user or projectId specified
@@ -282,8 +279,7 @@ namespace PlexByte.MoCap.Backend
         /// <returns></returns>
         public DataTable GetTimeSliceByProjectId(string pId)
         {
-            return ExecuteQueryString($"select ProjectId, TimesliceId, TaskId, TsUserName, TsDescription, Duration, CreatedDateTime " +
-                                   $"from View_Accounting where [ProjectId] = '{pId}') and TimesliceId is not null AND IsActive = 1 order by ProjectId");
+            return ExecuteQueryString($"select * from [View_Timeslice] where [ProjectId] = '{pId}' order by ProjectId");
         }
 
         /// <summary>

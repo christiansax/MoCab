@@ -33,15 +33,15 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupbox2 = new System.Windows.Forms.GroupBox();
             this.dgw_Project = new System.Windows.Forms.DataGridView();
+            this.ProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InteractionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.State = new System.Windows.Forms.DataGridViewImageColumn();
+            this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ModifiedDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_Recent)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupbox2.SuspendLayout();
@@ -61,7 +61,7 @@
             this.ModifiedDateTime});
             this.dgw_Recent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgw_Recent.Location = new System.Drawing.Point(3, 16);
-            this.dgw_Recent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgw_Recent.Margin = new System.Windows.Forms.Padding(2);
             this.dgw_Recent.MultiSelect = false;
             this.dgw_Recent.Name = "dgw_Recent";
             this.dgw_Recent.ReadOnly = true;
@@ -113,6 +113,35 @@
             this.dgw_Project.Size = new System.Drawing.Size(509, 203);
             this.dgw_Project.TabIndex = 0;
             // 
+            // ProjectName
+            // 
+            this.ProjectName.HeaderText = "Id";
+            this.ProjectName.Name = "ProjectName";
+            this.ProjectName.ReadOnly = true;
+            this.ProjectName.Width = 20;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 150;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "State";
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewImageColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Modified";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
             // Id
             // 
             this.Id.HeaderText = "Id";
@@ -139,6 +168,8 @@
             this.State.HeaderText = "State";
             this.State.Name = "State";
             this.State.ReadOnly = true;
+            this.State.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.State.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.State.Width = 50;
             // 
             // ModifiedDateTime
@@ -146,33 +177,6 @@
             this.ModifiedDateTime.HeaderText = "Modified";
             this.ModifiedDateTime.Name = "ModifiedDateTime";
             this.ModifiedDateTime.ReadOnly = true;
-            // 
-            // ProjectName
-            // 
-            this.ProjectName.HeaderText = "Id";
-            this.ProjectName.Name = "ProjectName";
-            this.ProjectName.ReadOnly = true;
-            this.ProjectName.Width = 20;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 150;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "State";
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Modified";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // uc_Overview
             // 
@@ -185,7 +189,7 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "uc_Overview";
             ((System.ComponentModel.ISupportInitialize)(this.dgw_Recent)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -198,17 +202,17 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgw_Recent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InteractionName;
-        private System.Windows.Forms.DataGridViewImageColumn State;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ModifiedDateTime;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupbox2;
         private System.Windows.Forms.DataGridView dgw_Project;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProjectName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InteractionName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn State;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ModifiedDateTime;
     }
 }

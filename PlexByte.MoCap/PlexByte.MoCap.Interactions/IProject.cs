@@ -29,9 +29,9 @@ namespace PlexByte.MoCap.Interactions
 
         string Id { get; }
 
-        DateTime CreatedDateTIme { get; set; }
+        DateTime CreatedDateTime { get; }
 
-        DateTime ModifiedDateTIme { get; set; }
+        DateTime ModifiedDateTime { get; }
 
         bool EnableBalance { get; }
 

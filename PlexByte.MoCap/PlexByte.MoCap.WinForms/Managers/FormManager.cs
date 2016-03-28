@@ -232,19 +232,23 @@ namespace PlexByte.MoCap.Managers
             return obj;
         }
 
+        /// <summary>
+        /// This method created a project from the form given
+        /// </summary>
+        /// <param name="pInstance"></param>
+        /// <returns></returns>
         private IProject CreatePojectFromForm(DockContent pInstance)
         {
             List<Control> ctrl = GetAllControls(pInstance);
-            string _ProjectId = null;
+            uc_Project tmp = (uc_Project)pInstance;
 
-            // Initialize default values for controls
-            if (GetControlByName<Button>(ctrl, "btn_Create").Text.ToLower() == "create")
+            //Initialize default values for controls
+            if (string.IsNullOrEmpty(tmp.ProjectId))
             {
-                _ProjectId = DateTime.Now.ToString(DateStringFormatId);
-                GetControlByName<TextBox>(ctrl, "tbx_Owner").Text = _objectManager.UserContext.Username;
+                tmp.ProjectId = DateTime.Now.ToString(DateStringFormatId);
             }
 
-            IProject obj = _interactionFactory.CreateProject(_ProjectId,
+            IProject obj = _interactionFactory.CreateProject(tmp.ProjectId,
                 GetControlByName<TextBox>(ctrl, "tbx_Title").Text + ";" + GetControlByName<TextBox>(ctrl, "tbx_Description").Text,
                 Convert.ToBoolean(GetControlByName<CheckBox>(ctrl, "cbx_EnableBalance").CheckState),
                 Convert.ToBoolean(GetControlByName<CheckBox>(ctrl, "cbx_EnableSurvey").CheckState),
@@ -297,6 +301,7 @@ namespace PlexByte.MoCap.Managers
         private DockContent CreateProjectForm(IProject pInstance)
         {
             _errorProvider.Clear();
+            uc_Project temp = (uc_Project)pInstance;
             DockContent tmp = CreateContentPanel(UiType.Project);
             tmp.TabText = $"Project Dialog ({pInstance.Id})";
             List<Control> ctrl = GetAllControls(tmp);
@@ -313,6 +318,7 @@ namespace PlexByte.MoCap.Managers
                 _Countdown = t.EndDateTime.Subtract(t.StartDateTime);
             }
 
+            temp.ProjectId = t.Id;
             GetControlByName<TextBox>(ctrl, "tbx_Title").Text = t.Name;
             GetControlByName<TextBox>(ctrl, "tbx_Description").Text = t.Text;
             if (t.EnableBalance == true)
@@ -323,7 +329,7 @@ namespace PlexByte.MoCap.Managers
                 GetControlByName<CheckBox>(ctrl, "cbx_EnableSurvey").CheckState = CheckState.Checked;
             else
                 GetControlByName<CheckBox>(ctrl, "cbx_EnableSurvey").CheckState = CheckState.Unchecked;
-            GetControlByName<Label>(ctrl, "lbl_Countdown").Text = String.Format($"{_Countdown.TotalDays}d:{_Countdown.Hours}h:{_Countdown.Minutes}min");
+            GetControlByName<Label>(ctrl, "lbl_Countdown").Text = String.Format($"{Convert.ToInt32(_Countdown.TotalDays)}d:{_Countdown.Hours}h:{_Countdown.Minutes}min");
             GetControlByName<DateTimePicker>(ctrl, "dtp_StartDate").Value = t.StartDateTime;
             GetControlByName<DateTimePicker>(ctrl, "dtp_EndDate").Value = t.EndDateTime;
             GetControlByName<TextBox>(ctrl, "tbx_CreatedBy").Text = t.Creator.Username;

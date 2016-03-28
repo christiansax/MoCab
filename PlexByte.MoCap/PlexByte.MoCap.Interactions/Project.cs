@@ -87,34 +87,14 @@ namespace PlexByte.MoCap.Interactions
         /// In this list are all members of a project
         /// </summary>
         public List<IUser> MemberList { get; private set; }
-
+        /// <summary>
+        /// The name of the project
+        /// </summary>
         public string Name { get; private set; }
-
-        public DateTime CreatedDateTIme
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public DateTime ModifiedDateTIme
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        /// <summary>
+        /// The time 
+        /// </summary>
+        
 
         #endregion
 

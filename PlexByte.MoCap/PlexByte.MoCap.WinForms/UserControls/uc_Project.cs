@@ -5,6 +5,8 @@ namespace PlexByte.MoCap.WinForms.UserControls
 {
     public partial class uc_Project : DockContent
     {
+        public string ProjectId { get; set; }
+
         private const string PanelTitle = "Project Details";
 
         public uc_Project()

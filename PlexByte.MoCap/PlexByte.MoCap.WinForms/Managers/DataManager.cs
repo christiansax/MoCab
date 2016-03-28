@@ -75,8 +75,8 @@ namespace PlexByte.MoCap.Managers
                     null,
                     null,
                     record.Rows[0]["Name"].ToString());
-                record = null;
                 ((Project) project).Name = record.Rows[0]["Name"].ToString();
+                record = null;
                 return project;
             }
             else

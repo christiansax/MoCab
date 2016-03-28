@@ -284,16 +284,41 @@ namespace PlexByte.MoCap.Managers
             return obj;
         }
 
+        /// <summary>
+        /// This method creates a survey from the form inputs
+        /// </summary>
+        /// <param name="pForm">The form containing the values</param>
+        /// <returns>ISurvey created based on the form values</returns>
         private ISurvey CreateSurveyFromForm(uc_Survey pForm)
         {
             List<Control> ctrl = GetAllControls(pForm);
+
+            _errorProvider.Clear();
+            if(GetControlByName<TextBox>(ctrl, "tbx_SurveyTitle").Text.Length<2)
+                _errorProvider.SetError(GetControlByName<TextBox>(ctrl, "tbx_SurveyTitle"), "You need to set a title");
+            if (GetControlByName<DateTimePicker>(ctrl, "dtp_DueDate").Value<= GetControlByName<DateTimePicker>(ctrl, "dtp_End").Value
+                && GetControlByName<DateTimePicker>(ctrl, "dtp_DueDate").Value <= GetControlByName<DateTimePicker>(ctrl, "dtp_Start").Value)
+                _errorProvider.SetError(GetControlByName<DateTimePicker>(ctrl, "dtp_DueDate"), "Due date must be set between Start and End date time");
+
             List<ISurveyOption> options = (from ListViewItem lvi in GetControlByName<ListView>(ctrl, "lv_Otions").Items
                 select _objectFactory.CreateSurveyOption(DateTime.Now.ToString(DateStringFormatId),
                     lvi.Text)).ToList();
-            ISurvey obj = _interactionFactory.CreateSurvey(pForm.Id,
+            Survey obj = (Survey) _interactionFactory.CreateSurvey(pForm.Id,
                 GetControlByName<TextBox>(ctrl, "tbx_SurveyTitle").Text,
                 options,
-                _objectManager.UserContext);
+                _objectManager.GetObjectById<IUser>(GetControlByName<TextBox>(ctrl, "tbx_CreatedBy").Text),
+                GetControlByName<DateTimePicker>(ctrl, "dtp_Start").Value,
+                GetControlByName<DateTimePicker>(ctrl, "dtp_End").Value,
+                GetControlByName<DateTimePicker>(ctrl, "dtp_DueDate").Value,
+                Convert.ToInt32(GetControlByName<NumericUpDown>(ctrl, "num_VotesPerUser").Value),
+                GetControlByName<TextBox>(ctrl, "tbx_SurveyTitle").Text,
+                _objectManager.ComputeState(DateTime.Now,
+                    GetControlByName<DateTimePicker>(ctrl, "dtp_Start").Value,
+                    GetControlByName<DateTimePicker>(ctrl, "dtp_End").Value,
+                    GetControlByName<DateTimePicker>(ctrl, "dtp_DueDate").Value),
+                new List<IVote>());
+            obj.InteractionId = ((uc_Survey) ctrl[0].Parent).InteractionId;
+            obj.ProjectId = ((uc_Survey) ctrl[0].Parent).ProjectId;
             options.Clear();
             ctrl.Clear();
             ctrl = null;
@@ -428,6 +453,11 @@ namespace PlexByte.MoCap.Managers
                 GetControlByName<ListView>(ctrls, "lsv_VoteOverview").Items.Add($"1. {x.Name.Text} ({x.Count} Votes)");
             }
 
+            foreach (var project in _objectManager.ProjectList)
+            {
+                GetControlByName<TextBox>(ctrls, "tbx_SurveyTitle").Text
+            }
+
             GetControlByName<TextBox>(ctrls, "tbx_SurveyTitle").Text = t.Text;
             GetControlByName<TextBox>(ctrls, "tbx_SurveyVoteCount").Text = t.VoteList.Count.ToString();
             GetControlByName<TextBox>(ctrls, "tbx_State").Text = t.State.ToString();
@@ -435,8 +465,7 @@ namespace PlexByte.MoCap.Managers
             GetControlByName<DateTimePicker>(ctrls, "dtp_Start").Value = t.StartDateTime;
             GetControlByName<DateTimePicker>(ctrls, "dtp_End").Value = t.EndDateTime;
             GetControlByName<TextBox>(ctrls, "tbx_Description").Text = t.Text;
-            GetControlByName<TextBox>(ctrls, "tbx_VotesPerUser").Text = t.MaxVotesPerUser.ToString();
-            GetControlByName<TextBox>(ctrls, "tbx_LastVoteBy").Text = t.VoteList.Max().User.Username;
+            GetControlByName<NumericUpDown>(ctrls, "tbx_VotesPerUser").Value = t.MaxVotesPerUser;
             GetControlByName<TextBox>(ctrls, "tbx_CreatedBy").Text = t.Creator.Username;
             GetControlByName<TextBox>(ctrls, "tbx_ModifiedBy").Text = t.VoteList.Max().User.Username;
             GetControlByName<DateTimePicker>(ctrls, "dtp_CreatedAt").Value = t.CreatedDateTime;

@@ -10,6 +10,8 @@ namespace PlexByte.MoCap.WinForms.UserControls
     {
         public string Id { get; set; }
         public string InteractionId { get; set; }
+        public string ProjectId { get; set; }
+
         private const string PanelTitle = "Survey Details";
 
         public uc_Survey()
@@ -18,11 +20,14 @@ namespace PlexByte.MoCap.WinForms.UserControls
             this.TabText = PanelTitle;
         }
 
+        public void AddVoteOptions(string pOption) { lv_Otions.Items.Add(pOption); }
+
         public void RegisterEvents(UIManager pEventHandler)
         {
             btn_CreateOptions.Click += pEventHandler.SurveyButtonClicked;
             btn_Edit.Click += pEventHandler.SurveyButtonClicked;
             btn_New.Click += pEventHandler.SurveyButtonClicked;
+            btn_Vote.Click += pEventHandler.SurveyButtonClicked;
         }
 
         public void UnRegisterEvents(UIManager pEventHandler)
@@ -30,6 +35,12 @@ namespace PlexByte.MoCap.WinForms.UserControls
             btn_CreateOptions.Click -= pEventHandler.SurveyButtonClicked;
             btn_Edit.Click -= pEventHandler.SurveyButtonClicked;
             btn_New.Click -= pEventHandler.SurveyButtonClicked;
+            btn_Vote.Click -= pEventHandler.SurveyButtonClicked;
+        }
+
+        private void cbx_Project_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            ProjectId = cbx_Project.Text;
         }
     }
 }

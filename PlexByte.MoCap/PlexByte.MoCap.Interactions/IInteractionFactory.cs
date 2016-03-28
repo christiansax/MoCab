@@ -31,7 +31,15 @@ namespace PlexByte.MoCap.Interactions
             int pProgress);
 
 
-        ISurvey CreateSurvey(string pId, string pText, List<ISurveyOption> pOptions, IUser pCreator);
+        ISurvey CreateSurvey(string pId, string pText, List<ISurveyOption> pOptions, 
+            IUser pCreator,
+            DateTime pStartDT,
+            DateTime pEndDT,
+            DateTime pDueDT,
+            int pVotesPerUser,
+            string pTitle,
+            InteractionState pState,
+            List<IVote> pVotes);
 
         ISurvey CreateSurvey(string pId, string pText, List<string> pOptions, IUser pCreator);
 

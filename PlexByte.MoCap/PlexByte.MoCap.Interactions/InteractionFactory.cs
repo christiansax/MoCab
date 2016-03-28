@@ -101,10 +101,25 @@ namespace PlexByte.MoCap.Interactions
                 pProgress));
         }
 
-        public virtual ISurvey CreateSurvey(string pId, string pText, List<ISurveyOption> pOptions, IUser pCreator)
+        public virtual ISurvey CreateSurvey(string pId, string pText, List<ISurveyOption> pOptions,
+            IUser pCreator,
+            DateTime pStartDT,
+            DateTime pEndDT,
+            DateTime pDueDT,
+            int pVotesPerUser,
+            string pTitle,
+            InteractionState pState,
+            List<IVote> pVotes)
         {
             if (string.IsNullOrEmpty(pId))
                 pId = GenericHelper.GenerateId();
+            Survey survey = new Survey(pId, pText, pOptions, pCreator);
+            survey.StartDateTime = pStartDT;
+            survey.EndDateTime = pEndDT;
+            survey.DueDateTime = pDueDT;
+            survey.MaxVotesPerUser = pVotesPerUser;
+            survey.Title = pTitle;
+            survey.VoteList = pVotes;
             return (new Survey(pId, pText, pOptions, pCreator));
         }
 

@@ -519,6 +519,26 @@ namespace PlexByte.MoCap.Managers
                 InitializeObjects();
         }
 
+        /// <summary>
+        /// This method returns the state comparing the dateTime values given
+        /// </summary>
+        /// <param name="pReference">The dateTime which denotes the reference to compare against</param>
+        /// <param name="pStart">The dateTime this interaction starts</param>
+        /// <param name="pEnd">The dateTime this interaction ends</param>
+        /// <param name="pDue">The dateTIme this interaction is due</param>
+        /// <returns>The interactionState computed for this item</returns>
+        public InteractionState ComputeState(DateTime pReference, DateTime pStart, DateTime pEnd, DateTime pDue)
+        {
+            InteractionState tmp = InteractionState.Active;
+            if(pStart>pReference)
+                tmp=InteractionState.Queued;
+            else if(pDue<=pReference)
+                tmp=InteractionState.Expired;
+            else if(pReference<pDue&&pReference<=pEnd)
+                tmp=InteractionState.Finished;
+            return tmp;
+        }
+
         #endregion
 
         #region Private Methods

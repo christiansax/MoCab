@@ -10,6 +10,7 @@ CREATE TABLE [dbo].[Survey]
     [TaskId] BIGINT NULL, 
     [CreatedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
     [ModifiedDateTime] DATETIME NOT NULL DEFAULT GETDATE(), 
+    [Title] NVARCHAR(250) NOT NULL, 
     CONSTRAINT [FK_Survey_Task] FOREIGN KEY ([TaskId]) REFERENCES [Task]([Id]), 
     CONSTRAINT [FK_Survey_Interaction] FOREIGN KEY ([InteractionId]) REFERENCES [Interaction]([Id]), 
     CONSTRAINT [PK_Survey] PRIMARY KEY ([Id]) 

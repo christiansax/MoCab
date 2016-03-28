@@ -17,6 +17,7 @@ namespace PlexByte.MoCap.WinForms.CustomForms
         public frm_CreateOptions(List<string> pOptionItems)
         {
             InitializeComponent();
+            SurveyOptions = new List<string>();
             if (pOptionItems.Count > 0)
             {
                 foreach (var option in pOptionItems)

@@ -1027,6 +1027,105 @@ namespace PlexByte.MoCap.WinForms
             _overviewPanel.RegisterEvents();
         }
 
+        /// <summary>
+        /// This method handles button surveyOptions click
+        /// </summary>
+        /// <param name="pControlList">The form controls to manipulate</param>
+        private void SurveyButtonOptions(List<Control> pControlList)
+        {
+            List<string> options= (from object item 
+                                   in GetControlByName<ListView>(pControlList, "lsv_VoteOverview").Items
+                                   select item.ToString()).ToList();
+
+            frm_CreateOptions tmp = new frm_CreateOptions(options);
+            if (tmp.DialogResult == DialogResult.OK)
+            {
+                GetControlByName<ListView>(pControlList, "lsv_VoteOverview").Items.Clear();
+                foreach (var option in tmp.SurveyOptions)
+                {
+                    GetControlByName<ListView>(pControlList, "lsv_VoteOverview").Items.Add(option);
+                }
+            }
+            tmp = null;
+        }
+
+        /// <summary>
+        /// This method handles button edit click
+        /// </summary>
+        /// <param name="pForm">The form to manipulate</param>
+        private void SurveyButtonVote(uc_Survey pForm)
+        {
+            try
+            {
+                _objectManager.UpsertVoteFromForm(pForm);
+            }
+            catch (Exception exp)
+            {
+               _MainUI.ShowErrorMessage(exp.Message);
+            }
+        }
+
+        /// <summary>
+        /// This method handles button new click
+        /// </summary>
+        /// <param name="pControlList">The form control to manipulate</param>
+        private void SurveyButtonNew(List<Control> pControlList)
+        {
+            if (GetControlByName<Button>(pControlList, "btn_New").Text.ToLower() == "new")
+            {
+                ((uc_Survey) pControlList[0].Parent).Id = DateTime.Now.ToString(_dateTimeIdFmt);
+                GetControlByName<GroupBox>(pControlList, "groupBox2").Enabled = true;
+                GetControlByName<GroupBox>(pControlList, "groupBox3").Enabled = false;
+                GetControlByName<Button>(pControlList, "btn_New").Text = "Save";
+            }
+            else
+            {
+                GetControlByName<Button>(pControlList, "btn_New").Text = "New";
+                GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
+                _objectManager.UpsertSurveyFromForm((uc_Survey) pControlList[0].Parent);
+                GetControlByName<GroupBox>(pControlList, "groupBox2").Enabled = false;
+                GetControlByName<GroupBox>(pControlList, "groupBox3").Enabled = true;
+            }
+        }
+
+        /// <summary>
+        /// This method handles button edit click
+        /// </summary>
+        /// <param name="pControlList">The form control to manipulate</param>
+        private void SurveyButtonEdit(List<Control> pControlList)
+        {
+            GetControlByName<GroupBox>(pControlList, "groupBox2").Enabled = true;
+            GetControlByName<GroupBox>(pControlList, "groupBox3").Enabled = false;
+            GetControlByName<Button>(pControlList, "btn_New").Text = "Save";
+            GetControlByName<Button>(pControlList, "btn_Edit").Visible = false;
+        }
+
         #endregion
+
+        /// <summary>
+        /// This method handles button event fired from the survey form
+        /// </summary>
+        /// <param name="sender">The button sending the event</param>
+        /// <param name="e">the event arguments</param>
+        public void SurveyButtonClicked(object sender, EventArgs e)
+        {
+            _errorProvider.Clear();
+            List<Control> ctrls = GetAllControls(((Button)sender).Parent);
+            switch (((Button)sender).Name.ToLower())
+            {
+                case "btn_CreateOptions":
+                    SurveyButtonOptions(ctrls);
+                    break;
+                case "btn_Vote":
+                    SurveyButtonVote((uc_Survey)((Button) sender).Parent);
+                    break;
+                case "btn_Edit":
+                    SurveyButtonEdit(ctrls);
+                    break;
+                case "btn_New":
+                    SurveyButtonNew(ctrls);
+                    break;
+            }
+        }
     }
 }

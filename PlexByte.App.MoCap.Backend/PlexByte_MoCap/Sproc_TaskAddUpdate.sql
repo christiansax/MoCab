@@ -15,6 +15,7 @@ CREATE PROCEDURE [dbo].[Sproc_TaskAddUpdate]
 	@EndDateTime AS DATETIME,
     @IsActive AS BIT,
     @Text AS NVARCHAR(MAX),
+	@Title AS NVARCHAR(250),
     @CreatorId AS BIGINT,
     @OwnerId AS BIGINT,
     @StateId AS BIGINT,
@@ -38,9 +39,9 @@ AS
 						VALUES					(@Id, @StartDateTime, @EndDateTime, @IsActive, @Text, 2, @CreatorId, 
 												@OwnerId, @StateId, GETDATE(), GETDATE())
 				
-				INSERT INTO [dbo].[Task]		([Id], [DueDateTime], [Budget], [Duration], [Priority], [Progress], [DurationUsed],
+				INSERT INTO [dbo].[Task]		([Id], [Title], [DueDateTime], [Budget], [Duration], [Priority], [Progress], [DurationUsed],
 												[BudgetUsed], [CreatedDateTime], [ModifiedDateTime], [InteractionId])
-						VALUES					(@TaskId, @DueDateTime, @Budget, @Duration, @Priority, @Progress, @DurationUsed,
+						VALUES					(@TaskId, @Title, @DueDateTime, @Budget, @Duration, @Priority, @Progress, @DurationUsed,
 												@BudgetUsed, GETDATE(), GETDATE(), @Id)
 
 				IF (@ProjectId>0)
@@ -84,6 +85,7 @@ AS
 
 				UPDATE [dbo].[Task]
 				   SET [DueDateTime] = @DueDateTime,
+					   [Title] = @Title,
 					   [Budget] = @Budget,
 					   [Duration] = @Duration,
 					   [Priority] = @Priority,

@@ -66,6 +66,26 @@ namespace PlexByte.MoCap.WinForms
             _errorProvider = new ErrorProvider();
             _errorProvider.BlinkStyle= ErrorBlinkStyle.BlinkIfDifferentError;
             _objectManager=new ObjectManager();
+            _objectManager.UserLoggedIn += ObjectManager_UserLoggedIn;
+            _objectManager.UserLoggedOut += ObjectManager_UserLoggedOut;
+        }
+
+        /// <summary>
+        /// This method is the event handler for the userLoggedIn event raised by objectManager
+        /// </summary>
+        /// <param name="sender">the user that logged in</param>
+        /// <param name="e">The event arguments</param>
+        private void ObjectManager_UserLoggedOut(object sender, EventArgs e) { _userContext = null; }
+
+        /// <summary>
+        /// This method is the event handler for the userLoggedOut event raised by objectManager
+        /// </summary>
+        /// <param name="sender">The user raising the event</param>
+        /// <param name="e">The event args</param>
+        private void ObjectManager_UserLoggedIn(object sender, EventArgs e)
+        {
+            _userContext = (User)_objectManager.UserContext;
+            GenerateOverviewPanel();
         }
 
         /// <summary>
@@ -552,8 +572,6 @@ namespace PlexByte.MoCap.WinForms
                 {
                     _MainUI.Enabled = false;
                     _objectManager.LoginUser(sUserName, sPassword);
-                    _userContext = (User)_objectManager.UserContext;
-                    GenerateOverviewPanel();
                     _MainUI.Enabled = true;
                     GetControlByName<Button>(pControlList, "btn_Login").Text = "Logout";
                     GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
@@ -948,6 +966,8 @@ namespace PlexByte.MoCap.WinForms
 
         private void GenerateOverviewPanel()
         {
+            _objectManager.CreateUserOverview();
+            
             foreach (var project in _objectManager.ProjectList)
             {
                 _overviewPanel.AddAssignedProjects(project);

@@ -38,6 +38,12 @@ namespace PlexByte.MoCap.Managers
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event params</param>
         public delegate void ObjectChangingEventHandler(object sender, EventArgs e);
+        /// <summary>
+        /// This delegate is used for the log in and out event
+        /// </summary>
+        /// <param name="sender">The user performing the login / logout</param>
+        /// <param name="e">The event args</param>
+        public delegate void UserSessionEventHandler(object sender, EventArgs e);
 
         /// <summary>
         /// The RefreshTimerElapsed event
@@ -47,6 +53,14 @@ namespace PlexByte.MoCap.Managers
         /// The Object changed event
         /// </summary>
         public event ObjectChangingEventHandler ObjectChanged;
+        /// <summary>
+        /// This event is fired whenever a user is logging in
+        /// </summary>
+        public event UserSessionEventHandler UserLoggedIn;
+        /// <summary>
+        /// This event is fired whenever a user logs out
+        /// </summary>
+        public event UserSessionEventHandler UserLoggedOut;
 
         #endregion
 
@@ -288,7 +302,7 @@ namespace PlexByte.MoCap.Managers
                 if (user.Password == CryptoHelper.Encrypt(pPassword, "MoCap"))
                 {
                     UserContext = user;
-                    InitializeObjects();
+                    OnUserLoggedIn(new EventArgs());
                 }
                 else
                     throw new InvalidCredentialException($"The password provided does not match password for user {pId}");
@@ -300,7 +314,11 @@ namespace PlexByte.MoCap.Managers
         /// <summary>
         /// This method clears the current userContext and hence logs out a user
         /// </summary>
-        public void LogoutUser() { UserContext = null; }
+        public void LogoutUser()
+        {
+            OnUserLoggedOut((User)UserContext, new EventArgs());
+            UserContext = null;
+        }
 
         /// <summary>
         /// This method updates or insert a user object created from the form in the DB
@@ -350,7 +368,6 @@ namespace PlexByte.MoCap.Managers
 
             return tmp;
         }
-
 
         /// <summary>
         /// This method updated or insert a task object created from the form in the DB
@@ -438,6 +455,38 @@ namespace PlexByte.MoCap.Managers
         public IExpense UpsertExpenseFromForm(frm_TaskUpdateProgress pForm) { return default(IExpense); }
 
         public ITimeslice UpsertTimesliceFromForm(frm_TaskUpdateProgress pForm) { return default(ITimeslice); }
+
+        /// <summary>
+        /// The event handler for the Refresh event. This event fires whenever the updateTimer elapses
+        /// </summary>
+        /// <param name="e">The eventarguments</param>
+        public virtual void OnRefreshTimerElapsed(EventArgs e) { RefreshTimerElapsed?.Invoke(this, e); }
+
+        /// <summary>
+        /// The event handler for the object changed event. This fires whenever an object in the collection changes
+        /// </summary>
+        /// <param name="changedObject">The changed object raising this event</param>
+        /// <param name="e">The event arguments</param>
+        public virtual void OnObjectChanged(object changedObject, EventArgs e) { ObjectChanged?.Invoke(changedObject, e); }
+
+        /// <summary>
+        /// The event handler for the user login event. This fires whenever a user logs in
+        /// </summary>
+        /// <param name="e">The event arguments</param>
+        public virtual void OnUserLoggedIn(EventArgs e) { UserLoggedIn?.Invoke(UserContext, e); }
+
+        /// <summary>
+        /// The event handler for the user logout event. This fires whenever a user logs off
+        /// </summary>
+        /// <param name="sender">The user logging off</param>
+        /// <param name="e">The event arguments</param>
+        public virtual void OnUserLoggedOut(User sender, EventArgs e) { UserLoggedOut?.Invoke(sender, e); }
+
+        public void CreateUserOverview()
+        {
+            if(UserContext!=null)
+                InitializeObjects();
+        }
 
         #endregion
 
@@ -579,8 +628,11 @@ namespace PlexByte.MoCap.Managers
         /// </summary>
         private void RefreshObjects()
         {
-            InitializeObjects();
-            OnRefreshTimerElapsed(new EventArgs());
+            if (UserContext != null)
+            {
+                InitializeObjects();
+                OnRefreshTimerElapsed(new EventArgs());
+            }
         }
 
         /// <summary>
@@ -592,31 +644,6 @@ namespace PlexByte.MoCap.Managers
         {
             RefreshObjects();
             _updateTimer.Start();
-        }
-
-        /// <summary>
-        /// The event handler for the Refresh event. This event fires whenever the updateTimer elapses
-        /// </summary>
-        /// <param name="e">The eventarguments</param>
-        public virtual void OnRefreshTimerElapsed(EventArgs e)
-        {
-            if (RefreshTimerElapsed != null)
-            {
-                RefreshTimerElapsed(this, e);
-            }
-        }
-
-        /// <summary>
-        /// The event handler for the object changed event. This fires whenever an object in the collection changes
-        /// </summary>
-        /// <param name="changedObject">The changed object raising this event</param>
-        /// <param name="e">The event arguments</param>
-        public virtual void OnObjectChanged(object changedObject, EventArgs e)
-        {
-            if (ObjectChanged != null)
-            {
-                ObjectChanged(changedObject, e);
-            }
         }
 
         #endregion

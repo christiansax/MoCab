@@ -314,7 +314,6 @@ namespace PlexByte.MoCap.Managers
         private DockContent CreateProjectForm(IProject pInstance)
         {
             _errorProvider.Clear();
-            uc_Project temp = (uc_Project)pInstance;
             DockContent tmp = CreateContentPanel(UiType.Project);
             tmp.TabText = $"Project Dialog ({pInstance.Id})";
             List<Control> ctrl = GetAllControls(tmp);
@@ -330,8 +329,7 @@ namespace PlexByte.MoCap.Managers
             {
                 _Countdown = t.EndDateTime.Subtract(t.StartDateTime);
             }
-
-            temp.ProjectId = t.Id;
+            
             GetControlByName<TextBox>(ctrl, "tbx_Title").Text = t.Name;
             GetControlByName<TextBox>(ctrl, "tbx_Description").Text = t.Text;
             if (t.EnableBalance == true)
@@ -349,6 +347,10 @@ namespace PlexByte.MoCap.Managers
             GetControlByName<TextBox>(ctrl, "tbx_ModifiedBy").Text = t.Owner.Username;
             GetControlByName<DateTimePicker>(ctrl, "dtp_Created").Value = t.CreatedDateTime;
             GetControlByName<DateTimePicker>(ctrl, "dtp_Modified").Value = t.ModifiedDateTime;
+            GetControlByName<Button>(ctrl, "btn_Update").Enabled = true;
+            GetControlByName<Button>(ctrl, "btn_InviteUser").Enabled = true;
+            GetControlByName<Button>(ctrl, "btn_Create").Enabled = true;
+            GetControlByName<Button>(ctrl, "btn_Create").Text = "Edit";
 
             t = null;
             ctrl.Clear();

@@ -94,7 +94,7 @@ namespace PlexByte.MoCap.Managers
             if (record.Rows.Count > 0)
             {
                 ITask task = _interactionFactory.CreateTask(record.Rows[0]["Id"].ToString(),
-                    record.Rows[0]["Text"].ToString(),
+                    record.Rows[0]["TaskDescription"].ToString(),
                     record.Rows[0]["Title"].ToString(),
                     GetUser(record.Rows[0]["CreatorId"].ToString(), false),
                     DateTime.Parse(record.Rows[0]["StartDateTime"].ToString()),

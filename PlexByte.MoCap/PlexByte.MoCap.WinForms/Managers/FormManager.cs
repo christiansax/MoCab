@@ -318,6 +318,11 @@ namespace PlexByte.MoCap.Managers
             return null;
         }
 
+        /// <summary>
+        /// This method created a project form from the object given
+        /// </summary>
+        /// <param name="pInstance"></param>
+        /// <returns></returns>
         private DockContent CreateProjectForm(IProject pInstance)
         {
             _errorProvider.Clear();

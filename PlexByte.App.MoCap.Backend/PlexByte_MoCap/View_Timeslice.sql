@@ -3,7 +3,7 @@
 --	Date:	2016/03/06
 CREATE VIEW [dbo].[View_Timeslice]
 	AS
-	SELECT	[e].*, [a].ProjectId, [a].[TaskId], [u].[Username]
+	SELECT	[e].*, [a].[ProjectId], [a].[TaskId], [u].[Username]
 	FROM	[Timeslice] e INNER JOIN [Accounting] a
 			ON [e].[Id] = [a].[TimesliceId]
 			INNER JOIN [User] u

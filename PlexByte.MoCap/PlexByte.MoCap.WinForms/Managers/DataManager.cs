@@ -141,7 +141,24 @@ namespace PlexByte.MoCap.Managers
             return survey;
         }
 
-        public IExpense GetExpenseById(string pId) { throw new System.NotImplementedException(); }
+        public IExpense GetExpenseById(string pId)
+        {
+            DataTable record = _backendService.GetExpenseById(pId);
+            IExpense expense = _interactionFactory.CreateExpense(record.Rows[0]["Id"].ToString(),
+                "",
+                GetUser(record.Rows[0]["Creator"].ToString(), false));
+            record = null;
+            // Get votes
+            List<IVote> votes = GetVoteBySurveyId(pId);
+            if (votes != null)
+            {
+                foreach (var vote in votes)
+                {
+                    survey.AddVote(vote);
+                }
+            }
+            return survey;
+        }
 
         public ITimeslice GetTimesliceById(string pId) { throw new System.NotImplementedException(); }
 

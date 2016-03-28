@@ -295,20 +295,21 @@ namespace PlexByte.MoCap.WinForms
 
         public void OverviewGridviewDoubleClicked(object sender, DataGridViewCellEventArgs e)
         {
+            DockContent tmp = null;
             string clickedId = ((DataGridView)sender).Rows[e.RowIndex].Cells[0].Value.ToString();
             if (_objectManager.ProjectList.Any(x => x.Id == clickedId))
             {
-                _objectManager.CreateFormFromObject<IInteraction>(
+                tmp=_objectManager.CreateFormFromObject<IInteraction>(
                     (Project) _objectManager.ProjectList.First(x => x.Id == clickedId));
             }
             else if (_objectManager.TaskList.Any(x => x.Id == clickedId))
             {
-                _objectManager.CreateFormFromObject<IInteraction>(
+                tmp=_objectManager.CreateFormFromObject<IInteraction>(
                     (Task)_objectManager.TaskList.First(x => x.Id == clickedId));
             }
             else if (_objectManager.SurveyList.Any(x => x.Id == clickedId))
             {
-                _objectManager.CreateFormFromObject<IInteraction>(
+                tmp=_objectManager.CreateFormFromObject<IInteraction>(
                     (Survey)_objectManager.SurveyList.First(x => x.Id == clickedId));
             }
             else
@@ -316,6 +317,7 @@ namespace PlexByte.MoCap.WinForms
                 _MainUI.ShowErrorMessage($"The id {clickedId} referenced did not resolve in either a project, " +
                                          $"task or survey!");
             }
+            tmp?.Show(_MainUI.Panel, DockState.Document);
         }
 
         /// <summary>

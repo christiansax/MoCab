@@ -54,7 +54,19 @@ namespace PlexByte.MoCap.Managers
         public DockContent CreateFormFromObject(IInteraction pObject)
         {
             DockContent tmp = null;
-            tmp = CreateFormFromObject(pObject, ref tmp);
+            if (pObject.GetType() == typeof (Project))
+            {
+                tmp=new uc_Project();
+            }
+            else if (pObject.GetType() == typeof (Task))
+            {
+                tmp=new uc_Task();
+            }
+            else if (pObject.GetType() == typeof(Survey))
+            {
+                tmp=new uc_Survey();
+            }
+            return (tmp = CreateFormFromObject(pObject, ref tmp));
         }
 
         /// <summary>
@@ -358,28 +370,6 @@ namespace PlexByte.MoCap.Managers
             // Populate the drop-down list with the enumeration values.
             ((DataGridViewTextBoxColumn)column).Name = pInstance.Id;
 
-
-
-            //for (int i = 0; i < nTotalInputFiles; i++)
-            //{
-            //    DataGridViewRow tempRow = new DataGridViewRow();
-
-            //    DataGridViewCell cellFileName = new DataGridViewTextBoxCell();
-            //    cellFileName.Value = selectedProject.InputFiles[i].FileName;
-            //    tempRow.Cells.Add(cellFileName);
-
-            //    DataGridViewCell cellDocCount = new DataGridViewTextBoxCell();
-            //    cellDocCount.Value = selectedProject.InputFiles[i].DocCount.ToString();
-            //    tempRow.Cells.Add(cellDocCount);
-
-            //    DataGridViewCell cellPageCount = new DataGridViewTextBoxCell();
-            //    cellPageCount.Value = selectedProject.InputFiles[i].PageCount.ToString();
-            //    tempRow.Cells.Add(cellPageCount);
-
-            //    tempRow.Tag = selectedProject.InputFiles[i].Id;
-            //    GetControlByName<DataGridView>(ctrls, "dgv_Tasks").Rows.Add(tempRow);
-            //}
-
             t = null;
             ctrl.Clear();
             ctrl = null;
@@ -394,8 +384,6 @@ namespace PlexByte.MoCap.Managers
             List<Control> ctrls = GetAllControls(tmp);
 
             Expense t = (Expense)pInstance;
-
-
 
 
             t = null;
@@ -487,6 +475,7 @@ namespace PlexByte.MoCap.Managers
             GetControlByName<TextBox>(ctrls, "tbx_ModifiedBy").Text = t.Owner.Username;
             GetControlByName<DateTimePicker>(ctrls, "dtp_Created").Value = t.CreatedDateTime;
             GetControlByName<DateTimePicker>(ctrls, "dtp_End").Value = t.ModifiedDateTime;
+            GetControlByName<Button>(ctrls, "btn_Update").Enabled = true;
 
             t = null;
             ctrls.Clear();

@@ -278,10 +278,10 @@ namespace PlexByte.MoCap.WinForms
             switch (((Button)sender).Name)
             {
                 case "btn_Create":
-                    if (GetControlByName<Button>(ctrls, "btn_Create").Text.ToLower() == "edit")
-                        ProjectButtonEdit(ctrls);
-                    else
+                    if (GetControlByName<Button>(ctrls, "btn_Create").Text.ToLower() == "save")
                         ProjectButtonCreate(ctrls);
+                    else
+                        ProjectButtonEdit(ctrls);
                     break;
                 case "btn_Update":
                     ProjectButtonUpdatel(ctrls);
@@ -807,6 +807,19 @@ namespace PlexByte.MoCap.WinForms
                     // Get the form
                     uc_Project tmp = (uc_Project)pControlList[0].Parent;
 
+                    TimeSpan _Countdown;
+
+                    if (GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value < DateTime.Now)
+                    {
+                        _Countdown = GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value.Subtract(DateTime.Now);
+                    }
+                    else
+                    {
+                        _Countdown = GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Value.Subtract(GetControlByName<DateTimePicker>(pControlList, "dtp_StartDate").Value);
+                    }
+                    
+                    
+
                     //Create project
                     IProject project = _objectManager.UpsertProjectFromForm((uc_Project)pControlList[0].Parent);
 
@@ -819,6 +832,7 @@ namespace PlexByte.MoCap.WinForms
                     GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Enabled = false;
                     GetControlByName<TextBox>(pControlList, "tbx_Title").Enabled = false;
                     GetControlByName<TextBox>(pControlList, "tbx_Description").Enabled = false;
+                    GetControlByName<Label>(pControlList, "lbl_Countdown").Text = String.Format($"{Convert.ToInt32(_Countdown.TotalDays)}d:{_Countdown.Hours}h:{_Countdown.Minutes}min");
                     GetControlByName<Button>(pControlList, "btn_Create").Text = "Edit";
                 }
                 _MainUI.Enabled = true;
@@ -834,8 +848,8 @@ namespace PlexByte.MoCap.WinForms
         /// </summary>
         /// <param name="pControlList">The list of controld contained on the form</param>
         private void ProjectButtonEdit(List<Control> pControlList)
-        {    
-            if (_userContext != null)
+        {
+            try
             {
 
                 //Disable setting controls for editing project
@@ -848,11 +862,16 @@ namespace PlexByte.MoCap.WinForms
                 GetControlByName<DateTimePicker>(pControlList, "dtp_EndDate").Enabled = true;
                 GetControlByName<TextBox>(pControlList, "tbx_Title").Enabled = true;
                 GetControlByName<TextBox>(pControlList, "tbx_Description").Enabled = true;
+                GetControlByName<TextBox>(pControlList, "tbx_Owner").Text = UserContext.Username;
+                GetControlByName<TextBox>(pControlList, "tbx_CreatedBy").Text = UserContext.Username;
+                GetControlByName<TextBox>(pControlList, "tbx_ModifiedBy").Text = UserContext.Username;
+                GetControlByName<DateTimePicker>(pControlList, "dtp_Created").Value = DateTime.Now;
+                GetControlByName<DateTimePicker>(pControlList, "dtp_Modified").Value = DateTime.Now;
                 GetControlByName<Button>(pControlList, "btn_Create").Text = "Save";
             }
-            else
+            catch (Exception exp)
             {
-                _MainUI.ShowErrorMessage($"Cannot edit project while no user is logged in!");
+                _MainUI.ShowErrorMessage($"Exception caught: {exp.Message}");
             }
         }
 
@@ -887,7 +906,19 @@ namespace PlexByte.MoCap.WinForms
 
         private void ProjectButtonUpdatel(List<Control> pControlList)
         {
-            throw new NotImplementedException();
+            // Is project loaded?
+            uc_Project tmp = (uc_Project)pControlList[0].Parent;
+            if (!string.IsNullOrEmpty(tmp.ProjectId))
+            {
+                tmp.TabText = $"Project Details ({tmp.ProjectId})";
+                frm_TaskUpdateProgress progressForm = new frm_TaskUpdateProgress();
+                if (progressForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Get settings...
+
+                    // Update current task with settings
+                }
+            }
         }
 
         /// <summary>
@@ -920,7 +951,7 @@ namespace PlexByte.MoCap.WinForms
             foreach (var project in _objectManager.ProjectList)
             {
                 _overviewPanel.AddAssignedProjects(project);
-                if (project.ModifiedDateTIme > DateTime.Now.AddDays(-5))
+                if (project.ModifiedDateTime > DateTime.Now.AddDays(-5))
                     _overviewPanel.AddRecentlyChangedInteraction((IInteraction)project);
             }
             foreach (var task in _objectManager.TaskList)

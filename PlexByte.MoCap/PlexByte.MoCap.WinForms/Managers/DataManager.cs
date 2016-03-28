@@ -52,7 +52,35 @@ namespace PlexByte.MoCap.Managers
 
         #region Public Methods
 
-        public IProject GetProjectById(string pId) { return null; }
+        /// <summary>
+        /// This method get a project based on the id specified from the database
+        /// </summary>
+        /// <param name="pId"></param>
+        /// <returns></returns>
+        public IProject GetProjectById(string pId)
+        {
+            DataTable record = _backendService.GetProjectById(pId);
+            if (record.Rows.Count > 0)
+            {
+                IProject project = _interactionFactory.CreateProject(record.Rows[0]["Id"].ToString(),
+                    record.Rows[0]["Text"].ToString(),
+                    Convert.ToBoolean(record.Rows[0]["EnableBalance"].ToString()),
+                    Convert.ToBoolean(record.Rows[0]["EnableSurvey"].ToString()),
+                    DateTime.Parse(record.Rows[0]["StartDateTime"].ToString()),
+                    DateTime.Parse(record.Rows[0]["EndDateTime"].ToString()),
+                    GetUser(record.Rows[0]["CreatorId"].ToString(), false),
+                    GetUser(record.Rows[0]["OwnerId"].ToString(), false),
+                    null,
+                    null,
+                    null,
+                    null,
+                    record.Rows[0]["Name"].ToString());
+                record = null;
+                return project;
+            }
+            else
+                return null;
+        }
 
         /// <summary>
         /// This method get a task based on the id specified from the database
@@ -280,6 +308,10 @@ namespace PlexByte.MoCap.Managers
 
         public void UpsertExpense(Expense pExpense) { throw new System.NotImplementedException(); }
 
+        /// <summary>
+        /// This method inserts or updated a project in the database
+        /// </summary>
+        /// <param name="pProject"></param>
         public void UpsertProject(Project pProject)
         {
             _backendService.InsertProject(pProject.Id,
@@ -292,7 +324,7 @@ namespace PlexByte.MoCap.Managers
                 pProject.EnableSurvey,
                 pProject.IsActive,
                 pProject.Creator.Id,
-                pProject.State.ToString());
+                pProject.State);
         }
 
         /// <summary>

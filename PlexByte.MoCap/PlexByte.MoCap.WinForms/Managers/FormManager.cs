@@ -238,11 +238,11 @@ namespace PlexByte.MoCap.Managers
             string _ProjectId = null;
 
             // Initialize default values for controls
-            if (GetControlByName<Button>(ctrl, "btn_Create").Text.ToLower() == "create")
-            {
-                _ProjectId = DateTime.Now.ToString(DateStringFormatId);
-                GetControlByName<TextBox>(ctrl, "tbx_Owner").Text = _objectManager.UserContext.Username;
-            }
+            //if (GetControlByName<Button>(ctrl, "btn_Create").Text.ToLower() == "new")
+            //{
+            _ProjectId = DateTime.Now.ToString(DateStringFormatId);
+            //    GetControlByName<TextBox>(ctrl, "tbx_Owner").Text = _objectManager.UserContext.Username;
+            //}
 
             IProject obj = _interactionFactory.CreateProject(_ProjectId,
                 GetControlByName<TextBox>(ctrl, "tbx_Title").Text + ";" + GetControlByName<TextBox>(ctrl, "tbx_Description").Text,
@@ -323,7 +323,7 @@ namespace PlexByte.MoCap.Managers
                 GetControlByName<CheckBox>(ctrl, "cbx_EnableSurvey").CheckState = CheckState.Checked;
             else
                 GetControlByName<CheckBox>(ctrl, "cbx_EnableSurvey").CheckState = CheckState.Unchecked;
-            GetControlByName<Label>(ctrl, "lbl_Countdown").Text = String.Format($"{_Countdown.TotalDays}d:{_Countdown.Hours}h:{_Countdown.Minutes}min");
+            GetControlByName<Label>(ctrl, "lbl_Countdown").Text = String.Format($"{Convert.ToInt32(_Countdown.TotalDays)}d:{_Countdown.Hours}h:{_Countdown.Minutes}min");
             GetControlByName<DateTimePicker>(ctrl, "dtp_StartDate").Value = t.StartDateTime;
             GetControlByName<DateTimePicker>(ctrl, "dtp_EndDate").Value = t.EndDateTime;
             GetControlByName<TextBox>(ctrl, "tbx_CreatedBy").Text = t.Creator.Username;

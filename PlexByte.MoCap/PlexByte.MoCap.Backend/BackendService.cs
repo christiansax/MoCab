@@ -472,7 +472,7 @@ namespace PlexByte.MoCap.Backend
             bool pEnableSurvey,
             bool pIsActive,
             string pCreator,
-            string pStateId)
+            Enum pStateId)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -556,7 +556,7 @@ namespace PlexByte.MoCap.Backend
                 parameter = new SqlParameter("@StateId", SqlDbType.BigInt)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = Convert.ToInt64(pStateId)
+                    Value = pStateId
                 };
                 command.Parameters.Add(parameter);
 

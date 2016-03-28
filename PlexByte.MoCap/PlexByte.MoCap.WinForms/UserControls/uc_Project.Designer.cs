@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_Project));
             this.label1 = new System.Windows.Forms.Label();
             this.gbx_ProjectSettings = new System.Windows.Forms.GroupBox();
+            this.dtp_EndDate = new System.Windows.Forms.DateTimePicker();
             this.dtp_StartDate = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.cbx_EnableSurvey = new System.Windows.Forms.CheckBox();
@@ -78,7 +79,6 @@
             this.btn_Update = new System.Windows.Forms.Button();
             this.btn_Create = new System.Windows.Forms.Button();
             this.btn_InviteUser = new System.Windows.Forms.Button();
-            this.dtp_EndDate = new System.Windows.Forms.DateTimePicker();
             this.gbx_ProjectSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Tasks)).BeginInit();
@@ -127,9 +127,20 @@
             this.gbx_ProjectSettings.TabStop = false;
             this.gbx_ProjectSettings.Text = "Settings";
             // 
+            // dtp_EndDate
+            // 
+            this.dtp_EndDate.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
+            this.dtp_EndDate.Enabled = false;
+            this.dtp_EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_EndDate.Location = new System.Drawing.Point(92, 76);
+            this.dtp_EndDate.Name = "dtp_EndDate";
+            this.dtp_EndDate.Size = new System.Drawing.Size(219, 22);
+            this.dtp_EndDate.TabIndex = 68;
+            // 
             // dtp_StartDate
             // 
             this.dtp_StartDate.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
+            this.dtp_StartDate.Enabled = false;
             this.dtp_StartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_StartDate.Location = new System.Drawing.Point(92, 48);
             this.dtp_StartDate.Margin = new System.Windows.Forms.Padding(4);
@@ -152,6 +163,7 @@
             this.cbx_EnableSurvey.AutoSize = true;
             this.cbx_EnableSurvey.Checked = true;
             this.cbx_EnableSurvey.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbx_EnableSurvey.Enabled = false;
             this.cbx_EnableSurvey.Location = new System.Drawing.Point(613, 114);
             this.cbx_EnableSurvey.Margin = new System.Windows.Forms.Padding(4);
             this.cbx_EnableSurvey.Name = "cbx_EnableSurvey";
@@ -164,6 +176,7 @@
             this.cbx_EnableBalance.AutoSize = true;
             this.cbx_EnableBalance.Checked = true;
             this.cbx_EnableBalance.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbx_EnableBalance.Enabled = false;
             this.cbx_EnableBalance.Location = new System.Drawing.Point(453, 114);
             this.cbx_EnableBalance.Margin = new System.Windows.Forms.Padding(4);
             this.cbx_EnableBalance.Name = "cbx_EnableBalance";
@@ -253,6 +266,7 @@
             // 
             // tbx_Description
             // 
+            this.tbx_Description.Enabled = false;
             this.tbx_Description.Location = new System.Drawing.Point(427, 18);
             this.tbx_Description.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_Description.Multiline = true;
@@ -272,6 +286,7 @@
             // 
             // tbx_Title
             // 
+            this.tbx_Title.Enabled = false;
             this.tbx_Title.Location = new System.Drawing.Point(92, 18);
             this.tbx_Title.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_Title.Name = "tbx_Title";
@@ -607,7 +622,7 @@
             this.btn_Create.Name = "btn_Create";
             this.btn_Create.Size = new System.Drawing.Size(100, 28);
             this.btn_Create.TabIndex = 27;
-            this.btn_Create.Text = "Create";
+            this.btn_Create.Text = "New";
             this.btn_Create.UseVisualStyleBackColor = true;
             // 
             // btn_InviteUser
@@ -619,15 +634,6 @@
             this.btn_InviteUser.TabIndex = 29;
             this.btn_InviteUser.Text = "Invite User";
             this.btn_InviteUser.UseVisualStyleBackColor = true;
-            // 
-            // dtp_EndDate
-            // 
-            this.dtp_EndDate.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
-            this.dtp_EndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_EndDate.Location = new System.Drawing.Point(92, 76);
-            this.dtp_EndDate.Name = "dtp_EndDate";
-            this.dtp_EndDate.Size = new System.Drawing.Size(219, 22);
-            this.dtp_EndDate.TabIndex = 68;
             // 
             // uc_Project
             // 

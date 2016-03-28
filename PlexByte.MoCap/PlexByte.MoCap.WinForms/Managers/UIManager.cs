@@ -945,23 +945,24 @@ namespace PlexByte.MoCap.WinForms
         /// <param name="pControlList"></param>
         private void ProjectButtonInviteUser(List<Control> pControlList)
         {
-            //List<IProject> _Project = _dataManager.ProjectList;
-            //string _ProjectId = null;
 
-            //foreach (Project pProject in _Project)
-            //{
-            //    if (pProject.Name == GetControlByName<TextBox>(pControlList, "tbx_Title").Text)
-            //    {
-            //        _ProjectId = pProject.Id;
-            //    }
-            //}
-            
+            List<IProject> _Project = _objectManager.ProjectList;
+            string _ProjectId = null;
 
-            //// Create a new instance of the UserSelectionList class
-            //frm_UserSelectionList _UserSelectionList = new frm_UserSelectionList(_ProjectId, _userContext.Id);
+            foreach (Project pProject in _Project)
+            {
+                if (pProject.Name == GetControlByName<TextBox>(pControlList, "tbx_Title").Text)
+                {
+                    _ProjectId = pProject.Id;
 
-            //// Show the UserSelectionList form
-            //_UserSelectionList.Show();
+                }
+            }
+
+            // Create a new instance of the UserSelectionList class
+            frm_UserSelectionList _UserSelectionList = new frm_UserSelectionList(_ProjectId, _userContext.Id);
+
+            // Show the UserSelectionList form
+            _UserSelectionList.Show();
         }
 
         private void GenerateOverviewPanel()

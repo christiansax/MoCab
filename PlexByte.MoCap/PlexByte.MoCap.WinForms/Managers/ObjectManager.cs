@@ -565,7 +565,7 @@ namespace PlexByte.MoCap.Managers
                     if (!ProjectList.Contains(project))
                     {
                         ProjectList.Add(project);
-                        ObjectChanged(project, new EventArgs());
+                        OnObjectChanged(project, new EventArgs());
                     }
                 }
             }
@@ -578,7 +578,7 @@ namespace PlexByte.MoCap.Managers
                     if (!TaskList.Contains(task))
                     {
                         TaskList.Add(task);
-                        ObjectChanged(task, new EventArgs());
+                        OnObjectChanged(task, new EventArgs());
                     }
                 }
             }
@@ -591,7 +591,7 @@ namespace PlexByte.MoCap.Managers
                     if (!SurveyList.Contains(survey))
                     {
                         SurveyList.Add(survey);
-                        ObjectChanged(survey, new EventArgs());
+                        OnObjectChanged(survey, new EventArgs());
                     }
                 }
             }
@@ -604,7 +604,7 @@ namespace PlexByte.MoCap.Managers
                     if (!ExpenseList.Contains(expenses))
                     {
                         ExpenseList.Add(expenses);
-                        ObjectChanged(expenses, new EventArgs());
+                        OnObjectChanged(expenses, new EventArgs());
                     }
                 }
             }
@@ -617,7 +617,7 @@ namespace PlexByte.MoCap.Managers
                     if (!TimesliceList.Contains(timeslice))
                     {
                         TimesliceList.Add(timeslice);
-                        ObjectChanged(timeslice, new EventArgs());
+                        OnObjectChanged(timeslice, new EventArgs());
                     }
                 }
             }

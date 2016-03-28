@@ -144,23 +144,36 @@ namespace PlexByte.MoCap.Managers
         public IExpense GetExpenseById(string pId)
         {
             DataTable record = _backendService.GetExpenseById(pId);
+            IInteraction tmp = null;
+            if (record.Rows[0]["ProjectId"].ToString().Length > 0)
+                tmp = (IInteraction)GetProjectById(record.Rows[0]["ProjectId"].ToString());
+            else if(record.Rows[0]["TaskId"].ToString().Length > 0)
+                tmp = (IInteraction)GetTaskById(record.Rows[0]["TaskId"].ToString());
+
             IExpense expense = _interactionFactory.CreateExpense(record.Rows[0]["Id"].ToString(),
                 "",
-                GetUser(record.Rows[0]["Creator"].ToString(), false));
+                GetUser(record.Rows[0]["CreatorId"].ToString(), false),
+                tmp);
             record = null;
-            // Get votes
-            List<IVote> votes = GetVoteBySurveyId(pId);
-            if (votes != null)
-            {
-                foreach (var vote in votes)
-                {
-                    survey.AddVote(vote);
-                }
-            }
-            return survey;
+            return expense;
         }
 
-        public ITimeslice GetTimesliceById(string pId) { throw new System.NotImplementedException(); }
+        public ITimeslice GetTimesliceById(string pId)
+        {
+            DataTable record = _backendService.GetTimesliceById(pId);
+            IInteraction tmp = null;
+            if (record.Rows[0]["ProjectId"].ToString().Length > 0)
+                tmp = (IInteraction)GetProjectById(record.Rows[0]["ProjectId"].ToString());
+            else if (record.Rows[0]["TaskId"].ToString().Length > 0)
+                tmp = (IInteraction)GetTaskById(record.Rows[0]["TaskId"].ToString());
+
+            ITimeslice timeslice = _interactionFactory.CreateTimeslice(record.Rows[0]["Id"].ToString(),
+                GetUser(record.Rows[0]["CreatorId"].ToString(), false),
+                Convert.ToInt32(record.Rows[0]["CreatorId"].ToString()),
+                tmp);
+            record = null;
+            return timeslice;
+        }
 
         /// <summary>
         /// This method gets a survey option from the database

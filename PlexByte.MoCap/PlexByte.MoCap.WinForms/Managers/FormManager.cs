@@ -303,12 +303,19 @@ namespace PlexByte.MoCap.Managers
         private IVote CreateVoteFromForm(uc_Survey pForm)
         {
             ISurvey survey = _objectManager.SurveyList.First(x => x.Id == pForm.Id);
-            IVote obj = _objectFactory.CreateVote(DateTime.Now.ToString(DateStringFormatId),
-                _objectManager.UserContext,
-                survey.OptionList.First(x => x.Text.ToLower() ==
-                                             GetControlByName<ListView>(pForm, "lv_Otions").SelectedItems[0].Text.ToLower()));
+            if (_objectManager.SurveyList.Any(x => x.Id == pForm.Id))
+            {
+                if (survey.VoteList.All(x => x.User.Id != _objectManager.UserContext.Id))
+                {
+                    IVote obj = _objectFactory.CreateVote(DateTime.Now.ToString(DateStringFormatId),
+                        _objectManager.UserContext,
+                        survey.OptionList.First(x => x.Text.ToLower() ==
+                                                     GetControlByName<ListView>(pForm, "lv_Otions").SelectedItems[0].Text.ToLower()));
+                    return obj;
+                }
+            }
             survey = null;
-            return obj;
+            return null;
         }
 
         private DockContent CreateProjectForm(IProject pInstance)

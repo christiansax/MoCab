@@ -60,6 +60,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dtp_DueDate = new System.Windows.Forms.DateTimePicker();
+            this.dtp_End = new System.Windows.Forms.DateTimePicker();
+            this.label11 = new System.Windows.Forms.Label();
+            this.dtp_Start = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lbl_State = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btn_CreateOptions = new System.Windows.Forms.Button();
             this.btn_TaskView = new System.Windows.Forms.Button();
             this.tbx_TaskTitle = new System.Windows.Forms.TextBox();
             this.lbl_AssignTask = new System.Windows.Forms.Label();
@@ -79,14 +87,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_Vote = new System.Windows.Forms.Button();
             this.lv_Otions = new System.Windows.Forms.ListView();
-            this.btn_CreateOptions = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lbl_State = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dtp_Start = new System.Windows.Forms.DateTimePicker();
-            this.dtp_End = new System.Windows.Forms.DateTimePicker();
-            this.label11 = new System.Windows.Forms.Label();
-            this.dtp_DueDate = new System.Windows.Forms.DateTimePicker();
+            this.btn_Edit = new System.Windows.Forms.Button();
+            this.btn_New = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -104,6 +106,7 @@
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Enabled = false;
             this.groupBox1.Location = new System.Drawing.Point(12, 301);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(625, 75);
@@ -231,12 +234,81 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Enabled = false;
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(625, 283);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Survey Details:";
+            // 
+            // dtp_DueDate
+            // 
+            this.dtp_DueDate.Location = new System.Drawing.Point(89, 97);
+            this.dtp_DueDate.Name = "dtp_DueDate";
+            this.dtp_DueDate.Size = new System.Drawing.Size(178, 20);
+            this.dtp_DueDate.TabIndex = 45;
+            // 
+            // dtp_End
+            // 
+            this.dtp_End.CustomFormat = "";
+            this.dtp_End.Location = new System.Drawing.Point(416, 123);
+            this.dtp_End.Name = "dtp_End";
+            this.dtp_End.Size = new System.Drawing.Size(201, 20);
+            this.dtp_End.TabIndex = 44;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(319, 127);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(29, 13);
+            this.label11.TabIndex = 43;
+            this.label11.Text = "End:";
+            // 
+            // dtp_Start
+            // 
+            this.dtp_Start.CustomFormat = "";
+            this.dtp_Start.Location = new System.Drawing.Point(89, 123);
+            this.dtp_Start.Name = "dtp_Start";
+            this.dtp_Start.Size = new System.Drawing.Size(178, 20);
+            this.dtp_Start.TabIndex = 42;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 127);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(32, 13);
+            this.label10.TabIndex = 41;
+            this.label10.Text = "Start:";
+            // 
+            // lbl_State
+            // 
+            this.lbl_State.AutoSize = true;
+            this.lbl_State.Location = new System.Drawing.Point(86, 258);
+            this.lbl_State.Name = "lbl_State";
+            this.lbl_State.Size = new System.Drawing.Size(37, 13);
+            this.lbl_State.TabIndex = 40;
+            this.lbl_State.Text = "Active";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 258);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.TabIndex = 39;
+            this.label9.Text = "State:";
+            // 
+            // btn_CreateOptions
+            // 
+            this.btn_CreateOptions.Location = new System.Drawing.Point(495, 253);
+            this.btn_CreateOptions.Name = "btn_CreateOptions";
+            this.btn_CreateOptions.Size = new System.Drawing.Size(122, 23);
+            this.btn_CreateOptions.TabIndex = 38;
+            this.btn_CreateOptions.Text = "Create Options";
+            this.btn_CreateOptions.UseVisualStyleBackColor = true;
             // 
             // btn_TaskView
             // 
@@ -388,7 +460,7 @@
             this.groupBox3.Enabled = false;
             this.groupBox3.Location = new System.Drawing.Point(12, 382);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(625, 112);
+            this.groupBox3.Size = new System.Drawing.Size(625, 110);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Voting:";
@@ -447,79 +519,31 @@
             this.lv_Otions.UseCompatibleStateImageBehavior = false;
             this.lv_Otions.View = System.Windows.Forms.View.List;
             // 
-            // btn_CreateOptions
+            // btn_Edit
             // 
-            this.btn_CreateOptions.Location = new System.Drawing.Point(495, 253);
-            this.btn_CreateOptions.Name = "btn_CreateOptions";
-            this.btn_CreateOptions.Size = new System.Drawing.Size(122, 23);
-            this.btn_CreateOptions.TabIndex = 38;
-            this.btn_CreateOptions.Text = "Create Options";
-            this.btn_CreateOptions.UseVisualStyleBackColor = true;
+            this.btn_Edit.Location = new System.Drawing.Point(554, 498);
+            this.btn_Edit.Name = "btn_Edit";
+            this.btn_Edit.Size = new System.Drawing.Size(75, 23);
+            this.btn_Edit.TabIndex = 21;
+            this.btn_Edit.Text = "Edit";
+            this.btn_Edit.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // btn_New
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 258);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
-            this.label9.TabIndex = 39;
-            this.label9.Text = "State:";
-            // 
-            // lbl_State
-            // 
-            this.lbl_State.AutoSize = true;
-            this.lbl_State.Location = new System.Drawing.Point(86, 258);
-            this.lbl_State.Name = "lbl_State";
-            this.lbl_State.Size = new System.Drawing.Size(37, 13);
-            this.lbl_State.TabIndex = 40;
-            this.lbl_State.Text = "Active";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 127);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(32, 13);
-            this.label10.TabIndex = 41;
-            this.label10.Text = "Start:";
-            // 
-            // dtp_Start
-            // 
-            this.dtp_Start.CustomFormat = "";
-            this.dtp_Start.Location = new System.Drawing.Point(89, 123);
-            this.dtp_Start.Name = "dtp_Start";
-            this.dtp_Start.Size = new System.Drawing.Size(178, 20);
-            this.dtp_Start.TabIndex = 42;
-            // 
-            // dtp_End
-            // 
-            this.dtp_End.CustomFormat = "";
-            this.dtp_End.Location = new System.Drawing.Point(416, 123);
-            this.dtp_End.Name = "dtp_End";
-            this.dtp_End.Size = new System.Drawing.Size(201, 20);
-            this.dtp_End.TabIndex = 44;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(319, 127);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(29, 13);
-            this.label11.TabIndex = 43;
-            this.label11.Text = "End:";
-            // 
-            // dtp_DueDate
-            // 
-            this.dtp_DueDate.Location = new System.Drawing.Point(89, 97);
-            this.dtp_DueDate.Name = "dtp_DueDate";
-            this.dtp_DueDate.Size = new System.Drawing.Size(178, 20);
-            this.dtp_DueDate.TabIndex = 45;
+            this.btn_New.Location = new System.Drawing.Point(21, 499);
+            this.btn_New.Name = "btn_New";
+            this.btn_New.Size = new System.Drawing.Size(75, 23);
+            this.btn_New.TabIndex = 22;
+            this.btn_New.Text = "New";
+            this.btn_New.UseVisualStyleBackColor = true;
             // 
             // uc_Survey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 506);
+            this.ClientSize = new System.Drawing.Size(652, 537);
+            this.Controls.Add(this.btn_New);
+            this.Controls.Add(this.btn_Edit);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -575,5 +599,7 @@
         private System.Windows.Forms.DateTimePicker dtp_Start;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dtp_DueDate;
+        private System.Windows.Forms.Button btn_Edit;
+        private System.Windows.Forms.Button btn_New;
     }
 }

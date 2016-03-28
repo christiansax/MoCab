@@ -424,32 +424,17 @@ namespace PlexByte.MoCap.Managers
         /// <param name="pForm">The form containing the vote values</param>
         public void UpsertVoteFromForm(uc_Survey pForm)
         {
-            Vote tmp = (Vote) CreateObjectFromForm<IVote>(pForm);
-            //TODO: Need to adjust logic
-           /* 
-            // Is user in list?
-            if (SurveyList.Any(x =>x.VoteList.Any(y=>y.Id==tmp.Id)))
+            if (SurveyList.Any(x => x.Id == pForm.Id))
             {
-                // Get survey with containing vote
-                Survey survey = (Survey)SurveyList.First(x => x.VoteList.Any(y => y.Id == tmp.Id));
-                // Create a new survey
-                Survey newSurvey = (Survey)_interactionFactory.CreateSurvey(survey.Id, survey.Text, survey.OptionList, survey.Creator);
-                foreach (var vote in survey.VoteList)
-                {
-                    if(vote.Id==tmp.Id)
-                        newSurvey.AddVote(tmp);
-                    else
-                        newSurvey.AddVote(vote);
-                }
-                SurveyList[SurveyList.FindIndex(x => x.Id == survey.Id)] = newSurvey;
-                _dataManager.UpsertSurvey(newSurvey);
+                ISurvey survey = SurveyList.First(x => x.Id == pForm.Id);
+                Vote tmp = (Vote) _formManager.CreateObjectFromForm<IVote>(pForm);
+                survey.AddVote(tmp);
+                _dataManager.UpsertVote(tmp);
             }
             else
             {
-                SurveyList[SurveyList.FindIndex(x=>x.Id==tmp.)]
-                _dataManager.UpsertSurvey(tmp);
+                throw new Exception("The vote does not exists (yet)");
             }
-            */
         }
 
         public IExpense UpsertExpenseFromForm(frm_TaskUpdateProgress pForm) { return default(IExpense); }

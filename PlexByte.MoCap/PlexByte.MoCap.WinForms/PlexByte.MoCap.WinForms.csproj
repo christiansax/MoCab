@@ -51,6 +51,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomForms\frm_CreateOptions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomForms\frm_CreateOptions.Designer.cs">
+      <DependentUpon>frm_CreateOptions.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomForms\frm_OwnerChangeList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     <Compile Include="UserControls\uc_User.Designer.cs">
       <DependentUpon>uc_User.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CustomForms\frm_CreateOptions.resx">
+      <DependentUpon>frm_CreateOptions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomForms\frm_OwnerChangeList.resx">
       <DependentUpon>frm_OwnerChangeList.cs</DependentUpon>
     </EmbeddedResource>

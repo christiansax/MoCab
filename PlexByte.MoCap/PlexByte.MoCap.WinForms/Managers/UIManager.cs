@@ -277,7 +277,7 @@ namespace PlexByte.MoCap.WinForms
 
         public void OverviewGridviewDoubleClicked(object sender, DataGridViewCellEventArgs e)
         {
-            
+            DockContent temp = _objectManager.CreateFormFromObject<object>(sender);
         }
 
         /// <summary>

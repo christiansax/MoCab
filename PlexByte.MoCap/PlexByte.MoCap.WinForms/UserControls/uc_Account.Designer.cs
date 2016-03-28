@@ -33,6 +33,7 @@
             this.tbx_TotalCost = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_Update = new System.Windows.Forms.Button();
             this.dgv_Tasks = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +48,6 @@
             this.ExpenseInProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimeInvestedUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimeInvestedInProcent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_Update = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Tasks)).BeginInit();
@@ -61,26 +61,30 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.tbx_TotalCost);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(16, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(625, 51);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(833, 63);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings";
             // 
             // tbx_TotalCost
             // 
-            this.tbx_TotalCost.Location = new System.Drawing.Point(89, 18);
+            this.tbx_TotalCost.Location = new System.Drawing.Point(119, 22);
+            this.tbx_TotalCost.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbx_TotalCost.Name = "tbx_TotalCost";
-            this.tbx_TotalCost.Size = new System.Drawing.Size(214, 19);
+            this.tbx_TotalCost.Size = new System.Drawing.Size(284, 22);
             this.tbx_TotalCost.TabIndex = 55;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 18);
+            this.label11.Location = new System.Drawing.Point(8, 22);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(58, 13);
+            this.label11.Size = new System.Drawing.Size(76, 17);
             this.label11.TabIndex = 54;
             this.label11.Text = "Total Cost:";
             // 
@@ -91,12 +95,26 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.btn_Update);
             this.groupBox2.Controls.Add(this.dgv_Tasks);
-            this.groupBox2.Location = new System.Drawing.Point(12, 62);
+            this.groupBox2.Location = new System.Drawing.Point(16, 76);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(625, 193);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(833, 238);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tasks";
+            // 
+            // btn_Update
+            // 
+            this.btn_Update.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Update.Enabled = false;
+            this.btn_Update.Location = new System.Drawing.Point(8, 194);
+            this.btn_Update.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(133, 34);
+            this.btn_Update.TabIndex = 29;
+            this.btn_Update.Text = "Update";
+            this.btn_Update.UseVisualStyleBackColor = true;
             // 
             // dgv_Tasks
             // 
@@ -115,7 +133,8 @@
             this.Budget,
             this.BudgetUsed,
             this.TimeInvested});
-            this.dgv_Tasks.Location = new System.Drawing.Point(6, 21);
+            this.dgv_Tasks.Location = new System.Drawing.Point(8, 26);
+            this.dgv_Tasks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgv_Tasks.MultiSelect = false;
             this.dgv_Tasks.Name = "dgv_Tasks";
             this.dgv_Tasks.ReadOnly = true;
@@ -127,7 +146,7 @@
             this.dgv_Tasks.ShowCellToolTips = false;
             this.dgv_Tasks.ShowEditingIcon = false;
             this.dgv_Tasks.ShowRowErrors = false;
-            this.dgv_Tasks.Size = new System.Drawing.Size(610, 130);
+            this.dgv_Tasks.Size = new System.Drawing.Size(813, 160);
             this.dgv_Tasks.TabIndex = 1;
             // 
             // Id
@@ -176,9 +195,11 @@
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.dgv_User);
-            this.groupBox3.Location = new System.Drawing.Point(12, 255);
+            this.groupBox3.Location = new System.Drawing.Point(16, 314);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(625, 180);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(833, 222);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "User";
@@ -199,7 +220,8 @@
             this.ExpenseInProject,
             this.TimeInvestedUser,
             this.TimeInvestedInProcent});
-            this.dgv_User.Location = new System.Drawing.Point(6, 21);
+            this.dgv_User.Location = new System.Drawing.Point(8, 26);
+            this.dgv_User.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgv_User.MultiSelect = false;
             this.dgv_User.Name = "dgv_User";
             this.dgv_User.ReadOnly = true;
@@ -211,7 +233,7 @@
             this.dgv_User.ShowCellToolTips = false;
             this.dgv_User.ShowEditingIcon = false;
             this.dgv_User.ShowRowErrors = false;
-            this.dgv_User.Size = new System.Drawing.Size(610, 153);
+            this.dgv_User.Size = new System.Drawing.Size(813, 188);
             this.dgv_User.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn2
@@ -248,27 +270,17 @@
             this.TimeInvestedInProcent.ReadOnly = true;
             this.TimeInvestedInProcent.Width = 150;
             // 
-            // btn_Update
-            // 
-            this.btn_Update.Enabled = false;
-            this.btn_Update.Location = new System.Drawing.Point(6, 158);
-            this.btn_Update.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(100, 28);
-            this.btn_Update.TabIndex = 29;
-            this.btn_Update.Text = "Update";
-            this.btn_Update.UseVisualStyleBackColor = true;
-            // 
             // uc_Account
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 438);
+            this.ClientSize = new System.Drawing.Size(869, 539);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "uc_Account";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

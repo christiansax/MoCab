@@ -75,7 +75,11 @@ namespace PlexByte.MoCap.WinForms
         /// </summary>
         /// <param name="sender">the user that logged in</param>
         /// <param name="e">The event arguments</param>
-        private void ObjectManager_UserLoggedOut(object sender, EventArgs e) { _userContext = null; }
+        private void ObjectManager_UserLoggedOut(object sender, EventArgs e)
+        {
+            _userContext = null;
+            _overviewPanel.ClearDataGridViews();
+        }
 
         /// <summary>
         /// This method is the event handler for the userLoggedOut event raised by objectManager

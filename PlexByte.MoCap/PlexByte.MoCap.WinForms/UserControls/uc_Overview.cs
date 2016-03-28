@@ -38,7 +38,6 @@ namespace PlexByte.MoCap.WinForms.UserControls
             {
                 case InteractionType.Project:
                     Project project = (Project) pInteraction;
-                    AddAssignedProjects(project);
                     dgw_Recent.Rows.Add(project.Id,
                         project.Type.ToString(),
                         project.Name,

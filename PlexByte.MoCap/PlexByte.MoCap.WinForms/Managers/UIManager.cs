@@ -324,16 +324,19 @@ namespace PlexByte.MoCap.WinForms
             {
                 tmp = _objectManager.CreateFormFromObject<IInteraction>(
                     (Project) _objectManager.ProjectList.First(x => x.Id == clickedId));
+                ((uc_Project)tmp).RegisterEvents(this);
             }
             else if (_objectManager.TaskList.Any(x => x.Id == clickedId))
             {
                 tmp = _objectManager.CreateFormFromObject<IInteraction>(
                     (Task) _objectManager.TaskList.First(x => x.Id == clickedId));
+                ((uc_Task)tmp).RegisterEvents(this);
             }
             else if (_objectManager.SurveyList.Any(x => x.Id == clickedId))
             {
                 tmp = _objectManager.CreateFormFromObject<IInteraction>(
                     (Survey) _objectManager.SurveyList.First(x => x.Id == clickedId));
+                ((uc_Survey)tmp).RegisterEvents(this);
             }
             else
             {

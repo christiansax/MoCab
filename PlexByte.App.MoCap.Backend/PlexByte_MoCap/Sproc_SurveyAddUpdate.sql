@@ -4,6 +4,7 @@
 CREATE PROCEDURE [dbo].[Sproc_SurveyAddUpdate]
 	@SurveyId AS BIGINT,
 	@InteractionId BIGINT,
+	@Title NVARCHAR(250),
     @MaxVotePerUser AS INT,
     @DueDateTime AS DATETIME,
     @TaskId AS BIGINT,
@@ -22,13 +23,13 @@ AS
 
 	IF (EXISTS (
 			SELECT	[Id]
-			FROM	[View_Survey]
-			WHERE	[Id] = @SurveyId))
+			FROM	[View_Project]
+			WHERE	[Id] = @ProjectId))
 	BEGIN
 		IF (NOT EXISTS (
 		SELECT	*
 		FROM	View_Survey
-		WHERE	[Id] = @SurveyId AND [InteractionId] = @InteractionId AND [StartDateTime] = @StartDateTime AND [EndDateTime] = @EndDateTime))
+		WHERE	[Id] = @SurveyId))
 		BEGIN TRY
 			-- This is a new user, insert...
 			BEGIN TRANSACTION
@@ -38,8 +39,8 @@ AS
 						VALUES					(@Id, @StartDateTime, @EndDateTime, @IsActive, @Text, 3, @CreatorId, 
 												@OwnerId, @StateId, GETDATE(), GETDATE())
 				
-				INSERT INTO [dbo].[Survey]		([Id], [InteractionId], [TaskId], [DueDateTime], [CreatedDateTime], [ModifiedDateTime])
-						VALUES					(@SurveyId, @Id, @TaskId, @DueDateTime, GETDATE(), GETDATE())
+				INSERT INTO [dbo].[Survey]		([Id], [InteractionId], [Title], [TaskId], [DueDateTime], [CreatedDateTime], [ModifiedDateTime])
+						VALUES					(@SurveyId, @Id, @Title, @TaskId, @DueDateTime, GETDATE(), GETDATE())
 
 				select	@Id	=	format(getdate(), 'yyyyMMddHHmmssfff')
 				INSERT INTO [ProjectSurveyMapping]([Id], [ProjectId], [SurveyId], [CreatedDateTime], [ModifiedDateTime])

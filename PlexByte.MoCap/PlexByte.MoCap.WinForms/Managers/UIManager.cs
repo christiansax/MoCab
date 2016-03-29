@@ -385,14 +385,14 @@ namespace PlexByte.MoCap.WinForms
         public void SurveyButtonClicked(object sender, EventArgs e)
         {
             _errorProvider.Clear();
-            List<Control> ctrls = GetAllControls(((Button) sender).Parent);
+            List<Control> ctrls = GetAllControls(((Button) sender).FindForm());
             switch (((Button) sender).Name.ToLower())
             {
                 case "btn_createoptions":
                     SurveyButtonOptions(ctrls);
                     break;
                 case "btn_vote":
-                    SurveyButtonVote((uc_Survey) ((Button) sender).Parent);
+                    SurveyButtonVote((uc_Survey)((Button)sender).FindForm());
                     break;
                 case "btn_edit":
                     SurveyButtonEdit(ctrls);
@@ -1092,16 +1092,16 @@ namespace PlexByte.MoCap.WinForms
         private void SurveyButtonOptions(List<Control> pControlList)
         {
             List<string> options = (from object item
-                in GetControlByName<ListView>(pControlList, "lsv_VoteOverview").Items
+                in GetControlByName<ListView>(pControlList, "lv_Options").Items
                 select item.ToString()).ToList();
 
             frm_CreateOptions tmp = new frm_CreateOptions(options);
             if (tmp.ShowDialog() == DialogResult.OK)
             {
-                GetControlByName<ListView>(pControlList, "lsv_VoteOverview").Items.Clear();
+                GetControlByName<ListView>(pControlList, "lv_Options").Items.Clear();
                 foreach (var option in tmp.SurveyOptions)
                 {
-                    GetControlByName<ListView>(pControlList, "lsv_VoteOverview").Items.Add(option);
+                    GetControlByName<ListView>(pControlList, "lv_Options").Items.Add(option);
                 }
             }
             tmp = null;

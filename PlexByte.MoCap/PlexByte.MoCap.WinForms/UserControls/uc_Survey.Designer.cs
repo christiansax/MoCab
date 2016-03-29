@@ -66,7 +66,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_Vote = new System.Windows.Forms.Button();
-            this.lv_Otions = new System.Windows.Forms.ListView();
+            this.lv_Options = new System.Windows.Forms.ListView();
             this.btn_Edit = new System.Windows.Forms.Button();
             this.btn_New = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -430,7 +430,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.btn_Vote);
-            this.groupBox3.Controls.Add(this.lv_Otions);
+            this.groupBox3.Controls.Add(this.lv_Options);
             this.groupBox3.Enabled = false;
             this.groupBox3.Location = new System.Drawing.Point(12, 358);
             this.groupBox3.Name = "groupBox3";
@@ -448,19 +448,19 @@
             this.btn_Vote.Text = "Vote";
             this.btn_Vote.UseVisualStyleBackColor = true;
             // 
-            // lv_Otions
+            // lv_Options
             // 
-            this.lv_Otions.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.lv_Otions.CheckBoxes = true;
-            this.lv_Otions.HideSelection = false;
-            this.lv_Otions.HoverSelection = true;
-            this.lv_Otions.Location = new System.Drawing.Point(89, 19);
-            this.lv_Otions.MultiSelect = false;
-            this.lv_Otions.Name = "lv_Otions";
-            this.lv_Otions.Size = new System.Drawing.Size(528, 51);
-            this.lv_Otions.TabIndex = 19;
-            this.lv_Otions.UseCompatibleStateImageBehavior = false;
-            this.lv_Otions.View = System.Windows.Forms.View.List;
+            this.lv_Options.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.lv_Options.CheckBoxes = true;
+            this.lv_Options.HideSelection = false;
+            this.lv_Options.HoverSelection = true;
+            this.lv_Options.Location = new System.Drawing.Point(89, 19);
+            this.lv_Options.MultiSelect = false;
+            this.lv_Options.Name = "lv_Options";
+            this.lv_Options.Size = new System.Drawing.Size(528, 51);
+            this.lv_Options.TabIndex = 19;
+            this.lv_Options.UseCompatibleStateImageBehavior = false;
+            this.lv_Options.View = System.Windows.Forms.View.List;
             // 
             // btn_Edit
             // 
@@ -518,7 +518,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btn_Vote;
-        private System.Windows.Forms.ListView lv_Otions;
+        private System.Windows.Forms.ListView lv_Options;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;

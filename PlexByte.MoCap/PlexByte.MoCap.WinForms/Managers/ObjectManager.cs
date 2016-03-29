@@ -581,6 +581,8 @@ namespace PlexByte.MoCap.Managers
                 ISurvey tmp = _formManager.CreateObjectFromForm<ISurvey>(pForm);
                 SurveyList.Add(tmp);
                 _dataManager.UpsertSurvey((Survey)tmp);
+                foreach (ISurveyOption option in tmp.OptionList)
+                    _dataManager.UpsertSurveyOption((SurveyOption)option, tmp.Id);
                 return (T)(ISurvey)tmp;
             }
             else if (pForm.GetType() == typeof(uc_Expense))

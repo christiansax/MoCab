@@ -20,7 +20,7 @@ namespace PlexByte.MoCap.WinForms.UserControls
             this.TabText = PanelTitle;
         }
 
-        public void AddVoteOptions(string pOption) { lv_Otions.Items.Add(pOption); }
+        public void AddVoteOptions(string pOption) { lv_Options.Items.Add(pOption); }
 
         public void RegisterEvents(UIManager pEventHandler)
         {

@@ -300,7 +300,7 @@ namespace PlexByte.MoCap.Managers
                 && GetControlByName<DateTimePicker>(ctrl, "dtp_DueDate").Value <= GetControlByName<DateTimePicker>(ctrl, "dtp_Start").Value)
                 _errorProvider.SetError(GetControlByName<DateTimePicker>(ctrl, "dtp_DueDate"), "Due date must be set between Start and End date time");
 
-            List<ISurveyOption> options = (from ListViewItem lvi in GetControlByName<ListView>(ctrl, "lv_Otions").Items
+            List<ISurveyOption> options = (from ListViewItem lvi in GetControlByName<ListView>(ctrl, "lv_Options").Items
                 select _objectFactory.CreateSurveyOption(DateTime.Now.ToString(DateStringFormatId),
                     lvi.Text)).ToList();
             Survey obj = (Survey) _interactionFactory.CreateSurvey(pForm.Id,
@@ -317,8 +317,8 @@ namespace PlexByte.MoCap.Managers
                     GetControlByName<DateTimePicker>(ctrl, "dtp_End").Value,
                     GetControlByName<DateTimePicker>(ctrl, "dtp_DueDate").Value),
                 new List<IVote>());
-            obj.InteractionId = ((uc_Survey) ctrl[0].Parent).InteractionId;
-            obj.ProjectId = ((uc_Survey) ctrl[0].Parent).ProjectId;
+            obj.InteractionId = pForm.InteractionId;
+            obj.ProjectId = pForm.ProjectId;
             obj.Owner = _objectManager.GetObjectById<IUser>(GetControlByName<TextBox>(ctrl, "tbx_ModifiedBy").Text);
             obj.ModifiedDateTime = GetControlByName<DateTimePicker>(ctrl, "dtp_ModifiedAt").Value;
             options.Clear();
@@ -453,7 +453,9 @@ namespace PlexByte.MoCap.Managers
             {
                 GetControlByName<ComboBox>(ctrls, "cbx_Project").Items.Add(project.Id);
             }
-
+            ((uc_Survey) tmp).Id = t.Id;
+            ((uc_Survey)tmp).ProjectId = t.ProjectId;
+            ((uc_Survey)tmp).InteractionId = t.InteractionId;
             GetControlByName<TextBox>(ctrls, "tbx_SurveyTitle").Text = t.Text;
             GetControlByName<TextBox>(ctrls, "tbx_SurveyVoteCount").Text = t.VoteList.Count.ToString();
             GetControlByName<TextBox>(ctrls, "tbx_State").Text = t.State.ToString();

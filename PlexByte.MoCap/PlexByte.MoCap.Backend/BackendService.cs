@@ -168,7 +168,7 @@ namespace PlexByte.MoCap.Backend
         /// <returns>DataTable containing either all members of a project or the user matching the Id</returns>
         public DataTable GetUserByProjectId(string pId)
         {
-            return ExecuteQueryString($"select * from View_ProjectUserMapping where ProjectId = '{pId}' AND IsActive = 1");
+            return ExecuteQueryString($"select * from View_ProjectUserMapping where ProjectId = '{pId}' ");// AND IsActive = 1");
         }
 
         /// <summary>

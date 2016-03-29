@@ -987,27 +987,27 @@ namespace PlexByte.MoCap.WinForms
         /// <param name="pControlList"></param>
         private void ProjectButtonChangeOwner(List<Control> pControlList)
         {
-            //List <IProject> _Project = _dataManager.ProjectList;
-            //List<IUser> _MemberList = null;
-            //string _NewOwnerId = null;
+            List<IProject> _Project = _objectManager.ProjectList;
+            List<IUser> _MemberList = null;
+            string _NewOwnerId = null;
 
-            //foreach (Project pProject in _Project)
-            //{
-            //    if(pProject.Name == GetControlByName<TextBox>(pControlList, "tbx_Title").Text)
-            //    {
-            //        _MemberList = pProject.MemberList;
-            //    }
-            //}
+            foreach (Project pProject in _Project)
+            {
+                if (pProject.Name == GetControlByName<TextBox>(pControlList, "tbx_Title").Text)
+                {
+                    _MemberList = pProject.MemberList;
+                }
+            }
 
 
-            //// Create a new instance of the UserSelectionList class
-            //frm_OwnerChangeList _OwnerSelectionList = new frm_OwnerChangeList(_MemberList, _userContext.Id);
+            // Create a new instance of the UserSelectionList class
+            frm_OwnerChangeList _OwnerSelectionList = new frm_OwnerChangeList(_MemberList, _userContext.Id);
 
-            //// Show the UserSelectionList form
-            //_OwnerSelectionList.Show();
+            // Show the UserSelectionList form
+            _OwnerSelectionList.Show();
 
-            //if (_OwnerSelectionList.NewOwnerId != _userContext.Id)
-            //    _NewOwnerId = _OwnerSelectionList.NewOwnerId;
+            if (_OwnerSelectionList.NewOwnerId != _userContext.Id)
+                _NewOwnerId = _OwnerSelectionList.NewOwnerId;
         }
 
         /// <summary>

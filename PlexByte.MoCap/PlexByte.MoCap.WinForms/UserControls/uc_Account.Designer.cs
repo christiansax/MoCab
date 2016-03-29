@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(uc_Account));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_AssignProject = new System.Windows.Forms.Button();
+            this.tbx_ProjectName = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.tbx_TotalCost = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -48,9 +51,6 @@
             this.ExpenseInProject = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimeInvestedUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimeInvestedInProcent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_AssignProject = new System.Windows.Forms.Button();
-            this.tbx_ProjectName = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Tasks)).BeginInit();
@@ -76,12 +76,38 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Settings";
             // 
+            // btn_AssignProject
+            // 
+            this.btn_AssignProject.Location = new System.Drawing.Point(595, 22);
+            this.btn_AssignProject.Name = "btn_AssignProject";
+            this.btn_AssignProject.Size = new System.Drawing.Size(34, 23);
+            this.btn_AssignProject.TabIndex = 58;
+            this.btn_AssignProject.Text = "=>";
+            this.btn_AssignProject.UseVisualStyleBackColor = true;
+            // 
+            // tbx_ProjectName
+            // 
+            this.tbx_ProjectName.Enabled = false;
+            this.tbx_ProjectName.Location = new System.Drawing.Point(443, 22);
+            this.tbx_ProjectName.Name = "tbx_ProjectName";
+            this.tbx_ProjectName.Size = new System.Drawing.Size(146, 22);
+            this.tbx_ProjectName.TabIndex = 56;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(362, 22);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(56, 17);
+            this.label23.TabIndex = 57;
+            this.label23.Text = "Project:";
+            // 
             // tbx_TotalCost
             // 
             this.tbx_TotalCost.Location = new System.Drawing.Point(119, 22);
             this.tbx_TotalCost.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_TotalCost.Name = "tbx_TotalCost";
-            this.tbx_TotalCost.Size = new System.Drawing.Size(284, 22);
+            this.tbx_TotalCost.Size = new System.Drawing.Size(188, 22);
             this.tbx_TotalCost.TabIndex = 55;
             // 
             // label11
@@ -275,33 +301,6 @@
             this.TimeInvestedInProcent.Name = "TimeInvestedInProcent";
             this.TimeInvestedInProcent.ReadOnly = true;
             this.TimeInvestedInProcent.Width = 150;
-            // 
-            // btn_AssignProject
-            // 
-            this.btn_AssignProject.Enabled = false;
-            this.btn_AssignProject.Location = new System.Drawing.Point(787, 19);
-            this.btn_AssignProject.Name = "btn_AssignProject";
-            this.btn_AssignProject.Size = new System.Drawing.Size(34, 23);
-            this.btn_AssignProject.TabIndex = 58;
-            this.btn_AssignProject.Text = "=>";
-            this.btn_AssignProject.UseVisualStyleBackColor = true;
-            // 
-            // tbx_ProjectName
-            // 
-            this.tbx_ProjectName.Enabled = false;
-            this.tbx_ProjectName.Location = new System.Drawing.Point(540, 19);
-            this.tbx_ProjectName.Name = "tbx_ProjectName";
-            this.tbx_ProjectName.Size = new System.Drawing.Size(241, 22);
-            this.tbx_ProjectName.TabIndex = 56;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(457, 22);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(56, 17);
-            this.label23.TabIndex = 57;
-            this.label23.Text = "Project:";
             // 
             // uc_Account
             // 

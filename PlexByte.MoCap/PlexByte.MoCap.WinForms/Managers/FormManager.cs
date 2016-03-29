@@ -289,7 +289,7 @@ namespace PlexByte.MoCap.Managers
         /// </summary>
         /// <param name="pForm">The form containing the values</param>
         /// <returns>ISurvey created based on the form values</returns>
-        private Survey CreateSurveyFromForm(uc_Survey pForm)
+        private ISurvey CreateSurveyFromForm(uc_Survey pForm)
         {
             List<Control> ctrl = GetAllControls(pForm);
 

@@ -378,18 +378,22 @@ namespace PlexByte.MoCap.Managers
         {
             _backendService.InsertSurvey(pSurvey.Id,
                 pSurvey.InteractionId,
+                pSurvey.MaxVotesPerUser,
                 pSurvey.DueDateTime,
                 pSurvey.StartDateTime,
                 pSurvey.EndDateTime,
                 pSurvey.Creator.Id,
                 pSurvey.Owner.Id,
                 pSurvey.IsActive,
-                pSurvey.State.ToString());
+                pSurvey.State,
+                pSurvey.ProjectId,
+                pSurvey.Text,
+                pSurvey.Title);
             if (pSurvey.OptionList.Count > 0)
             {
                 foreach (var option in pSurvey.OptionList)
                 {
-                    _backendService.InsertSurveyOption(option.Id, option.Text, option.CreatedDateTime);
+                    _backendService.InsertSurveyOption(option.Id, option.Text, pSurvey.Id);
                 }
             }
         }
@@ -465,11 +469,11 @@ namespace PlexByte.MoCap.Managers
         /// This method inserts or updates a SurveyOption in the database
         /// </summary>
         /// <param name="pSurveyOption">The survey option to insert or update</param>
-        public void UpsertSurveyOption(SurveyOption pSurveyOption)
+        public void UpsertSurveyOption(SurveyOption pSurveyOption, string pSurveyId)
         {
             _backendService.InsertSurveyOption(pSurveyOption.Id,
                 pSurveyOption.Text,
-                pSurveyOption.CreatedDateTime);
+                pSurveyId);
         }
 
         #endregion

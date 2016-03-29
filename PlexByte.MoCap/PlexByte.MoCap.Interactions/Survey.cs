@@ -242,6 +242,8 @@ namespace PlexByte.MoCap.Interactions
             _isActive = true;
             Type = InteractionType.Survey;
             VoteList = new List<IVote>();
+            UserList=new List<IUser>();
+            UserList.Add(pCreator);
             OptionList = new List<ISurveyOption>();
             _state = StartDateTime <= DateTime.Now ? InteractionState.Active : InteractionState.Queued;
             _stateTimer.Elapsed += OnTimerElapsed;

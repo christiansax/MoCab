@@ -120,7 +120,7 @@ namespace PlexByte.MoCap.Interactions
             survey.MaxVotesPerUser = pVotesPerUser;
             survey.Title = pTitle;
             survey.VoteList = pVotes;
-            return (new Survey(pId, pText, pOptions, pCreator));
+            return (survey);
         }
 
         public virtual ISurvey CreateSurvey(string pId, string pText, List<string> pOptions, IUser pCreator)

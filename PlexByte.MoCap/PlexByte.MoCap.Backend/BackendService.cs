@@ -10,6 +10,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Net.Sockets;
 using PlexByte.MoCap.Helpers;
+using PlexByte.MoCap.Interactions;
 
 namespace PlexByte.MoCap.Backend
 {
@@ -755,22 +756,270 @@ namespace PlexByte.MoCap.Backend
             }
         }
 
-        public void InsertVote(string pId, string pOptionId, string pUserId, DateTime pCreated) { throw new NotImplementedException(); }
+        public void InsertVote(string pSurveyId,
+            string pOptionId,
+            string pUserId,
+            DateTime pCreated)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                // Create the command and set its properties.
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = "Sproc_VoteAdd";
+                command.CommandType = CommandType.StoredProcedure;
+
+                // Add the input parameter and set its properties.
+                SqlParameter parameter = new SqlParameter("@SurveyId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pSurveyId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@UserId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pUserId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@SurveyOptionId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pOptionId
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@ResultMsg", SqlDbType.VarChar)
+                {
+                    Direction = ParameterDirection.Output,
+                    Value = string.Empty
+                };
+                command.Parameters.Add(parameter);
+
+                // Open the connection and execute the reader.
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Console.WriteLine("{0}: {1:C}", reader[0], reader[1]);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+            }
+        }
 
         public void InsertSurvey(string pId,
             string pInteractionId,
+            int pVotesPerUser,
             DateTime pDueDateTime,
             DateTime pStartDateTime,
             DateTime pEndDateTime,
             string pCreatorId,
             string pOwnerId,
             bool pIsActive,
-            string pStateString)
+            InteractionState pState,
+            string pProjectId,
+            string pText,
+            string pTitle)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                // Create the command and set its properties.
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = "Sproc_SurveyAddUpdate";
+                command.CommandType = CommandType.StoredProcedure;
+
+                // Add the input parameter and set its properties.
+                SqlParameter parameter = new SqlParameter("@SurveyId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@InteractionId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pInteractionId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@Title", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pTitle
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@MaxVotePerUser", SqlDbType.Int)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pVotesPerUser
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@DueDateTime", SqlDbType.DateTime)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pDueDateTime
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@TaskId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = DBNull.Value
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@StartDateTime", SqlDbType.DateTime)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pStartDateTime
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@EndDateTime", SqlDbType.DateTime)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pEndDateTime
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@IsActive", SqlDbType.Bit)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pIsActive
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@Text", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pText
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@CreatorId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pCreatorId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@OwnerId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pOwnerId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@StateId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pState
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@ProjectId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pProjectId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@ResultMsg", SqlDbType.VarChar)
+                {
+                    Direction = ParameterDirection.Output,
+                    Value = string.Empty
+                };
+                command.Parameters.Add(parameter);
+
+                // Open the connection and execute the reader.
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Console.WriteLine("{0}: {1:C}", reader[0], reader[1]);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+            }
         }
 
-        public void InsertSurveyOption(string pId, string pText, DateTime pCreatedDateTime) { throw new NotImplementedException(); }
+        public void InsertSurveyOption(string pId,
+            string pText,
+            string pSurveyId)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                // Create the command and set its properties.
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = "Sproc_SurveyAddOption";
+                command.CommandType = CommandType.StoredProcedure;
+
+                // Add the input parameter and set its properties.
+                SqlParameter parameter = new SqlParameter("@SurveyOptionId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@SurveyId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(pSurveyId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@Text", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = pText
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@ResultMsg", SqlDbType.VarChar)
+                {
+                    Direction = ParameterDirection.Output,
+                    Value = string.Empty
+                };
+                command.Parameters.Add(parameter);
+
+                // Open the connection and execute the reader.
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Console.WriteLine("{0}: {1:C}", reader[0], reader[1]);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+            }
+        }
 
         public void InsertTimeslice(string pId,
             int pDuration,
@@ -779,7 +1028,6 @@ namespace PlexByte.MoCap.Backend
             string pTargetType,
             DateTime pCreatedDateTime)
         {
-            string execString = string.Empty;
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 // Create the command and set its properties.

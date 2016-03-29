@@ -430,7 +430,7 @@ namespace PlexByte.MoCap.Managers
         {
             _errorProvider.Clear();
             DockContent tmp = CreateContentPanel(UiType.Survey);
-            tmp.TabText = $"Survey Details ({pInstance.Id})";
+            tmp.TabText = $"Survey Details ({pInstance.Title})";
             List<Control> ctrls = GetAllControls(tmp);
 
             Survey t = (Survey)pInstance;
@@ -461,11 +461,11 @@ namespace PlexByte.MoCap.Managers
             GetControlByName<DateTimePicker>(ctrls, "dtp_Start").Value = t.StartDateTime;
             GetControlByName<DateTimePicker>(ctrls, "dtp_End").Value = t.EndDateTime;
             GetControlByName<TextBox>(ctrls, "tbx_Description").Text = t.Text;
-            GetControlByName<NumericUpDown>(ctrls, "tbx_VotesPerUser").Value = t.MaxVotesPerUser;
+            GetControlByName<NumericUpDown>(ctrls, "num_VotesPerUser").Value = t.MaxVotesPerUser;
             GetControlByName<TextBox>(ctrls, "tbx_CreatedBy").Text = t.Creator.Username;
-            GetControlByName<TextBox>(ctrls, "tbx_ModifiedBy").Text = t.VoteList.Max().User.Username;
+            GetControlByName<TextBox>(ctrls, "tbx_ModifiedBy").Text = t.Creator.Username;
             GetControlByName<DateTimePicker>(ctrls, "dtp_CreatedAt").Value = t.CreatedDateTime;
-            GetControlByName<DateTimePicker>(ctrls, "dtp_ModifiedAt").Value = t.VoteList.Max().CreatedDateTime;
+            GetControlByName<DateTimePicker>(ctrls, "dtp_ModifiedAt").Value = t.ModifiedDateTime;
             GetControlByName<ComboBox>(ctrls, "cbx_Project").Text = t.ProjectId;
             t = null;
             ctrls.Clear();
@@ -494,7 +494,7 @@ namespace PlexByte.MoCap.Managers
         {
             _errorProvider.Clear();
             DockContent tmp = CreateContentPanel(UiType.Task);
-            tmp.TabText = $"Task Details ({pInstance.Id})";
+            tmp.TabText = $"Task Details ({pInstance.Title})";
             List<Control> ctrls = GetAllControls(tmp);
 
             Task t = (Task)pInstance;

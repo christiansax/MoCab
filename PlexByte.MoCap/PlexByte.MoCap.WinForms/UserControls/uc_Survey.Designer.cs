@@ -41,6 +41,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbl_InteractionId = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.num_VotesPerUser = new System.Windows.Forms.NumericUpDown();
+            this.cbx_Project = new System.Windows.Forms.ComboBox();
             this.dtp_DueDate = new System.Windows.Forms.DateTimePicker();
             this.dtp_End = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
@@ -65,14 +69,10 @@
             this.lv_Otions = new System.Windows.Forms.ListView();
             this.btn_Edit = new System.Windows.Forms.Button();
             this.btn_New = new System.Windows.Forms.Button();
-            this.cbx_Project = new System.Windows.Forms.ComboBox();
-            this.num_VotesPerUser = new System.Windows.Forms.NumericUpDown();
-            this.label16 = new System.Windows.Forms.Label();
-            this.lbl_InteractionId = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_VotesPerUser)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -221,6 +221,49 @@
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Survey Details:";
+            // 
+            // lbl_InteractionId
+            // 
+            this.lbl_InteractionId.AutoSize = true;
+            this.lbl_InteractionId.Location = new System.Drawing.Point(345, 230);
+            this.lbl_InteractionId.Name = "lbl_InteractionId";
+            this.lbl_InteractionId.Size = new System.Drawing.Size(0, 13);
+            this.lbl_InteractionId.TabIndex = 49;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(248, 230);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(69, 13);
+            this.label16.TabIndex = 48;
+            this.label16.Text = "InteractionId:";
+            // 
+            // num_VotesPerUser
+            // 
+            this.num_VotesPerUser.Location = new System.Drawing.Point(416, 71);
+            this.num_VotesPerUser.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.num_VotesPerUser.Name = "num_VotesPerUser";
+            this.num_VotesPerUser.Size = new System.Drawing.Size(201, 20);
+            this.num_VotesPerUser.TabIndex = 47;
+            this.num_VotesPerUser.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // cbx_Project
+            // 
+            this.cbx_Project.FormattingEnabled = true;
+            this.cbx_Project.Location = new System.Drawing.Point(416, 97);
+            this.cbx_Project.Name = "cbx_Project";
+            this.cbx_Project.Size = new System.Drawing.Size(201, 21);
+            this.cbx_Project.TabIndex = 46;
+            this.cbx_Project.SelectedIndexChanged += new System.EventHandler(this.cbx_Project_SelectedIndexChanged);
             // 
             // dtp_DueDate
             // 
@@ -437,49 +480,6 @@
             this.btn_New.Text = "New";
             this.btn_New.UseVisualStyleBackColor = true;
             // 
-            // cbx_Project
-            // 
-            this.cbx_Project.FormattingEnabled = true;
-            this.cbx_Project.Location = new System.Drawing.Point(416, 97);
-            this.cbx_Project.Name = "cbx_Project";
-            this.cbx_Project.Size = new System.Drawing.Size(201, 21);
-            this.cbx_Project.TabIndex = 46;
-            this.cbx_Project.SelectedIndexChanged += new System.EventHandler(this.cbx_Project_SelectedIndexChanged);
-            // 
-            // num_VotesPerUser
-            // 
-            this.num_VotesPerUser.Location = new System.Drawing.Point(416, 71);
-            this.num_VotesPerUser.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.num_VotesPerUser.Name = "num_VotesPerUser";
-            this.num_VotesPerUser.Size = new System.Drawing.Size(201, 20);
-            this.num_VotesPerUser.TabIndex = 47;
-            this.num_VotesPerUser.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(248, 230);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(69, 13);
-            this.label16.TabIndex = 48;
-            this.label16.Text = "InteractionId:";
-            // 
-            // lbl_InteractionId
-            // 
-            this.lbl_InteractionId.AutoSize = true;
-            this.lbl_InteractionId.Location = new System.Drawing.Point(345, 230);
-            this.lbl_InteractionId.Name = "lbl_InteractionId";
-            this.lbl_InteractionId.Size = new System.Drawing.Size(0, 13);
-            this.lbl_InteractionId.TabIndex = 49;
-            // 
             // uc_Survey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,8 +497,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.num_VotesPerUser)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

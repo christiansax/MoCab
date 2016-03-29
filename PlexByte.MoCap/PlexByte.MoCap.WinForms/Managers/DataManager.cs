@@ -141,7 +141,6 @@ namespace PlexByte.MoCap.Managers
                 record.Rows[0]["Title"].ToString(),
                 (InteractionState)Enum.Parse(typeof(InteractionState), record.Rows[0]["StateName"].ToString()),
                 votes);
-            survey.ProjectId = record.Rows[0]["ProjectId"].ToString();
             record = null;
             surveyOptions = null;
             votes = null;
@@ -322,6 +321,15 @@ namespace PlexByte.MoCap.Managers
                         from DataRow row in _backendService.GetSurveyByProjectId(project["Id"].ToString(),
                             ObjectType.Project).Rows
                         select (T) GetSurveyById(row["Id"].ToString()));
+                    foreach (ISurvey survey in interactions)
+                    {
+                        survey.ProjectId = project["Id"].ToString();
+                        // Get Options
+                        foreach (var VARIABLE in _backendService.GetSurveyOptions(survey.Id).Rows)
+                        {
+                            
+                        }
+                    }
                 }
             }
             else if (typeof (T) == typeof (IExpense))

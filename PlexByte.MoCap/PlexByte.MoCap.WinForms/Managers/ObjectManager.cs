@@ -376,6 +376,7 @@ namespace PlexByte.MoCap.Managers
         public ITask UpsertTaskFromForm(uc_Task pForm)
         {
             Task tmp = (Task)CreateObjectFromForm<ITask>(pForm);
+            pForm.TabText = $"Task Details ({tmp.Title})";
 
             // Is user in list?
             if (TaskList.Any(x => String.Equals(x.Id,
@@ -401,6 +402,7 @@ namespace PlexByte.MoCap.Managers
         public ISurvey UpsertSurveyFromForm(uc_Survey pForm)
         {
             Survey tmp = (Survey)CreateObjectFromForm<ISurvey>(pForm);
+            pForm.TabText = $"Survey Details ({tmp.Title})";
 
             // Is user in list?
             if (SurveyList.Any(x => String.Equals(x.Id,

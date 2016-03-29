@@ -141,6 +141,10 @@ namespace PlexByte.MoCap.WinForms
             DockContent tmp = CreateContentPanel(UiType.Survey);
             tmp.TabText = "Survey Dialog";
             ((uc_Survey) tmp).RegisterEvents(this);
+            foreach (var project in _objectManager.ProjectList)
+            {
+                GetControlByName<ComboBox>(tmp, "cbx_Project").Items.Add(project.Id);
+            }
         }
 
         /// <summary>
@@ -1118,13 +1122,13 @@ namespace PlexByte.MoCap.WinForms
             if (GetControlByName<Button>(pControlList, "btn_New").Text.ToLower() == "new")
             {
                 ((uc_Survey) pControlList[0].Parent).Id = DateTime.Now.ToString(_dateTimeIdFmt);
-                ((uc_Survey)pControlList[0].Parent).Id = DateTime.Now.AddMilliseconds(10).ToString(_dateTimeIdFmt);
+                ((uc_Survey)pControlList[0].Parent).InteractionId = DateTime.Now.AddMilliseconds(10).ToString(_dateTimeIdFmt);
                 GetControlByName<TextBox>(pControlList, "tbx_CreatedBy").Text = UserContext.Username;
                 GetControlByName<TextBox>(pControlList, "tbx_ModifiedBy").Text = UserContext.Username;
                 GetControlByName<DateTimePicker>(pControlList, "dtp_CreatedAt").Value = DateTime.Now;
                 GetControlByName<DateTimePicker>(pControlList, "dtp_ModifiedAt").Value = DateTime.Now;
                 GetControlByName<TextBox>(pControlList, "tbx_SurveyVoteCount").Text = "0";
-                GetControlByName<TextBox>(pControlList, "tbx_VotesPerUser").Text = "1";
+                GetControlByName<NumericUpDown>(pControlList, "num_VotesPerUser").Value = 1;
                 GetControlByName<GroupBox>(pControlList, "groupBox2").Enabled = true;
                 GetControlByName<GroupBox>(pControlList, "groupBox3").Enabled = false;
                 GetControlByName<Button>(pControlList, "btn_New").Text = "Save";

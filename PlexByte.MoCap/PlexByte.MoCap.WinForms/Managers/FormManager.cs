@@ -343,18 +343,13 @@ namespace PlexByte.MoCap.Managers
             return null;
         }
 
-        /// <summary>
-        /// This method created a project form from the object given
-        /// </summary>
-        /// <param name="pInstance"></param>
-        /// <returns></returns>
         private DockContent CreateProjectForm(IProject pInstance)
         {
             _errorProvider.Clear();
             DockContent tmp = CreateContentPanel(UiType.Project);
             tmp.TabText = $"Project Dialog ({pInstance.Id})";
             List<Control> ctrl = GetAllControls(tmp);
-           
+
             Project t = (Project)pInstance;
             TimeSpan _Countdown;
 
@@ -389,7 +384,6 @@ namespace PlexByte.MoCap.Managers
             GetControlByName<Button>(ctrl, "btn_Create").Enabled = true;
             GetControlByName<Button>(ctrl, "btn_Create").Text = "Edit";
 
-            
             t = null;
             ctrl.Clear();
             ctrl = null;
@@ -455,7 +449,7 @@ namespace PlexByte.MoCap.Managers
 
             foreach (var project in _objectManager.ProjectList)
             {
-                GetControlByName<TextBox>(ctrls, "tbx_SurveyTitle").Text
+                GetControlByName<ComboBox>(ctrls, "cbx_Project").Items.Add(project.Id);
             }
 
             GetControlByName<TextBox>(ctrls, "tbx_SurveyTitle").Text = t.Text;
@@ -470,7 +464,7 @@ namespace PlexByte.MoCap.Managers
             GetControlByName<TextBox>(ctrls, "tbx_ModifiedBy").Text = t.VoteList.Max().User.Username;
             GetControlByName<DateTimePicker>(ctrls, "dtp_CreatedAt").Value = t.CreatedDateTime;
             GetControlByName<DateTimePicker>(ctrls, "dtp_ModifiedAt").Value = t.VoteList.Max().CreatedDateTime;
-
+            GetControlByName<ComboBox>(ctrls, "cbx_Project").Text = t.ProjectId;
             t = null;
             ctrls.Clear();
             ctrls = null;

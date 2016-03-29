@@ -15,11 +15,6 @@ namespace PlexByte.MoCap.WinForms
         public DockPanel Panel => dockPanel1;
         public UIManager UIManager => _uiManager;
 
-        /// <summary>
-        /// The user this datamanager runs under
-        /// </summary>
-        public User LoggedInUser { get; set; }
-
         private readonly UIManager _uiManager;
 
         public frm_MoCapMain()
@@ -37,7 +32,6 @@ namespace PlexByte.MoCap.WinForms
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }

@@ -13,10 +13,8 @@ namespace PlexByte.MoCap.WinForms
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-//            Application.Run(new frmTraceViewer());
 
             Application.Run(new frm_MoCapMain());
-            Application.Run(new frm_Test());
         }
     }
 }

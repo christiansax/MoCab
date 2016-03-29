@@ -21,12 +21,12 @@ namespace PlexByte.MoCap.Interactions
         public DateTime StartDateTime { get; set; }
         public DateTime EndDateTime { get; set; }
         public DateTime CreatedDateTime => _createdDateTime;
-        public DateTime ModifiedDateTime => _modifiedDateTime;
+        public DateTime ModifiedDateTime { get; set; }
         public bool IsActive => _isActive;
         public string Text { get; set; }
         public InteractionType Type { get; set; }
         public IUser Creator => _creator;
-        public IUser Owner => _owner;
+        public IUser Owner { get; set; }
         public DateTime DueDateTime { get; set; }
         public InteractionState State => _state;
         public int MaxVotesPerUser { get; set; }
@@ -38,9 +38,7 @@ namespace PlexByte.MoCap.Interactions
 
         #region Variables
 
-        private IUser _owner;
         private IUser _creator;
-        private DateTime _modifiedDateTime;
         private DateTime _createdDateTime;
         private InteractionState _state;
         private System.Timers.Timer _stateTimer = new System.Timers.Timer(60*1000);
@@ -116,9 +114,9 @@ namespace PlexByte.MoCap.Interactions
         /// <param name="pUser">The new user to mark as owner</param>
         public virtual void ChangeOwner(IUser pUser)
         {
-            if (_owner != pUser)
+            if (Owner != pUser)
             {
-                _owner = pUser;
+                Owner = pUser;
                 List<InteractionAttributes> changedAttributes = new List<InteractionAttributes> {InteractionAttributes.Owner};
                 OnModify(new InteractionEventArgs($"Survey owner changed [Id={Id}]", DateTime.Now, InteractionType.Survey));
             }
@@ -237,7 +235,7 @@ namespace PlexByte.MoCap.Interactions
             Text = pText;
             OptionList = pOptions;
             _createdDateTime = DateTime.Now;
-            _modifiedDateTime = DateTime.Now;
+            ModifiedDateTime = DateTime.Now;
             StartDateTime = DateTime.Now;
             EndDateTime = default(DateTime);
             DueDateTime = default(DateTime);

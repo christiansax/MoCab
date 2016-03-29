@@ -170,7 +170,7 @@ namespace PlexByte.MoCap.Managers
                     else
                     {
                         ISurvey obj = CreateSurveyFromForm((uc_Survey)pInstance);
-                        return (T)obj;
+                        return (T)(ISurvey)obj;
                     }
                 }
                 else if (pInstance.GetType() == typeof(uc_Expense))
@@ -289,7 +289,7 @@ namespace PlexByte.MoCap.Managers
         /// </summary>
         /// <param name="pForm">The form containing the values</param>
         /// <returns>ISurvey created based on the form values</returns>
-        private ISurvey CreateSurveyFromForm(uc_Survey pForm)
+        private Survey CreateSurveyFromForm(uc_Survey pForm)
         {
             List<Control> ctrl = GetAllControls(pForm);
 
@@ -319,6 +319,8 @@ namespace PlexByte.MoCap.Managers
                 new List<IVote>());
             obj.InteractionId = ((uc_Survey) ctrl[0].Parent).InteractionId;
             obj.ProjectId = ((uc_Survey) ctrl[0].Parent).ProjectId;
+            obj.Owner = _objectManager.GetObjectById<IUser>(GetControlByName<TextBox>(ctrl, "tbx_ModifiedBy").Text);
+            obj.ModifiedDateTime = GetControlByName<DateTimePicker>(ctrl, "dtp_ModifiedAt").Value;
             options.Clear();
             ctrl.Clear();
             ctrl = null;

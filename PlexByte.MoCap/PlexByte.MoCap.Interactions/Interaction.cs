@@ -13,12 +13,10 @@ namespace PlexByte.MoCap.Interactions
         private DateTime _startDateTime;
         private DateTime _endDateTime;
         private DateTime _createdDateTime;
-        private DateTime _modifiedDateTime;
         private bool _isActive;
         private string _text;
         private InteractionType _type;
         private IUser _creator;
-        private IUser _owner;
         private InteractionState _state;
 
         #region Implementation of IInteraction
@@ -34,7 +32,7 @@ namespace PlexByte.MoCap.Interactions
 
         public DateTime CreatedDateTime { get { return _createdDateTime; } }
 
-        public DateTime ModifiedDateTime { get { return _modifiedDateTime; } }
+        public DateTime ModifiedDateTime { get; set; }
 
         public bool IsActive { get { return _isActive; } }
 
@@ -44,7 +42,7 @@ namespace PlexByte.MoCap.Interactions
 
         public IUser Creator { get { return _creator; } }
 
-        public IUser Owner { get { return _owner; } }
+        public IUser Owner { get; set; }
 
         public InteractionState State { get { return _state; } }
 
@@ -76,12 +74,12 @@ namespace PlexByte.MoCap.Interactions
             StartDateTime = pstartDateTime;
             EndDateTime = pendDateTime;
             _createdDateTime= pcreatedDateTime;
-            _modifiedDateTime = pDateTimemodified;
+            ModifiedDateTime = pDateTimemodified;
             _isActive = pisActive;
             Text = ptext;
             _type = ptype;
             _creator = pcreator;
-            _owner = powner;
+            Owner = powner;
             _state = pstate;
         }
 

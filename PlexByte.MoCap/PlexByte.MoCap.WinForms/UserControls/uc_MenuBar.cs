@@ -28,6 +28,30 @@ namespace PlexByte.MoCap.WinForms.UserControls
             btn_Vote.Click += new System.EventHandler(pManagerInstance.MenuButtonClicked);
         }
 
+        public void EnableButtonControls()
+        {
+            btn_Vote.Enabled = true;
+            btn_Account.Enabled = true;
+            btn_Expense.Enabled = true;
+            btn_Project.Enabled = true;
+            btn_Survey.Enabled = true;
+            btn_SurveyOptions.Enabled = true;
+            btn_Task.Enabled = true;
+            btn_Timeslice.Enabled = true;
+        }
+
+        public void DisableButtonControls()
+        {
+            btn_Vote.Enabled = false;
+            btn_Account.Enabled = false;
+            btn_Expense.Enabled = false;
+            btn_Project.Enabled = false;
+            btn_Survey.Enabled = false;
+            btn_SurveyOptions.Enabled = false;
+            btn_Task.Enabled = false;
+            btn_Timeslice.Enabled = false;
+        }
+
         private void Project_MouseEnter(object sender, EventArgs e)
         {
             SetToolTip((Control)sender, "New Project", 

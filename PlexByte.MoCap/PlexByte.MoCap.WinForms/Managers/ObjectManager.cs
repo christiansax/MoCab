@@ -487,7 +487,7 @@ namespace PlexByte.MoCap.Managers
                 return default(ITimeslice);
         }
 
-            /// <summary>
+        /// <summary>
             /// The event handler for the Refresh event. This event fires whenever the updateTimer elapses
             /// </summary>
             /// <param name="e">The eventarguments</param>
@@ -579,7 +579,7 @@ namespace PlexByte.MoCap.Managers
                 ISurvey tmp = _formManager.CreateObjectFromForm<ISurvey>(pForm);
                 SurveyList.Add(tmp);
                 _dataManager.UpsertSurvey((Survey)tmp);
-                return (T)tmp;
+                return (T)(ISurvey)tmp;
             }
             else if (pForm.GetType() == typeof(uc_Expense))
             {

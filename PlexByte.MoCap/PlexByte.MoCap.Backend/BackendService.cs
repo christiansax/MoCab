@@ -21,7 +21,7 @@ namespace PlexByte.MoCap.Backend
 
     // TODO: Update documentation
 
-    public class BackendService:IDisposable
+    public class BackendService : IDisposable
     {
         private const string _DBServer = "198.38.83.33";
         private const string _Password = "MoCap";
@@ -244,14 +244,14 @@ namespace PlexByte.MoCap.Backend
         {
             DataTable users = new DataTable();
             // Get all projects for this user
-            foreach (DataRow row  in GetProjectsByUser(pUserId).Rows)
+            foreach (DataRow row in GetProjectsByUser(pUserId).Rows)
             {
                 // Loop through all projects and check the usermapping
                 foreach (DataRow row2 in GetUserByProjectId(row["Id"].ToString()).Rows)
                 {
                     foreach (DataRow userRow in GetUserById(row2["Id"].ToString()).Rows)
                     {
-                        if(!users.Rows.Contains(userRow))
+                        if (!users.Rows.Contains(userRow))
                             users.Rows.Add(userRow);
                     }
                 }
@@ -830,7 +830,7 @@ namespace PlexByte.MoCap.Backend
                 }
                 else
                 {
-                   Console.WriteLine("No rows found.");
+                    Console.WriteLine("No rows found.");
                 }
 
                 // Insert mapping record

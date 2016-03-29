@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Text.RegularExpressions;
 using PlexByte.MoCap.Interactions;
 using PlexByte.MoCap.Security;
 using PlexByte.MoCap.Backend;
@@ -265,6 +266,11 @@ namespace PlexByte.MoCap.Managers
         public IUser GetUser(string pUserId, bool pIsUserName)
         {
             IUser user = null;
+            if (!pIsUserName)
+            {
+                if (!Regex.IsMatch(pUserId, @"^\d+$"))
+                    pIsUserName = true;
+            }
             DataTable dt = (pIsUserName)
                 ? _backendService.GetUserByUserName(pUserId)
                 : _backendService.GetUserById(pUserId);

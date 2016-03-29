@@ -32,7 +32,7 @@ namespace PlexByte.MoCap.Interactions
         /// <summary>
         /// The date and time the account was last modified
         /// </summary>
-        public DateTime ModifiedDateTime { get; private set; }
+        public DateTime ModifiedDateTime { get; set; }
         /// <summary>
         /// Flag indicating whether or not the account can be worked on
         /// </summary>
@@ -52,7 +52,7 @@ namespace PlexByte.MoCap.Interactions
         /// <summary>
         /// The user currently owning the account
         /// </summary>
-        public IUser Owner { get; private set; }
+        public IUser Owner { get; set; }
         /// <summary>
         /// The state of the account
         /// </summary>

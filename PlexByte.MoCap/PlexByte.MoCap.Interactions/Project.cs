@@ -32,7 +32,7 @@ namespace PlexByte.MoCap.Interactions
         /// <summary>
         /// The date and time the project was last modified
         /// </summary>
-        public DateTime ModifiedDateTime { get; private set; }
+        public DateTime ModifiedDateTime { get; set; }
         /// <summary>
         /// Flag indicating whether or not the project can be worked on
         /// </summary>
@@ -52,7 +52,7 @@ namespace PlexByte.MoCap.Interactions
         /// <summary>
         /// The user currently owning the project
         /// </summary>
-        public IUser Owner { get; private set; }
+        public IUser Owner { get; set; }
         /// <summary>
         /// The state of the project
         /// </summary>

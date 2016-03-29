@@ -49,7 +49,7 @@ namespace PlexByte.MoCap.Interactions
         /// <summary>
         /// The date and time the task was last modified
         /// </summary>
-        public DateTime ModifiedDateTime => _modifiedDateTime;
+        public DateTime ModifiedDateTime { get; set; }
 
         public string Title { get; set; }
 
@@ -76,7 +76,7 @@ namespace PlexByte.MoCap.Interactions
         /// <summary>
         /// The user currently owning the task
         /// </summary>
-        public IUser Owner => _owner;
+        public IUser Owner { get; set; }
 
         /// <summary>
         /// The state of the task
@@ -126,11 +126,9 @@ namespace PlexByte.MoCap.Interactions
 
         private string _id;
         private DateTime _createdDateTime;
-        private DateTime _modifiedDateTime;
         private DateTime _dueDateTime;
         private bool _isActive;
         private IUser _creator;
-        private IUser _owner;
         private InteractionState _state;
         private InteractionType _type;
         private decimal _budget;
@@ -249,7 +247,7 @@ namespace PlexByte.MoCap.Interactions
         {
             if (Owner != pUser)
             {
-                _owner = pUser;
+                Owner = pUser;
                 List<InteractionAttributes> changedAttrs = new List<InteractionAttributes> {InteractionAttributes.Owner};
                 OnModify(new InteractionEventArgs("Owner changed", DateTime.Now, InteractionType.Task, changedAttrs));
             }
@@ -374,13 +372,13 @@ namespace PlexByte.MoCap.Interactions
             StartDateTime = pStartDt;
             EndDateTime = pEndDt;
             _createdDateTime = DateTime.Now;
-            _modifiedDateTime = DateTime.Now;
+            ModifiedDateTime = DateTime.Now;
             _isActive = pIsActive;
             Text = pText;
             Title = pTitle;
             _type = pType;
             _creator = pCreator;
-            _owner = pOwner;
+            Owner = pOwner;
             _state = pState;
             _budget = pBudget;
             _duration = pDuration;

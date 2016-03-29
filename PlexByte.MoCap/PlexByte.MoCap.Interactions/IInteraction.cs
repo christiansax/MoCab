@@ -28,7 +28,7 @@ namespace PlexByte.MoCap.Interactions
 
         DateTime CreatedDateTime { get; }
 
-        DateTime ModifiedDateTime { get; }
+        DateTime ModifiedDateTime { get; set; }
 
         bool IsActive { get; }
 
@@ -38,7 +38,7 @@ namespace PlexByte.MoCap.Interactions
 
         IUser Creator { get; }
 
-        IUser Owner { get; }
+        IUser Owner { get; set; }
 
         InteractionState State { get; }
 

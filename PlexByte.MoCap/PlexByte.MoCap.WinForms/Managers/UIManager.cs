@@ -45,6 +45,7 @@ namespace PlexByte.MoCap.WinForms
         private readonly frm_MoCapMain _MainUI = null;
         private readonly ErrorProvider _errorProvider = null;
         private ObjectManager _objectManager = null;
+        private uc_MenuBar _menuBar = null;
         private User _userContext = null;
         private uc_Overview _overviewPanel = null;
         private const string _longDateTimeFtm = "ddd dd MMM yyyy  HH:mm";
@@ -69,29 +70,6 @@ namespace PlexByte.MoCap.WinForms
             _objectManager = new ObjectManager();
             _objectManager.UserLoggedIn += ObjectManager_UserLoggedIn;
             _objectManager.UserLoggedOut += ObjectManager_UserLoggedOut;
-        }
-
-        /// <summary>
-        /// This method is the event handler for the userLoggedIn event raised by objectManager
-        /// </summary>
-        /// <param name="sender">the user that logged in</param>
-        /// <param name="e">The event arguments</param>
-        private void ObjectManager_UserLoggedOut(object sender, EventArgs e)
-        {
-            _userContext = null;
-            _overviewPanel.ClearDataGridViews();
-        }
-
-        /// <summary>
-        /// This method is the event handler for the userLoggedOut event raised by objectManager
-        /// </summary>
-        /// <param name="sender">The user raising the event</param>
-        /// <param name="e">The event args</param>
-        private void ObjectManager_UserLoggedIn(object sender, EventArgs e)
-        {
-            _userContext = (User) _objectManager.UserContext;
-            _overviewPanel.UnRegisterEvents();
-            GenerateOverviewPanel();
         }
 
         /// <summary>
@@ -189,11 +167,15 @@ namespace PlexByte.MoCap.WinForms
         /// </summary>
         public void AddMenuBar()
         {
-            DockContent tmp = new uc_MenuBar();
-            tmp.TabText = "Main Menu";
-            tmp.CloseButton = false;
-            tmp.Show(_MainUI.Panel, DockState.DockTop);
-            ((uc_MenuBar) tmp).RegisterEvents(this);
+            _menuBar = new uc_MenuBar();
+            _menuBar.TabText = "Main Menu";
+            _menuBar.CloseButton = false;
+            _menuBar.Show(_MainUI.Panel, DockState.DockTop);
+            ((uc_MenuBar)_menuBar).RegisterEvents(this);
+            if (UserContext != null)
+                _menuBar.EnableButtonControls();
+            else
+                _menuBar.DisableButtonControls();
         }
 
         /// <summary>
@@ -209,6 +191,31 @@ namespace PlexByte.MoCap.WinForms
         #endregion
 
         #region UIEvents
+
+        /// <summary>
+        /// This method is the event handler for the userLoggedIn event raised by objectManager
+        /// </summary>
+        /// <param name="sender">the user that logged in</param>
+        /// <param name="e">The event arguments</param>
+        private void ObjectManager_UserLoggedOut(object sender, EventArgs e)
+        {
+            _userContext = null;
+            _overviewPanel.ClearDataGridViews();
+            _menuBar.DisableButtonControls();
+        }
+
+        /// <summary>
+        /// This method is the event handler for the userLoggedOut event raised by objectManager
+        /// </summary>
+        /// <param name="sender">The user raising the event</param>
+        /// <param name="e">The event args</param>
+        private void ObjectManager_UserLoggedIn(object sender, EventArgs e)
+        {
+            _userContext = (User)_objectManager.UserContext;
+            _overviewPanel.UnRegisterEvents();
+            GenerateOverviewPanel();
+            _menuBar.EnableButtonControls();
+        }
 
         /// <summary>
         /// Eventlistener for the menu form. Any button event is captured here and corresponding action is executed

@@ -127,7 +127,7 @@
             // btn_Vote
             // 
             this.btn_Vote.Image = global::PlexByte.MoCap.WinForms.Properties.Resources.vote;
-            this.btn_Vote.Location = new System.Drawing.Point(222, 6);
+            this.btn_Vote.Location = new System.Drawing.Point(169, 6);
             this.btn_Vote.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Vote.Name = "btn_Vote";
             this.btn_Vote.Size = new System.Drawing.Size(48, 49);
@@ -138,12 +138,13 @@
             // btn_SurveyOptions
             // 
             this.btn_SurveyOptions.Image = global::PlexByte.MoCap.WinForms.Properties.Resources.surveyOption;
-            this.btn_SurveyOptions.Location = new System.Drawing.Point(170, 6);
+            this.btn_SurveyOptions.Location = new System.Drawing.Point(221, 6);
             this.btn_SurveyOptions.Margin = new System.Windows.Forms.Padding(2);
             this.btn_SurveyOptions.Name = "btn_SurveyOptions";
             this.btn_SurveyOptions.Size = new System.Drawing.Size(48, 49);
             this.btn_SurveyOptions.TabIndex = 9;
             this.btn_SurveyOptions.UseVisualStyleBackColor = true;
+            this.btn_SurveyOptions.Visible = false;
             this.btn_SurveyOptions.MouseEnter += new System.EventHandler(this.SurveyOptions_MouseEnter);
             // 
             // label1

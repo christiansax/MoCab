@@ -4,7 +4,7 @@
 CREATE VIEW [dbo].[View_ProjectAccountSummary]
 	AS 
 	SELECT	[p].[Id] AS ProjectId, [p].[Name], [u].[Id] AS UserId, [u].[Username], SUM([t].[Duration]) AS TotalTime, 
-			SUM([e].[Value]) AS TotalValue
+			SUM([e].[Value]) AS TotalValue, [p].[IsActive]
 	FROM	[View_Project] p INNER JOIN [Accounting] a
 			ON [a].[ProjectId] = [p].[Id]
 			INNER JOIN [Expense] e
@@ -13,4 +13,4 @@ CREATE VIEW [dbo].[View_ProjectAccountSummary]
 			ON [a].[TimesliceId] = [t].[Id]
 			INNER JOIN [View_User] u
 			ON [e].[CreatorId] = [u].[Id] OR [t].[CreatorId] = [u].[Id]
-	GROUP BY ROLLUP([p].[Id], [p].[Name], [u].[Id], [u].[Username])
+	GROUP BY ROLLUP([p].[Id], [p].[Name], [u].[Id], [u].[Username], [p].[IsActive])

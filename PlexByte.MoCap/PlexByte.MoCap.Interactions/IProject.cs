@@ -35,6 +35,8 @@ namespace PlexByte.MoCap.Interactions
 
         bool EnableBalance { get; }
 
+        IUser Creator { get; }
+
         bool EnableSurvey { get; }
 
         List<IUser> InvitationList { get; }

@@ -363,7 +363,7 @@ namespace PlexByte.MoCap.Managers
         /// <summary>
         /// This method inserts or updated a project in the database
         /// </summary>
-        /// <param name="pProject"></param>
+        /// <param name="pProject">The project to update or insert</param>
         public void UpsertProject(Project pProject)
         {
             _backendService.InsertProject(pProject.Id,
@@ -483,6 +483,20 @@ namespace PlexByte.MoCap.Managers
             _backendService.InsertSurveyOption(pSurveyOption.Id,
                 pSurveyOption.Text,
                 pSurveyId);
+        }
+
+
+        /// <summary>
+        /// This method inserts or updates a project mapping in the database
+        /// </summary>
+        /// <param name="pProject">The project the mapping is added</param>
+        /// <param name="pObjectId">The Id of the Object added to the project mapping</param>
+        /// <param name="pObjectType">1 = UserMapping, 2 = TaskMapping, 3 = SurveyMapping</param>
+        public void UpsertProjectMapping(string pProjectId, string pObjectId, int pObjectType)
+        {
+            _backendService.InsertProjectMapping(pProjectId,
+                pObjectId,
+                pObjectType);
         }
 
         #endregion

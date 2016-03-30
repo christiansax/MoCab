@@ -355,6 +355,7 @@ namespace PlexByte.MoCap.Managers
             Project t = (Project)pInstance;
             TimeSpan _Countdown;
 
+
             if (t.StartDateTime < DateTime.Now)
             {
                 _Countdown = t.EndDateTime.Subtract(DateTime.Now);

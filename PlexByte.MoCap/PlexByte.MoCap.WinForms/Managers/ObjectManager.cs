@@ -489,10 +489,42 @@ namespace PlexByte.MoCap.Managers
                 return default(ITimeslice);
         }
 
+
         /// <summary>
-            /// The event handler for the Refresh event. This event fires whenever the updateTimer elapses
-            /// </summary>
-            /// <param name="e">The eventarguments</param>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="pProject"></param>
+        /// <param name="pObjectId"></param>
+        /// <param name="pObjectType"></param>
+        public void UpsertProjectMapping<T>(IProject pProject, string pObjectId, T pObjectType)
+        {
+            if (pObjectType.GetType() == typeof(IUser))
+            {
+                _dataManager.UpsertProjectMapping(pProject.Id, pObjectId, 1);
+            }
+            else if (pObjectType.GetType() == typeof(ITask))
+            {
+                _dataManager.UpsertProjectMapping(pProject.Id, pObjectId, 2);
+            }
+            else if (pObjectType.GetType() == typeof(ISurvey))
+            {
+                _dataManager.UpsertProjectMapping(pProject.Id, pObjectId, 3);
+            }
+            else
+            {
+                throw new InvalidCastException($"The type {typeof(T).ToString()} was not implemented");
+            }
+        }
+
+
+
+
+
+        /// <summary>
+        /// The event handler for the Refresh event. This event fires whenever the updateTimer elapses
+        /// </summary>
+        /// <param name="e">The eventarguments</param>
         public virtual void OnRefreshTimerElapsed(EventArgs e) { RefreshTimerElapsed?.Invoke(this, e); }
 
         /// <summary>
@@ -559,6 +591,7 @@ namespace PlexByte.MoCap.Managers
                 IProject tmp = _formManager.CreateObjectFromForm<IProject>(pForm);
                 ProjectList.Add(tmp);
                 _dataManager.UpsertProject((Project)tmp);
+                //UpsertProjectMapping(tmp, tmp.Creator.Id, tmp.Creator);
                 return (T)tmp;
             }
             else if (pForm.GetType() == typeof(uc_User))

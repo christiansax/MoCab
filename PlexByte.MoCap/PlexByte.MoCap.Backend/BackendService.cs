@@ -1147,5 +1147,70 @@ namespace PlexByte.MoCap.Backend
                 reader.Close();
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ProjectId"></param>
+        /// <param name="ObjectId"></param>
+        /// <param name="ObjectType"> 1 = UserMapping, 2 = TaskMapping, 3 = SurveyMapping</param>
+        public void InsertProjectMapping(string ProjectId,
+            string ObjectId,
+            int ObjectType)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                // Create the command and set its properties.
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = "Sproce_ProjectAddMapping";
+                command.CommandType = CommandType.StoredProcedure;
+
+                // Add the input parameter and set its properties.
+                SqlParameter parameter = new SqlParameter("@ProjectId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(ProjectId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@ObjectId", SqlDbType.BigInt)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Convert.ToInt64(ObjectId)
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@ObjectType", SqlDbType.Int)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = ObjectType
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@ResultMsg", SqlDbType.VarChar)
+                {
+                    Direction = ParameterDirection.Output,
+                    Value = string.Empty
+                };
+                command.Parameters.Add(parameter);
+
+                // Open the connection and execute the reader.
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Console.WriteLine("{0}: {1:C}", reader[0], reader[1]);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+            }
+        }
     }
 }

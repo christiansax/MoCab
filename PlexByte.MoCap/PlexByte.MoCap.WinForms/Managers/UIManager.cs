@@ -378,6 +378,29 @@ namespace PlexByte.MoCap.WinForms
         }
 
         /// <summary>
+        /// Eventlistener for the Account form.
+        /// </summary>
+        /// <param name="sender">The sender of the event</param>
+        /// <param name="e">The event arguements</param>
+        public void AccountButtonClicked(object sender, EventArgs e)
+        {
+            _errorProvider.Clear();
+            List<Control> ctrls = GetAllControls(((Button)sender).Parent);
+            switch (((Button)sender).Name)
+            {
+                case "btn_AssignProject":
+                    AccountButtonAssign(ctrls);
+                    break;
+                case "btn_Update":
+                    AccountButtonUpdate(ctrls);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
+        /// <summary>
         /// This method handles button event fired from the survey form
         /// </summary>
         /// <param name="sender">The button sending the event</param>
@@ -1171,6 +1194,18 @@ namespace PlexByte.MoCap.WinForms
             GetControlByName<Button>(pControlList, "btn_New").Text = "Save";
             GetControlByName<Button>(pControlList, "btn_Edit").Visible = false;
         }
+
+
+        private void AccountButtonAssign(List<Control> pControlList)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void AccountButtonUpdate(List<Control> ctrls)
+        {
+            throw new NotImplementedException();
+        }
+
 
         #endregion
     }

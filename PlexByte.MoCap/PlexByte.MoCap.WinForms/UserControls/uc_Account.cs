@@ -1,4 +1,5 @@
-﻿using WeifenLuo.WinFormsUI.Docking;
+﻿using System;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace PlexByte.MoCap.WinForms.UserControls
 {
@@ -10,6 +11,14 @@ namespace PlexByte.MoCap.WinForms.UserControls
         {
             InitializeComponent();
             this.TabText = PanelTitle;
+        }
+
+
+        public void RegisterEvents(UIManager pManagerInstance)
+        {
+            btn_AssignProject.Click += new EventHandler(pManagerInstance.ProjectButtonClicked);
+            btn_Update.Click += new EventHandler(pManagerInstance.ProjectButtonClicked);
+
         }
     }
 }

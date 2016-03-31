@@ -193,6 +193,31 @@ namespace PlexByte.MoCap.Backend
             return ExecuteQueryString($"select * from View_ProjectSurveyMapping where ProjectId = '{pId}' AND IsActive = 1");
         }
 
+
+
+        /// <summary>
+        /// This method gets all Expenses of a project.
+        /// </summary>
+        /// <param name="pId">The id of the project to query</param>
+        /// <param name="pType">The object type to use in the query (either Project or User)</param>
+        /// <returns>DataTable containing all Expenses for the user or project in question</returns>
+        public DataTable GetExpenseByProjectId(string pId, ObjectType pType)
+        {
+            return ExecuteQueryString($"select * from View_ProjectExpenseMapping where ProjectId = '{pId}' AND IsActive = 1");
+        }
+
+
+        /// <summary>
+        /// This method gets all Timeslices of a project
+        /// </summary>
+        /// <param name="pId">The id of the project to query</param>
+        /// <param name="pType">The object type to use in the query (either Project or User)</param>
+        /// <returns>DataTable containing all Timeslices for the user or project in question</returns>
+        public DataTable GetTimesliceByProjectId(string pId, ObjectType pType)
+        {
+            return ExecuteQueryString($"select * from View_ProjectTimesliceMapping where ProjectId = '{pId}' AND IsActive = 1");
+        }
+
         /// <summary>
         /// This method gets all survey options that are available for the survey specified. It uses the SQL view_surveyoptions
         /// </summary>

@@ -31,9 +31,7 @@ namespace PlexByte.MoCap.WinForms.CustomForms
             _MemberList = MemberList;
             controller.FillUserGrid(_projectId);
         }
-
-
-
+        
 
         /// <summary>
         /// Adds a user to the availableUsers datagridview
@@ -51,6 +49,12 @@ namespace PlexByte.MoCap.WinForms.CustomForms
         {
             if (dgw_AvailUsers.SelectedRows[0].Cells["Id"].ToString() != _UserId)
                 NewOwnerId = dgw_AvailUsers.SelectedRows[0].Cells["Id"].ToString();
+        }
+
+        public void UserSelectionOk()
+        {
+            DialogResult = DialogResult.OK;
+            Close();
         }
     }
 }

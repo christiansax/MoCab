@@ -499,15 +499,15 @@ namespace PlexByte.MoCap.Managers
         /// <param name="pObjectType"></param>
         public void UpsertProjectMapping<T>(IProject pProject, string pObjectId, T pObjectType)
         {
-            if (pObjectType.GetType() == typeof(IUser))
+            if (pObjectType.GetType() == typeof(User))
             {
                 _dataManager.UpsertProjectMapping(pProject.Id, pObjectId, 1);
             }
-            else if (pObjectType.GetType() == typeof(ITask))
+            else if (pObjectType.GetType() == typeof(Task))
             {
                 _dataManager.UpsertProjectMapping(pProject.Id, pObjectId, 2);
             }
-            else if (pObjectType.GetType() == typeof(ISurvey))
+            else if (pObjectType.GetType() == typeof(Survey))
             {
                 _dataManager.UpsertProjectMapping(pProject.Id, pObjectId, 3);
             }
@@ -591,7 +591,7 @@ namespace PlexByte.MoCap.Managers
                 IProject tmp = _formManager.CreateObjectFromForm<IProject>(pForm);
                 ProjectList.Add(tmp);
                 _dataManager.UpsertProject((Project)tmp);
-                //UpsertProjectMapping(tmp, tmp.Creator.Id, tmp.Creator);
+                UpsertProjectMapping(tmp, tmp.Creator.Id, tmp.Creator);
                 return (T)tmp;
             }
             else if (pForm.GetType() == typeof(uc_User))

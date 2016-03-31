@@ -283,6 +283,19 @@ namespace PlexByte.MoCap.Backend
             return ExecuteQueryString($"select * from [View_Timeslice] where [ProjectId] = '{pId}' order by ProjectId");
         }
 
+
+        /// <summary>
+        /// This method returns all users with TotalTime and TotalValue by projectId
+        /// </summary>
+        /// <param name="pId"></param>
+        /// <returns>DataTable with: [p].[Id] AS ProjectId, [p].[Name], [u].[Id] AS UserId, [u].[Username], SUM([t].[Duration]) AS TotalTime, SUM([e].[Value]) AS TotalValue, [p].[IsActive]</returns>
+        public DataTable GetAccountByProjectId(string pId)
+        {
+            return ExecuteQueryString($"select * from [View_ProjectAccountSummary] where [ProjectId] = '{pId}' order by ProjectId");
+        }
+
+
+
         /// <summary>
         /// This method opens an SQL connection to the server as configured in the connection string given, executes the 
         /// command text found in the parameter and finally returns the datatable from the reader executed

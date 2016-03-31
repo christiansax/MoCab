@@ -79,6 +79,7 @@
             this.btn_Update = new System.Windows.Forms.Button();
             this.btn_Create = new System.Windows.Forms.Button();
             this.btn_InviteUser = new System.Windows.Forms.Button();
+            this.lbl_Id = new System.Windows.Forms.Label();
             this.gbx_ProjectSettings.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Tasks)).BeginInit();
@@ -101,6 +102,7 @@
             // 
             this.gbx_ProjectSettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbx_ProjectSettings.Controls.Add(this.lbl_Id);
             this.gbx_ProjectSettings.Controls.Add(this.dtp_EndDate);
             this.gbx_ProjectSettings.Controls.Add(this.dtp_StartDate);
             this.gbx_ProjectSettings.Controls.Add(this.label8);
@@ -635,6 +637,15 @@
             this.btn_InviteUser.Text = "Invite User";
             this.btn_InviteUser.UseVisualStyleBackColor = true;
             // 
+            // lbl_Id
+            // 
+            this.lbl_Id.AutoSize = true;
+            this.lbl_Id.Location = new System.Drawing.Point(148, -14);
+            this.lbl_Id.Name = "lbl_Id";
+            this.lbl_Id.Size = new System.Drawing.Size(0, 17);
+            this.lbl_Id.TabIndex = 30;
+            this.lbl_Id.Visible = false;
+            // 
             // uc_Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -715,5 +726,6 @@
         private System.Windows.Forms.Button btn_InviteUser;
         private System.Windows.Forms.Button btn_ChangeOwner;
         private System.Windows.Forms.DateTimePicker dtp_EndDate;
+        private System.Windows.Forms.Label lbl_Id;
     }
 }

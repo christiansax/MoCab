@@ -254,11 +254,14 @@ namespace PlexByte.MoCap.Managers
         {
             List<Control> ctrl = GetAllControls(pInstance);
             uc_Project tmp = (uc_Project)pInstance;
-
             //Initialize default values for controls
-            if (string.IsNullOrEmpty(tmp.ProjectId))
+            if (string.IsNullOrEmpty(GetControlByName<Label>(ctrl, "lbl_Id").Text))
             {
                 tmp.ProjectId = DateTime.Now.ToString(DateStringFormatId);
+            }
+            else
+            {
+                tmp.ProjectId = GetControlByName<Label>(ctrl, "lbl_Id").Text;
             }
 
             IProject obj = _interactionFactory.CreateProject(tmp.ProjectId,
@@ -354,7 +357,7 @@ namespace PlexByte.MoCap.Managers
 
             Project t = (Project)pInstance;
             TimeSpan _Countdown;
-
+            
 
             if (t.StartDateTime < DateTime.Now)
             {
@@ -364,7 +367,8 @@ namespace PlexByte.MoCap.Managers
             {
                 _Countdown = t.EndDateTime.Subtract(t.StartDateTime);
             }
-            
+
+            GetControlByName<Label>(ctrl, "lbl_Id").Text = t.Id;
             GetControlByName<TextBox>(ctrl, "tbx_Title").Text = t.Name;
             GetControlByName<TextBox>(ctrl, "tbx_Description").Text = t.Text;
             if (t.EnableBalance == true)

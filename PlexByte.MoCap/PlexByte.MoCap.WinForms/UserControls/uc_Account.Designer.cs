@@ -90,7 +90,7 @@
             this.tbx_ProjectName.Enabled = false;
             this.tbx_ProjectName.Location = new System.Drawing.Point(443, 22);
             this.tbx_ProjectName.Name = "tbx_ProjectName";
-            this.tbx_ProjectName.Size = new System.Drawing.Size(146, 22);
+            this.tbx_ProjectName.Size = new System.Drawing.Size(146, 19);
             this.tbx_ProjectName.TabIndex = 56;
             // 
             // label23
@@ -98,16 +98,17 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(362, 22);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(56, 17);
+            this.label23.Size = new System.Drawing.Size(43, 13);
             this.label23.TabIndex = 57;
             this.label23.Text = "Project:";
             // 
             // tbx_TotalCost
             // 
+            this.tbx_TotalCost.Enabled = false;
             this.tbx_TotalCost.Location = new System.Drawing.Point(119, 22);
             this.tbx_TotalCost.Margin = new System.Windows.Forms.Padding(4);
             this.tbx_TotalCost.Name = "tbx_TotalCost";
-            this.tbx_TotalCost.Size = new System.Drawing.Size(188, 22);
+            this.tbx_TotalCost.Size = new System.Drawing.Size(188, 19);
             this.tbx_TotalCost.TabIndex = 55;
             // 
             // label11
@@ -116,7 +117,7 @@
             this.label11.Location = new System.Drawing.Point(8, 22);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(76, 17);
+            this.label11.Size = new System.Drawing.Size(58, 13);
             this.label11.TabIndex = 54;
             this.label11.Text = "Total Cost:";
             // 
@@ -304,7 +305,7 @@
             // 
             // uc_Account
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(869, 539);
             this.Controls.Add(this.groupBox3);

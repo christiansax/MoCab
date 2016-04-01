@@ -142,6 +142,7 @@ namespace PlexByte.MoCap.WinForms
         {
             DockContent tmp = CreateContentPanel(UiType.Account);
             tmp.TabText = "Account Dialog";
+            ((uc_Account)tmp).RegisterEvents(this);
         }
 
         /// <summary>
@@ -1199,12 +1200,16 @@ namespace PlexByte.MoCap.WinForms
         private void AccountButtonAssign(List<Control> pControlList)
         {
             frm_ProjectSelectionList progressForm = new frm_ProjectSelectionList();
+
+            foreach (var project in _objectManager.ProjectList)
+            {
+                progressForm.AddAssignedProjects(project);
+            }
             if (progressForm.ShowDialog() == DialogResult.OK)
             {
-                // Get settings...
-
-                // Update current task with settings
+                string projectId = (progressForm.SelectedProjectId);
             }
+            
         }
 
         private void AccountButtonUpdate(List<Control> ctrls)

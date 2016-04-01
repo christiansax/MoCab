@@ -16,8 +16,8 @@ namespace PlexByte.MoCap.WinForms.UserControls
 
         public void RegisterEvents(UIManager pManagerInstance)
         {
-            btn_AssignProject.Click += new EventHandler(pManagerInstance.ProjectButtonClicked);
-            btn_Update.Click += new EventHandler(pManagerInstance.ProjectButtonClicked);
+            btn_AssignProject.Click += new EventHandler(pManagerInstance.AccountButtonClicked);
+            btn_Update.Click += new EventHandler(pManagerInstance.AccountButtonClicked);
 
         }
     }

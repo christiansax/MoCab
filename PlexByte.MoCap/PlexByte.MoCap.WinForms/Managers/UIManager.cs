@@ -1198,7 +1198,13 @@ namespace PlexByte.MoCap.WinForms
 
         private void AccountButtonAssign(List<Control> pControlList)
         {
-            throw new NotImplementedException();
+            frm_ProjectSelectionList progressForm = new frm_ProjectSelectionList();
+            if (progressForm.ShowDialog() == DialogResult.OK)
+            {
+                // Get settings...
+
+                // Update current task with settings
+            }
         }
 
         private void AccountButtonUpdate(List<Control> ctrls)

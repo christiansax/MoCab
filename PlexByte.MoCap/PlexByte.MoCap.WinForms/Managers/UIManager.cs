@@ -1042,6 +1042,7 @@ namespace PlexByte.MoCap.WinForms
         {
             // Is project loaded?
             uc_Project tmp = (uc_Project) pControlList[0].Parent;
+            tmp.ProjectId = GetControlByName<Label>(pControlList, "lbl_Id").Text;
             if (!string.IsNullOrEmpty(tmp.ProjectId))
             {
                 tmp.TabText = $"Project Details ({tmp.ProjectId})";

@@ -258,6 +258,7 @@ namespace PlexByte.MoCap.Managers
             if (string.IsNullOrEmpty(GetControlByName<Label>(ctrl, "lbl_Id").Text))
             {
                 tmp.ProjectId = DateTime.Now.ToString(DateStringFormatId);
+                GetControlByName<Label>(ctrl, "lbl_Id").Text = tmp.ProjectId;
             }
             else
             {

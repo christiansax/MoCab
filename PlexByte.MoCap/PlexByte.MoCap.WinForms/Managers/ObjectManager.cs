@@ -428,10 +428,20 @@ namespace PlexByte.MoCap.Managers
         {
             if (SurveyList.Any(x => x.Id == pForm.Id))
             {
-                ISurvey survey = SurveyList.First(x => x.Id == pForm.Id);
-                Vote tmp = (Vote) _formManager.CreateObjectFromForm<IVote>(pForm);
-                survey.AddVote(tmp);
-                _dataManager.UpsertVote(tmp);
+                try
+                {
+                    ISurvey survey = SurveyList.First(x => x.Id == pForm.Id);
+                    Vote tmp = (Vote) _formManager.CreateObjectFromForm<IVote>(pForm);
+                    if (tmp != null)
+                    {
+                        survey.AddVote(tmp);
+                        _dataManager.UpsertVote(tmp);
+                    }
+                }
+                catch (Exception exp)
+                {
+                    throw exp;
+                }
             }
             else
             {
@@ -616,7 +626,8 @@ namespace PlexByte.MoCap.Managers
                 _dataManager.UpsertSurvey((Survey)tmp);
                 foreach (ISurveyOption option in tmp.OptionList)
                     _dataManager.UpsertSurveyOption((SurveyOption)option, tmp.Id);
-                return (T)(ISurvey)tmp;
+                tmp.VoteList = _dataManager.GetVoteBySurveyId(tmp.Id);
+                return (T)tmp;
             }
             else if (pForm.GetType() == typeof(uc_Expense))
             {

@@ -74,12 +74,12 @@ namespace PlexByte.MoCap.Interactions
         /// <param name="pCreator">The creator of this survey</param>
         public Survey(string pId, string pText, List<string> pOptions, IUser pCreator)
         {
-            List<ISurveyOption> options = new List<ISurveyOption>();
+            OptionList = new List<ISurveyOption>();
             foreach (string option in pOptions)
             {
-                options.Add(new SurveyOption(new Guid().ToString(), option));
+                OptionList.Add(new SurveyOption(new Guid().ToString(), option));
             }
-            InitializeProperties(pId, pText, options, pCreator);
+            InitializeProperties(pId, pText, OptionList, pCreator);
         }
 
         #endregion
@@ -244,7 +244,7 @@ namespace PlexByte.MoCap.Interactions
             VoteList = new List<IVote>();
             UserList=new List<IUser>();
             UserList.Add(pCreator);
-            OptionList = new List<ISurveyOption>();
+            OptionList = pOptions;
             _state = StartDateTime <= DateTime.Now ? InteractionState.Active : InteractionState.Queued;
             _stateTimer.Elapsed += OnTimerElapsed;
             _stateTimer.AutoReset = false;

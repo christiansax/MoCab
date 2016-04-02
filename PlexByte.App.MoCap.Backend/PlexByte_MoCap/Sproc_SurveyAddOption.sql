@@ -14,7 +14,7 @@ AS
 		IF (NOT EXISTS (
 		SELECT	*
 		FROM	View_SurveyOptions
-		WHERE	[SurveyId] = @SurveyId AND [Id] = @SurveyId))
+		WHERE	[SurveyId] = @SurveyId AND [Id] = @SurveyOptionId))
 		BEGIN TRY
 			-- This is a new option, insert...
 			BEGIN TRANSACTION
@@ -30,8 +30,14 @@ AS
 			RAISERROR ('Caught exception %s', 16, -1, @ResultMsg);
 		END CATCH
 		ELSE
-			-- This is an update
-				-- Do nothing as update does not make sense here
+		BEGIN
+			UPDATE	[dbo].[SurveyOption]
+			SET		[SurveyId] = @SurveyId,
+					[Text] = @Text,
+					[ModifiedDateTime] = GETDATE()
+			WHERE	[Id] = @SurveyOptionId;
+			COMMIT;
 			SET @ResultMsg = @ResultMsg + ': Updated';
+		END
 	END
 RETURN 0

@@ -1,0 +1,609 @@
+\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task}{}\section{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task Class Reference}
+\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task}\index{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task@{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task}}
+Inheritance diagram for Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+delegate void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a7a8fb4764f97d4221d9c01f36737350e}{Progress\+Update} (object sender, \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_event_args}{Interaction\+Event\+Args} e)
+\item 
+\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a57a0376ee5adf1aa90a555a5e3e1a90e}{Task} (string p\+Id, string p\+Text, I\+User p\+Creator)
+\item 
+\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ad7b0d80dfd8588bcae2b8b90404b279f}{Task} (string p\+Id, string p\+Text, I\+User p\+Creator, Date\+Time p\+Start\+Dt, Date\+Time p\+End\+Dt, Date\+Time p\+Due\+Dt)
+\item 
+\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a7646af76da19c1b8f96d216ae76f6ed8}{Task} (string p\+Id, string p\+Text, string p\+Title, I\+User p\+Creator, Date\+Time p\+Start\+Dt, Date\+Time p\+End\+Dt, Date\+Time p\+Due\+Dt, decimal p\+Budget, int p\+Duration, int p\+Priority, \hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_afcb673d9186608b6bd3b187179aedc8a}{Interaction\+State} p\+State, decimal p\+Budget\+Used, int p\+Time\+Used, List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_task}{I\+Task} $>$ p\+Sub\+Task, int p\+Progress)
+\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ab74ee9d89534254215ae13eb91e12227}{On\+Complete} (\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_event_args}{Interaction\+Event\+Args} p\+Event\+Args)
+\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a94296d62be4af091fd6a5e9a8a0fde8a}{On\+State\+Changed} (\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_event_args}{Interaction\+Event\+Args} p\+Event\+Args)
+\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ae9e732dc2f41a35a77dd8e143c8cf9c7}{On\+Modify} (\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_event_args}{Interaction\+Event\+Args} p\+Event\+Args)
+\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a47eac360e6cf4cd6b84f7445ee4a6a33}{Change\+Owner} (I\+User p\+User)
+\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ae0cb74071fbffd9fa7cd1dba842b6715}{Change\+Is\+Active} (bool p\+Active)
+\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ab8d71506e5343bc302bb661a5131449b}{Add\+Timeslice} (int p\+Duration)
+\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a12136bc5d5722e10c4a20b4e9ab40788}{Add\+Expense} (decimal p\+Expense\+Value)
+\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a42cc4439fb4ab6d4e11f8764b217b46d}{Change\+State} (\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_afcb673d9186608b6bd3b187179aedc8a}{Interaction\+State} p\+State)
+\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_aa152325c4d018f68b8dcbe1ef4c46497}{Add\+Sub\+Task} (\hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_task}{I\+Task} p\+Task)
+\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_af28b4349816bcd4d60c0746e7b7425d4}{Udate\+Progress} (int p\+Progress)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a56373e896c8d387f53b89c820b78686c}{Id} =$>$ \+\_\+id
+\begin{DoxyCompactList}\small\item\em The unique id of the task \end{DoxyCompactList}\item 
+Date\+Time \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ad09e75c883291d7bf2a5be651c2e48f5}{Created\+Date\+Time} =$>$ \+\_\+created\+Date\+Time
+\begin{DoxyCompactList}\small\item\em The date and time the task was created \end{DoxyCompactList}\item 
+bool \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a4e3e7f12d9ebbef619979f8aa1debaa9}{Is\+Active} =$>$ \+\_\+is\+Active
+\begin{DoxyCompactList}\small\item\em Flag indicating whether or not the task can be worked on \end{DoxyCompactList}\item 
+I\+User \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a8fbe07ee1d4f0d20465aa6eb78dd5959}{Creator} =$>$ \+\_\+creator
+\begin{DoxyCompactList}\small\item\em The user that created the task \end{DoxyCompactList}\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_afcb673d9186608b6bd3b187179aedc8a}{Interaction\+State} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ade847c2f68b897a4eae7463134aadaa1}{State} =$>$ \+\_\+state
+\begin{DoxyCompactList}\small\item\em The state of the task \end{DoxyCompactList}\item 
+decimal \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a754524cdae030db2de7d38cae665ed7e}{Budget} =$>$ \+\_\+budget
+\begin{DoxyCompactList}\small\item\em The tasks budget \end{DoxyCompactList}\item 
+int \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a84a9a89d90c83269366f70ea3e6cc2b9}{Duration} =$>$ \+\_\+duration
+\begin{DoxyCompactList}\small\item\em The task duration in seconds \end{DoxyCompactList}\item 
+int \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a4b3325d26ed2025dd44f597a428cfdd0}{Priority} =$>$ \+\_\+priority
+\begin{DoxyCompactList}\small\item\em The priority of this task \end{DoxyCompactList}\item 
+List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_task}{I\+Task} $>$ \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_adc2d20b794d9621f0f9496d753376a92}{Sub\+Tasks} =$>$ \+\_\+sub\+Tasks
+\begin{DoxyCompactList}\small\item\em The list of sub tasks assigned \end{DoxyCompactList}\item 
+int \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a557416cee8b3425c49f40fc07435719e}{Progress} =$>$ \+\_\+progress
+\begin{DoxyCompactList}\small\item\em The progresss of the task \end{DoxyCompactList}\item 
+Date\+Time \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ad232b867da717b3f823363d627b24009}{Due\+Date\+Time} =$>$ \+\_\+due\+Date\+Time
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a9784fcd7276f0b4111d7a7f8ef64e34e}{On\+Progress\+Updated} (\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_event_args}{Interaction\+Event\+Args} e)
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a1e0a8c220a72fc6189fa7081e6279a67}{Interaction\+Id}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+string \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a5827bb9ca244149e76780756ce196057}{Project\+Id}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+Date\+Time \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a3b4287e83b9825d68a583ad68ec60b65}{Start\+Date\+Time}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The date and time this task becomes active and can be worked on. As long as this date is not reached the state will remain queued and no work can be performed on the task as longs as it is in state queued \end{DoxyCompactList}\item 
+Date\+Time \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a7855e576032a285a50f918098e030c7f}{End\+Date\+Time}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The date and time this task should be finished. If this date is reached the state will change to expired \end{DoxyCompactList}\item 
+Date\+Time \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_aea629926c184e80ae57914422f5fcb4c}{Modified\+Date\+Time}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The date and time the task was last modified \end{DoxyCompactList}\item 
+string \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_afc2aa1b0a8699fe0a607b452eb5461c3}{Title}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+string \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ad80addfa475e483ae816bbd1bd199bf9}{Text}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The text of this task (description) \end{DoxyCompactList}\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_a6e7bea333446664bbce2bb296db25e31}{Interaction\+Type} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a8d56efe5c3efeb4df5f291cac8a57128}{Type}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The type of interaction (will be always task) \end{DoxyCompactList}\item 
+I\+User \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a3cdc15c2ceb9683e5b19d76462a5fb21}{Owner}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The user currently owning the task \end{DoxyCompactList}\item 
+int \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a0f087ca6c9a9af79cddb8c409f810526}{Duration\+Current}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The time currently spent on this task in seconds \end{DoxyCompactList}\item 
+decimal \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a982a30703b7b2c3258adad8e09a1ea29}{Budget\+Used} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The investment currently made in this task \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_ac81ac3321ab2b018c75ad2c18ec15b9e}{Complete} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a0d4c6a5a630e50b403c7e767d970206f}{Completed}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_a490186f613e46adce26244f3b2c78a58}{Modify} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a84fdfe29a8cd9889cd2eb0d2216d01d1}{Modified}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_af2ff213e81451f96fc74bfad114cecde}{State\+Change} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ad95c06276af6eb715b37421f1a121cc8}{State\+Changed}
+\item 
+\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a7a8fb4764f97d4221d9c01f36737350e}{Progress\+Update} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a018dbc01193478565a41d56409618e9a}{Progress\+Updated}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 13 of file Task.\+cs.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Task@{Task}}
+\index{Task@{Task}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Task(string p\+Id, string p\+Text, I\+User p\+Creator)}{Task(string pId, string pText, IUser pCreator)}}]{\setlength{\rightskip}{0pt plus 5cm}Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Task (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{I\+User}]{p\+Creator}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a57a0376ee5adf1aa90a555a5e3e1a90e}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a57a0376ee5adf1aa90a555a5e3e1a90e}
+
+
+Definition at line 156 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Task@{Task}}
+\index{Task@{Task}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Task(string p\+Id, string p\+Text, I\+User p\+Creator, Date\+Time p\+Start\+Dt, Date\+Time p\+End\+Dt, Date\+Time p\+Due\+Dt)}{Task(string pId, string pText, IUser pCreator, DateTime pStartDt, DateTime pEndDt, DateTime pDueDt)}}]{\setlength{\rightskip}{0pt plus 5cm}Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Task (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{I\+User}]{p\+Creator, }
+\item[{Date\+Time}]{p\+Start\+Dt, }
+\item[{Date\+Time}]{p\+End\+Dt, }
+\item[{Date\+Time}]{p\+Due\+Dt}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ad7b0d80dfd8588bcae2b8b90404b279f}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ad7b0d80dfd8588bcae2b8b90404b279f}
+
+
+Definition at line 175 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Task@{Task}}
+\index{Task@{Task}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Task(string p\+Id, string p\+Text, string p\+Title, I\+User p\+Creator, Date\+Time p\+Start\+Dt, Date\+Time p\+End\+Dt, Date\+Time p\+Due\+Dt, decimal p\+Budget, int p\+Duration, int p\+Priority, Interaction\+State p\+State, decimal p\+Budget\+Used, int p\+Time\+Used, List$<$ I\+Task $>$ p\+Sub\+Task, int p\+Progress)}{Task(string pId, string pText, string pTitle, IUser pCreator, DateTime pStartDt, DateTime pEndDt, DateTime pDueDt, decimal pBudget, int pDuration, int pPriority, InteractionState pState, decimal pBudgetUsed, int pTimeUsed, List< ITask > pSubTask, int pProgress)}}]{\setlength{\rightskip}{0pt plus 5cm}Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Task (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{string}]{p\+Title, }
+\item[{I\+User}]{p\+Creator, }
+\item[{Date\+Time}]{p\+Start\+Dt, }
+\item[{Date\+Time}]{p\+End\+Dt, }
+\item[{Date\+Time}]{p\+Due\+Dt, }
+\item[{decimal}]{p\+Budget, }
+\item[{int}]{p\+Duration, }
+\item[{int}]{p\+Priority, }
+\item[{{\bf Interaction\+State}}]{p\+State, }
+\item[{decimal}]{p\+Budget\+Used, }
+\item[{int}]{p\+Time\+Used, }
+\item[{List$<$ {\bf I\+Task} $>$}]{p\+Sub\+Task, }
+\item[{int}]{p\+Progress}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a7646af76da19c1b8f96d216ae76f6ed8}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a7646af76da19c1b8f96d216ae76f6ed8}
+
+
+Definition at line 194 of file Task.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Add\+Expense@{Add\+Expense}}
+\index{Add\+Expense@{Add\+Expense}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Add\+Expense(decimal p\+Expense\+Value)}{AddExpense(decimal pExpenseValue)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Add\+Expense (
+\begin{DoxyParamCaption}
+\item[{decimal}]{p\+Expense\+Value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a12136bc5d5722e10c4a20b4e9ab40788}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a12136bc5d5722e10c4a20b4e9ab40788}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_task_a96b54ce198b08eccb95456e16c4538d5}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Task}.
+
+
+
+Definition at line 283 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Add\+Sub\+Task@{Add\+Sub\+Task}}
+\index{Add\+Sub\+Task@{Add\+Sub\+Task}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Add\+Sub\+Task(\+I\+Task p\+Task)}{AddSubTask(ITask pTask)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Add\+Sub\+Task (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Task}}]{p\+Task}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_aa152325c4d018f68b8dcbe1ef4c46497}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_aa152325c4d018f68b8dcbe1ef4c46497}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_task_a20a23d8d8abb9f14330e75e8e09fe263}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Task}.
+
+
+
+Definition at line 317 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Add\+Timeslice@{Add\+Timeslice}}
+\index{Add\+Timeslice@{Add\+Timeslice}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Add\+Timeslice(int p\+Duration)}{AddTimeslice(int pDuration)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Add\+Timeslice (
+\begin{DoxyParamCaption}
+\item[{int}]{p\+Duration}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ab8d71506e5343bc302bb661a5131449b}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ab8d71506e5343bc302bb661a5131449b}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_task_af70a3a36f24fedda95ad55714333090f}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Task}.
+
+
+
+Definition at line 272 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Change\+Is\+Active@{Change\+Is\+Active}}
+\index{Change\+Is\+Active@{Change\+Is\+Active}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Change\+Is\+Active(bool p\+Active)}{ChangeIsActive(bool pActive)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Change\+Is\+Active (
+\begin{DoxyParamCaption}
+\item[{bool}]{p\+Active}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ae0cb74071fbffd9fa7cd1dba842b6715}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ae0cb74071fbffd9fa7cd1dba842b6715}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_ac2d9f47a1139b931939e8cff07153aba}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 256 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Change\+Owner@{Change\+Owner}}
+\index{Change\+Owner@{Change\+Owner}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Change\+Owner(\+I\+User p\+User)}{ChangeOwner(IUser pUser)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Change\+Owner (
+\begin{DoxyParamCaption}
+\item[{I\+User}]{p\+User}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a47eac360e6cf4cd6b84f7445ee4a6a33}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a47eac360e6cf4cd6b84f7445ee4a6a33}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_a7e3b0a67dc7d176877b8b94922a9bb52}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 246 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Change\+State@{Change\+State}}
+\index{Change\+State@{Change\+State}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Change\+State(\+Interaction\+State p\+State)}{ChangeState(InteractionState pState)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Change\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+State}}]{p\+State}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a42cc4439fb4ab6d4e11f8764b217b46d}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a42cc4439fb4ab6d4e11f8764b217b46d}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_a10beb35eb6061878469b5a6cd5431b32}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 294 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!On\+Complete@{On\+Complete}}
+\index{On\+Complete@{On\+Complete}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{On\+Complete(\+Interaction\+Event\+Args p\+Event\+Args)}{OnComplete(InteractionEventArgs pEventArgs)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+On\+Complete (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+Event\+Args}}]{p\+Event\+Args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ab74ee9d89534254215ae13eb91e12227}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ab74ee9d89534254215ae13eb91e12227}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_a9f32d6c1c2f2ae60dabb274f62128447}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 234 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!On\+Modify@{On\+Modify}}
+\index{On\+Modify@{On\+Modify}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{On\+Modify(\+Interaction\+Event\+Args p\+Event\+Args)}{OnModify(InteractionEventArgs pEventArgs)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+On\+Modify (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+Event\+Args}}]{p\+Event\+Args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ae9e732dc2f41a35a77dd8e143c8cf9c7}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ae9e732dc2f41a35a77dd8e143c8cf9c7}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_af4fac42d753ae7f9652541542b8961c6}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 238 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!On\+Progress\+Updated@{On\+Progress\+Updated}}
+\index{On\+Progress\+Updated@{On\+Progress\+Updated}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{On\+Progress\+Updated(\+Interaction\+Event\+Args e)}{OnProgressUpdated(InteractionEventArgs e)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+On\+Progress\+Updated (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+Event\+Args}}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a9784fcd7276f0b4111d7a7f8ef64e34e}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a9784fcd7276f0b4111d7a7f8ef64e34e}
+
+
+Definition at line 240 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!On\+State\+Changed@{On\+State\+Changed}}
+\index{On\+State\+Changed@{On\+State\+Changed}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{On\+State\+Changed(\+Interaction\+Event\+Args p\+Event\+Args)}{OnStateChanged(InteractionEventArgs pEventArgs)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+On\+State\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+Event\+Args}}]{p\+Event\+Args}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a94296d62be4af091fd6a5e9a8a0fde8a}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a94296d62be4af091fd6a5e9a8a0fde8a}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_a5250247fb5f22a633e22d7f8dc946c4d}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 236 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Progress\+Update@{Progress\+Update}}
+\index{Progress\+Update@{Progress\+Update}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Progress\+Update(object sender, Interaction\+Event\+Args e)}{ProgressUpdate(object sender, InteractionEventArgs e)}}]{\setlength{\rightskip}{0pt plus 5cm}delegate void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Progress\+Update (
+\begin{DoxyParamCaption}
+\item[{object}]{sender, }
+\item[{{\bf Interaction\+Event\+Args}}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a7a8fb4764f97d4221d9c01f36737350e}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a7a8fb4764f97d4221d9c01f36737350e}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Udate\+Progress@{Udate\+Progress}}
+\index{Udate\+Progress@{Udate\+Progress}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Udate\+Progress(int p\+Progress)}{UdateProgress(int pProgress)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Udate\+Progress (
+\begin{DoxyParamCaption}
+\item[{int}]{p\+Progress}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_af28b4349816bcd4d60c0746e7b7425d4}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_af28b4349816bcd4d60c0746e7b7425d4}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_task_a7e385a390973b7cc165bfbb6caf9ed75}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Task}.
+
+
+
+Definition at line 319 of file Task.\+cs.
+
+
+
+\subsection{Member Data Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Budget@{Budget}}
+\index{Budget@{Budget}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Budget}{Budget}}]{\setlength{\rightskip}{0pt plus 5cm}decimal Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Budget =$>$ \+\_\+budget}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a754524cdae030db2de7d38cae665ed7e}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a754524cdae030db2de7d38cae665ed7e}
+
+
+The tasks budget 
+
+
+
+Definition at line 89 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Created\+Date\+Time@{Created\+Date\+Time}}
+\index{Created\+Date\+Time@{Created\+Date\+Time}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Created\+Date\+Time}{CreatedDateTime}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Created\+Date\+Time =$>$ \+\_\+created\+Date\+Time}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ad09e75c883291d7bf2a5be651c2e48f5}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ad09e75c883291d7bf2a5be651c2e48f5}
+
+
+The date and time the task was created 
+
+
+
+Definition at line 47 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Creator@{Creator}}
+\index{Creator@{Creator}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Creator}{Creator}}]{\setlength{\rightskip}{0pt plus 5cm}I\+User Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Creator =$>$ \+\_\+creator}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a8fbe07ee1d4f0d20465aa6eb78dd5959}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a8fbe07ee1d4f0d20465aa6eb78dd5959}
+
+
+The user that created the task 
+
+
+
+Definition at line 74 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Due\+Date\+Time@{Due\+Date\+Time}}
+\index{Due\+Date\+Time@{Due\+Date\+Time}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Due\+Date\+Time}{DueDateTime}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Due\+Date\+Time =$>$ \+\_\+due\+Date\+Time}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ad232b867da717b3f823363d627b24009}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ad232b867da717b3f823363d627b24009}
+
+
+Definition at line 121 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Duration@{Duration}}
+\index{Duration@{Duration}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Duration}{Duration}}]{\setlength{\rightskip}{0pt plus 5cm}int Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Duration =$>$ \+\_\+duration}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a84a9a89d90c83269366f70ea3e6cc2b9}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a84a9a89d90c83269366f70ea3e6cc2b9}
+
+
+The task duration in seconds 
+
+
+
+Definition at line 94 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Id@{Id}}
+\index{Id@{Id}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Id}{Id}}]{\setlength{\rightskip}{0pt plus 5cm}string Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Id =$>$ \+\_\+id}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a56373e896c8d387f53b89c820b78686c}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a56373e896c8d387f53b89c820b78686c}
+
+
+The unique id of the task 
+
+
+
+Definition at line 27 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Is\+Active@{Is\+Active}}
+\index{Is\+Active@{Is\+Active}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Is\+Active}{IsActive}}]{\setlength{\rightskip}{0pt plus 5cm}bool Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Is\+Active =$>$ \+\_\+is\+Active}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a4e3e7f12d9ebbef619979f8aa1debaa9}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a4e3e7f12d9ebbef619979f8aa1debaa9}
+
+
+Flag indicating whether or not the task can be worked on 
+
+
+
+Definition at line 59 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Priority@{Priority}}
+\index{Priority@{Priority}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Priority}{Priority}}]{\setlength{\rightskip}{0pt plus 5cm}int Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Priority =$>$ \+\_\+priority}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a4b3325d26ed2025dd44f597a428cfdd0}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a4b3325d26ed2025dd44f597a428cfdd0}
+
+
+The priority of this task 
+
+
+
+Definition at line 99 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Progress@{Progress}}
+\index{Progress@{Progress}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Progress}{Progress}}]{\setlength{\rightskip}{0pt plus 5cm}int Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Progress =$>$ \+\_\+progress}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a557416cee8b3425c49f40fc07435719e}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a557416cee8b3425c49f40fc07435719e}
+
+
+The progresss of the task 
+
+
+
+Definition at line 119 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!State@{State}}
+\index{State@{State}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{State}{State}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Interaction\+State} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+State =$>$ \+\_\+state}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ade847c2f68b897a4eae7463134aadaa1}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ade847c2f68b897a4eae7463134aadaa1}
+
+
+The state of the task 
+
+
+
+Definition at line 84 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Sub\+Tasks@{Sub\+Tasks}}
+\index{Sub\+Tasks@{Sub\+Tasks}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Sub\+Tasks}{SubTasks}}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf I\+Task}$>$ Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Sub\+Tasks =$>$ \+\_\+sub\+Tasks}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_adc2d20b794d9621f0f9496d753376a92}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_adc2d20b794d9621f0f9496d753376a92}
+
+
+The list of sub tasks assigned 
+
+
+
+Definition at line 114 of file Task.\+cs.
+
+
+
+\subsection{Property Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Budget\+Used@{Budget\+Used}}
+\index{Budget\+Used@{Budget\+Used}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Budget\+Used}{BudgetUsed}}]{\setlength{\rightskip}{0pt plus 5cm}decimal Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Budget\+Used = 0\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a982a30703b7b2c3258adad8e09a1ea29}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a982a30703b7b2c3258adad8e09a1ea29}
+
+
+The investment currently made in this task 
+
+
+
+Definition at line 109 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Duration\+Current@{Duration\+Current}}
+\index{Duration\+Current@{Duration\+Current}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Duration\+Current}{DurationCurrent}}]{\setlength{\rightskip}{0pt plus 5cm}int Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Duration\+Current\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a0f087ca6c9a9af79cddb8c409f810526}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a0f087ca6c9a9af79cddb8c409f810526}
+
+
+The time currently spent on this task in seconds 
+
+
+
+Definition at line 104 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!End\+Date\+Time@{End\+Date\+Time}}
+\index{End\+Date\+Time@{End\+Date\+Time}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{End\+Date\+Time}{EndDateTime}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+End\+Date\+Time\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a7855e576032a285a50f918098e030c7f}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a7855e576032a285a50f918098e030c7f}
+
+
+The date and time this task should be finished. If this date is reached the state will change to expired 
+
+
+
+Definition at line 42 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Interaction\+Id@{Interaction\+Id}}
+\index{Interaction\+Id@{Interaction\+Id}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Interaction\+Id}{InteractionId}}]{\setlength{\rightskip}{0pt plus 5cm}string Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Interaction\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a1e0a8c220a72fc6189fa7081e6279a67}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a1e0a8c220a72fc6189fa7081e6279a67}
+
+
+Definition at line 29 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Modified\+Date\+Time@{Modified\+Date\+Time}}
+\index{Modified\+Date\+Time@{Modified\+Date\+Time}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Modified\+Date\+Time}{ModifiedDateTime}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Modified\+Date\+Time\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_aea629926c184e80ae57914422f5fcb4c}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_aea629926c184e80ae57914422f5fcb4c}
+
+
+The date and time the task was last modified 
+
+
+
+Definition at line 52 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Owner@{Owner}}
+\index{Owner@{Owner}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Owner}{Owner}}]{\setlength{\rightskip}{0pt plus 5cm}I\+User Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Owner\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a3cdc15c2ceb9683e5b19d76462a5fb21}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a3cdc15c2ceb9683e5b19d76462a5fb21}
+
+
+The user currently owning the task 
+
+
+
+Definition at line 79 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Project\+Id@{Project\+Id}}
+\index{Project\+Id@{Project\+Id}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Project\+Id}{ProjectId}}]{\setlength{\rightskip}{0pt plus 5cm}string Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Project\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a5827bb9ca244149e76780756ce196057}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a5827bb9ca244149e76780756ce196057}
+
+
+Definition at line 31 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Start\+Date\+Time@{Start\+Date\+Time}}
+\index{Start\+Date\+Time@{Start\+Date\+Time}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Start\+Date\+Time}{StartDateTime}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Start\+Date\+Time\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a3b4287e83b9825d68a583ad68ec60b65}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a3b4287e83b9825d68a583ad68ec60b65}
+
+
+The date and time this task becomes active and can be worked on. As long as this date is not reached the state will remain queued and no work can be performed on the task as longs as it is in state queued 
+
+
+
+Definition at line 37 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Text@{Text}}
+\index{Text@{Text}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Text}{Text}}]{\setlength{\rightskip}{0pt plus 5cm}string Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Text\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ad80addfa475e483ae816bbd1bd199bf9}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ad80addfa475e483ae816bbd1bd199bf9}
+
+
+The text of this task (description) 
+
+
+
+Definition at line 64 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Title@{Title}}
+\index{Title@{Title}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Title}{Title}}]{\setlength{\rightskip}{0pt plus 5cm}string Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Title\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_afc2aa1b0a8699fe0a607b452eb5461c3}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_afc2aa1b0a8699fe0a607b452eb5461c3}
+
+
+Definition at line 54 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Type@{Type}}
+\index{Type@{Type}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Type}{Type}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Interaction\+Type} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Type\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a8d56efe5c3efeb4df5f291cac8a57128}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a8d56efe5c3efeb4df5f291cac8a57128}
+
+
+The type of interaction (will be always task) 
+
+
+
+Definition at line 69 of file Task.\+cs.
+
+
+
+\subsection{Event Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Completed@{Completed}}
+\index{Completed@{Completed}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Completed}{Completed}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complete} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Completed}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a0d4c6a5a630e50b403c7e767d970206f}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a0d4c6a5a630e50b403c7e767d970206f}
+
+
+Definition at line 147 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Modified@{Modified}}
+\index{Modified@{Modified}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Modified}{Modified}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Modify} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Modified}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a84fdfe29a8cd9889cd2eb0d2216d01d1}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a84fdfe29a8cd9889cd2eb0d2216d01d1}
+
+
+Definition at line 148 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!Progress\+Updated@{Progress\+Updated}}
+\index{Progress\+Updated@{Progress\+Updated}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{Progress\+Updated}{ProgressUpdated}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Progress\+Update} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+Progress\+Updated}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a018dbc01193478565a41d56409618e9a}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_a018dbc01193478565a41d56409618e9a}
+
+
+Definition at line 150 of file Task.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}!State\+Changed@{State\+Changed}}
+\index{State\+Changed@{State\+Changed}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Task}}
+\subsubsection[{\texorpdfstring{State\+Changed}{StateChanged}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State\+Change} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Task.\+State\+Changed}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ad95c06276af6eb715b37421f1a121cc8}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_task_ad95c06276af6eb715b37421f1a121cc8}
+
+
+Definition at line 149 of file Task.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Users/\+Christian\+B/\+Documents/\+\_\+\+H\+F Infomatik/\+Git\+Hub\+\_\+\+Repos/\+Mo\+Cap/\+Plex\+Byte.\+Mo\+Cap/\+Plex\+Byte.\+Mo\+Cap.\+Interactions/\hyperlink{_task_8cs}{Task.\+cs}\end{DoxyCompactItemize}

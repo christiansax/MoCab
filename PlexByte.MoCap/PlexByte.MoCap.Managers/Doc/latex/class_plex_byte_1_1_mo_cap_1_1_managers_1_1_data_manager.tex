@@ -1,0 +1,505 @@
+\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager}{}\section{Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager Class Reference}
+\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager}\index{Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager@{Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager}}
+Inheritance diagram for Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_acfc15879c5d4a6220e7290c7cc349d71}{Data\+Manager} (\hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager}{Object\+Manager} p\+Instance)
+\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a4635dbd66ef17b1fe5ad4902263911b5}{Dispose} ()
+\item 
+I\+Project \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a171f351a560808acdbf1dcff3dba35f0}{Get\+Project\+By\+Id} (string p\+Id)
+\begin{DoxyCompactList}\small\item\em This method get a project based on the id specified from the database \end{DoxyCompactList}\item 
+I\+Task \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_acc0b266b7b8314a706388937e9bfdfd0}{Get\+Task\+By\+Id} (string p\+Id)
+\begin{DoxyCompactList}\small\item\em This method get a task based on the id specified from the database \end{DoxyCompactList}\item 
+I\+Survey \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_ae241e73ab8bd473ed38bf4cea886daf8}{Get\+Survey\+By\+Id} (string p\+Id)
+\begin{DoxyCompactList}\small\item\em This method get a survey based on the id provided from the database \end{DoxyCompactList}\item 
+I\+Expense \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a2d45292a0c90c2477132114a23916e5d}{Get\+Expense\+By\+Id} (string p\+Id)
+\item 
+I\+Timeslice \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a3066dbd18dbfcd18e0920de4e37ae6f4}{Get\+Timeslice\+By\+Id} (string p\+Id)
+\item 
+I\+Survey\+Option \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a270db5dc5377a18d97e04ff83841d6a0}{Get\+Survey\+Option} (string p\+Id)
+\begin{DoxyCompactList}\small\item\em This method gets a survey option from the database \end{DoxyCompactList}\item 
+List$<$ I\+Survey\+Option $>$ \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a32bb616f670aac22a1d7125e3f0f4a64}{Get\+Survey\+Options} (string p\+Survey\+Id)
+\begin{DoxyCompactList}\small\item\em This method gets the survey options of a survey from the database \end{DoxyCompactList}\item 
+I\+Vote \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a1d18d1570758b5f087b58c52ba8c475a}{Get\+Vote\+By\+Id} (string p\+Id)
+\begin{DoxyCompactList}\small\item\em This method gets a vote based on the id provieded from the database \end{DoxyCompactList}\item 
+List$<$ I\+Vote $>$ \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a9610fea394ac7baa6a024d3ed2a3dcbe}{Get\+Vote\+By\+Survey\+Id} (string p\+Id)
+\begin{DoxyCompactList}\small\item\em This method returns a list of votes left for a survey \end{DoxyCompactList}\item 
+I\+User \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a4e3e2e65e208a82cbe68eb0f77b19ab6}{Get\+User} (string p\+User\+Id, bool p\+Is\+User\+Name)
+\begin{DoxyCompactList}\small\item\em This method get a used either based on Id or username \end{DoxyCompactList}\item 
+List$<$ T $>$ \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a50aab7b78c6a9e8b2b248f8678f2cce1}{Get\+All\+Interactions$<$ T $>$} (string p\+User\+Id)
+\begin{DoxyCompactList}\small\item\em This method returns a list of interaction based on the user given and type specified \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_adc4eb6bcaa9dbbb828fe7d121f5fdbd2}{Upsert\+Expense} (Expense p\+Expense)
+\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a1d077aca4b859220f0c36084f056c9b0}{Upsert\+Project} (Project p\+Project)
+\begin{DoxyCompactList}\small\item\em This method inserts or updated a project in the database \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a415c9eb941c5eca0f16d0258eee34ce8}{Upsert\+Survey} (Survey p\+Survey)
+\begin{DoxyCompactList}\small\item\em This method inserts or updated a survey in the database \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a639dc82717b5a4b3927e1bee01f5fb10}{Upsert\+Task} (Task p\+Task)
+\begin{DoxyCompactList}\small\item\em This method inserts or updates a task in the database \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a98bcf3a92873150ecb37a47efc064abf}{Upsert\+Timeslice} (Timeslice p\+Timeslice)
+\begin{DoxyCompactList}\small\item\em This method inserts or updates a timeslice in the database \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_af316115c31c5e9a6a9e989cfbc2e7312}{Upsert\+User} (User p\+User)
+\begin{DoxyCompactList}\small\item\em This method inserts or updates a user in the database \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a88b251e65a17311b05cbfe1c48d152e0}{Upsert\+Vote} (Vote p\+Vote)
+\begin{DoxyCompactList}\small\item\em This method inserts or updates a vote in the database \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a607b331c483e77e7844d07824bc1cc74}{Upsert\+Survey\+Option} (Survey\+Option p\+Survey\+Option, string p\+Survey\+Id)
+\begin{DoxyCompactList}\small\item\em This method inserts or updates a Survey\+Option in the database \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a510cc2540b173b8c25a0aaa58234a6f3}{Upsert\+Project\+Mapping} (string p\+Project\+Id, string p\+Object\+Id, int p\+Object\+Type)
+\begin{DoxyCompactList}\small\item\em This method inserts or updates a project mapping in the database \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 18 of file Data\+Manager.\+cs.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Data\+Manager@{Data\+Manager}}
+\index{Data\+Manager@{Data\+Manager}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Data\+Manager(\+Object\+Manager p\+Instance)}{DataManager(ObjectManager pInstance)}}]{\setlength{\rightskip}{0pt plus 5cm}Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Data\+Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Object\+Manager}}]{p\+Instance}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_acfc15879c5d4a6220e7290c7cc349d71}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_acfc15879c5d4a6220e7290c7cc349d71}
+
+
+Definition at line 35 of file Data\+Manager.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Dispose()}{Dispose()}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Dispose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a4635dbd66ef17b1fe5ad4902263911b5}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a4635dbd66ef17b1fe5ad4902263911b5}
+
+
+Definition at line 43 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Get\+All\+Interactions$<$ T $>$@{Get\+All\+Interactions$<$ T $>$}}
+\index{Get\+All\+Interactions$<$ T $>$@{Get\+All\+Interactions$<$ T $>$}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Get\+All\+Interactions$<$ T $>$(string p\+User\+Id)}{GetAllInteractions< T >(string pUserId)}}]{\setlength{\rightskip}{0pt plus 5cm}List$<$T$>$ Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Get\+All\+Interactions$<$ T $>$ (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+User\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a50aab7b78c6a9e8b2b248f8678f2cce1}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a50aab7b78c6a9e8b2b248f8678f2cce1}
+
+
+This method returns a list of interaction based on the user given and type specified 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+User\+Id} & The user id to use in the search\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of Interactions for this user
+\end{DoxyReturn}
+
+
+Definition at line 299 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Get\+Expense\+By\+Id@{Get\+Expense\+By\+Id}}
+\index{Get\+Expense\+By\+Id@{Get\+Expense\+By\+Id}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Get\+Expense\+By\+Id(string p\+Id)}{GetExpenseById(string pId)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+Expense Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Get\+Expense\+By\+Id (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a2d45292a0c90c2477132114a23916e5d}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a2d45292a0c90c2477132114a23916e5d}
+
+
+Definition at line 151 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Get\+Project\+By\+Id@{Get\+Project\+By\+Id}}
+\index{Get\+Project\+By\+Id@{Get\+Project\+By\+Id}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Get\+Project\+By\+Id(string p\+Id)}{GetProjectById(string pId)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+Project Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Get\+Project\+By\+Id (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a171f351a560808acdbf1dcff3dba35f0}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a171f351a560808acdbf1dcff3dba35f0}
+
+
+This method get a project based on the id specified from the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 61 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Get\+Survey\+By\+Id@{Get\+Survey\+By\+Id}}
+\index{Get\+Survey\+By\+Id@{Get\+Survey\+By\+Id}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Get\+Survey\+By\+Id(string p\+Id)}{GetSurveyById(string pId)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+Survey Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Get\+Survey\+By\+Id (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_ae241e73ab8bd473ed38bf4cea886daf8}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_ae241e73ab8bd473ed38bf4cea886daf8}
+
+
+This method get a survey based on the id provided from the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Id} & The Id of the survey to lookup\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+I\+Survey object that was created and mathes the Id
+\end{DoxyReturn}
+
+
+Definition at line 124 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Get\+Survey\+Option@{Get\+Survey\+Option}}
+\index{Get\+Survey\+Option@{Get\+Survey\+Option}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Get\+Survey\+Option(string p\+Id)}{GetSurveyOption(string pId)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+Survey\+Option Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Get\+Survey\+Option (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a270db5dc5377a18d97e04ff83841d6a0}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a270db5dc5377a18d97e04ff83841d6a0}
+
+
+This method gets a survey option from the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Id} & The Id of the survey option\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+I\+Survey\+Option mathing the Id provided
+\end{DoxyReturn}
+
+
+Definition at line 190 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Get\+Survey\+Options@{Get\+Survey\+Options}}
+\index{Get\+Survey\+Options@{Get\+Survey\+Options}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Get\+Survey\+Options(string p\+Survey\+Id)}{GetSurveyOptions(string pSurveyId)}}]{\setlength{\rightskip}{0pt plus 5cm}List$<$I\+Survey\+Option$>$ Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Get\+Survey\+Options (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Survey\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a32bb616f670aac22a1d7125e3f0f4a64}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a32bb616f670aac22a1d7125e3f0f4a64}
+
+
+This method gets the survey options of a survey from the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Survey\+Id} & The survey Id to get the options from\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of I\+Survey\+Options matching the id of the survey given
+\end{DoxyReturn}
+
+
+Definition at line 207 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Get\+Task\+By\+Id@{Get\+Task\+By\+Id}}
+\index{Get\+Task\+By\+Id@{Get\+Task\+By\+Id}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Get\+Task\+By\+Id(string p\+Id)}{GetTaskById(string pId)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+Task Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Get\+Task\+By\+Id (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_acc0b266b7b8314a706388937e9bfdfd0}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_acc0b266b7b8314a706388937e9bfdfd0}
+
+
+This method get a task based on the id specified from the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Id} & The id of the task to lookup\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+I\+Task matching the id specified
+\end{DoxyReturn}
+
+
+Definition at line 92 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Get\+Timeslice\+By\+Id@{Get\+Timeslice\+By\+Id}}
+\index{Get\+Timeslice\+By\+Id@{Get\+Timeslice\+By\+Id}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Get\+Timeslice\+By\+Id(string p\+Id)}{GetTimesliceById(string pId)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+Timeslice Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Get\+Timeslice\+By\+Id (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a3066dbd18dbfcd18e0920de4e37ae6f4}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a3066dbd18dbfcd18e0920de4e37ae6f4}
+
+
+Definition at line 168 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Get\+User@{Get\+User}}
+\index{Get\+User@{Get\+User}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Get\+User(string p\+User\+Id, bool p\+Is\+User\+Name)}{GetUser(string pUserId, bool pIsUserName)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+User Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Get\+User (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+User\+Id, }
+\item[{bool}]{p\+Is\+User\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a4e3e2e65e208a82cbe68eb0f77b19ab6}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a4e3e2e65e208a82cbe68eb0f77b19ab6}
+
+
+This method get a used either based on Id or username 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+User\+Id} & Either user\+Id or user\+Name to lookup\\
+\hline
+{\em p\+Is\+User\+Name} & Set true if Id contains a user\+Name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+I\+User matching either Id or user\+Name provided
+\end{DoxyReturn}
+
+
+Definition at line 266 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Get\+Vote\+By\+Id@{Get\+Vote\+By\+Id}}
+\index{Get\+Vote\+By\+Id@{Get\+Vote\+By\+Id}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Get\+Vote\+By\+Id(string p\+Id)}{GetVoteById(string pId)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+Vote Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Get\+Vote\+By\+Id (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a1d18d1570758b5f087b58c52ba8c475a}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a1d18d1570758b5f087b58c52ba8c475a}
+
+
+This method gets a vote based on the id provieded from the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Id} & The id of the vote to lookup\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+I\+Vote matching the id provided
+\end{DoxyReturn}
+
+
+Definition at line 228 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Get\+Vote\+By\+Survey\+Id@{Get\+Vote\+By\+Survey\+Id}}
+\index{Get\+Vote\+By\+Survey\+Id@{Get\+Vote\+By\+Survey\+Id}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Get\+Vote\+By\+Survey\+Id(string p\+Id)}{GetVoteBySurveyId(string pId)}}]{\setlength{\rightskip}{0pt plus 5cm}List$<$I\+Vote$>$ Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Get\+Vote\+By\+Survey\+Id (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a9610fea394ac7baa6a024d3ed2a3dcbe}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a9610fea394ac7baa6a024d3ed2a3dcbe}
+
+
+This method returns a list of votes left for a survey 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Id} & The survey id\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of I\+Vote for the survey provided
+\end{DoxyReturn}
+
+
+Definition at line 246 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Upsert\+Expense@{Upsert\+Expense}}
+\index{Upsert\+Expense@{Upsert\+Expense}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+Expense(\+Expense p\+Expense)}{UpsertExpense(Expense pExpense)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Upsert\+Expense (
+\begin{DoxyParamCaption}
+\item[{Expense}]{p\+Expense}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_adc4eb6bcaa9dbbb828fe7d121f5fdbd2}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_adc4eb6bcaa9dbbb828fe7d121f5fdbd2}
+
+
+Definition at line 361 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Upsert\+Project@{Upsert\+Project}}
+\index{Upsert\+Project@{Upsert\+Project}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+Project(\+Project p\+Project)}{UpsertProject(Project pProject)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Upsert\+Project (
+\begin{DoxyParamCaption}
+\item[{Project}]{p\+Project}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a1d077aca4b859220f0c36084f056c9b0}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a1d077aca4b859220f0c36084f056c9b0}
+
+
+This method inserts or updated a project in the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Project} & The project to update or insert\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 367 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Upsert\+Project\+Mapping@{Upsert\+Project\+Mapping}}
+\index{Upsert\+Project\+Mapping@{Upsert\+Project\+Mapping}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+Project\+Mapping(string p\+Project\+Id, string p\+Object\+Id, int p\+Object\+Type)}{UpsertProjectMapping(string pProjectId, string pObjectId, int pObjectType)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Upsert\+Project\+Mapping (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Project\+Id, }
+\item[{string}]{p\+Object\+Id, }
+\item[{int}]{p\+Object\+Type}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a510cc2540b173b8c25a0aaa58234a6f3}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a510cc2540b173b8c25a0aaa58234a6f3}
+
+
+This method inserts or updates a project mapping in the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Project} & The project the mapping is added\\
+\hline
+{\em p\+Object\+Id} & The Id of the Object added to the project mapping\\
+\hline
+{\em p\+Object\+Type} & 1 = User\+Mapping, 2 = Task\+Mapping, 3 = Survey\+Mapping\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 495 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Upsert\+Survey@{Upsert\+Survey}}
+\index{Upsert\+Survey@{Upsert\+Survey}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+Survey(\+Survey p\+Survey)}{UpsertSurvey(Survey pSurvey)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Upsert\+Survey (
+\begin{DoxyParamCaption}
+\item[{Survey}]{p\+Survey}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a415c9eb941c5eca0f16d0258eee34ce8}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a415c9eb941c5eca0f16d0258eee34ce8}
+
+
+This method inserts or updated a survey in the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Survey} & The survey to update or insert\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 386 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Upsert\+Survey\+Option@{Upsert\+Survey\+Option}}
+\index{Upsert\+Survey\+Option@{Upsert\+Survey\+Option}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+Survey\+Option(\+Survey\+Option p\+Survey\+Option, string p\+Survey\+Id)}{UpsertSurveyOption(SurveyOption pSurveyOption, string pSurveyId)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Upsert\+Survey\+Option (
+\begin{DoxyParamCaption}
+\item[{Survey\+Option}]{p\+Survey\+Option, }
+\item[{string}]{p\+Survey\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a607b331c483e77e7844d07824bc1cc74}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a607b331c483e77e7844d07824bc1cc74}
+
+
+This method inserts or updates a Survey\+Option in the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Survey\+Option} & The survey option to insert or update\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 481 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Upsert\+Task@{Upsert\+Task}}
+\index{Upsert\+Task@{Upsert\+Task}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+Task(\+Task p\+Task)}{UpsertTask(Task pTask)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Upsert\+Task (
+\begin{DoxyParamCaption}
+\item[{Task}]{p\+Task}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a639dc82717b5a4b3927e1bee01f5fb10}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a639dc82717b5a4b3927e1bee01f5fb10}
+
+
+This method inserts or updates a task in the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Task} & The task to insert or update\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 414 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Upsert\+Timeslice@{Upsert\+Timeslice}}
+\index{Upsert\+Timeslice@{Upsert\+Timeslice}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+Timeslice(\+Timeslice p\+Timeslice)}{UpsertTimeslice(Timeslice pTimeslice)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Upsert\+Timeslice (
+\begin{DoxyParamCaption}
+\item[{Timeslice}]{p\+Timeslice}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a98bcf3a92873150ecb37a47efc064abf}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a98bcf3a92873150ecb37a47efc064abf}
+
+
+This method inserts or updates a timeslice in the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timeslice} & The timeslice to insert or update\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 439 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Upsert\+User@{Upsert\+User}}
+\index{Upsert\+User@{Upsert\+User}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+User(\+User p\+User)}{UpsertUser(User pUser)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Upsert\+User (
+\begin{DoxyParamCaption}
+\item[{User}]{p\+User}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_af316115c31c5e9a6a9e989cfbc2e7312}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_af316115c31c5e9a6a9e989cfbc2e7312}
+
+
+This method inserts or updates a user in the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+User} & The user to insert or update\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 453 of file Data\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}!Upsert\+Vote@{Upsert\+Vote}}
+\index{Upsert\+Vote@{Upsert\+Vote}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Data\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+Vote(\+Vote p\+Vote)}{UpsertVote(Vote pVote)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Data\+Manager.\+Upsert\+Vote (
+\begin{DoxyParamCaption}
+\item[{Vote}]{p\+Vote}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a88b251e65a17311b05cbfe1c48d152e0}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_data_manager_a88b251e65a17311b05cbfe1c48d152e0}
+
+
+This method inserts or updates a vote in the database 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Vote} & The vote to insert or update\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 469 of file Data\+Manager.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Users/\+Christian\+B/\+Documents/\+\_\+\+H\+F Infomatik/\+Git\+Hub\+\_\+\+Repos/\+Mo\+Cap/\+Plex\+Byte.\+Mo\+Cap/\+Plex\+Byte.\+Mo\+Cap.\+Win\+Forms/\+Managers/\hyperlink{_data_manager_8cs}{Data\+Manager.\+cs}\end{DoxyCompactItemize}

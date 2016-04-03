@@ -1,0 +1,717 @@
+\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager}{}\section{Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager Class Reference}
+\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager}\index{Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager@{Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager}}
+Inheritance diagram for Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+delegate void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a47b52df5c51e0f9e7200716fa0235e51}{Refresh\+Timer\+Elapses\+Event\+Handler} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Delegate for the refresh timer elapsed event \end{DoxyCompactList}\item 
+delegate void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a0ba242dc52a4fcf291b73aeb36dbc51f}{Object\+Changing\+Event\+Handler} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Delegate for the object changed event \end{DoxyCompactList}\item 
+delegate void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a16a70a9ab581238824804eeb45de48b8}{User\+Session\+Event\+Handler} (object sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em This delegate is used for the log in and out event \end{DoxyCompactList}\item 
+\hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_ae41b9c8cbf57db117d9f4b0298d12435}{Object\+Manager} ()
+\begin{DoxyCompactList}\small\item\em Constructor of the class \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a77a32ed0738cd2cf3b4f66d30a418d02}{Dispose} ()
+\begin{DoxyCompactList}\small\item\em Performs application-\/defined tasks associated with freeing, releasing, or resetting unmanaged resources. \end{DoxyCompactList}\item 
+T \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_af589ecbef38de0973c7ac3d00a3c99e6}{Get\+Object\+By\+Id$<$ T $>$} (string p\+Id)
+\begin{DoxyCompactList}\small\item\em This method get an object bi its Id from the database \end{DoxyCompactList}\item 
+Dock\+Content \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a7d3b341d64d885e1671f8a493784863b}{Create\+Form\+From\+Object$<$ T $>$} (T p\+Object)
+\begin{DoxyCompactList}\small\item\em This method creates a form from an object passed \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a5085b52777f11ac46c212048e72c52a2}{Login\+User} (string p\+Id, string p\+Password)
+\begin{DoxyCompactList}\small\item\em This method attempts to login the given user with the password specified \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a859192e75ff6a9ab8d4be9c861697827}{Logout\+User} ()
+\begin{DoxyCompactList}\small\item\em This method clears the current user\+Context and hence logs out a user \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_ab1fc919983bb8b01c1da5fda95d87b9a}{Upsert\+User\+From\+Form} (uc\+\_\+\+User p\+Form)
+\begin{DoxyCompactList}\small\item\em This method updates or insert a user object created from the form in the DB \end{DoxyCompactList}\item 
+I\+Project \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_af46a31934758325e4fab19d4452a17d0}{Upsert\+Project\+From\+Form} (uc\+\_\+\+Project p\+Form)
+\begin{DoxyCompactList}\small\item\em This method updates or insert a project object created from the form in the DB \end{DoxyCompactList}\item 
+I\+Task \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a86623ed9c02e9a5afbadeb2d9bdd4b3b}{Upsert\+Task\+From\+Form} (uc\+\_\+\+Task p\+Form)
+\begin{DoxyCompactList}\small\item\em This method updated or insert a task object created from the form in the DB \end{DoxyCompactList}\item 
+I\+Survey \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a9f83ebe6abc69b0b35e6e9faf1bd0340}{Upsert\+Survey\+From\+Form} (uc\+\_\+\+Survey p\+Form)
+\begin{DoxyCompactList}\small\item\em This method updated or insert a survey object created from the form in the DB \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a9ed31b06f82fcbf67f006739f6738864}{Upsert\+Vote\+From\+Form} (uc\+\_\+\+Survey p\+Form)
+\begin{DoxyCompactList}\small\item\em This method updated or insert a vote object created from the form in the DB \end{DoxyCompactList}\item 
+I\+Expense \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a04ac7191b57ed83d1325ce7ae317ab88}{Upsert\+Expense\+From\+Form} (frm\+\_\+\+Task\+Update\+Progress p\+Form)
+\begin{DoxyCompactList}\small\item\em This method updated or insert a expense object created from the form in the DB \end{DoxyCompactList}\item 
+I\+Timeslice \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a4ffd5fd62836ade783d8d28424d8caa4}{Upsert\+Timeslice\+From\+Form} (frm\+\_\+\+Task\+Update\+Progress p\+Form)
+\begin{DoxyCompactList}\small\item\em This method updated or insert a timeslice object created from the form in the DB \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a421d47196ef67a3afb9a3c7ba80e83ac}{Upsert\+Project\+Mapping$<$ T $>$} (I\+Project p\+Project, string p\+Object\+Id, T p\+Object\+Type)
+\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a5bc64a054fde379d01f1c1c6ab4ba947}{On\+Refresh\+Timer\+Elapsed} (Event\+Args e)
+\begin{DoxyCompactList}\small\item\em The event handler for the Refresh event. This event fires whenever the update\+Timer elapses \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a6b71a2212ad5f2f2af2f07c5abd702d3}{On\+Object\+Changed} (object changed\+Object, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em The event handler for the object changed event. This fires whenever an object in the collection changes \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a2a66ae80bfc13cbdcc354d0b490daf5b}{On\+User\+Logged\+In} (Event\+Args e)
+\begin{DoxyCompactList}\small\item\em The event handler for the user login event. This fires whenever a user logs in \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a979a125bdcae5c7169eec97807de5e75}{On\+User\+Logged\+Out} (User sender, Event\+Args e)
+\begin{DoxyCompactList}\small\item\em The event handler for the user logout event. This fires whenever a user logs off \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a9f2052967a6a2bd04d4887ad10dba10b}{Create\+User\+Overview} ()
+\item 
+Interaction\+State \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_ad470277f7326e10824b5c8da0574ab60}{Compute\+State} (Date\+Time p\+Reference, Date\+Time p\+Start, Date\+Time p\+End, Date\+Time p\+Due)
+\begin{DoxyCompactList}\small\item\em This method returns the state comparing the date\+Time values given \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+I\+User \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a7dc127d831f7cfe4d8176ed6f28c7fb0}{User\+Context}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The user being logged into this session \end{DoxyCompactList}\item 
+List$<$ I\+Project $>$ \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_ae2a4180caef79d7316b897f09eecfdd1}{Project\+List} = null\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The list of projects for this user \end{DoxyCompactList}\item 
+List$<$ I\+Task $>$ \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a92a1c2e486fc1ecaeb361985421910c8}{Task\+List}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The list of tasks for this user \end{DoxyCompactList}\item 
+List$<$ I\+Survey $>$ \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_adb0e69918a06be755e9f8e18c8739a7c}{Survey\+List}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The list of survey for this user \end{DoxyCompactList}\item 
+List$<$ I\+Expense $>$ \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a47a98a677993d2028d756bb368ede9d9}{Expense\+List}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The list of expenses for this user \end{DoxyCompactList}\item 
+List$<$ I\+Timeslice $>$ \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a7863fe2ccb2201bd237d3adc20102df3}{Timeslice\+List}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The list of timeslices for this user \end{DoxyCompactList}\item 
+List$<$ I\+User $>$ \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a3e12ca329e7dfb12c4930edb85799529}{User\+List}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The list of users this user has a relation with \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a47b52df5c51e0f9e7200716fa0235e51}{Refresh\+Timer\+Elapses\+Event\+Handler} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a3959ab01579b06c6f5e96b36761e6d44}{Refresh\+Timer\+Elapsed}
+\begin{DoxyCompactList}\small\item\em The Refresh\+Timer\+Elapsed event \end{DoxyCompactList}\item 
+\hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a0ba242dc52a4fcf291b73aeb36dbc51f}{Object\+Changing\+Event\+Handler} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a84f1c6e8b0f7c6e6037c31c4fcfa3b14}{Object\+Changed}
+\begin{DoxyCompactList}\small\item\em The Object changed event \end{DoxyCompactList}\item 
+\hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a16a70a9ab581238824804eeb45de48b8}{User\+Session\+Event\+Handler} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_ae5b35db2e937c6f2c6e43b612cde9c18}{User\+Logged\+In}
+\begin{DoxyCompactList}\small\item\em This event is fired whenever a user is logging in \end{DoxyCompactList}\item 
+\hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a16a70a9ab581238824804eeb45de48b8}{User\+Session\+Event\+Handler} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a393d90bbcf2a71162eca1752bed2210d}{User\+Logged\+Out}
+\begin{DoxyCompactList}\small\item\em This event is fired whenever a user logs out \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 26 of file Object\+Manager.\+cs.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Object\+Manager@{Object\+Manager}}
+\index{Object\+Manager@{Object\+Manager}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Object\+Manager()}{ObjectManager()}}]{\setlength{\rightskip}{0pt plus 5cm}Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Object\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_ae41b9c8cbf57db117d9f4b0298d12435}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_ae41b9c8cbf57db117d9f4b0298d12435}
+
+
+Constructor of the class 
+
+
+
+Definition at line 121 of file Object\+Manager.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Compute\+State@{Compute\+State}}
+\index{Compute\+State@{Compute\+State}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Compute\+State(\+Date\+Time p\+Reference, Date\+Time p\+Start, Date\+Time p\+End, Date\+Time p\+Due)}{ComputeState(DateTime pReference, DateTime pStart, DateTime pEnd, DateTime pDue)}}]{\setlength{\rightskip}{0pt plus 5cm}Interaction\+State Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Compute\+State (
+\begin{DoxyParamCaption}
+\item[{Date\+Time}]{p\+Reference, }
+\item[{Date\+Time}]{p\+Start, }
+\item[{Date\+Time}]{p\+End, }
+\item[{Date\+Time}]{p\+Due}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_ad470277f7326e10824b5c8da0574ab60}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_ad470277f7326e10824b5c8da0574ab60}
+
+
+This method returns the state comparing the date\+Time values given 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Reference} & The date\+Time which denotes the reference to compare against\\
+\hline
+{\em p\+Start} & The date\+Time this interaction starts\\
+\hline
+{\em p\+End} & The date\+Time this interaction ends\\
+\hline
+{\em p\+Due} & The date\+T\+Ime this interaction is due\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The interaction\+State computed for this item
+\end{DoxyReturn}
+
+
+Definition at line 574 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Create\+Form\+From\+Object$<$ T $>$@{Create\+Form\+From\+Object$<$ T $>$}}
+\index{Create\+Form\+From\+Object$<$ T $>$@{Create\+Form\+From\+Object$<$ T $>$}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Create\+Form\+From\+Object$<$ T $>$(\+T p\+Object)}{CreateFormFromObject< T >(T pObject)}}]{\setlength{\rightskip}{0pt plus 5cm}Dock\+Content Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Create\+Form\+From\+Object$<$ T $>$ (
+\begin{DoxyParamCaption}
+\item[{T}]{p\+Object}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a7d3b341d64d885e1671f8a493784863b}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a7d3b341d64d885e1671f8a493784863b}
+
+
+This method creates a form from an object passed 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of object from which a form is contructed\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Object} & The object that hold the values and are mathed to the forms input\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A dock\+Content form that holds the objects values
+\end{DoxyReturn}
+
+
+Definition at line 277 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Create\+User\+Overview@{Create\+User\+Overview}}
+\index{Create\+User\+Overview@{Create\+User\+Overview}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Create\+User\+Overview()}{CreateUserOverview()}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Create\+User\+Overview (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a9f2052967a6a2bd04d4887ad10dba10b}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a9f2052967a6a2bd04d4887ad10dba10b}
+
+
+Definition at line 560 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Dispose@{Dispose}}
+\index{Dispose@{Dispose}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Dispose()}{Dispose()}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Dispose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a77a32ed0738cd2cf3b4f66d30a418d02}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a77a32ed0738cd2cf3b4f66d30a418d02}
+
+
+Performs application-\/defined tasks associated with freeing, releasing, or resetting unmanaged resources. 
+
+
+
+Definition at line 146 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Get\+Object\+By\+Id$<$ T $>$@{Get\+Object\+By\+Id$<$ T $>$}}
+\index{Get\+Object\+By\+Id$<$ T $>$@{Get\+Object\+By\+Id$<$ T $>$}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Get\+Object\+By\+Id$<$ T $>$(string p\+Id)}{GetObjectById< T >(string pId)}}]{\setlength{\rightskip}{0pt plus 5cm}T Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Get\+Object\+By\+Id$<$ T $>$ (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_af589ecbef38de0973c7ac3d00a3c99e6}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_af589ecbef38de0973c7ac3d00a3c99e6}
+
+
+This method get an object bi its Id from the database 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of object to create (Interaction)\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Id} & The id of the object to lookup\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An object of the type specified matching the id
+\end{DoxyReturn}
+
+
+Definition at line 187 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Login\+User@{Login\+User}}
+\index{Login\+User@{Login\+User}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Login\+User(string p\+Id, string p\+Password)}{LoginUser(string pId, string pPassword)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Login\+User (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Password}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a5085b52777f11ac46c212048e72c52a2}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a5085b52777f11ac46c212048e72c52a2}
+
+
+This method attempts to login the given user with the password specified 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Id} & The user id\\
+\hline
+{\em p\+Password} & The users password\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 297 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Logout\+User@{Logout\+User}}
+\index{Logout\+User@{Logout\+User}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Logout\+User()}{LogoutUser()}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Logout\+User (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a859192e75ff6a9ab8d4be9c861697827}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a859192e75ff6a9ab8d4be9c861697827}
+
+
+This method clears the current user\+Context and hence logs out a user 
+
+
+
+Definition at line 317 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Object\+Changing\+Event\+Handler@{Object\+Changing\+Event\+Handler}}
+\index{Object\+Changing\+Event\+Handler@{Object\+Changing\+Event\+Handler}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Object\+Changing\+Event\+Handler(object sender, Event\+Args e)}{ObjectChangingEventHandler(object sender, EventArgs e)}}]{\setlength{\rightskip}{0pt plus 5cm}delegate void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Object\+Changing\+Event\+Handler (
+\begin{DoxyParamCaption}
+\item[{object}]{sender, }
+\item[{Event\+Args}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a0ba242dc52a4fcf291b73aeb36dbc51f}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a0ba242dc52a4fcf291b73aeb36dbc51f}
+
+
+Delegate for the object changed event 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The sender of the event\\
+\hline
+{\em e} & The event params\\
+\hline
+\end{DoxyParams}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!On\+Object\+Changed@{On\+Object\+Changed}}
+\index{On\+Object\+Changed@{On\+Object\+Changed}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{On\+Object\+Changed(object changed\+Object, Event\+Args e)}{OnObjectChanged(object changedObject, EventArgs e)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+On\+Object\+Changed (
+\begin{DoxyParamCaption}
+\item[{object}]{changed\+Object, }
+\item[{Event\+Args}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a6b71a2212ad5f2f2af2f07c5abd702d3}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a6b71a2212ad5f2f2af2f07c5abd702d3}
+
+
+The event handler for the object changed event. This fires whenever an object in the collection changes 
+
+
+\begin{DoxyParams}{Parameters}
+{\em changed\+Object} & The changed object raising this event\\
+\hline
+{\em e} & The event arguments\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 545 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!On\+Refresh\+Timer\+Elapsed@{On\+Refresh\+Timer\+Elapsed}}
+\index{On\+Refresh\+Timer\+Elapsed@{On\+Refresh\+Timer\+Elapsed}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{On\+Refresh\+Timer\+Elapsed(\+Event\+Args e)}{OnRefreshTimerElapsed(EventArgs e)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+On\+Refresh\+Timer\+Elapsed (
+\begin{DoxyParamCaption}
+\item[{Event\+Args}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a5bc64a054fde379d01f1c1c6ab4ba947}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a5bc64a054fde379d01f1c1c6ab4ba947}
+
+
+The event handler for the Refresh event. This event fires whenever the update\+Timer elapses 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The eventarguments\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 538 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!On\+User\+Logged\+In@{On\+User\+Logged\+In}}
+\index{On\+User\+Logged\+In@{On\+User\+Logged\+In}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{On\+User\+Logged\+In(\+Event\+Args e)}{OnUserLoggedIn(EventArgs e)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+On\+User\+Logged\+In (
+\begin{DoxyParamCaption}
+\item[{Event\+Args}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a2a66ae80bfc13cbdcc354d0b490daf5b}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a2a66ae80bfc13cbdcc354d0b490daf5b}
+
+
+The event handler for the user login event. This fires whenever a user logs in 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The event arguments\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 551 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!On\+User\+Logged\+Out@{On\+User\+Logged\+Out}}
+\index{On\+User\+Logged\+Out@{On\+User\+Logged\+Out}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{On\+User\+Logged\+Out(\+User sender, Event\+Args e)}{OnUserLoggedOut(User sender, EventArgs e)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+On\+User\+Logged\+Out (
+\begin{DoxyParamCaption}
+\item[{User}]{sender, }
+\item[{Event\+Args}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a979a125bdcae5c7169eec97807de5e75}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a979a125bdcae5c7169eec97807de5e75}
+
+
+The event handler for the user logout event. This fires whenever a user logs off 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The user logging off\\
+\hline
+{\em e} & The event arguments\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 558 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Refresh\+Timer\+Elapses\+Event\+Handler@{Refresh\+Timer\+Elapses\+Event\+Handler}}
+\index{Refresh\+Timer\+Elapses\+Event\+Handler@{Refresh\+Timer\+Elapses\+Event\+Handler}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Refresh\+Timer\+Elapses\+Event\+Handler(object sender, Event\+Args e)}{RefreshTimerElapsesEventHandler(object sender, EventArgs e)}}]{\setlength{\rightskip}{0pt plus 5cm}delegate void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Refresh\+Timer\+Elapses\+Event\+Handler (
+\begin{DoxyParamCaption}
+\item[{object}]{sender, }
+\item[{Event\+Args}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a47b52df5c51e0f9e7200716fa0235e51}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a47b52df5c51e0f9e7200716fa0235e51}
+
+
+Delegate for the refresh timer elapsed event 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The sender of the event\\
+\hline
+{\em e} & The event params\\
+\hline
+\end{DoxyParams}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Upsert\+Expense\+From\+Form@{Upsert\+Expense\+From\+Form}}
+\index{Upsert\+Expense\+From\+Form@{Upsert\+Expense\+From\+Form}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+Expense\+From\+Form(frm\+\_\+\+Task\+Update\+Progress p\+Form)}{UpsertExpenseFromForm(frm_TaskUpdateProgress pForm)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+Expense Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Upsert\+Expense\+From\+Form (
+\begin{DoxyParamCaption}
+\item[{frm\+\_\+\+Task\+Update\+Progress}]{p\+Form}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a04ac7191b57ed83d1325ce7ae317ab88}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a04ac7191b57ed83d1325ce7ae317ab88}
+
+
+This method updated or insert a expense object created from the form in the DB 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Form} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 457 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Upsert\+Project\+From\+Form@{Upsert\+Project\+From\+Form}}
+\index{Upsert\+Project\+From\+Form@{Upsert\+Project\+From\+Form}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+Project\+From\+Form(uc\+\_\+\+Project p\+Form)}{UpsertProjectFromForm(uc_Project pForm)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+Project Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Upsert\+Project\+From\+Form (
+\begin{DoxyParamCaption}
+\item[{uc\+\_\+\+Project}]{p\+Form}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_af46a31934758325e4fab19d4452a17d0}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_af46a31934758325e4fab19d4452a17d0}
+
+
+This method updates or insert a project object created from the form in the DB 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Form} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 351 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Upsert\+Project\+Mapping$<$ T $>$@{Upsert\+Project\+Mapping$<$ T $>$}}
+\index{Upsert\+Project\+Mapping$<$ T $>$@{Upsert\+Project\+Mapping$<$ T $>$}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+Project\+Mapping$<$ T $>$(\+I\+Project p\+Project, string p\+Object\+Id, T p\+Object\+Type)}{UpsertProjectMapping< T >(IProject pProject, string pObjectId, T pObjectType)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Upsert\+Project\+Mapping$<$ T $>$ (
+\begin{DoxyParamCaption}
+\item[{I\+Project}]{p\+Project, }
+\item[{string}]{p\+Object\+Id, }
+\item[{T}]{p\+Object\+Type}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a421d47196ef67a3afb9a3c7ba80e83ac}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a421d47196ef67a3afb9a3c7ba80e83ac}
+
+
+
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Project} & \\
+\hline
+{\em p\+Object\+Id} & \\
+\hline
+{\em p\+Object\+Type} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 510 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Upsert\+Survey\+From\+Form@{Upsert\+Survey\+From\+Form}}
+\index{Upsert\+Survey\+From\+Form@{Upsert\+Survey\+From\+Form}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+Survey\+From\+Form(uc\+\_\+\+Survey p\+Form)}{UpsertSurveyFromForm(uc_Survey pForm)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+Survey Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Upsert\+Survey\+From\+Form (
+\begin{DoxyParamCaption}
+\item[{uc\+\_\+\+Survey}]{p\+Form}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a9f83ebe6abc69b0b35e6e9faf1bd0340}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a9f83ebe6abc69b0b35e6e9faf1bd0340}
+
+
+This method updated or insert a survey object created from the form in the DB 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Form} & The form containing the survey values\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 402 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Upsert\+Task\+From\+Form@{Upsert\+Task\+From\+Form}}
+\index{Upsert\+Task\+From\+Form@{Upsert\+Task\+From\+Form}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+Task\+From\+Form(uc\+\_\+\+Task p\+Form)}{UpsertTaskFromForm(uc_Task pForm)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+Task Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Upsert\+Task\+From\+Form (
+\begin{DoxyParamCaption}
+\item[{uc\+\_\+\+Task}]{p\+Form}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a86623ed9c02e9a5afbadeb2d9bdd4b3b}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a86623ed9c02e9a5afbadeb2d9bdd4b3b}
+
+
+This method updated or insert a task object created from the form in the DB 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Form} & The form containing the task values\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 376 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Upsert\+Timeslice\+From\+Form@{Upsert\+Timeslice\+From\+Form}}
+\index{Upsert\+Timeslice\+From\+Form@{Upsert\+Timeslice\+From\+Form}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+Timeslice\+From\+Form(frm\+\_\+\+Task\+Update\+Progress p\+Form)}{UpsertTimesliceFromForm(frm_TaskUpdateProgress pForm)}}]{\setlength{\rightskip}{0pt plus 5cm}I\+Timeslice Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Upsert\+Timeslice\+From\+Form (
+\begin{DoxyParamCaption}
+\item[{frm\+\_\+\+Task\+Update\+Progress}]{p\+Form}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a4ffd5fd62836ade783d8d28424d8caa4}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a4ffd5fd62836ade783d8d28424d8caa4}
+
+
+This method updated or insert a timeslice object created from the form in the DB 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Form} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 482 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Upsert\+User\+From\+Form@{Upsert\+User\+From\+Form}}
+\index{Upsert\+User\+From\+Form@{Upsert\+User\+From\+Form}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+User\+From\+Form(uc\+\_\+\+User p\+Form)}{UpsertUserFromForm(uc_User pForm)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Upsert\+User\+From\+Form (
+\begin{DoxyParamCaption}
+\item[{uc\+\_\+\+User}]{p\+Form}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_ab1fc919983bb8b01c1da5fda95d87b9a}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_ab1fc919983bb8b01c1da5fda95d87b9a}
+
+
+This method updates or insert a user object created from the form in the DB 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Form} & The form containing the user values\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 327 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Upsert\+Vote\+From\+Form@{Upsert\+Vote\+From\+Form}}
+\index{Upsert\+Vote\+From\+Form@{Upsert\+Vote\+From\+Form}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Upsert\+Vote\+From\+Form(uc\+\_\+\+Survey p\+Form)}{UpsertVoteFromForm(uc_Survey pForm)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Upsert\+Vote\+From\+Form (
+\begin{DoxyParamCaption}
+\item[{uc\+\_\+\+Survey}]{p\+Form}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a9ed31b06f82fcbf67f006739f6738864}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a9ed31b06f82fcbf67f006739f6738864}
+
+
+This method updated or insert a vote object created from the form in the DB 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Form} & The form containing the vote values\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 427 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!User\+Session\+Event\+Handler@{User\+Session\+Event\+Handler}}
+\index{User\+Session\+Event\+Handler@{User\+Session\+Event\+Handler}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{User\+Session\+Event\+Handler(object sender, Event\+Args e)}{UserSessionEventHandler(object sender, EventArgs e)}}]{\setlength{\rightskip}{0pt plus 5cm}delegate void Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+User\+Session\+Event\+Handler (
+\begin{DoxyParamCaption}
+\item[{object}]{sender, }
+\item[{Event\+Args}]{e}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a16a70a9ab581238824804eeb45de48b8}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a16a70a9ab581238824804eeb45de48b8}
+
+
+This delegate is used for the log in and out event 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & The user performing the login / logout\\
+\hline
+{\em e} & The event args\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Property Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Expense\+List@{Expense\+List}}
+\index{Expense\+List@{Expense\+List}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Expense\+List}{ExpenseList}}]{\setlength{\rightskip}{0pt plus 5cm}List$<$I\+Expense$>$ Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Expense\+List\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a47a98a677993d2028d756bb368ede9d9}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a47a98a677993d2028d756bb368ede9d9}
+
+
+The list of expenses for this user 
+
+
+
+Definition at line 92 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Project\+List@{Project\+List}}
+\index{Project\+List@{Project\+List}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Project\+List}{ProjectList}}]{\setlength{\rightskip}{0pt plus 5cm}List$<$I\+Project$>$ Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Project\+List = null\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_ae2a4180caef79d7316b897f09eecfdd1}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_ae2a4180caef79d7316b897f09eecfdd1}
+
+
+The list of projects for this user 
+
+
+
+Definition at line 77 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Survey\+List@{Survey\+List}}
+\index{Survey\+List@{Survey\+List}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Survey\+List}{SurveyList}}]{\setlength{\rightskip}{0pt plus 5cm}List$<$I\+Survey$>$ Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Survey\+List\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_adb0e69918a06be755e9f8e18c8739a7c}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_adb0e69918a06be755e9f8e18c8739a7c}
+
+
+The list of survey for this user 
+
+
+
+Definition at line 87 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Task\+List@{Task\+List}}
+\index{Task\+List@{Task\+List}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Task\+List}{TaskList}}]{\setlength{\rightskip}{0pt plus 5cm}List$<$I\+Task$>$ Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Task\+List\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a92a1c2e486fc1ecaeb361985421910c8}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a92a1c2e486fc1ecaeb361985421910c8}
+
+
+The list of tasks for this user 
+
+
+
+Definition at line 82 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Timeslice\+List@{Timeslice\+List}}
+\index{Timeslice\+List@{Timeslice\+List}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Timeslice\+List}{TimesliceList}}]{\setlength{\rightskip}{0pt plus 5cm}List$<$I\+Timeslice$>$ Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Timeslice\+List\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a7863fe2ccb2201bd237d3adc20102df3}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a7863fe2ccb2201bd237d3adc20102df3}
+
+
+The list of timeslices for this user 
+
+
+
+Definition at line 97 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!User\+Context@{User\+Context}}
+\index{User\+Context@{User\+Context}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{User\+Context}{UserContext}}]{\setlength{\rightskip}{0pt plus 5cm}I\+User Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+User\+Context\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a7dc127d831f7cfe4d8176ed6f28c7fb0}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a7dc127d831f7cfe4d8176ed6f28c7fb0}
+
+
+The user being logged into this session 
+
+
+
+Definition at line 72 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!User\+List@{User\+List}}
+\index{User\+List@{User\+List}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{User\+List}{UserList}}]{\setlength{\rightskip}{0pt plus 5cm}List$<$I\+User$>$ Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+User\+List\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a3e12ca329e7dfb12c4930edb85799529}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a3e12ca329e7dfb12c4930edb85799529}
+
+
+The list of users this user has a relation with 
+
+
+
+Definition at line 102 of file Object\+Manager.\+cs.
+
+
+
+\subsection{Event Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Object\+Changed@{Object\+Changed}}
+\index{Object\+Changed@{Object\+Changed}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Object\+Changed}{ObjectChanged}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Object\+Changing\+Event\+Handler} Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Object\+Changed}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a84f1c6e8b0f7c6e6037c31c4fcfa3b14}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a84f1c6e8b0f7c6e6037c31c4fcfa3b14}
+
+
+The Object changed event 
+
+
+
+Definition at line 55 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!Refresh\+Timer\+Elapsed@{Refresh\+Timer\+Elapsed}}
+\index{Refresh\+Timer\+Elapsed@{Refresh\+Timer\+Elapsed}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{Refresh\+Timer\+Elapsed}{RefreshTimerElapsed}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Refresh\+Timer\+Elapses\+Event\+Handler} Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+Refresh\+Timer\+Elapsed}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a3959ab01579b06c6f5e96b36761e6d44}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a3959ab01579b06c6f5e96b36761e6d44}
+
+
+The Refresh\+Timer\+Elapsed event 
+
+
+
+Definition at line 51 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!User\+Logged\+In@{User\+Logged\+In}}
+\index{User\+Logged\+In@{User\+Logged\+In}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{User\+Logged\+In}{UserLoggedIn}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf User\+Session\+Event\+Handler} Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+User\+Logged\+In}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_ae5b35db2e937c6f2c6e43b612cde9c18}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_ae5b35db2e937c6f2c6e43b612cde9c18}
+
+
+This event is fired whenever a user is logging in 
+
+
+
+Definition at line 59 of file Object\+Manager.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}!User\+Logged\+Out@{User\+Logged\+Out}}
+\index{User\+Logged\+Out@{User\+Logged\+Out}!Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager@{Plex\+Byte\+::\+Mo\+Cap\+::\+Managers\+::\+Object\+Manager}}
+\subsubsection[{\texorpdfstring{User\+Logged\+Out}{UserLoggedOut}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf User\+Session\+Event\+Handler} Plex\+Byte.\+Mo\+Cap.\+Managers.\+Object\+Manager.\+User\+Logged\+Out}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a393d90bbcf2a71162eca1752bed2210d}{}\label{class_plex_byte_1_1_mo_cap_1_1_managers_1_1_object_manager_a393d90bbcf2a71162eca1752bed2210d}
+
+
+This event is fired whenever a user logs out 
+
+
+
+Definition at line 63 of file Object\+Manager.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Users/\+Christian\+B/\+Documents/\+\_\+\+H\+F Infomatik/\+Git\+Hub\+\_\+\+Repos/\+Mo\+Cap/\+Plex\+Byte.\+Mo\+Cap/\+Plex\+Byte.\+Mo\+Cap.\+Win\+Forms/\+Managers/\hyperlink{_object_manager_8cs}{Object\+Manager.\+cs}\end{DoxyCompactItemize}

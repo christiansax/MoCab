@@ -1,0 +1,414 @@
+\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory}{}\section{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory Class Reference}
+\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory}\index{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory@{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory}}
+Inheritance diagram for Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_task}{I\+Task} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a9a7f2eed60a838269aa2a4444e50ecef}{Create\+Task} (string p\+Id, string p\+Text, I\+User p\+Creator)
+\item 
+virtual \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_task}{I\+Task} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_ab49d25714033edffd3bd5c87e453a237}{Create\+Task} (string p\+Id, string p\+Text, I\+User p\+Creator, Date\+Time p\+Start\+DT, Date\+Time p\+End\+DT, Date\+Time p\+Due\+DT)
+\item 
+\hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_task}{I\+Task} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a1e9890e2e67cca051f1485f453a3c760}{Create\+Task} (string p\+Id, string p\+Text, I\+User p\+Creator, Date\+Time p\+Start\+DT, Date\+Time p\+End\+DT, Date\+Time p\+Due\+DT, decimal p\+Budget, int p\+Duration, int p\+Priority, \hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_afcb673d9186608b6bd3b187179aedc8a}{Interaction\+State} p\+State, decimal p\+Budget\+Used, int p\+Time\+Used, List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_task}{I\+Task} $>$ p\+Sub\+Task, int p\+Progress)
+\item 
+\hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_task}{I\+Task} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a030a74854486e68be1cb97166214ef16}{Create\+Task} (string p\+Id, string p\+Text, string p\+Title, I\+User p\+Creator, Date\+Time p\+Start\+DT, Date\+Time p\+End\+DT, Date\+Time p\+Due\+DT, decimal p\+Budget, int p\+Duration, int p\+Priority, \hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_afcb673d9186608b6bd3b187179aedc8a}{Interaction\+State} p\+State, decimal p\+Budget\+Used, int p\+Time\+Used, List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_task}{I\+Task} $>$ p\+Sub\+Task, int p\+Progress)
+\item 
+virtual \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_survey}{I\+Survey} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a91bccc9e26b2a3ebdf9210f88e12777f}{Create\+Survey} (string p\+Id, string p\+Text, List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_survey_option}{I\+Survey\+Option} $>$ p\+Options, I\+User p\+Creator, Date\+Time p\+Start\+DT, Date\+Time p\+End\+DT, Date\+Time p\+Due\+DT, int p\+Votes\+Per\+User, string p\+Title, \hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_afcb673d9186608b6bd3b187179aedc8a}{Interaction\+State} p\+State, List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_vote}{I\+Vote} $>$ p\+Votes)
+\item 
+virtual \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_survey}{I\+Survey} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a7cca7832aa0ee7ac17fa5f0339eeed2c}{Create\+Survey} (string p\+Id, string p\+Text, List$<$ string $>$ p\+Options, I\+User p\+Creator)
+\item 
+virtual \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account}{I\+Account} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a08413bc140420733e410b17c2262e7ee}{Create\+Account} (string p\+Id, string p\+Text, I\+User p\+Creator)
+\item 
+virtual \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account}{I\+Account} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a1d79c272ff2a70b71f7c8188756a0ae8}{Create\+Account} (string p\+Id, string p\+Text, List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_expense}{I\+Expense} $>$ p\+Expense\+List, List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_timeslice}{I\+Timeslice} $>$ p\+Timeslice\+List, I\+User p\+Creator)
+\item 
+virtual \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_timeslice}{I\+Timeslice} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a09b8c47419a3eefd5823056f72c47130}{Create\+Timeslice} (string p\+Id, I\+User p\+User, Date\+Time p\+Start\+DT, Date\+Time p\+End\+DT, \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction}{I\+Interaction} p\+Target)
+\item 
+virtual \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_timeslice}{I\+Timeslice} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a66108b416dc8f455fd0dc22123b2d143}{Create\+Timeslice} (string p\+Id, I\+User p\+User, int p\+Duration, \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction}{I\+Interaction} p\+Target)
+\item 
+virtual \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_expense}{I\+Expense} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a6d6a4839a754494e5db0adbb69fccc94}{Create\+Expense} (string p\+Id, string p\+Text, System.\+Drawing.\+Image p\+Receipt, decimal p\+Value, I\+User p\+User, \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction}{I\+Interaction} p\+Target)
+\item 
+virtual \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_expense}{I\+Expense} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a40751419f32c51ae9cfa556b22c8fd7f}{Create\+Expense} (string p\+Id, string p\+Text, I\+User p\+User, \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction}{I\+Interaction} p\+Target)
+\item 
+virtual \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_project}{I\+Project} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a38a010ef1a5e042ccbb1250adaa2324d}{Create\+Project} (string p\+Id, string p\+Text, bool p\+Enable\+Balance, bool p\+Enable\+Survey, Date\+Time p\+Start\+DT, Date\+Time p\+End\+DT, I\+User p\+Creator)
+\item 
+virtual \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_project}{I\+Project} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_ab8dddf10ff7dd5720603c1859d96a78d}{Create\+Project} (string p\+Id, string p\+Text, bool p\+Enable\+Balance, bool p\+Enable\+Survey, Date\+Time p\+Start\+DT, Date\+Time p\+End\+DT, I\+User p\+Creator, I\+User p\+Owner, List$<$ I\+User $>$ p\+Member\+List, List$<$ I\+User $>$ p\+Invitation\+List, List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_task}{I\+Task} $>$ p\+Task\+List, List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_survey}{I\+Survey} $>$ p\+Survey\+List, string p\+Name)
+\item 
+virtual \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction}{I\+Interaction} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a8499cf461c2028c8e47f61056856a47d}{Create\+Chat} (string p\+Text\+Title, I\+User p\+Creator, List$<$ I\+User $>$ p\+Users)
+\item 
+virtual \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction}{I\+Interaction} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a90e50fa9b778353e619c059ea5b78822}{Create\+Chat} (string p\+Text\+Title, I\+User p\+Creator, List$<$ I\+User $>$ p\+Users, Date\+Time p\+Start\+Date\+Time, Date\+Time p\+End\+Date\+Time, bool p\+Allow\+Selfdestructing)
+\item 
+virtual \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction}{I\+Interaction} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a43297682c502977cf7ebc69a9fe8b15f}{Create\+Interaction} (string p\+Id, Date\+Time p\+Start\+Date\+Time, Date\+Time p\+End\+Date\+Time, bool p\+Is\+Active, string p\+Text, \hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_a6e7bea333446664bbce2bb296db25e31}{Interaction\+Type} p\+Type, \hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_afcb673d9186608b6bd3b187179aedc8a}{Interaction\+State} p\+State, I\+User p\+Owner, I\+User p\+Creator, Date\+Time p\+Created, Date\+Time p\+Modified)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 14 of file Interaction\+Factory.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Account@{Create\+Account}}
+\index{Create\+Account@{Create\+Account}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Account(string p\+Id, string p\+Text, I\+User p\+Creator)}{CreateAccount(string pId, string pText, IUser pCreator)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf I\+Account} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Account (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{I\+User}]{p\+Creator}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a08413bc140420733e410b17c2262e7ee}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a08413bc140420733e410b17c2262e7ee}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_factory_ad30e523a2735f42e372375250a1dc025}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction\+Factory}.
+
+
+
+Definition at line 133 of file Interaction\+Factory.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Account@{Create\+Account}}
+\index{Create\+Account@{Create\+Account}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Account(string p\+Id, string p\+Text, List$<$ I\+Expense $>$ p\+Expense\+List, List$<$ I\+Timeslice $>$ p\+Timeslice\+List, I\+User p\+Creator)}{CreateAccount(string pId, string pText, List< IExpense > pExpenseList, List< ITimeslice > pTimesliceList, IUser pCreator)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf I\+Account} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Account (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{List$<$ {\bf I\+Expense} $>$}]{p\+Expense\+List, }
+\item[{List$<$ {\bf I\+Timeslice} $>$}]{p\+Timeslice\+List, }
+\item[{I\+User}]{p\+Creator}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a1d79c272ff2a70b71f7c8188756a0ae8}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a1d79c272ff2a70b71f7c8188756a0ae8}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_factory_a4909855456dce1184abdb5dd2d8a679d}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction\+Factory}.
+
+
+
+Definition at line 140 of file Interaction\+Factory.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Chat@{Create\+Chat}}
+\index{Create\+Chat@{Create\+Chat}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Chat(string p\+Text\+Title, I\+User p\+Creator, List$<$ I\+User $>$ p\+Users)}{CreateChat(string pTextTitle, IUser pCreator, List< IUser > pUsers)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf I\+Interaction} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Chat (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Text\+Title, }
+\item[{I\+User}]{p\+Creator, }
+\item[{List$<$ I\+User $>$}]{p\+Users}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a8499cf461c2028c8e47f61056856a47d}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a8499cf461c2028c8e47f61056856a47d}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_factory_aabee33e1d8b7c8106b543dc52b218782}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction\+Factory}.
+
+
+
+Definition at line 193 of file Interaction\+Factory.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Chat@{Create\+Chat}}
+\index{Create\+Chat@{Create\+Chat}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Chat(string p\+Text\+Title, I\+User p\+Creator, List$<$ I\+User $>$ p\+Users, Date\+Time p\+Start\+Date\+Time, Date\+Time p\+End\+Date\+Time, bool p\+Allow\+Selfdestructing)}{CreateChat(string pTextTitle, IUser pCreator, List< IUser > pUsers, DateTime pStartDateTime, DateTime pEndDateTime, bool pAllowSelfdestructing)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf I\+Interaction} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Chat (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Text\+Title, }
+\item[{I\+User}]{p\+Creator, }
+\item[{List$<$ I\+User $>$}]{p\+Users, }
+\item[{Date\+Time}]{p\+Start\+Date\+Time, }
+\item[{Date\+Time}]{p\+End\+Date\+Time, }
+\item[{bool}]{p\+Allow\+Selfdestructing}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a90e50fa9b778353e619c059ea5b78822}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a90e50fa9b778353e619c059ea5b78822}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_factory_a41eeaa8cf6c81e669898eb2b4d57eb9b}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction\+Factory}.
+
+
+
+Definition at line 195 of file Interaction\+Factory.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Expense@{Create\+Expense}}
+\index{Create\+Expense@{Create\+Expense}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Expense(string p\+Id, string p\+Text, System.\+Drawing.\+Image p\+Receipt, decimal p\+Value, I\+User p\+User, I\+Interaction p\+Target)}{CreateExpense(string pId, string pText, System.Drawing.Image pReceipt, decimal pValue, IUser pUser, IInteraction pTarget)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf I\+Expense} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Expense (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{System.\+Drawing.\+Image}]{p\+Receipt, }
+\item[{decimal}]{p\+Value, }
+\item[{I\+User}]{p\+User, }
+\item[{{\bf I\+Interaction}}]{p\+Target}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a6d6a4839a754494e5db0adbb69fccc94}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a6d6a4839a754494e5db0adbb69fccc94}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_factory_ac85fb39c0c3072a8421e4fb3b39359cd}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction\+Factory}.
+
+
+
+Definition at line 165 of file Interaction\+Factory.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Expense@{Create\+Expense}}
+\index{Create\+Expense@{Create\+Expense}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Expense(string p\+Id, string p\+Text, I\+User p\+User, I\+Interaction p\+Target)}{CreateExpense(string pId, string pText, IUser pUser, IInteraction pTarget)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf I\+Expense} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Expense (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{I\+User}]{p\+User, }
+\item[{{\bf I\+Interaction}}]{p\+Target}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a40751419f32c51ae9cfa556b22c8fd7f}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a40751419f32c51ae9cfa556b22c8fd7f}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_factory_a0d7c926ff7b8d7c07bdc143919f3a0f7}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction\+Factory}.
+
+
+
+Definition at line 172 of file Interaction\+Factory.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Interaction@{Create\+Interaction}}
+\index{Create\+Interaction@{Create\+Interaction}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Interaction(string p\+Id, Date\+Time p\+Start\+Date\+Time, Date\+Time p\+End\+Date\+Time, bool p\+Is\+Active, string p\+Text, Interaction\+Type p\+Type, Interaction\+State p\+State, I\+User p\+Owner, I\+User p\+Creator, Date\+Time p\+Created, Date\+Time p\+Modified)}{CreateInteraction(string pId, DateTime pStartDateTime, DateTime pEndDateTime, bool pIsActive, string pText, InteractionType pType, InteractionState pState, IUser pOwner, IUser pCreator, DateTime pCreated, DateTime pModified)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf I\+Interaction} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Interaction (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{Date\+Time}]{p\+Start\+Date\+Time, }
+\item[{Date\+Time}]{p\+End\+Date\+Time, }
+\item[{bool}]{p\+Is\+Active, }
+\item[{string}]{p\+Text, }
+\item[{{\bf Interaction\+Type}}]{p\+Type, }
+\item[{{\bf Interaction\+State}}]{p\+State, }
+\item[{I\+User}]{p\+Owner, }
+\item[{I\+User}]{p\+Creator, }
+\item[{Date\+Time}]{p\+Created, }
+\item[{Date\+Time}]{p\+Modified}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a43297682c502977cf7ebc69a9fe8b15f}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a43297682c502977cf7ebc69a9fe8b15f}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_factory_a7a9e3fc490901c3a0be3faadadb27494}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction\+Factory}.
+
+
+
+Definition at line 205 of file Interaction\+Factory.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Project@{Create\+Project}}
+\index{Create\+Project@{Create\+Project}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Project(string p\+Id, string p\+Text, bool p\+Enable\+Balance, bool p\+Enable\+Survey, Date\+Time p\+Start\+D\+T, Date\+Time p\+End\+D\+T, I\+User p\+Creator)}{CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf I\+Project} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Project (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{bool}]{p\+Enable\+Balance, }
+\item[{bool}]{p\+Enable\+Survey, }
+\item[{Date\+Time}]{p\+Start\+DT, }
+\item[{Date\+Time}]{p\+End\+DT, }
+\item[{I\+User}]{p\+Creator}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a38a010ef1a5e042ccbb1250adaa2324d}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a38a010ef1a5e042ccbb1250adaa2324d}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_factory_a185e39ef7292fa875c3e60eead0eb1d7}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction\+Factory}.
+
+
+
+Definition at line 179 of file Interaction\+Factory.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Project@{Create\+Project}}
+\index{Create\+Project@{Create\+Project}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Project(string p\+Id, string p\+Text, bool p\+Enable\+Balance, bool p\+Enable\+Survey, Date\+Time p\+Start\+D\+T, Date\+Time p\+End\+D\+T, I\+User p\+Creator, I\+User p\+Owner, List$<$ I\+User $>$ p\+Member\+List, List$<$ I\+User $>$ p\+Invitation\+List, List$<$ I\+Task $>$ p\+Task\+List, List$<$ I\+Survey $>$ p\+Survey\+List, string p\+Name)}{CreateProject(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDT, DateTime pEndDT, IUser pCreator, IUser pOwner, List< IUser > pMemberList, List< IUser > pInvitationList, List< ITask > pTaskList, List< ISurvey > pSurveyList, string pName)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf I\+Project} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Project (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{bool}]{p\+Enable\+Balance, }
+\item[{bool}]{p\+Enable\+Survey, }
+\item[{Date\+Time}]{p\+Start\+DT, }
+\item[{Date\+Time}]{p\+End\+DT, }
+\item[{I\+User}]{p\+Creator, }
+\item[{I\+User}]{p\+Owner, }
+\item[{List$<$ I\+User $>$}]{p\+Member\+List, }
+\item[{List$<$ I\+User $>$}]{p\+Invitation\+List, }
+\item[{List$<$ {\bf I\+Task} $>$}]{p\+Task\+List, }
+\item[{List$<$ {\bf I\+Survey} $>$}]{p\+Survey\+List, }
+\item[{string}]{p\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_ab8dddf10ff7dd5720603c1859d96a78d}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_ab8dddf10ff7dd5720603c1859d96a78d}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_factory_a96f9a4cfec44b654fedcc3e62fe617ca}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction\+Factory}.
+
+
+
+Definition at line 186 of file Interaction\+Factory.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Survey@{Create\+Survey}}
+\index{Create\+Survey@{Create\+Survey}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Survey(string p\+Id, string p\+Text, List$<$ I\+Survey\+Option $>$ p\+Options, I\+User p\+Creator, Date\+Time p\+Start\+D\+T, Date\+Time p\+End\+D\+T, Date\+Time p\+Due\+D\+T, int p\+Votes\+Per\+User, string p\+Title, Interaction\+State p\+State, List$<$ I\+Vote $>$ p\+Votes)}{CreateSurvey(string pId, string pText, List< ISurveyOption > pOptions, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT, int pVotesPerUser, string pTitle, InteractionState pState, List< IVote > pVotes)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf I\+Survey} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Survey (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{List$<$ {\bf I\+Survey\+Option} $>$}]{p\+Options, }
+\item[{I\+User}]{p\+Creator, }
+\item[{Date\+Time}]{p\+Start\+DT, }
+\item[{Date\+Time}]{p\+End\+DT, }
+\item[{Date\+Time}]{p\+Due\+DT, }
+\item[{int}]{p\+Votes\+Per\+User, }
+\item[{string}]{p\+Title, }
+\item[{{\bf Interaction\+State}}]{p\+State, }
+\item[{List$<$ {\bf I\+Vote} $>$}]{p\+Votes}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a91bccc9e26b2a3ebdf9210f88e12777f}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a91bccc9e26b2a3ebdf9210f88e12777f}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_factory_a10d691633579fc9ebef747595e09a1c2}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction\+Factory}.
+
+
+
+Definition at line 104 of file Interaction\+Factory.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Survey@{Create\+Survey}}
+\index{Create\+Survey@{Create\+Survey}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Survey(string p\+Id, string p\+Text, List$<$ string $>$ p\+Options, I\+User p\+Creator)}{CreateSurvey(string pId, string pText, List< string > pOptions, IUser pCreator)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf I\+Survey} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Survey (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{List$<$ string $>$}]{p\+Options, }
+\item[{I\+User}]{p\+Creator}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a7cca7832aa0ee7ac17fa5f0339eeed2c}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a7cca7832aa0ee7ac17fa5f0339eeed2c}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_factory_a5b5cedeba1e0748c243b7a9a5f2fb5a6}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction\+Factory}.
+
+
+
+Definition at line 126 of file Interaction\+Factory.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Task@{Create\+Task}}
+\index{Create\+Task@{Create\+Task}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Task(string p\+Id, string p\+Text, I\+User p\+Creator)}{CreateTask(string pId, string pText, IUser pCreator)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf I\+Task} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Task (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{I\+User}]{p\+Creator}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a9a7f2eed60a838269aa2a4444e50ecef}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a9a7f2eed60a838269aa2a4444e50ecef}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_factory_a2652ae146eddd246b136bfd47b55bd10}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction\+Factory}.
+
+
+
+Definition at line 16 of file Interaction\+Factory.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Task@{Create\+Task}}
+\index{Create\+Task@{Create\+Task}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Task(string p\+Id, string p\+Text, I\+User p\+Creator, Date\+Time p\+Start\+D\+T, Date\+Time p\+End\+D\+T, Date\+Time p\+Due\+D\+T)}{CreateTask(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf I\+Task} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Task (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{I\+User}]{p\+Creator, }
+\item[{Date\+Time}]{p\+Start\+DT, }
+\item[{Date\+Time}]{p\+End\+DT, }
+\item[{Date\+Time}]{p\+Due\+DT}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_ab49d25714033edffd3bd5c87e453a237}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_ab49d25714033edffd3bd5c87e453a237}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_factory_ad3f030a61f41e66812ba458194a02182}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction\+Factory}.
+
+
+
+Definition at line 23 of file Interaction\+Factory.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Task@{Create\+Task}}
+\index{Create\+Task@{Create\+Task}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Task(string p\+Id, string p\+Text, I\+User p\+Creator, Date\+Time p\+Start\+D\+T, Date\+Time p\+End\+D\+T, Date\+Time p\+Due\+D\+T, decimal p\+Budget, int p\+Duration, int p\+Priority, Interaction\+State p\+State, decimal p\+Budget\+Used, int p\+Time\+Used, List$<$ I\+Task $>$ p\+Sub\+Task, int p\+Progress)}{CreateTask(string pId, string pText, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT, decimal pBudget, int pDuration, int pPriority, InteractionState pState, decimal pBudgetUsed, int pTimeUsed, List< ITask > pSubTask, int pProgress)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\+Task} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Task (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{I\+User}]{p\+Creator, }
+\item[{Date\+Time}]{p\+Start\+DT, }
+\item[{Date\+Time}]{p\+End\+DT, }
+\item[{Date\+Time}]{p\+Due\+DT, }
+\item[{decimal}]{p\+Budget, }
+\item[{int}]{p\+Duration, }
+\item[{int}]{p\+Priority, }
+\item[{{\bf Interaction\+State}}]{p\+State, }
+\item[{decimal}]{p\+Budget\+Used, }
+\item[{int}]{p\+Time\+Used, }
+\item[{List$<$ {\bf I\+Task} $>$}]{p\+Sub\+Task, }
+\item[{int}]{p\+Progress}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a1e9890e2e67cca051f1485f453a3c760}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a1e9890e2e67cca051f1485f453a3c760}
+
+
+Definition at line 35 of file Interaction\+Factory.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Task@{Create\+Task}}
+\index{Create\+Task@{Create\+Task}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Task(string p\+Id, string p\+Text, string p\+Title, I\+User p\+Creator, Date\+Time p\+Start\+D\+T, Date\+Time p\+End\+D\+T, Date\+Time p\+Due\+D\+T, decimal p\+Budget, int p\+Duration, int p\+Priority, Interaction\+State p\+State, decimal p\+Budget\+Used, int p\+Time\+Used, List$<$ I\+Task $>$ p\+Sub\+Task, int p\+Progress)}{CreateTask(string pId, string pText, string pTitle, IUser pCreator, DateTime pStartDT, DateTime pEndDT, DateTime pDueDT, decimal pBudget, int pDuration, int pPriority, InteractionState pState, decimal pBudgetUsed, int pTimeUsed, List< ITask > pSubTask, int pProgress)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\+Task} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Task (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{string}]{p\+Title, }
+\item[{I\+User}]{p\+Creator, }
+\item[{Date\+Time}]{p\+Start\+DT, }
+\item[{Date\+Time}]{p\+End\+DT, }
+\item[{Date\+Time}]{p\+Due\+DT, }
+\item[{decimal}]{p\+Budget, }
+\item[{int}]{p\+Duration, }
+\item[{int}]{p\+Priority, }
+\item[{{\bf Interaction\+State}}]{p\+State, }
+\item[{decimal}]{p\+Budget\+Used, }
+\item[{int}]{p\+Time\+Used, }
+\item[{List$<$ {\bf I\+Task} $>$}]{p\+Sub\+Task, }
+\item[{int}]{p\+Progress}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a030a74854486e68be1cb97166214ef16}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a030a74854486e68be1cb97166214ef16}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_factory_a36f7e9ea19a2b58c4d72b7eda9568a6c}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction\+Factory}.
+
+
+
+Definition at line 69 of file Interaction\+Factory.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Timeslice@{Create\+Timeslice}}
+\index{Create\+Timeslice@{Create\+Timeslice}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Timeslice(string p\+Id, I\+User p\+User, Date\+Time p\+Start\+D\+T, Date\+Time p\+End\+D\+T, I\+Interaction p\+Target)}{CreateTimeslice(string pId, IUser pUser, DateTime pStartDT, DateTime pEndDT, IInteraction pTarget)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf I\+Timeslice} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Timeslice (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{I\+User}]{p\+User, }
+\item[{Date\+Time}]{p\+Start\+DT, }
+\item[{Date\+Time}]{p\+End\+DT, }
+\item[{{\bf I\+Interaction}}]{p\+Target}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a09b8c47419a3eefd5823056f72c47130}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a09b8c47419a3eefd5823056f72c47130}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_factory_aa1e654f79711cc1d747f0e10db8c98ba}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction\+Factory}.
+
+
+
+Definition at line 151 of file Interaction\+Factory.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}!Create\+Timeslice@{Create\+Timeslice}}
+\index{Create\+Timeslice@{Create\+Timeslice}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Interaction\+Factory}}
+\subsubsection[{\texorpdfstring{Create\+Timeslice(string p\+Id, I\+User p\+User, int p\+Duration, I\+Interaction p\+Target)}{CreateTimeslice(string pId, IUser pUser, int pDuration, IInteraction pTarget)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf I\+Timeslice} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Interaction\+Factory.\+Create\+Timeslice (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{I\+User}]{p\+User, }
+\item[{int}]{p\+Duration, }
+\item[{{\bf I\+Interaction}}]{p\+Target}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a66108b416dc8f455fd0dc22123b2d143}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_factory_a66108b416dc8f455fd0dc22123b2d143}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_factory_a798b46cb4aa8a6d7bcaf47038f0150dc}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction\+Factory}.
+
+
+
+Definition at line 158 of file Interaction\+Factory.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Users/\+Christian\+B/\+Documents/\+\_\+\+H\+F Infomatik/\+Git\+Hub\+\_\+\+Repos/\+Mo\+Cap/\+Plex\+Byte.\+Mo\+Cap/\+Plex\+Byte.\+Mo\+Cap.\+Interactions/\hyperlink{_interaction_factory_8cs}{Interaction\+Factory.\+cs}\end{DoxyCompactItemize}

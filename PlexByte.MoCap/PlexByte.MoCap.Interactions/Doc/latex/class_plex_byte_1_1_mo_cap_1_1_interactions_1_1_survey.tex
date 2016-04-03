@@ -1,0 +1,567 @@
+\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey}{}\section{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey Class Reference}
+\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey}\index{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey@{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey}}
+Inheritance diagram for Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a9ae20c258ed6e6ae23d242e329d4c06d}{Survey} (string p\+Id, string p\+Text, List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_survey_option}{I\+Survey\+Option} $>$ p\+Options, I\+User p\+Creator)
+\begin{DoxyCompactList}\small\item\em Constructor of the class \end{DoxyCompactList}\item 
+\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a76483d76195182900935fcd0d2382940}{Survey} (string p\+Id, string p\+Text, List$<$ string $>$ p\+Options, I\+User p\+Creator)
+\begin{DoxyCompactList}\small\item\em Constructor of the class \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ae9f1ca5ffacd44917eda7458a335cefa}{On\+Complete} (\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_event_args}{Interaction\+Event\+Args} p\+Event\+Args)
+\begin{DoxyCompactList}\small\item\em This method raises the corresponding event in case subscribers are registered \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a08208db03d7006c21d38e60fa7bd41f9}{On\+Modify} (\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_event_args}{Interaction\+Event\+Args} p\+Event\+Args)
+\begin{DoxyCompactList}\small\item\em This method raises the corresponding event in case subscribers are registered \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a895f47ec3591749c04dbcfb329d8fae0}{On\+State\+Changed} (\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_event_args}{Interaction\+Event\+Args} p\+Event\+Args)
+\begin{DoxyCompactList}\small\item\em This method raises the state\+Changed event, in case subscribers are registeres \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a1c301916ee78db1236c465cd3fe40449}{Change\+Owner} (I\+User p\+User)
+\begin{DoxyCompactList}\small\item\em This method changes the owner of the survey and raises the modified event if the owner is different \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ab51b78828fafe0eaa305d6c80df91b0f}{Change\+Is\+Active} (bool p\+Active)
+\begin{DoxyCompactList}\small\item\em This method changes the active flag of the object. This can occure if the item expired, finished or was cancelled. It will raise the Modified event once changed \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a0dcd8382de2ee659237dc0b25a388256}{Add\+Vote} (\hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_vote}{I\+Vote} p\+Vote)
+\begin{DoxyCompactList}\small\item\em This method adds a vote to this survey and verifies if all votes were made. If this is the case a stat\+Changed event with state finished will be fired. It will also check if the user still has open votes \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a0a19d3bd2f79e716f256a76faeb850bc}{Add\+Option} (\hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_survey_option}{I\+Survey\+Option} p\+Option)
+\begin{DoxyCompactList}\small\item\em This method will add options to a survey. In case a new option is added the Modified event is raised \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a72758296f5dbc1e2f197705d51e1a827}{Add\+User} (I\+User p\+User)
+\begin{DoxyCompactList}\small\item\em Adds a new user to the list of eligible users \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ab274203ea62fab8cee7f9f32b29abba7}{Remove\+User} (I\+User p\+User)
+\begin{DoxyCompactList}\small\item\em Removed a user from the list of eligible users \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a7f44759a0d2ea7ce7516559fe8a70a94}{Change\+State} (\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_afcb673d9186608b6bd3b187179aedc8a}{Interaction\+State} p\+State)
+\begin{DoxyCompactList}\small\item\em Changes the state of this interaction and thus causes the state\+C\+Hanged event to be fired \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Date\+Time \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a408a891d3aceb61bb7a91e15084a7473}{Created\+Date\+Time} =$>$ \+\_\+created\+Date\+Time
+\item 
+bool \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_aea8262119dda55b23d594cbadc4bb1d8}{Is\+Active} =$>$ \+\_\+is\+Active
+\item 
+I\+User \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_af2a84b3a5f615138e34cda5b24f30cfd}{Creator} =$>$ \+\_\+creator
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_afcb673d9186608b6bd3b187179aedc8a}{Interaction\+State} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_abd3fc51c6adfad7a540c70512303e280}{State} =$>$ \+\_\+state
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_survey_option}{I\+Survey\+Option} $>$ \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_adacfcf5546425c676756bd12772cb4e2}{Option\+List}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_vote}{I\+Vote} $>$ \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a3527ea8b21abf85da934d6940a97d2ea}{Vote\+List}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+string \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a590e6dd00026c7c039fd61e3166b7170}{Title}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+string \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a8d9364d1707414404e0056c269c37697}{Interaction\+Id}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+string \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_afebba71a8a4961e1cc28c18ad42b7c98}{Project\+Id}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+Date\+Time \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a890e2c1421c46175b9fb9af925b57ecf}{Start\+Date\+Time}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+Date\+Time \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ad848704707f53e6e58a081dea98c4072}{End\+Date\+Time}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+Date\+Time \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_adcfad739d1a4acf70ed60a035716f1d1}{Modified\+Date\+Time}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+string \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ade12b9b3a140efb18dd061665b40224d}{Text}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_a6e7bea333446664bbce2bb296db25e31}{Interaction\+Type} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a339b8292ba9abcab9a2f1aad096bb264}{Type}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+I\+User \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ae4f5e62e3d0f98f34551ec82003ff2ee}{Owner}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+Date\+Time \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a593beaaf80e5c08e1747bf9664258799}{Due\+Date\+Time}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+int \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ad7edb8b491c86a65a4a604388e730b9c}{Max\+Votes\+Per\+User}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+List$<$ I\+User $>$ \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_abf34631f6e58537dbdfef1914ff863f9}{User\+List}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+string \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a7d24bb1bc8db75b6f2b8751cdf7e83f1}{Id}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_ac81ac3321ab2b018c75ad2c18ec15b9e}{Complete} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a954056f9deb35fc271a4c8932003b832}{Completed}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_a490186f613e46adce26244f3b2c78a58}{Modify} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a92a7ef7437f99640fea44765d7453418}{Modified}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_af2ff213e81451f96fc74bfad114cecde}{State\+Change} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_afaec6df3811245396b6f4bfc3062a0c9}{State\+Changed}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 11 of file Survey.\+cs.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Survey@{Survey}}
+\index{Survey@{Survey}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Survey(string p\+Id, string p\+Text, List$<$ I\+Survey\+Option $>$ p\+Options, I\+User p\+Creator)}{Survey(string pId, string pText, List< ISurveyOption > pOptions, IUser pCreator)}}]{\setlength{\rightskip}{0pt plus 5cm}Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Survey (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{List$<$ {\bf I\+Survey\+Option} $>$}]{p\+Options, }
+\item[{I\+User}]{p\+Creator}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a9ae20c258ed6e6ae23d242e329d4c06d}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a9ae20c258ed6e6ae23d242e329d4c06d}
+
+
+Constructor of the class 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Id} & The id of the interaction\\
+\hline
+{\em p\+Text} & The text of the survey\\
+\hline
+{\em p\+Options} & The options available\\
+\hline
+{\em p\+Creator} & The creator of this survey\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 66 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Survey@{Survey}}
+\index{Survey@{Survey}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Survey(string p\+Id, string p\+Text, List$<$ string $>$ p\+Options, I\+User p\+Creator)}{Survey(string pId, string pText, List< string > pOptions, IUser pCreator)}}]{\setlength{\rightskip}{0pt plus 5cm}Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Survey (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{List$<$ string $>$}]{p\+Options, }
+\item[{I\+User}]{p\+Creator}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a76483d76195182900935fcd0d2382940}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a76483d76195182900935fcd0d2382940}
+
+
+Constructor of the class 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Id} & The id of the interaction\\
+\hline
+{\em p\+Text} & The text of the survey\\
+\hline
+{\em p\+Options} & The options available as strngs\\
+\hline
+{\em p\+Creator} & The creator of this survey\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 75 of file Survey.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Add\+Option@{Add\+Option}}
+\index{Add\+Option@{Add\+Option}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Add\+Option(\+I\+Survey\+Option p\+Option)}{AddOption(ISurveyOption pOption)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Add\+Option (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Survey\+Option}}]{p\+Option}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a0a19d3bd2f79e716f256a76faeb850bc}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a0a19d3bd2f79e716f256a76faeb850bc}
+
+
+This method will add options to a survey. In case a new option is added the Modified event is raised 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Option} & The survey option to add\\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_survey_a19e6f79d6fc9ba6c8947894a0ab0d811}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Survey}.
+
+
+
+Definition at line 166 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Add\+User@{Add\+User}}
+\index{Add\+User@{Add\+User}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Add\+User(\+I\+User p\+User)}{AddUser(IUser pUser)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Add\+User (
+\begin{DoxyParamCaption}
+\item[{I\+User}]{p\+User}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a72758296f5dbc1e2f197705d51e1a827}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a72758296f5dbc1e2f197705d51e1a827}
+
+
+Adds a new user to the list of eligible users 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+User} & The user to add\\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_survey_a252050839e9167b57648e150a65385ea}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Survey}.
+
+
+
+Definition at line 180 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Add\+Vote@{Add\+Vote}}
+\index{Add\+Vote@{Add\+Vote}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Add\+Vote(\+I\+Vote p\+Vote)}{AddVote(IVote pVote)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Add\+Vote (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Vote}}]{p\+Vote}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a0dcd8382de2ee659237dc0b25a388256}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a0dcd8382de2ee659237dc0b25a388256}
+
+
+This method adds a vote to this survey and verifies if all votes were made. If this is the case a stat\+Changed event with state finished will be fired. It will also check if the user still has open votes 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Vote} & The vote to ass\\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_survey_ab9df3eb58a1c66b14412cd1bd26f038c}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Survey}.
+
+
+
+Definition at line 145 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Change\+Is\+Active@{Change\+Is\+Active}}
+\index{Change\+Is\+Active@{Change\+Is\+Active}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Change\+Is\+Active(bool p\+Active)}{ChangeIsActive(bool pActive)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Change\+Is\+Active (
+\begin{DoxyParamCaption}
+\item[{bool}]{p\+Active}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ab51b78828fafe0eaa305d6c80df91b0f}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ab51b78828fafe0eaa305d6c80df91b0f}
+
+
+This method changes the active flag of the object. This can occure if the item expired, finished or was cancelled. It will raise the Modified event once changed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Active} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_ac2d9f47a1139b931939e8cff07153aba}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 130 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Change\+Owner@{Change\+Owner}}
+\index{Change\+Owner@{Change\+Owner}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Change\+Owner(\+I\+User p\+User)}{ChangeOwner(IUser pUser)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Change\+Owner (
+\begin{DoxyParamCaption}
+\item[{I\+User}]{p\+User}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a1c301916ee78db1236c465cd3fe40449}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a1c301916ee78db1236c465cd3fe40449}
+
+
+This method changes the owner of the survey and raises the modified event if the owner is different 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+User} & The new user to mark as owner\\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_a7e3b0a67dc7d176877b8b94922a9bb52}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 115 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Change\+State@{Change\+State}}
+\index{Change\+State@{Change\+State}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Change\+State(\+Interaction\+State p\+State)}{ChangeState(InteractionState pState)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Change\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+State}}]{p\+State}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a7f44759a0d2ea7ce7516559fe8a70a94}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a7f44759a0d2ea7ce7516559fe8a70a94}
+
+
+Changes the state of this interaction and thus causes the state\+C\+Hanged event to be fired 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+State} & The new state to set\\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_a10beb35eb6061878469b5a6cd5431b32}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 208 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!On\+Complete@{On\+Complete}}
+\index{On\+Complete@{On\+Complete}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{On\+Complete(\+Interaction\+Event\+Args p\+Event\+Args)}{OnComplete(InteractionEventArgs pEventArgs)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+On\+Complete (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+Event\+Args}}]{p\+Event\+Args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ae9f1ca5ffacd44917eda7458a335cefa}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ae9f1ca5ffacd44917eda7458a335cefa}
+
+
+This method raises the corresponding event in case subscribers are registered 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Event\+Args} & The event args to pass along\\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_a9f32d6c1c2f2ae60dabb274f62128447}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 93 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!On\+Modify@{On\+Modify}}
+\index{On\+Modify@{On\+Modify}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{On\+Modify(\+Interaction\+Event\+Args p\+Event\+Args)}{OnModify(InteractionEventArgs pEventArgs)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+On\+Modify (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+Event\+Args}}]{p\+Event\+Args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a08208db03d7006c21d38e60fa7bd41f9}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a08208db03d7006c21d38e60fa7bd41f9}
+
+
+This method raises the corresponding event in case subscribers are registered 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Event\+Args} & The event args to pass along\\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_af4fac42d753ae7f9652541542b8961c6}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 99 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!On\+State\+Changed@{On\+State\+Changed}}
+\index{On\+State\+Changed@{On\+State\+Changed}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{On\+State\+Changed(\+Interaction\+Event\+Args p\+Event\+Args)}{OnStateChanged(InteractionEventArgs pEventArgs)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+On\+State\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+Event\+Args}}]{p\+Event\+Args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a895f47ec3591749c04dbcfb329d8fae0}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a895f47ec3591749c04dbcfb329d8fae0}
+
+
+This method raises the state\+Changed event, in case subscribers are registeres 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Event\+Args} & The event args to pass along\\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_a5250247fb5f22a633e22d7f8dc946c4d}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 105 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Remove\+User@{Remove\+User}}
+\index{Remove\+User@{Remove\+User}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Remove\+User(\+I\+User p\+User)}{RemoveUser(IUser pUser)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Remove\+User (
+\begin{DoxyParamCaption}
+\item[{I\+User}]{p\+User}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ab274203ea62fab8cee7f9f32b29abba7}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ab274203ea62fab8cee7f9f32b29abba7}
+
+
+Removed a user from the list of eligible users 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+User} & The user to remove\\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_survey_a0e4b923ee86fb5031f0eaa9e3c81dbbd}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Survey}.
+
+
+
+Definition at line 194 of file Survey.\+cs.
+
+
+
+\subsection{Member Data Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Created\+Date\+Time@{Created\+Date\+Time}}
+\index{Created\+Date\+Time@{Created\+Date\+Time}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Created\+Date\+Time}{CreatedDateTime}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Created\+Date\+Time =$>$ \+\_\+created\+Date\+Time}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a408a891d3aceb61bb7a91e15084a7473}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a408a891d3aceb61bb7a91e15084a7473}
+
+
+Definition at line 23 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Creator@{Creator}}
+\index{Creator@{Creator}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Creator}{Creator}}]{\setlength{\rightskip}{0pt plus 5cm}I\+User Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Creator =$>$ \+\_\+creator}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_af2a84b3a5f615138e34cda5b24f30cfd}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_af2a84b3a5f615138e34cda5b24f30cfd}
+
+
+Definition at line 28 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Is\+Active@{Is\+Active}}
+\index{Is\+Active@{Is\+Active}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Is\+Active}{IsActive}}]{\setlength{\rightskip}{0pt plus 5cm}bool Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Is\+Active =$>$ \+\_\+is\+Active}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_aea8262119dda55b23d594cbadc4bb1d8}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_aea8262119dda55b23d594cbadc4bb1d8}
+
+
+Definition at line 25 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!State@{State}}
+\index{State@{State}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{State}{State}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Interaction\+State} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+State =$>$ \+\_\+state}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_abd3fc51c6adfad7a540c70512303e280}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_abd3fc51c6adfad7a540c70512303e280}
+
+
+Definition at line 31 of file Survey.\+cs.
+
+
+
+\subsection{Property Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Due\+Date\+Time@{Due\+Date\+Time}}
+\index{Due\+Date\+Time@{Due\+Date\+Time}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Due\+Date\+Time}{DueDateTime}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Due\+Date\+Time\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a593beaaf80e5c08e1747bf9664258799}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a593beaaf80e5c08e1747bf9664258799}
+
+
+Definition at line 30 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!End\+Date\+Time@{End\+Date\+Time}}
+\index{End\+Date\+Time@{End\+Date\+Time}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{End\+Date\+Time}{EndDateTime}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+End\+Date\+Time\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ad848704707f53e6e58a081dea98c4072}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ad848704707f53e6e58a081dea98c4072}
+
+
+Definition at line 22 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Id@{Id}}
+\index{Id@{Id}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Id}{Id}}]{\setlength{\rightskip}{0pt plus 5cm}string Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a7d24bb1bc8db75b6f2b8751cdf7e83f1}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a7d24bb1bc8db75b6f2b8751cdf7e83f1}
+
+
+Definition at line 35 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Interaction\+Id@{Interaction\+Id}}
+\index{Interaction\+Id@{Interaction\+Id}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Interaction\+Id}{InteractionId}}]{\setlength{\rightskip}{0pt plus 5cm}string Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Interaction\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a8d9364d1707414404e0056c269c37697}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a8d9364d1707414404e0056c269c37697}
+
+
+Definition at line 19 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Max\+Votes\+Per\+User@{Max\+Votes\+Per\+User}}
+\index{Max\+Votes\+Per\+User@{Max\+Votes\+Per\+User}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Max\+Votes\+Per\+User}{MaxVotesPerUser}}]{\setlength{\rightskip}{0pt plus 5cm}int Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Max\+Votes\+Per\+User\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ad7edb8b491c86a65a4a604388e730b9c}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ad7edb8b491c86a65a4a604388e730b9c}
+
+
+Definition at line 32 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Modified\+Date\+Time@{Modified\+Date\+Time}}
+\index{Modified\+Date\+Time@{Modified\+Date\+Time}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Modified\+Date\+Time}{ModifiedDateTime}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Modified\+Date\+Time\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_adcfad739d1a4acf70ed60a035716f1d1}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_adcfad739d1a4acf70ed60a035716f1d1}
+
+
+Definition at line 24 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Option\+List@{Option\+List}}
+\index{Option\+List@{Option\+List}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Option\+List}{OptionList}}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf I\+Survey\+Option}$>$ Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Option\+List\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_adacfcf5546425c676756bd12772cb4e2}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_adacfcf5546425c676756bd12772cb4e2}
+
+
+Definition at line 16 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Owner@{Owner}}
+\index{Owner@{Owner}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Owner}{Owner}}]{\setlength{\rightskip}{0pt plus 5cm}I\+User Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Owner\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ae4f5e62e3d0f98f34551ec82003ff2ee}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ae4f5e62e3d0f98f34551ec82003ff2ee}
+
+
+Definition at line 29 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Project\+Id@{Project\+Id}}
+\index{Project\+Id@{Project\+Id}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Project\+Id}{ProjectId}}]{\setlength{\rightskip}{0pt plus 5cm}string Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Project\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_afebba71a8a4961e1cc28c18ad42b7c98}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_afebba71a8a4961e1cc28c18ad42b7c98}
+
+
+Definition at line 20 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Start\+Date\+Time@{Start\+Date\+Time}}
+\index{Start\+Date\+Time@{Start\+Date\+Time}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Start\+Date\+Time}{StartDateTime}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Start\+Date\+Time\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a890e2c1421c46175b9fb9af925b57ecf}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a890e2c1421c46175b9fb9af925b57ecf}
+
+
+Definition at line 21 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Text@{Text}}
+\index{Text@{Text}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Text}{Text}}]{\setlength{\rightskip}{0pt plus 5cm}string Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Text\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ade12b9b3a140efb18dd061665b40224d}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_ade12b9b3a140efb18dd061665b40224d}
+
+
+Definition at line 26 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Title@{Title}}
+\index{Title@{Title}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Title}{Title}}]{\setlength{\rightskip}{0pt plus 5cm}string Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Title\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a590e6dd00026c7c039fd61e3166b7170}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a590e6dd00026c7c039fd61e3166b7170}
+
+
+Definition at line 18 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Type@{Type}}
+\index{Type@{Type}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Type}{Type}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Interaction\+Type} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Type\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a339b8292ba9abcab9a2f1aad096bb264}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a339b8292ba9abcab9a2f1aad096bb264}
+
+
+Definition at line 27 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!User\+List@{User\+List}}
+\index{User\+List@{User\+List}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{User\+List}{UserList}}]{\setlength{\rightskip}{0pt plus 5cm}List$<$I\+User$>$ Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+User\+List\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_abf34631f6e58537dbdfef1914ff863f9}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_abf34631f6e58537dbdfef1914ff863f9}
+
+
+Definition at line 33 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Vote\+List@{Vote\+List}}
+\index{Vote\+List@{Vote\+List}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Vote\+List}{VoteList}}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf I\+Vote}$>$ Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Vote\+List\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a3527ea8b21abf85da934d6940a97d2ea}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a3527ea8b21abf85da934d6940a97d2ea}
+
+
+Definition at line 17 of file Survey.\+cs.
+
+
+
+\subsection{Event Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Completed@{Completed}}
+\index{Completed@{Completed}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Completed}{Completed}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complete} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Completed}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a954056f9deb35fc271a4c8932003b832}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a954056f9deb35fc271a4c8932003b832}
+
+
+Definition at line 51 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!Modified@{Modified}}
+\index{Modified@{Modified}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{Modified}{Modified}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Modify} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+Modified}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a92a7ef7437f99640fea44765d7453418}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_a92a7ef7437f99640fea44765d7453418}
+
+
+Definition at line 52 of file Survey.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}!State\+Changed@{State\+Changed}}
+\index{State\+Changed@{State\+Changed}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Survey}}
+\subsubsection[{\texorpdfstring{State\+Changed}{StateChanged}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State\+Change} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Survey.\+State\+Changed}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_afaec6df3811245396b6f4bfc3062a0c9}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_survey_afaec6df3811245396b6f4bfc3062a0c9}
+
+
+Definition at line 53 of file Survey.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Users/\+Christian\+B/\+Documents/\+\_\+\+H\+F Infomatik/\+Git\+Hub\+\_\+\+Repos/\+Mo\+Cap/\+Plex\+Byte.\+Mo\+Cap/\+Plex\+Byte.\+Mo\+Cap.\+Interactions/\hyperlink{_survey_8cs}{Survey.\+cs}\end{DoxyCompactItemize}

@@ -1,0 +1,710 @@
+\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account}{}\section{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account Class Reference}
+\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account}\index{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account@{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account}}
+Inheritance diagram for Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a067473555d22524f93c988371c7ae0b8}{Account} (string p\+Id, string p\+Text, I\+User p\+Creator)
+\begin{DoxyCompactList}\small\item\em Constructor of the class \end{DoxyCompactList}\item 
+\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a2143d30349b9dce3d6e154ac51a34829}{Account} (string p\+Id, string p\+Text, List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_expense}{I\+Expense} $>$ p\+Expense\+List, List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_timeslice}{I\+Timeslice} $>$ p\+Timeslice\+List, I\+User p\+Creator)
+\begin{DoxyCompactList}\small\item\em Constructor of the class \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a697e062e9b46c58922cbdce34b8e1574}{On\+Complete} (\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_event_args}{Interaction\+Event\+Args} p\+Event\+Args)
+\begin{DoxyCompactList}\small\item\em This method raises the corresponding event in case subscribers are registered \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a8b3878783c7aa0648adc8633e98e7f4e}{On\+Modify} (\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_event_args}{Interaction\+Event\+Args} p\+Event\+Args)
+\begin{DoxyCompactList}\small\item\em This method raises the corresponding event in case subscribers are registered \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_aea5d67faea2dcce6ed0deff84274e9ad}{On\+State\+Changed} (\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_event_args}{Interaction\+Event\+Args} p\+Event\+Args)
+\begin{DoxyCompactList}\small\item\em This method raises the corresponding event in case subscribers are registered \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a85ea096cc8598da7ec635311e20c77f4}{On\+Expense\+Added} (\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_event_args}{Interaction\+Event\+Args} p\+Event\+Args)
+\begin{DoxyCompactList}\small\item\em This method raises the corresponding event in case subscribers are registered \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a978de8f575c4f196808d37836c960202}{On\+Timeslice\+Added} (\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_event_args}{Interaction\+Event\+Args} p\+Event\+Args)
+\begin{DoxyCompactList}\small\item\em This method raises the corresponding event in case subscribers are registered \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a7220958b8470021790726ae8e68078a5}{Change\+Owner} (I\+User p\+User)
+\begin{DoxyCompactList}\small\item\em This method changes the owner of the project and raises the modified event if the owner is different used to create a secound project-\/admin \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_aa599051753ac017c4fa2613fa16be415}{Change\+Is\+Active} (bool p\+Active)
+\begin{DoxyCompactList}\small\item\em This method changes the active flag of the object. This can occure if the item expired, finished or was cancelled. It will raise the Modified event once changed \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a3dadb5bcabffdec7afad04af7c94e2f0}{Change\+State} (\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_afcb673d9186608b6bd3b187179aedc8a}{Interaction\+State} p\+State)
+\begin{DoxyCompactList}\small\item\em Changes the state of this interaction and thus causes the state\+C\+Hanged event to be fired \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a0f69931bd1d21cb3692f0f08918247bd}{Add\+Expense} (\hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_expense}{I\+Expense} p\+Expense)
+\begin{DoxyCompactList}\small\item\em Adds a \char`\"{}expense\char`\"{} to the expenselist \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a28d01e56bb3fc78f30f4ed5f259c0e17}{Add\+Timeslice} (\hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_timeslice}{I\+Timeslice} p\+Timeslice)
+\begin{DoxyCompactList}\small\item\em Adds a \char`\"{}timeslice\char`\"{} to the timeslicelist \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a84d71e01b4a2a2483b52bc67635499ed}{Delete\+Expense} (\hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_expense}{I\+Expense} p\+Expense)
+\begin{DoxyCompactList}\small\item\em Deletes a \char`\"{}expense\char`\"{} object if it exists in the expenselist \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a3baea063609ff894849c852c249a3c7a}{Edit\+Timeslice} (\hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_timeslice}{I\+Timeslice} p\+Timeslice, \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_timeslice}{I\+Timeslice} p\+New\+Timeslice)
+\begin{DoxyCompactList}\small\item\em To edit the timeslice the old one is removed and a new is being created \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a8b8d09b65d60431bdbbef7d3aed6a72b}{Delete\+Timeslice} (\hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_timeslice}{I\+Timeslice} p\+Timeslice)
+\begin{DoxyCompactList}\small\item\em Deletes a \char`\"{}timeslice\char`\"{} object if it exists in the timeslicelist \end{DoxyCompactList}\item 
+decimal \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a44cddcf32dbd3ce31fc012104f25e9f8}{User\+Expense} (I\+User p\+User)
+\begin{DoxyCompactList}\small\item\em Returns the overall expenses of an User in the project \end{DoxyCompactList}\item 
+int \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a77706a7728657fb56f5f5dc85bd738f4}{User\+Timeslice} (I\+User p\+User)
+\begin{DoxyCompactList}\small\item\em Returns the overall time of an User in the project \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a803b3019d6baa78793eeb56e9033028a}{Id}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The unique id of the account \end{DoxyCompactList}\item 
+Date\+Time \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a5e26981bffb5bdee06beb50888553ec0}{Start\+Date\+Time}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The date and time this account becomes active and can be worked on. As long as this date is not reached the state will remain queued and no work can be performed on the account as longs as it is in state queued \end{DoxyCompactList}\item 
+Date\+Time \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a15dfe505b42a142c4a4fc0ec93ab7fba}{End\+Date\+Time}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The date and time this account should be finished. If this date is reached the state will change to expired \end{DoxyCompactList}\item 
+Date\+Time \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a5479e6c738ee5788378895820d71e24a}{Created\+Date\+Time}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The date and time the account was created \end{DoxyCompactList}\item 
+Date\+Time \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_af8af891d5ca86bc5aec5403339aefa76}{Modified\+Date\+Time}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The date and time the account was last modified \end{DoxyCompactList}\item 
+bool \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_adce5e94f1e2ca7340805ad6f601ebe5f}{Is\+Active}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Flag indicating whether or not the account can be worked on \end{DoxyCompactList}\item 
+string \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a271c6c603f997216f42f290de1dc89eb}{Text}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The text of this account (description) \end{DoxyCompactList}\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_a6e7bea333446664bbce2bb296db25e31}{Interaction\+Type} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_ab8c590e09224e5015e66019cec50280c}{Type}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The type of interaction (will be always account) \end{DoxyCompactList}\item 
+I\+User \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_ab04766b742ba744b403e1e24f702b0d1}{Creator}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The user that created the account \end{DoxyCompactList}\item 
+I\+User \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a36d8ba4726f5289eabc6173ad9e910d6}{Owner}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The user currently owning the account \end{DoxyCompactList}\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_afcb673d9186608b6bd3b187179aedc8a}{Interaction\+State} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_aed386d136f63df4fedd54b91c609512e}{State}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The state of the account \end{DoxyCompactList}\item 
+List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_expense}{I\+Expense} $>$ \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a01eaa284f3668b214462e51ef13b7fd8}{Expense\+List}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em A list of all expense-\/objects \end{DoxyCompactList}\item 
+List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_timeslice}{I\+Timeslice} $>$ \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a0a45c7a5a420fde27cfc1c008a7023f1}{Timeslice\+List}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em A list of all timeslice-\/objects \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_ac81ac3321ab2b018c75ad2c18ec15b9e}{Complete} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a2d975974095e091d66e21cfa2d28b9ab}{Completed}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_a490186f613e46adce26244f3b2c78a58}{Modify} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a79a653b390e022a26200899b77c276cf}{Modified}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_af2ff213e81451f96fc74bfad114cecde}{State\+Change} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a0a0a49e58be6492cce544f8a6009dc52}{State\+Changed}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_a7c03c08c6f524b34193985c455985f1f}{Expense\+Add} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_ad96bd65da3c69c282a266761593c7cd7}{Expense\+Added}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_a600557b92ababd90f6a91c524998565a}{Timeslice\+Add} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a10f5bed89fdad33cafcb018e3f4f7bd8}{Timeslice\+Added}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 11 of file Account.\+cs.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Account@{Account}}
+\index{Account@{Account}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Account(string p\+Id, string p\+Text, I\+User p\+Creator)}{Account(string pId, string pText, IUser pCreator)}}]{\setlength{\rightskip}{0pt plus 5cm}Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Account (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{I\+User}]{p\+Creator}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a067473555d22524f93c988371c7ae0b8}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a067473555d22524f93c988371c7ae0b8}
+
+
+Constructor of the class 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Id} & \\
+\hline
+{\em p\+Text} & \\
+\hline
+{\em p\+Creator} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 95 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Account@{Account}}
+\index{Account@{Account}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Account(string p\+Id, string p\+Text, List$<$ I\+Expense $>$ p\+Expense\+List, List$<$ I\+Timeslice $>$ p\+Timeslice\+List, I\+User p\+Creator)}{Account(string pId, string pText, List< IExpense > pExpenseList, List< ITimeslice > pTimesliceList, IUser pCreator)}}]{\setlength{\rightskip}{0pt plus 5cm}Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Account (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{List$<$ {\bf I\+Expense} $>$}]{p\+Expense\+List, }
+\item[{List$<$ {\bf I\+Timeslice} $>$}]{p\+Timeslice\+List, }
+\item[{I\+User}]{p\+Creator}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a2143d30349b9dce3d6e154ac51a34829}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a2143d30349b9dce3d6e154ac51a34829}
+
+
+Constructor of the class 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Id} & \\
+\hline
+{\em p\+Text} & \\
+\hline
+{\em p\+Enable\+Balance} & \\
+\hline
+{\em p\+Enable\+Survey} & \\
+\hline
+{\em p\+Creator} & \\
+\hline
+{\em p\+Member\+List} & \\
+\hline
+{\em p\+Invitation\+List} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 115 of file Account.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Add\+Expense@{Add\+Expense}}
+\index{Add\+Expense@{Add\+Expense}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Add\+Expense(\+I\+Expense p\+Expense)}{AddExpense(IExpense pExpense)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Add\+Expense (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Expense}}]{p\+Expense}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a0f69931bd1d21cb3692f0f08918247bd}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a0f69931bd1d21cb3692f0f08918247bd}
+
+
+Adds a \char`\"{}expense\char`\"{} to the expenselist 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Expense} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a824d1d5e807efd91b8b5297c17615181}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account}.
+
+
+
+Definition at line 223 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Add\+Timeslice@{Add\+Timeslice}}
+\index{Add\+Timeslice@{Add\+Timeslice}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Add\+Timeslice(\+I\+Timeslice p\+Timeslice)}{AddTimeslice(ITimeslice pTimeslice)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Add\+Timeslice (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Timeslice}}]{p\+Timeslice}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a28d01e56bb3fc78f30f4ed5f259c0e17}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a28d01e56bb3fc78f30f4ed5f259c0e17}
+
+
+Adds a \char`\"{}timeslice\char`\"{} to the timeslicelist 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timeslice} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a32338193fc2a47546efe36dc370b6c1a}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account}.
+
+
+
+Definition at line 235 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Change\+Is\+Active@{Change\+Is\+Active}}
+\index{Change\+Is\+Active@{Change\+Is\+Active}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Change\+Is\+Active(bool p\+Active)}{ChangeIsActive(bool pActive)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Change\+Is\+Active (
+\begin{DoxyParamCaption}
+\item[{bool}]{p\+Active}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_aa599051753ac017c4fa2613fa16be415}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_aa599051753ac017c4fa2613fa16be415}
+
+
+This method changes the active flag of the object. This can occure if the item expired, finished or was cancelled. It will raise the Modified event once changed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Active} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_ac2d9f47a1139b931939e8cff07153aba}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 193 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Change\+Owner@{Change\+Owner}}
+\index{Change\+Owner@{Change\+Owner}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Change\+Owner(\+I\+User p\+User)}{ChangeOwner(IUser pUser)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Change\+Owner (
+\begin{DoxyParamCaption}
+\item[{I\+User}]{p\+User}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a7220958b8470021790726ae8e68078a5}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a7220958b8470021790726ae8e68078a5}
+
+
+This method changes the owner of the project and raises the modified event if the owner is different used to create a secound project-\/admin 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+User} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_a7e3b0a67dc7d176877b8b94922a9bb52}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 177 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Change\+State@{Change\+State}}
+\index{Change\+State@{Change\+State}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Change\+State(\+Interaction\+State p\+State)}{ChangeState(InteractionState pState)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Change\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+State}}]{p\+State}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a3dadb5bcabffdec7afad04af7c94e2f0}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a3dadb5bcabffdec7afad04af7c94e2f0}
+
+
+Changes the state of this interaction and thus causes the state\+C\+Hanged event to be fired 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+State} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_a10beb35eb6061878469b5a6cd5431b32}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 208 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Delete\+Expense@{Delete\+Expense}}
+\index{Delete\+Expense@{Delete\+Expense}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Delete\+Expense(\+I\+Expense p\+Expense)}{DeleteExpense(IExpense pExpense)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Delete\+Expense (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Expense}}]{p\+Expense}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a84d71e01b4a2a2483b52bc67635499ed}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a84d71e01b4a2a2483b52bc67635499ed}
+
+
+Deletes a \char`\"{}expense\char`\"{} object if it exists in the expenselist 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Expense} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_aa16e3839c2d7eeb4b18dd883ba913533}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account}.
+
+
+
+Definition at line 247 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Delete\+Timeslice@{Delete\+Timeslice}}
+\index{Delete\+Timeslice@{Delete\+Timeslice}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Delete\+Timeslice(\+I\+Timeslice p\+Timeslice)}{DeleteTimeslice(ITimeslice pTimeslice)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Delete\+Timeslice (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Timeslice}}]{p\+Timeslice}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a8b8d09b65d60431bdbbef7d3aed6a72b}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a8b8d09b65d60431bdbbef7d3aed6a72b}
+
+
+Deletes a \char`\"{}timeslice\char`\"{} object if it exists in the timeslicelist 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Timeslice} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a28f21a9fd3584256cc0f5eeb41477e06}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account}.
+
+
+
+Definition at line 278 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Edit\+Timeslice@{Edit\+Timeslice}}
+\index{Edit\+Timeslice@{Edit\+Timeslice}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Edit\+Timeslice(\+I\+Timeslice p\+Timeslice, I\+Timeslice p\+New\+Timeslice)}{EditTimeslice(ITimeslice pTimeslice, ITimeslice pNewTimeslice)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Edit\+Timeslice (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Timeslice}}]{p\+Timeslice, }
+\item[{{\bf I\+Timeslice}}]{p\+New\+Timeslice}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a3baea063609ff894849c852c249a3c7a}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a3baea063609ff894849c852c249a3c7a}
+
+
+To edit the timeslice the old one is removed and a new is being created 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P\+Timeslice} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_ad71ce3f0f04ba8c3563a2e7d1b53378d}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account}.
+
+
+
+Definition at line 262 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!On\+Complete@{On\+Complete}}
+\index{On\+Complete@{On\+Complete}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{On\+Complete(\+Interaction\+Event\+Args p\+Event\+Args)}{OnComplete(InteractionEventArgs pEventArgs)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+On\+Complete (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+Event\+Args}}]{p\+Event\+Args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a697e062e9b46c58922cbdce34b8e1574}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a697e062e9b46c58922cbdce34b8e1574}
+
+
+This method raises the corresponding event in case subscribers are registered 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Event\+Args} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_a9f32d6c1c2f2ae60dabb274f62128447}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 127 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!On\+Expense\+Added@{On\+Expense\+Added}}
+\index{On\+Expense\+Added@{On\+Expense\+Added}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{On\+Expense\+Added(\+Interaction\+Event\+Args p\+Event\+Args)}{OnExpenseAdded(InteractionEventArgs pEventArgs)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+On\+Expense\+Added (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+Event\+Args}}]{p\+Event\+Args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a85ea096cc8598da7ec635311e20c77f4}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a85ea096cc8598da7ec635311e20c77f4}
+
+
+This method raises the corresponding event in case subscribers are registered 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Event\+Args} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 154 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!On\+Modify@{On\+Modify}}
+\index{On\+Modify@{On\+Modify}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{On\+Modify(\+Interaction\+Event\+Args p\+Event\+Args)}{OnModify(InteractionEventArgs pEventArgs)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+On\+Modify (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+Event\+Args}}]{p\+Event\+Args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a8b3878783c7aa0648adc8633e98e7f4e}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a8b3878783c7aa0648adc8633e98e7f4e}
+
+
+This method raises the corresponding event in case subscribers are registered 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Event\+Args} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_af4fac42d753ae7f9652541542b8961c6}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 136 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!On\+State\+Changed@{On\+State\+Changed}}
+\index{On\+State\+Changed@{On\+State\+Changed}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{On\+State\+Changed(\+Interaction\+Event\+Args p\+Event\+Args)}{OnStateChanged(InteractionEventArgs pEventArgs)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+On\+State\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+Event\+Args}}]{p\+Event\+Args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_aea5d67faea2dcce6ed0deff84274e9ad}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_aea5d67faea2dcce6ed0deff84274e9ad}
+
+
+This method raises the corresponding event in case subscribers are registered 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Event\+Args} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction_a5250247fb5f22a633e22d7f8dc946c4d}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Interaction}.
+
+
+
+Definition at line 145 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!On\+Timeslice\+Added@{On\+Timeslice\+Added}}
+\index{On\+Timeslice\+Added@{On\+Timeslice\+Added}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{On\+Timeslice\+Added(\+Interaction\+Event\+Args p\+Event\+Args)}{OnTimesliceAdded(InteractionEventArgs pEventArgs)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+On\+Timeslice\+Added (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+Event\+Args}}]{p\+Event\+Args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a978de8f575c4f196808d37836c960202}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a978de8f575c4f196808d37836c960202}
+
+
+This method raises the corresponding event in case subscribers are registered 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Event\+Args} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 163 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!User\+Expense@{User\+Expense}}
+\index{User\+Expense@{User\+Expense}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{User\+Expense(\+I\+User p\+User)}{UserExpense(IUser pUser)}}]{\setlength{\rightskip}{0pt plus 5cm}decimal Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+User\+Expense (
+\begin{DoxyParamCaption}
+\item[{I\+User}]{p\+User}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a44cddcf32dbd3ce31fc012104f25e9f8}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a44cddcf32dbd3ce31fc012104f25e9f8}
+
+
+Returns the overall expenses of an User in the project 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+User} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+decimal \+\_\+user\+Value
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a4a1424e01898012e5457d777006b2a49}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account}.
+
+
+
+Definition at line 294 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!User\+Timeslice@{User\+Timeslice}}
+\index{User\+Timeslice@{User\+Timeslice}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{User\+Timeslice(\+I\+User p\+User)}{UserTimeslice(IUser pUser)}}]{\setlength{\rightskip}{0pt plus 5cm}int Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+User\+Timeslice (
+\begin{DoxyParamCaption}
+\item[{I\+User}]{p\+User}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a77706a7728657fb56f5f5dc85bd738f4}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a77706a7728657fb56f5f5dc85bd738f4}
+
+
+Returns the overall time of an User in the project 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+User} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int \+\_\+user\+Time
+\end{DoxyReturn}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a75c8a9171f868234d85ced97117b1b8b}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account}.
+
+
+
+Definition at line 311 of file Account.\+cs.
+
+
+
+\subsection{Property Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Created\+Date\+Time@{Created\+Date\+Time}}
+\index{Created\+Date\+Time@{Created\+Date\+Time}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Created\+Date\+Time}{CreatedDateTime}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Created\+Date\+Time\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a5479e6c738ee5788378895820d71e24a}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a5479e6c738ee5788378895820d71e24a}
+
+
+The date and time the account was created 
+
+
+
+Definition at line 31 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Creator@{Creator}}
+\index{Creator@{Creator}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Creator}{Creator}}]{\setlength{\rightskip}{0pt plus 5cm}I\+User Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Creator\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_ab04766b742ba744b403e1e24f702b0d1}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_ab04766b742ba744b403e1e24f702b0d1}
+
+
+The user that created the account 
+
+
+
+Definition at line 51 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!End\+Date\+Time@{End\+Date\+Time}}
+\index{End\+Date\+Time@{End\+Date\+Time}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{End\+Date\+Time}{EndDateTime}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+End\+Date\+Time\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a15dfe505b42a142c4a4fc0ec93ab7fba}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a15dfe505b42a142c4a4fc0ec93ab7fba}
+
+
+The date and time this account should be finished. If this date is reached the state will change to expired 
+
+
+
+Definition at line 27 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Expense\+List@{Expense\+List}}
+\index{Expense\+List@{Expense\+List}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Expense\+List}{ExpenseList}}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf I\+Expense}$>$ Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Expense\+List\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a01eaa284f3668b214462e51ef13b7fd8}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a01eaa284f3668b214462e51ef13b7fd8}
+
+
+A list of all expense-\/objects 
+
+
+
+Definition at line 63 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Id@{Id}}
+\index{Id@{Id}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Id}{Id}}]{\setlength{\rightskip}{0pt plus 5cm}string Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Id\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a803b3019d6baa78793eeb56e9033028a}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a803b3019d6baa78793eeb56e9033028a}
+
+
+The unique id of the account 
+
+
+
+Definition at line 18 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Is\+Active@{Is\+Active}}
+\index{Is\+Active@{Is\+Active}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Is\+Active}{IsActive}}]{\setlength{\rightskip}{0pt plus 5cm}bool Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Is\+Active\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_adce5e94f1e2ca7340805ad6f601ebe5f}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_adce5e94f1e2ca7340805ad6f601ebe5f}
+
+
+Flag indicating whether or not the account can be worked on 
+
+
+
+Definition at line 39 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Modified\+Date\+Time@{Modified\+Date\+Time}}
+\index{Modified\+Date\+Time@{Modified\+Date\+Time}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Modified\+Date\+Time}{ModifiedDateTime}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Modified\+Date\+Time\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_af8af891d5ca86bc5aec5403339aefa76}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_af8af891d5ca86bc5aec5403339aefa76}
+
+
+The date and time the account was last modified 
+
+
+
+Definition at line 35 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Owner@{Owner}}
+\index{Owner@{Owner}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Owner}{Owner}}]{\setlength{\rightskip}{0pt plus 5cm}I\+User Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Owner\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a36d8ba4726f5289eabc6173ad9e910d6}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a36d8ba4726f5289eabc6173ad9e910d6}
+
+
+The user currently owning the account 
+
+
+
+Definition at line 55 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Start\+Date\+Time@{Start\+Date\+Time}}
+\index{Start\+Date\+Time@{Start\+Date\+Time}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Start\+Date\+Time}{StartDateTime}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Start\+Date\+Time\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a5e26981bffb5bdee06beb50888553ec0}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a5e26981bffb5bdee06beb50888553ec0}
+
+
+The date and time this account becomes active and can be worked on. As long as this date is not reached the state will remain queued and no work can be performed on the account as longs as it is in state queued 
+
+
+
+Definition at line 23 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!State@{State}}
+\index{State@{State}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{State}{State}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Interaction\+State} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+State\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_aed386d136f63df4fedd54b91c609512e}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_aed386d136f63df4fedd54b91c609512e}
+
+
+The state of the account 
+
+
+
+Definition at line 59 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Text@{Text}}
+\index{Text@{Text}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Text}{Text}}]{\setlength{\rightskip}{0pt plus 5cm}string Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Text\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a271c6c603f997216f42f290de1dc89eb}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a271c6c603f997216f42f290de1dc89eb}
+
+
+The text of this account (description) 
+
+
+
+Definition at line 43 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Timeslice\+List@{Timeslice\+List}}
+\index{Timeslice\+List@{Timeslice\+List}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Timeslice\+List}{TimesliceList}}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf I\+Timeslice}$>$ Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Timeslice\+List\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a0a45c7a5a420fde27cfc1c008a7023f1}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a0a45c7a5a420fde27cfc1c008a7023f1}
+
+
+A list of all timeslice-\/objects 
+
+
+
+Definition at line 67 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Type@{Type}}
+\index{Type@{Type}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Type}{Type}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Interaction\+Type} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Type\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_ab8c590e09224e5015e66019cec50280c}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_ab8c590e09224e5015e66019cec50280c}
+
+
+The type of interaction (will be always account) 
+
+
+
+Definition at line 47 of file Account.\+cs.
+
+
+
+\subsection{Event Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Completed@{Completed}}
+\index{Completed@{Completed}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Completed}{Completed}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complete} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Completed}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a2d975974095e091d66e21cfa2d28b9ab}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a2d975974095e091d66e21cfa2d28b9ab}
+
+
+Definition at line 81 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Expense\+Added@{Expense\+Added}}
+\index{Expense\+Added@{Expense\+Added}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Expense\+Added}{ExpenseAdded}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expense\+Add} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Expense\+Added}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_ad96bd65da3c69c282a266761593c7cd7}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_ad96bd65da3c69c282a266761593c7cd7}
+
+
+Definition at line 84 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Modified@{Modified}}
+\index{Modified@{Modified}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Modified}{Modified}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Modify} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Modified}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a79a653b390e022a26200899b77c276cf}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a79a653b390e022a26200899b77c276cf}
+
+
+Definition at line 82 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!State\+Changed@{State\+Changed}}
+\index{State\+Changed@{State\+Changed}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{State\+Changed}{StateChanged}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State\+Change} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+State\+Changed}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a0a0a49e58be6492cce544f8a6009dc52}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a0a0a49e58be6492cce544f8a6009dc52}
+
+
+Definition at line 83 of file Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}!Timeslice\+Added@{Timeslice\+Added}}
+\index{Timeslice\+Added@{Timeslice\+Added}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Account}}
+\subsubsection[{\texorpdfstring{Timeslice\+Added}{TimesliceAdded}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Timeslice\+Add} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account.\+Timeslice\+Added}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a10f5bed89fdad33cafcb018e3f4f7bd8}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a10f5bed89fdad33cafcb018e3f4f7bd8}
+
+
+Definition at line 85 of file Account.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Users/\+Christian\+B/\+Documents/\+\_\+\+H\+F Infomatik/\+Git\+Hub\+\_\+\+Repos/\+Mo\+Cap/\+Plex\+Byte.\+Mo\+Cap/\+Plex\+Byte.\+Mo\+Cap.\+Interactions/\hyperlink{_account_8cs}{Account.\+cs}\end{DoxyCompactItemize}

@@ -1,0 +1,474 @@
+\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense}{}\section{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense Class Reference}
+\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense}\index{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense@{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense}}
+Inheritance diagram for Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a2a71f640711b211319c26cf08f86255e}{Expense} (string p\+Id, string p\+Text, I\+User p\+Creator, \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction}{I\+Interaction} p\+Target)
+\begin{DoxyCompactList}\small\item\em Constructor of the class \end{DoxyCompactList}\item 
+\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a9bb0e412ed6e63676930d4da916e79d6}{Expense} (string p\+Id, string p\+Text, Image p\+Receipt, decimal p\+Value, I\+User p\+Creator, \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction}{I\+Interaction} p\+Target)
+\begin{DoxyCompactList}\small\item\em Constructor of the class \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a81535f3b98deeaab3e03d190543a4127}{On\+Complete} (\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_event_args}{Interaction\+Event\+Args} p\+Event\+Args)
+\begin{DoxyCompactList}\small\item\em This method raises the corresponding event in case subscribers are registered \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a224578edb2ee395588eebd15fcfc29a3}{On\+Modify} (\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_event_args}{Interaction\+Event\+Args} p\+Event\+Args)
+\begin{DoxyCompactList}\small\item\em This method raises the corresponding event in case subscribers are registered \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_abe824865e6ea9cc7b3d2644e6e0e4069}{On\+State\+Changed} (\hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_interaction_event_args}{Interaction\+Event\+Args} p\+Event\+Args)
+\begin{DoxyCompactList}\small\item\em This method raises the corresponding event in case subscribers are registered \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a33e21b15e70fa450463a5a5197dcfe38}{Add\+Receipt} (Image p\+Receipt)
+\begin{DoxyCompactList}\small\item\em Method to add a Receipt to an expense \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a927ad9089c43c09790083d554b1139f8}{Delete\+Receipt} ()
+\begin{DoxyCompactList}\small\item\em Method to remove a Receipt from an expense \end{DoxyCompactList}\item 
+void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_ace1f3d1404f02fb78583b1709641c2c1}{Edit\+Value} (decimal p\+New\+Value)
+\begin{DoxyCompactList}\small\item\em Method to edit the value of an expense \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a37a7af04bd991bfbfd8619ee3bd35d6c}{Change\+Is\+Active} (bool p\+Active)
+\begin{DoxyCompactList}\small\item\em This method changes the active flag of the object. This can occure if the item expired, finished or was cancelled. It will raise the Modified event once changed \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_adae1f2089f4eeb5cfedebc1af1f06b38}{Change\+State} (\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_afcb673d9186608b6bd3b187179aedc8a}{Interaction\+State} p\+State)
+\begin{DoxyCompactList}\small\item\em Changes the state of this interaction and thus causes the state\+C\+Hanged event to be fired \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a2ae20b07c4adccd03406f4546e5bcd07}{Id}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The unique id of the expense \end{DoxyCompactList}\item 
+Date\+Time \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a32dd6eeb1125557a6ea5e749257c89e2}{Created\+Date\+Time}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The date and time the expense was created \end{DoxyCompactList}\item 
+Date\+Time \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a9c1bd7383b2a3a9cf02c592dce59d172}{Modified\+Date\+Time}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The date and time the expense was last modified \end{DoxyCompactList}\item 
+bool \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_ac7a86fd8d60af2655c03c5c5412d2d94}{Is\+Active}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Flag indicating whether or not the expense can be worked on \end{DoxyCompactList}\item 
+string \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_aaaff43e84721b926a37e0a33f8cf40aa}{Text}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The text of this expense (description) \end{DoxyCompactList}\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_a6e7bea333446664bbce2bb296db25e31}{Interaction\+Type} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a3152c1d7bf0ab00c5080ae1c6ff89b78}{Type}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The type of interaction (will be always expense) \end{DoxyCompactList}\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_afcb673d9186608b6bd3b187179aedc8a}{Interaction\+State} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a704e4d179a9908a8a53dfc578a73dedc}{State}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The state of the expense \end{DoxyCompactList}\item 
+\hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_interaction}{I\+Interaction} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a6b8ec6c467734c6cfd85368ba289e886}{Target}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The target to which a expense is connected \end{DoxyCompactList}\item 
+Image \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_acb73575488e1faae9d3fd270373c345b}{Receipt}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The image of a receipts from the expense \end{DoxyCompactList}\item 
+decimal \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a35cdb298490671c1386fef1f1af31f3b}{Value}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The value of the expenses \end{DoxyCompactList}\item 
+I\+User \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a4cddfba32109480eebc14f394570e61a}{Creator}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The user that created the task \end{DoxyCompactList}\item 
+I\+User \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_ace5418670b51a3c323cc8860e0a16ef6}{User}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The user the expenses belongs to \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_ac81ac3321ab2b018c75ad2c18ec15b9e}{Complete} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_acd33667c06f7c1c8a3ecb7843c4d37d2}{Completed}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_a490186f613e46adce26244f3b2c78a58}{Modify} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a6663b45ef8c6dce85cf2430748d4c3b1}{Modified}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_af2ff213e81451f96fc74bfad114cecde}{State\+Change} \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a7679bcdaa6ea38ebace9d9ed2013a16a}{State\+Changed}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 13 of file Expense.\+cs.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Expense@{Expense}}
+\index{Expense@{Expense}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Expense(string p\+Id, string p\+Text, I\+User p\+Creator, I\+Interaction p\+Target)}{Expense(string pId, string pText, IUser pCreator, IInteraction pTarget)}}]{\setlength{\rightskip}{0pt plus 5cm}Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Expense (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{I\+User}]{p\+Creator, }
+\item[{{\bf I\+Interaction}}]{p\+Target}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a2a71f640711b211319c26cf08f86255e}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a2a71f640711b211319c26cf08f86255e}
+
+
+Constructor of the class 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Id} & \\
+\hline
+{\em p\+Text} & \\
+\hline
+{\em p\+Creator} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 85 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Expense@{Expense}}
+\index{Expense@{Expense}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Expense(string p\+Id, string p\+Text, Image p\+Receipt, decimal p\+Value, I\+User p\+Creator, I\+Interaction p\+Target)}{Expense(string pId, string pText, Image pReceipt, decimal pValue, IUser pCreator, IInteraction pTarget)}}]{\setlength{\rightskip}{0pt plus 5cm}Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Expense (
+\begin{DoxyParamCaption}
+\item[{string}]{p\+Id, }
+\item[{string}]{p\+Text, }
+\item[{Image}]{p\+Receipt, }
+\item[{decimal}]{p\+Value, }
+\item[{I\+User}]{p\+Creator, }
+\item[{{\bf I\+Interaction}}]{p\+Target}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a9bb0e412ed6e63676930d4da916e79d6}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a9bb0e412ed6e63676930d4da916e79d6}
+
+
+Constructor of the class 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Id} & \\
+\hline
+{\em p\+Text} & \\
+\hline
+{\em p\+Image\+List} & \\
+\hline
+{\em p\+Creator} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 100 of file Expense.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Add\+Receipt@{Add\+Receipt}}
+\index{Add\+Receipt@{Add\+Receipt}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Add\+Receipt(\+Image p\+Receipt)}{AddReceipt(Image pReceipt)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Add\+Receipt (
+\begin{DoxyParamCaption}
+\item[{Image}]{p\+Receipt}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a33e21b15e70fa450463a5a5197dcfe38}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a33e21b15e70fa450463a5a5197dcfe38}
+
+
+Method to add a Receipt to an expense 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Image} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_expense_a8c87ed5e40ba6397f7c7a6b68fea9b01}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Expense}.
+
+
+
+Definition at line 144 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Change\+Is\+Active@{Change\+Is\+Active}}
+\index{Change\+Is\+Active@{Change\+Is\+Active}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Change\+Is\+Active(bool p\+Active)}{ChangeIsActive(bool pActive)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Change\+Is\+Active (
+\begin{DoxyParamCaption}
+\item[{bool}]{p\+Active}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a37a7af04bd991bfbfd8619ee3bd35d6c}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a37a7af04bd991bfbfd8619ee3bd35d6c}
+
+
+This method changes the active flag of the object. This can occure if the item expired, finished or was cancelled. It will raise the Modified event once changed 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Active} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 187 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Change\+State@{Change\+State}}
+\index{Change\+State@{Change\+State}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Change\+State(\+Interaction\+State p\+State)}{ChangeState(InteractionState pState)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Change\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+State}}]{p\+State}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_adae1f2089f4eeb5cfedebc1af1f06b38}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_adae1f2089f4eeb5cfedebc1af1f06b38}
+
+
+Changes the state of this interaction and thus causes the state\+C\+Hanged event to be fired 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+State} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 202 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Delete\+Receipt@{Delete\+Receipt}}
+\index{Delete\+Receipt@{Delete\+Receipt}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Delete\+Receipt()}{DeleteReceipt()}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Delete\+Receipt (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a927ad9089c43c09790083d554b1139f8}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a927ad9089c43c09790083d554b1139f8}
+
+
+Method to remove a Receipt from an expense 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Image} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_expense_ae5c1051bde332fa436e8521070424965}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Expense}.
+
+
+
+Definition at line 159 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Edit\+Value@{Edit\+Value}}
+\index{Edit\+Value@{Edit\+Value}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Edit\+Value(decimal p\+New\+Value)}{EditValue(decimal pNewValue)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Edit\+Value (
+\begin{DoxyParamCaption}
+\item[{decimal}]{p\+New\+Value}
+\end{DoxyParamCaption}
+)}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_ace1f3d1404f02fb78583b1709641c2c1}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_ace1f3d1404f02fb78583b1709641c2c1}
+
+
+Method to edit the value of an expense 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+New\+Value} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_expense_aba0d437cd05e76e67fc0cf544c54d85e}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Expense}.
+
+
+
+Definition at line 174 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!On\+Complete@{On\+Complete}}
+\index{On\+Complete@{On\+Complete}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{On\+Complete(\+Interaction\+Event\+Args p\+Event\+Args)}{OnComplete(InteractionEventArgs pEventArgs)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+On\+Complete (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+Event\+Args}}]{p\+Event\+Args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a81535f3b98deeaab3e03d190543a4127}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a81535f3b98deeaab3e03d190543a4127}
+
+
+This method raises the corresponding event in case subscribers are registered 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Event\+Args} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 113 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!On\+Modify@{On\+Modify}}
+\index{On\+Modify@{On\+Modify}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{On\+Modify(\+Interaction\+Event\+Args p\+Event\+Args)}{OnModify(InteractionEventArgs pEventArgs)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+On\+Modify (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+Event\+Args}}]{p\+Event\+Args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a224578edb2ee395588eebd15fcfc29a3}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a224578edb2ee395588eebd15fcfc29a3}
+
+
+This method raises the corresponding event in case subscribers are registered 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Event\+Args} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 122 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!On\+State\+Changed@{On\+State\+Changed}}
+\index{On\+State\+Changed@{On\+State\+Changed}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{On\+State\+Changed(\+Interaction\+Event\+Args p\+Event\+Args)}{OnStateChanged(InteractionEventArgs pEventArgs)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+On\+State\+Changed (
+\begin{DoxyParamCaption}
+\item[{{\bf Interaction\+Event\+Args}}]{p\+Event\+Args}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_abe824865e6ea9cc7b3d2644e6e0e4069}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_abe824865e6ea9cc7b3d2644e6e0e4069}
+
+
+This method raises the corresponding event in case subscribers are registered 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Event\+Args} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 131 of file Expense.\+cs.
+
+
+
+\subsection{Property Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Created\+Date\+Time@{Created\+Date\+Time}}
+\index{Created\+Date\+Time@{Created\+Date\+Time}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Created\+Date\+Time}{CreatedDateTime}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Created\+Date\+Time\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a32dd6eeb1125557a6ea5e749257c89e2}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a32dd6eeb1125557a6ea5e749257c89e2}
+
+
+The date and time the expense was created 
+
+
+
+Definition at line 25 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Creator@{Creator}}
+\index{Creator@{Creator}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Creator}{Creator}}]{\setlength{\rightskip}{0pt plus 5cm}I\+User Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Creator\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a4cddfba32109480eebc14f394570e61a}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a4cddfba32109480eebc14f394570e61a}
+
+
+The user that created the task 
+
+
+
+Definition at line 61 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Id@{Id}}
+\index{Id@{Id}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Id}{Id}}]{\setlength{\rightskip}{0pt plus 5cm}string Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Id\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a2ae20b07c4adccd03406f4546e5bcd07}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a2ae20b07c4adccd03406f4546e5bcd07}
+
+
+The unique id of the expense 
+
+
+
+Definition at line 21 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Is\+Active@{Is\+Active}}
+\index{Is\+Active@{Is\+Active}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Is\+Active}{IsActive}}]{\setlength{\rightskip}{0pt plus 5cm}bool Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Is\+Active\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_ac7a86fd8d60af2655c03c5c5412d2d94}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_ac7a86fd8d60af2655c03c5c5412d2d94}
+
+
+Flag indicating whether or not the expense can be worked on 
+
+
+
+Definition at line 33 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Modified\+Date\+Time@{Modified\+Date\+Time}}
+\index{Modified\+Date\+Time@{Modified\+Date\+Time}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Modified\+Date\+Time}{ModifiedDateTime}}]{\setlength{\rightskip}{0pt plus 5cm}Date\+Time Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Modified\+Date\+Time\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a9c1bd7383b2a3a9cf02c592dce59d172}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a9c1bd7383b2a3a9cf02c592dce59d172}
+
+
+The date and time the expense was last modified 
+
+
+
+Definition at line 29 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Receipt@{Receipt}}
+\index{Receipt@{Receipt}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Receipt}{Receipt}}]{\setlength{\rightskip}{0pt plus 5cm}Image Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Receipt\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_acb73575488e1faae9d3fd270373c345b}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_acb73575488e1faae9d3fd270373c345b}
+
+
+The image of a receipts from the expense 
+
+
+
+Definition at line 53 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!State@{State}}
+\index{State@{State}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{State}{State}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Interaction\+State} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+State\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a704e4d179a9908a8a53dfc578a73dedc}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a704e4d179a9908a8a53dfc578a73dedc}
+
+
+The state of the expense 
+
+
+
+Definition at line 45 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Target@{Target}}
+\index{Target@{Target}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Target}{Target}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf I\+Interaction} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Target\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a6b8ec6c467734c6cfd85368ba289e886}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a6b8ec6c467734c6cfd85368ba289e886}
+
+
+The target to which a expense is connected 
+
+
+
+Definition at line 49 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Text@{Text}}
+\index{Text@{Text}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Text}{Text}}]{\setlength{\rightskip}{0pt plus 5cm}string Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Text\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_aaaff43e84721b926a37e0a33f8cf40aa}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_aaaff43e84721b926a37e0a33f8cf40aa}
+
+
+The text of this expense (description) 
+
+
+
+Definition at line 37 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Type@{Type}}
+\index{Type@{Type}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Type}{Type}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Interaction\+Type} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Type\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a3152c1d7bf0ab00c5080ae1c6ff89b78}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a3152c1d7bf0ab00c5080ae1c6ff89b78}
+
+
+The type of interaction (will be always expense) 
+
+
+
+Definition at line 41 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!User@{User}}
+\index{User@{User}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{User}{User}}]{\setlength{\rightskip}{0pt plus 5cm}I\+User Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+User\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_ace5418670b51a3c323cc8860e0a16ef6}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_ace5418670b51a3c323cc8860e0a16ef6}
+
+
+The user the expenses belongs to 
+
+
+
+Definition at line 65 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Value@{Value}}
+\index{Value@{Value}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Value}{Value}}]{\setlength{\rightskip}{0pt plus 5cm}decimal Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Value\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a35cdb298490671c1386fef1f1af31f3b}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a35cdb298490671c1386fef1f1af31f3b}
+
+
+The value of the expenses 
+
+
+
+Definition at line 57 of file Expense.\+cs.
+
+
+
+\subsection{Event Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Completed@{Completed}}
+\index{Completed@{Completed}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Completed}{Completed}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Complete} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Completed}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_acd33667c06f7c1c8a3ecb7843c4d37d2}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_acd33667c06f7c1c8a3ecb7843c4d37d2}
+
+
+Definition at line 71 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!Modified@{Modified}}
+\index{Modified@{Modified}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{Modified}{Modified}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Modify} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+Modified}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a6663b45ef8c6dce85cf2430748d4c3b1}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a6663b45ef8c6dce85cf2430748d4c3b1}
+
+
+Definition at line 72 of file Expense.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}!State\+Changed@{State\+Changed}}
+\index{State\+Changed@{State\+Changed}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+Expense}}
+\subsubsection[{\texorpdfstring{State\+Changed}{StateChanged}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State\+Change} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Expense.\+State\+Changed}\hypertarget{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a7679bcdaa6ea38ebace9d9ed2013a16a}{}\label{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_expense_a7679bcdaa6ea38ebace9d9ed2013a16a}
+
+
+Definition at line 73 of file Expense.\+cs.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Users/\+Christian\+B/\+Documents/\+\_\+\+H\+F Infomatik/\+Git\+Hub\+\_\+\+Repos/\+Mo\+Cap/\+Plex\+Byte.\+Mo\+Cap/\+Plex\+Byte.\+Mo\+Cap.\+Interactions/\hyperlink{_expense_8cs}{Expense.\+cs}\end{DoxyCompactItemize}

@@ -1,0 +1,175 @@
+\hypertarget{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account}{}\section{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account Interface Reference}
+\label{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account}\index{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account@{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account}}
+Inheritance diagram for Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a824d1d5e807efd91b8b5297c17615181}{Add\+Expense} (\hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_expense}{I\+Expense} p\+Expense)
+\item 
+void \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a32338193fc2a47546efe36dc370b6c1a}{Add\+Timeslice} (\hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_timeslice}{I\+Timeslice} p\+Timeslice)
+\item 
+void \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_aa16e3839c2d7eeb4b18dd883ba913533}{Delete\+Expense} (\hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_expense}{I\+Expense} p\+Expense)
+\item 
+void \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_ad71ce3f0f04ba8c3563a2e7d1b53378d}{Edit\+Timeslice} (\hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_timeslice}{I\+Timeslice} p\+Timeslice, \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_timeslice}{I\+Timeslice} p\+New\+Timeslice)
+\item 
+void \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a28f21a9fd3584256cc0f5eeb41477e06}{Delete\+Timeslice} (\hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_timeslice}{I\+Timeslice} p\+Timeslice)
+\item 
+decimal \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a4a1424e01898012e5457d777006b2a49}{User\+Expense} (I\+User p\+User)
+\item 
+int \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a75c8a9171f868234d85ced97117b1b8b}{User\+Timeslice} (I\+User p\+User)
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a5f3422d283ccd4a4913fcba8863fe675}{Id}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_expense}{I\+Expense} $>$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_ab720da432a5eaf3f694b7914569dd8c7}{Expense\+List}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+List$<$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_timeslice}{I\+Timeslice} $>$ \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a34e6de5df73fd44aa61cfd2492660ed0}{Timeslice\+List}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\subsection*{Events}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_a7c03c08c6f524b34193985c455985f1f}{Expense\+Add} \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a47d037273f3fb8a3a17581b2c243226a}{Expense\+Added}
+\item 
+\hyperlink{namespace_plex_byte_1_1_mo_cap_1_1_interactions_a600557b92ababd90f6a91c524998565a}{Timeslice\+Add} \hyperlink{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a7866018e22c1935e5042e418360f855f}{Timeslice\+Added}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 13 of file I\+Account.\+cs.
+
+
+
+\subsection{Member Function Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}!Add\+Expense@{Add\+Expense}}
+\index{Add\+Expense@{Add\+Expense}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}}
+\subsubsection[{\texorpdfstring{Add\+Expense(\+I\+Expense p\+Expense)}{AddExpense(IExpense pExpense)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account.\+Add\+Expense (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Expense}}]{p\+Expense}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a824d1d5e807efd91b8b5297c17615181}{}\label{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a824d1d5e807efd91b8b5297c17615181}
+
+
+Implemented in \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a0f69931bd1d21cb3692f0f08918247bd}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account}.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}!Add\+Timeslice@{Add\+Timeslice}}
+\index{Add\+Timeslice@{Add\+Timeslice}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}}
+\subsubsection[{\texorpdfstring{Add\+Timeslice(\+I\+Timeslice p\+Timeslice)}{AddTimeslice(ITimeslice pTimeslice)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account.\+Add\+Timeslice (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Timeslice}}]{p\+Timeslice}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a32338193fc2a47546efe36dc370b6c1a}{}\label{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a32338193fc2a47546efe36dc370b6c1a}
+
+
+Implemented in \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a28d01e56bb3fc78f30f4ed5f259c0e17}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account}.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}!Delete\+Expense@{Delete\+Expense}}
+\index{Delete\+Expense@{Delete\+Expense}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}}
+\subsubsection[{\texorpdfstring{Delete\+Expense(\+I\+Expense p\+Expense)}{DeleteExpense(IExpense pExpense)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account.\+Delete\+Expense (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Expense}}]{p\+Expense}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_aa16e3839c2d7eeb4b18dd883ba913533}{}\label{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_aa16e3839c2d7eeb4b18dd883ba913533}
+
+
+Implemented in \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a84d71e01b4a2a2483b52bc67635499ed}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account}.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}!Delete\+Timeslice@{Delete\+Timeslice}}
+\index{Delete\+Timeslice@{Delete\+Timeslice}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}}
+\subsubsection[{\texorpdfstring{Delete\+Timeslice(\+I\+Timeslice p\+Timeslice)}{DeleteTimeslice(ITimeslice pTimeslice)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account.\+Delete\+Timeslice (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Timeslice}}]{p\+Timeslice}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a28f21a9fd3584256cc0f5eeb41477e06}{}\label{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a28f21a9fd3584256cc0f5eeb41477e06}
+
+
+Implemented in \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a8b8d09b65d60431bdbbef7d3aed6a72b}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account}.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}!Edit\+Timeslice@{Edit\+Timeslice}}
+\index{Edit\+Timeslice@{Edit\+Timeslice}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}}
+\subsubsection[{\texorpdfstring{Edit\+Timeslice(\+I\+Timeslice p\+Timeslice, I\+Timeslice p\+New\+Timeslice)}{EditTimeslice(ITimeslice pTimeslice, ITimeslice pNewTimeslice)}}]{\setlength{\rightskip}{0pt plus 5cm}void Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account.\+Edit\+Timeslice (
+\begin{DoxyParamCaption}
+\item[{{\bf I\+Timeslice}}]{p\+Timeslice, }
+\item[{{\bf I\+Timeslice}}]{p\+New\+Timeslice}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_ad71ce3f0f04ba8c3563a2e7d1b53378d}{}\label{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_ad71ce3f0f04ba8c3563a2e7d1b53378d}
+
+
+Implemented in \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a3baea063609ff894849c852c249a3c7a}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account}.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}!User\+Expense@{User\+Expense}}
+\index{User\+Expense@{User\+Expense}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}}
+\subsubsection[{\texorpdfstring{User\+Expense(\+I\+User p\+User)}{UserExpense(IUser pUser)}}]{\setlength{\rightskip}{0pt plus 5cm}decimal Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account.\+User\+Expense (
+\begin{DoxyParamCaption}
+\item[{I\+User}]{p\+User}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a4a1424e01898012e5457d777006b2a49}{}\label{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a4a1424e01898012e5457d777006b2a49}
+
+
+Implemented in \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a44cddcf32dbd3ce31fc012104f25e9f8}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account}.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}!User\+Timeslice@{User\+Timeslice}}
+\index{User\+Timeslice@{User\+Timeslice}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}}
+\subsubsection[{\texorpdfstring{User\+Timeslice(\+I\+User p\+User)}{UserTimeslice(IUser pUser)}}]{\setlength{\rightskip}{0pt plus 5cm}int Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account.\+User\+Timeslice (
+\begin{DoxyParamCaption}
+\item[{I\+User}]{p\+User}
+\end{DoxyParamCaption}
+)}\hypertarget{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a75c8a9171f868234d85ced97117b1b8b}{}\label{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a75c8a9171f868234d85ced97117b1b8b}
+
+
+Implemented in \hyperlink{class_plex_byte_1_1_mo_cap_1_1_interactions_1_1_account_a77706a7728657fb56f5f5dc85bd738f4}{Plex\+Byte.\+Mo\+Cap.\+Interactions.\+Account}.
+
+
+
+\subsection{Property Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}!Expense\+List@{Expense\+List}}
+\index{Expense\+List@{Expense\+List}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}}
+\subsubsection[{\texorpdfstring{Expense\+List}{ExpenseList}}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf I\+Expense}$>$ Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account.\+Expense\+List\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_ab720da432a5eaf3f694b7914569dd8c7}{}\label{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_ab720da432a5eaf3f694b7914569dd8c7}
+
+
+Definition at line 21 of file I\+Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}!Id@{Id}}
+\index{Id@{Id}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}}
+\subsubsection[{\texorpdfstring{Id}{Id}}]{\setlength{\rightskip}{0pt plus 5cm}string Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account.\+Id\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a5f3422d283ccd4a4913fcba8863fe675}{}\label{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a5f3422d283ccd4a4913fcba8863fe675}
+
+
+Definition at line 19 of file I\+Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}!Timeslice\+List@{Timeslice\+List}}
+\index{Timeslice\+List@{Timeslice\+List}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}}
+\subsubsection[{\texorpdfstring{Timeslice\+List}{TimesliceList}}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf I\+Timeslice}$>$ Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account.\+Timeslice\+List\hspace{0.3cm}{\ttfamily [get]}}\hypertarget{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a34e6de5df73fd44aa61cfd2492660ed0}{}\label{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a34e6de5df73fd44aa61cfd2492660ed0}
+
+
+Definition at line 23 of file I\+Account.\+cs.
+
+
+
+\subsection{Event Documentation}
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}!Expense\+Added@{Expense\+Added}}
+\index{Expense\+Added@{Expense\+Added}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}}
+\subsubsection[{\texorpdfstring{Expense\+Added}{ExpenseAdded}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Expense\+Add} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account.\+Expense\+Added}\hypertarget{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a47d037273f3fb8a3a17581b2c243226a}{}\label{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a47d037273f3fb8a3a17581b2c243226a}
+
+
+Definition at line 15 of file I\+Account.\+cs.
+
+\index{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}!Timeslice\+Added@{Timeslice\+Added}}
+\index{Timeslice\+Added@{Timeslice\+Added}!Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account@{Plex\+Byte\+::\+Mo\+Cap\+::\+Interactions\+::\+I\+Account}}
+\subsubsection[{\texorpdfstring{Timeslice\+Added}{TimesliceAdded}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Timeslice\+Add} Plex\+Byte.\+Mo\+Cap.\+Interactions.\+I\+Account.\+Timeslice\+Added}\hypertarget{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a7866018e22c1935e5042e418360f855f}{}\label{interface_plex_byte_1_1_mo_cap_1_1_interactions_1_1_i_account_a7866018e22c1935e5042e418360f855f}
+
+
+Definition at line 16 of file I\+Account.\+cs.
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Users/\+Christian\+B/\+Documents/\+\_\+\+H\+F Infomatik/\+Git\+Hub\+\_\+\+Repos/\+Mo\+Cap/\+Plex\+Byte.\+Mo\+Cap/\+Plex\+Byte.\+Mo\+Cap.\+Interactions/\hyperlink{_i_account_8cs}{I\+Account.\+cs}\end{DoxyCompactItemize}

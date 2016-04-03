@@ -1,0 +1,1177 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PlexByte.MoCap.WinForms</name>
+    </assembly>
+    <members>
+        <member name="F:PlexByte.MoCap.WinForms.CustomForms.frm_CreateOptions.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.CustomForms.frm_CreateOptions.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.CustomForms.frm_CreateOptions.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.CustomForms.frm_OwnerChangeList.AddAvailableUser(System.String,System.String,System.String,System.String)">
+            <summary>
+            Adds a user to the availableUsers datagridview
+            </summary>
+            <param name="pId">The id of the user</param>
+            <param name="pUserName">The username</param>
+            <param name="pFirstName">The users first name</param>
+            <param name="pLastName">The users last name</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.CustomForms.frm_OwnerChangeList.UserSelectionSelectOwner">
+            <summary>
+            Adds a row from availableUsers to selectedUsers, updates the UserIds and removes the row from the availableUsers dgw
+            </summary>
+        </member>
+        <member name="F:PlexByte.MoCap.WinForms.CustomForms.frm_OwnerChangeList.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.CustomForms.frm_OwnerChangeList.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.CustomForms.frm_OwnerChangeList.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.CustomForms.frm_ProjectSelectionList.AddAssignedProjects(PlexByte.MoCap.Interactions.IProject)">
+            <summary>
+            This method adds a project to the overview
+            </summary>
+            <param name="pProject">The project to add</param>
+        </member>
+        <member name="F:PlexByte.MoCap.WinForms.CustomForms.frm_ProjectSelectionList.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.CustomForms.frm_ProjectSelectionList.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.CustomForms.frm_ProjectSelectionList.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:PlexByte.MoCap.WinForms.CustomForms.frm_TaskUpdateProgress.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.CustomForms.frm_TaskUpdateProgress.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.CustomForms.frm_TaskUpdateProgress.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.CustomForms.frm_UserSelectionList.AddAvailableUser(System.String,System.String,System.String,System.String)">
+            <summary>
+            Adds a user to the availableUsers datagridview
+            </summary>
+            <param name="pId">The id of the user</param>
+            <param name="pUserName">The username</param>
+            <param name="pFirstName">The users first name</param>
+            <param name="pLastName">The users last name</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.CustomForms.frm_UserSelectionList.UserSelectionAddUser">
+            <summary>
+            Adds a row from availableUsers to selectedUsers, updates the UserIds and removes the row from the availableUsers dgw
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.CustomForms.frm_UserSelectionList.UserSelectionRemoveUser">
+            <summary>
+            Removes a row from selectedUsers, updates the UserIds and adds the row to the availableUsers dgw
+            </summary>
+        </member>
+        <member name="F:PlexByte.MoCap.WinForms.CustomForms.frm_UserSelectionList.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.CustomForms.frm_UserSelectionList.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.CustomForms.frm_UserSelectionList.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.Managers.CustomFormController.ProjectSelectionListController(System.Object,System.EventArgs)">
+            <summary>
+            This method manages the functionality of the frm_ProjectSelectionList
+            </summary>
+            <param name="sender">The object raising the event</param>
+            <param name="e">The event argument for this event</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.Managers.CustomFormController.UserSelectionListController(System.Object,System.EventArgs)">
+            <summary>
+            This method manages the functionality of the frm_UserSelectionList
+            </summary>
+            <param name="sender">The object raising the event</param>
+            <param name="e">The event argument for this event</param>
+        </member>
+        <member name="F:PlexByte.MoCap.WinForms.frm_MoCapMain.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.frm_MoCapMain.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.frm_MoCapMain.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:PlexByte.MoCap.WinForms.frm_Test.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.frm_Test.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.frm_Test.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:PlexByte.MoCap.WinForms.UIManager">
+            <summary>
+            This class is responsible for any window that is being presented to the user 
+            and manages its corresponding events
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.#ctor(PlexByte.MoCap.WinForms.frm_MoCapMain)">
+            <summary>
+            Constructor of the class
+            </summary>
+            <param name="pMainUI">The pointer to the main form, which hosts any other window</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.AddUserPanel">
+            <summary>
+            Adds the user panel to the form and registers to its events
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.AddTaskPanel">
+            <summary>
+            Adds the task panel to the form
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.AddSurveyPanel">
+            <summary>
+            Adds the survey panel to the form
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.AddProjectPanel">
+            <summary>
+            Adds the project panel to the form
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.AddAccoutPanel">
+            <summary>
+            Adds the account panel to the form
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.AddExpensePanel">
+            <summary>
+            Adds the expense panel to the form
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.AddTimeslicePanel">
+            <summary>
+            Adds the timeslice panel to the form
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.AddMenuBar">
+            <summary>
+            Adds the menu bar and registers to its events
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.AddOverview">
+            <summary>
+            Adds the overview panel and registers to its events
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.ObjectManager_UserLoggedOut(System.Object,System.EventArgs)">
+            <summary>
+            This method is the event handler for the userLoggedIn event raised by objectManager
+            </summary>
+            <param name="sender">the user that logged in</param>
+            <param name="e">The event arguments</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.ObjectManager_UserLoggedIn(System.Object,System.EventArgs)">
+            <summary>
+            This method is the event handler for the userLoggedOut event raised by objectManager
+            </summary>
+            <param name="sender">The user raising the event</param>
+            <param name="e">The event args</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.MenuButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Eventlistener for the menu form. Any button event is captured here and corresponding action is executed
+            </summary>
+            <param name="sender">The sender of the event</param>
+            <param name="e">The event arguments</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.UserButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Event handler method for the uc_User form button click events
+            </summary>
+            <param name="sender">The button raising the event</param>
+            <param name="e">The event args</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.TaskButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Event handler method for the uc_Task for button click events
+            </summary>
+            <param name="sender">The button raising the event</param>
+            <param name="e">The event args</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.OverviewGridviewDoubleClicked(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+            <summary>
+            This method handles gridView items being doubleclicked
+            </summary>
+            <param name="sender">The object that was clicked</param>
+            <param name="e">The dataGridView eventargs providing the row</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.ProjectButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Eventlistener for the Project form.
+            </summary>
+            <param name="sender">The sender of the event</param>
+            <param name="e">The event arguements</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.AccountButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            Eventlistener for the Account form.
+            </summary>
+            <param name="sender">The sender of the event</param>
+            <param name="e">The event arguements</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.SurveyButtonClicked(System.Object,System.EventArgs)">
+            <summary>
+            This method handles button event fired from the survey form
+            </summary>
+            <param name="sender">The button sending the event</param>
+            <param name="e">the event arguments</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.CreateContentPanel(PlexByte.MoCap.WinForms.UiType)">
+            <summary>
+            Creates a dock content panel and returns its instance
+            </summary>
+            <param name="pType">The enumeration of panel type to create</param>
+            <returns>DockContent representing the instance created</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.GetAllControls(System.Windows.Forms.Control)">
+            <summary>
+            This method loops through all controls on a form and adds them to a list
+            </summary>
+            <param name="container">The control to loop through</param>
+            <returns>List of Controls that were found on the form</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.GetControlByName``1(System.Windows.Forms.Control,System.String)">
+            <summary>
+            This generic method returns the control fo type specified, which is named as provided in the controlName
+            </summary>
+            <typeparam name="T">The type of control to use</typeparam>
+            <param name="pContainer">The parent container (form), which hosts the control</param>
+            <param name="pControlName">The name of the control</param>
+            <returns>Control of type T specified</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.GetControlByName``1(System.Collections.Generic.List{System.Windows.Forms.Control},System.String)">
+            <summary>
+            This generic method was optimized to improved performance, as you can input the list of controls contained on the form,
+            rather than generating the list of contained controls at with every call
+            </summary>
+            <typeparam name="T">The type of control to use</typeparam>
+            <param name="pControls">The list of controls to search</param>
+            <param name="pControlName">The name of the control</param>
+            <returns>Control of type T specified</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.UserButtonSetControlsState(System.Collections.Generic.List{System.Windows.Forms.Control},System.Collections.Generic.List{System.Windows.Forms.Control},System.Boolean)">
+            <summary>
+            This method either en- or disables the contols found on the uc_User form except controls excluded
+            </summary>
+            <param name="pControlList">The list of controls contained by the form</param>
+            <param name="pExceptionList">The list of control to set opposit state</param>
+            <param name="pIsEnabled">Indicating whether the controls should be enabled or not</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.UserButtonSave(System.Collections.Generic.List{System.Windows.Forms.Control})">
+            <summary>
+            This method deals with the New / Save button on the uc_User form
+            </summary>
+            <param name="pControlList">The list of controld contained on the form</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.UserButtonLogin(System.Collections.Generic.List{System.Windows.Forms.Control})">
+            <summary>
+            This mehtod deals with the Login button on the uc_User form
+            </summary>
+            <param name="pControlList">The list of controld contained on the form</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.UserButtonLogout(System.Collections.Generic.List{System.Windows.Forms.Control})">
+            <summary>
+            This method logsout a user
+            </summary>
+            <param name="pControlList">The controls contained on the uc_User form</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.UserButtonNew(System.Collections.Generic.List{System.Windows.Forms.Control})">
+            <summary>
+            This method is called when the New button is clicked on the uc_User form
+            </summary>
+            <param name="pControlList">The controls contained on the uc_User form</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.UserButtonEdit(System.Collections.Generic.List{System.Windows.Forms.Control})">
+            <summary>
+            This method deals with the edit button on the uc_User form
+            </summary>
+            <param name="pControlList">The list of controld contained on the form</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.ProjectButtonCreate(System.Collections.Generic.List{System.Windows.Forms.Control})">
+            <summary>
+            This mehtod deals with the Create button on the uc_Project form
+            </summary>
+            <param name="pControlList">The list of controld contained on the form</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.ProjectButtonEdit(System.Collections.Generic.List{System.Windows.Forms.Control})">
+            <summary>
+            This mehtod deals with the Edit button on the uc_Project form
+            </summary>
+            <param name="pControlList">The list of controld contained on the form</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.ProjectButtonChangeOwner(System.Collections.Generic.List{System.Windows.Forms.Control})">
+            <summary>
+            This method opens a form to select a new owner for the project
+            </summary>
+            <param name="pControlList"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.ProjectButtonUpdatel(System.Collections.Generic.List{System.Windows.Forms.Control})">
+            <summary>
+            This method opens a form to add an expense or a timeslice for the project
+            </summary>
+            <param name="pControlList"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.ProjectButtonInviteUser(System.Collections.Generic.List{System.Windows.Forms.Control})">
+            <summary>
+            This method opens a form to invite users to the project
+            </summary>
+            <param name="pControlList"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.GenerateOverviewPanel">
+            <summary>
+            This method builds the overview for this user. It fills the dataGridView with the 
+            objects in collection and registers dgw double click to call objectManager
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.SurveyButtonOptions(System.Collections.Generic.List{System.Windows.Forms.Control})">
+            <summary>
+            This method handles button surveyOptions click
+            </summary>
+            <param name="pControlList">The form controls to manipulate</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.SurveyButtonVote(PlexByte.MoCap.WinForms.UserControls.uc_Survey)">
+            <summary>
+            This method handles button edit click
+            </summary>
+            <param name="pForm">The form to manipulate</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.SurveyButtonNew(System.Collections.Generic.List{System.Windows.Forms.Control})">
+            <summary>
+            This method handles button new click
+            </summary>
+            <param name="pControlList">The form control to manipulate</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UIManager.SurveyButtonEdit(System.Collections.Generic.List{System.Windows.Forms.Control})">
+            <summary>
+            This method handles button edit click
+            </summary>
+            <param name="pControlList">The form control to manipulate</param>
+        </member>
+        <member name="F:PlexByte.MoCap.WinForms.UserControls.uc_Expense.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Expense.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Expense.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:PlexByte.MoCap.WinForms.UserControls.uc_Account.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Account.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Account.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:PlexByte.MoCap.WinForms.UserControls.uc_MenuBar.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_MenuBar.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_MenuBar.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:PlexByte.MoCap.WinForms.UserControls.uc_Overview.ControlTitle">
+            <summary>
+            The text shown in the tab title
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Overview.AddRecentlyChangedInteraction(PlexByte.MoCap.Interactions.IInteraction)">
+            <summary>
+            This method adds an interaction to the users overview section
+            </summary>
+            <param name="pInteraction">The interaction to add</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Overview.AddAssignedProjects(PlexByte.MoCap.Interactions.IProject)">
+            <summary>
+            This method adds a project to the overview
+            </summary>
+            <param name="pProject">The project to add</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Overview.ClearDataGridViews">
+            <summary>
+            Clears all the gridviews and refreshes them
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Overview.RegisterEvents">
+            <summary>
+            Registers the forms event to UIManager
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Overview.UnRegisterEvents">
+            <summary>
+            Registers the forms event to UIManager
+            </summary>
+        </member>
+        <member name="F:PlexByte.MoCap.WinForms.UserControls.uc_Overview.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Overview.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Overview.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:PlexByte.MoCap.WinForms.UserControls.uc_Project.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Project.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Project.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:PlexByte.MoCap.WinForms.UserControls.uc_Survey.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Survey.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Survey.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:PlexByte.MoCap.WinForms.UserControls.uc_Task.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Task.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Task.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:PlexByte.MoCap.WinForms.UserControls.uc_Timeslice.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Timeslice.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_Timeslice.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:PlexByte.MoCap.WinForms.UserControls.uc_User.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_User.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:PlexByte.MoCap.WinForms.UserControls.uc_User.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:PlexByte.MoCap.WinForms.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.account">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.AutoRefresh">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.Bookmark">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.ClearBookmark">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.ClearDatePicker">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.ClearFilter">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.DatePicker">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.EnterScope">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.ExitScope">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.expense">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.Filter">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.Info">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.Open">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.OpenFile">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.project">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.Refresh">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.survey">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.surveyOption">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.task">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.task1">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.timeslice">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.user">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.WinForms.Properties.Resources.vote">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.GetProjectById(System.String)">
+            <summary>
+            This method get a project based on the id specified from the database
+            </summary>
+            <param name="pId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.GetTaskById(System.String)">
+            <summary>
+            This method get a task based on the id specified from the database
+            </summary>
+            <param name="pId">The id of the task to lookup</param>
+            <returns>ITask matching the id specified</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.GetSurveyById(System.String)">
+            <summary>
+            This method get a survey based on the id provided from the database
+            </summary>
+            <param name="pId">The Id of the survey to lookup</param>
+            <returns>ISurvey object that was created and mathes the Id</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.GetSurveyOption(System.String)">
+            <summary>
+            This method gets a survey option from the database
+            </summary>
+            <param name="pId">The Id of the survey option</param>
+            <returns>ISurveyOption mathing the Id provided</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.GetSurveyOptions(System.String)">
+            <summary>
+            This method gets the survey options of a survey from the database
+            </summary>
+            <param name="pSurveyId">The survey Id to get the options from</param>
+            <returns>List of ISurveyOptions matching the id of the survey given</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.GetVoteById(System.String)">
+            <summary>
+            This method gets a vote based on the id provieded from the database
+            </summary>
+            <param name="pId">The id of the vote to lookup</param>
+            <returns>IVote matching the id provided</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.GetVoteBySurveyId(System.String)">
+            <summary>
+            This method returns a list of votes left for a survey
+            </summary>
+            <param name="pId">The survey id</param>
+            <returns>List of IVote for the survey provided</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.GetUser(System.String,System.Boolean)">
+            <summary>
+            This method get a used either based on Id or username
+            </summary>
+            <param name="pUserId">Either userId or userName to lookup</param>
+            <param name="pIsUserName">Set true if Id contains a userName</param>
+            <returns>IUser matching either Id or userName provided</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.GetAllInteractions``1(System.String)">
+            <summary>
+            This method returns a list of interaction based on the user given and type specified
+            </summary>
+            <param name="pUserId">The user id to use in the search</param>
+            <returns>List of Interactions for this user</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.UpsertProject(PlexByte.MoCap.Interactions.Project)">
+            <summary>
+            This method inserts or updated a project in the database
+            </summary>
+            <param name="pProject">The project to update or insert</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.UpsertSurvey(PlexByte.MoCap.Interactions.Survey)">
+            <summary>
+            This method inserts or updated a survey in the database
+            </summary>
+            <param name="pSurvey">The survey to update or insert</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.UpsertTask(PlexByte.MoCap.Interactions.Task)">
+            <summary>
+            This method inserts or updates a task in the database
+            </summary>
+            <param name="pTask">The task to insert or update</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.UpsertTimeslice(PlexByte.MoCap.Interactions.Timeslice)">
+            <summary>
+            This method inserts or updates a timeslice in the database
+            </summary>
+            <param name="pTimeslice">The timeslice to insert or update</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.UpsertUser(PlexByte.MoCap.Security.User)">
+            <summary>
+            This method inserts or updates a user in the database
+            </summary>
+            <param name="pUser">The user to insert or update</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.UpsertVote(PlexByte.MoCap.Interactions.Vote)">
+            <summary>
+            This method inserts or updates a vote in the database
+            </summary>
+            <param name="pVote">The vote to insert or update</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.UpsertSurveyOption(PlexByte.MoCap.Interactions.SurveyOption,System.String)">
+            <summary>
+            This method inserts or updates a SurveyOption in the database
+            </summary>
+            <param name="pSurveyOption">The survey option to insert or update</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.DataManager.UpsertProjectMapping(System.String,System.String,System.Int32)">
+            <summary>
+            This method inserts or updates a project mapping in the database
+            </summary>
+            <param name="pProject">The project the mapping is added</param>
+            <param name="pObjectId">The Id of the Object added to the project mapping</param>
+            <param name="pObjectType">1 = UserMapping, 2 = TaskMapping, 3 = SurveyMapping</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.FormManager.CreateFormFromObject(PlexByte.MoCap.Interactions.IInteraction)">
+            <summary>
+            This method creates a form based on the object type and initializes its fields with the objects values
+            </summary>
+            <param name="pObject">The interaction object to use</param>
+            <returns>DockContent form initialized with the objects values</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.FormManager.CreateUserFormFromObject(PlexByte.MoCap.Security.IUser)">
+            <summary>
+            This method creates a form based on the user and initializes its fields with the objects values
+            </summary>
+            <param name="pInstance">The user to use</param>
+            <returns>DockCOntent form initialized with the users values</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.FormManager.CreateFormFromObject(PlexByte.MoCap.Interactions.IInteraction,WeifenLuo.WinFormsUI.Docking.DockContent@)">
+            <summary>
+            This method creates a form based on an object provided and initializes the forms values using the objects properties
+            </summary>
+            <param name="pObject">The object from which the form is generated</param>
+            <param name="pInstance">The form to initialize</param>
+            <returns>DockContent form that was given in the input</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.FormManager.CreateObjectFromForm``1(WeifenLuo.WinFormsUI.Docking.DockContent)">
+            <summary>
+            This method created an object from the form given
+            </summary>
+            <typeparam name="T">The type of interaction object to generate</typeparam>
+            <param name="pInstance">The form to use creatin the interaction object</param>
+            <returns></returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.FormManager.CreateUserObjectFromForm(PlexByte.MoCap.WinForms.UserControls.uc_User)">
+            <summary>
+            This method created a user from a form given
+            </summary>
+            <param name="pInstance">The form to use creating the user</param>
+            <returns>IUser object created using the forms values</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.FormManager.CreatePojectFromForm(WeifenLuo.WinFormsUI.Docking.DockContent)">
+            <summary>
+            This method created a project from the form given
+            </summary>
+            <param name="pInstance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.FormManager.CreateSurveyFromForm(PlexByte.MoCap.WinForms.UserControls.uc_Survey)">
+            <summary>
+            This method creates a survey from the form inputs
+            </summary>
+            <param name="pForm">The form containing the values</param>
+            <returns>ISurvey created based on the form values</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.FormManager.GetAllControls(System.Windows.Forms.Control)">
+            <summary>
+            This method loops through all controls on a form and adds them to a list
+            </summary>
+            <param name="container">The control to loop through</param>
+            <returns>List of Controls that were found on the form</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.FormManager.GetControlByName``1(System.Windows.Forms.Control,System.String)">
+            <summary>
+            This generic method returns the control fo type specified, which is named as provided in the controlName
+            </summary>
+            <typeparam name="T">The type of control to use</typeparam>
+            <param name="pContainer">The parent container (form), which hosts the control</param>
+            <param name="pControlName">The name of the control</param>
+            <returns>Control of type T specified</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.FormManager.GetControlByName``1(System.Collections.Generic.List{System.Windows.Forms.Control},System.String)">
+            <summary>
+            This generic method was optimized to improved performance, as you can input the list of controls contained on the form,
+            rather than generating the list of contained controls at with every call
+            </summary>
+            <typeparam name="T">The type of control to use</typeparam>
+            <param name="pControls">The list of controls to search</param>
+            <param name="pControlName">The name of the control</param>
+            <returns>Control of type T specified</returns>
+        </member>
+        <member name="T:PlexByte.MoCap.Managers.ObjectManager.RefreshTimerElapsesEventHandler">
+            <summary>
+            Delegate for the refresh timer elapsed event
+            </summary>
+            <param name="sender">The sender of the event</param>
+            <param name="e">The event params</param>
+        </member>
+        <member name="T:PlexByte.MoCap.Managers.ObjectManager.ObjectChangingEventHandler">
+            <summary>
+             Delegate for the object changed event
+            </summary>
+            <param name="sender">The sender of the event</param>
+            <param name="e">The event params</param>
+        </member>
+        <member name="T:PlexByte.MoCap.Managers.ObjectManager.UserSessionEventHandler">
+            <summary>
+            This delegate is used for the log in and out event
+            </summary>
+            <param name="sender">The user performing the login / logout</param>
+            <param name="e">The event args</param>
+        </member>
+        <member name="E:PlexByte.MoCap.Managers.ObjectManager.RefreshTimerElapsed">
+            <summary>
+            The RefreshTimerElapsed event
+            </summary>
+        </member>
+        <member name="E:PlexByte.MoCap.Managers.ObjectManager.ObjectChanged">
+            <summary>
+            The Object changed event
+            </summary>
+        </member>
+        <member name="E:PlexByte.MoCap.Managers.ObjectManager.UserLoggedIn">
+            <summary>
+            This event is fired whenever a user is logging in
+            </summary>
+        </member>
+        <member name="E:PlexByte.MoCap.Managers.ObjectManager.UserLoggedOut">
+            <summary>
+            This event is fired whenever a user logs out
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Managers.ObjectManager.UserContext">
+            <summary>
+            The user being logged into this session
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Managers.ObjectManager.ProjectList">
+            <summary>
+            The list of projects for this user
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Managers.ObjectManager.TaskList">
+            <summary>
+            The list of tasks for this user
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Managers.ObjectManager.SurveyList">
+            <summary>
+            The list of survey for this user
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Managers.ObjectManager.ExpenseList">
+            <summary>
+            The list of expenses for this user
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Managers.ObjectManager.TimesliceList">
+            <summary>
+            The list of timeslices for this user
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Managers.ObjectManager.UserList">
+            <summary>
+            The list of users this user has a relation with
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.#ctor">
+            <summary>
+            Constructor of the class
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.Dispose">
+            <summary>
+            Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.GetObjectById``1(System.String)">
+            <summary>
+            This method get an object bi its Id from the database
+            </summary>
+            <typeparam name="T">The type of object to create (Interaction)</typeparam>
+            <param name="pId">The id of the object to lookup</param>
+            <returns>An object of the type specified matching the id</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.CreateFormFromObject``1(``0)">
+            <summary>
+            This method creates a form from an object passed
+            </summary>
+            <typeparam name="T">The type of object from which a form is contructed</typeparam>
+            <param name="pObject">The object that hold the values and are mathed to the forms input</param>
+            <returns>A dockContent form that holds the objects values</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.LoginUser(System.String,System.String)">
+            <summary>
+            This method attempts to login the given user with the password specified
+            </summary>
+            <param name="pId">The user id</param>
+            <param name="pPassword">The users password</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.LogoutUser">
+            <summary>
+            This method clears the current userContext and hence logs out a user
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.UpsertUserFromForm(PlexByte.MoCap.WinForms.UserControls.uc_User)">
+            <summary>
+            This method updates or insert a user object created from the form in the DB
+            </summary>
+            <param name="pForm">The form containing the user values</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.UpsertProjectFromForm(PlexByte.MoCap.WinForms.UserControls.uc_Project)">
+            <summary>
+             This method updates or insert a project object created from the form in the DB
+            </summary>
+            <param name="pForm"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.UpsertTaskFromForm(PlexByte.MoCap.WinForms.UserControls.uc_Task)">
+            <summary>
+            This method updated or insert a task object created from the form in the DB
+            </summary>
+            <param name="pForm">The form containing the task values</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.UpsertSurveyFromForm(PlexByte.MoCap.WinForms.UserControls.uc_Survey)">
+            <summary>
+            This method updated or insert a survey object created from the form in the DB
+            </summary>
+            <param name="pForm">The form containing the survey values</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.UpsertVoteFromForm(PlexByte.MoCap.WinForms.UserControls.uc_Survey)">
+            <summary>
+            This method updated or insert a vote object created from the form in the DB
+            </summary>
+            <param name="pForm">The form containing the vote values</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.UpsertExpenseFromForm(PlexByte.MoCap.WinForms.CustomForms.frm_TaskUpdateProgress)">
+            <summary>
+            This method updated or insert a expense object created from the form in the DB
+            </summary>
+            <param name="pForm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.UpsertTimesliceFromForm(PlexByte.MoCap.WinForms.CustomForms.frm_TaskUpdateProgress)">
+            <summary>
+            This method updated or insert a timeslice object created from the form in the DB
+            </summary>
+            <param name="pForm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.UpsertProjectMapping``1(PlexByte.MoCap.Interactions.IProject,System.String,``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="pProject"></param>
+            <param name="pObjectId"></param>
+            <param name="pObjectType"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.OnRefreshTimerElapsed(System.EventArgs)">
+            <summary>
+            The event handler for the Refresh event. This event fires whenever the updateTimer elapses
+            </summary>
+            <param name="e">The eventarguments</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.OnObjectChanged(System.Object,System.EventArgs)">
+            <summary>
+            The event handler for the object changed event. This fires whenever an object in the collection changes
+            </summary>
+            <param name="changedObject">The changed object raising this event</param>
+            <param name="e">The event arguments</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.OnUserLoggedIn(System.EventArgs)">
+            <summary>
+            The event handler for the user login event. This fires whenever a user logs in
+            </summary>
+            <param name="e">The event arguments</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.OnUserLoggedOut(PlexByte.MoCap.Security.User,System.EventArgs)">
+            <summary>
+            The event handler for the user logout event. This fires whenever a user logs off
+            </summary>
+            <param name="sender">The user logging off</param>
+            <param name="e">The event arguments</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.ComputeState(System.DateTime,System.DateTime,System.DateTime,System.DateTime)">
+            <summary>
+            This method returns the state comparing the dateTime values given
+            </summary>
+            <param name="pReference">The dateTime which denotes the reference to compare against</param>
+            <param name="pStart">The dateTime this interaction starts</param>
+            <param name="pEnd">The dateTime this interaction ends</param>
+            <param name="pDue">The dateTIme this interaction is due</param>
+            <returns>The interactionState computed for this item</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.CreateObjectFromForm``1(WeifenLuo.WinFormsUI.Docking.DockContent)">
+            <summary>
+            This method creates an object from a form. It uses the fors input values to construct the object
+            of the type specified
+            </summary>
+            <typeparam name="T">The object type to use (IInteraction)</typeparam>
+            <param name="pForm">The form containing the input field to use constructing the object</param>
+            <returns>An object of the type specified that was constructed from the form inputs</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.InitializeObjects">
+            <summary>
+            This method initializes all objects this user has a relation to and updates the corresponding list
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.RefreshObjects">
+            <summary>
+            This method is fired everytime the refreshtimer has elapsed, causing the interaction collection to update
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.Managers.ObjectManager.UpdateTimer_Elapsed(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>
+            This method fires once the updateTimer has elapsed
+            </summary>
+            <param name="sender">The timer firing the eventhandler</param>
+            <param name="e">The event arguments</param>
+        </member>
+    </members>
+</doc>

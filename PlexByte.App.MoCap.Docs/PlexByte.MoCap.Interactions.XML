@@ -1,0 +1,910 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PlexByte.MoCap.Interactions</name>
+    </assembly>
+    <members>
+        <member name="P:PlexByte.MoCap.Interactions.Account.Id">
+            <summary>
+            The unique id of the account
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Account.StartDateTime">
+            <summary>
+            The date and time this account becomes active and can be worked on. As long as this date is not reached the 
+            state will remain queued and no work can be performed on the account as longs as it is in state queued
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Account.EndDateTime">
+            <summary>
+            The date and time this account should be finished. If this date is reached the state will change to expired
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Account.CreatedDateTime">
+            <summary>
+            The date and time the account was created
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Account.ModifiedDateTime">
+            <summary>
+            The date and time the account was last modified
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Account.IsActive">
+            <summary>
+            Flag indicating whether or not the account can be worked on
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Account.Text">
+            <summary>
+            The text of this account (description)
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Account.Type">
+            <summary>
+            The type of interaction (will be always account)
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Account.Creator">
+            <summary>
+            The user that created the account
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Account.Owner">
+            <summary>
+            The user currently owning the account
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Account.State">
+            <summary>
+            The state of the account
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Account.ExpenseList">
+            <summary>
+            A list of all expense-objects
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Account.TimesliceList">
+            <summary>
+            A list of all timeslice-objects
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.#ctor(System.String,System.String,PlexByte.MoCap.Security.IUser)">
+            <summary>
+            Constructor of the class
+            </summary>
+            <param name="pId"></param>
+            <param name="pText"></param>
+            <param name="pCreator"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.#ctor(System.String,System.String,System.Collections.Generic.List{PlexByte.MoCap.Interactions.IExpense},System.Collections.Generic.List{PlexByte.MoCap.Interactions.ITimeslice},PlexByte.MoCap.Security.IUser)">
+            <summary>
+            Constructor of the class
+            </summary>
+            <param name="pId"></param>
+            <param name="pText"></param>
+            <param name="pEnableBalance"></param>
+            <param name="pEnableSurvey"></param>
+            <param name="pCreator"></param>
+            <param name="pMemberList"></param>
+            <param name="pInvitationList"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.OnComplete(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.OnModify(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.OnStateChanged(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.OnExpenseAdded(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.OnTimesliceAdded(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.ChangeOwner(PlexByte.MoCap.Security.IUser)">
+            <summary>
+            This method changes the owner of the project and raises the modified event if the owner is different
+            used to create a secound project-admin
+            </summary>
+            <param name="pUser"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.ChangeIsActive(System.Boolean)">
+            <summary>
+            This method changes the active flag of the object. This can occure if the item expired, finished or was 
+            cancelled. It will raise the Modified event once changed
+            </summary>
+            <param name="pActive"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.ChangeState(PlexByte.MoCap.Interactions.InteractionState)">
+            <summary>
+            Changes the state of this interaction and thus causes the stateCHanged event to be fired
+            </summary>
+            <param name="pState"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.AddExpense(PlexByte.MoCap.Interactions.IExpense)">
+            <summary>
+            Adds a "expense" to the expenselist
+            </summary>
+            <param name="pExpense"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.AddTimeslice(PlexByte.MoCap.Interactions.ITimeslice)">
+            <summary>
+            Adds a "timeslice" to the timeslicelist
+            </summary>
+            <param name="pTimeslice"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.DeleteExpense(PlexByte.MoCap.Interactions.IExpense)">
+            <summary>
+            Deletes a "expense" object if it exists in the expenselist
+            </summary>
+            <param name="pExpense"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.EditTimeslice(PlexByte.MoCap.Interactions.ITimeslice,PlexByte.MoCap.Interactions.ITimeslice)">
+            <summary>
+            To edit the timeslice the old one is removed and a new is being created
+            </summary>
+            <param name="PTimeslice"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.DeleteTimeslice(PlexByte.MoCap.Interactions.ITimeslice)">
+            <summary>
+            Deletes a "timeslice" object if it exists in the timeslicelist
+            </summary>
+            <param name="pTimeslice"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.UserExpense(PlexByte.MoCap.Security.IUser)">
+            <summary>
+            Returns the overall expenses of an User in the project
+            </summary>
+            <param name="pUser"></param>
+            <returns>decimal _userValue</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.UserTimeslice(PlexByte.MoCap.Security.IUser)">
+            <summary>
+            Returns the overall time of an User in the project
+            </summary>
+            <param name="pUser"></param>
+            <returns>int _userTime</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.InitializeProperties(System.String,System.String,System.Collections.Generic.List{PlexByte.MoCap.Interactions.IExpense},System.Collections.Generic.List{PlexByte.MoCap.Interactions.ITimeslice},PlexByte.MoCap.Security.IUser)">
+            <summary>
+            Initializes all attributes and started the state timer, which validates the interaction's state every 60
+            </summary>
+            <param name="pId"></param>
+            <param name="pText"></param>
+            <param name="pMemberList"></param>
+            <param name="pInvitationList"></param>
+            <param name="pCreator"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Account.OnTimerElapsed(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>
+            This method validates the object state and chages if required. Once the interaction is either 
+            cancelled, finished or expired the state check will suspend
+            </summary>
+            <param name="sender">The object calling this method (timer)</param>
+            <param name="e">The event parameters passed</param>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Expense.Id">
+            <summary>
+            The unique id of the expense
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Expense.CreatedDateTime">
+            <summary>
+            The date and time the expense was created
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Expense.ModifiedDateTime">
+            <summary>
+            The date and time the expense was last modified
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Expense.IsActive">
+            <summary>
+            Flag indicating whether or not the expense can be worked on
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Expense.Text">
+            <summary>
+            The text of this expense (description)
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Expense.Type">
+            <summary>
+            The type of interaction (will be always expense)
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Expense.State">
+            <summary>
+            The state of the expense
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Expense.Target">
+            <summary>
+            The target to which a expense is connected
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Expense.Receipt">
+            <summary>
+            The image of a receipts from the expense
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Expense.Value">
+            <summary>
+            The value of the expenses
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Expense.Creator">
+            <summary>
+            The user that created the task
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Expense.User">
+            <summary>
+            The user the expenses belongs to
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Expense.#ctor(System.String,System.String,PlexByte.MoCap.Security.IUser,PlexByte.MoCap.Interactions.IInteraction)">
+            <summary>
+            Constructor of the class
+            </summary>
+            <param name="pId"></param>
+            <param name="pText"></param>
+            <param name="pCreator"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Expense.#ctor(System.String,System.String,System.Drawing.Image,System.Decimal,PlexByte.MoCap.Security.IUser,PlexByte.MoCap.Interactions.IInteraction)">
+            <summary>
+            Constructor of the class
+            </summary>
+            <param name="pId"></param>
+            <param name="pText"></param>
+            <param name="pImageList"></param>
+            <param name="pCreator"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Expense.OnComplete(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Expense.OnModify(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Expense.OnStateChanged(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Expense.AddReceipt(System.Drawing.Image)">
+            <summary>
+            Method to add a Receipt to an expense
+            </summary>
+            <param name="pImage"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Expense.DeleteReceipt">
+            <summary>
+            Method to remove a Receipt from an expense
+            </summary>
+            <param name="pImage"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Expense.EditValue(System.Decimal)">
+            <summary>
+            Method to edit the value of an expense
+            </summary>
+            <param name="pNewValue"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Expense.ChangeIsActive(System.Boolean)">
+            <summary>
+            This method changes the active flag of the object. This can occure if the item expired, finished or was 
+            cancelled. It will raise the Modified event once changed
+            </summary>
+            <param name="pActive"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Expense.ChangeState(PlexByte.MoCap.Interactions.InteractionState)">
+            <summary>
+            Changes the state of this interaction and thus causes the stateCHanged event to be fired
+            </summary>
+            <param name="pState"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Expense.InitializeProperties(System.String,System.String,System.Drawing.Image,System.Decimal,PlexByte.MoCap.Security.IUser,PlexByte.MoCap.Interactions.IInteraction)">
+            <summary>
+            Initializes all attributes
+            </summary>
+            <param name="pId"></param>
+            <param name="pText"></param>
+            <param name="pImage"></param>
+            <param name="pValue"></param>
+            <param name="pCreator"></param>
+            <param name="pTarget"></param>
+        </member>
+        <member name="T:PlexByte.MoCap.Interactions.ISurveyOption">
+            <summary>
+            The survey option interface
+            </summary>
+        </member>
+        <member name="T:PlexByte.MoCap.Interactions.IVote">
+            <summary>
+            The vote interface
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.Id">
+            <summary>
+            The unique id of the project
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.StartDateTime">
+            <summary>
+            The date and time this project becomes active and can be worked on. As long as this date is not reached the 
+            state will remain queued and no work can be performed on the project as longs as it is in state queued
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.EndDateTime">
+            <summary>
+            The date and time this project should be finished. If this date is reached the state will change to expired
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.CreatedDateTime">
+            <summary>
+            The date and time the project was created
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.ModifiedDateTime">
+            <summary>
+            The date and time the project was last modified
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.IsActive">
+            <summary>
+            Flag indicating whether or not the project can be worked on
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.Text">
+            <summary>
+            The text of this project (description)
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.Type">
+            <summary>
+            The type of interaction (will be always project)
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.Creator">
+            <summary>
+            The user that created the project
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.Owner">
+            <summary>
+            The user currently owning the project
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.State">
+            <summary>
+            The state of the project
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.EnableBalance">
+            <summary>
+            A bool to set, if it is possible to set a balance to a project
+            if disabled it is not possible to book spended time or effort in a project
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.EnableSurvey">
+            <summary>
+            A bool to set, if it is possible to set up a survey to a project
+            if disabled it is not possible to create one
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.ProjectAccount">
+            <summary>
+            The account which is conectet do the project
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.InvitationList">
+            <summary>
+            In this list are all members which have to answer an invitation
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.TaskList">
+            <summary>
+            A list of all tasks in a project
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.SurveyList">
+            <summary>
+            A list of all surveys in a project
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.MemberList">
+            <summary>
+            In this list are all members of a project
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Project.Name">
+            <summary>
+            The name of the project
+            </summary>
+        </member>
+        <member name="F:PlexByte.MoCap.Interactions.Project._stateTimer">
+            <summary>
+            The time 
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.#ctor(System.String,System.String,System.Boolean,System.Boolean,System.DateTime,System.DateTime,PlexByte.MoCap.Security.IUser)">
+            <summary>
+            Constructor of the class
+            </summary>
+            <param name="pId"></param>
+            <param name="pText"></param>
+            <param name="pEnableBalance"></param>
+            <param name="pEnableSurvey"></param>
+            <param name="pCreator"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.#ctor(System.String,System.String,System.String,System.Boolean,System.Boolean,System.DateTime,System.DateTime,PlexByte.MoCap.Security.IUser,PlexByte.MoCap.Security.IUser,System.Collections.Generic.List{PlexByte.MoCap.Security.IUser},System.Collections.Generic.List{PlexByte.MoCap.Security.IUser},System.Collections.Generic.List{PlexByte.MoCap.Interactions.ITask},System.Collections.Generic.List{PlexByte.MoCap.Interactions.ISurvey})">
+            <summary>
+            Constructor of the class
+            </summary>
+            <param name="pId"></param>
+            <param name="pText"></param>
+            <param name="pEnableBalance"></param>
+            <param name="pEnableSurvey"></param>
+            <param name="pMemberList"></param>
+            <param name="pInvitationList"></param>
+            <param name="pTaskList"></param>
+            <param name="pSurveyList"></param>
+            <param name="pCreator"></param>
+            <param name="pOwner"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.OnComplete(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.OnModify(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.OnStateChanged(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.OnUserAdd(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.OnUserBan(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.OnLeave(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.OnUserInvite(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.OnTaskAdd(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.OnSurveyAdd(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.ChangeOwner(PlexByte.MoCap.Security.IUser)">
+            <summary>
+            This method changes the owner of the project and raises the modified event if the owner is different
+            used to create a secound project-admin
+            </summary>
+            <param name="pUser"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.ChangeIsActive(System.Boolean)">
+            <summary>
+            This method changes the active flag of the object. This can occure if the item expired, finished or was 
+            cancelled. It will raise the Modified event once changed
+            </summary>
+            <param name="pActive"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.AddTask(PlexByte.MoCap.Interactions.ITask)">
+            <summary>
+            This method adds a Task to the list of tasks from the project
+            </summary>
+            <param name="pTask"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.AddSurvey(PlexByte.MoCap.Interactions.ISurvey)">
+            <summary>
+            This method adds a Survey to the list of surveys from the project
+            </summary>
+            <param name="pSurvey"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.Invite(PlexByte.MoCap.Security.IUser)">
+            <summary>
+            To invite a user to a projec, it adds the user to the invitations list
+            </summary>
+            <param name="pUser"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.Accept(PlexByte.MoCap.Security.IUser)">
+            <summary>
+            After a user is invited to a project this method removes the user from the invitation list and adds the same to the member list
+            </summary>
+            <param name="pUser"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.Leave(PlexByte.MoCap.Security.IUser)">
+            <summary>
+            Removes oneself from the memberlist of the project
+            </summary>
+            <param name="pUser"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.KickUser(PlexByte.MoCap.Security.IUser)">
+            <summary>
+            Kicks a user from the project. It removes a user from the memberlist
+            </summary>
+            <param name="pUser"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.ChangeState(PlexByte.MoCap.Interactions.InteractionState)">
+            <summary>
+            Changes the state of this interaction and thus causes the stateChanged event to be fired
+            </summary>
+            <param name="pState"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.InitializeProperties(System.String,System.String,System.String,System.Boolean,System.Boolean,System.Collections.Generic.List{PlexByte.MoCap.Security.IUser},System.Collections.Generic.List{PlexByte.MoCap.Security.IUser},System.Collections.Generic.List{PlexByte.MoCap.Interactions.ITask},System.Collections.Generic.List{PlexByte.MoCap.Interactions.ISurvey},System.DateTime,System.DateTime,PlexByte.MoCap.Security.IUser,PlexByte.MoCap.Security.IUser)">
+            <summary>
+            Initializes all attributes and started the state timer, which validates the interaction's state every 60
+            </summary>
+            <param name="pId"></param>
+            <param name="pText"></param>
+            <param name="pEnableBalance"></param>
+            <param name="pEnableSurvey"></param>
+            <param name="pMemberList"></param>
+            <param name="pInvitationList"></param>
+            <param name="pTaskList"></param>
+            <param name="pSurveyList"></param>
+            <param name="pCreator"></param>
+            <param name="pOwner"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Project.OnTimerElapsed(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>
+            This method validates the object state and chages if required. Once the interaction is either 
+            cancelled, finished or expired the state check will suspend
+            </summary>
+            <param name="sender">The object calling this method (timer)</param>
+            <param name="e">The event parameters passed</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Survey.#ctor(System.String,System.String,System.Collections.Generic.List{PlexByte.MoCap.Interactions.ISurveyOption},PlexByte.MoCap.Security.IUser)">
+            <summary>
+            Constructor of the class
+            </summary>
+            <param name="pId">The id of the interaction</param>
+            <param name="pText">The text of the survey</param>
+            <param name="pOptions">The options available</param>
+            <param name="pCreator">The creator of this survey</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Survey.#ctor(System.String,System.String,System.Collections.Generic.List{System.String},PlexByte.MoCap.Security.IUser)">
+            <summary>
+            Constructor of the class
+            </summary>
+            <param name="pId">The id of the interaction</param>
+            <param name="pText">The text of the survey</param>
+            <param name="pOptions">The options available as strngs</param>
+            <param name="pCreator">The creator of this survey</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Survey.OnComplete(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs">The event args to pass along</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Survey.OnModify(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the corresponding event in case subscribers are registered
+            </summary>
+            <param name="pEventArgs">The event args to pass along</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Survey.OnStateChanged(PlexByte.MoCap.Interactions.InteractionEventArgs)">
+            <summary>
+            This method raises the stateChanged event, in case subscribers are registeres
+            </summary>
+            <param name="pEventArgs">The event args to pass along</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Survey.ChangeOwner(PlexByte.MoCap.Security.IUser)">
+            <summary>
+            This method changes the owner of the survey and raises the modified event if the owner is different
+            </summary>
+            <param name="pUser">The new user to mark as owner</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Survey.ChangeIsActive(System.Boolean)">
+            <summary>
+            This method changes the active flag of the object. This can occure if the item expired, finished or was 
+            cancelled. It will raise the Modified event once changed
+            </summary>
+            <param name="pActive"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Survey.AddVote(PlexByte.MoCap.Interactions.IVote)">
+            <summary>
+            This method adds a vote to this survey and verifies if all votes were made. If this is the case a statChanged
+            event with state finished will be fired. It will also check if the user still has open votes
+            </summary>
+            <param name="pVote">The vote to ass</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Survey.AddOption(PlexByte.MoCap.Interactions.ISurveyOption)">
+            <summary>
+            This method will add options to a survey. In case a new option is added the Modified event is raised
+            </summary>
+            <param name="pOption">The survey option to add</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Survey.AddUser(PlexByte.MoCap.Security.IUser)">
+            <summary>
+            Adds a new user to the list of eligible users
+            </summary>
+            <param name="pUser">The user to add</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Survey.RemoveUser(PlexByte.MoCap.Security.IUser)">
+            <summary>
+            Removed a user from the list of eligible users
+            </summary>
+            <param name="pUser">The user to remove</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Survey.ChangeState(PlexByte.MoCap.Interactions.InteractionState)">
+            <summary>
+            Changes the state of this interaction and thus causes the stateCHanged event to be fired
+            </summary>
+            <param name="pState">The new state to set</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Survey.InitializeProperties(System.String,System.String,System.Collections.Generic.List{PlexByte.MoCap.Interactions.ISurveyOption},PlexByte.MoCap.Security.IUser)">
+            <summary>
+            Initializes all attributes and started the state timer, which validates the interaction's state every 60
+            seconds.
+            </summary>
+            <param name="pId">The Id of the object</param>
+            <param name="pText">The text of the survey</param>
+            <param name="pOptions">The options on can select</param>
+            <param name="pCreator">The creator of this survey</param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Survey.OnTimerElapsed(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>
+            This method validates the object state and chages if required. Once the interaction is either 
+            cancelled, finished or expired the state check will suspend
+            </summary>
+            <param name="sender">The object calling this method (timer)</param>
+            <param name="e">The event parameters passed</param>
+        </member>
+        <member name="T:PlexByte.MoCap.Interactions.SurveyOption">
+            <summary>
+            The survey option class, which hold the option text
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.Id">
+            <summary>
+            The unique id of the task
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.StartDateTime">
+            <summary>
+            The date and time this task becomes active and can be worked on. As long as this date is not reached the 
+            state will remain queued and no work can be performed on the task as longs as it is in state queued
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.EndDateTime">
+            <summary>
+            The date and time this task should be finished. If this date is reached the state will change to expired
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.CreatedDateTime">
+            <summary>
+            The date and time the task was created
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.ModifiedDateTime">
+            <summary>
+            The date and time the task was last modified
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.IsActive">
+            <summary>
+            Flag indicating whether or not the task can be worked on
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.Text">
+            <summary>
+            The text of this task (description)
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.Type">
+            <summary>
+            The type of interaction (will be always task)
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.Creator">
+            <summary>
+            The user that created the task
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.Owner">
+            <summary>
+            The user currently owning the task
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.State">
+            <summary>
+            The state of the task
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.Budget">
+            <summary>
+            The tasks budget
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.Duration">
+            <summary>
+            The task duration in seconds
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.Priority">
+            <summary>
+            The priority of this task
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.DurationCurrent">
+            <summary>
+            The time currently spent on this task in seconds
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.BudgetUsed">
+            <summary>
+            The investment currently made in this task
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.SubTasks">
+            <summary>
+            The list of sub tasks assigned
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Task.Progress">
+            <summary>
+            The progresss of the task
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Timeslice.Id">
+            <summary>
+            The unique id of the timeslice
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Timeslice.Duration">
+            <summary>
+            The worktime of the user
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Timeslice.Description">
+            <summary>
+            The description for this timeslice
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Timeslice.User">
+            <summary>
+            Owner of the time in the timeslice
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Timeslice.Target">
+            <summary>
+            The target to which a timeslice is connected
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Timeslice.CreatedDateTime">
+            <summary>
+            The date and time this timeslice was created
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Timeslice.ModifiedDateTime">
+            <summary>
+            The date and time this timeslice was modified
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Timeslice.#ctor(System.String,PlexByte.MoCap.Security.IUser,System.Int32,PlexByte.MoCap.Interactions.IInteraction)">
+            <summary>
+            Constructor of the class
+            </summary>
+            <param name="pId"></param>
+            <param name="pUser"></param>
+            <param name="pDuration"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Timeslice.#ctor(System.String,PlexByte.MoCap.Security.IUser,System.DateTime,System.DateTime,PlexByte.MoCap.Interactions.IInteraction)">
+            <summary>
+            Constructor of the class
+            </summary>
+            <param name="pId"></param>
+            <param name="pUser"></param>
+            <param name="pStartDT"></param>
+            <param name="pEndDT"></param>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Timeslice.CalculateDuration(System.DateTime,System.DateTime)">
+            <summary>
+            Calculates the duration between the start and end of a worksession
+            </summary>
+            <param name="pStartDT"></param>
+            <param name="pEndDT"></param>
+            <returns>int duration in Minutes</returns>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Timeslice.InitializeProperties(System.String,PlexByte.MoCap.Security.IUser,System.Int32,PlexByte.MoCap.Interactions.IInteraction)">
+            <summary>
+            Initializes all attributes
+            </summary>
+            <param name="pId"></param>
+            <param name="pUser"></param>
+            <param name="pDuration"></param>
+        </member>
+        <member name="T:PlexByte.MoCap.Interactions.Vote">
+            <summary>
+            This class holds information about a users choice, containing 
+            the user and his choice selected
+            </summary>
+        </member>
+        <member name="M:PlexByte.MoCap.Interactions.Vote.#ctor(System.String,PlexByte.MoCap.Security.IUser,PlexByte.MoCap.Interactions.ISurveyOption)">
+            <summary>
+            The constructor of the class
+            </summary>
+            <param name="pId">The unique id of this object</param>
+            <param name="pUser">The user who made the choice</param>
+            <param name="pOption">The choice that was selected</param>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Vote.CreatedDateTime">
+            <summary>
+            The date and time this vote was left
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Vote.Id">
+            <summary>
+            The unique id of this object
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Vote.Option">
+            <summary>
+            The survey option chosen by the user
+            </summary>
+        </member>
+        <member name="P:PlexByte.MoCap.Interactions.Vote.User">
+            <summary>
+            The user who votes
+            </summary>
+        </member>
+    </members>
+</doc>

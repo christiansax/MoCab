@@ -239,7 +239,13 @@ namespace PlexByte.MoCap.Managers
                 0.00m,
                 0,
                 null,
-                0);
+                GetControlByName<ProgressBar>(ctrl, "pbr_Progress").Value);
+            pForm.TabText = $"Task Details({obj.Title})";
+           // obj.ProjectId = GetControlByName<ComboBox>(ctrl, "cbx_ProjectName"). .SelectedText;
+            foreach (DataRow row in GetControlByName<DataGridView>(ctrl, "dgw_Outlay").Rows)
+            {
+                //_interactionFactory.CreateExpense()
+            }
             ctrl.Clear();
             ctrl = null;
             return obj;
@@ -522,7 +528,7 @@ namespace PlexByte.MoCap.Managers
 
             GetControlByName<TextBox>(ctrls, "tbx_Title").Text = t.Text;
             GetControlByName<NumericUpDown>(ctrls, "num_Priority").Value = t.Priority;
-            GetControlByName<TextBox>(ctrls, "tbx_ProjectName").Text = t.ProjectId;
+            GetControlByName<ComboBox>(ctrls, "tbx_ProjectName").Text = t.ProjectId;
             GetControlByName<DateTimePicker>(ctrls, "dtp_DueDate").Value = t.DueDateTime;
             GetControlByName<NumericUpDown>(ctrls, "num_EffortsHours").Value = t.Duration / 60;
             GetControlByName<NumericUpDown>(ctrls, "num_EffortsMin").Value = t.Duration % 60;

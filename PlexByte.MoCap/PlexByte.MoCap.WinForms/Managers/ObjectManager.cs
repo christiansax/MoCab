@@ -665,6 +665,12 @@ namespace PlexByte.MoCap.Managers
                     {
                         ProjectList.Add(project);
                         OnObjectChanged(project, new EventArgs());
+
+                        foreach (var member in project.MemberList)
+                        {
+                            if (!UserList.Contains(member))
+                                UserList.Add(member);
+                        }
                     }
                 }
             }
@@ -720,6 +726,7 @@ namespace PlexByte.MoCap.Managers
                     }
                 }
             }
+
         }
 
         /// <summary>

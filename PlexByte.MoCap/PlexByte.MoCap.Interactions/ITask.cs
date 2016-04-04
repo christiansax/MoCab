@@ -35,6 +35,10 @@ namespace PlexByte.MoCap.Interactions
 
         List<ITask> SubTasks { get; }
 
+        List<Expense> ExpenseItems { get; set; }
+
+        List<Timeslice> TimesliceItems{ get; set; }
+
         void AddTimeslice(int pDuration);
 
         void AddExpense(decimal pExpenseValue);

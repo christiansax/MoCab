@@ -38,12 +38,18 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.btn_Subtask = new System.Windows.Forms.Button();
+            this.btn_Edit = new System.Windows.Forms.Button();
             this.btn_Update = new System.Windows.Forms.Button();
             this.btn_New = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgw_Outlay = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbx_ProjectName = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtp_End = new System.Windows.Forms.DateTimePicker();
@@ -73,12 +79,6 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
-            this.cbx_ProjectName = new System.Windows.Forms.ComboBox();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Owner = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgw_Outlay)).BeginInit();
@@ -182,14 +182,14 @@
             this.label13.TabIndex = 6;
             this.label13.Text = "Created by:";
             // 
-            // btn_Subtask
+            // btn_Edit
             // 
-            this.btn_Subtask.Location = new System.Drawing.Point(554, 307);
-            this.btn_Subtask.Name = "btn_Subtask";
-            this.btn_Subtask.Size = new System.Drawing.Size(75, 23);
-            this.btn_Subtask.TabIndex = 20;
-            this.btn_Subtask.Text = "Subtask";
-            this.btn_Subtask.UseVisualStyleBackColor = true;
+            this.btn_Edit.Location = new System.Drawing.Point(554, 307);
+            this.btn_Edit.Name = "btn_Edit";
+            this.btn_Edit.Size = new System.Drawing.Size(75, 23);
+            this.btn_Edit.TabIndex = 20;
+            this.btn_Edit.Text = "Edit";
+            this.btn_Edit.UseVisualStyleBackColor = true;
             // 
             // btn_Update
             // 
@@ -255,6 +255,37 @@
             this.dgw_Outlay.Size = new System.Drawing.Size(610, 173);
             this.dgw_Outlay.TabIndex = 0;
             // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // Owner
+            // 
+            this.Owner.HeaderText = "Owner";
+            this.Owner.Name = "Owner";
+            this.Owner.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Width = 200;
+            // 
+            // Type
+            // 
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            // 
+            // Value
+            // 
+            this.Value.HeaderText = "Value";
+            this.Value.Name = "Value";
+            this.Value.ReadOnly = true;
+            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -296,6 +327,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Settings";
             // 
+            // cbx_ProjectName
+            // 
+            this.cbx_ProjectName.FormattingEnabled = true;
+            this.cbx_ProjectName.Location = new System.Drawing.Point(89, 74);
+            this.cbx_ProjectName.Name = "cbx_ProjectName";
+            this.cbx_ProjectName.Size = new System.Drawing.Size(214, 21);
+            this.cbx_ProjectName.TabIndex = 54;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -316,7 +355,7 @@
             // 
             // dtp_End
             // 
-            this.dtp_End.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
+            this.dtp_End.CustomFormat = "ddd dd MMM yyyy HH:mm:ss";
             this.dtp_End.Enabled = false;
             this.dtp_End.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_End.Location = new System.Drawing.Point(416, 178);
@@ -326,7 +365,7 @@
             // 
             // dtp_Start
             // 
-            this.dtp_Start.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
+            this.dtp_Start.CustomFormat = "ddd dd MMM yyyy  HH:mm:ss";
             this.dtp_Start.Enabled = false;
             this.dtp_Start.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_Start.Location = new System.Drawing.Point(89, 178);
@@ -477,7 +516,7 @@
             // 
             // dtp_DueDate
             // 
-            this.dtp_DueDate.CustomFormat = "ddd dd MMM yyyy        HH:mm:ss";
+            this.dtp_DueDate.CustomFormat = "ddd dd MMM yyyy  HH:mm:ss";
             this.dtp_DueDate.Enabled = false;
             this.dtp_DueDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtp_DueDate.Location = new System.Drawing.Point(89, 100);
@@ -566,52 +605,13 @@
             this.label26.TabIndex = 28;
             this.label26.Text = "Title:";
             // 
-            // cbx_ProjectName
-            // 
-            this.cbx_ProjectName.FormattingEnabled = true;
-            this.cbx_ProjectName.Location = new System.Drawing.Point(89, 74);
-            this.cbx_ProjectName.Name = "cbx_ProjectName";
-            this.cbx_ProjectName.Size = new System.Drawing.Size(214, 21);
-            this.cbx_ProjectName.TabIndex = 54;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            // 
-            // Owner
-            // 
-            this.Owner.HeaderText = "Owner";
-            this.Owner.Name = "Owner";
-            this.Owner.ReadOnly = true;
-            // 
-            // Description
-            // 
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            this.Description.Width = 200;
-            // 
-            // Type
-            // 
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            // 
-            // Value
-            // 
-            this.Value.HeaderText = "Value";
-            this.Value.Name = "Value";
-            this.Value.ReadOnly = true;
-            // 
             // uc_Task
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(652, 547);
             this.Controls.Add(this.btn_Update);
-            this.Controls.Add(this.btn_Subtask);
+            this.Controls.Add(this.btn_Edit);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btn_New);
@@ -670,7 +670,7 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Button btn_Subtask;
+        private System.Windows.Forms.Button btn_Edit;
         private System.Windows.Forms.Button btn_Update;
         private System.Windows.Forms.Button btn_New;
         private System.Windows.Forms.NumericUpDown num_TotalCosts;

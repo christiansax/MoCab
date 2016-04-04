@@ -4,6 +4,7 @@
 //      Implementation of IProject interface, a connection between all components
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using PlexByte.MoCap.Security;
 
 namespace PlexByte.MoCap.Interactions
@@ -130,13 +131,7 @@ namespace PlexByte.MoCap.Interactions
         /// <param name="pCreator"></param>
         public Project(string pId, string pText, bool pEnableBalance, bool pEnableSurvey, DateTime pStartDt, DateTime pEndDt, IUser pCreator)
         {
-            List<IUser> pMemberList = new List<IUser>();
-            List<IUser> pInvitationList = new List<IUser>();
-            List<ITask> pTaskList = new List<ITask>();
-            List<ISurvey> pSurveyList = new List<ISurvey>();
-            IUser pOwner = pCreator;
-
-            InitializeProperties(pId, pText.Remove(pText.IndexOf(@";") + 0), pText.Substring(pText.IndexOf(@";") + 1), pEnableBalance, pEnableSurvey, pMemberList, pInvitationList, pTaskList, pSurveyList, pStartDt, pEndDt, pCreator, pOwner);
+            InitializeProperties(pId, pText.Remove(pText.IndexOf(@";") + 0), pText.Substring(pText.IndexOf(@";") + 1), pEnableBalance, pEnableSurvey, null, null, null, null, pStartDt, pEndDt, pCreator, pCreator);
         }
 
         /// <summary>
@@ -387,16 +382,25 @@ namespace PlexByte.MoCap.Interactions
         /// <param name="pSurveyList"></param>
         /// <param name="pCreator"></param>
         /// <param name="pOwner"></param>
-        private void InitializeProperties(string pId, string pName, string pText, bool pEnableBalance, bool pEnableSurvey, List<IUser> pMemberList, List<IUser> pInvitationList, List<ITask> pTaskList, List<ISurvey> pSurveyList, DateTime pStartDt, DateTime pEndDt, IUser pCreator, IUser pOwner)
+        private void InitializeProperties(string pId,
+            string pName,
+            string pText,
+            bool pEnableBalance,
+            bool pEnableSurvey,
+            List<IUser> pMemberList,
+            List<IUser> pInvitationList,
+            List<ITask> pTaskList,
+            List<ISurvey> pSurveyList,
+            DateTime pStartDt,
+            DateTime pEndDt,
+            IUser pCreator,
+            IUser pOwner)
         {
 
             Id = pId;
             EnableBalance = pEnableBalance;
             EnableSurvey = pEnableSurvey;
-            MemberList = pMemberList;
-            InvitationList = pInvitationList;
-            TaskList = pTaskList;
-            SurveyList = pSurveyList;
+
             Creator = pCreator;
             Owner = pOwner;
             Text = pText;
@@ -410,6 +414,15 @@ namespace PlexByte.MoCap.Interactions
             _stateTimer.AutoReset = false;
             _stateTimer.Start();
             Name = pName;
+            // CSAX: Fixed initialisation of project data lists to either set the paramvalue or a new empty list
+            MemberList = pMemberList ?? new List<IUser>();
+            InvitationList = pInvitationList ?? new List<IUser>();
+            TaskList = pTaskList ?? new List<ITask>();
+            SurveyList = pSurveyList ?? new List<ISurvey>();
+            if (MemberList.All(x => x.Id != pCreator.Id))
+                MemberList.Add(pCreator);
+            if (MemberList.All(x => x.Id != Owner.Id))
+                MemberList.Add(pOwner);
         }
 
         /// <summary>

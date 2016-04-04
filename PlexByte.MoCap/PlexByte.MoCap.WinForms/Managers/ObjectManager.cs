@@ -527,10 +527,6 @@ namespace PlexByte.MoCap.Managers
             }
         }
 
-
-
-
-
         /// <summary>
         /// The event handler for the Refresh event. This event fires whenever the updateTimer elapses
         /// </summary>
@@ -661,14 +657,14 @@ namespace PlexByte.MoCap.Managers
             {
                 if (project != null)
                 {
-                    if (!ProjectList.Contains(project))
+                    if (ProjectList.All(x => x.Id != project.Id))
                     {
                         ProjectList.Add(project);
                         OnObjectChanged(project, new EventArgs());
 
                         foreach (var member in project.MemberList)
                         {
-                            if (!UserList.Contains(member))
+                            if (UserList.All(x => x.Id != member.Id))
                                 UserList.Add(member);
                         }
                     }
@@ -676,55 +672,35 @@ namespace PlexByte.MoCap.Managers
             }
 
             // Task
-            foreach (var task in _dataManager.GetAllInteractions<ITask>(UserContext.Id))
+            foreach (var task in _dataManager.GetAllInteractions<ITask>(UserContext.Id).
+                Where(task => task != null).Where(task => TaskList.All(x => x.Id != task.Id)))
             {
-                if (task != null)
-                {
-                    if (!TaskList.Contains(task))
-                    {
-                        TaskList.Add(task);
-                        OnObjectChanged(task, new EventArgs());
-                    }
-                }
+                TaskList.Add(task);
+                OnObjectChanged(task, new EventArgs());
             }
 
             // Survey
-            foreach (var survey in _dataManager.GetAllInteractions<ISurvey>(UserContext.Id))
+            foreach (var survey in _dataManager.GetAllInteractions<ISurvey>(UserContext.Id).
+                Where(survey => survey != null).Where(survey => SurveyList.All(x => x.Id != survey.Id)))
             {
-                if (survey != null)
-                {
-                    if (!SurveyList.Contains(survey))
-                    {
-                        SurveyList.Add(survey);
-                        OnObjectChanged(survey, new EventArgs());
-                    }
-                }
+                SurveyList.Add(survey);
+                OnObjectChanged(survey, new EventArgs());
             }
 
             // Expenses
-            foreach (var expenses in _dataManager.GetAllInteractions<IExpense>(UserContext.Id))
+            foreach (var expenses in _dataManager.GetAllInteractions<IExpense>(UserContext.Id).
+                Where(expenses => expenses != null))
             {
-                if (expenses != null)
-                {
-                    if (!ExpenseList.Contains(expenses))
-                    {
-                        ExpenseList.Add(expenses);
-                        OnObjectChanged(expenses, new EventArgs());
-                    }
-                }
+                ExpenseList.Add(expenses);
+                OnObjectChanged(expenses, new EventArgs());
             }
 
             // Timeslices
-            foreach (var timeslice in _dataManager.GetAllInteractions<ITimeslice>(UserContext.Id))
+            foreach (var timeslice in _dataManager.GetAllInteractions<ITimeslice>(UserContext.Id).
+                Where(timeslice => timeslice != null))
             {
-                if (timeslice != null)
-                {
-                    if (!TimesliceList.Contains(timeslice))
-                    {
-                        TimesliceList.Add(timeslice);
-                        OnObjectChanged(timeslice, new EventArgs());
-                    }
-                }
+                TimesliceList.Add(timeslice);
+                OnObjectChanged(timeslice, new EventArgs());
             }
 
         }

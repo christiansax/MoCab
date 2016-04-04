@@ -428,8 +428,9 @@ namespace PlexByte.MoCap.Managers
                 pTask.Text,
                 pTask.Creator.Id,
                 pTask.Owner.Id,
-                pTask.State.ToString(),
-                pTask.ProjectId);
+                ((int)pTask.State).ToString(),
+                pTask.ProjectId,
+                pTask.Title);
         }
 
         /// <summary>

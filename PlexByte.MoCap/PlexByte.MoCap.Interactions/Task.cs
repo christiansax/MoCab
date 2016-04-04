@@ -114,6 +114,17 @@ namespace PlexByte.MoCap.Interactions
         public List<ITask> SubTasks => _subTasks;
 
         /// <summary>
+        /// The list of expenses assigned to this project
+        /// </summary>
+        public List<Expense> ExpenseItems { get; set; }
+
+        /// <summary>
+        /// The list purchases that du end up as expenses
+        /// </summary>
+        public List<Timeslice> TimesliceItems
+        { get; set; }
+
+        /// <summary>
         /// The progresss of the task
         /// </summary>
         public int Progress => _progress;
@@ -386,6 +397,8 @@ namespace PlexByte.MoCap.Interactions
             _subTasks = pSubTask ?? new List<ITask>();
             _budgetUsed = pBudgetUsed;
             _durationCurrent = pTimeUsed;
+            ExpenseItems = new List<Expense>();
+            TimesliceItems = new List<Timeslice>();
             if (_subTasks.Count > 0)
             {
                 int totalProgress = _subTasks.Sum(x => x.Progress);

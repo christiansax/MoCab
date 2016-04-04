@@ -36,9 +36,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cbx_UpdateOnTime = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_Task = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lbl_Project = new System.Windows.Forms.Label();
             this.btn_Add = new System.Windows.Forms.Button();
             this.btn_Update = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -121,14 +121,14 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Task:";
             // 
-            // label6
+            // lbl_Task
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(84, 13);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 13);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "lbl_Task";
+            this.lbl_Task.AutoSize = true;
+            this.lbl_Task.Location = new System.Drawing.Point(84, 13);
+            this.lbl_Task.Name = "lbl_Task";
+            this.lbl_Task.Size = new System.Drawing.Size(47, 13);
+            this.lbl_Task.TabIndex = 8;
+            this.lbl_Task.Text = "lbl_Task";
             // 
             // label7
             // 
@@ -139,14 +139,14 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "Project:";
             // 
-            // label8
+            // lbl_Project
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(84, 30);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 13);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "lbl_Project";
+            this.lbl_Project.AutoSize = true;
+            this.lbl_Project.Location = new System.Drawing.Point(84, 30);
+            this.lbl_Project.Name = "lbl_Project";
+            this.lbl_Project.Size = new System.Drawing.Size(56, 13);
+            this.lbl_Project.TabIndex = 10;
+            this.lbl_Project.Text = "lbl_Project";
             // 
             // btn_Add
             // 
@@ -216,9 +216,9 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btn_Update);
             this.Controls.Add(this.btn_Add);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lbl_Project);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lbl_Task);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbx_UpdateOnTime);
             this.Controls.Add(this.label4);
@@ -248,9 +248,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox cbx_UpdateOnTime;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbl_Task;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbl_Project;
         private System.Windows.Forms.Button btn_Add;
         private System.Windows.Forms.Button btn_Update;
         private System.Windows.Forms.Label label9;

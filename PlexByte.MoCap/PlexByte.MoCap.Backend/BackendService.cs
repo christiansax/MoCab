@@ -637,7 +637,8 @@ namespace PlexByte.MoCap.Backend
             string CreatorId,
             string OwnerId,
             string StateId,
-            string ProjectId)
+            string ProjectId,
+            string Title)
         {
             string execString = string.Empty;
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -757,7 +758,7 @@ namespace PlexByte.MoCap.Backend
                 parameter = new SqlParameter("@StateId", SqlDbType.BigInt)
                 {
                     Direction = ParameterDirection.Input,
-                    Value = StateId
+                    Value = Convert.ToInt64(StateId)
                 };
                 command.Parameters.Add(parameter);
 
@@ -765,6 +766,13 @@ namespace PlexByte.MoCap.Backend
                 {
                     Direction = ParameterDirection.Input,
                     Value = ProjectId
+                };
+                command.Parameters.Add(parameter);
+
+                parameter = new SqlParameter("@Title", SqlDbType.NVarChar)
+                {
+                    Direction = ParameterDirection.Input,
+                    Value = Title
                 };
                 command.Parameters.Add(parameter);
 

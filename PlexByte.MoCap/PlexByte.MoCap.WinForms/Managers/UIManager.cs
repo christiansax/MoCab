@@ -109,6 +109,9 @@ namespace PlexByte.MoCap.WinForms
             DockContent tmp = CreateContentPanel(UiType.Task);
             tmp.TabText = "Task Dialog";
             ((uc_Task) tmp).RegisterEvents(this);
+            ((uc_Task)tmp).SetProjectCollection(_objectManager.ProjectList);
+            ((uc_Task) tmp).TaskId = DateTime.Now.ToString(_dateTimeIdFmt);
+            ((uc_Task)tmp).InteractionId = DateTime.Now.AddMilliseconds(100).ToString(_dateTimeIdFmt);
         }
 
         /// <summary>
@@ -303,6 +306,9 @@ namespace PlexByte.MoCap.WinForms
                     break;
                 case "btn_Update":
                     TaskButtonUpdate(ctrls);
+                    break;
+                case "btn_Edit":
+                    TaskButtonEdit(ctrls);
                     break;
                 case "btn_Subtask":
                     TaskButtonSubTask(ctrls);
@@ -829,8 +835,8 @@ namespace PlexByte.MoCap.WinForms
                         List<Control> expCtrls = new List<Control>();
                         expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Update"));
                         expCtrls.Add(GetControlByName<Button>(pControlList, "btn_New"));
-                        expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Subtask"));
-                        expCtrls.Add(GetControlByName<DataGridView>(pControlList, "dgw_Subtasks"));
+                        expCtrls.Add(GetControlByName<Button>(pControlList, "btn_Edit"));
+                        //expCtrls.Add(GetControlByName<DataGridView>(pControlList, "dgw_Subtasks"));
                         UserButtonSetControlsState(pControlList, expCtrls, false);
                         GetControlByName<Button>(pControlList, "btn_New").Text = "New";
 
@@ -865,10 +871,20 @@ namespace PlexByte.MoCap.WinForms
                 if (progressForm.ShowDialog() == DialogResult.OK)
                 {
                     // Get settings...
-
                     // Update current task with settings
                 }
             }
+        }
+
+        private void TaskButtonEdit(List<Control> pControlList)
+        {
+            foreach (Control control in pControlList)
+            {
+                control.Enabled = true;
+            }
+            GetControlByName<Button>(pControlList, "btn_Edit").Visible = false;
+            GetControlByName<Button>(pControlList, "btn_New").Text= "Save";
+
         }
 
         private void TaskButtonSubTask(List<Control> pControlList)

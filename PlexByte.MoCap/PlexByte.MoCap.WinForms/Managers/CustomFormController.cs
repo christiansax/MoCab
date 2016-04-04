@@ -33,6 +33,15 @@ namespace PlexByte.MoCap.WinForms.Managers
             
         }
 
+        public void TaskUpdateProgress(object sender, EventArgs e)
+        {
+            if (((Button) sender).Text.ToLower() == "update")
+            {
+                _instance.DialogResult= DialogResult.OK;
+                //((frm_TaskUpdateProgress)_instance).UpdateValue=
+            }
+        }
+
         /// <summary>
         /// This method manages the functionality of the frm_UserSelectionList
         /// </summary>

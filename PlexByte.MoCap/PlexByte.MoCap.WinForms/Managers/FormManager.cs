@@ -222,7 +222,7 @@ namespace PlexByte.MoCap.Managers
         private ITask CreateTaskFromForm(uc_Task pForm)
         {
             List<Control> ctrl = GetAllControls(pForm);
-            ITask obj = _interactionFactory.CreateTask(GetControlByName<TextBox>(ctrl, "tbx_Id").Text,
+            ITask obj = _interactionFactory.CreateTask(pForm.TaskId,
                 GetControlByName<TextBox>(ctrl, "tbx_Description").Text,
                 GetControlByName<TextBox>(ctrl, "tbx_Title").Text,
                 _objectManager.UserContext,
@@ -241,10 +241,28 @@ namespace PlexByte.MoCap.Managers
                 null,
                 GetControlByName<ProgressBar>(ctrl, "pbr_Progress").Value);
             pForm.TabText = $"Task Details({obj.Title})";
-           // obj.ProjectId = GetControlByName<ComboBox>(ctrl, "cbx_ProjectName"). .SelectedText;
+            // Project dropdown
+            obj.ProjectId = ((KeyValuePair<string, string>) GetControlByName<ComboBox>(ctrl, "cbx_ProjectName").
+                SelectedItem).Value;
+            obj.InteractionId = pForm.InteractionId;
             foreach (DataRow row in GetControlByName<DataGridView>(ctrl, "dgw_Outlay").Rows)
             {
-                //_interactionFactory.CreateExpense()
+                if (row["Type"].ToString().ToLower() == "expense")
+                {
+                    obj.ExpenseItems.Add((Expense)_interactionFactory.CreateExpense(row["Id"].ToString(),
+                        row["Description"].ToString(),
+                        null,
+                        Convert.ToDecimal(row["Value"].ToString()),
+                        _objectManager.UserList.First(x => { return x.Username != null && x.Username == row["Owner"]; }),
+                        (IInteraction)obj));
+                }
+                else
+                {
+                    obj.TimesliceItems.Add((Timeslice)_interactionFactory.CreateTimeslice(row["Id"].ToString(),
+                        _objectManager.UserList.First(x => { return x.Username != null && x.Username == row["Owner"]; }),
+                        Convert.ToInt32(row["Value"].ToString()),
+                        (IInteraction) obj));
+                }
             }
             ctrl.Clear();
             ctrl = null;
@@ -529,7 +547,13 @@ namespace PlexByte.MoCap.Managers
 
             GetControlByName<TextBox>(ctrls, "tbx_Title").Text = t.Text;
             GetControlByName<NumericUpDown>(ctrls, "num_Priority").Value = t.Priority;
-            GetControlByName<ComboBox>(ctrls, "tbx_ProjectName").Text = t.ProjectId;
+            foreach (Project project in _objectManager.ProjectList)
+            {
+                KeyValuePair<string, string> kvp = new KeyValuePair<string, string>(project.Name, project.Id);
+                GetControlByName<ComboBox>(ctrls, "cbx_ProjectName").Items.Add(kvp);
+                if (project.Id == t.ProjectId)
+                    GetControlByName<ComboBox>(ctrls, "cbx_ProjectName").SelectedItem = kvp;
+            }
             GetControlByName<DateTimePicker>(ctrls, "dtp_DueDate").Value = t.DueDateTime;
             GetControlByName<NumericUpDown>(ctrls, "num_EffortsHours").Value = t.Duration / 60;
             GetControlByName<NumericUpDown>(ctrls, "num_EffortsMin").Value = t.Duration % 60;
@@ -544,6 +568,22 @@ namespace PlexByte.MoCap.Managers
             GetControlByName<DateTimePicker>(ctrls, "dtp_Created").Value = t.CreatedDateTime;
             GetControlByName<DateTimePicker>(ctrls, "dtp_End").Value = t.ModifiedDateTime;
             GetControlByName<Button>(ctrls, "btn_Update").Enabled = true;
+            foreach (Expense expense in _objectManager.ExpenseList)
+            {
+                GetControlByName<DataGridView>(ctrls, "dgw_Outlay").Rows.Add(expense.Id,
+                    expense.Creator,
+                    expense.Text,
+                    "expense",
+                    expense.Value.ToString());
+            }
+            foreach (Timeslice timeslice in _objectManager.TimesliceList)
+            {
+                GetControlByName<DataGridView>(ctrls, "dgw_Outlay").Rows.Add(timeslice.Id,
+                    timeslice.User,
+                    timeslice.Description,
+                    "timeslice",
+                    timeslice.Duration.ToString());
+            }
 
             t = null;
             ctrls.Clear();

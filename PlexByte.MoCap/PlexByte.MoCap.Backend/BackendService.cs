@@ -320,7 +320,6 @@ namespace PlexByte.MoCap.Backend
         }
 
 
-
         /// <summary>
         /// This method opens an SQL connection to the server as configured in the connection string given, executes the 
         /// command text found in the parameter and finally returns the datatable from the reader executed

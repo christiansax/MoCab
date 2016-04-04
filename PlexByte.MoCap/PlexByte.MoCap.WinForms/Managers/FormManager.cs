@@ -233,7 +233,7 @@ namespace PlexByte.MoCap.Managers
                 Convert.ToInt32(GetControlByName<NumericUpDown>(ctrl, "num_EffortsHours").Value)*60 +
                 Convert.ToInt32(GetControlByName<NumericUpDown>(ctrl, "num_EffortsMin").Value),
                 Convert.ToInt32(GetControlByName<NumericUpDown>(ctrl, "num_Priority").Value),
-                (GetControlByName<DateTimePicker>(ctrl, "dtp_Start").Value < DateTime.Now)
+                (GetControlByName<DateTimePicker>(ctrl, "dtp_Start").Value > DateTime.Now)
                     ? InteractionState.Active
                     : InteractionState.Queued,
                 0.00m,

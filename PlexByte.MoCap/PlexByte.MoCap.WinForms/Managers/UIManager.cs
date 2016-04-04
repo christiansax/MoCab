@@ -818,11 +818,6 @@ namespace PlexByte.MoCap.WinForms
                         isError = true;
                         _errorProvider.SetError(GetControlByName<TextBox>(pControlList, "tbx_Description"), "You must specify a description");
                     }
-                    if (GetControlByName<DateTimePicker>(pControlList, "dtp_Start").Value < DateTime.Now)
-                    {
-                        isError = true;
-                        _errorProvider.SetError(GetControlByName<DateTimePicker>(pControlList, "dtp_Start"), "Start date cannot be set in the past");
-                    }
                     if (GetControlByName<DateTimePicker>(pControlList, "dtp_End").Value < GetControlByName<DateTimePicker>(pControlList, "dtp_Start").Value.AddDays(1))
                     {
                         isError = true;
@@ -845,6 +840,7 @@ namespace PlexByte.MoCap.WinForms
 
                         ITask task = _objectManager.UpsertTaskFromForm((uc_Task) pControlList[0].Parent);
                         tmp.TabText = $"Task Details ({task.Id})";
+                        _overviewPanel.AddRecentlyChangedInteraction((Task)task);
                     }
                     else
                         return;
@@ -867,10 +863,27 @@ namespace PlexByte.MoCap.WinForms
             if (!string.IsNullOrEmpty(tmp.TaskId))
             {
                 tmp.TabText = $"Task Details ({tmp.TaskId})";
+                Task task = (Task)_objectManager.TaskList.First(x => x.Id == tmp.TaskId);
                 frm_TaskUpdateProgress progressForm = new frm_TaskUpdateProgress();
+                progressForm.SetProjectName(((Project)_objectManager.ProjectList.First(x=>x.Id==task.ProjectId)).Name);
+                progressForm.SetTaskName(task.Title);
                 if (progressForm.ShowDialog() == DialogResult.OK)
                 {
                     // Get settings...
+                    switch (progressForm.UpdateType)
+                    {
+                        case 1:
+                            task.UdateProgress(progressForm.UpdateValue);
+                            break;
+                        case 2:
+                            task.TimesliceItems.Add((Timeslice)_objectManager.UpsertTimesliceFromForm(progressForm));
+                            break;
+                        case 3:
+                            task.ExpenseItems.Add((Expense)_objectManager.UpsertExpenseFromForm(progressForm));
+                            break;
+                        default:
+                            break;
+                    }
                     // Update current task with settings
                 }
             }

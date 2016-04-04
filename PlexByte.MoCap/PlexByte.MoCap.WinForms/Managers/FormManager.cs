@@ -337,12 +337,13 @@ namespace PlexByte.MoCap.Managers
 
             if (!bError)
             {
-                List<ISurveyOption> options = (from ListViewItem lvi in GetControlByName<ListView>(ctrl, "lv_Options").Items
-                    select _objectFactory.CreateSurveyOption(DateTime.Now.ToString(DateStringFormatId),
-                        lvi.Text)).ToList();
+                foreach (ISurveyOption so in pForm.SurveyOptions)
+                {
+                    _objectFactory.CreateSurveyOption(so.Id, so.Text);
+                }
                 obj=(Survey) _interactionFactory.CreateSurvey(pForm.Id,
                     GetControlByName<TextBox>(ctrl, "tbx_SurveyTitle").Text,
-                    options,
+                    pForm.SurveyOptions,
                     _objectManager.GetObjectById<IUser>(GetControlByName<TextBox>(ctrl, "tbx_CreatedBy").Text),
                     GetControlByName<DateTimePicker>(ctrl, "dtp_Start").Value,
                     GetControlByName<DateTimePicker>(ctrl, "dtp_End").Value,
@@ -476,7 +477,7 @@ namespace PlexByte.MoCap.Managers
 
             foreach (var option in pInstance.OptionList)
             {
-                GetControlByName<ListView>(ctrls, "lv_Otions").Items.Add(option.Text);
+                ((uc_Survey)tmp).SurveyOptions.Add(option);
             }
             var q = from x in pInstance.VoteList
                 group x by x.Option
@@ -496,6 +497,7 @@ namespace PlexByte.MoCap.Managers
             ((uc_Survey) tmp).Id = t.Id;
             ((uc_Survey) tmp).ProjectId = t.ProjectId;
             ((uc_Survey) tmp).InteractionId = t.InteractionId;
+            ((uc_Survey) tmp).VotingUser = _objectManager.UserContext;
             GetControlByName<TextBox>(ctrls, "tbx_SurveyTitle").Text = t.Text;
             GetControlByName<TextBox>(ctrls, "tbx_SurveyVoteCount").Text = t.VoteList.Count.ToString();
             GetControlByName<TextBox>(ctrls, "tbx_State").Text = t.State.ToString();
@@ -511,8 +513,10 @@ namespace PlexByte.MoCap.Managers
             GetControlByName<ComboBox>(ctrls, "cbx_Project").Text = t.ProjectId;
 
             // Vote already made
-            GetControlByName<GroupBox>(ctrls, "groupBox3").Enabled =
-                (t.VoteList.Any(x => String.Equals(x.User.Username, _objectManager.UserContext.Username, StringComparison.CurrentCultureIgnoreCase)));
+            if (t.VoteList.Any(x => x.Id == _objectManager.UserContext.Id))
+                GetControlByName<Button>(ctrls, "btn_Vote").Enabled = false;
+            else
+                GetControlByName<Button>(ctrls, "btn_Vote").Enabled = true;
             t = null;
             ctrls.Clear();
             ctrls = null;

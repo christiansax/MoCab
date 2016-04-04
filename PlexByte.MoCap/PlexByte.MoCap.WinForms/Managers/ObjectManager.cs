@@ -289,6 +289,8 @@ namespace PlexByte.MoCap.Managers
             return tmp;
         }
 
+        public ISurveyOption CreateSurveyOption(string pOption) { return _objectFactory.CreateSurveyOption(DateTime.Now.ToString("yyyyMMddHHmmssfff"), pOption); }
+
         /// <summary>
         /// This method attempts to login the given user with the password specified
         /// </summary>
@@ -497,6 +499,15 @@ namespace PlexByte.MoCap.Managers
             //    _dataManager.UpsertTimeslice(tmp);
             //}
                 return default(ITimeslice);
+        }
+
+        public void UpsertObject<T>(T pObject)
+        {
+            if (pObject != null)
+            {
+                if(pObject.GetType()==typeof(Vote) || pObject.GetType() == typeof(IVote))
+                    _dataManager.UpsertVote((Vote)((IVote)pObject));
+            }
         }
 
 

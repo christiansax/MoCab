@@ -16,10 +16,10 @@ AS
 		FROM	View_SurveyOptions
 		WHERE	[SurveyId] = @SurveyId AND [Id] = @SurveyOptionId))
 		BEGIN TRY
-			-- This is a new option, insert...
 			BEGIN TRANSACTION
+				-- This is a new option, insert...
 				INSERT INTO [dbo].[SurveyOption]	([Id], [SurveyId], [Text], [CreatedDateTime], [ModifiedDateTime])
-						VALUES						(@SurveyOptionId, @SurveyId, @Text, GETDATE(), GETDATE())
+				VALUES						(@SurveyOptionId, @SurveyId, @Text, GETDATE(), GETDATE())
 			COMMIT TRANSACTION
 			SET @ResultMsg = @ResultMsg + ': Inserted';
 		END TRY
@@ -30,14 +30,21 @@ AS
 			RAISERROR ('Caught exception %s', 16, -1, @ResultMsg);
 		END CATCH
 		ELSE
-		BEGIN
-			UPDATE	[dbo].[SurveyOption]
-			SET		[SurveyId] = @SurveyId,
-					[Text] = @Text,
-					[ModifiedDateTime] = GETDATE()
-			WHERE	[Id] = @SurveyOptionId;
-			COMMIT;
+		BEGIN TRY
+			BEGIN TRANSACTION
+				UPDATE	[dbo].[SurveyOption]
+				SET		[SurveyId] = @SurveyId,
+						[Text] = @Text,
+						[ModifiedDateTime] = GETDATE()
+				WHERE	[Id] = @SurveyOptionId;
+			COMMIT TRANSACTION
 			SET @ResultMsg = @ResultMsg + ': Updated';
-		END
+		END TRY
+		BEGIN CATCH
+			SET @ResultMsg = 'Error in update block: ' + ERROR_MESSAGE();
+			IF @@TRANCOUNT > 0
+			ROLLBACK
+			RAISERROR ('Caught exception %s', 16, -1, @ResultMsg);
+		END CATCH
 	END
 RETURN 0

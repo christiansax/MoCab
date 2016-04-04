@@ -41,8 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lbl_InteractionId = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.num_VotesPerUser = new System.Windows.Forms.NumericUpDown();
             this.cbx_Project = new System.Windows.Forms.ComboBox();
             this.dtp_DueDate = new System.Windows.Forms.DateTimePicker();
@@ -64,15 +62,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_Vote = new System.Windows.Forms.Button();
-            this.lv_Options = new System.Windows.Forms.ListView();
             this.btn_Edit = new System.Windows.Forms.Button();
             this.btn_New = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lbl_InteractionId = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_VotesPerUser)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -189,6 +186,7 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.btn_Vote);
             this.groupBox2.Controls.Add(this.lbl_InteractionId);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.num_VotesPerUser);
@@ -221,23 +219,6 @@
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Survey Details:";
-            // 
-            // lbl_InteractionId
-            // 
-            this.lbl_InteractionId.AutoSize = true;
-            this.lbl_InteractionId.Location = new System.Drawing.Point(345, 230);
-            this.lbl_InteractionId.Name = "lbl_InteractionId";
-            this.lbl_InteractionId.Size = new System.Drawing.Size(0, 13);
-            this.lbl_InteractionId.TabIndex = 49;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(248, 230);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(69, 13);
-            this.label16.TabIndex = 48;
-            this.label16.Text = "InteractionId:";
             // 
             // num_VotesPerUser
             // 
@@ -424,47 +405,18 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Votes:";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.btn_Vote);
-            this.groupBox3.Controls.Add(this.lv_Options);
-            this.groupBox3.Enabled = false;
-            this.groupBox3.Location = new System.Drawing.Point(12, 358);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(625, 83);
-            this.groupBox3.TabIndex = 20;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Voting:";
-            // 
             // btn_Vote
             // 
-            this.btn_Vote.Location = new System.Drawing.Point(9, 19);
+            this.btn_Vote.Location = new System.Drawing.Point(6, 195);
             this.btn_Vote.Name = "btn_Vote";
             this.btn_Vote.Size = new System.Drawing.Size(75, 23);
             this.btn_Vote.TabIndex = 20;
             this.btn_Vote.Text = "Vote";
             this.btn_Vote.UseVisualStyleBackColor = true;
             // 
-            // lv_Options
-            // 
-            this.lv_Options.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.lv_Options.CheckBoxes = true;
-            this.lv_Options.HideSelection = false;
-            this.lv_Options.HoverSelection = true;
-            this.lv_Options.Location = new System.Drawing.Point(89, 19);
-            this.lv_Options.MultiSelect = false;
-            this.lv_Options.Name = "lv_Options";
-            this.lv_Options.Size = new System.Drawing.Size(528, 51);
-            this.lv_Options.TabIndex = 19;
-            this.lv_Options.UseCompatibleStateImageBehavior = false;
-            this.lv_Options.View = System.Windows.Forms.View.List;
-            // 
             // btn_Edit
             // 
-            this.btn_Edit.Location = new System.Drawing.Point(554, 447);
+            this.btn_Edit.Location = new System.Drawing.Point(554, 358);
             this.btn_Edit.Name = "btn_Edit";
             this.btn_Edit.Size = new System.Drawing.Size(75, 23);
             this.btn_Edit.TabIndex = 21;
@@ -473,21 +425,37 @@
             // 
             // btn_New
             // 
-            this.btn_New.Location = new System.Drawing.Point(21, 447);
+            this.btn_New.Location = new System.Drawing.Point(21, 358);
             this.btn_New.Name = "btn_New";
             this.btn_New.Size = new System.Drawing.Size(75, 23);
             this.btn_New.TabIndex = 22;
             this.btn_New.Text = "New";
             this.btn_New.UseVisualStyleBackColor = true;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(248, 230);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(69, 13);
+            this.label16.TabIndex = 48;
+            this.label16.Text = "InteractionId:";
+            // 
+            // lbl_InteractionId
+            // 
+            this.lbl_InteractionId.AutoSize = true;
+            this.lbl_InteractionId.Location = new System.Drawing.Point(345, 230);
+            this.lbl_InteractionId.Name = "lbl_InteractionId";
+            this.lbl_InteractionId.Size = new System.Drawing.Size(0, 13);
+            this.lbl_InteractionId.TabIndex = 49;
+            // 
             // uc_Survey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 479);
+            this.ClientSize = new System.Drawing.Size(652, 395);
             this.Controls.Add(this.btn_New);
             this.Controls.Add(this.btn_Edit);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -498,7 +466,6 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_VotesPerUser)).EndInit();
-            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -516,9 +483,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btn_Vote;
-        private System.Windows.Forms.ListView lv_Options;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;

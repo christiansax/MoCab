@@ -1145,20 +1145,20 @@ namespace PlexByte.MoCap.WinForms
         /// <param name="pControlList">The form controls to manipulate</param>
         private void SurveyButtonOptions(List<Control> pControlList)
         {
-            List<string> options = (from object item
-                in GetControlByName<ListView>(pControlList, "lv_Options").Items
-                select item.ToString()).ToList();
-
-            frm_CreateOptions tmp = new frm_CreateOptions(options);
-            if (tmp.ShowDialog() == DialogResult.OK)
+            if ((uc_Survey) pControlList[0].FindForm() != null)
             {
-                GetControlByName<ListView>(pControlList, "lv_Options").Items.Clear();
-                foreach (var option in tmp.SurveyOptions)
+                List<string> options = ((uc_Survey) pControlList[0].FindForm()).SurveyOptions.
+                    Select(so => so.Text).ToList();
+                frm_CreateOptions tmp = new frm_CreateOptions(options);
+                if (tmp.ShowDialog() == DialogResult.OK)
                 {
-                    GetControlByName<ListView>(pControlList, "lv_Options").Items.Add(option);
+                    foreach (var option in tmp.SurveyOptions)
+                    {
+                        ((uc_Survey)pControlList[0].FindForm()).SurveyOptions.Add(_objectManager.CreateSurveyOption(option));
+                    }
                 }
+                tmp = null;
             }
-            tmp = null;
         }
 
         /// <summary>
@@ -1167,9 +1167,26 @@ namespace PlexByte.MoCap.WinForms
         /// <param name="pForm">The form to manipulate</param>
         private void SurveyButtonVote(uc_Survey pForm)
         {
+            _errorProvider.Clear();
             try
             {
-                _objectManager.UpsertVoteFromForm(pForm);
+                frm_Vote vote = new frm_Vote(UserContext, new ObjectFactory());
+                vote.VotingUser = _objectManager.UserContext;
+                // find survey
+                if (_objectManager.SurveyList.Any(x => x.Id == pForm.Id))
+                {
+                    vote.SetSurveyOptions(((ISurvey)_objectManager.SurveyList.First(x => x.Id == pForm.Id)).OptionList);
+                    if (vote.ShowDialog() == DialogResult.OK)
+                    {
+                        _objectManager.UpsertObject(vote.Vote);
+                        _objectManager.SurveyList.First(x => x.Id == pForm.Id).AddVote(vote.Vote);
+                        vote = null;
+                    }
+                }
+                else
+                {
+                    _errorProvider.SetError(pForm.ActiveControl, "The survey was not found in object manager");
+                }
             }
             catch (Exception exp)
             {
@@ -1194,7 +1211,6 @@ namespace PlexByte.MoCap.WinForms
                 GetControlByName<TextBox>(pControlList, "tbx_SurveyVoteCount").Text = "0";
                 GetControlByName<NumericUpDown>(pControlList, "num_VotesPerUser").Value = 1;
                 GetControlByName<GroupBox>(pControlList, "groupBox2").Enabled = true;
-                GetControlByName<GroupBox>(pControlList, "groupBox3").Enabled = false;
                 GetControlByName<Button>(pControlList, "btn_New").Text = "Save";
                 GetControlByName<Button>(pControlList, "btn_Edit").Visible = false;
             }
@@ -1206,11 +1222,11 @@ namespace PlexByte.MoCap.WinForms
                 ISurvey tmp = _objectManager.SurveyList.First(x => x.Id == ((uc_Survey) pControlList[0].Parent).Id);
                 foreach (var option in tmp.OptionList)
                 {
-                    ((uc_Survey)pControlList[0].Parent).AddVoteOptions(option.Text);
+                    ((uc_Survey)pControlList[0].Parent).AddVoteOptions(option);
                 }
                 GetControlByName<GroupBox>(pControlList, "groupBox2").Enabled = false;
-                GetControlByName<GroupBox>(pControlList, "groupBox3").Enabled = true;
                 GetControlByName<Button>(pControlList, "btn_Edit").Visible = true;
+                _overviewPanel.AddRecentlyChangedInteraction((Survey)tmp);
             }
         }
 
@@ -1221,11 +1237,9 @@ namespace PlexByte.MoCap.WinForms
         private void SurveyButtonEdit(List<Control> pControlList)
         {
             GetControlByName<GroupBox>(pControlList, "groupBox2").Enabled = true;
-            GetControlByName<GroupBox>(pControlList, "groupBox3").Enabled = false;
             GetControlByName<Button>(pControlList, "btn_New").Text = "Save";
             GetControlByName<Button>(pControlList, "btn_Edit").Visible = false;
         }
-
 
         private void AccountButtonAssign(List<Control> pControlList)
         {

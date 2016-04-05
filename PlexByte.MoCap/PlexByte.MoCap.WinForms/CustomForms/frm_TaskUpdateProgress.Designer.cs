@@ -150,6 +150,7 @@
             // 
             // btn_Add
             // 
+            this.btn_Add.Enabled = false;
             this.btn_Add.Location = new System.Drawing.Point(261, 69);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(75, 23);
@@ -159,6 +160,7 @@
             // 
             // btn_Update
             // 
+            this.btn_Update.Enabled = false;
             this.btn_Update.Location = new System.Drawing.Point(261, 43);
             this.btn_Update.Name = "btn_Update";
             this.btn_Update.Size = new System.Drawing.Size(75, 23);
@@ -195,6 +197,7 @@
             // 
             // btn_Invoice
             // 
+            this.btn_Invoice.Enabled = false;
             this.btn_Invoice.Location = new System.Drawing.Point(261, 118);
             this.btn_Invoice.Name = "btn_Invoice";
             this.btn_Invoice.Size = new System.Drawing.Size(75, 23);

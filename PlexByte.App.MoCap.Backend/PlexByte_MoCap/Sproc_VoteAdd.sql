@@ -13,8 +13,8 @@ AS
 	BEGIN
 		IF (NOT EXISTS (
 		SELECT	*
-		FROM	View_VoteCount
-		WHERE	[SurveyId] = @SurveyId AND [UserId] = @UserId AND [OptionId] = @SurveyOptionId))
+		FROM	View_Vote
+		WHERE	[SurveyId] = @SurveyId AND [UserId] = @UserId AND [SurveyOptionId] = @SurveyOptionId))
 		BEGIN TRY
 			-- This is a new user, insert...
 			BEGIN TRANSACTION

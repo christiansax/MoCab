@@ -37,8 +37,8 @@ namespace PlexByte.MoCap.WinForms.Managers
         {
             if (((Button) sender).Text.ToLower() == "update")
             {
+                ((frm_TaskUpdateProgress)_instance).UpdateType = 1;
                 _instance.DialogResult= DialogResult.OK;
-                //((frm_TaskUpdateProgress)_instance).UpdateValue=
             }
         }
 

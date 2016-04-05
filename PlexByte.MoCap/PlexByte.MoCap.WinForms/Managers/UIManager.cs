@@ -874,6 +874,8 @@ namespace PlexByte.MoCap.WinForms
                     {
                         case 1:
                             task.UdateProgress(progressForm.UpdateValue);
+                            if(task.Progress>=100)
+                                task.ChangeState(InteractionState.Finished);
                             break;
                         case 2:
                             task.TimesliceItems.Add((Timeslice)_objectManager.UpsertTimesliceFromForm(progressForm));
@@ -1152,9 +1154,13 @@ namespace PlexByte.MoCap.WinForms
                 frm_CreateOptions tmp = new frm_CreateOptions(options);
                 if (tmp.ShowDialog() == DialogResult.OK)
                 {
+                    ((uc_Survey)pControlList[0].FindForm()).SurveyOptions.Clear();
                     foreach (var option in tmp.SurveyOptions)
                     {
-                        ((uc_Survey)pControlList[0].FindForm()).SurveyOptions.Add(_objectManager.CreateSurveyOption(option));
+                        if (!options.Contains(option))
+                        {
+                            ((uc_Survey) pControlList[0].FindForm()).SurveyOptions.Add(_objectManager.CreateSurveyOption(option));
+                        }
                     }
                 }
                 tmp = null;
@@ -1170,12 +1176,14 @@ namespace PlexByte.MoCap.WinForms
             _errorProvider.Clear();
             try
             {
-                frm_Vote vote = new frm_Vote(UserContext, new ObjectFactory());
-                vote.VotingUser = _objectManager.UserContext;
                 // find survey
                 if (_objectManager.SurveyList.Any(x => x.Id == pForm.Id))
                 {
-                    vote.SetSurveyOptions(((ISurvey)_objectManager.SurveyList.First(x => x.Id == pForm.Id)).OptionList);
+                    frm_Vote vote = new frm_Vote(((ISurvey) _objectManager.SurveyList.First(x => x.Id == pForm.Id)),
+                        UserContext,
+                        new ObjectFactory());
+                    vote.SurveyId = _objectManager.SurveyList.First(x => x.Id == pForm.Id).Id;
+                    vote.SetSurveyOptions(((ISurvey) _objectManager.SurveyList.First(x => x.Id == pForm.Id)).OptionList);
                     if (vote.ShowDialog() == DialogResult.OK)
                     {
                         _objectManager.UpsertObject(vote.Vote);

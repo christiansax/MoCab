@@ -23,10 +23,22 @@ namespace PlexByte.MoCap.WinForms.CustomForms
         public void SetTaskName(string pTaskName) { lbl_Task.Text = pTaskName; }
         public void SetProjectName(string ProjectName) { lbl_Project.Text = ProjectName; }
 
-        private void num_Progress_ValueChanged(object sender, EventArgs e) { btn_Update.Enabled = num_Progress.Value > 0; }
+        private void num_Progress_ValueChanged(object sender, EventArgs e)
+        {
+            btn_Update.Enabled = num_Progress.Value > 0;
+            UpdateValue = (int)num_Progress.Value;
+        }
 
-        private void num_Time_ValueChanged(object sender, EventArgs e) { btn_Add.Enabled = num_Time.Value > 0; }
+        private void num_Time_ValueChanged(object sender, EventArgs e)
+        {
+            btn_Add.Enabled = num_Time.Value > 0;
+            UpdateValue = (int)num_Time.Value;
+        }
 
-        private void num_Value_ValueChanged(object sender, EventArgs e) { btn_Invoice.Enabled = num_Value.Value > 0; }
+        private void num_Value_ValueChanged(object sender, EventArgs e)
+        {
+            btn_Invoice.Enabled = num_Value.Value > 0;
+            UpdateValue = (int)num_Value.Value;
+        }
     }
 }

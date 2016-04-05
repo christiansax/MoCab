@@ -375,7 +375,8 @@ namespace PlexByte.MoCap.Managers
                     IVote obj = _objectFactory.CreateVote(DateTime.Now.ToString(DateStringFormatId),
                         _objectManager.UserContext,
                         survey.OptionList.First(x => x.Text.ToLower() ==
-                                                     GetControlByName<ListView>(pForm, "lv_Otions").SelectedItems[0].Text.ToLower()));
+                                                     GetControlByName<ListView>(pForm, "lv_Otions").SelectedItems[0].Text.ToLower()),
+                        survey.Id);
                     return obj;
                 }
             }
@@ -548,7 +549,8 @@ namespace PlexByte.MoCap.Managers
             List<Control> ctrls = GetAllControls(tmp);
 
             Task t = (Task)pInstance;
-
+            ((uc_Task) tmp).TaskId = pInstance.Id;
+            ((uc_Task)tmp).InteractionId = pInstance.InteractionId;
             GetControlByName<TextBox>(ctrls, "tbx_Title").Text = t.Text;
             GetControlByName<NumericUpDown>(ctrls, "num_Priority").Value = t.Priority;
             foreach (Project project in _objectManager.ProjectList)

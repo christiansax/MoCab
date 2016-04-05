@@ -14,6 +14,8 @@ namespace PlexByte.MoCap.Interactions
     {
         IUser User { get; }
 
+        string SurveyId { get; set; }
+
         ISurveyOption Option { get; }
 
         DateTime CreatedDateTime { get; }

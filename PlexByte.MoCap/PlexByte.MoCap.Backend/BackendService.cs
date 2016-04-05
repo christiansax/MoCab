@@ -126,7 +126,7 @@ namespace PlexByte.MoCap.Backend
 
         public DataTable GeSurveyOptionById(string pId)
         {
-            return ExecuteQueryString($"select * from View_SurveyOption where Id = '{pId}'");
+            return ExecuteQueryString($"select * from View_SurveyOptions where Id = '{pId}'");
         }
 
         /// <summary>

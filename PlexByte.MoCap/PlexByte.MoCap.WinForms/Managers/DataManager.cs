@@ -125,11 +125,15 @@ namespace PlexByte.MoCap.Managers
         {
             DataTable record = _backendService.GetSurveyById(pId);
             List<ISurveyOption> surveyOptions = GetSurveyOptions(pId);
+
             List<IVote> votes = (from DataRow row
                 in _backendService.GetVoteById(record.Rows[0]["Id"].ToString(), true).Rows
                 select _objectFactory.CreateVote(row["Id"].ToString(),
                     GetUser(row["UserId"].ToString(), false),
-                    GetSurveyOption(row["OptionId"].ToString()))).ToList();
+                    GetSurveyOption(row["SurveyOptionId"].ToString()),
+                    record.Rows[0]["Id"].ToString()))
+                .ToList();
+
             ISurvey survey = _interactionFactory.CreateSurvey(record.Rows[0]["Id"].ToString(),
                 record.Rows[0]["Text"].ToString(),
                 surveyOptions ?? new List<ISurveyOption>(),
@@ -139,7 +143,7 @@ namespace PlexByte.MoCap.Managers
                 DateTime.Parse(record.Rows[0]["DueDateTime"].ToString()),
                 Convert.ToInt32(record.Rows[0]["MaxVotePerUser"].ToString()),
                 record.Rows[0]["Title"].ToString(),
-                (InteractionState)Enum.Parse(typeof(InteractionState), record.Rows[0]["StateName"].ToString()),
+                (InteractionState) Enum.Parse(typeof (InteractionState), record.Rows[0]["StateName"].ToString()),
                 votes);
             survey.InteractionId = record.Rows[0]["InteractionId"].ToString();
             record = null;
@@ -232,7 +236,8 @@ namespace PlexByte.MoCap.Managers
             {
                 return (_objectFactory.CreateVote(record.Rows[0]["Id"].ToString(),
                     GetUser(record.Rows[0]["UserId"].ToString(), true),
-                    GetSurveyOption(record.Rows[0]["SurveyOptionId"].ToString())));
+                    GetSurveyOption(record.Rows[0]["SurveyOptionId"].ToString()),
+                    record.Rows[0]["SurveyId"].ToString()));
             }
             else
                 return null;
@@ -252,7 +257,7 @@ namespace PlexByte.MoCap.Managers
                 if (votes == null) votes = new List<IVote>();
                 votes.Add(_objectFactory.CreateVote(row["Id"].ToString(),
                     GetUser(row["UserId"].ToString(), true),
-                    GetSurveyOption(row["SurveyOptionId"].ToString())));
+                    GetSurveyOption(row["SurveyOptionId"].ToString()), pId));
             }
             return votes;
         }
@@ -309,9 +314,12 @@ namespace PlexByte.MoCap.Managers
             {
                 foreach (DataRow project in _backendService.GetProjectsByUser(pUserId).Rows)
                 {
-                    interactions.AddRange(
-                        from DataRow row in _backendService.GetTaskByProjectId(project["Id"].ToString()).Rows
-                        select (T) GetTaskById(row["Id"].ToString()));
+                    foreach (ITask tmp in from DataRow row in _backendService.GetTaskByProjectId(project["Id"].ToString()).Rows
+                        select GetTaskById(row["Id"].ToString()))
+                    {
+                        tmp.ProjectId = project["Id"].ToString();
+                        interactions.Add((T) tmp);
+                    }
                 }
             }
             else if (typeof (T) == typeof (ISurvey))
@@ -469,7 +477,7 @@ namespace PlexByte.MoCap.Managers
         /// <param name="pVote">The vote to insert or update</param>
         public void UpsertVote(Vote pVote)
         {
-            _backendService.InsertVote(pVote.Id,
+            _backendService.InsertVote(pVote.SurveyId,
                 pVote.Option.Id,
                 pVote.User.Id,
                 pVote.CreatedDateTime);

@@ -16,16 +16,19 @@ namespace PlexByte.MoCap.WinForms.CustomForms
     {
         public IUser VotingUser { get; set; }
         public IVote Vote { get; set; }
+        public string SurveyId{ get; set; }
 
         private ObjectFactory factory = null;
         private List<ISurveyOption> options = null; 
 
-        public frm_Vote(IUser pUserContext, ObjectFactory pFactory)
+        public frm_Vote(ISurvey pSurvey, IUser pUserContext, ObjectFactory pFactory)
         {
             InitializeComponent();
             VotingUser = pUserContext;
             Vote = null;
             factory = pFactory;
+            tbx_Survey.Text = pSurvey.Title;
+            tbx_User.Text = pUserContext.Username;
         }
 
         public void SetSurveyOptions(List<ISurveyOption> pSurveyOptions)
@@ -45,7 +48,7 @@ namespace PlexByte.MoCap.WinForms.CustomForms
             {
                 Vote = factory.CreateVote(DateTime.Now.ToString("yyyyMMddhhmmssfff"),
                     VotingUser,
-                    options[cbx_Options.SelectedIndex]);
+                    options[cbx_Options.SelectedIndex], SurveyId);
                 this.DialogResult= DialogResult.OK;
                 this.Close();
             }

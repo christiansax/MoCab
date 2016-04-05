@@ -18,11 +18,12 @@ namespace PlexByte.MoCap.Interactions
         /// <param name="pId">The unique id of this object</param>
         /// <param name="pUser">The user who made the choice</param>
         /// <param name="pOption">The choice that was selected</param>
-        public Vote(string pId, IUser pUser, ISurveyOption pOption)
+        public Vote(string pId, IUser pUser, ISurveyOption pOption, string pSurveyId)
         {
             Id = pId;
             User = pUser;
             Option = pOption;
+            SurveyId = pSurveyId;
         }
 
         /// <summary>
@@ -34,6 +35,8 @@ namespace PlexByte.MoCap.Interactions
         /// The unique id of this object
         /// </summary>
         public string Id { get; }
+
+        public string SurveyId { get; set; }
 
         /// <summary>
         /// The survey option chosen by the user

@@ -12,11 +12,11 @@ namespace PlexByte.MoCap.Interactions
 {
     public class ObjectFactory : IObjectFactory
     {
-        public virtual IVote CreateVote(string pId, IUser pUser, ISurveyOption pOption)
+        public IVote CreateVote(string pId, IUser pUser, ISurveyOption pOption, string pSurveyId)
         {
             if (string.IsNullOrEmpty(pId))
                 pId = GenericHelper.GenerateId();
-            return (new Vote(pId, pUser, pOption));
+            return (new Vote(pId, pUser, pOption, pSurveyId));
         }
 
         public virtual ISurveyOption CreateSurveyOption(string pId, string pText)

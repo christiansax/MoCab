@@ -33,8 +33,15 @@ namespace PlexByte.MoCap.WinForms.CustomForms
             errorProvider1.Clear();
             if (tbx_Text.Text.Length > 0)
             {
-                lbx_Options.Items.Add(tbx_Text.Text);
-                SurveyOptions.Add(tbx_Text.Text);
+                if (lbx_Options.Items.Contains(tbx_Text.Text))
+                {
+                    errorProvider1.SetError(tbx_Text, "The option specified already exists");
+                }
+                else
+                {
+                    lbx_Options.Items.Add(tbx_Text.Text);
+                    SurveyOptions.Add(tbx_Text.Text);
+                }
             }
             else
             {

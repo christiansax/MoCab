@@ -11,7 +11,7 @@ namespace PlexByte.MoCap.Interactions
 {
     public interface IObjectFactory
     {
-        IVote CreateVote(string pId, IUser pUser, ISurveyOption pOption);
+        IVote CreateVote(string pId, IUser pUser, ISurveyOption pOption, string pSurveyId);
 
         ISurveyOption CreateSurveyOption(string pId, string pText);
 
